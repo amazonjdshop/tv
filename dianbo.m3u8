@@ -18,6 +18,15 @@
     }
   ],
   "sites": [
+  {
+"key": "泥巴",
+"name": "泥巴",
+"type": 3,
+"api": "csp_NiNi",
+"searchable": 1,
+"filterable": 1,
+"changeable": 1
+},
     {
       "key": "AList",
       "name": "AList",
@@ -67,15 +76,7 @@
       "filterable": 1,
       "jar": "http://45.125.46.61/xpg.jar;md5;d3828dbc91d98c3ebc258e6f7874a30c"
    },
-   {
-      "key": "泥巴",
-      "name": "泥巴",
-      "type": 3,
-      "api": "csp_NiNi",
-      "searchable": 1,
-      "filterable": 1,
-      "changeable": 1
-    },
+   
     {
       "key": "獨播",
       "name": "獨播",
