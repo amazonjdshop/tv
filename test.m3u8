@@ -1,5 +1,5 @@
 {
-  "spider": "https://github.com/amazonjdshop/tv/blob/main/custom_spider.jar?raw=true;md5;6BB339137B993FA25DD0610439C89F7A",
+  "spider": "https://agit.ai/guot54/ygbh/raw/branch/master/JAR/0324.jar?raw=true;md5;6BB339137B993FA25DD0610439C89F7A",
   "lives": [
     {
       "name": "TXT",
@@ -10,6 +10,19 @@
     }
   ],
   "sites": [
+  
+  {
+    "key": "YQK_spider",
+    "name": "🎎一起看电视",
+    "api": "csp_YQKAPP",
+    "type": 3,
+    "filterable": 1,
+    "playerType": 2,
+    "quickSearch": 1,
+    "searchable": 1,
+    "ext": "https://api-tx.11ty.top",
+    "m3u8ads": "hd.youyhn.com"
+    },
   
   {
       "key": "csp_Nbys",
