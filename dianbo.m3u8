@@ -26,6 +26,7 @@
       "searchable": 1,
       "filterable": 1,
       "changeable": 1
-    }
+    },
+    {"key":"csp_trj","name": "唐人","type": 3,"api": "csp_Tangrenjie","searchable": 1,"quickSearch": 1,"filterable": 1}
   ]
 }
