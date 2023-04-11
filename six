@@ -1,8 +1,8 @@
 {
 "sites": [
 {
-"key": "美华成人（大地）",
-"name": "美华成人（大地）",
+"key": "潘多拉成人（大地）",
+"name": "潘多拉成人（大地）",
 "type": 0,
 "api": "https://dadiapi.com/api.php",
 "searchable": 1,
@@ -37,8 +37,8 @@
 ]
 },
 {
-"key": "美华（乐播）",
-"name": "美华（乐播）",
+"key": "潘多拉（乐播）",
+"name": "潘多拉（乐播）",
 "type": 1,
 "api": "https://lbapi9.com/api.php/provide/vod/at/json/",
 "searchable": 1,
@@ -64,8 +64,8 @@
 ]
 },
 {
-"key": "美华（老鸭）",
-"name": "美华（老鸭）",
+"key": "潘多拉（老鸭）",
+"name": "潘多拉（老鸭）",
 "type": 1,
 "api": "https://api.apilyzy.com/api.php/provide/vod/",
 "searchable": 1,
@@ -93,8 +93,8 @@
 ]
 },
 {
-"key": "美华【草榴】",
-"name": "美华【草榴】",
+"key": "潘多拉【草榴】",
+"name": "潘多拉【草榴】",
 "type": 1,
 "api": "https://www.caoliuzy.com/api.php/provide/vod/",
 "searchable": 1,
@@ -125,8 +125,8 @@
 ]
 },
 {
-"key": "美华【伊人】",
-"name": "美华【伊人】",
+"key": "潘多拉【伊人】",
+"name": "潘多拉【伊人】",
 "type": 1,
 "api": "https://api.yirenziyuan.com/api.php/provide/vod",
 "searchable": 1,
@@ -153,8 +153,8 @@
 ]
 },
 {
-"key": "美华【玉兔】",
-"name": "美华【玉兔】",
+"key": "潘多拉【玉兔】",
+"name": "潘多拉【玉兔】",
 "type": 1,
 "api": "https://apiyutu.com/api.php/provide/vod",
 "searchable": 1,
@@ -907,8 +907,8 @@
 "ext": "3865f0ab8f124688ad786a262af9b940"
 },
 {
-"key": "美华【博天堂】",
-"name": "美华【博天堂】",
+"key": "潘多拉【博天堂】",
+"name": "潘多拉【博天堂】",
 "type": 0,
 "api": "http://bttcj.com/inc/sapi.php",
 "searchable": 1,
