@@ -26,20 +26,6 @@
       "searchable": 1,
       "filterable": 1,
       "changeable": 1
-    },
-    
-    {
-"key": "YQK_spider",
-"name": "🎎一起看电视",
-"api": "csp_YQKAPP",
-"type": 3,
-"filterable": 1,
-"playerType": 2,
-"quickSearch": 1,
-"searchable": 1,
-"ext": "https://api-tx.11ty.top",
-"m3u8ads": "hd.youyhn.com"
-}
-    
+    }
   ]
 }
