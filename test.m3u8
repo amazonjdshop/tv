@@ -12,20 +12,20 @@
   "sites": [
   
   {
-      "key": "csp_trj",
-      "name": "✈┃唐人",
+      "key": "csp_Nbys",
+      "name": "✈┃泥巴",
       "type": 3,
-      "api": "csp_Tangrenjie",
+      "api": "csp_NiNi",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1
     },
   
-    {
-      "key": "csp_Nbys",
-      "name": "✈┃泥巴",
+  {
+      "key": "csp_trj",
+      "name": "✈┃唐人",
       "type": 3,
-      "api": "csp_NiNi",
+      "api": "csp_Tangrenjie",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1
