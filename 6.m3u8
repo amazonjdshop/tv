@@ -1,4 +1,24 @@
  {
+ "spider": "https://gh-proxy.com/https://raw.githubusercontent.com/FongMi/CatVodSpider/main/jar/custom_spider.jar;md5;a8254c66a7166602df254825bfe78429",
+  "wallpaper": "http://maoyingshi.cc/api.php",
+  "lives": [
+    {
+      "name": "TXT",
+      "type": 0,
+      "url": "https://raw.githubusercontent.com/amazonjdshop/tv/main/live.txt",
+      "epg": "http://epg.51zmt.top:8000/api/diyp/?ch={name}&date={date}",
+      "logo": "https://epg.112114.xyz/logo/{name}.png"
+    },
+    {
+      "name": "Json",
+      "type": 1,
+      "url": "https://gh-proxy.com/https://raw.githubusercontent.com/FongMi/CatVodSpider/main/json/live.json",
+      "epg": "http://epg.51zmt.top:8000/api/diyp/?ch={epg}&date={date}",
+      "logo": "http://epg.51zmt.top:8000/{logo}"
+    }
+  ],
+ 
+ 
   "sites": [
     {
       "key": "潘多拉成人（大地）",
