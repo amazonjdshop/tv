@@ -50,8 +50,16 @@
       "m3u8ads": "hd.youyhn.com"
     },
     
+    {"key":"csp_SP360","name":"💘360〔SP〕","type":3,"api":"csp_XBPQ","searchable":1,"quickSearch":1,"filterable":1,"ext":"http://我不是.肥猫.love:63/json/360影视.json"},
+
+{"key":"teng","name":"🐧腾讯〔SP〕","type":3,"api":"csp_Qtv","searchable":1,"quickSearch":1,"filterable":1},
+
+{"key":"MGT","name":"🍋芒果〔SP〕","type":3,"api":"csp_Mtv","searchable":1,"quickSearch":1,"filterable":1},
+    
     
     {"key": "csp_AppMr","name": "👻明明〔SP〕","type": 3,"api": "csp_AppMr","searchable": 1,"quickSearch": 1,"filterable": 1}
+    
+    
     
     
     ]
