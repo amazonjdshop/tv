@@ -51,9 +51,11 @@
     },
     
   
-    
-    
+    {"key":"csp_Cokemv","name":"📺Cokemv〔SP〕","type":3,"api":"csp_Cokemv","searchable":1,"quickSearch":1,"filterable":1},
+    {"key": "csp_xpNmys","name": "🌾农民〔SP〕","type": 3,"api": "csp_Nmys","searchable": 1,"quickSearch": 1,"filterable": 1,"ext": "http://itvbox.cc/tvbox/云星日记/sh/MaooXB/农民.json"},
     {"key": "csp_AppMr","name": "👻明明〔SP〕","type": 3,"api": "csp_AppMr","searchable": 1,"quickSearch": 1,"filterable": 1}
+    
+    
     
     
     
