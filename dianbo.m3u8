@@ -10,15 +10,7 @@
     }
   ],
   "sites": [
-    {
-      "key": "csp_Nbys",
-      "name": "✈┃泥巴",
-      "type": 3,
-      "api": "csp_NiNi",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1
-    },
+   
     {
       "key": "海外看",
       "name": "海外看2",
@@ -48,6 +40,15 @@
       "searchable": 1,
       "ext": "https://api-tx.11ty.top",
       "m3u8ads": "hd.youyhn.com"
+    },
+    {
+      "key": "csp_Nbys",
+      "name": "✈┃泥巴2",
+      "type": 3,
+      "api": "csp_NiNi",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
     },
     
   
