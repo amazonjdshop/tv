@@ -22,7 +22,7 @@
    
     {
       "key": "海外看",
-      "name": "海外看2",
+      "name": "✈┃海外看",
       "type": 1,
       "api": "http://api.haiwaikan.com/v1/vod?ac=list",
       "searchable": 1,
@@ -38,27 +38,8 @@
       "quickSearch": 1,
       "filterable": 1
     },
-    {
-      "key": "YQK_spider",
-      "name": "🎎一起看电视",
-      "api": "csp_YQKAPP",
-      "type": 3,
-      "filterable": 1,
-      "playerType": 2,
-      "quickSearch": 1,
-      "searchable": 1,
-      "ext": "https://api-tx.11ty.top",
-      "m3u8ads": "hd.youyhn.com"
-    },
-    {
-      "key": "csp_Nbys",
-      "name": "✈┃泥巴2",
-      "type": 3,
-      "api": "csp_NiNi",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1
-    },
+
+
     
   
     {"key":"csp_Cokemv","name":"📺Cokemv〔SP〕","type":3,"api":"csp_Cokemv","searchable":1,"quickSearch":1,"filterable":1},
