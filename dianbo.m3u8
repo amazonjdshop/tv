@@ -10,17 +10,8 @@
     }
   ],
   "sites": [
-  {
-      "key": "csp_Nbys",
-      "name": "✈┃泥巴",
-      "type": 3,
-      "api": "csp_NiNi",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1
-    },
-   
-    {
+  
+      {
       "key": "海外看",
       "name": "✈┃海外看",
       "type": 1,
@@ -29,6 +20,17 @@
       "filterable": 1,
       "changeable": 1
     },
+  
+  {
+      "key": "csp_Nbys",
+      "name": "✈┃爱泥",
+      "type": 3,
+      "api": "csp_NiNi",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+   
     {
       "key": "csp_trj",
       "name": "✈┃唐人",
