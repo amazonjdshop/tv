@@ -10,9 +10,19 @@
     }
   ],
   "sites": [
+  {
+      "key": "海外看",
+      "name": "✈┃海外看(微信:nytvbox2)",
+      "type": 1,
+      "api": "http://api.haiwaikan.com/v1/vod?ac=list",
+      "searchable": 1,
+      "filterable": 1,
+      "changeable": 1
+    },
+    
     {
       "key": "csp_Nbys",
-      "name": "✈┃新爱泥(推荐)",
+      "name": "✈┃新爱泥(微信:nytvbox2)",
       "type": 3,
       "api": "csp_NiNi",
       "searchable": 1,
@@ -20,20 +30,12 @@
       "filterable": 1
     },
   
-      {
-      "key": "海外看",
-      "name": "✈┃海外看(推荐)",
-      "type": 1,
-      "api": "http://api.haiwaikan.com/v1/vod?ac=list",
-      "searchable": 1,
-      "filterable": 1,
-      "changeable": 1
-    },
+      
  
    
     {
       "key": "csp_trj",
-      "name": "✈┃唐人(推荐)",
+      "name": "✈┃唐人(微信:nytvbox2)",
       "type": 3,
       "api": "csp_Tangrenjie",
       "searchable": 1,
@@ -44,7 +46,7 @@
 
     
   
-    {"key":"csp_Cokemv","name":"📺海外CokeMV","type":3,"api":"csp_Cokemv","searchable":1,"quickSearch":1,"filterable":1}
+    {"key":"csp_Cokemv","name":"📺海外CokeMV(微信:nytvbox2)","type":3,"api":"csp_Cokemv","searchable":1,"quickSearch":1,"filterable":1}
     
     
     
