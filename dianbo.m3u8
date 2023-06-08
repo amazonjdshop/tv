@@ -19,15 +19,7 @@
       "quickSearch": 1,
       "filterable": 1
     },
-  {
-      "key": "海外看",
-      "name": "✈┃海外看+(微信:nytvbox2)",
-      "type": 1,
-      "api": "http://api.haiwaikan.com/v1/vod?ac=list",
-      "searchable": 1,
-      "filterable": 1,
-      "changeable": 1
-    },
+ 
     {
       "key": "csp_trj",
       "name": "✈┃唐人(微信:nytvbox2)",
