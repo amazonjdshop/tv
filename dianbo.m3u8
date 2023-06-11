@@ -14,6 +14,38 @@
   {"key":"海外看","name":"✈┃海外看+(微信:nytvbox2)","type":1,"api":"http://api.haiwaikan.com/v1/vod?ac=list","searchable":1,"filterable":1,"changeable":1},
   
    {
+      "key": "金鹰资源",
+      "name": "✈┃金鹰资源+(微信:nytvbox2)",
+      "type": 1,
+      "api": "https://jyzyapi.com/provide/vod/from/jinyingm3u8/at/json",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "categories": [
+        "大陆剧",
+        "香港剧",
+        "韩剧",
+        "欧美剧",
+        "马泰剧",
+        "日剧",
+        "台湾剧",
+        "恐怖片",
+        "剧情片",
+        "动作片",
+        "喜剧片",
+        "爱情片",
+        "动画片",
+        "记录片",
+        "科幻片",
+        "中国动漫",
+        "日本动漫",
+        "欧美动漫",
+        "伦理",
+        "体育赛事"
+      ]
+    },
+  
+   {
       "key": "csp_Nbys",
       "name": "✈┃新爱泥+(微信:nytvbox2)",
       "type": 3,
@@ -32,6 +64,7 @@
       "quickSearch": 1,
       "filterable": 1
     },
+    
     {"key":"csp_Cokemv","name":"📺海外CokeMV(微信:nytvbox2)","type":3,"api":"csp_Cokemv","searchable":1,"quickSearch":1,"filterable":1}
     ]
 }
