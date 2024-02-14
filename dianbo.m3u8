@@ -11,12 +11,12 @@
   ],
   "sites": [
 
-{"key":"csp_XP_独播库","name":"影视┃独播库•飞[XPMF]","type":3,"api":"csp_XPathMacFilter","playerType":0,"searchable":1,"quickSearch":1,"filterable":1,"ext":"https://raw.githubusercontent.com/amazonjdshop/tv/main/duboku.json"},
+{"key":"csp_XP_独播库","name":"✈>美国服务器1(微信:nytvbox2)","type":3,"api":"csp_XPathMacFilter","playerType":0,"searchable":1,"quickSearch":1,"filterable":1,"ext":"https://raw.githubusercontent.com/amazonjdshop/tv/main/duboku.json"},
 
 
     {
       "key": "海外看",
-      "name": "✈>美国服务器(微信:nytvbox2)",
+      "name": "✈>美国服务器2(微信:nytvbox2)",
       "type": 1,
       "api": "http://api.haiwaikan.com/v1/vod?ac=list",
       "searchable": 1,
