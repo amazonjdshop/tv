@@ -11,7 +11,7 @@
 ],
 "sites": [
 {
-"key": "csp_XP_nycvod",
+"key": "11csp_XP_nycvod",
 "name": "🍎纽约(有问题➕微信:nytvbox2)🍎",
 "type": 3,
 "api": "csp_XPathFilter",
@@ -21,7 +21,7 @@
 "ext": "https://raw.githubusercontent.com/amazonjdshop/tv/main/ny2.json"
 },
 {
-"key": "原创",
+"key": "1原创",
 "name": "🍎纽约2(有问题➕微信:nytvbox2)🍎",
 "type": 3,
 "api": "csp_YCyz",
@@ -32,7 +32,7 @@
 "changeable": 1
 },
 {
-"key": "苹果",
+"key": "1苹果",
 "name": "🍎费城(有问题➕微信:nytvbox2)🍎",
 "type": 3,
 "api": "csp_LiteApple",
@@ -41,7 +41,7 @@
 "changeable": 1
 },
 {
-"key": "文采",
+"key": "1文采",
 "name": "🍎佛州(有问题➕微信:nytvbox2)🍎",
 "type": 3,
 "api": "csp_Jpys",
@@ -51,7 +51,7 @@
 "changeable": 1
 },
 {
-"key": "酷看",
+"key": "1酷看",
 "name": "🍎加州(有问题➕微信:nytvbox2)🍎",
 "type": 3,
 "api": "csp_Kkys",
@@ -61,7 +61,7 @@
 "changeable": 1
 },
 {
-"key": "Lib",
+"key": "1Lib",
 "name": "🍎芝加哥(有问题➕微信:nytvbox2)🍎",
 "type": 3,
 "api": "csp_Libvio",
@@ -72,7 +72,7 @@
 "ext": "https://www.libvio.cc/"
 },
 {
-"key": "比特",
+"key": "1比特",
 "name": "🍎华盛顿(有问题➕微信:nytvbox2)🍎",
 "type": 3,
 "api": "csp_Bttwoo",
@@ -81,7 +81,7 @@
 "changeable": 1
 },
 {
-"key": "Auete",
+"key": "1Auete",
 "name": "🍎德州(有问题➕微信:nytvbox2)🍎",
 "type": 3,
 "api": "csp_Auete",
@@ -92,7 +92,7 @@
 "ext": "https://auete.pro/"
 },
 {
-"key": "金鹰资源",
+"key": "1金鹰资源",
 "name": "🍎密西根(有问题➕微信:nytvbox2)🍎",
 "type": 1,
 "api": "https://jyzyapi.com/provide/vod/from/jinyingm3u8/at/json",
@@ -123,7 +123,7 @@
 ]
 },
 {
-"key": "->光速影视",
+"key": "1光速影视",
 "name": "✈️田纳西(有问题➕微信:nytvbox2)✈️",
 "type": 1,
 "api": "https://api.guangsuapi.com/api.php/provide/vod/",
