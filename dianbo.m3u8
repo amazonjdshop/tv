@@ -11,26 +11,6 @@
   ],
   "sites": [
     {
-      "key": "酷看",
-      "name": "✈>美国服务器5+(微信:nytvbox2)",
-      "type": 3,
-      "api": "csp_Kkys",
-      "timeout": 15,
-      "searchable": 1,
-      "quickSearch": 1,
-      "changeable": 1
-    },
-    {
-      "key": "文采",
-      "name": "✈>美国服务器2+(微信:nytvbox2)",
-      "type": 3,
-      "api": "csp_Jpys",
-      "playerType": 2,
-      "searchable": 1,
-      "quickSearch": 1,
-      "changeable": 1
-    },
-    {
       "key": "原创",
       "name": "✈>美国服务器0+(微信:nytvbox2)",
       "type": 3,
@@ -46,6 +26,26 @@
       "name": "✈>美国服务器1+(微信:nytvbox2)",
       "type": 3,
       "api": "csp_LiteApple",
+      "searchable": 1,
+      "quickSearch": 1,
+      "changeable": 1
+    },
+    {
+      "key": "文采",
+      "name": "✈>美国服务器2+(微信:nytvbox2)",
+      "type": 3,
+      "api": "csp_Jpys",
+      "playerType": 2,
+      "searchable": 1,
+      "quickSearch": 1,
+      "changeable": 1
+    },
+    {
+      "key": "酷看",
+      "name": "✈>美国服务器5+(微信:nytvbox2)",
+      "type": 3,
+      "api": "csp_Kkys",
+      "timeout": 15,
       "searchable": 1,
       "quickSearch": 1,
       "changeable": 1
@@ -70,7 +70,7 @@
       "quickSearch": 1,
       "changeable": 1
     },
-{
+    {
       "key": "Auete",
       "name": "✈>美国服务器6+(微信:nytvbox2)",
       "type": 3,
@@ -114,7 +114,7 @@
     },
     {
       "key": "光速影视",
-      "name": "✈>美国服务器02+(微信:nytvbox2)",
+      "name": "🍎>美国服务器02+(微信:nytvbox2)",
       "type": 1,
       "api": "https://api.guangsuapi.com/api.php/provide/vod/",
       "searchable": 1,
