@@ -12,7 +12,7 @@
   "sites": [
     {
       "key": "原创",
-      "name": "✈>美国服务器0+(微信:nytvbox2)",
+      "name": "🍎>纽约(微信:nytvbox2)",
       "type": 3,
       "api": "csp_YCyz",
       "timeout": 15,
@@ -23,7 +23,7 @@
     },
     {
       "key": "苹果",
-      "name": "✈>美国服务器1+(微信:nytvbox2)",
+      "name": "🍎>费城(微信:nytvbox2)",
       "type": 3,
       "api": "csp_LiteApple",
       "searchable": 1,
@@ -32,7 +32,7 @@
     },
     {
       "key": "文采",
-      "name": "✈>美国服务器2+(微信:nytvbox2)",
+      "name": "✈>🍎>佛州(微信:nytvbox2)",
       "type": 3,
       "api": "csp_Jpys",
       "playerType": 2,
@@ -42,7 +42,7 @@
     },
     {
       "key": "酷看",
-      "name": "✈>美国服务器5+(微信:nytvbox2)",
+      "name": "🍎>加州(微信:nytvbox2)",
       "type": 3,
       "api": "csp_Kkys",
       "timeout": 15,
@@ -52,7 +52,7 @@
     },
     {
       "key": "Lib",
-      "name": "✈>美国服务器3+(微信:nytvbox2)",
+      "name": "🍎>芝加哥(微信:nytvbox2)",
       "type": 3,
       "api": "csp_Libvio",
       "timeout": 15,
@@ -63,7 +63,7 @@
     },
     {
       "key": "比特",
-      "name": "✈>美国服务器4+(微信:nytvbox2)",
+      "name": "🍎>华盛顿(微信:nytvbox2)",
       "type": 3,
       "api": "csp_Bttwoo",
       "searchable": 1,
@@ -72,7 +72,7 @@
     },
     {
       "key": "Auete",
-      "name": "✈>美国服务器6+(微信:nytvbox2)",
+      "name": "🍎>德州(微信:nytvbox2)",
       "type": 3,
       "api": "csp_Auete",
       "timeout": 15,
@@ -83,7 +83,7 @@
     },
     {
       "key": "金鹰资源",
-      "name": "✈>美国服务器01+(微信:nytvbox2)",
+      "name": "🍎>密西根(微信:nytvbox2)",
       "type": 1,
       "api": "https://jyzyapi.com/provide/vod/from/jinyingm3u8/at/json",
       "searchable": 1,
@@ -114,7 +114,7 @@
     },
     {
       "key": "光速影视",
-      "name": "🍎>美国服务器02+(微信:nytvbox2)",
+      "name": "🍎>田纳西(微信:nytvbox2)",
       "type": 1,
       "api": "https://api.guangsuapi.com/api.php/provide/vod/",
       "searchable": 1,
