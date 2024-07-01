@@ -13,7 +13,7 @@
   ],
   "sites": [
     {
-      "key": "新视觉",
+      "key": "99新视觉",
       "name": "🇺🇸美国1(有问题➕微信:nytvbox2)🇺🇸",
       "type": 3,
       "api": "csp_Xinsj",
@@ -22,7 +22,7 @@
       "filterable": 1
     },
     {
-      "key": "2原创",
+      "key": "99原创",
       "name": "🇺🇸美国2(有问题➕微信:nytvbox2)🇺🇸",
       "type": 3,
       "api": "csp_YCyz",
@@ -33,7 +33,7 @@
       "changeable": 1
     },
     {
-      "key": "2csp_XP_nycvod",
+      "key": "99csp_XP_nycvod",
       "name": "🇺🇸美国3(有问题➕微信:nytvbox2)🇺🇸",
       "type": 3,
       "api": "csp_XPathFilter",
@@ -43,7 +43,7 @@
       "ext": "https://raw.githubusercontent.com/amazonjdshop/tv/main/ny2.json"
     },
     {
-      "key": "2苹果",
+      "key": "99苹果",
       "name": "🇺🇸美国4(有问题➕微信:nytvbox2)🇺🇸",
       "type": 3,
       "api": "csp_LiteApple",
@@ -52,7 +52,7 @@
       "changeable": 1
     },
     {
-      "key": "2文采",
+      "key": "99文采",
       "name": "🇺🇸美国5(有问题➕微信:nytvbox2)🇺🇸",
       "type": 3,
       "api": "csp_Jpys",
@@ -62,7 +62,7 @@
       "changeable": 1
     },
     {
-      "key": "2酷看",
+      "key": "99酷看",
       "name": "🇺🇸美国6(有问题➕微信:nytvbox2)🇺🇸",
       "type": 3,
       "api": "csp_Kkys",
@@ -72,7 +72,7 @@
       "changeable": 1
     },
     {
-      "key": "2Lib",
+      "key": "99Lib",
       "name": "🇺🇸美国7(有问题➕微信:nytvbox2)🇺🇸",
       "type": 3,
       "api": "csp_Libvio",
@@ -83,7 +83,7 @@
       "ext": "https://www.libvio.cc/"
     },
     {
-      "key": "2比特",
+      "key": "99比特",
       "name": "🇺🇸美国8(有问题➕微信:nytvbox2)🇺🇸",
       "type": 3,
       "api": "csp_Bttwoo",
@@ -92,7 +92,7 @@
       "changeable": 1
     },
     {
-      "key": "2Auete",
+      "key": "99Auete",
       "name": "🇺🇸美国9(有问题➕微信:nytvbox2)🇺🇸",
       "type": 3,
       "api": "csp_Auete",
@@ -103,7 +103,7 @@
       "ext": "https://auete.pro/"
     },
     {
-      "key": "2金鹰资源",
+      "key": "99金鹰资源",
       "name": "🇺🇸美国10(有问题➕微信:nytvbox2)🇺🇸",
       "type": 1,
       "api": "https://jyzyapi.com/provide/vod/from/jinyingm3u8/at/json",
@@ -134,7 +134,7 @@
       ]
     },
     {
-      "key": "2光速影视",
+      "key": "99光速影视",
       "name": "🇺🇸美国11(有问题➕微信:nytvbox2)🇺🇸",
       "type": 1,
       "api": "https://api.guangsuapi.com/api.php/provide/vod/",
