@@ -13,7 +13,7 @@
   ],
   "sites": [
     {
-      "key": "99新视觉",
+      "key": "2新视觉",
       "name": "🇺🇸美国1(有问题➕微信:nytvbox2)🇺🇸",
       "type": 3,
       "api": "csp_Xinsj",
@@ -22,7 +22,7 @@
       "filterable": 1
     },
     {
-      "key": "99原创",
+      "key": "2原创",
       "name": "🇺🇸美国2(有问题➕微信:nytvbox2)🇺🇸",
       "type": 3,
       "api": "csp_YCyz",
@@ -33,7 +33,7 @@
       "changeable": 1
     },
     {
-      "key": "99csp_XP_nycvod",
+      "key": "2csp_XP_nycvod",
       "name": "🇺🇸美国3(有问题➕微信:nytvbox2)🇺🇸",
       "type": 3,
       "api": "csp_XPathFilter",
@@ -43,7 +43,7 @@
       "ext": "https://raw.githubusercontent.com/amazonjdshop/tv/main/ny2.json"
     },
     {
-      "key": "99苹果",
+      "key": "2苹果",
       "name": "🇺🇸美国4(有问题➕微信:nytvbox2)🇺🇸",
       "type": 3,
       "api": "csp_LiteApple",
@@ -52,7 +52,7 @@
       "changeable": 1
     },
     {
-      "key": "99文采",
+      "key": "2文采",
       "name": "🇺🇸美国5(有问题➕微信:nytvbox2)🇺🇸",
       "type": 3,
       "api": "csp_Jpys",
@@ -62,7 +62,7 @@
       "changeable": 1
     },
     {
-      "key": "99酷看",
+      "key": "2酷看",
       "name": "🇺🇸美国6(有问题➕微信:nytvbox2)🇺🇸",
       "type": 3,
       "api": "csp_Kkys",
@@ -72,7 +72,7 @@
       "changeable": 1
     },
     {
-      "key": "99Lib",
+      "key": "2Lib",
       "name": "🇺🇸美国7(有问题➕微信:nytvbox2)🇺🇸",
       "type": 3,
       "api": "csp_Libvio",
@@ -83,7 +83,7 @@
       "ext": "https://www.libvio.cc/"
     },
     {
-      "key": "99比特",
+      "key": "2比特",
       "name": "🇺🇸美国8(有问题➕微信:nytvbox2)🇺🇸",
       "type": 3,
       "api": "csp_Bttwoo",
@@ -92,7 +92,7 @@
       "changeable": 1
     },
     {
-      "key": "99Auete",
+      "key": "2Auete",
       "name": "🇺🇸美国9(有问题➕微信:nytvbox2)🇺🇸",
       "type": 3,
       "api": "csp_Auete",
@@ -103,7 +103,7 @@
       "ext": "https://auete.pro/"
     },
     {
-      "key": "99金鹰资源",
+      "key": "2金鹰资源",
       "name": "🇺🇸美国10(有问题➕微信:nytvbox2)🇺🇸",
       "type": 1,
       "api": "https://jyzyapi.com/provide/vod/from/jinyingm3u8/at/json",
@@ -134,7 +134,7 @@
       ]
     },
     {
-      "key": "99光速影视",
+      "key": "2光速影视",
       "name": "🇺🇸美国11(有问题➕微信:nytvbox2)🇺🇸",
       "type": 1,
       "api": "https://api.guangsuapi.com/api.php/provide/vod/",
@@ -165,135 +165,7 @@
       ]
     }
   ],
-  "rules": [
-    {
-      "name": "量子广告",
-      "hosts": [
-        "vip.lz",
-        "hd.lz",
-        ".cdnlz"
-      ],
-      "regex": [
-        "17.19",
-        "#EXT-X-DISCONTINUITY\\r*\\n*#EXTINF:7\\.166667,[\\s\\S]*?#EXT-X-DISCONTINUITY",
-        "#EXTINF.*?\\s+.*?1o.*?\\.ts\\s+"
-      ]
-    },
-    {
-      "name": "非凡广告",
-      "hosts": [
-        "vip.ffzy",
-        "hd.ffzy"
-      ],
-      "regex": [
-        "17.99",
-        "#EXT-X-DISCONTINUITY\\r*\\n*#EXTINF:6\\.400000,[\\s\\S]*?#EXT-X-DISCONTINUITY",
-        "#EXTINF.*?\\s+.*?1170(20|32).*?\\.ts\\s+",
-        "#EXTINF.*?\\s+.*?116977.*?\\.ts\\s+"
-      ]
-    },
-    {
-      "name": "索尼广告",
-      "hosts": [
-        "suonizy"
-      ],
-      "regex": [
-        "#EXT-X-DISCONTINUITY\\r*\\n*#EXTINF:1\\.000000,[\\s\\S]*?#EXT-X-DISCONTINUITY",
-        "#EXTINF.*?\\s+.*?p1ayer.*?\\.ts\\s+",
-        "#EXTINF.*?\\s+.*?\\/video\\/original.*?\\.ts\\s+"
-      ]
-    },
-    {
-      "name": "暴风广告",
-      "hosts": [
-        "bfzy",
-        "bfbfvip"
-      ],
-      "regex": [
-        "#EXTINF.*?\\s+.*?adjump.*?\\.ts\\s+"
-      ]
-    },
-    {
-      "name": "星星广告",
-      "hosts": [
-        "aws.ulivetv.net"
-      ],
-      "regex": [
-        "#EXT-X-DISCONTINUITY\\r*\\n*#EXTINF:8,[\\s\\S]*?#EXT-X-DISCONTINUITY"
-      ]
-    },
-    {
-      "name": "快看广告",
-      "hosts": [
-        "kuaikan"
-      ],
-      "regex": [
-        "#EXT-X-KEY:METHOD=NONE\\r*\\n*#EXTINF:5,[\\s\\S]*?#EXT-X-DISCONTINUITY",
-        "#EXT-X-KEY:METHOD=NONE\\r*\\n*#EXTINF:2\\.4,[\\s\\S]*?#EXT-X-DISCONTINUITY"
-      ]
-    },
-    {
-      "name": "磁力广告",
-      "hosts": [
-        "magnet"
-      ],
-      "regex": [
-        "更多",
-        "请访问",
-        "example",
-        "社 區",
-        "x u u",
-        "直 播",
-        "更 新",
-        "社 区",
-        "有趣",
-        "有 趣",
-        "英皇体育",
-        "全中文AV在线",
-        "新片首发",
-        "UUE29"
-      ]
-    },
-    {
-      "name": "一起看广告",
-      "hosts": [
-        "yqk88"
-      ],
-      "regex": [
-        "18.4",
-        "15.1666",
-        "16.5333",
-        "#EXT-X-DISCONTINUITY\\r*\\n*[\\s\\S]*?#EXT-X-CUE-IN"
-      ]
-    },
-    {
-      "name": "火山嗅探",
-      "hosts": [
-        "huoshan.com"
-      ],
-      "regex": [
-        "item_id="
-      ]
-    },
-    {
-      "name": "抖音嗅探",
-      "hosts": [
-        "douyin.com"
-      ],
-      "regex": [
-        "is_play_url="
-      ]
-    },
-    {
-      "name": "农民嗅探",
-      "hosts": [
-        "toutiaovod.com"
-      ],
-      "regex": [
-        "video/tos/cn"
-      ]
-    }
-  ],
+  "rules": [],
   "flags": [
     "youku",
     "优酷",
