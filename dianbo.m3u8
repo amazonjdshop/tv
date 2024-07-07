@@ -12,9 +12,29 @@
     }
   ],
   "sites": [
+    {
+      "key": "3csp_XP_nycvod",
+      "name": "🇺🇸美国3(有问题➕微信:nytvbox2)🇺🇸",
+      "type": 3,
+      "api": "csp_XPathFilter",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "ext": "https://raw.githubusercontent.com/amazonjdshop/tv/main/ny2.json"
+    },
 
     {
-      "key": "2原创",
+      "key": "3苹果",
+      "name": "🇺🇸美国4(有问题➕微信:nytvbox2)🇺🇸",
+      "type": 3,
+      "api": "csp_LiteApple",
+      "searchable": 1,
+      "quickSearch": 1,
+      "changeable": 1
+    },
+
+    {
+      "key": "3原创",
       "name": "🇺🇸美国1(有问题➕微信:nytvbox2)🇺🇸",
       "type": 3,
       "api": "csp_YCyz",
@@ -25,7 +45,7 @@
       "changeable": 1
     },
     {
-      "key": "2新视觉",
+      "key": "3新视觉",
       "name": "🇺🇸美国2(有问题➕微信:nytvbox2)🇺🇸",
       "type": 3,
       "api": "csp_Xinsj",
@@ -34,26 +54,7 @@
       "filterable": 1
     },
     {
-      "key": "2csp_XP_nycvod",
-      "name": "🇺🇸美国3(有问题➕微信:nytvbox2)🇺🇸",
-      "type": 3,
-      "api": "csp_XPathFilter",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "ext": "https://raw.githubusercontent.com/amazonjdshop/tv/main/ny2.json"
-    },
-    {
-      "key": "2苹果",
-      "name": "🇺🇸美国4(有问题➕微信:nytvbox2)🇺🇸",
-      "type": 3,
-      "api": "csp_LiteApple",
-      "searchable": 1,
-      "quickSearch": 1,
-      "changeable": 1
-    },
-    {
-      "key": "2文采",
+      "key": "3文采",
       "name": "🇺🇸美国5(有问题➕微信:nytvbox2)🇺🇸",
       "type": 3,
       "api": "csp_Jpys",
@@ -63,7 +64,7 @@
       "changeable": 1
     },
     {
-      "key": "2酷看",
+      "key": "3酷看",
       "name": "🇺🇸美国6(有问题➕微信:nytvbox2)🇺🇸",
       "type": 3,
       "api": "csp_Kkys",
@@ -73,7 +74,7 @@
       "changeable": 1
     },
     {
-      "key": "2Lib",
+      "key": "3Lib",
       "name": "🇺🇸美国7(有问题➕微信:nytvbox2)🇺🇸",
       "type": 3,
       "api": "csp_Libvio",
@@ -84,7 +85,7 @@
       "ext": "https://www.libvio.cc/"
     },
     {
-      "key": "2比特",
+      "key": "3比特",
       "name": "🇺🇸美国8(有问题➕微信:nytvbox2)🇺🇸",
       "type": 3,
       "api": "csp_Bttwoo",
@@ -93,7 +94,7 @@
       "changeable": 1
     },
     {
-      "key": "2Auete",
+      "key": "3Auete",
       "name": "🇺🇸美国9(有问题➕微信:nytvbox2)🇺🇸",
       "type": 3,
       "api": "csp_Auete",
@@ -104,7 +105,7 @@
       "ext": "https://auete.pro/"
     },
     {
-      "key": "2金鹰资源",
+      "key": "3金鹰资源",
       "name": "🇺🇸美国10(有问题➕微信:nytvbox2)🇺🇸",
       "type": 1,
       "api": "https://jyzyapi.com/provide/vod/from/jinyingm3u8/at/json",
@@ -135,7 +136,7 @@
       ]
     },
     {
-      "key": "2光速影视",
+      "key": "3光速影视",
       "name": "🇺🇸美国11(有问题➕微信:nytvbox2)🇺🇸",
       "type": 1,
       "api": "https://api.guangsuapi.com/api.php/provide/vod/",
