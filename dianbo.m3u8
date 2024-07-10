@@ -1,7 +1,7 @@
 {
   "spider": "https://github.com/amazonjdshop/tv/blob/main/fty.jar?raw=true;md5;b4518597b341123213f6208fbfab7c1b",
- // "spider": "https://raw.githubusercontent.com/amazonjdshop/tv/main/xmmmmm.jar;md5;b6def02ec13662a8739d9f80f1f42e89",
-   // "spider": "https://raw.githubusercontent.com/amazonjdshop/tv/main/PandaQ240625.jar;md5;b876c3978f963d61d6b64933c9017451",
+// "spider": "https://raw.githubusercontent.com/amazonjdshop/tv/main/xmmmmm.jar;md5;b6def02ec13662a8739d9f80f1f42e89",
+// "spider": "https://raw.githubusercontent.com/amazonjdshop/tv/main/PandaQ240625.jar;md5;b876c3978f963d61d6b64933c9017451",
   "lives": [
     {
       "name": "TXT",
@@ -13,7 +13,37 @@
   ],
   "sites": [
     {
-      "key": "3csp_XP_nycvod",
+      "key": "4快看资源",
+      "name": "🇺🇸美国12(有问题➕微信:nytvbox2)🇺🇸",
+      "type": 1,
+      "api": "https://kuaikan-api.com/api.php/provide/vod/?ac=list",
+      "searchable": 1,
+      "quickSearch": 1,
+      "categories": [
+        "国产剧",
+        "韩国剧",
+        "香港剧",
+        "台湾剧",
+        "欧美剧",
+        "动作片",
+        "科幻片",
+        "战争片",
+        "奇幻片",
+        "喜剧片",
+        "爱情片",
+        "恐怖片",
+        "犯罪片",
+        "悬疑片",
+        "惊悚片",
+        "剧情片",
+        "冒险片",
+        "记录片",
+        "综艺",
+        "动漫"
+      ]
+    },
+    {
+      "key": "4csp_XP_nycvod",
       "name": "🇺🇸美国3(有问题➕微信:nytvbox2)🇺🇸",
       "type": 3,
       "api": "csp_XPathFilter",
@@ -22,40 +52,8 @@
       "filterable": 1,
       "ext": "https://raw.githubusercontent.com/amazonjdshop/tv/main/ny2.json"
     },
-
-{
-			"key": "3快看资源",
-			"name": "🇺🇸美国12(有问题➕微信:nytvbox2)🇺🇸",
-			"type": 1,
-			"api": "https://kuaikan-api.com/api.php/provide/vod/?ac=list",
-			"searchable": 1,
-			"quickSearch": 1,
-			"categories": [
-				"国产剧",
-				"韩国剧",
-				"香港剧",
-				"台湾剧",
-				"欧美剧",
-				"动作片",
-				"科幻片",
-				"战争片",
-				"奇幻片",
-				"喜剧片",
-				"爱情片",
-				"恐怖片",
-				"犯罪片",
-				"悬疑片",
-				"惊悚片",
-				"剧情片",
-				"冒险片",
-				"记录片",
-				"综艺",
-				"动漫"
-			]
-		},
-
     {
-      "key": "3苹果",
+      "key": "4苹果",
       "name": "🇺🇸美国4(有问题➕微信:nytvbox2)🇺🇸",
       "type": 3,
       "api": "csp_LiteApple",
@@ -63,9 +61,8 @@
       "quickSearch": 1,
       "changeable": 1
     },
-
     {
-      "key": "3原创",
+      "key": "4原创",
       "name": "🇺🇸美国1(有问题➕微信:nytvbox2)🇺🇸",
       "type": 3,
       "api": "csp_YCyz",
@@ -76,7 +73,7 @@
       "changeable": 1
     },
     {
-      "key": "3新视觉",
+      "key": "4新视觉",
       "name": "🇺🇸美国2(有问题➕微信:nytvbox2)🇺🇸",
       "type": 3,
       "api": "csp_Xinsj",
@@ -85,7 +82,7 @@
       "filterable": 1
     },
     {
-      "key": "3文采",
+      "key": "4文采",
       "name": "🇺🇸美国5(有问题➕微信:nytvbox2)🇺🇸",
       "type": 3,
       "api": "csp_Jpys",
@@ -95,7 +92,7 @@
       "changeable": 1
     },
     {
-      "key": "3酷看",
+      "key": "4酷看",
       "name": "🇺🇸美国6(有问题➕微信:nytvbox2)🇺🇸",
       "type": 3,
       "api": "csp_Kkys",
@@ -105,7 +102,7 @@
       "changeable": 1
     },
     {
-      "key": "3Lib",
+      "key": "4Lib",
       "name": "🇺🇸美国7(有问题➕微信:nytvbox2)🇺🇸",
       "type": 3,
       "api": "csp_Libvio",
@@ -116,7 +113,7 @@
       "ext": "https://www.libvio.cc/"
     },
     {
-      "key": "3比特",
+      "key": "4比特",
       "name": "🇺🇸美国8(有问题➕微信:nytvbox2)🇺🇸",
       "type": 3,
       "api": "csp_Bttwoo",
@@ -125,7 +122,7 @@
       "changeable": 1
     },
     {
-      "key": "3Auete",
+      "key": "4Auete",
       "name": "🇺🇸美国9(有问题➕微信:nytvbox2)🇺🇸",
       "type": 3,
       "api": "csp_Auete",
@@ -136,7 +133,7 @@
       "ext": "https://auete.pro/"
     },
     {
-      "key": "3金鹰资源",
+      "key": "4金鹰资源",
       "name": "🇺🇸美国10(有问题➕微信:nytvbox2)🇺🇸",
       "type": 1,
       "api": "https://jyzyapi.com/provide/vod/from/jinyingm3u8/at/json",
@@ -167,7 +164,7 @@
       ]
     },
     {
-      "key": "3光速影视",
+      "key": "4光速影视",
       "name": "🇺🇸美国11(有问题➕微信:nytvbox2)🇺🇸",
       "type": 1,
       "api": "https://api.guangsuapi.com/api.php/provide/vod/",
