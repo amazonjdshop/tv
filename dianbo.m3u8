@@ -102,11 +102,11 @@
     },
     {
       "key": "001乐视",
-      "name": "🇺🇸美国13(微信:nytvbox2)",
+      "name": "美国13(微信:nytvbox2)",
       "type": 1,
       "api": "https://leshiapi.com/api.php/provide/vod/?ac=list",
-      "searchable": 1,
-      "quickSearch": 1,
+      "searchable": 0,
+      "quickSearch": 0,
       "categories": [
         "国产剧",
         "香港剧",
