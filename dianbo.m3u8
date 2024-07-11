@@ -71,8 +71,8 @@
       "name": "🇺🇸美国12(微信:nytvbox2)",
       "type": 1,
       "api": "https://kuaikan-api.com/api.php/provide/vod/?ac=list",
-      "searchable": 1,
-      "quickSearch": 1,
+      "searchable": 0,
+      "quickSearch": 0,
       "categories": [
         "国产剧",
         "香港剧",
@@ -102,7 +102,7 @@
     },
     {
       "key": "001乐视",
-      "name": "美国13(微信:nytvbox2)",
+      "name": "🇺🇸美国13(微信:nytvbox2)",
       "type": 1,
       "api": "https://leshiapi.com/api.php/provide/vod/?ac=list",
       "searchable": 0,
@@ -223,8 +223,8 @@
       "name": "🇺🇸美国10(微信:nytvbox2)",
       "type": 1,
       "api": "https://jyzyapi.com/provide/vod/from/jinyingm3u8/at/json",
-      "searchable": 1,
-      "quickSearch": 1,
+      "searchable": 0,
+      "quickSearch": 0,
       "filterable": 0,
       "categories": [
         "大陆剧",
@@ -254,8 +254,8 @@
       "name": "🇺🇸美国11(微信:nytvbox2)",
       "type": 1,
       "api": "https://api.guangsuapi.com/api.php/provide/vod/",
-      "searchable": 1,
-      "quickSearch": 1,
+      "searchable": 0,
+      "quickSearch": 0,
       "filterable": 0,
       "categories": [
         "动作片",
