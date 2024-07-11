@@ -1,4 +1,5 @@
 {
+"wallpaper": "https://www.dmoe.cc/random.php",
   "spider": "https://github.com/amazonjdshop/tv/blob/main/fty.jar?raw=true;md5;b4518597b341123213f6208fbfab7c1b",
   "spider2": "https://raw.githubusercontent.com/amazonjdshop/tv/main/xmmmmm.jar;md5;b6def02ec13662a8739d9f80f1f42e89",
   "spider3": "https://raw.githubusercontent.com/amazonjdshop/tv/main/PandaQ240625.jar;md5;b876c3978f963d61d6b64933c9017451",
@@ -278,6 +279,18 @@
         "伦理片",
         "体育赛事"
       ]
-    }
+    },
+
+        {
+            "key": "苹果影视",
+            "name": "苹果影视",
+            "type": 3,
+            "api": "csp_LiteApple",
+            "searchable": 1,
+            "quickSearch": 1,
+            "filterable": 1,
+"jar":"https://github.com/amazonjdshop/tv/raw/main/XYQ.jar"
+        }
+
   ]
 }
