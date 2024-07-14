@@ -248,6 +248,16 @@
         "伦理",
         "体育赛事"
       ]
-    }
+    },
+{
+"key": "huarenoktv",
+"name": "🇺🇸美国99(微信:nytvbox2)",
+"type": 1,
+"api": "https://api.huaren.live/api.php/tvbox",
+"playUrl": "json:https://p.huaren.live/box.php?url=",
+"searchable": 1,
+"quickSearch": 1,
+"filterable": 1
+}
   ]
 }
