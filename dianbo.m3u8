@@ -14,17 +14,7 @@
   ],
   "sites": [
     {
-      "key": "002hrtv",
-      "name": "🇺🇸美国99(微信:nytvbox2)",
-      "type": 1,
-      "api": "https://api.huaren.live/api.php/tvbox",
-      "playUrl": "json:https://p.huaren.live/box.php?url=",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1
-    },
-    {
-      "key": "002苹果",
+      "key": "003苹果",
       "name": "🇺🇸美国4(微信:nytvbox2)",
       "type": 3,
       "api": "csp_LiteApple",
@@ -33,7 +23,7 @@
       "changeable": 1
     },
     {
-      "key": "002卧龙资源",
+      "key": "003卧龙资源",
       "name": "🇺🇸美国14(微信:nytvbox2)",
       "type": 1,
       "api": "https://collect.wolongzyw.com/api.php/provide/vod/",
@@ -67,7 +57,17 @@
       ]
     },
     {
-      "key": "002csp_XP_nycvod",
+      "key": "003hrtv",
+      "name": "🇺🇸美国99(微信:nytvbox2)",
+      "type": 1,
+      "api": "https://api.huaren.live/api.php/tvbox",
+      "playUrl": "json:https://p.huaren.live/box.php?url=",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "003csp_XP_nycvod",
       "name": "🇺🇸美国3(微信:nytvbox2)",
       "type": 3,
       "api": "csp_XPathFilter",
@@ -77,7 +77,7 @@
       "ext": "https://raw.githubusercontent.com/amazonjdshop/tv/main/ny2.json"
     },
     {
-      "key": "002快看资源",
+      "key": "003快看资源",
       "name": "🇺🇸美国12(微信:nytvbox2)",
       "type": 1,
       "api": "https://kuaikan-api.com/api.php/provide/vod/?ac=list",
@@ -111,7 +111,7 @@
       ]
     },
     {
-      "key": "002乐视",
+      "key": "003乐视",
       "name": "🇺🇸美国13(微信:nytvbox2)",
       "type": 1,
       "api": "https://leshiapi.com/api.php/provide/vod/?ac=list",
@@ -158,7 +158,7 @@
       ]
     },
     {
-      "key": "002原创",
+      "key": "003原创",
       "name": "🇺🇸美国1(微信:nytvbox2)",
       "type": 3,
       "api": "csp_YCyz",
@@ -169,7 +169,7 @@
       "changeable": 1
     },
     {
-      "key": "002新视觉",
+      "key": "003新视觉",
       "name": "🇺🇸美国2(微信:nytvbox2)",
       "type": 3,
       "api": "csp_Xinsj",
@@ -178,7 +178,7 @@
       "filterable": 1
     },
     {
-      "key": "002文采",
+      "key": "003文采",
       "name": "🇺🇸美国5(微信:nytvbox2)",
       "type": 3,
       "api": "csp_Jpys",
@@ -188,7 +188,7 @@
       "changeable": 1
     },
     {
-      "key": "002酷看",
+      "key": "003酷看",
       "name": "🇺🇸美国6(微信:nytvbox2)",
       "type": 3,
       "api": "csp_Kkys",
@@ -198,7 +198,7 @@
       "changeable": 1
     },
     {
-      "key": "002Lib",
+      "key": "003Lib",
       "name": "🇺🇸美国7(微信:nytvbox2)",
       "type": 3,
       "api": "csp_Libvio",
@@ -209,7 +209,7 @@
       "ext": "https://www.libvio.cc/"
     },
     {
-      "key": "002比特",
+      "key": "003比特",
       "name": "🇺🇸美国8(微信:nytvbox2)",
       "type": 3,
       "api": "csp_Bttwoo",
@@ -218,7 +218,7 @@
       "changeable": 1
     },
     {
-      "key": "002Auete",
+      "key": "003Auete",
       "name": "🇺🇸美国9(微信:nytvbox2)",
       "type": 3,
       "api": "csp_Auete",
@@ -229,7 +229,7 @@
       "ext": "https://auete.pro/"
     },
     {
-      "key": "002金鹰资源",
+      "key": "003金鹰资源",
       "name": "🇺🇸美国10(微信:nytvbox2)",
       "type": 1,
       "api": "https://jyzyapi.com/provide/vod/from/jinyingm3u8/at/json",
