@@ -1,7 +1,7 @@
 {
-"spider": "https://raw.githubusercontent.com/amazonjdshop/tv/main/fan.txt?v=4",
-"logo":"https://avatars.githubusercontent.com/u/58679624?v=4",
-
+"spider": "./jar/fan.txt;md5;d295ec4dcf9a78f8441996009a88ecb0",
+"logo":"https://cdn.pixabay.com/photo/2020/08/09/11/43/woman-5475306_1280.jpg",
+"wallpaper":"https://liu.chuqiuyu.workers.dev",
   "lives": [
     {
       "name": "TXT",
@@ -12,6 +12,15 @@
     }
   ],
   "sites": [
+    {
+      "key": "006美国4",
+      "name": "🇺🇸美国4 - 🍎",
+      "type": 3,
+      "api": "csp_LiteApple",
+      "searchable": 1,
+      "quickSearch": 1,
+      "changeable": 1
+    },
 
 {
       "key": "006酷看",
@@ -24,15 +33,7 @@
       "changeable": 1
     },
 
-    {
-      "key": "006美国4",
-      "name": "🇺🇸美国4",
-      "type": 3,
-      "api": "csp_LiteApple",
-      "searchable": 1,
-      "quickSearch": 1,
-      "changeable": 1
-    },
+
 
     
     {
