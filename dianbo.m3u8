@@ -80,17 +80,7 @@
       ]
     },
    
-    {
-      "key": "006原创",
-      "name": "🇺🇸美国1(微信:nytvbox2)",
-      "type": 3,
-      "api": "csp_YCyz",
-      "timeout": 15,
-      "playerType": 1,
-      "searchable": 1,
-      "quickSearch": 1,
-      "changeable": 1
-    },
+    
     {
       "key": "006新视觉",
       "name": "🇺🇸美国2(微信:nytvbox2)",
@@ -98,7 +88,8 @@
       "api": "csp_Xinsj",
       "searchable": 1,
       "quickSearch": 1,
-      "filterable": 1
+      "filterable": 1,
+"jar": "https://raw.githubusercontent.com/amazonjdshop/tv/main/XYQ.jar;md5;b876c3978f963d61d6b64933c9017451"
     },
     {
       "key": "006文采",
@@ -108,7 +99,8 @@
       "playerType": 2,
       "searchable": 1,
       "quickSearch": 1,
-      "changeable": 1
+      "changeable": 1,
+"jar": "https://raw.githubusercontent.com/amazonjdshop/tv/main/XYQ.jar;md5;b876c3978f963d61d6b64933c9017451"
     },
   
     {
@@ -129,7 +121,8 @@
       "api": "csp_Bttwoo",
       "searchable": 1,
       "quickSearch": 1,
-      "changeable": 1
+      "changeable": 1,
+"jar": "https://raw.githubusercontent.com/amazonjdshop/tv/main/XYQ.jar;md5;b876c3978f963d61d6b64933c9017451"
     },
     {
       "key": "006Auete",
@@ -140,7 +133,8 @@
       "searchable": 1,
       "quickSearch": 1,
       "changeable": 1,
-      "ext": "https://auete.pro/"
+      "ext": "https://auete.pro/",
+"jar": "https://raw.githubusercontent.com/amazonjdshop/tv/main/XYQ.jar;md5;b876c3978f963d61d6b64933c9017451"
     },
     {
       "key": "006金鹰资源",
