@@ -1,6 +1,6 @@
 {
   "wallpaper": "https://www.dmoe.cc/random.php",
-  "spider": "https://raw.githubusercontent.com/amazonjdshop/tv/main/PandaQ240625.jar;md5;b876c3978f963d61d6b64933c9017451",
+  "spider": "https://files.zohopublic.com.cn/public/workdrive-public/download/gd5ic01b6d4922692401eac6018178d033d06",
 
   "lives": [
     {
@@ -29,8 +29,8 @@
       "timeout": 15,
       "searchable": 1,
       "quickSearch": 1,
-      "changeable": 1,
-"jar": "https://github.com/amazonjdshop/tv/raw/main/fan.txt"
+      "changeable": 1
+
     },
 
     
@@ -42,8 +42,7 @@
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
-      "ext": "https://raw.githubusercontent.com/amazonjdshop/tv/main/ny2.json",
-"jar": "https://github.com/amazonjdshop/tv/raw/main/fan.txt"
+      "ext": "https://raw.githubusercontent.com/amazonjdshop/tv/main/ny2.json"
     },
     {
       "key": "006快看资源",
