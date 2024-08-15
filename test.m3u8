@@ -14,6 +14,9 @@
   ],
   "sites": [
  {"key":"剧圈","name":"1080P┃剧圈","type":3,"api":"csp_Juqq","searchable":1,"quickSearch":1,"changeable":1},
-    {"key":"云播","name":"1080P┃云播","type":3,"api":"csp_Tvyb","searchable":1,"quickSearch":1,"changeable":1}
+    {"key":"云播","name":"1080P┃云播","type":3,"api":"csp_Tvyb","searchable":1,"quickSearch":1,"changeable":1},
+{"key":"热播","name":"📺热播┃多线","type":3,"api":"csp_AppTT","timeout":15,"playerType":2,"searchable":1,"quickSearch":1,"changeable":1,"ext":"AO7TcBkd8I/B5wQc4Qma+pU=","jar": "https://gitee.com/hnkfmh/jsjar/raw/master/fan.txt"},
+    {"key":"厂长","name":"📔厂长┃不卡","type":3,"api":"csp_NewCz","timeout":15,"playerType":2,"searchable":1,"quickSearch":1,"changeable":1,"ext":"https://czzy.top/","jar": "https://gitee.com/hnkfmh/jsjar/raw/master/fan.txt"}
+
   ]
 }
