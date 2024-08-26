@@ -1,6 +1,6 @@
 {
   "wallpaper": "https://www.dmoe.cc/random.php",
-  "spider": "https://raw.githubusercontent.com/amazonjdshop/tv/main/xmmmmm.jar;md5;b6def02ec13662a8739d9f80f1f42e89",
+  "spider": "https://raw.githubusercontent.com/amazonjdshop/tv/main/jar/yuanzl77spider.jar;md5;a111c3978f963d61d6b64933c9017453",
   "lives": [
     {
       "name": "TXT",
@@ -22,6 +22,15 @@
       "jar": "https://raw.githubusercontent.com/amazonjdshop/tv/main/PandaQ240625.jar;md5;a876c3978f963d61d6b64933c9017452"
     },
     {
+      "key": "008美国15",
+      "name": "🇺🇸美国15(微信:nytvbox2)",
+      "type": 3,
+      "api": "csp_Xpg",
+      "searchable": 1,
+      "quickSearch": 1,
+      "changeable": 1
+    },
+    {
       "key": "008酷看2",
       "name": "🇺🇸美国13(微信:nytvbox2)",
       "type": 3,
@@ -29,19 +38,7 @@
       "playerType": 1,
       "searchable": 1,
       "quickSearch": 1,
-      "changeable": 1,
-      "jar": "https://raw.githubusercontent.com/amazonjdshop/tv/main/jar/yuanzl77spider.jar;md5;a111c3978f963d61d6b64933c9017453"
-    },
-    {
-      "key": "008月夜",
-      "name": "🇺🇸美国14(微信:nytvbox2)",
-      "type": 3,
-      "api": "csp_Wexyuyueys",
-      "playerType": 1,
-      "searchable": 1,
-      "quickSearch": 1,
-      "changeable": 1,
-      "jar": "https://raw.githubusercontent.com/amazonjdshop/tv/main/jar/yuanzl77spider2.jar;md5;a111c3978f963d61d6b64933c9017441"
+      "changeable": 1
     },
     {
       "key": "008南瓜",
@@ -50,8 +47,7 @@
       "api": "csp_Nangua",
       "searchable": 1,
       "quickSearch": 1,
-      "filterable": 1,
-      "jar": "https://raw.githubusercontent.com/amazonjdshop/tv/main/jar/yuanzl77spider.jar;md5;a111c3978f963d61d6b64933c9017453"
+      "filterable": 1
     },
     {
       "key": "008酷看",
@@ -266,7 +262,7 @@
     },
     {
       "key": "008急救",
-      "name": "急救指南｜推荐",
+      "name": "急救｜指南｜推荐",
       "type": 3,
       "api": "csp_FirstAid",
       "searchable": 0,
@@ -275,8 +271,7 @@
       "style": {
         "type": "rect",
         "ratio": 3.8
-      },
-      "jar": "https://raw.githubusercontent.com/amazonjdshop/tv/main/jar/yuanzl77spider.jar;md5;a111c3978f963d61d6b64933c9017453"
+      }
     }
   ]
 }
