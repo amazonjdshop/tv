@@ -12,7 +12,7 @@
   ],
   "sites": [
     {
-      "key": "007美国4",
+      "key": "008美国4",
       "name": "🇺🇸美国4(微信:nytvbox2)",
       "type": 3,
       "api": "csp_LiteApple",
@@ -22,7 +22,7 @@
       "jar": "https://raw.githubusercontent.com/amazonjdshop/tv/main/PandaQ240625.jar;md5;a876c3978f963d61d6b64933c9017452"
     },
     {
-      "key": "007酷看2",
+      "key": "008酷看2",
       "name": "🇺🇸美国13(微信:nytvbox2)",
       "type": 3,
       "api": "csp_Kukan",
@@ -30,10 +30,10 @@
       "searchable": 1,
       "quickSearch": 1,
       "changeable": 1,
-      "jar": "https://raw.githubusercontent.com/amazonjdshop/tv/main/jar/yuanzl77spider.jar;md5;a111c3978f963d61d6b64933c9017452"
+      "jar": "https://raw.githubusercontent.com/amazonjdshop/tv/main/jar/yuanzl77spider.jar;md5;a111c3978f963d61d6b64933c9017453"
     },
     {
-      "key": "007月夜",
+      "key": "008月夜",
       "name": "🇺🇸美国14(微信:nytvbox2)",
       "type": 3,
       "api": "csp_Wexyuyueys",
@@ -41,20 +41,20 @@
       "searchable": 1,
       "quickSearch": 1,
       "changeable": 1,
-      "jar": "https://raw.githubusercontent.com/amazonjdshop/tv/main/jar/yuanzl77spider2.jar;md5;a111c3978f963d61d6b64933c9017451"
+      "jar": "https://raw.githubusercontent.com/amazonjdshop/tv/main/jar/yuanzl77spider2.jar;md5;a111c3978f963d61d6b64933c9017441"
     },
     {
-      "key": "007南瓜",
+      "key": "008南瓜",
       "name": "🇺🇸美国8(微信:nytvbox2)",
       "type": 3,
       "api": "csp_Nangua",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
-      "jar": "https://raw.githubusercontent.com/amazonjdshop/tv/main/jar/yuanzl77spider.jar;md5;a111c3978f963d61d6b64933c9017452"
+      "jar": "https://raw.githubusercontent.com/amazonjdshop/tv/main/jar/yuanzl77spider.jar;md5;a111c3978f963d61d6b64933c9017453"
     },
     {
-      "key": "007酷看",
+      "key": "008酷看",
       "name": "🇺🇸美国6(微信:nytvbox2)",
       "type": 3,
       "api": "csp_Kkys",
@@ -64,7 +64,7 @@
       "changeable": 1
     },
     {
-      "key": "007天空资源",
+      "key": "008天空资源",
       "name": "🇺🇸美国1(微信:nytvbox2)🇺🇸",
       "type": 1,
       "api": "https://api.tiankongapi.com/api.php/provide/vod/",
@@ -73,7 +73,7 @@
       "quickSearch": 1
     },
     {
-      "key": "007zy_飞速资源",
+      "key": "008zy_飞速资源",
       "name": "🇺🇸美国2(微信:nytvbox2)🇺🇸",
       "type": 1,
       "api": "https://www.feisuzyapi.com/api.php/provide/vod/",
@@ -109,7 +109,7 @@
       ]
     },
     {
-      "key": "007api_红牛采集",
+      "key": "008api_红牛采集",
       "name": "🇺🇸美国5(微信:nytvbox2)🇺🇸",
       "type": 1,
       "api": "https://www.hongniuzy2.com/api.php/provide/vod/",
@@ -137,7 +137,7 @@
       ]
     },
     {
-      "key": "007影图资源",
+      "key": "008影图资源",
       "name": "🇺🇸美国7(微信:nytvbox2)🇺🇸",
       "type": 1,
       "api": "https://cj.vodimg.top/api.php/provide/vod/",
@@ -145,7 +145,7 @@
       "quickSearch": 1
     },
     {
-      "key": "007泰泰",
+      "key": "008泰泰",
       "name": "🇺🇸美国9(微信:nytvbox2)",
       "type": 3,
       "api": "csp_AppYsV2",
@@ -155,7 +155,7 @@
       "ext": "https://www.tvkuys.xyz/api.php/app/"
     },
     {
-      "key": "007csp_XP_nycvod",
+      "key": "008csp_XP_nycvod",
       "name": "🇺🇸美国3(微信:nytvbox2)",
       "type": 3,
       "api": "csp_XPathFilter",
@@ -165,7 +165,7 @@
       "ext": "https://raw.githubusercontent.com/amazonjdshop/tv/main/ny2.json"
     },
     {
-      "key": "007快看资源",
+      "key": "008快看资源",
       "name": "🇺🇸美国12(微信:nytvbox2)🇺🇸",
       "type": 1,
       "api": "https://kuaikan-api.com/api.php/provide/vod/?ac=list",
@@ -199,7 +199,7 @@
       ]
     },
     {
-      "key": "007金鹰资源",
+      "key": "008金鹰资源",
       "name": "🇺🇸美国10(微信:nytvbox2)🇺🇸",
       "type": 1,
       "api": "https://jyzyapi.com/provide/vod/from/jinyingm3u8/at/json",
@@ -230,7 +230,7 @@
       ]
     },
     {
-      "key": "007卧龙资源",
+      "key": "008卧龙资源",
       "name": "🇺🇸美国14(微信:nytvbox2)🇺🇸",
       "type": 1,
       "api": "https://collect.wolongzyw.com/api.php/provide/vod/",
@@ -265,7 +265,7 @@
       ]
     },
     {
-      "key": "急救",
+      "key": "008急救",
       "name": "急救指南｜推荐",
       "type": 3,
       "api": "csp_FirstAid",
@@ -276,7 +276,7 @@
         "type": "rect",
         "ratio": 3.8
       },
-      "jar": "https://raw.githubusercontent.com/amazonjdshop/tv/main/jar/yuanzl77spider.jar;md5;a111c3978f963d61d6b64933c9017452"
+      "jar": "https://raw.githubusercontent.com/amazonjdshop/tv/main/jar/yuanzl77spider.jar;md5;a111c3978f963d61d6b64933c9017453"
     }
   ]
 }
