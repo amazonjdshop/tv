@@ -22,6 +22,38 @@
       "jar": "https://raw.githubusercontent.com/amazonjdshop/tv/main/PandaQ240625.jar;md5;a876c3978f963d61d6b64933c9017452"
     },
     {
+      "key": "007酷看2",
+      "name": "🇺🇸美国13(微信:nytvbox2)",
+      "type": 3,
+      "api": "csp_Kukan",
+      "playerType": 1,
+      "searchable": 1,
+      "quickSearch": 1,
+      "changeable": 1,
+      "jar": "https://raw.githubusercontent.com/amazonjdshop/tv/main/yuanzl77spider.jar;md5;a111c3978f963d61d6b64933c9017452"
+    },
+    {
+      "key": "007月夜",
+      "name": "🇺🇸美国14(微信:nytvbox2)",
+      "type": 3,
+      "api": "csp_Wexyuyueys",
+      "playerType": 1,
+      "searchable": 1,
+      "quickSearch": 1,
+      "changeable": 1,
+      "jar": "https://raw.githubusercontent.com/amazonjdshop/tv/main/yuanzl77spider2.jar;md5;a111c3978f963d61d6b64933c9017451"
+    },
+    {
+      "key": "007南瓜",
+      "name": "🇺🇸美国8(微信:nytvbox2)",
+      "type": 3,
+      "api": "csp_Nangua",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "jar": "https://raw.githubusercontent.com/amazonjdshop/tv/main/yuanzl77spider.jar;md5;a111c3978f963d61d6b64933c9017452"
+    },
+    {
       "key": "007酷看",
       "name": "🇺🇸美国6(微信:nytvbox2)",
       "type": 3,
@@ -112,7 +144,6 @@
       "searchable": 1,
       "quickSearch": 1
     },
-    
     {
       "key": "007泰泰",
       "name": "🇺🇸美国9(微信:nytvbox2)",
@@ -205,6 +236,7 @@
       "api": "https://collect.wolongzyw.com/api.php/provide/vod/",
       "searchable": 0,
       "quickSearch": 0,
+      "filterable": 0,
       "categories": [
         "国产剧",
         "香港剧",
@@ -231,6 +263,20 @@
         "大陆综艺",
         "港台综艺"
       ]
+    },
+    {
+      "key": "急救",
+      "name": "急救｜指南｜推荐",
+      "type": 3,
+      "api": "csp_FirstAid",
+      "searchable": 0,
+      "quickSearch": 0,
+      "changeable": 0,
+      "style": {
+        "type": "rect",
+        "ratio": 3.8
+      },
+      "jar": "https://raw.githubusercontent.com/amazonjdshop/tv/main/yuanzl77spider.jar;md5;a111c3978f963d61d6b64933c9017452"
     }
   ]
 }
