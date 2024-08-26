@@ -30,7 +30,7 @@
       "searchable": 1,
       "quickSearch": 1,
       "changeable": 1,
-      "jar": "https://raw.githubusercontent.com/amazonjdshop/tv/main/yuanzl77spider.jar;md5;a111c3978f963d61d6b64933c9017452"
+      "jar": "https://raw.githubusercontent.com/amazonjdshop/tv/main/jar/yuanzl77spider.jar;md5;a111c3978f963d61d6b64933c9017452"
     },
     {
       "key": "007月夜",
@@ -41,7 +41,7 @@
       "searchable": 1,
       "quickSearch": 1,
       "changeable": 1,
-      "jar": "https://raw.githubusercontent.com/amazonjdshop/tv/main/yuanzl77spider2.jar;md5;a111c3978f963d61d6b64933c9017451"
+      "jar": "https://raw.githubusercontent.com/amazonjdshop/tv/main/jar/yuanzl77spider2.jar;md5;a111c3978f963d61d6b64933c9017451"
     },
     {
       "key": "007南瓜",
@@ -51,7 +51,7 @@
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
-      "jar": "https://raw.githubusercontent.com/amazonjdshop/tv/main/yuanzl77spider.jar;md5;a111c3978f963d61d6b64933c9017452"
+      "jar": "https://raw.githubusercontent.com/amazonjdshop/tv/main/jar/yuanzl77spider.jar;md5;a111c3978f963d61d6b64933c9017452"
     },
     {
       "key": "007酷看",
@@ -276,7 +276,7 @@
         "type": "rect",
         "ratio": 3.8
       },
-      "jar": "https://raw.githubusercontent.com/amazonjdshop/tv/main/yuanzl77spider.jar;md5;a111c3978f963d61d6b64933c9017452"
+      "jar": "https://raw.githubusercontent.com/amazonjdshop/tv/main/jar/yuanzl77spider.jar;md5;a111c3978f963d61d6b64933c9017452"
     }
   ]
 }
