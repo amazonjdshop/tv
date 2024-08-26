@@ -203,8 +203,8 @@
       "name": "🇺🇸美国14(微信:nytvbox2)🇺🇸",
       "type": 1,
       "api": "https://collect.wolongzyw.com/api.php/provide/vod/",
-      "searchable": 1,
-      "quickSearch": 1,
+      "searchable": 0,
+      "quickSearch": 0,
       "categories": [
         "国产剧",
         "香港剧",
