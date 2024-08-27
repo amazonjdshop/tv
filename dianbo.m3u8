@@ -21,35 +21,15 @@
       "changeable": 1,
       "jar": "https://raw.githubusercontent.com/amazonjdshop/tv/main/PandaQ240625.jar;md5;a876c3978f963d61d6b64933c9017452"
     },
- {
-      "key": "008酷看2",
-      "name": "🇺🇸美国13(微信:nytvbox2)",
+    {
+      "key": "008csp_XP_nycvod",
+      "name": "🇺🇸美国3(微信:nytvbox2)",
       "type": 3,
-      "api": "csp_Kukan",
-      "playerType": 1,
-      "searchable": 1,
-      "quickSearch": 1,
-      "changeable": 1,
-      "jar": "https://raw.githubusercontent.com/amazonjdshop/tv/main/jar/yuanzl77spider.jar"
-    },
-{
-      "key": "008南瓜",
-      "name": "🇺🇸美国8(微信:nytvbox2)",
-      "type": 3,
-      "api": "csp_Nangua",
+      "api": "csp_XPathFilter",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
-      "jar": "https://raw.githubusercontent.com/amazonjdshop/tv/main/jar/yuanzl77spider.jar;md5;a111c3978f963d61d6b64933c9017453"
-    },
-    {
-      "key": "008天空资源",
-      "name": "🇺🇸美国1(微信:nytvbox2)🇺🇸",
-      "type": 1,
-      "api": "https://api.tiankongapi.com/api.php/provide/vod/",
-      "playUrl": "",
-      "searchable": 1,
-      "quickSearch": 1
+      "ext": "https://raw.githubusercontent.com/amazonjdshop/tv/main/ny2.json"
     },
     {
       "key": "008zy_飞速资源",
@@ -86,6 +66,15 @@
         "欧梅综艺",
         "其他剧"
       ]
+    },
+    {
+      "key": "008天空资源",
+      "name": "🇺🇸美国1(微信:nytvbox2)🇺🇸",
+      "type": 1,
+      "api": "https://api.tiankongapi.com/api.php/provide/vod/",
+      "playUrl": "",
+      "searchable": 1,
+      "quickSearch": 1
     },
     {
       "key": "008api_红牛采集",
@@ -132,16 +121,6 @@
       "quickSearch": 1,
       "filterable": 1,
       "ext": "https://www.tvkuys.xyz/api.php/app/"
-    },
-    {
-      "key": "008csp_XP_nycvod",
-      "name": "🇺🇸美国3(微信:nytvbox2)",
-      "type": 3,
-      "api": "csp_XPathFilter",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "ext": "https://raw.githubusercontent.com/amazonjdshop/tv/main/ny2.json"
     },
     {
       "key": "008快看资源",
