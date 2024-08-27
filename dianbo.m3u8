@@ -21,15 +21,26 @@
       "changeable": 1,
       "jar": "https://raw.githubusercontent.com/amazonjdshop/tv/main/PandaQ240625.jar;md5;a876c3978f963d61d6b64933c9017452"
     },
-    {
-      "key": "007酷看",
-      "name": "🇺🇸美国6(微信:nytvbox2)",
+ {
+      "key": "007酷看2",
+      "name": "🇺🇸美国13(微信:nytvbox2)",
       "type": 3,
-      "api": "csp_Kkys",
-      "timeout": 15,
+      "api": "csp_Kukan",
+      "playerType": 1,
       "searchable": 1,
       "quickSearch": 1,
-      "changeable": 1
+      "changeable": 1,
+      "jar": "https://raw.githubusercontent.com/amazonjdshop/tv/main/jar/yuanzl77spider.jar"
+    },
+{
+      "key": "007南瓜",
+      "name": "🇺🇸美国8(微信:nytvbox2)",
+      "type": 3,
+      "api": "csp_Nangua",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "jar": "https://raw.githubusercontent.com/amazonjdshop/tv/main/jar/yuanzl77spider.jar;md5;a111c3978f963d61d6b64933c9017453"
     },
     {
       "key": "007天空资源",
