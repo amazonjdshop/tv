@@ -227,6 +227,15 @@
         "大陆综艺",
         "港台综艺"
       ]
-    }
+    },
+    {
+      "key": "0003测试",
+      "name": "🇺🇸测试123🇺🇸",
+      "type": 1,
+      "api": "https://huaren.live/api.php/provide/vod/",
+      "playUrl": "",
+      "searchable": 1,
+      "quickSearch": 1
+    },
   ]
 }
