@@ -1,6 +1,6 @@
 {
   "wallpaper": "https://www.dmoe.cc/random.php",
-  "spider": "https://raw.githubusercontent.com/amazonjdshop/tv/main/xmmmmm.jar;md5;b6def02ec13662a8739d9f80f1f42e89",
+  "spider": "https://gh-proxy.com/https://raw.githubusercontent.com/FongMi/CatVodSpider/main/jar/custom_spider.jar;md5;a8254c66a7166602df254825bfe78429",
   "lives": [
     {
       "name": "TXT",
@@ -13,7 +13,7 @@
   "sites": [
     {
       "key": "0001美国6",
-      "name": "🇺🇸美国6(微信:nytvbox2)推荐",
+      "name": "美国6(微信:nytvbox2)推荐",
       "type": 1,
       "api": "https://huaren.live/api.php/provide/vod/",
       "playUrl": "",
@@ -45,7 +45,7 @@
     },
     {
       "key": "0001美国4",
-      "name": "🇺🇸美国4(微信:nytvbox2)推荐",
+      "name": "美国4(微信:nytvbox2)推荐",
       "type": 3,
       "api": "csp_LiteApple",
       "searchable": 1,
@@ -55,7 +55,7 @@
     },
     {
       "key": "0001csp_XP_nycvod",
-      "name": "🇺🇸美国3(微信:nytvbox2)推荐",
+      "name": "美国3(微信:nytvbox2)推荐",
       "type": 3,
       "api": "csp_XPathFilter",
       "searchable": 1,
@@ -65,7 +65,7 @@
     },
     {
       "key": "0001zy_飞速资源",
-      "name": "🇺🇸美国2(微信:nytvbox2)🇺🇸",
+      "name": "美国2(微信:nytvbox2)🇺🇸",
       "type": 1,
       "api": "https://www.feisuzyapi.com/api.php/provide/vod/",
       "searchable": 1,
@@ -101,7 +101,7 @@
     },
     {
       "key": "0001天空资源",
-      "name": "🇺🇸美国1(微信:nytvbox2)🇺🇸",
+      "name": "美国1(微信:nytvbox2)🇺🇸",
       "type": 1,
       "api": "https://api.tiankongapi.com/api.php/provide/vod/",
       "playUrl": "",
@@ -110,7 +110,7 @@
     },
     {
       "key": "0001api_红牛采集",
-      "name": "🇺🇸美国5(微信:nytvbox2)🇺🇸",
+      "name": "美国5(微信:nytvbox2)🇺🇸",
       "type": 1,
       "api": "https://www.hongniuzy2.com/api.php/provide/vod/",
       "playUrl": "",
@@ -138,7 +138,7 @@
     },
     {
       "key": "0001影图资源",
-      "name": "🇺🇸美国7(微信:nytvbox2)🇺🇸",
+      "name": "美国7(微信:nytvbox2)🇺🇸",
       "type": 1,
       "api": "https://cj.vodimg.top/api.php/provide/vod/",
       "searchable": 1,
@@ -146,7 +146,7 @@
     },
     {
       "key": "0001泰泰",
-      "name": "🇺🇸美国9(微信:nytvbox2)",
+      "name": "美国9(微信:nytvbox2)",
       "type": 3,
       "api": "csp_AppYsV2",
       "searchable": 1,
@@ -156,7 +156,7 @@
     },
     {
       "key": "0001快看资源",
-      "name": "🇺🇸美国12(微信:nytvbox2)🇺🇸",
+      "name": "美国12(微信:nytvbox2)🇺🇸",
       "type": 1,
       "api": "https://kuaikan-api.com/api.php/provide/vod/?ac=list",
       "searchable": 1,
@@ -190,7 +190,7 @@
     },
     {
       "key": "0001金鹰资源",
-      "name": "🇺🇸美国10(微信:nytvbox2)🇺🇸",
+      "name": "美国10(微信:nytvbox2)🇺🇸",
       "type": 1,
       "api": "https://jyzyapi.com/provide/vod/from/jinyingm3u8/at/json",
       "searchable": 0,
@@ -221,7 +221,7 @@
     },
     {
       "key": "0001卧龙资源",
-      "name": "🇺🇸美国14(微信:nytvbox2)🇺🇸",
+      "name": "美国14(微信:nytvbox2)🇺🇸",
       "type": 1,
       "api": "https://collect.wolongzyw.com/api.php/provide/vod/",
       "searchable": 1,
