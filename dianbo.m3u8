@@ -43,16 +43,7 @@
         "其它动漫"
       ]
     },
-    {
-      "key": "0002美国4",
-      "name": "美国4(微信:nytvbox2)推荐",
-      "type": 3,
-      "api": "csp_LiteApple",
-      "searchable": 1,
-      "quickSearch": 1,
-      "changeable": 1,
-      "jar": "https://raw.githubusercontent.com/amazonjdshop/tv/main/PandaQ240625.jar;md5;a876c3978f963d61d6b64933c9017452"
-    },
+
     {
       "key": "0002csp_XP_nycvod",
       "name": "美国3(微信:nytvbox2)推荐",
