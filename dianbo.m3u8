@@ -12,7 +12,7 @@
   ],
   "sites": [
     {
-      "key": "0001美国6",
+      "key": "0002美国6",
       "name": "美国6(微信:nytvbox2)推荐",
       "type": 1,
       "api": "https://huaren.live/api.php/provide/vod/",
@@ -44,7 +44,7 @@
       ]
     },
     {
-      "key": "0001美国4",
+      "key": "0002美国4",
       "name": "美国4(微信:nytvbox2)推荐",
       "type": 3,
       "api": "csp_LiteApple",
@@ -54,7 +54,7 @@
       "jar": "https://raw.githubusercontent.com/amazonjdshop/tv/main/PandaQ240625.jar;md5;a876c3978f963d61d6b64933c9017452"
     },
     {
-      "key": "0001csp_XP_nycvod",
+      "key": "0002csp_XP_nycvod",
       "name": "美国3(微信:nytvbox2)推荐",
       "type": 3,
       "api": "csp_XPathFilter",
@@ -64,7 +64,7 @@
       "ext": "https://raw.githubusercontent.com/amazonjdshop/tv/main/ny2.json"
     },
     {
-      "key": "0001zy_飞速资源",
+      "key": "0002zy_飞速资源",
       "name": "美国2(微信:nytvbox2)🇺🇸",
       "type": 1,
       "api": "https://www.feisuzyapi.com/api.php/provide/vod/",
@@ -100,7 +100,7 @@
       ]
     },
     {
-      "key": "0001天空资源",
+      "key": "0002天空资源",
       "name": "美国1(微信:nytvbox2)🇺🇸",
       "type": 1,
       "api": "https://api.tiankongapi.com/api.php/provide/vod/",
@@ -109,7 +109,7 @@
       "quickSearch": 1
     },
     {
-      "key": "0001api_红牛采集",
+      "key": "0002api_红牛采集",
       "name": "美国5(微信:nytvbox2)🇺🇸",
       "type": 1,
       "api": "https://www.hongniuzy2.com/api.php/provide/vod/",
@@ -137,7 +137,7 @@
       ]
     },
     {
-      "key": "0001影图资源",
+      "key": "0002影图资源",
       "name": "美国7(微信:nytvbox2)🇺🇸",
       "type": 1,
       "api": "https://cj.vodimg.top/api.php/provide/vod/",
@@ -145,7 +145,7 @@
       "quickSearch": 1
     },
     {
-      "key": "0001泰泰",
+      "key": "0002泰泰",
       "name": "美国9(微信:nytvbox2)",
       "type": 3,
       "api": "csp_AppYsV2",
@@ -155,7 +155,7 @@
       "ext": "https://www.tvkuys.xyz/api.php/app/"
     },
     {
-      "key": "0001快看资源",
+      "key": "0002快看资源",
       "name": "美国12(微信:nytvbox2)🇺🇸",
       "type": 1,
       "api": "https://kuaikan-api.com/api.php/provide/vod/?ac=list",
@@ -189,7 +189,7 @@
       ]
     },
     {
-      "key": "0001金鹰资源",
+      "key": "0002金鹰资源",
       "name": "美国10(微信:nytvbox2)🇺🇸",
       "type": 1,
       "api": "https://jyzyapi.com/provide/vod/from/jinyingm3u8/at/json",
@@ -220,7 +220,7 @@
       ]
     },
     {
-      "key": "0001卧龙资源",
+      "key": "0002卧龙资源",
       "name": "美国14(微信:nytvbox2)🇺🇸",
       "type": 1,
       "api": "https://collect.wolongzyw.com/api.php/provide/vod/",
