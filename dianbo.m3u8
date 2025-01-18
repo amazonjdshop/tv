@@ -1,6 +1,6 @@
 {
   "wallpaper": "https://www.dmoe.cc/random.php",
-  "spider": "https://raw.githubusercontent.com/amazonjdshop/tv/main/xmmmmm.jar;md5;b6def02ec13662a8739d9f80f1f42e89",
+  "spider": "https://raw.githubusercontent.com/amazonjdshop/tv/refs/heads/main/jar/tvbox.jar",
   "lives": [
     {
       "name": "TXT",
@@ -12,49 +12,17 @@
   ],
   "sites": [
     {
-      "key": "11113csp_XP_nycvod",
-      "name": "美国3(微信:nytvbox2)推荐",
+      "key": "9999csp_XP_nycvod",
+      "name": "美国3(微信:nytvbox2)推荐!",
       "type": 3,
       "api": "csp_XPathFilter",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
-      "ext": "https://raw.githubusercontent.com/amazonjdshop/tv/main/ny2.json"
+      "ext": "./ny3.json"
     },
     {
-      "key": "11113美国6",
-      "name": "美国6(微信:nytvbox2)推荐",
-      "type": 1,
-      "api": "https://huaren.live/api.php/provide/vod/",
-      "playUrl": "",
-      "searchable": 1,
-      "quickSearch": 1,
-      "categories": [
-        "大陆剧",
-        "港台剧",
-        "日韩剧",
-        "欧美剧",
-        "其他剧",
-        "短剧",
-        "奇幻科幻",
-        "动作冒险灾难",
-        "悬疑恐怖惊悚",
-        "爱情喜剧剧情",
-        "战争犯罪",
-        "动画电影",
-        "网络电影",
-        "其他电影",
-        "大陆综艺",
-        "港台综艺",
-        "日韩综艺",
-        "其他综艺",
-        "国产动漫",
-        "日本动漫",
-        "其它动漫"
-      ]
-    },
-    {
-      "key": "11113zy_飞速资源",
+      "key": "9999zy_飞速资源",
       "name": "美国2(微信:nytvbox2)🇺🇸",
       "type": 1,
       "api": "https://www.feisuzyapi.com/api.php/provide/vod/",
@@ -90,7 +58,7 @@
       ]
     },
     {
-      "key": "11113天空资源",
+      "key": "9999天空资源",
       "name": "美国1(微信:nytvbox2)🇺🇸",
       "type": 1,
       "api": "https://api.tiankongapi.com/api.php/provide/vod/",
@@ -99,7 +67,7 @@
       "quickSearch": 1
     },
     {
-      "key": "11113api_红牛采集",
+      "key": "9999api_红牛采集",
       "name": "美国5(微信:nytvbox2)🇺🇸",
       "type": 1,
       "api": "https://www.hongniuzy2.com/api.php/provide/vod/",
@@ -127,7 +95,7 @@
       ]
     },
     {
-      "key": "11113影图资源",
+      "key": "9999影图资源",
       "name": "美国7(微信:nytvbox2)🇺🇸",
       "type": 1,
       "api": "https://cj.vodimg.top/api.php/provide/vod/",
@@ -135,7 +103,7 @@
       "quickSearch": 1
     },
     {
-      "key": "11113泰泰",
+      "key": "9999泰泰",
       "name": "美国9(微信:nytvbox2)",
       "type": 3,
       "api": "csp_AppYsV2",
@@ -145,7 +113,7 @@
       "ext": "https://www.tvkuys.xyz/api.php/app/"
     },
     {
-      "key": "11113快看资源",
+      "key": "9999快看资源",
       "name": "美国12(微信:nytvbox2)🇺🇸",
       "type": 1,
       "api": "https://kuaikan-api.com/api.php/provide/vod/?ac=list",
@@ -179,7 +147,7 @@
       ]
     },
     {
-      "key": "11113金鹰资源",
+      "key": "9999金鹰资源",
       "name": "美国10(微信:nytvbox2)🇺🇸",
       "type": 1,
       "api": "https://jyzyapi.com/provide/vod/from/jinyingm3u8/at/json",
@@ -210,7 +178,7 @@
       ]
     },
     {
-      "key": "11113卧龙资源",
+      "key": "9999卧龙资源",
       "name": "美国14(微信:nytvbox2)🇺🇸",
       "type": 1,
       "api": "https://collect.wolongzyw.com/api.php/provide/vod/",
