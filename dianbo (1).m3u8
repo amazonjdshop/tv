@@ -1,0 +1,34 @@
+{
+   "wallpaper": "https://深色壁纸.xxooo.cf/",
+  "spider": "https://raw.githubusercontent.com/amazonjdshop/tv/refs/heads/main/jar/tvbox.jar",
+  "lives": [
+    {
+      "name": "TXT",
+      "type": 0,
+      "url": "https://raw.githubusercontent.com/amazonjdshop/tv/main/live.txt",
+      "epg": "http://epg.51zmt.top:8000/api/diyp/?ch={name}&date={date}",
+      "logo": "https://epg.112114.xyz/logo/{name}.png"
+    }
+  ],
+  "sites": [
+    {
+      "key": "9999csp_XP_nycvod",
+      "name": "美国3(微信:nytvbox2)推荐!",
+      "type": 3,
+      "api": "csp_XPathFilter",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "ext": "./ny3.json"
+    },
+    
+    {
+      "key": "9999影图资源",
+      "name": "美国7(微信:nytvbox2)🇺🇸",
+      "type": 1,
+      "api": "https://cj.vodimg.top/api.php/provide/vod/",
+      "searchable": 1,
+      "quickSearch": 1
+    }
+  ]
+}
