@@ -1,6 +1,6 @@
 {
   "wallpaper": "https://深色壁纸.xxooo.cf/",
-  "spider": "https://raw.githubusercontent.com/amazonjdshop/tv/refs/heads/main/jar/tvbox.jar",
+  "spider": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/f01162.txt",
   "lives": [
     {
       "name": "TXT",
@@ -33,24 +33,6 @@
       "quickSearch": 1,
       "changeable": 1,
       "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/f01162.txt"
-    },
-    {
-      "key": "999csp_XP_nycvod",
-      "name": "美国3(微信:nytvbox2)",
-      "type": 3,
-      "api": "csp_XPathFilter",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "ext": "./ny3.json"
-    },
-    {
-      "key": "999影图资源",
-      "name": "美国4(微信:nytvbox2)",
-      "type": 1,
-      "api": "https://cj.vodimg.top/api.php/provide/vod/",
-      "searchable": 1,
-      "quickSearch": 1
     }
   ]
 }
