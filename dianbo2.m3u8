@@ -96,6 +96,16 @@
       "header": {
         "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36"
       }
+    },
+    {
+      "key": "009csp_XP_nycvod",
+      "name": "美国4(微信:nytvbox2)",
+      "type": 3,
+      "api": "csp_XPathFilter",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "ext": "./ny3.json"
     }
   ]
 }
