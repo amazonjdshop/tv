@@ -34,7 +34,7 @@
       "changeable": 1,
       "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/f01162.txt"
     },
-  {
+    {
       "key": "8889🪴木耳┃秒播",
       "name": "美国3(微信:nytvbox2)",
       "type": 1,
@@ -105,7 +105,8 @@
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
-      "ext": "./ny3.json"
+      "ext": "./ny3.json",
+      "jar": "https://raw.githubusercontent.com/amazonjdshop/tv/refs/heads/main/jar/tvbox.jar"
     }
   ]
 }
