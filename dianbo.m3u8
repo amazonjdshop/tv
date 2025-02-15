@@ -15,7 +15,7 @@
       "key": "999🪴木耳┃秒播",
       "name": "美国1(微信:nytvbox2)",
       "type": 1,
-      "api": "https://json02.heimuer.xyz/api.php/provide/vod",
+      "api": "https://json.heimuer.xyz/api.php/provide/vod/?ac=list",
       "searchable": 1,
       "filterable": 1,
       "changeable": 1,
