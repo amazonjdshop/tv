@@ -1,1 +1,114 @@
-{"wallpaper":"https://www.dmoe.cc/random.php","spider":"https://raw.githubusercontent.com/amazonjdshop/tv/main/xmmmmm.jar;md5;b6def02ec13662a8739d9f80f1f42e89","lives":[{"name":"TXT","type":0,"url":"https://raw.githubusercontent.com/amazonjdshop/tv/main/live.txt","epg":"http://epg.51zmt.top:8000/api/diyp/?ch={name}&date={date}","logo":"https://epg.112114.xyz/logo/{name}.png"}],"sites":[{"key":"0003csp_XP_nycvod","name":"美国3(微信:nytvbox2)推荐","type":3,"api":"csp_XPathFilter","searchable":1,"quickSearch":1,"filterable":1,"ext":"https://raw.githubusercontent.com/amazonjdshop/tv/main/ny2.json"},{"key":"0003美国6","name":"美国6(微信:nytvbox2)推荐","type":1,"api":"https://huaren.live/api.php/provide/vod/","playUrl":"","searchable":1,"quickSearch":1,"categories":["大陆剧","港台剧","日韩剧","欧美剧","其他剧","短剧","奇幻科幻","动作冒险灾难","悬疑恐怖惊悚","爱情喜剧剧情","战争犯罪","动画电影","网络电影","其他电影","大陆综艺","港台综艺","日韩综艺","其他综艺","国产动漫","日本动漫","其它动漫"]},{"key":"0003zy_飞速资源","name":"美国2(微信:nytvbox2)🇺🇸","type":1,"api":"https://www.feisuzyapi.com/api.php/provide/vod/","searchable":1,"quickSearch":1,"categories":["动作片","喜剧片","爱情片","科幻片","恐怖片","剧情片","战争片","国产剧","香港剧","台湾剧","韩国剧","纪录片","动画片","日本剧","泰国剧","欧美剧","国产动漫","日本动漫","欧梅动漫","海外动漫","电影解说","大陆综艺","港台综艺","韩国综艺","欧梅综艺","其他剧"]},{"key":"0003天空资源","name":"美国1(微信:nytvbox2)🇺🇸","type":1,"api":"https://api.tiankongapi.com/api.php/provide/vod/","playUrl":"","searchable":1,"quickSearch":1},{"key":"0003api_红牛采集","name":"美国5(微信:nytvbox2)🇺🇸","type":1,"api":"https://www.hongniuzy2.com/api.php/provide/vod/","playUrl":"","playerType":2,"searchable":1,"quickSearch":1,"filterable":1,"categories":["国产剧","港澳剧","欧美剧","台湾剧","日剧","韩剧","泰剧","纪录片","动作片","喜剧片","爱情片","科幻片","恐怖片","剧情片","战争片"]},{"key":"0003影图资源","name":"美国7(微信:nytvbox2)🇺🇸","type":1,"api":"https://cj.vodimg.top/api.php/provide/vod/","searchable":1,"quickSearch":1},{"key":"0003泰泰","name":"美国9(微信:nytvbox2)","type":3,"api":"csp_AppYsV2","searchable":1,"quickSearch":1,"filterable":1,"ext":"https://www.tvkuys.xyz/api.php/app/"},{"key":"0003快看资源","name":"美国12(微信:nytvbox2)🇺🇸","type":1,"api":"https://kuaikan-api.com/api.php/provide/vod/?ac=list","searchable":1,"quickSearch":1,"categories":["国产剧","香港剧","韩国剧","台湾剧","欧美剧","动作片","科幻片","战争片","奇幻片","喜剧片","爱情片","恐怖片","犯罪片","悬疑片","惊悚片","剧情片","冒险片","记录片","动画片","动漫片","日本动漫","热门短剧","大陆综艺","港台综艺"]},{"key":"0003金鹰资源","name":"美国10(微信:nytvbox2)🇺🇸","type":1,"api":"https://jyzyapi.com/provide/vod/from/jinyingm3u8/at/json","searchable":0,"quickSearch":0,"filterable":0,"categories":["大陆剧","香港剧","韩剧","欧美剧","马泰剧","日剧","台湾剧","恐怖片","剧情片","动作片","喜剧片","爱情片","动画片","记录片","科幻片","中国动漫","日本动漫","欧美动漫","伦理","体育赛事"]},{"key":"0003卧龙资源","name":"美国14(微信:nytvbox2)🇺🇸","type":1,"api":"https://collect.wolongzyw.com/api.php/provide/vod/","searchable":1,"quickSearch":1,"changeable":1,"categories":["国产剧","香港剧","韩国剧","台湾剧","欧美剧","动作片","科幻片","战争片","奇幻片","喜剧片","爱情片","恐怖片","犯罪片","悬疑片","惊悚片","剧情片","冒险片","记录片","动画片","日本动漫","韩国动漫","热门短剧","大陆综艺","港台综艺"]}]}
+{
+  "wallpaper": "https://深色壁纸.xxooo.cf/",
+  "spider": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/f01162.txt",
+  "lives": [
+    {
+      "name": "TXT",
+      "type": 0,
+      "url": "https://raw.githubusercontent.com/amazonjdshop/tv/main/live2.txt",
+      "epg": "http://epg.51zmt.top:8000/api/diyp/?ch={name}&date={date}",
+      "logo": "https://epg.112114.xyz/logo/{name}.png"
+    }
+  ],
+  "sites": [
+    {
+      "key": "1111☀原创┃不卡",
+      "name": "美国2(微信:nytvbox2)",
+      "type": 3,
+      "api": "csp_YCyz",
+      "timeout": 15,
+      "playerType": 1,
+      "searchable": 1,
+      "quickSearch": 1,
+      "changeable": 1,
+      "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/f01162.txt"
+    },
+    {
+      "key": "1111💮文采┃秒播",
+      "name": "美国1(微信:nytvbox2)",
+      "type": 3,
+      "api": "csp_Jpys",
+      "playerType": 2,
+      "searchable": 1,
+      "quickSearch": 1,
+      "changeable": 1,
+      "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/f01162.txt"
+    },
+
+  {
+      "key": "1111🪴木耳┃秒播",
+      "name": "美国3(微信:nytvbox2)",
+      "type": 1,
+      "api": "https://json.heimuer.xyz/api.php/provide/vod/?ac=list",
+      "searchable": 1,
+      "filterable": 1,
+      "changeable": 1,
+      "timeout": 20,
+      "categories": [
+        "剧情片",
+        "动作片",
+        "冒险片",
+        "喜剧片",
+        "奇幻片",
+        "恐怖片",
+        "悬疑片",
+        "惊悚片",
+        "灾难片",
+        "爱情片",
+        "犯罪片",
+        "科幻片",
+        "歌舞片",
+        "战争片",
+        "经典片",
+        "动画电影",
+        "网络电影",
+        "其他片",
+        "国产剧",
+        "港剧",
+        "韩剧",
+        "日剧",
+        "泰剧",
+        "台剧",
+        "欧美剧",
+        "新马剧",
+        "其他剧",
+        "国产综艺",
+        "港台综艺",
+        "韩国综艺",
+        "日本综艺",
+        "欧美综艺",
+        "新马泰综艺",
+        "其他综艺",
+        "古装短剧",
+        "虐恋短剧",
+        "逆袭短剧",
+        "神豪短剧",
+        "重生短剧",
+        "复仇短剧",
+        "穿越短剧",
+        "甜宠短剧",
+        "强者短剧",
+        "欧美动漫",
+        "日本动漫",
+        "韩国动漫",
+        "国产动漫",
+        "港台动漫"
+      ],
+      "header": {
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36"
+      }
+    },
+    
+    {
+      "key": "1111csp_XP_nycvod",
+      "name": "美国5(微信:nytvbox2)",
+      "type": 3,
+      "api": "csp_XPathFilter",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "ext": "./ny3.json",
+      "jar": "https://raw.githubusercontent.com/amazonjdshop/tv/refs/heads/main/jar/tvbox.jar"
+    }
+  ]
+}
