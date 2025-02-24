@@ -11,30 +11,7 @@
     }
   ],
   "sites": [
-    {
-      "key": "2222☀原创┃不卡",
-      "name": "美国2(微信:nytvbox2)",
-      "type": 3,
-      "api": "csp_YCyz",
-      "timeout": 15,
-      "playerType": 1,
-      "searchable": 1,
-      "quickSearch": 1,
-      "changeable": 1,
-      "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/f01162.txt"
-    },
-    {
-      "key": "2222💮文采┃秒播",
-      "name": "美国1(微信:nytvbox2)",
-      "type": 3,
-      "api": "csp_Jpys",
-      "playerType": 2,
-      "searchable": 1,
-      "quickSearch": 1,
-      "changeable": 1,
-      "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/f01162.txt"
-    },
-    {
+{
       "key": "2222🪴木耳┃秒播",
       "name": "美国3(微信:nytvbox2)",
       "type": 1,
@@ -97,6 +74,19 @@
         "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36"
       }
     },
+    
+    {
+      "key": "2222💮文采┃秒播",
+      "name": "美国1(微信:nytvbox2)",
+      "type": 3,
+      "api": "csp_Jpys",
+      "playerType": 2,
+      "searchable": 1,
+      "quickSearch": 1,
+      "changeable": 1,
+      "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/f01162.txt"
+    },
+    
     {
       "key": "2222csp_XP_nycvod",
       "name": "美国5(微信:nytvbox2)",
