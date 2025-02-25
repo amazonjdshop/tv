@@ -12,46 +12,46 @@
   ],
   "sites": [
     {
-      "key": "csp_LiteApple",
-      "name": "🍎苹果┃1080P",
+      "key": "0999csp_LiteApple",
+      "name": "美国1(微信:nytvbox2)",
       "type": 3,
       "api": "csp_LiteApple"
     },
     {
-      "key": "csp_Gz360",
-      "name": "🍉瓜子┃1080P",
+      "key": "0999csp_Gz360",
+       "name": "美国2(微信:nytvbox2)",
       "type": 3,
       "api": "csp_Gz360"
     },
     {
-      "key": "csp_Jpys",
-      "name": "🥇金牌┃1080P",
+      "key": "0999csp_Jpys",
+      "name": "美国3(微信:nytvbox2)",
       "type": 3,
       "api": "csp_Jpys"
     },
     {
-      "key": "csp_Wwys",
-      "name": "👨农民┃1080P",
+      "key": "0999csp_Wwys",
+      "name": "美国4(微信:nytvbox2)",
       "type": 3,
       "api": "csp_Wwys",
       "ext": "https://www.wwgz.cn"
     },
     {
-      "key": "csp_Lgyy",
-      "name": "⏳️️流光┃1080P",
+      "key": "0999csp_Lgyy",
+       "name": "美国5(微信:nytvbox2)",
       "type": 3,
       "api": "csp_Lgyy"
     },
     {
-      "key": "热热",
-      "name": "🏜热热┃1080P",
+      "key": "0999热热",
+       "name": "美国6(微信:nytvbox2)",
       "type": 3,
       "api": "csp_AppRJ",
       "ext": "sHR2rlsfjI4L3t4RXQMkn9mmg6Ofmy66+wcs9waIyn4hKqT9jG9s4kO6qzcu2OSqWS1/T+wfkqe+UwoipekwvcM11PTDrQqKYI8lmMXUc1vBHxp/2uWIw5HUoscBNWEb"
     },
     {
-      "key": "9999🪴木耳┃秒播",
-      "name": "美国3(微信:nytvbox2)",
+      "key": "0999🪴木耳┃秒播",
+       "name": "美国7(微信:nytvbox2)",
       "type": 1,
       "api": "https://json.heimuer.xyz/api.php/provide/vod/?ac=list",
       "searchable": 1,
@@ -113,8 +113,8 @@
       }
     },
     {
-      "key": "9999csp_XP_nycvod",
-      "name": "美国5(微信:nytvbox2)",
+      "key": "0999csp_XP_nycvod",
+      "name": "美国8(微信:nytvbox2)",
       "type": 3,
       "api": "csp_XPathFilter",
       "searchable": 1,
