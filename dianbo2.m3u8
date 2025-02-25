@@ -11,8 +11,21 @@
     }
   ],
   "sites": [
+
 {
-      "key": "3333🪴木耳┃秒播",
+      "key": "9999💮文采┃秒播",
+      "name": "美国1(微信:nytvbox2)",
+      "type": 3,
+      "api": "csp_Jpys",
+      "playerType": 2,
+      "searchable": 1,
+      "quickSearch": 1,
+      "changeable": 1,
+      "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/f01162.txt"
+    },
+
+{
+      "key": "9999🪴木耳┃秒播",
       "name": "美国3(微信:nytvbox2)",
       "type": 1,
       "api": "https://json.heimuer.xyz/api.php/provide/vod/?ac=list",
@@ -75,20 +88,10 @@
       }
     },
     
-    {
-      "key": "3333💮文采┃秒播",
-      "name": "美国1(微信:nytvbox2)",
-      "type": 3,
-      "api": "csp_Jpys",
-      "playerType": 2,
-      "searchable": 1,
-      "quickSearch": 1,
-      "changeable": 1,
-      "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/f01162.txt"
-    },
+
     
     {
-      "key": "3333csp_XP_nycvod",
+      "key": "9999csp_XP_nycvod",
       "name": "美国5(微信:nytvbox2)",
       "type": 3,
       "api": "csp_XPathFilter",
