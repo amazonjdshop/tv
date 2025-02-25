@@ -3,17 +3,7 @@
   "wallpaper": "http://127.0.0.1:9978/proxy?do=wall",
   "logo": "https://fs-im-kefu.7moor-fs1.com/ly/4d2c3f00-7d4c-11e5-af15-41bf63ae4ea0/1720314090387/ol.txt",
   "sites": [
-    {
-      "key": "9999💮文采┃秒播",
-      "name": "美国1(微信:nytvbox2)",
-      "type": 3,
-      "api": "csp_Jpys",
-      "playerType": 2,
-      "searchable": 1,
-      "quickSearch": 1,
-      "changeable": 1,
-      "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/f01162.txt"
-    },
+    
     {
       "key": "9999🪴木耳┃秒播",
       "name": "美国3(微信:nytvbox2)",
@@ -77,17 +67,7 @@
         "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36"
       }
     },
-    {
-      "key": "9999csp_XP_nycvod",
-      "name": "美国5(微信:nytvbox2)",
-      "type": 3,
-      "api": "csp_XPathFilter",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "ext": "./ny3.json",
-      "jar": "https://raw.githubusercontent.com/amazonjdshop/tv/refs/heads/main/jar/tvbox.jar"
-    },
+   
     {
       "key": "豆瓣",
       "name": "🤓公众号┃OK猫开发",
