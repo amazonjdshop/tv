@@ -26,7 +26,6 @@
         "动漫"
       ]
     },
-
     {
       "key": "0203原创",
       "name": "美国2(微信:nytvbox2)",
@@ -36,7 +35,8 @@
       "playerType": 1,
       "searchable": 1,
       "quickSearch": 1,
-      "changeable": 1
+      "changeable": 1,
+      "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/f0223.txt"
     },
     {
       "key": "0203💮文采┃秒播",
@@ -46,7 +46,8 @@
       "playerType": 2,
       "searchable": 1,
       "quickSearch": 1,
-      "changeable": 1
+      "changeable": 1,
+      "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/f0223.txt"
     },
     {
       "key": "0203厂长",
@@ -57,7 +58,8 @@
       "searchable": 1,
       "quickSearch": 1,
       "changeable": 1,
-      "ext": "https://www.czzyvideo.com/"
+      "ext": "https://www.czzyvideo.com/",
+      "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/f0223.txt"
     },
     {
       "key": "0203苹果",
@@ -66,9 +68,9 @@
       "api": "csp_LiteApple",
       "searchable": 1,
       "quickSearch": 1,
-      "changeable": 1
+      "changeable": 1,
+      "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/f0223.txt"
     },
-
     {
       "key": "0203csp_XP_nycvod",
       "name": "美国11(微信:nytvbox2)",
@@ -80,7 +82,6 @@
       "ext": "./ny3.json",
       "jar": "https://raw.githubusercontent.com/amazonjdshop/tv/refs/heads/main/jar/tvbox.jar"
     },
-    
     {
       "key": "0203🪴木耳┃秒播",
       "name": "美国12(微信:nytvbox2)",
