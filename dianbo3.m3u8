@@ -1,6 +1,6 @@
 {
   "wallpaper": "https://深色壁纸.xxooo.cf/",
-  "spider": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/f0223.txt",
+  "spider": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/0224.jar",
   "lives": [
     {
       "name": "TXT",
@@ -12,35 +12,42 @@
   ],
   "sites": [
     {
-      "key": "9999原创",
-      "name": "美国2(微信:nytvbox2)",
+      "key": "csp_LiteApple",
+      "name": "🍎苹果┃1080P",
       "type": 3,
-      "api": "csp_YCyz",
-      "timeout": 15,
-      "playerType": 1,
-      "searchable": 1,
-      "quickSearch": 1,
-      "changeable": 1
+      "api": "csp_LiteApple"
     },
     {
-      "key": "9999苹果",
-      "name": "美国4(微信:nytvbox2)",
+      "key": "csp_Gz360",
+      "name": "🍉瓜子┃1080P",
       "type": 3,
-      "api": "csp_LiteApple",
-      "searchable": 1,
-      "quickSearch": 1,
-      "changeable": 1
+      "api": "csp_Gz360"
     },
     {
-      "key": "9999💮文采┃秒播",
-      "name": "美国1(微信:nytvbox2)",
+      "key": "csp_Jpys",
+      "name": "🥇金牌┃1080P",
       "type": 3,
-      "api": "csp_Jpys",
-      "playerType": 2,
-      "searchable": 1,
-      "quickSearch": 1,
-      "changeable": 1,
-      "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/f01162.txt"
+      "api": "csp_Jpys"
+    },
+    {
+      "key": "csp_Wwys",
+      "name": "👨农民┃1080P",
+      "type": 3,
+      "api": "csp_Wwys",
+      "ext": "https://www.wwgz.cn"
+    },
+    {
+      "key": "csp_Lgyy",
+      "name": "⏳️️流光┃1080P",
+      "type": 3,
+      "api": "csp_Lgyy"
+    },
+    {
+      "key": "热热",
+      "name": "🏜热热┃1080P",
+      "type": 3,
+      "api": "csp_AppRJ",
+      "ext": "sHR2rlsfjI4L3t4RXQMkn9mmg6Ofmy66+wcs9waIyn4hKqT9jG9s4kO6qzcu2OSqWS1/T+wfkqe+UwoipekwvcM11PTDrQqKYI8lmMXUc1vBHxp/2uWIw5HUoscBNWEb"
     },
     {
       "key": "9999🪴木耳┃秒播",
