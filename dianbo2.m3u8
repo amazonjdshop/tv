@@ -1,6 +1,10 @@
 {
-  "wallpaper": "https://深色壁纸.xxooo.cf/",
-  "spider": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/f01162.txt",
+
+"spider": "https://fs-im-kefu.7moor-fs1.com/ly/4d2c3f00-7d4c-11e5-af15-41bf63ae4ea0/1740102705238/okpng.png;md5;8492846fc64ceab41f7530dee2019d2e",
+  "wallpaper": "http://127.0.0.1:9978/proxy?do=wall",
+  "logo": "https://fs-im-kefu.7moor-fs1.com/ly/4d2c3f00-7d4c-11e5-af15-41bf63ae4ea0/1720314090387/ol.txt",
+
+
   "lives": [
     {
       "name": "TXT",
@@ -26,14 +30,13 @@
 
  {
       "key": "瓜子",
-      "name": "🍉瓜子┃App1",
+      "name": "🍉瓜子┃App2",
       "type": 3,
       "api": "csp_GuaziGuard",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
-      "timeout": 30,
-"jar": "https://fs-im-kefu.7moor-fs1.com/ly/4d2c3f00-7d4c-11e5-af15-41bf63ae4ea0/1740102705238/okpng.png;md5;8492846fc64ceab41f7530dee2019d2e"
+      "timeout": 30
     },
 
 {
