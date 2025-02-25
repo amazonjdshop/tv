@@ -13,6 +13,17 @@
   ],
   "sites": [
     {
+      "key": "00002csp_XP_nycvod",
+      "name": "美国6(微信:nytvbox2)",
+      "type": 3,
+      "api": "csp_XPathFilter",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "ext": "./ny3.json",
+      "jar": "https://raw.githubusercontent.com/amazonjdshop/tv/refs/heads/main/jar/tvbox.jar"
+    },
+    {
       "key": "00002原创",
       "name": "美国1(微信:nytvbox2)",
       "type": 3,
@@ -105,17 +116,7 @@
         "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36"
       }
     },
-    {
-      "key": "00002csp_XP_nycvod",
-      "name": "美国6(微信:nytvbox2)",
-      "type": 3,
-      "api": "csp_XPathFilter",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "ext": "./ny3.json",
-      "jar": "https://raw.githubusercontent.com/amazonjdshop/tv/refs/heads/main/jar/tvbox.jar"
-    },
+
     {
       "key": "00002低端",
       "name": "美国7(微信:nytvbox2)",
