@@ -1,6 +1,6 @@
 {
   "wallpaper": "https://深色壁纸.xxooo.cf/",
-  "spider": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/f01162.txt",
+  "spider": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/f0223.txt",
   "lives": [
     {
       "name": "TXT",
@@ -11,6 +11,26 @@
     }
   ],
   "sites": [
+    {
+      "key": "9999原创",
+      "name": "美国2(微信:nytvbox2)",
+      "type": 3,
+      "api": "csp_YCyz",
+      "timeout": 15,
+      "playerType": 1,
+      "searchable": 1,
+      "quickSearch": 1,
+      "changeable": 1
+    },
+    {
+      "key": "9999苹果",
+      "name": "美国4(微信:nytvbox2)",
+      "type": 3,
+      "api": "csp_LiteApple",
+      "searchable": 1,
+      "quickSearch": 1,
+      "changeable": 1
+    },
     {
       "key": "9999💮文采┃秒播",
       "name": "美国1(微信:nytvbox2)",
