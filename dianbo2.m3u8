@@ -13,19 +13,19 @@
   ],
   "sites": [
     {
-      "key": "0199csp_Gz360",
+      "key": "0200csp_Gz360",
       "name": "美国1(微信:nytvbox2)",
       "type": 3,
       "api": "csp_Gz360"
     },
     {
-      "key": "0199csp_LiteApple",
+      "key": "0200csp_LiteApple",
       "name": "美国2(微信:nytvbox2)",
       "type": 3,
       "api": "csp_LiteApple"
     },
     {
-      "key": "量子",
+      "key": "0200量子",
       "name": "美国3(微信:nytvbox2)",
       "type": 0,
       "api": "https://cj.lziapi.com/api.php/provide/vod/at/xml/",
@@ -66,8 +66,8 @@
       ]
     },
     {
-      "key": "0199🪴木耳┃秒播",
-      "name": "美国7(微信:nytvbox2)",
+      "key": "0200🪴木耳┃秒播",
+      "name": "美国10(微信:nytvbox2)",
       "type": 1,
       "api": "https://json.heimuer.xyz/api.php/provide/vod/?ac=list",
       "searchable": 1,
@@ -129,8 +129,8 @@
       }
     },
     {
-      "key": "0199csp_XP_nycvod",
-      "name": "美国8(微信:nytvbox2)",
+      "key": "0200csp_XP_nycvod",
+      "name": "美国11(微信:nytvbox2)",
       "type": 3,
       "api": "csp_XPathFilter",
       "searchable": 1,
