@@ -12,42 +12,16 @@
   ],
   "sites": [
     {
-      "key": "0201量子",
-      "name": "美国3(微信:nytvbox2)",
-      "type": 0,
-      "api": "https://cj.lziapi.com/api.php/provide/vod/at/xml/",
+      "key": "0201csp_XP_nycvod",
+      "name": "美国2(微信:nytvbox2)",
+      "type": 11,
+      "api": "csp_XPathFilter",
       "searchable": 1,
-      "changeable": 1,
-      "categories": [
-        "国产剧",
-        "香港剧",
-        "动作片",
-        "喜剧片",
-        "爱情片",
-        "科幻片",
-        "恐怖片",
-        "剧情片",
-        "战争片",
-        "台湾剧",
-        "欧美剧",
-        "韩国剧",
-        "日本剧",
-        "海外剧",
-        "泰国剧",
-        "记录片",
-        "大陆综艺",
-        "港台综艺",
-        "日韩综艺",
-        "欧美综艺",
-        "国产动漫",
-        "港台动漫",
-        "日韩动漫",
-        "欧美动漫",
-        "海外动漫",
-        "短剧",
-        "伦理片"
-      ]
+      "quickSearch": 1,
+      "filterable": 1,
+      "ext": "./ny3.json"
     },
+    
     {
       "key": "0201🪴木耳┃秒播",
       "name": "美国1(微信:nytvbox2)",
@@ -110,16 +84,6 @@
       "header": {
         "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36"
       }
-    },
-    {
-      "key": "0201csp_XP_nycvod",
-      "name": "美国2(微信:nytvbox2)",
-      "type": 11,
-      "api": "csp_XPathFilter",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "ext": "./ny3.json"
     }
   ]
 }
