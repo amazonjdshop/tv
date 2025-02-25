@@ -1,5 +1,6 @@
 {
-  "wallpaper": "https://深色壁纸.xxooo.cf/",
+  "wallpaper": "http://127.0.0.1:9978/proxy?do=wall",
+  "logo": "https://fs-im-kefu.7moor-fs1.com/ly/4d2c3f00-7d4c-11e5-af15-41bf63ae4ea0/1720314090387/ol.txt",
   "spider": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/f0223.txt",
   "lives": [
     {
@@ -12,8 +13,8 @@
   ],
   "sites": [
     {
-      "key": "9999原创",
-      "name": "美国2(微信:nytvbox2)",
+      "key": "00001原创",
+      "name": "美国1(微信:nytvbox2)",
       "type": 3,
       "api": "csp_YCyz",
       "timeout": 15,
@@ -23,8 +24,18 @@
       "changeable": 1
     },
     {
-      "key": "9999厂长",
-      "name": "美国6(微信:nytvbox2)",
+      "key": "00001💮文采┃秒播",
+      "name": "美国2(微信:nytvbox2)",
+      "type": 3,
+      "api": "csp_Jpys",
+      "playerType": 2,
+      "searchable": 1,
+      "quickSearch": 1,
+      "changeable": 1
+    },
+    {
+      "key": "00001厂长",
+      "name": "美国3(微信:nytvbox2)",
       "type": 3,
       "api": "csp_NewCz",
       "playerType": 2,
@@ -34,17 +45,7 @@
       "ext": "https://www.czzyvideo.com/"
     },
     {
-      "key": "9999💮文采┃秒播",
-      "name": "美国1(微信:nytvbox2)",
-      "type": 3,
-      "api": "csp_Jpys",
-      "playerType": 2,
-      "searchable": 1,
-      "quickSearch": 1,
-      "changeable": 1
-    },
-    {
-      "key": "9999苹果",
+      "key": "00001苹果",
       "name": "美国4(微信:nytvbox2)",
       "type": 3,
       "api": "csp_LiteApple",
@@ -53,8 +54,8 @@
       "changeable": 1
     },
     {
-      "key": "9999🪴木耳┃秒播",
-      "name": "美国3(微信:nytvbox2)",
+      "key": "00001🪴木耳┃秒播",
+      "name": "美国5(微信:nytvbox2)",
       "type": 1,
       "api": "https://json.heimuer.xyz/api.php/provide/vod/?ac=list",
       "searchable": 1,
@@ -116,8 +117,8 @@
       }
     },
     {
-      "key": "9999csp_XP_nycvod",
-      "name": "美国5(微信:nytvbox2)",
+      "key": "00001csp_XP_nycvod",
+      "name": "美国6(微信:nytvbox2)",
       "type": 3,
       "api": "csp_XPathFilter",
       "searchable": 1,
