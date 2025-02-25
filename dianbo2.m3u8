@@ -28,15 +28,15 @@
       "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/f01162.txt"
     },
 
- {
-      "key": "瓜子",
-      "name": "🍉瓜子┃App2",
+  {
+      "key": "小苹果",
+      "name": "🍎苹果┃直连",
       "type": 3,
-      "api": "csp_GuaziGuard",
+      "api": "csp_XpgGuard",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
-      "timeout": 30
+      "timeout": 20
     },
 
 {
