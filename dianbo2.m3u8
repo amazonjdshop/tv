@@ -30,7 +30,13 @@
       "key": "0202csp_LiteApple",
       "name": "美国2(微信:nytvbox2)",
       "type": 3,
-      "api": "csp_LiteApple"
+      "api": "csp_LiteApple",
+      "categories": [
+        "电影",
+        "连续剧",
+        "综艺",
+        "动漫"
+      ]
     },
     {
       "key": "0202量子",
