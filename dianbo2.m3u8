@@ -13,6 +13,16 @@
   ],
   "sites": [
     {
+      "key": "低端",
+      "name": "美国7(微信:nytvbox2)",
+      "type": 3,
+      "api": "csp_Ddrk",
+      "playerType": "2",
+      "searchable": 1,
+      "quickSearch": 1,
+      "changeable": 1
+    },
+    {
       "key": "00001原创",
       "name": "美国1(微信:nytvbox2)",
       "type": 3,
@@ -115,36 +125,6 @@
       "filterable": 1,
       "ext": "./ny3.json",
       "jar": "https://raw.githubusercontent.com/amazonjdshop/tv/refs/heads/main/jar/tvbox.jar"
-    },
-    {
-      "key": "低端",
-      "name": "美国7(微信:nytvbox2)",
-      "type": 3,
-      "api": "csp_Ddrk",
-      "playerType": "2",
-      "searchable": 1,
-      "quickSearch": 1,
-      "changeable": 1
-    },
-    {
-      "key": "神车",
-      "name": "美国8(微信:nytvbox2)",
-      "type": 3,
-      "api": "csp_AppSx",
-      "searchable": 1,
-      "quickSearch": 1,
-      "changeable": 1,
-      "ext": "FbjPcVZY48PN/RIZ5QqOrsp1OZsTS9wQSSpQpK6jnh0fUMKIu22IxR6Z7/exDifuKH+Agjg9"
-    },
-    {
-      "key": "木星",
-      "name": "美国9(微信:nytvbox2)",
-      "type": 3,
-      "api": "csp_AppSx",
-      "searchable": 1,
-      "quickSearch": 1,
-      "changeable": 1,
-      "ext": "FbjPcVZY48PN/RIZ5QqOrsplZNERApoHSmxZ77D7wAtcAsqZuXTQzUHW+quzHG+7cXaG3SBwzihuA2NlCJpscUJASIGSmRiXKW5NhipHle83SfO6IA=="
     },
     {
       "key": "alllive",
