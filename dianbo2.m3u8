@@ -13,8 +13,20 @@
   ],
   "sites": [
     {
+      "key": "0204原创",
+      "name": "美国3(按我可切换服务器)",
+      "type": 3,
+      "api": "csp_YCyz",
+      "timeout": 15,
+      "playerType": 1,
+      "searchable": 1,
+      "quickSearch": 1,
+      "changeable": 1,
+      "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/f0223.txt"
+    },
+    {
       "key": "0204csp_Gz360",
-      "name": "美国1(微信:nytvbox2)",
+      "name": "美国1(按我可切换服务器)",
       "type": 3,
       "api": "csp_Gz360",
       "categories": [
@@ -28,7 +40,7 @@
     },
     {
       "key": "0204💮文采┃秒播",
-      "name": "美国2(微信:nytvbox2)",
+      "name": "美国2(按我可切换服务器)",
       "type": 3,
       "api": "csp_Jpys",
       "playerType": 2,
@@ -38,20 +50,8 @@
       "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/f0223.txt"
     },
     {
-      "key": "0204原创",
-      "name": "美国3(微信:nytvbox2)",
-      "type": 3,
-      "api": "csp_YCyz",
-      "timeout": 15,
-      "playerType": 1,
-      "searchable": 1,
-      "quickSearch": 1,
-      "changeable": 1,
-      "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/f0223.txt"
-    },
-    {
       "key": "0204苹果",
-      "name": "美国4(微信:nytvbox2)",
+      "name": "美国4(按我可切换服务器)",
       "type": 3,
       "api": "csp_LiteApple",
       "searchable": 1,
@@ -61,7 +61,7 @@
     },
     {
       "key": "0204csp_XP_nycvod",
-      "name": "美国11(微信:nytvbox2)",
+      "name": "美国11(按我可切换服务器)",
       "type": 3,
       "api": "csp_XPathFilter",
       "searchable": 1,
@@ -72,7 +72,7 @@
     },
     {
       "key": "0204🪴木耳┃秒播",
-      "name": "美国12(微信:nytvbox2)",
+      "name": "美国12(按我可切换服务器)",
       "type": 1,
       "api": "https://json.heimuer.xyz/api.php/provide/vod/?ac=list",
       "searchable": 1,
