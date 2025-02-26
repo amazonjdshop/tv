@@ -1,31 +1,79 @@
 {
-  "wallpaper": "https://深色壁纸.xxooo.cf/",
-  "spider": "https://raw.githubusercontent.com/amazonjdshop/tv/refs/heads/main/jar/tvbox.jar",
+  "wallpaper": "http://127.0.0.1:9978/proxy?do=wall",
+  "logo": "https://fs-im-kefu.7moor-fs1.com/ly/4d2c3f00-7d4c-11e5-af15-41bf63ae4ea0/1720314090387/ol.txt",
+  "spider": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/0224.jar",
   "lives": [
     {
       "name": "TXT",
       "type": 0,
-      "url": "https://raw.githubusercontent.com/amazonjdshop/tv/main/live.txt",
+      "url": "https://raw.githubusercontent.com/amazonjdshop/tv/main/live2.txt",
       "epg": "http://epg.51zmt.top:8000/api/diyp/?ch={name}&date={date}",
       "logo": "https://epg.112114.xyz/logo/{name}.png"
     }
   ],
   "sites": [
     {
-      "key": "0201csp_XP_nycvod",
+      "key": "0204csp_Gz360",
+      "name": "美国1(微信:nytvbox2)",
+      "type": 3,
+      "api": "csp_Gz360",
+      "categories": [
+        "国产剧",
+        "电影",
+        "综艺",
+        "海外剧",
+        "儿童",
+        "动漫"
+      ]
+    },
+    {
+      "key": "0204💮文采┃秒播",
       "name": "美国2(微信:nytvbox2)",
-      "type": 11,
+      "type": 3,
+      "api": "csp_Jpys",
+      "playerType": 2,
+      "searchable": 1,
+      "quickSearch": 1,
+      "changeable": 1,
+      "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/f0223.txt"
+    },
+    {
+      "key": "0204原创",
+      "name": "美国3(微信:nytvbox2)",
+      "type": 3,
+      "api": "csp_YCyz",
+      "timeout": 15,
+      "playerType": 1,
+      "searchable": 1,
+      "quickSearch": 1,
+      "changeable": 1,
+      "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/f0223.txt"
+    },
+    {
+      "key": "0204苹果",
+      "name": "美国4(微信:nytvbox2)",
+      "type": 3,
+      "api": "csp_LiteApple",
+      "searchable": 1,
+      "quickSearch": 1,
+      "changeable": 1,
+      "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/f0223.txt"
+    },
+    {
+      "key": "0204csp_XP_nycvod",
+      "name": "美国11(微信:nytvbox2)",
+      "type": 3,
       "api": "csp_XPathFilter",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
-      "ext": "./ny3.json"
+      "ext": "./ny3.json",
+      "jar": "https://raw.githubusercontent.com/amazonjdshop/tv/refs/heads/main/jar/tvbox.jar"
     },
-    
     {
-      "key": "0201🪴木耳┃秒播",
-      "name": "美国1(微信:nytvbox2)",
-      "type": 10,
+      "key": "0204🪴木耳┃秒播",
+      "name": "美国12(微信:nytvbox2)",
+      "type": 1,
       "api": "https://json.heimuer.xyz/api.php/provide/vod/?ac=list",
       "searchable": 1,
       "filterable": 1,
