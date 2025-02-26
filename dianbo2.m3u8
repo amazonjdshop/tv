@@ -31,8 +31,8 @@
       "api": "csp_XPathMacFilter",
       "searchable": 1,
       "changeable": 1,
-      "ext": "https://fongmi.cachefly.net/FongMi/CatVodSpider/main/json/duboku.json",
-      "jar": "https://fongmi.cachefly.net/FongMi/CatVodSpider/main/jar/custom_spider.jar"
+      "ext": "https://raw.githubusercontent.com/amazonjdshop/tv/refs/heads/main/duboku.json",
+      "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/fm_custom_spider.jar"
     },
     {
       "key": "0206csp_Gz360",
