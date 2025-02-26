@@ -1,6 +1,6 @@
 {
   "wallpaper": "http://127.0.0.1:9978/proxy?do=wall",
-  "logo": "https://fs-im-kefu.7moor-fs1.com/ly/4d2c3f00-7d4c-11e5-af15-41bf63ae4ea0/1720314090387/ol.txt",
+  "logo": "https://raw.githubusercontent.com/amazonjdshop/tv/refs/heads/main/icon.jpeg",
   "spider": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/0224.jar",
   "lives": [
     {
@@ -13,8 +13,8 @@
   ],
   "sites": [
     {
-      "key": "0205原创",
-      "name": "美国3(按我可切换服务器)",
+      "key": "0206原创",
+      "name": "美国3(点击这里可切换服务器)",
       "type": 3,
       "api": "csp_YCyz",
       "timeout": 15,
@@ -25,8 +25,8 @@
       "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/f0223.txt"
     },
     {
-      "key": "0205csp_Gz360",
-      "name": "美国1(按我可切换服务器)",
+      "key": "0206csp_Gz360",
+      "name": "美国1(点击这里可切换服务器)",
       "type": 3,
       "api": "csp_Gz360",
       "categories": [
@@ -39,8 +39,8 @@
       ]
     },
     {
-      "key": "0205💮文采┃秒播",
-      "name": "美国2(按我可切换服务器)",
+      "key": "0206💮文采┃秒播",
+      "name": "美国2(点击这里可切换服务器)",
       "type": 3,
       "api": "csp_Jpys",
       "playerType": 2,
@@ -50,8 +50,8 @@
       "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/f0223.txt"
     },
     {
-      "key": "0205苹果",
-      "name": "美国4(按我可切换服务器)",
+      "key": "0206苹果",
+      "name": "美国4(点击这里可切换服务器)",
       "type": 3,
       "api": "csp_LiteApple",
       "searchable": 1,
@@ -60,8 +60,8 @@
       "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/f0223.txt"
     },
     {
-      "key": "0205csp_XP_nycvod",
-      "name": "美国11(按我可切换服务器)",
+      "key": "0206csp_XP_nycvod",
+      "name": "美国11(点击这里可切换服务器)",
       "type": 3,
       "api": "csp_XPathFilter",
       "searchable": 1,
@@ -71,8 +71,8 @@
       "jar": "https://raw.githubusercontent.com/amazonjdshop/tv/refs/heads/main/jar/tvbox.jar"
     },
     {
-      "key": "0205🪴木耳┃秒播",
-      "name": "美国12(按我可切换服务器)",
+      "key": "0206🪴木耳┃秒播",
+      "name": "美国12(点击这里可切换服务器)",
       "type": 1,
       "api": "https://json.heimuer.xyz/api.php/provide/vod/?ac=list",
       "searchable": 1,
