@@ -26,39 +26,7 @@
         "动漫"
       ]
     },
-    {
-      "key": "0204💮文采┃秒播",
-      "name": "美国2(微信:nytvbox2)",
-      "type": 3,
-      "api": "csp_Jpys",
-      "playerType": 2,
-      "searchable": 1,
-      "quickSearch": 1,
-      "changeable": 1,
-      "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/f0223.txt"
-    },
-    {
-      "key": "0204原创",
-      "name": "美国3(微信:nytvbox2)",
-      "type": 3,
-      "api": "csp_YCyz",
-      "timeout": 15,
-      "playerType": 1,
-      "searchable": 1,
-      "quickSearch": 1,
-      "changeable": 1,
-      "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/f0223.txt"
-    },
-    {
-      "key": "0204苹果",
-      "name": "美国4(微信:nytvbox2)",
-      "type": 3,
-      "api": "csp_LiteApple",
-      "searchable": 1,
-      "quickSearch": 1,
-      "changeable": 1,
-      "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/f0223.txt"
-    },
+
     {
       "key": "0204csp_XP_nycvod",
       "name": "美国11(微信:nytvbox2)",
