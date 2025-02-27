@@ -13,18 +13,6 @@
   ],
   "sites": [
     {
-      "key": "0208原创",
-      "name": "美国3(点击这里可切换服务器)",
-      "type": 3,
-      "api": "csp_YCyz",
-      "timeout": 15,
-      "playerType": 1,
-      "searchable": 1,
-      "quickSearch": 1,
-      "changeable": 1,
-      "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/f0223.txt"
-    },
-    {
       "key": "0208csp_Gz360",
       "name": "美国1(点击这里可切换服务器)",
       "type": 3,
@@ -37,6 +25,18 @@
         "儿童",
         "动漫"
       ]
+    },
+    {
+      "key": "0208原创",
+      "name": "美国3(点击这里可切换服务器)",
+      "type": 3,
+      "api": "csp_YCyz",
+      "timeout": 15,
+      "playerType": 1,
+      "searchable": 1,
+      "quickSearch": 1,
+      "changeable": 1,
+      "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/f0223.txt"
     },
     {
       "key": "0208💮文采┃秒播",
