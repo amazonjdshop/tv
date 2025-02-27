@@ -1,6 +1,6 @@
 {
   "wallpaper": "http://127.0.0.1:9978/proxy?do=wall",
-  "logo": "https://fs-im-kefu.7moor-fs1.com/ly/4d2c3f00-7d4c-11e5-af15-41bf63ae4ea0/1720314090387/ol.txt",
+  "logo": "https://raw.githubusercontent.com/amazonjdshop/tv/refs/heads/main/icon.jpeg",
   "spider": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/0224.jar",
   "lives": [
     {
@@ -14,7 +14,7 @@
   "sites": [
     {
       "key": "0204csp_Gz360",
-      "name": "美国1(微信:nytvbox2)",
+      "name": "美国1(点击这里可切换服务器)",
       "type": 3,
       "api": "csp_Gz360",
       "categories": [
@@ -29,7 +29,7 @@
 
     {
       "key": "0204csp_XP_nycvod",
-      "name": "美国11(微信:nytvbox2)",
+      "name": "美国11(点击这里可切换服务器)",
       "type": 3,
       "api": "csp_XPathFilter",
       "searchable": 1,
@@ -40,7 +40,7 @@
     },
     {
       "key": "0204🪴木耳┃秒播",
-      "name": "美国12(微信:nytvbox2)",
+      "name": "美国12(点击这里可切换服务器)",
       "type": 1,
       "api": "https://json.heimuer.xyz/api.php/provide/vod/?ac=list",
       "searchable": 1,
