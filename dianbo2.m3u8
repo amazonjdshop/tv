@@ -27,8 +27,41 @@
       ]
     },
     {
-      "key": "0208mozhuazy",
+      "key": "0208原创",
+      "name": "美国3(点击这里可切换服务器)",
+      "type": 3,
+      "api": "csp_YCyz",
+      "timeout": 15,
+      "playerType": 1,
+      "searchable": 1,
+      "quickSearch": 1,
+      "changeable": 1,
+      "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/f0223.txt"
+    },
+    {
+      "key": "0208💮文采┃秒播",
+      "name": "美国2(点击这里可切换服务器)",
+      "type": 3,
+      "api": "csp_Jpys",
+      "playerType": 2,
+      "searchable": 1,
+      "quickSearch": 1,
+      "changeable": 1,
+      "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/f0223.txt"
+    },
+    {
+      "key": "0208苹果",
       "name": "美国4(点击这里可切换服务器)",
+      "type": 3,
+      "api": "csp_LiteApple",
+      "searchable": 1,
+      "quickSearch": 1,
+      "changeable": 1,
+      "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/f0223.txt"
+    },
+    {
+      "key": "0208mozhuazy",
+      "name": "美国5(点击这里可切换服务器)",
       "type": 1,
       "api": "https://mozhuazy.com/api.php/provide/vod/?ac=list",
       "searchable": 1,
@@ -65,39 +98,6 @@
         "惊悚片",
         "短剧"
       ]
-    },
-    {
-      "key": "0208原创",
-      "name": "美国3(点击这里可切换服务器)",
-      "type": 3,
-      "api": "csp_YCyz",
-      "timeout": 15,
-      "playerType": 1,
-      "searchable": 1,
-      "quickSearch": 1,
-      "changeable": 1,
-      "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/f0223.txt"
-    },
-    {
-      "key": "0208💮文采┃秒播",
-      "name": "美国2(点击这里可切换服务器)",
-      "type": 3,
-      "api": "csp_Jpys",
-      "playerType": 2,
-      "searchable": 1,
-      "quickSearch": 1,
-      "changeable": 1,
-      "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/f0223.txt"
-    },
-    {
-      "key": "0208苹果",
-      "name": "美国4(点击这里可切换服务器)",
-      "type": 3,
-      "api": "csp_LiteApple",
-      "searchable": 1,
-      "quickSearch": 1,
-      "changeable": 1,
-      "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/f0223.txt"
     },
     {
       "key": "0208csp_XP_nycvod",
