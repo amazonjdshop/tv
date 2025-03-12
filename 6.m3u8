@@ -91,6 +91,37 @@
         "quickSearch": 1,
         "searchable": 1,
         "filterable": 1
+    },
+{
+        "key": "111xrbsp.com",
+        "name": "成人6(不要相信影片中的任何广告)",
+        "type": 0,
+        "api": "https://www.xrbsp.com/api/xml.php",
+        "quickSearch": 1,
+        "searchable": 1,
+        "filterable": 1
+    },
+    {
+        "key": "111gdlsp.com",
+        "name": "成人7(不要相信影片中的任何广告)",
+        "type": 0,
+        "api": "https://www.gdlsp.com/api/xml.php",
+        "quickSearch": 1,
+        "searchable": 1,
+        "filterable": 1
+    },
+    {
+        "key": "111api.maozyapi.com",
+        "name": "成人8(不要相信影片中的任何广告)",
+        "type": 1,
+        "api": "https://api.maozyapi.com/inc/apijson_vod.php",
+        "quickSearch": 1,
+        "searchable": 1,
+        "filterable": 1
     }
+
+
+
+
   ]
 }
