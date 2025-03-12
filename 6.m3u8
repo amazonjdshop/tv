@@ -18,9 +18,17 @@
     }
   ],
   "sites": [
+ {
+      "key": "111Supjav",
+      "name": "成人0(不要相信影片中的任何广告),
+      "type": 3,
+      "api": "csp_Supjav",
+      "searchable": 1,
+      "filterable": 1
+    },
     {
-      "key": "潘多拉成人（大地）1",
-      "name": "潘多拉成人（大地）11",
+      "key": "潘多拉成人（大地)",
+      "name": "潘多拉成人（大地",
       "type": 0,
       "api": "https://dadiapi.com/api.php",
       "searchable": 1,
@@ -145,6 +153,7 @@
       "searchable": 1,
       "filterable": 1
     },
+
     {
       "key": "Hanime",
       "name": "Hanime",
