@@ -73,6 +73,15 @@
             "麻豆传媒",
             "恋腿癖"
         ]
+    },
+ {
+        "key": "111msnii.com",
+        "name": "成人3(不要相信影片中的任何广告)",
+        "type": 0,
+        "api": "https://www.msnii.com/api/xml.php",
+        "quickSearch": 1,
+        "searchable": 1,
+        "filterable": 1
     }
   ]
 }
