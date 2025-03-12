@@ -19,7 +19,7 @@
   ],
   "sites": [
     {
-      "key": "111Supjav",
+      "key": "222Supjav",
       "name": "成人0(不要相信影片中的任何广告)",
       "type": 3,
       "api": "csp_Supjav",
@@ -27,7 +27,7 @@
       "filterable": 1
     },
     {
-      "key": "111Jable",
+      "key": "222Jable",
       "name": "成人1(不要相信影片中的任何广告)",
       "type": 3,
       "api": "csp_Jable",
@@ -35,7 +35,7 @@
       "filterable": 1
     },
     {
-      "key": "111潘多拉【玉兔】",
+      "key": "222潘多拉【玉兔】",
       "name": "成人2(不要相信影片中的任何广告)",
       "type": 1,
       "api": "https://apiyutu.com/api.php/provide/vod",
@@ -83,7 +83,7 @@
       ]
     },
     {
-      "key": "111msnii.com",
+      "key": "222msnii.com",
       "name": "成人3(不要相信影片中的任何广告)",
       "type": 0,
       "api": "https://www.msnii.com/api/xml.php",
@@ -92,7 +92,7 @@
       "filterable": 1
     },
     {
-      "key": "111kxgav.com",
+      "key": "222kxgav.com",
       "name": "成人5(不要相信影片中的任何广告)",
       "type": 0,
       "api": "https://www.kxgav.com/api/xml.php",
@@ -101,7 +101,7 @@
       "filterable": 1
     },
     {
-      "key": "111xrbsp.com",
+      "key": "222xrbsp.com",
       "name": "成人6(不要相信影片中的任何广告)",
       "type": 0,
       "api": "https://www.xrbsp.com/api/xml.php",
@@ -110,7 +110,7 @@
       "filterable": 1
     },
     {
-      "key": "111gdlsp.com",
+      "key": "222gdlsp.com",
       "name": "成人7(不要相信影片中的任何广告)",
       "type": 0,
       "api": "https://www.gdlsp.com/api/xml.php",
@@ -119,7 +119,7 @@
       "filterable": 1
     },
     {
-      "key": "111api.maozyapi.com",
+      "key": "222api.maozyapi.com",
       "name": "成人8(不要相信影片中的任何广告)",
       "type": 1,
       "api": "https://api.maozyapi.com/inc/apijson_vod.php",
@@ -128,7 +128,7 @@
       "filterable": 1
     },
     {
-      "key": "111lbapi9.com",
+      "key": "222lbapi9.com",
       "name": "成人11(不要相信影片中的任何广告)",
       "type": 1,
       "api": "https://lbapi9.com/api.php/provide/vod/",
@@ -137,7 +137,7 @@
       "filterable": 1
     },
     {
-      "key": "111shayuapi.com",
+      "key": "222shayuapi.com",
       "name": "成人12(不要相信影片中的任何广告)",
       "type": 1,
       "api": "https://shayuapi.com/api.php/provide/vod/",
@@ -146,7 +146,7 @@
       "filterable": 1
     },
     {
-      "key": "111api.11bat.com",
+      "key": "222api.11bat.com",
       "name": "成人13(不要相信影片中的任何广告)",
       "type": 0,
       "api": "http://api.11bat.com/api.php/provide/vod/at/xml",
@@ -155,7 +155,7 @@
       "filterable": 1
     },
     {
-      "key": "111apilj.com",
+      "key": "222apilj.com",
       "name": "成人14(不要相信影片中的任何广告)",
       "type": 1,
       "api": "http://apilj.com/api.php/provide/vod/at/json/",
@@ -164,7 +164,7 @@
       "filterable": 1
     },
     {
-      "key": "111dadiapi.com",
+      "key": "222dadiapi.com",
       "name": "成人15(不要相信影片中的任何广告)",
       "type": 0,
       "api": "http://dadiapi.com/api.php",
@@ -173,7 +173,7 @@
       "filterable": 1
     },
     {
-      "key": "111潘多拉（乐播）",
+      "key": "222潘多拉（乐播）",
       "name": "成人16(不要相信影片中的任何广告)",
       "type": 1,
       "api": "https://lbapi9.com/api.php/provide/vod/at/json/",
@@ -200,7 +200,7 @@
       ]
     },
     {
-      "key": "111潘多拉成人（大地）",
+      "key": "222潘多拉成人（大地）",
       "name": "成人17(不要相信影片中的任何广告)",
       "type": 0,
       "api": "https://dadiapi.com/api.php",
