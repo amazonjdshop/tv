@@ -1,7 +1,7 @@
 {
   "wallpaper": "http://127.0.0.1:9978/proxy?do=wall",
   "logo": "https://raw.githubusercontent.com/amazonjdshop/tv/refs/heads/main/icon.jpeg",
-  "spider": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/0224.jar",
+  "spider": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/f0318.txt",
   "lives": [
     {
       "name": "TXT",
@@ -24,7 +24,8 @@
         "海外剧",
         "儿童",
         "动漫"
-      ]
+      ],
+"jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/0224.jar"
     },
     {
       "key": "0208苹果",
