@@ -27,6 +27,22 @@
       ]
     },
     {
+      "key": "0208苹果",
+      "name": "美国4(点击这里可切换服务器)",
+      "type": 3,
+      "api": "csp_LiteApple",
+      "searchable": 1,
+      "quickSearch": 1,
+      "changeable": 1,
+      "categories": [
+        "连续剧",
+        "电影",
+        "综艺",
+        "动漫"
+      ],
+      "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/f0318.txt"
+    },
+    {
       "key": "0208原创",
       "name": "美国3(点击这里可切换服务器)",
       "type": 3,
@@ -36,7 +52,7 @@
       "searchable": 1,
       "quickSearch": 1,
       "changeable": 1,
-      "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/f0223.txt"
+      "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/f0318.txt"
     },
     {
       "key": "0208💮文采┃秒播",
@@ -47,17 +63,7 @@
       "searchable": 1,
       "quickSearch": 1,
       "changeable": 1,
-      "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/f0223.txt"
-    },
-    {
-      "key": "0208苹果",
-      "name": "美国4(点击这里可切换服务器)",
-      "type": 3,
-      "api": "csp_LiteApple",
-      "searchable": 1,
-      "quickSearch": 1,
-      "changeable": 1,
-      "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/f0223.txt"
+      "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/f0318.txt"
     },
     {
       "key": "0208mozhuazy",
