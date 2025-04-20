@@ -83,6 +83,29 @@
     },
 
     {
+      "key": "小苹果5",
+      "name": "🍎苹果┃直连55",
+      "type": 3,
+      "api": "csp_Xpg",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "timeout": 10,
+  "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/f0223.txt"
+    },
+    {
+      "key": "小苹果6",
+      "name": "🍎苹果┃直连66",
+      "type": 3,
+      "api": "csp_XpgGuard",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "timeout": 10,
+  "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/f0223.txt"
+    },
+
+    {
       "key": "0209mozhuazy",
       "name": "美国5(点击这里可切换服务器)",
       "type": 1,
