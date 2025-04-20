@@ -1,7 +1,8 @@
 {
   "wallpaper": "http://127.0.0.1:9978/proxy?do=wall",
   "logo": "https://raw.githubusercontent.com/amazonjdshop/tv/refs/heads/main/icon.jpeg",
-  "spider": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/0224.jar",
+  "spider": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/ok0420.jar",
+  "spider2": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/0224.jar",
   "lives": [
     {
       "name": "TXT",
@@ -40,7 +41,7 @@
     },
     {
       "key": "0209💮文采┃秒播",
-      "name": "美国2(点击这里可切换服务器)111",
+      "name": "美国2(点击这里可切换服务器)222",
       "type": 3,
       "api": "csp_JpysGuard",
       "playerType": 2,
