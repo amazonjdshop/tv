@@ -38,130 +38,20 @@
       "changeable": 1,
       "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/f0223.txt"
     },
-    {
-      "key": "小苹果",
-      "name": "🍎苹果┃直连",
-      "type": 3,
-      "api": "csp_Xpg",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "timeout": 10
-    },
-    {
-      "key": "小苹果2",
-      "name": "🍎苹果┃直连22",
-      "type": 3,
-      "api": "csp_XpgGuard",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "timeout": 10
-    },
-
-    {
-      "key": "小苹果3",
-      "name": "🍎苹果┃直连33",
-      "type": 3,
-      "api": "csp_Xpg",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "timeout": 10,
-  "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/ok0420.jar"
-    },
-    {
-      "key": "小苹果4",
-      "name": "🍎苹果┃直连44",
-      "type": 3,
-      "api": "csp_XpgGuard",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "timeout": 10,
-  "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/ok0420.jar"
-    },
-
-    {
-      "key": "小苹果5",
-      "name": "🍎苹果┃直连55",
-      "type": 3,
-      "api": "csp_Xpg",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "timeout": 10,
-  "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/f0223.txt"
-    },
-    {
-      "key": "小苹果6",
-      "name": "🍎苹果┃直连66",
-      "type": 3,
-      "api": "csp_XpgGuard",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "timeout": 10,
-  "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/f0223.txt"
-    },
-
 {
       "key": "荐片",
-      "name": "⚔️荐片┃手机",
+      "name": "⚔️荐片┃手机99999",
       "type": 3,
       "api": "csp_JianpianGuard",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
       "timeout": 10,
+      "header": {
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36"
+      },
 "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/ok0420.jar"
     },
-
-{
-      "key": "荐片0",
-      "name": "⚔️荐片┃手机0",
-      "type": 3,
-      "api": "csp_Jianpian",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "timeout": 10,
-"jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/ok0420.jar"
-    },
-{
-      "key": "荐片2",
-      "name": "⚔️荐片┃手机2",
-      "type": 3,
-      "api": "csp_Jianpian",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "timeout": 10
-    },
-
-{
-      "key": "荐片3",
-      "name": "⚔️荐片┃手机3",
-      "type": 3,
-      "api": "csp_JianpianGuard",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "timeout": 10,
- "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/f0223.txt"
-    },
-{
-      "key": "荐片4",
-      "name": "⚔️荐片┃手机4",
-      "type": 3,
-      "api": "csp_Jianpian",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "timeout": 10,
- "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/f0223.txt"
-    },
-
     {
       "key": "0209mozhuazy",
       "name": "美国5(点击这里可切换服务器)",
