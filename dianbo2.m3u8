@@ -13,8 +13,8 @@
   ],
   "sites": [
     {
-      "key": "0209csp_Gz360",
-      "name": "美国1✨(点击这里可切换服务器)",
+      "key": "0420csp_Gz360",
+      "name": "美国1(点击这里可切换服务器)",
       "type": 3,
       "api": "csp_Gz360",
       "categories": [
@@ -27,8 +27,8 @@
       ]
     },
     {
-      "key": "0209原创",
-      "name": "美国2✨(点击这里可切换服务器)",
+      "key": "0420原创",
+      "name": "美国2(点击这里可切换服务器)",
       "type": 3,
       "api": "csp_YCyz",
       "timeout": 10,
@@ -36,17 +36,11 @@
       "searchable": 1,
       "quickSearch": 1,
       "changeable": 1,
-      "categories": [
-        "全部",
-        "电影",
-        "电视剧",
-        "原创压制"
-      ],
       "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/f0223.txt"
     },
     {
-      "key": "0209mozhuazy",
-      "name": "美国3✨(点击这里可切换服务器)",
+      "key": "0420mozhuazy",
+      "name": "美国3(点击这里可切换服务器)",
       "type": 1,
       "api": "https://mozhuazy.com/api.php/provide/vod/?ac=list",
       "searchable": 1,
@@ -85,8 +79,8 @@
       ]
     },
     {
-      "key": "0209csp_XP_nycvod",
-      "name": "美国11✨(点击这里可切换服务器)",
+      "key": "0420csp_XP_nycvod",
+      "name": "美国11(点击这里可切换服务器)",
       "type": 3,
       "api": "csp_XPathFilter",
       "searchable": 1,
@@ -96,8 +90,8 @@
       "jar": "https://raw.githubusercontent.com/amazonjdshop/tv/refs/heads/main/jar/tvbox.jar"
     },
     {
-      "key": "0209🪴木耳┃秒播",
-      "name": "美国12✨(点击这里可切换服务器)",
+      "key": "0420🪴木耳┃秒播",
+      "name": "美国12(点击这里可切换服务器)",
       "type": 1,
       "api": "https://json.heimuer.xyz/api.php/provide/vod/?ac=list",
       "searchable": 1,
