@@ -31,11 +31,17 @@
       "name": "美国2(点击这里可切换服务器)",
       "type": 3,
       "api": "csp_YCyz",
-      "timeout": 15,
+      "timeout": 10,
       "playerType": 1,
       "searchable": 1,
       "quickSearch": 1,
       "changeable": 1,
+      "categories": [
+        "全部",
+        "电影",
+        "电视剧",
+        "原创压制"
+      ],
       "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/f0223.txt"
     },
     {
