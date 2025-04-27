@@ -17,7 +17,14 @@
       "name": "美国1✨(点击这里可切换服务器)",
       "type": 3,
       "api": "csp_Gz360",
-"playerType": 2
+"playerType": 2,
+ "categories": [
+        "短剧",
+        "国产剧",
+        "电影",
+        "综艺",
+        "动漫"
+      ]
      
     },
     {
@@ -78,15 +85,14 @@
         "短剧"
       ]
     },
-    {
-      "key": "0209荐片",
-      "name": "美国4✨(点击这里可切换服务器)",
-      "api": "csp_Jianpian",
-      "type": 3,
-      "playerType": "2",
-      "ext": "http://api2.rinhome.com",
-      "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/04.26.2025.txt"
-    },
+{
+            "key": "csp_Gz360",
+            "name": "🍉┃瓜子┃影视",
+            "type": 3,
+            "api": "csp_Gz360",
+            "playerType": 2,
+ "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/04.26.2025.txt"
+        },
     {
       "key": "0209csp_XP_nycvod",
       "name": "美国11✨(点击这里可切换服务器)",
