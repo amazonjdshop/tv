@@ -43,6 +43,15 @@
       ],
       "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/f0223.txt"
     },
+ {
+            "key": "荐片",
+            "name": "🎬┃荐片┃影视",
+            "api": "csp_Jianpian",
+            "type": 3,
+            "playerType": "2",
+            "ext": "http://api2.rinhome.com",
+ "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/04.26.2025.txt"
+        },
     
     {
       "key": "0209mozhuazy",
