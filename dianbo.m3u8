@@ -13,7 +13,21 @@
   ],
   "sites": [
 {
-      "key": "0209csp_Gz360",
+      "key": "0427hrok",
+      "name": "美国0✨(点击这里可切换服务器)",
+      "type": 1,
+      "api": "https://huaren.live/api.php/tvbox",
+      "playUrl": "json:https://parse.okhuaren.com/?url=",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "header": {
+        "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36",
+        "Referer": "test"
+      }
+    },
+{
+      "key": "0427csp_Gz360",
       "name": "美国1✨(点击这里可切换服务器)",
       "type": 3,
       "api": "csp_Gz360",
