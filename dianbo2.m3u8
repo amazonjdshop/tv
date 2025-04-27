@@ -12,37 +12,36 @@
     }
   ],
   "sites": [
-{
-"key": "0209hrok",
-"name": "美国0✨(点击这里可切换服务器)",
-"type": 1,
-"api": "https://huaren.live/api.php/tvbox",
-"playUrl": "json:https://parse.okhuaren.com/?url=",
-"searchable": 1,
-"quickSearch": 1,
-"filterable": 1,
-"header": {
-"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36",
-"Referer": "test"
-}
-},
     {
-      "key": "0209csp_Gz360",
+      "key": "0427hrok",
+      "name": "美国0✨(点击这里可切换服务器)",
+      "type": 1,
+      "api": "https://huaren.live/api.php/tvbox",
+      "playUrl": "json:https://parse.okhuaren.com/?url=",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "header": {
+        "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36",
+        "Referer": "test"
+      }
+    },
+    {
+      "key": "0427csp_Gz360",
       "name": "美国1✨(点击这里可切换服务器)",
       "type": 3,
       "api": "csp_Gz360",
-"playerType": 2,
- "categories": [
+      "playerType": 2,
+      "categories": [
         "短剧",
         "国产剧",
         "电影",
         "综艺",
         "动漫"
       ]
-     
     },
     {
-      "key": "0209原创",
+      "key": "0427原创",
       "name": "美国2✨(点击这里可切换服务器)",
       "type": 3,
       "api": "csp_YCyz",
@@ -60,7 +59,7 @@
       "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/f0223.txt"
     },
     {
-      "key": "0209mozhuazy",
+      "key": "0427mozhuazy",
       "name": "美国3✨(点击这里可切换服务器)",
       "type": 1,
       "api": "https://mozhuazy.com/api.php/provide/vod/?ac=list",
@@ -99,9 +98,8 @@
         "短剧"
       ]
     },
-
     {
-      "key": "0209csp_XP_nycvod",
+      "key": "0427csp_XP_nycvod",
       "name": "美国11✨(点击这里可切换服务器)",
       "type": 3,
       "api": "csp_XPathFilter",
@@ -119,7 +117,7 @@
       ]
     },
     {
-      "key": "0209🪴木耳┃秒播",
+      "key": "0427🪴木耳┃秒播",
       "name": "美国12✨(点击这里可切换服务器)",
       "type": 1,
       "api": "https://json.heimuer.xyz/api.php/provide/vod/?ac=list",
