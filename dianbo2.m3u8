@@ -43,16 +43,6 @@
       ],
       "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/f0223.txt"
     },
- {
-            "key": "荐片",
-            "name": "🎬┃荐片┃影视",
-            "api": "csp_Jianpian",
-            "type": 3,
-            "playerType": "2",
-            "ext": "http://api2.rinhome.com",
- "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/04.26.2025.txt"
-        },
-    
     {
       "key": "0209mozhuazy",
       "name": "美国3✨(点击这里可切换服务器)",
@@ -94,6 +84,15 @@
       ]
     },
     {
+      "key": "0209荐片",
+      "name": "美国4✨(点击这里可切换服务器)",
+      "api": "csp_Jianpian",
+      "type": 3,
+      "playerType": "2",
+      "ext": "http://api2.rinhome.com",
+      "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/04.26.2025.txt"
+    },
+    {
       "key": "0209csp_XP_nycvod",
       "name": "美国11✨(点击这里可切换服务器)",
       "type": 3,
@@ -102,7 +101,14 @@
       "quickSearch": 1,
       "filterable": 1,
       "ext": "./ny3.json",
-      "jar": "https://raw.githubusercontent.com/amazonjdshop/tv/refs/heads/main/jar/tvbox.jar"
+      "jar": "https://raw.githubusercontent.com/amazonjdshop/tv/refs/heads/main/jar/tvbox.jar",
+      "categories": [
+        "短剧",
+        "电影",
+        "连续剧",
+        "综艺",
+        "动漫"
+      ]
     },
     {
       "key": "0209🪴木耳┃秒播",
