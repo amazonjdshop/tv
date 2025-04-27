@@ -12,6 +12,20 @@
     }
   ],
   "sites": [
+{
+"key": "0209hrok",
+"name": "美国0✨(点击这里可切换服务器)",
+"type": 1,
+"api": "https://huaren.live/api.php/tvbox",
+"playUrl": "json:https://parse.okhuaren.com/?url=",
+"searchable": 1,
+"quickSearch": 1,
+"filterable": 1,
+"header": {
+"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36",
+"Referer": "test"
+}
+},
     {
       "key": "0209csp_Gz360",
       "name": "美国1✨(点击这里可切换服务器)",
@@ -85,21 +99,6 @@
         "短剧"
       ]
     },
-{
-"key": "huarenoktv",
-"name": "🥇｜华人OK｜藍光◎秒播(無廣告)",
-"type": 1,
-"api": "https://huaren.live/api.php/tvbox",
-"playUrl": "json:https://parse.okhuaren.com/?url=",
-"jar": "./jar/custom_spider.jar;md5;5e53c8f9ddd4ede5359c16bee091db93",
-"searchable": 1,
-"quickSearch": 1,
-"filterable": 1,
-"header": {
-"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36",
-"Referer": "test"
-}
-},
 
     {
       "key": "0209csp_XP_nycvod",
