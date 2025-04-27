@@ -85,13 +85,20 @@
         "短剧"
       ]
     },
-
 {
-"key": "csp_Gz360",
-"name": "🥇｜瓜子2｜",
-"type": 3,
-"jar": "https://raw.githubusercontent.com/fastbuild7099/fastbuild7099/refs/heads/main/jar1/mi-0319.jar;md5;b73ed98a0a285189794be3c8d9c3a335",
-"api": "csp_Gz360Guard"
+"key": "huarenoktv",
+"name": "🥇｜华人OK｜藍光◎秒播(無廣告)",
+"type": 1,
+"api": "https://huaren.live/api.php/tvbox",
+"playUrl": "json:https://parse.okhuaren.com/?url=",
+"jar": "./jar/custom_spider.jar;md5;5e53c8f9ddd4ede5359c16bee091db93",
+"searchable": 1,
+"quickSearch": 1,
+"filterable": 1,
+"header": {
+"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36",
+"Referer": "test"
+}
 },
 
     {
