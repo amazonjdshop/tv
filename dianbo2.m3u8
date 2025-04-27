@@ -85,17 +85,15 @@
         "短剧"
       ]
     },
-{
-            "key": "csp_Gz360",
-            "name": "🍉┃瓜子┃影视",
-            "type": 3,
-            "api": "csp_Gz360",
-            "playerType": 2,
- "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/04.26.2025.txt"
-        },
 
-{"key":"瓜子","name":"🍉瓜子","type":3,"api":"csp_Gz360","jar":"https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/Yoursmile.jar;md5;64ECBF2910590EA19DAF3A7ECDEC1D5A","searchable":1,"quickSearch":1,"filterable":1},
-{"key":"csp_Nongm","name":"👩‍🌾农民","type":3,"api":"csp_Nongm","jar":"https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/Yoursmile.jar;","searchable":1,"quickSearch":1,"filterable":1,"ext":"https://wwgz.cn"},
+{
+"key": "csp_Gz360",
+"name": "🥇｜瓜子2｜",
+"type": 3,
+"jar": "https://raw.githubusercontent.com/fastbuild7099/fastbuild7099/refs/heads/main/jar1/mi-0319.jar;md5;b73ed98a0a285189794be3c8d9c3a335",
+"api": "csp_Gz360Guard"
+},
+
     {
       "key": "0209csp_XP_nycvod",
       "name": "美国11✨(点击这里可切换服务器)",
