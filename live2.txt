@@ -32,7 +32,7 @@ CCTV-16奥林匹克,https://orgcc.chenggongjiaxiao.xyz/livetv/hlcc/McNJgw7Hg/McN
 兵团卫视,https://liveout.btzx.com.cn/62ds9e/yil08g.m3u8
 安多卫视,https://livecdn.dmqhyadmin.com/hls/xjmenyuan.m3u8
 
-体育频道 (英文)
+体育频道 (英文),#genre#
 TNT SPORTS,https://turnerlive.warnermediacdn.com/hls/live/2023168/tnteast/slate/VIDEO_0_3564000.m3u8
 ESPN,http://41.205.93.154/ESPN/tracks-v1a1/mono.m3u8
 BOXING TV,https://d35j504z0x2vu2.cloudfront.net/v1/master/0bc8e8376bd8417a1b6761138aa41c26c7309312/boxing-tv/BOXINGTV_SCTE.m3u8
@@ -345,7 +345,9 @@ OutsideTV,https://livetv-fa.tubi.video/outsidetv2/playlist.m3u8
 
 
 ⚾️体育列表,#genre#
-NBA,https://yunmei.tv/nba/nba-tv.m3u8
+NBA TV,https://fl2.moveonjoy.com/NBA_TV/tracks-v1a1/mono.ts.m3u8
+NBA TV,https://fl2.moveonjoy.com/NBA_TV/index.m3u8
+NBA TV,http://212.102.60.231/NBA_TV/tracks-v1a1/mono.ts.m3u8
 ESPN,http://41.205.93.154/ESPN/tracks-v1a1/mono.m3u8
 TNT,https://turnerlive.warnermediacdn.com/hls/live/2023168/tnteast/slate/VIDEO_0_3564000.m3u8
 NFL Network,https://fl2.moveonjoy.com/NFL_NETWORK/tracks-v1a1/mono.ts.m3u8
