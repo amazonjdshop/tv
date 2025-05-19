@@ -12,55 +12,29 @@
     }
   ],
   "sites": [
+
     {
-      "key": "0427hrok",
+      "key": "0519csp_XP_nycvod",
       "name": "美国0✨(点击这里可切换服务器)",
-      "type": 1,
-      "api": "https://huaren.live/api.php/tvbox",
-      "playUrl": "json:https://parse.okhuaren.com/?url=",
+      "type": 3,
+      "api": "csp_XPathFilter",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
-      "header": {
-        "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36",
-        "Referer": "test"
-      }
-    },
-    {
-      "key": "0427csp_Gz360",
-      "name": "美国1✨(点击这里可切换服务器)",
-      "type": 3,
-      "api": "csp_Gz360",
-      "playerType": 2,
+      "ext": "./ny3.json",
+      "jar": "https://raw.githubusercontent.com/amazonjdshop/tv/refs/heads/main/jar/tvbox.jar",
       "categories": [
         "短剧",
-        "国产剧",
         "电影",
+        "连续剧",
         "综艺",
         "动漫"
       ]
     },
+
     {
-      "key": "0427原创",
-      "name": "美国2✨(点击这里可切换服务器)",
-      "type": 3,
-      "api": "csp_YCyz",
-      "timeout": 10,
-      "playerType": 1,
-      "searchable": 1,
-      "quickSearch": 1,
-      "changeable": 1,
-      "categories": [
-        "全部",
-        "电影",
-        "电视剧",
-        "原创压制"
-      ],
-      "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/f0223.txt"
-    },
-    {
-      "key": "0427mozhuazy",
-      "name": "美国3✨(点击这里可切换服务器)",
+      "key": "0519mozhuazy",
+      "name": "美国1✨(点击这里可切换服务器)",
       "type": 1,
       "api": "https://mozhuazy.com/api.php/provide/vod/?ac=list",
       "searchable": 1,
@@ -99,26 +73,8 @@
       ]
     },
     {
-      "key": "0427csp_XP_nycvod",
-      "name": "美国11✨(点击这里可切换服务器)",
-      "type": 3,
-      "api": "csp_XPathFilter",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "ext": "./ny3.json",
-      "jar": "https://raw.githubusercontent.com/amazonjdshop/tv/refs/heads/main/jar/tvbox.jar",
-      "categories": [
-        "短剧",
-        "电影",
-        "连续剧",
-        "综艺",
-        "动漫"
-      ]
-    },
-    {
-      "key": "0427🪴木耳┃秒播",
-      "name": "美国12✨(点击这里可切换服务器)",
+      "key": "0519🪴木耳┃秒播",
+      "name": "美国2✨(点击这里可切换服务器)",
       "type": 1,
       "api": "https://json.heimuer.xyz/api.php/provide/vod/?ac=list",
       "searchable": 1,
