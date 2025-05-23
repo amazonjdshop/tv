@@ -13,7 +13,7 @@
   ],
   "sites": [
     {
-      "key": "0520wolong",
+      "key": "0522wolong",
       "name": "美国0✨(点击这里可切换服务器)",
       "type": 1,
       "api": "https://collect.wolongzy.cc/api.php/provide/vod/?ac=list",
@@ -60,7 +60,7 @@
       "timeout": 20
     },
     {
-      "key": "0520csp_XP_nycvod",
+      "key": "0522csp_XP_nycvod",
       "name": "美国1✨(点击这里可切换服务器)",
       "type": 3,
       "api": "csp_XPathFilter",
@@ -78,7 +78,7 @@
       ]
     },
     {
-      "key": "0520mozhuazy",
+      "key": "0522mozhuazy",
       "name": "美国2✨(点击这里可切换服务器)",
       "type": 1,
       "api": "https://mozhuazy.com/api.php/provide/vod/?ac=list",
@@ -118,7 +118,7 @@
       ]
     },
     {
-      "key": "0520🪴木耳┃秒播",
+      "key": "0522🪴木耳┃秒播",
       "name": "美国3✨(点击这里可切换服务器)",
       "type": 1,
       "api": "https://json.heimuer.xyz/api.php/provide/vod/?ac=list",
