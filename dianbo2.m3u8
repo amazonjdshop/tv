@@ -12,7 +12,6 @@
     }
   ],
   "sites": [
-
     {
       "key": "0519csp_XP_nycvod",
       "name": "美国0✨(点击这里可切换服务器)",
@@ -31,7 +30,6 @@
         "动漫"
       ]
     },
-
     {
       "key": "0519mozhuazy",
       "name": "美国1✨(点击这里可切换服务器)",
@@ -135,8 +133,7 @@
         "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36"
       }
     },
-
-{
+    {
       "key": "YGP",
       "name": "🚀叨观荐影┃预告片",
       "type": 3,
@@ -503,9 +500,6 @@
       "ext": {
         "json": "https://im.feelec.com.cn/res/file.html?id=2c9a91099584ed490195f7bf50ac60b9"
       }
-}
-
-
-
+    }
   ]
 }
