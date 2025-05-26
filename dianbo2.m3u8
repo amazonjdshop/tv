@@ -2,16 +2,6 @@
   "spider": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/f0518.txt",
   "wallpaper": "https://深色壁纸.xxooo.cf/",
   "sites": [
-
-{
-"key": "csp_Gz360",
-"name": "美国X🍉┃瓜子┃影视",
-"type": 3,
-"api": "csp_Gz360",
-"playerType": 2,
- "jar": "https://github.com/MemoryCollection/IPTV/raw/refs/heads/main/api/spider.jar"
-},
-
     {
       "key": "0528csp_XP_nycvod",
       "name": "美国1✨(点击这里可切换服务器:请勿相信视频中广告)",
@@ -29,6 +19,14 @@
         "综艺",
         "动漫"
       ]
+    },
+    {
+      "key": "0528csp_Gz360",
+      "name": "美国X✨(点击这里可切换服务器:请勿相信视频中广告)",
+      "type": 3,
+      "api": "csp_Gz360",
+      "playerType": 2,
+      "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/spider05262025.jar"
     },
     {
       "key": "0528wolong",
