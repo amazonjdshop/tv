@@ -19,26 +19,8 @@
   ],
   "sites": [
     {
-      "key": "J91",
-      "name": "🔞 91 | 珍惜",
-      "type": 3,
-      "api": "csp_J91",
-      "searchable": 1,
-      "filterable": 1,
-      "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/66spider.jar"
-    },
-    {
-      "key": "Cg51",
-      "name": "🔞 51吃瓜 | 图密√",
-      "type": 3,
-      "api": "csp_Cg51",
-      "searchable": 1,
-      "filterable": 1,
-      "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/66spider.jar"
-    },
-    {
-      "key": "MiMei",
-      "name": "🔞 迷妹 | 珍惜",
+      "key": "0526MiMei",
+      "name": "🔞 迷妹",
       "type": 3,
       "api": "csp_MiMei",
       "searchable": 1,
@@ -46,7 +28,7 @@
       "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/66spider.jar"
     },
     {
-      "key": "Jabel",
+      "key": "0526Jabel",
       "name": "🔞 Jabel",
       "type": 3,
       "api": "csp_Jable",
@@ -55,7 +37,7 @@
       "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/66spider.jar"
     },
     {
-      "key": "csp_Ikanbot",
+      "key": "0526csp_Ikanbot",
       "name": "🔞 Ikanbot",
       "type": 3,
       "api": "csp_Ikanbot",
@@ -64,7 +46,7 @@
       "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/66spider.jar"
     },
     {
-      "key": "csp_XMVideo",
+      "key": "0526csp_XMVideo",
       "name": "🔞 XMVideo",
       "type": 3,
       "api": "csp_XMVideo",
@@ -73,7 +55,16 @@
       "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/66spider.jar"
     },
     {
-      "key": "333msnii.com",
+      "key": "0526Cg51",
+      "name": "🔞 51吃瓜",
+      "type": 3,
+      "api": "csp_Cg51",
+      "searchable": 1,
+      "filterable": 1,
+      "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/66spider.jar"
+    },
+    {
+      "key": "0526msnii.com",
       "name": "成人3(不要相信影片中的任何广告)",
       "type": 0,
       "api": "https://www.msnii.com/api/xml.php",
@@ -82,7 +73,7 @@
       "filterable": 1
     },
     {
-      "key": "333Supjav",
+      "key": "0526Supjav",
       "name": "成人0(不要相信影片中的任何广告)",
       "type": 3,
       "api": "csp_Supjav",
@@ -90,7 +81,7 @@
       "filterable": 1
     },
     {
-      "key": "333Jable",
+      "key": "0526Jable",
       "name": "成人1(不要相信影片中的任何广告)",
       "type": 3,
       "api": "csp_Jable",
@@ -98,7 +89,7 @@
       "filterable": 1
     },
     {
-      "key": "333潘多拉【玉兔】",
+      "key": "0526潘多拉【玉兔】",
       "name": "成人2(不要相信影片中的任何广告)",
       "type": 1,
       "api": "https://apiyutu.com/api.php/provide/vod",
@@ -146,7 +137,7 @@
       ]
     },
     {
-      "key": "333kxgav.com",
+      "key": "0526kxgav.com",
       "name": "成人5(不要相信影片中的任何广告)",
       "type": 0,
       "api": "https://www.kxgav.com/api/xml.php",
@@ -155,7 +146,7 @@
       "filterable": 1
     },
     {
-      "key": "333xrbsp.com",
+      "key": "0526xrbsp.com",
       "name": "成人6(不要相信影片中的任何广告)",
       "type": 0,
       "api": "https://www.xrbsp.com/api/xml.php",
@@ -164,7 +155,7 @@
       "filterable": 1
     },
     {
-      "key": "333gdlsp.com",
+      "key": "0526gdlsp.com",
       "name": "成人7(不要相信影片中的任何广告)",
       "type": 0,
       "api": "https://www.gdlsp.com/api/xml.php",
@@ -173,7 +164,7 @@
       "filterable": 1
     },
     {
-      "key": "333api.maozyapi.com",
+      "key": "0526api.maozyapi.com",
       "name": "成人8(不要相信影片中的任何广告)",
       "type": 1,
       "api": "https://api.maozyapi.com/inc/apijson_vod.php",
@@ -182,7 +173,7 @@
       "filterable": 1
     },
     {
-      "key": "333lbapi9.com",
+      "key": "0526lbapi9.com",
       "name": "成人11(不要相信影片中的任何广告)",
       "type": 1,
       "api": "https://lbapi9.com/api.php/provide/vod/",
@@ -191,7 +182,7 @@
       "filterable": 1
     },
     {
-      "key": "333shayuapi.com",
+      "key": "0526shayuapi.com",
       "name": "成人12(不要相信影片中的任何广告)",
       "type": 1,
       "api": "https://shayuapi.com/api.php/provide/vod/",
@@ -200,7 +191,7 @@
       "filterable": 1
     },
     {
-      "key": "333api.11bat.com",
+      "key": "0526api.11bat.com",
       "name": "成人13(不要相信影片中的任何广告)",
       "type": 0,
       "api": "http://api.11bat.com/api.php/provide/vod/at/xml",
@@ -209,7 +200,7 @@
       "filterable": 1
     },
     {
-      "key": "333apilj.com",
+      "key": "0526apilj.com",
       "name": "成人14(不要相信影片中的任何广告)",
       "type": 1,
       "api": "http://apilj.com/api.php/provide/vod/at/json/",
@@ -218,7 +209,7 @@
       "filterable": 1
     },
     {
-      "key": "333dadiapi.com",
+      "key": "0526dadiapi.com",
       "name": "成人15(不要相信影片中的任何广告)",
       "type": 0,
       "api": "http://dadiapi.com/api.php",
@@ -227,7 +218,7 @@
       "filterable": 1
     },
     {
-      "key": "333潘多拉（乐播）",
+      "key": "0526潘多拉（乐播）",
       "name": "成人16(不要相信影片中的任何广告)",
       "type": 1,
       "api": "https://lbapi9.com/api.php/provide/vod/at/json/",
@@ -254,7 +245,7 @@
       ]
     },
     {
-      "key": "333潘多拉成人（大地）",
+      "key": "0526潘多拉成人（大地）",
       "name": "成人17(不要相信影片中的任何广告)",
       "type": 0,
       "api": "https://dadiapi.com/api.php",
