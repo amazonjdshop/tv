@@ -3,14 +3,7 @@
   "wallpaper": "https://深色壁纸.xxooo.cf/",
   "sites": [
     {
-      "key": "0528csp_Gz360",
-      "name": "美国0✨(点击这里可切换服务器:请勿相信视频中广告)",
-      "type": 3,
-      "api": "csp_Gz360",
-      "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/0224.jar"
-    },
-    {
-      "key": "0528csp_XP_nycvod",
+      "key": "0529csp_XP_nycvod",
       "name": "美国1✨(点击这里可切换服务器:请勿相信视频中广告)",
       "type": 3,
       "api": "csp_XPathFilter",
@@ -28,7 +21,14 @@
       ]
     },
     {
-      "key": "0528csp_Gz360",
+      "key": "0529csp_Gz360",
+      "name": "美国0✨(点击这里可切换服务器:请勿相信视频中广告)",
+      "type": 3,
+      "api": "csp_Gz360",
+      "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/0224.jar"
+    },
+    {
+      "key": "0529csp_Gz360",
       "name": "美国2✨(点击这里可切换服务器:请勿相信视频中广告)",
       "type": 3,
       "api": "csp_Gz360",
@@ -36,7 +36,7 @@
       "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/spider05262025.jar"
     },
     {
-      "key": "0528wolong",
+      "key": "0529wolong",
       "name": "美国3✨(点击这里可切换服务器:请勿相信视频中广告)",
       "type": 1,
       "api": "https://collect.wolongzy.cc/api.php/provide/vod/?ac=list",
@@ -82,7 +82,7 @@
       "timeout": 20
     },
     {
-      "key": "0528mozhuazy",
+      "key": "0529mozhuazy",
       "name": "美国4✨(点击这里可切换服务器:请勿相信视频中广告)",
       "type": 1,
       "api": "https://mozhuazy.com/api.php/provide/vod/?ac=list",
@@ -122,7 +122,7 @@
       ]
     },
     {
-      "key": "0528🪴木耳┃秒播",
+      "key": "0529🪴木耳┃秒播",
       "name": "美国5✨(点击这里可切换服务器:请勿相信视频中广告)",
       "type": 1,
       "api": "https://json.heimuer.xyz/api.php/provide/vod/?ac=list",
