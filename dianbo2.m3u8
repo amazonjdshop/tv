@@ -9,7 +9,18 @@
 		"api": "csp_Douban",
 "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/ou52.jar",
 		"searchable": 0
-	}, 
+	},
+
+  {
+      "key": "py_网飞猫",
+      "name": "py_网飞猫┃繁华影视📽️",
+      "type": 3,
+      "changeable": 1,
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "api": "https://raw.githubusercontent.com/amazonjdshop/tv/refs/heads/main/jar/%E7%BD%91%E9%A3%9E%E7%8C%AB.py"
+    },
 
 
     {
