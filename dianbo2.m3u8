@@ -2,6 +2,16 @@
   "spider": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/f0518.txt",
   "wallpaper": "https://深色壁纸.xxooo.cf/",
   "sites": [
+ {
+		"key": "0529全聚集✨(点击这里可切换服务器:请勿相信视频中广告)",
+		"name": "📢🔥祥蛇献瑞，诸事皆顺，平安喜乐，福寿双全。",
+		"type": 3,
+		"api": "csp_Douban",
+"jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/ou52.jar",
+		"searchable": 0
+	}, 
+
+
     {
       "key": "0529csp_XP_nycvod",
       "name": "美国1✨(点击这里可切换服务器:请勿相信视频中广告)",
@@ -25,15 +35,7 @@
       "name": "美国0✨(点击这里可切换服务器:请勿相信视频中广告)",
       "type": 3,
       "api": "csp_Gz360",
-      "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/0224.jar"
-    },
-    {
-      "key": "0529csp_Gz360",
-      "name": "美国2✨(点击这里可切换服务器:请勿相信视频中广告)",
-      "type": 3,
-      "api": "csp_Gz360",
-      "playerType": 2,
-      "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/spider05262025.jar"
+      "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/ou52.jar"
     },
     {
       "key": "0529wolong",
