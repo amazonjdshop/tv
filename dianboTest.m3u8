@@ -1,7 +1,7 @@
 {
   "wallpaper": "http://127.0.0.1:9978/proxy?do=wall",
   "logo": "https://raw.githubusercontent.com/amazonjdshop/tv/refs/heads/main/icon.jpeg",
-  "spider": "https://github.com/bizhangjie/CatVodSpider/raw/refs/heads/main/jar/custom_spider.jar",
+  "spider": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/66spider.jar",
   "lives": [
     {
       "name": "TXT",
@@ -13,16 +13,108 @@
   ],
   "sites": [
     {
-      "key": "0208csp_Gz360",
-      "name": "美国1(点击这里可切换服务器)",
+      "key": "J91",
+      "name": "🔞 91 | 珍惜",
       "type": 3,
-      "api": "csp_Cg51"
+      "api": "csp_J91",
+      "searchable": 1,
+      "filterable": 1
     },
- {
-      "key": "0208csp_Gz360",
-      "name": "美国1(点击这里可切换服务器)",
+    {
+      "key": "Cg51",
+      "name": "🔞 51吃瓜 | 图密√",
       "type": 3,
-      "api": "csp_J91"
+      "api": "csp_Cg51",
+      "searchable": 1,
+      "filterable": 1
+    },
+    {
+      "key": "Jabel",
+      "name": "🔞 Jabel",
+      "type": 3,
+      "api": "csp_Jable",
+      "searchable": 1,
+      "filterable": 1
+    },
+
+    {
+      "key": "csp_Ikanbot",
+      "name": "🔞 Ikanbot",
+      "type": 3,
+      "api": "csp_Ikanbot",
+      "searchable": 1,
+      "filterable": 1
+    },
+    {
+      "key": "csp_W55Movie",
+      "name": "🔞 csp_W55Movie",
+      "type": 3,
+      "api": "csp_W55Movie",
+      "searchable": 1,
+      "filterable": 1
+    },
+
+    {
+      "key": "csp_CaoLiu",
+      "name": "🔞 csp_CaoLiu",
+      "type": 3,
+      "api": "csp_CaoLiu",
+      "searchable": 1,
+      "filterable": 1
+    },
+
+    {
+      "key": "csp_DaGongRen",
+      "name": "🔞 csp_DaGongRen",
+      "type": 3,
+      "api": "csp_DaGongRen",
+      "searchable": 1,
+      "filterable": 1
+    },
+
+    {
+      "key": "csp_HkTv",
+      "name": "🔞 csp_HkTv",
+      "type": 3,
+      "api": "csp_HkTv",
+      "searchable": 1,
+      "filterable": 1
+    },
+
+    {
+      "key": "csp_XMVideo",
+      "name": "🔞 csp_XMVideo",
+      "type": 3,
+      "api": "csp_XMVideo",
+      "searchable": 1,
+      "filterable": 1
+    },
+
+    {
+      "key": "csp_NCat",
+      "name": "🔞 csp_NCat",
+      "type": 3,
+      "api": "csp_NCat",
+      "searchable": 1,
+      "filterable": 1
+    },
+
+
+    {
+      "key": "MiMei",
+      "name": "🔞 迷妹 | 珍惜",
+      "type": 3,
+      "api": "csp_MiMei",
+      "searchable": 1,
+      "filterable": 1
+    },
+    {
+      "key": "HiPianZhiBo",
+      "name": "🔞 嗨片直播 | 视频",
+      "type": 3,
+      "api": "csp_HiPianZhiBo",
+      "searchable": 1,
+      "filterable": 1
     }
   ]
 }
