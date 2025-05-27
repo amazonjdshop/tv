@@ -3,6 +3,42 @@
   "wallpaper": "https://深色壁纸.xxooo.cf/",
   "sites": [
     {
+      "key": "0529全聚集✨(点击这里可切换服务器:请勿相信视频中广告)",
+      "name": "美国X✨(点击这里可切换服务器:请勿相信视频中广告)",
+      "type": 3,
+      "api": "csp_Douban",
+      "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/ou52.jar",
+      "searchable": 0
+    },
+    {
+      "key": "0529csp_Gz360",
+      "name": "美国0✨(点击这里可切换服务器:请勿相信视频中广告)",
+      "type": 3,
+      "api": "csp_Gz360",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/ou52.jar"
+    },
+    {
+      "key": "0529csp_Gz360",
+      "name": "美国7✨(点击这里可切换服务器:请勿相信视频中广告)",
+      "type": 3,
+      "api": "csp_Gz360",
+      "playerType": 2,
+      "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/spider05262025.jar"
+    },
+    {
+      "key": "0529py_网飞猫",
+      "name": "美国6✨(点击这里可切换服务器:请勿相信视频中广告)",
+      "type": 3,
+      "changeable": 1,
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "api": "https://raw.githubusercontent.com/amazonjdshop/tv/refs/heads/main/jar/%E7%BD%91%E9%A3%9E%E7%8C%AB.py"
+    },
+    {
       "key": "0529csp_XP_nycvod",
       "name": "美国1✨(点击这里可切换服务器:请勿相信视频中广告)",
       "type": 3,
@@ -19,21 +55,6 @@
         "综艺",
         "动漫"
       ]
-    },
-    {
-      "key": "0529csp_Gz360",
-      "name": "美国0✨(点击这里可切换服务器:请勿相信视频中广告)",
-      "type": 3,
-      "api": "csp_Gz360",
-      "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/0224.jar"
-    },
-    {
-      "key": "0529csp_Gz360",
-      "name": "美国2✨(点击这里可切换服务器:请勿相信视频中广告)",
-      "type": 3,
-      "api": "csp_Gz360",
-      "playerType": 2,
-      "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/spider05262025.jar"
     },
     {
       "key": "0529wolong",
@@ -180,7 +201,25 @@
         "国产动漫",
         "港台动漫"
       ]
-    }
+    },
+    {
+      "key": "0529csp_Gz360",
+      "name": "美国8✨(点击这里可切换服务器:请勿相信视频中广告)",
+      "type": 3,
+      "api": "csp_Gz360",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/spider05262025.jar"
+    },
+    {
+      "key": "0529csp_Gz360",
+      "name": "美国9✨(点击这里可切换服务器:请勿相信视频中广告)",
+      "type": 3,
+      "api": "csp_Gz360",
+      "playerType": 2,
+      "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/ou52.jar"
+    },
   ],
   "logo": "https://cdn.wmpvp.com/steamWeb/B96F868DE45B45D690B5F9F490D0BC60-1745866248445.gif"
 }
