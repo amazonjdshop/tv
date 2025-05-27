@@ -2,34 +2,31 @@
   "spider": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/f0518.txt",
   "wallpaper": "https://深色壁纸.xxooo.cf/",
   "sites": [
- {
-		"key": "0529全聚集✨(点击这里可切换服务器:请勿相信视频中广告)",
-		"name": "📢🔥祥蛇献瑞，诸事皆顺，平安喜乐，福寿双全。",
-		"type": 3,
-		"api": "csp_Douban",
-"jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/ou52.jar",
-		"searchable": 0
-	},
-
-  {
-      "key": "py_网飞猫",
-      "name": "py_网飞猫┃繁华影视📽️",
+    {
+      "key": "0529全聚集✨(点击这里可切换服务器:请勿相信视频中广告)",
+      "name": "美国X✨(点击这里可切换服务器:请勿相信视频中广告)",
       "type": 3,
-      "changeable": 1,
+      "api": "csp_Douban",
+      "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/ou52.jar",
+      "searchable": 0
+    },
+    {
+      "key": "0529csp_Gz360",
+      "name": "美国0✨(点击这里可切换服务器:请勿相信视频中广告)",
+      "type": 3,
+      "api": "csp_Gz360",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
-      "api": "https://raw.githubusercontent.com/amazonjdshop/tv/refs/heads/main/jar/%E7%BD%91%E9%A3%9E%E7%8C%AB.py"
+      "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/ou52.jar"
     },
-
-
     {
       "key": "0529csp_XP_nycvod",
       "name": "美国1✨(点击这里可切换服务器:请勿相信视频中广告)",
       "type": 3,
       "api": "csp_XPathFilter",
-      "searchable": 1,
-      "quickSearch": 1,
+      "searchable": 0,
+      "quickSearch": 0,
       "filterable": 1,
       "ext": "./ny3.json",
       "jar": "https://raw.githubusercontent.com/amazonjdshop/tv/refs/heads/main/jar/tvbox.jar",
@@ -42,18 +39,11 @@
       ]
     },
     {
-      "key": "0529csp_Gz360",
-      "name": "美国0✨(点击这里可切换服务器:请勿相信视频中广告)",
-      "type": 3,
-      "api": "csp_Gz360",
-      "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/ou52.jar"
-    },
-    {
       "key": "0529wolong",
       "name": "美国3✨(点击这里可切换服务器:请勿相信视频中广告)",
       "type": 1,
       "api": "https://collect.wolongzy.cc/api.php/provide/vod/?ac=list",
-      "searchable": 1,
+      "searchable": 0,
       "filterable": 1,
       "changeable": 1,
       "categories": [
@@ -99,7 +89,7 @@
       "name": "美国4✨(点击这里可切换服务器:请勿相信视频中广告)",
       "type": 1,
       "api": "https://mozhuazy.com/api.php/provide/vod/?ac=list",
-      "searchable": 1,
+      "searchable": 0,
       "filterable": 1,
       "changeable": 1,
       "timeout": 20,
@@ -139,7 +129,7 @@
       "name": "美国5✨(点击这里可切换服务器:请勿相信视频中广告)",
       "type": 1,
       "api": "https://json.heimuer.xyz/api.php/provide/vod/?ac=list",
-      "searchable": 1,
+      "searchable": 0,
       "filterable": 1,
       "changeable": 1,
       "timeout": 20,
@@ -193,6 +183,16 @@
         "国产动漫",
         "港台动漫"
       ]
+    },
+    {
+      "key": "py_网飞猫",
+      "name": "美国6✨(点击这里可切换服务器:请勿相信视频中广告)",
+      "type": 3,
+      "changeable": 1,
+      "searchable": 0,
+      "quickSearch": 0,
+      "filterable": 1,
+      "api": "https://raw.githubusercontent.com/amazonjdshop/tv/refs/heads/main/jar/%E7%BD%91%E9%A3%9E%E7%8C%AB.py"
     }
   ],
   "logo": "https://cdn.wmpvp.com/steamWeb/B96F868DE45B45D690B5F9F490D0BC60-1745866248445.gif"
