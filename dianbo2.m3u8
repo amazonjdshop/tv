@@ -21,12 +21,22 @@
       "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/ou52.jar"
     },
     {
+      "key": "py_网飞猫",
+      "name": "美国6✨(点击这里可切换服务器:请勿相信视频中广告)",
+      "type": 3,
+      "changeable": 1,
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "api": "https://raw.githubusercontent.com/amazonjdshop/tv/refs/heads/main/jar/%E7%BD%91%E9%A3%9E%E7%8C%AB.py"
+    },
+    {
       "key": "0529csp_XP_nycvod",
       "name": "美国1✨(点击这里可切换服务器:请勿相信视频中广告)",
       "type": 3,
       "api": "csp_XPathFilter",
-      "searchable": 0,
-      "quickSearch": 0,
+      "searchable": 1,
+      "quickSearch": 1,
       "filterable": 1,
       "ext": "./ny3.json",
       "jar": "https://raw.githubusercontent.com/amazonjdshop/tv/refs/heads/main/jar/tvbox.jar",
@@ -43,7 +53,7 @@
       "name": "美国3✨(点击这里可切换服务器:请勿相信视频中广告)",
       "type": 1,
       "api": "https://collect.wolongzy.cc/api.php/provide/vod/?ac=list",
-      "searchable": 0,
+      "searchable": 1,
       "filterable": 1,
       "changeable": 1,
       "categories": [
@@ -89,7 +99,7 @@
       "name": "美国4✨(点击这里可切换服务器:请勿相信视频中广告)",
       "type": 1,
       "api": "https://mozhuazy.com/api.php/provide/vod/?ac=list",
-      "searchable": 0,
+      "searchable": 1,
       "filterable": 1,
       "changeable": 1,
       "timeout": 20,
@@ -129,7 +139,7 @@
       "name": "美国5✨(点击这里可切换服务器:请勿相信视频中广告)",
       "type": 1,
       "api": "https://json.heimuer.xyz/api.php/provide/vod/?ac=list",
-      "searchable": 0,
+      "searchable": 1,
       "filterable": 1,
       "changeable": 1,
       "timeout": 20,
@@ -183,16 +193,6 @@
         "国产动漫",
         "港台动漫"
       ]
-    },
-    {
-      "key": "py_网飞猫",
-      "name": "美国6✨(点击这里可切换服务器:请勿相信视频中广告)",
-      "type": 3,
-      "changeable": 1,
-      "searchable": 0,
-      "quickSearch": 0,
-      "filterable": 1,
-      "api": "https://raw.githubusercontent.com/amazonjdshop/tv/refs/heads/main/jar/%E7%BD%91%E9%A3%9E%E7%8C%AB.py"
     }
   ],
   "logo": "https://cdn.wmpvp.com/steamWeb/B96F868DE45B45D690B5F9F490D0BC60-1745866248445.gif"
