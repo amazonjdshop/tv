@@ -19,6 +19,60 @@
   ],
   "sites": [
     {
+      "key": "J91",
+      "name": "🔞 91 | 珍惜",
+      "type": 3,
+      "api": "csp_J91",
+      "searchable": 1,
+      "filterable": 1,
+      "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/66spider.jar"
+    },
+    {
+      "key": "Cg51",
+      "name": "🔞 51吃瓜 | 图密√",
+      "type": 3,
+      "api": "csp_Cg51",
+      "searchable": 1,
+      "filterable": 1,
+      "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/66spider.jar"
+    },
+    {
+      "key": "MiMei",
+      "name": "🔞 迷妹 | 珍惜",
+      "type": 3,
+      "api": "csp_MiMei",
+      "searchable": 1,
+      "filterable": 1,
+      "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/66spider.jar"
+    },
+    {
+      "key": "Jabel",
+      "name": "🔞 Jabel",
+      "type": 3,
+      "api": "csp_Jable",
+      "searchable": 1,
+      "filterable": 1,
+      "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/66spider.jar"
+    },
+    {
+      "key": "csp_Ikanbot",
+      "name": "🔞 Ikanbot",
+      "type": 3,
+      "api": "csp_Ikanbot",
+      "searchable": 1,
+      "filterable": 1,
+      "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/66spider.jar"
+    },
+    {
+      "key": "csp_XMVideo",
+      "name": "🔞 XMVideo",
+      "type": 3,
+      "api": "csp_XMVideo",
+      "searchable": 1,
+      "filterable": 1,
+      "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/66spider.jar"
+    },
+    {
       "key": "333msnii.com",
       "name": "成人3(不要相信影片中的任何广告)",
       "type": 0,
