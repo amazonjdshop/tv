@@ -204,7 +204,20 @@
       "quickSearch": 1,
       "filterable": 1,
       "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/spider05262025.jar"
-    }
+    },
+{
+            "key": "魔方影视",
+            "name": "魔方｜APP",
+            "type": 3,
+            "api": "http://fanhuays.top:88/%E7%BA%BF%E8%B7%AF/py线路/魔方影视.py",
+            "searchable": 1,
+            "changeable": 1,
+            "quickSearch": 1,
+            "filterable": 1,
+            "playerType": 2,
+ "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/ou52.jar"
+        }
+
   ],
   "logo": "https://cdn.wmpvp.com/steamWeb/B96F868DE45B45D690B5F9F490D0BC60-1745866248445.gif"
 }
