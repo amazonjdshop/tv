@@ -25,6 +25,9 @@
       "name": "美国7✨(点击这里可切换服务器:请勿相信视频中广告)",
       "type": 3,
       "api": "csp_Gz360",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
       "playerType": 2,
       "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/spider05262025.jar"
     },
@@ -218,6 +221,9 @@
       "type": 3,
       "api": "csp_Gz360",
       "playerType": 2,
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
       "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/ou52.jar"
     }
   ],
