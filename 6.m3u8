@@ -28,24 +28,6 @@
       "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/66spider.jar"
     },
     {
-      "key": "0527MiMei",
-      "name": "迷妹🔞(点击这里可切换服务器:请勿相信视频中广告)",
-      "type": 3,
-      "api": "csp_MiMei",
-      "searchable": 1,
-      "filterable": 1,
-      "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/66spider.jar"
-    },
-    {
-      "key": "0527csp_Ikanbot",
-      "name": "Ikanbot🔞(点击这里可切换服务器:请勿相信视频中广告)",
-      "type": 3,
-      "api": "csp_Ikanbot",
-      "searchable": 1,
-      "filterable": 1,
-      "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/66spider.jar"
-    },
-    {
       "key": "0527csp_XMVideo",
       "name": "XMVideo🔞(点击这里可切换服务器:请勿相信视频中广告)",
       "type": 3,
@@ -55,10 +37,28 @@
       "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/66spider.jar"
     },
     {
+      "key": "0527MiMei",
+      "name": "迷妹🔞(点击这里可切换服务器:请勿相信视频中广告)",
+      "type": 3,
+      "api": "csp_MiMei",
+      "searchable": 1,
+      "filterable": 1,
+      "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/66spider.jar"
+    },
+    {
       "key": "0527Cg51",
       "name": "51吃瓜🔞(点击这里可切换服务器:请勿相信视频中广告)",
       "type": 3,
       "api": "csp_Cg51",
+      "searchable": 1,
+      "filterable": 1,
+      "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/66spider.jar"
+    },
+    {
+      "key": "0527csp_Ikanbot",
+      "name": "Ikanbot🔞(点击这里可切换服务器:请勿相信视频中广告)",
+      "type": 3,
+      "api": "csp_Ikanbot",
       "searchable": 1,
       "filterable": 1,
       "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/66spider.jar"
