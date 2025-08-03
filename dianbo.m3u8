@@ -12,7 +12,17 @@
   ],
   "sites": [
     {
-      "key": "0623csp_XP_nycvod",
+      "key": "0802csp_Gz360",
+      "name": "美1(无广告)✨(点击此处可切换服务器,勿信视频广告)",
+      "type": 3,
+      "api": "csp_Gz360",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/ou52.jar"
+    },
+    {
+      "key": "0802csp_XP_nycvod",
       "name": "美0✨(点击此处可切换服务器,勿信视频广告:美1无广告)",
       "type": 3,
       "api": "csp_XPathFilter",
@@ -30,17 +40,7 @@
       ]
     },
     {
-      "key": "0623csp_Gz360",
-      "name": "美1(无广告)✨(点击此处可切换服务器,勿信视频广告)",
-      "type": 3,
-      "api": "csp_Gz360",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/ou52.jar"
-    },
-    {
-      "key": "0623全服集合",
+      "key": "0802全服集合",
       "name": "全服集合✨(点击此处可切换服务器,勿信视频广告:美1无广告)",
       "type": 3,
       "api": "csp_Douban",
@@ -48,7 +48,7 @@
       "searchable": 0
     },
     {
-      "key": "0623mozhuazy",
+      "key": "0802mozhuazy",
       "name": "美2✨(点击此处可切换服务器,勿信视频广告:美1无广告)",
       "type": 1,
       "api": "https://mozhuazy.com/api.php/provide/vod/?ac=list",
@@ -88,7 +88,7 @@
       ]
     },
     {
-      "key": "0623🪴木耳┃秒播",
+      "key": "0802🪴木耳┃秒播",
       "name": "美3✨(点击此处可切换服务器,勿信视频广告:美1无广告)",
       "type": 1,
       "api": "https://json.heimuer.xyz/api.php/provide/vod/?ac=list",
@@ -148,7 +148,7 @@
       ]
     },
     {
-      "key": "0623csp_Gz360_1",
+      "key": "0802csp_Gz360_1",
       "name": "美11✨(点击此处可切换服务器,勿信视频广告:美1无广告)",
       "type": 3,
       "api": "csp_Gz360",
