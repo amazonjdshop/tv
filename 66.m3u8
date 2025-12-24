@@ -19,7 +19,7 @@
   ],
   "sites": [
     {
-      "key": "1111Jabel",
+      "key": "2222Jabel",
       "name": "Jabel🔞(点击这里可切换服务器:请勿相信视频中广告)",
       "type": 3,
       "api": "csp_Jable",
@@ -28,7 +28,7 @@
       "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/66spider.jar"
     },
     {
-      "key": "1111csp_XMVideo",
+      "key": "2222csp_XMVideo",
       "name": "XMVideo🔞(点击这里可切换服务器:请勿相信视频中广告)",
       "type": 3,
       "api": "csp_XMVideo",
@@ -37,25 +37,7 @@
       "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/66spider.jar"
     },
     {
-      "key": "1111MiMei",
-      "name": "迷妹🔞(点击这里可切换服务器:请勿相信视频中广告)",
-      "type": 3,
-      "api": "csp_MiMei",
-      "searchable": 1,
-      "filterable": 1,
-      "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/66spider.jar"
-    },
-    {
-      "key": "1111Cg51",
-      "name": "51吃瓜🔞(点击这里可切换服务器:请勿相信视频中广告)",
-      "type": 3,
-      "api": "csp_Cg51",
-      "searchable": 1,
-      "filterable": 1,
-      "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/66spider.jar"
-    },
-    {
-      "key": "1111csp_Ikanbot",
+      "key": "2222csp_Ikanbot",
       "name": "Ikanbot🔞(点击这里可切换服务器:请勿相信视频中广告)",
       "type": 3,
       "api": "csp_Ikanbot",
@@ -64,16 +46,7 @@
       "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/66spider.jar"
     },
     {
-      "key": "1111msnii.com",
-      "name": "成人3🔞(点击这里可切换服务器:请勿相信视频中广告)",
-      "type": 0,
-      "api": "https://www.msnii.com/api/xml.php",
-      "quickSearch": 1,
-      "searchable": 1,
-      "filterable": 1
-    },
-    {
-      "key": "1111Supjav",
+      "key": "2222Supjav",
       "name": "成人0🔞(点击这里可切换服务器:请勿相信视频中广告)",
       "type": 3,
       "api": "csp_Supjav",
@@ -81,7 +54,7 @@
       "filterable": 1
     },
     {
-      "key": "1111Jable",
+      "key": "2222Jable",
       "name": "成人1🔞(点击这里可切换服务器:请勿相信视频中广告)",
       "type": 3,
       "api": "csp_Jable",
@@ -89,7 +62,7 @@
       "filterable": 1
     },
     {
-      "key": "1111潘多拉【玉兔】",
+      "key": "2222潘多拉【玉兔】",
       "name": "成人2🔞(点击这里可切换服务器:请勿相信视频中广告)",
       "type": 1,
       "api": "https://apiyutu.com/api.php/provide/vod",
@@ -137,43 +110,7 @@
       ]
     },
     {
-      "key": "1111kxgav.com",
-      "name": "成人5🔞(点击这里可切换服务器:请勿相信视频中广告)",
-      "type": 0,
-      "api": "https://www.kxgav.com/api/xml.php",
-      "quickSearch": 1,
-      "searchable": 1,
-      "filterable": 1
-    },
-    {
-      "key": "1111xrbsp.com",
-      "name": "成人6🔞(点击这里可切换服务器:请勿相信视频中广告)",
-      "type": 0,
-      "api": "https://www.xrbsp.com/api/xml.php",
-      "quickSearch": 1,
-      "searchable": 1,
-      "filterable": 1
-    },
-    {
-      "key": "1111gdlsp.com",
-      "name": "成人7🔞(点击这里可切换服务器:请勿相信视频中广告)",
-      "type": 0,
-      "api": "https://www.gdlsp.com/api/xml.php",
-      "quickSearch": 1,
-      "searchable": 1,
-      "filterable": 1
-    },
-    {
-      "key": "1111api.maozyapi.com",
-      "name": "成人8🔞(点击这里可切换服务器:请勿相信视频中广告)",
-      "type": 1,
-      "api": "https://api.maozyapi.com/inc/apijson_vod.php",
-      "quickSearch": 1,
-      "searchable": 1,
-      "filterable": 1
-    },
-    {
-      "key": "1111lbapi9.com",
+      "key": "2222lbapi9.com",
       "name": "成人11🔞(点击这里可切换服务器:请勿相信视频中广告)",
       "type": 1,
       "api": "https://lbapi9.com/api.php/provide/vod/",
@@ -182,7 +119,7 @@
       "filterable": 1
     },
     {
-      "key": "1111shayuapi.com",
+      "key": "2222shayuapi.com",
       "name": "成人12🔞(点击这里可切换服务器:请勿相信视频中广告)",
       "type": 1,
       "api": "https://shayuapi.com/api.php/provide/vod/",
@@ -191,7 +128,7 @@
       "filterable": 1
     },
     {
-      "key": "1111api.11bat.com",
+      "key": "2222api.11bat.com",
       "name": "成人13🔞(点击这里可切换服务器:请勿相信视频中广告)",
       "type": 0,
       "api": "http://api.11bat.com/api.php/provide/vod/at/xml",
@@ -200,7 +137,7 @@
       "filterable": 1
     },
     {
-      "key": "1111apilj.com",
+      "key": "2222apilj.com",
       "name": "成人14🔞(点击这里可切换服务器:请勿相信视频中广告)",
       "type": 1,
       "api": "http://apilj.com/api.php/provide/vod/at/json/",
@@ -209,7 +146,7 @@
       "filterable": 1
     },
     {
-      "key": "1111dadiapi.com",
+      "key": "2222dadiapi.com",
       "name": "成人15🔞(点击这里可切换服务器:请勿相信视频中广告)",
       "type": 0,
       "api": "http://dadiapi.com/api.php",
@@ -218,7 +155,7 @@
       "filterable": 1
     },
     {
-      "key": "1111潘多拉（乐播）",
+      "key": "2222潘多拉（乐播）",
       "name": "成人16🔞(点击这里可切换服务器:请勿相信视频中广告)",
       "type": 1,
       "api": "https://lbapi9.com/api.php/provide/vod/at/json/",
@@ -245,7 +182,7 @@
       ]
     },
     {
-      "key": "1111潘多拉成人（大地）",
+      "key": "2222潘多拉成人（大地）",
       "name": "成人17🔞(点击这里可切换服务器:请勿相信视频中广告)",
       "type": 0,
       "api": "https://dadiapi.com/api.php",
