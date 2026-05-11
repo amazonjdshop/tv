@@ -316,6 +316,14 @@
         "台球",
         "其他赛事"
       ]
+    },
+    {
+      "key": "0510全服集合",
+      "name": "全服集合💗(点击此处可切换服务器,勿信视频广告:美1无广告)",
+      "type": 3,
+      "api": "csp_Douban",
+      "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/ou52.jar",
+      "searchable": 0
     }
   ],
   "logo": "https://cdn.wmpvp.com/steamWeb/B96F868DE45B45D690B5F9F490D0BC60-1745866248445.gif"
