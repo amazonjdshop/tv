@@ -123,7 +123,6 @@
         "里番动漫"
       ]
     },
-
     {
       "key": "0510光速影视",
       "name": "美6💗(点击此处可切换服务器,勿信视频广告:美1无广告)",
@@ -250,8 +249,7 @@
       "type": 0,
       "searchable": "1",
       "changeable": "1",
-      "api": "http://ffzy1.tv/api.php/provide/vod/at/xml/",
-      "playUrl": "https://svip.ffzyplay.com/?url="
+      "api": "http://ffzy1.tv/api.php/provide/vod/at/xml/"
     },
     {
       "key": "0510量子影视",
