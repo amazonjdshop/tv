@@ -13,7 +13,7 @@
   "sites": [
     {
       "key": "0510csp_Gz360",
-      "name": "美1(无广告)💗",
+      "name": "美1(无广告)💗(点击此处可切换服务器)",
       "type": 3,
       "api": "csp_Gz360",
       "searchable": 1,
@@ -23,7 +23,7 @@
     },
     {
       "key": "0510火狐影视",
-      "name": "美2",
+      "name": "美2💗(点击此处可切换服务器,勿信视频广告:美1无广告)",
       "type": 1,
       "searchable": 0,
       "quickSearch": 1,
@@ -68,7 +68,7 @@
     },
     {
       "key": "0510爱酷影视",
-      "name": "美3",
+      "name": "美3💗(点击此处可切换服务器,勿信视频广告:美1无广告)",
       "type": 1,
       "searchable": 1,
       "quickSearch": 1,
@@ -123,29 +123,10 @@
         "里番动漫"
       ]
     },
-    {
-      "key": "0510淘片影视",
-      "name": "美4",
-      "type": 0,
-      "playerType": 2,
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "api": "https://taopianapi.com/cjapi/mc10/vod/at/xml"
-    },
-    {
-      "key": "0510暴风影视",
-      "name": "美5",
-      "type": 0,
-      "playerType": 2,
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "api": "https://bfzyapi.com/api.php/provide/vod/at/xml"
-    },
+
     {
       "key": "0510光速影视",
-      "name": "美6",
+      "name": "美6💗(点击此处可切换服务器,勿信视频广告:美1无广告)",
       "type": 0,
       "playerType": 2,
       "searchable": 0,
@@ -182,7 +163,7 @@
     },
     {
       "key": "0510极速影视",
-      "name": "美7",
+      "name": "美7💗(点击此处可切换服务器,勿信视频广告:美1无广告)",
       "type": 0,
       "playerType": 2,
       "searchable": 1,
@@ -228,7 +209,7 @@
     },
     {
       "key": "0510红牛影视",
-      "name": "美8",
+      "name": "美8💗(点击此处可切换服务器,勿信视频广告:美1无广告)",
       "type": 1,
       "searchable": 1,
       "quickSearch": 1,
@@ -265,7 +246,7 @@
     },
     {
       "key": "0510非凡影视",
-      "name": "美9",
+      "name": "美9💗(点击此处可切换服务器,勿信视频广告:美1无广告)",
       "type": 0,
       "searchable": "1",
       "changeable": "1",
@@ -274,7 +255,7 @@
     },
     {
       "key": "0510量子影视",
-      "name": "美10",
+      "name": "美10💗(点击此处可切换服务器,勿信视频广告:美1无广告)",
       "type": 1,
       "searchable": 1,
       "quickSearch": 1,
@@ -282,7 +263,7 @@
     },
     {
       "key": "0510虎牙影视",
-      "name": "美11",
+      "name": "美11💗(点击此处可切换服务器,勿信视频广告:美1无广告)",
       "type": 1,
       "searchable": 0,
       "quickSearch": 1,
@@ -324,6 +305,19 @@
       "api": "csp_Douban",
       "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/ou52.jar",
       "searchable": 0
+    },
+    {
+      "key": "0510淘片影视",
+      "name": "美4💗(点击此处可切换服务器,勿信视频广告:美1无广告)",
+      "type": 0,
+      "playerType": 2,
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "api": "https://taopianapi.com/cjapi/mc10/vod/at/xml",
+      "categories": [
+        "电视剧/台湾剧"
+      ]
     }
   ],
   "logo": "https://cdn.wmpvp.com/steamWeb/B96F868DE45B45D690B5F9F490D0BC60-1745866248445.gif"
