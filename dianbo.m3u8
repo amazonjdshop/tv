@@ -12,8 +12,8 @@
   ],
   "sites": [
     {
-      "key": "0510csp_Gz360",
-      "name": "美1(无广告)💗(点击此处可切换服务器)",
+      "key": "0511csp_Gz360",
+      "name": "美1(无广告)❤️(点击此处可切换服务器)",
       "type": 3,
       "api": "csp_Gz360",
       "searchable": 1,
@@ -22,8 +22,8 @@
       "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/ou52.jar"
     },
     {
-      "key": "0510火狐影视",
-      "name": "美2💗(点击此处可切换服务器,勿信视频广告:美1无广告)",
+      "key": "0511火狐影视",
+      "name": "美2❤️(点击此处可切换服务器,勿信视频广告:美1无广告)",
       "type": 1,
       "searchable": 0,
       "quickSearch": 1,
@@ -67,8 +67,8 @@
       ]
     },
     {
-      "key": "0510爱酷影视",
-      "name": "美3💗(点击此处可切换服务器,勿信视频广告:美1无广告)",
+      "key": "0511爱酷影视",
+      "name": "美3❤️(点击此处可切换服务器,勿信视频广告:美1无广告)",
       "type": 1,
       "searchable": 1,
       "quickSearch": 1,
@@ -123,10 +123,9 @@
         "里番动漫"
       ]
     },
-
     {
-      "key": "0510光速影视",
-      "name": "美6💗(点击此处可切换服务器,勿信视频广告:美1无广告)",
+      "key": "0511光速影视",
+      "name": "美4❤️(点击此处可切换服务器,勿信视频广告:美1无广告)",
       "type": 0,
       "playerType": 2,
       "searchable": 0,
@@ -162,8 +161,8 @@
       ]
     },
     {
-      "key": "0510极速影视",
-      "name": "美7💗(点击此处可切换服务器,勿信视频广告:美1无广告)",
+      "key": "0511极速影视",
+      "name": "美5❤️(点击此处可切换服务器,勿信视频广告:美1无广告)",
       "type": 0,
       "playerType": 2,
       "searchable": 1,
@@ -208,8 +207,8 @@
       ]
     },
     {
-      "key": "0510红牛影视",
-      "name": "美8💗(点击此处可切换服务器,勿信视频广告:美1无广告)",
+      "key": "0511红牛影视",
+      "name": "美6❤️(点击此处可切换服务器,勿信视频广告:美1无广告)",
       "type": 1,
       "searchable": 1,
       "quickSearch": 1,
@@ -245,25 +244,24 @@
       ]
     },
     {
-      "key": "0510非凡影视",
-      "name": "美9💗(点击此处可切换服务器,勿信视频广告:美1无广告)",
+      "key": "0511非凡影视",
+      "name": "美7❤️(点击此处可切换服务器,勿信视频广告:美1无广告)",
       "type": 0,
       "searchable": "1",
       "changeable": "1",
-      "api": "http://ffzy1.tv/api.php/provide/vod/at/xml/",
-      "playUrl": "https://svip.ffzyplay.com/?url="
+      "api": "http://ffzy1.tv/api.php/provide/vod/at/xml/"
     },
     {
-      "key": "0510量子影视",
-      "name": "美10💗(点击此处可切换服务器,勿信视频广告:美1无广告)",
+      "key": "0511量子影视",
+      "name": "美8❤️(点击此处可切换服务器,勿信视频广告:美1无广告)",
       "type": 1,
       "searchable": 1,
       "quickSearch": 1,
       "api": "http://cj.lziapi.com/api.php/provide/vod/"
     },
     {
-      "key": "0510虎牙影视",
-      "name": "美11💗(点击此处可切换服务器,勿信视频广告:美1无广告)",
+      "key": "0511虎牙影视",
+      "name": "美9❤️(点击此处可切换服务器,勿信视频广告:美1无广告)",
       "type": 1,
       "searchable": 0,
       "quickSearch": 1,
@@ -299,16 +297,16 @@
       ]
     },
     {
-      "key": "0510全服集合",
-      "name": "全服集合💗(点击此处可切换服务器,勿信视频广告:美1无广告)",
+      "key": "0511全服集合",
+      "name": "全服集合❤️(点击此处可切换服务器,勿信视频广告:美1无广告)",
       "type": 3,
       "api": "csp_Douban",
       "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/ou52.jar",
       "searchable": 0
     },
     {
-      "key": "0510淘片影视",
-      "name": "美4💗(点击此处可切换服务器,勿信视频广告:美1无广告)",
+      "key": "0511淘片影视",
+      "name": "美10❤️(点击此处可切换服务器,勿信视频广告:美1无广告)",
       "type": 0,
       "playerType": 2,
       "searchable": 1,
