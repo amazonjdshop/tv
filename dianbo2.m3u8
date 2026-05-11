@@ -12,7 +12,7 @@
   ],
   "sites": [
     {
-      "key": "1224csp_Gz360",
+      "key": "0510csp_Gz360",
       "name": "美1(无广告)💗(点击此处可切换服务器,勿信视频广告)",
       "type": 3,
       "api": "csp_Gz360",
@@ -20,34 +20,7 @@
       "quickSearch": 1,
       "filterable": 1,
       "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/ou52.jar"
-    },
-    {
-      "key": "1224csp_XP_nycvod",
-      "name": "美0💗(点击此处可切换服务器,勿信视频广告:美1无广告)",
-      "type": 3,
-      "api": "csp_XPathFilter",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "ext": "./ny3.json",
-      "jar": "https://raw.githubusercontent.com/amazonjdshop/tv/refs/heads/main/jar/tvbox.jar",
-      "categories": [
-        "短剧",
-        "电影",
-        "连续剧",
-        "综艺",
-        "动漫"
-      ]
-    },
-    {
-      "key": "1224全服集合",
-      "name": "全服集合💗(点击此处可切换服务器,勿信视频广告:美1无广告)",
-      "type": 3,
-      "api": "csp_Douban",
-      "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/ou52.jar",
-      "searchable": 0
     }
-
   ],
   "logo": "https://cdn.wmpvp.com/steamWeb/B96F868DE45B45D690B5F9F490D0BC60-1745866248445.gif"
 }
