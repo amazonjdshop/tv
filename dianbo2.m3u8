@@ -316,7 +316,14 @@
       "quickSearch": 1,
       "filterable": 1,
       "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/ou52.jar"
-    }
+    },
+{
+"key": "瓜子影视",
+"name": "瓜子｜影视",
+"type": 3,
+"api": "csp_Gz360",
+"jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/spider20260517.jar"
+}
   ],
   "logo": "https://cdn.wmpvp.com/steamWeb/B96F868DE45B45D690B5F9F490D0BC60-1745866248445.gif"
 }
