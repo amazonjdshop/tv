@@ -1,5 +1,6 @@
 {
-  "spider": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/f0518.txt",
+  "spider2": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/f0518.txt",
+"spider": "https://cn.oilgasgpts.com/resource/profile/2026/05/18/NJ4ZWwg7_20260518095827A465.jpg;md5;84edf41db6dbaf56b1ccdc7a11cc0ddf",
   "wallpaper": "https://深色壁纸.xxooo.cf/",
   "lives": [
     {
@@ -309,7 +310,7 @@
     },
     {
       "key": "0517csp_Gz360",
-      "name": "美1(无广告)❤️(点击此处可切换服务器)",
+      "name": "美33(无广告)❤️(点击此处可切换服务器)",
       "type": 3,
       "api": "csp_Gz360",
       "searchable": 1,
@@ -319,10 +320,26 @@
     },
 {
 "key": "瓜子影视",
-"name": "瓜子｜影视",
+"name": "瓜子｜影视2",
 "type": 3,
 "api": "csp_Gz360",
-"jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/spider20260517.jar"
+"jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/spider20260517.jar",
+"ua": "okhttp/3.15"
+},
+{
+"key": "荐片",
+"name": "🧲荐片┃1080P",
+"quickSearch": 0,
+"changeable": "0",
+"searchable": 1,
+"timeout": 15,
+"type": 3,
+"api": "csp_Jianpian",
+"style": {
+"type": "rect",
+"ratio": 1.333
+},
+"ext": "https://api.ztcgi.com"
 }
   ],
   "logo": "https://cdn.wmpvp.com/steamWeb/B96F868DE45B45D690B5F9F490D0BC60-1745866248445.gif"
