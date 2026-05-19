@@ -12,7 +12,7 @@
   ],
   "sites": [
     {
-      "key": "0517火狐影视",
+      "key": "0520火狐影视",
       "name": "美2❤️(点击此处可切换服务器)",
       "type": 1,
       "searchable": 0,
@@ -57,7 +57,7 @@
       ]
     },
     {
-      "key": "0517爱酷影视",
+      "key": "0520爱酷影视",
       "name": "美3❤️(点击此处可切换服务器)",
       "type": 1,
       "searchable": 1,
@@ -114,7 +114,7 @@
       ]
     },
     {
-      "key": "0517光速影视",
+      "key": "0520光速影视",
       "name": "美4❤️(点击此处可切换服务器)",
       "type": 0,
       "playerType": 2,
@@ -151,7 +151,7 @@
       ]
     },
     {
-      "key": "0517极速影视",
+      "key": "0520极速影视",
       "name": "美5❤️(点击此处可切换服务器)",
       "type": 0,
       "playerType": 2,
@@ -197,7 +197,7 @@
       ]
     },
     {
-      "key": "0517红牛影视",
+      "key": "0520红牛影视",
       "name": "美6❤️(点击此处可切换服务器)",
       "type": 1,
       "searchable": 1,
@@ -234,7 +234,7 @@
       ]
     },
     {
-      "key": "0517非凡影视",
+      "key": "0520非凡影视",
       "name": "美7❤️(点击此处可切换服务器)",
       "type": 0,
       "searchable": "1",
@@ -242,7 +242,7 @@
       "api": "http://ffzy1.tv/api.php/provide/vod/at/xml/"
     },
     {
-      "key": "0517量子影视",
+      "key": "0520量子影视",
       "name": "美8❤️(点击此处可切换服务器)",
       "type": 1,
       "searchable": 1,
@@ -250,7 +250,7 @@
       "api": "http://cj.lziapi.com/api.php/provide/vod/"
     },
     {
-      "key": "0517虎牙影视",
+      "key": "0520虎牙影视",
       "name": "美9❤️(点击此处可切换服务器)",
       "type": 1,
       "searchable": 0,
@@ -287,7 +287,7 @@
       ]
     },
     {
-      "key": "0517全服集合",
+      "key": "0520全服集合",
       "name": "全服集合❤️(点击此处可切换服务器)",
       "type": 3,
       "api": "csp_Douban",
@@ -295,7 +295,7 @@
       "searchable": 0
     },
     {
-      "key": "0517淘片影视",
+      "key": "0520淘片影视",
       "name": "美10❤️(点击此处可切换服务器)",
       "type": 0,
       "playerType": 2,
@@ -308,50 +308,21 @@
       ]
     },
     {
-      "key": "0517csp_Gz360",
-      "name": "美93(无广告)❤️(点击此处可切换服务器)",
-      "type": 3,
-      "api": "csp_Gz360",
+      "key": "0520荐片",
+      "name": "美11 多线路❤️(点击此处可切换服务器)",
+      "quickSearch": 0,
+      "changeable": "0",
       "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/ou52.jar"
-    },
-    {
-      "key": "0518csp_Gz360",
-      "name": "美94(无广告)❤️(点击此处可切换服务器)",
+      "timeout": 15,
       "type": 3,
-      "api": "csp_Gz360",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/ou52.jar",
-"ua": "okhttp/3.15"
-    },
-{
-"key": "瓜子影视",
-"name": "瓜子｜影视3",
-"type": 3,
-"api": "csp_Gz360",
-"jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/spider20260517.jar",
-"ua": "okhttp/3.15"
-},
-{
-"key": "荐片",
-"name": "🧲荐片┃1080P",
-"quickSearch": 0,
-"changeable": "0",
-"searchable": 1,
-"timeout": 15,
-"type": 3,
-"api": "csp_Jianpian",
-"style": {
-"type": "rect",
-"ratio": 1.333
-},
-"ext": "https://api.ztcgi.com",
-"jar": "https://cn.oilgasgpts.com/resource/profile/2026/05/18/NJ4ZWwg7_20260518095827A465.jpg;md5;84edf41db6dbaf56b1ccdc7a11cc0ddf"
-}
+      "api": "csp_Jianpian",
+      "style": {
+        "type": "rect",
+        "ratio": 1.333
+      },
+      "ext": "https://api.ztcgi.com",
+      "jar": "https://cn.oilgasgpts.com/resource/profile/2026/05/18/NJ4ZWwg7_20260518095827A465.jpg;md5;84edf41db6dbaf56b1ccdc7a11cc0ddf"
+    }
   ],
   "logo": "https://cdn.wmpvp.com/steamWeb/B96F868DE45B45D690B5F9F490D0BC60-1745866248445.gif"
 }
