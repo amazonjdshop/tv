@@ -12,63 +12,8 @@
   ],
   "sites": [
     {
-      "key": "0511csp_Gz360",
-      "name": "美1(无广告)❤️(点击此处可切换服务器)",
-      "type": 3,
-      "api": "csp_Gz360",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/ou52.jar"
-    },
-    {
-      "key": "0511火狐影视",
-      "name": "美2❤️(点击此处可切换服务器,勿信视频广告:美1无广告)",
-      "type": 1,
-      "searchable": 0,
-      "quickSearch": 1,
-      "filterable": 1,
-      "api": "https://hhzyapi.com/api.php/provide/vod/?ac=list",
-      "categories": [
-        "欧美剧",
-        "香港剧",
-        "韩剧",
-        "日剧",
-        "马泰剧",
-        "伦理片",
-        "动作片",
-        "爱情片",
-        "喜剧片",
-        "科幻片",
-        "恐怖片",
-        "剧情片",
-        "战争片",
-        "记录片",
-        "内地剧",
-        "动画片",
-        "中国动漫",
-        "日本动漫",
-        "欧美动漫",
-        "台湾剧",
-        "大陆综艺",
-        "日韩综艺",
-        "港台综艺",
-        "欧美综艺",
-        "灾难片",
-        "悬疑片",
-        "犯罪片",
-        "奇幻片",
-        "短剧",
-        "预告片",
-        "足球",
-        "篮球",
-        "台球",
-        "其他赛事"
-      ]
-    },
-    {
-      "key": "0511爱酷影视",
-      "name": "美3❤️(点击此处可切换服务器,勿信视频广告:美1无广告)",
+      "key": "0521爱酷影视",
+      "name": "美2❤️(点击此处可切换服务器)",
       "type": 1,
       "searchable": 1,
       "quickSearch": 1,
@@ -124,8 +69,8 @@
       ]
     },
     {
-      "key": "0511光速影视",
-      "name": "美4❤️(点击此处可切换服务器,勿信视频广告:美1无广告)",
+      "key": "0521光速影视",
+      "name": "美3❤️(点击此处可切换服务器)",
       "type": 0,
       "playerType": 2,
       "searchable": 0,
@@ -161,8 +106,53 @@
       ]
     },
     {
-      "key": "0511极速影视",
-      "name": "美5❤️(点击此处可切换服务器,勿信视频广告:美1无广告)",
+      "key": "0521火狐影视",
+      "name": "美4❤️(点击此处可切换服务器)",
+      "type": 1,
+      "searchable": 0,
+      "quickSearch": 1,
+      "filterable": 1,
+      "api": "https://hhzyapi.com/api.php/provide/vod/?ac=list",
+      "categories": [
+        "欧美剧",
+        "香港剧",
+        "韩剧",
+        "日剧",
+        "马泰剧",
+        "伦理片",
+        "动作片",
+        "爱情片",
+        "喜剧片",
+        "科幻片",
+        "恐怖片",
+        "剧情片",
+        "战争片",
+        "记录片",
+        "内地剧",
+        "动画片",
+        "中国动漫",
+        "日本动漫",
+        "欧美动漫",
+        "台湾剧",
+        "大陆综艺",
+        "日韩综艺",
+        "港台综艺",
+        "欧美综艺",
+        "灾难片",
+        "悬疑片",
+        "犯罪片",
+        "奇幻片",
+        "短剧",
+        "预告片",
+        "足球",
+        "篮球",
+        "台球",
+        "其他赛事"
+      ]
+    },
+    {
+      "key": "0521极速影视",
+      "name": "美5❤️(点击此处可切换服务器)",
       "type": 0,
       "playerType": 2,
       "searchable": 1,
@@ -207,8 +197,8 @@
       ]
     },
     {
-      "key": "0511红牛影视",
-      "name": "美6❤️(点击此处可切换服务器,勿信视频广告:美1无广告)",
+      "key": "0521红牛影视",
+      "name": "美6❤️(点击此处可切换服务器)",
       "type": 1,
       "searchable": 1,
       "quickSearch": 1,
@@ -244,24 +234,24 @@
       ]
     },
     {
-      "key": "0511非凡影视",
-      "name": "美7❤️(点击此处可切换服务器,勿信视频广告:美1无广告)",
+      "key": "0521非凡影视",
+      "name": "美7❤️(点击此处可切换服务器)",
       "type": 0,
       "searchable": "1",
       "changeable": "1",
       "api": "http://ffzy1.tv/api.php/provide/vod/at/xml/"
     },
     {
-      "key": "0511量子影视",
-      "name": "美8❤️(点击此处可切换服务器,勿信视频广告:美1无广告)",
+      "key": "0521量子影视",
+      "name": "美8❤️(点击此处可切换服务器)",
       "type": 1,
       "searchable": 1,
       "quickSearch": 1,
       "api": "http://cj.lziapi.com/api.php/provide/vod/"
     },
     {
-      "key": "0511虎牙影视",
-      "name": "美9❤️(点击此处可切换服务器,勿信视频广告:美1无广告)",
+      "key": "0521虎牙影视",
+      "name": "美9❤️(点击此处可切换服务器)",
       "type": 1,
       "searchable": 0,
       "quickSearch": 1,
@@ -297,16 +287,16 @@
       ]
     },
     {
-      "key": "0511全服集合",
-      "name": "全服集合❤️(点击此处可切换服务器,勿信视频广告:美1无广告)",
+      "key": "0521全服集合",
+      "name": "全服集合❤️(点击此处可切换服务器)",
       "type": 3,
       "api": "csp_Douban",
       "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/ou52.jar",
       "searchable": 0
     },
     {
-      "key": "0511淘片影视",
-      "name": "美10❤️(点击此处可切换服务器,勿信视频广告:美1无广告)",
+      "key": "0521淘片影视",
+      "name": "美10❤️(点击此处可切换服务器)",
       "type": 0,
       "playerType": 2,
       "searchable": 1,
@@ -316,6 +306,22 @@
       "categories": [
         "电视剧/台湾剧"
       ]
+    },
+    {
+      "key": "0521荐片",
+      "name": "美11 多线路❤️(点击此处可切换服务器)",
+      "quickSearch": 0,
+      "changeable": "0",
+      "searchable": 1,
+      "timeout": 15,
+      "type": 3,
+      "api": "csp_Jianpian",
+      "style": {
+        "type": "rect",
+        "ratio": 1.333
+      },
+      "ext": "https://api.ztcgi.com",
+      "jar": "https://cn.oilgasgpts.com/resource/profile/2026/05/18/NJ4ZWwg7_20260518095827A465.jpg;md5;84edf41db6dbaf56b1ccdc7a11cc0ddf"
     }
   ],
   "logo": "https://cdn.wmpvp.com/steamWeb/B96F868DE45B45D690B5F9F490D0BC60-1745866248445.gif"
