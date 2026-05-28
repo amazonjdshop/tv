@@ -382,6 +382,28 @@
       "jar": "https://jihulab.com/yoursmile3/TVBox/-/raw/main/custom_spider.jar"
     },
     {
+      "key": "csp_GuaZi3",
+      "name": "🍉瓜子3",
+      "type": 3,
+      "api": "csp_GuaziAmns",
+      "searchable": 1,
+      "filterable": 1,
+      "quickSearch": 1,
+"ext": "7lj763gg0939791h1l3888jig44gi291lp",
+      "jar": "https://jihulab.com/yoursmile3/TVBox/-/raw/main/custom_spider.jar"
+    },
+    {
+      "key": "csp_GuaZi4",
+      "name": "🍉瓜子4",
+      "type": 3,
+      "api": "csp_GuaziAmns",
+      "searchable": 1,
+      "filterable": 1,
+      "quickSearch": 1,
+"ext": "https://jihulab.com/yoursmile3/TVBox/-/raw/main/guazi.json",
+      "jar": "https://jihulab.com/yoursmile3/TVBox/-/raw/main/custom_spider.jar"
+    },
+    {
       "key": "天天",
       "name": "⛅天天",
       "type": 3,
