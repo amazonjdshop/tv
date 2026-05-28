@@ -177,6 +177,38 @@
       "ext": "7lj763gg402i79425l2l9j9jh14i9ijil0h1jk58ih8633354h0l18lil40h755g029i0ghhil4gh89i133hk9i9l1k604i9g4797k09k8k5j3j73kgj1hg725gg575ig9g790"
     },
 
+   {
+      "key": "0601虎牙11",
+      "name": "🐯虎牙直播11",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/amazonjdshop/tv/refs/heads/main/05292026/hy/drpy2.min.js",
+      "ext": "https://raw.githubusercontent.com/amazonjdshop/tv/refs/heads/main/05292026/hy/虎牙.js",
+      "style": {
+        "type": "rect",
+        "ratio": 1.755
+      },
+      "timeout": 10,
+      "playerType": "2",
+      "searchable": 1,
+      "quickSearch": 0,
+      "changeable": 0
+    },
+    {
+      "key": "0601斗鱼11",
+      "name": "🐟斗鱼直播11",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/amazonjdshop/tv/refs/heads/main/05292026/dy/drpy2.min.js",
+      "ext": "https://raw.githubusercontent.com/amazonjdshop/tv/refs/heads/main/05292026/dy/斗鱼直播.js",
+      "style": {
+        "type": "rect",
+        "ratio": 1.755
+      },
+      "playerType": "2",
+      "searchable": 0,
+      "quickSearch": 0,
+      "changeable": 0
+    },
+
 
    {
       "key": "0601虎牙1",
