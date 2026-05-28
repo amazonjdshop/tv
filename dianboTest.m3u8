@@ -207,6 +207,71 @@
       "quickSearch": 0,
       "changeable": 0
     },
+
+ {
+      "key": "0531虎牙",
+      "name": "🐯虎牙直播",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/amazonjdshop/tv/refs/heads/main/05292026/drpy2.min0.js",
+      "ext": "https://raw.githubusercontent.com/amazonjdshop/tv/refs/heads/main/05292026/hy.js",
+      "style": {
+        "type": "rect",
+        "ratio": 1.755
+      },
+      "timeout": 10,
+      "playerType": "2",
+      "searchable": 1,
+      "quickSearch": 0,
+      "changeable": 0
+    },
+    {
+      "key": "0531斗鱼",
+      "name": "🐟斗鱼直播",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/amazonjdshop/tv/refs/heads/main/05292026/drpy2.min.js",
+      "ext": "https://raw.githubusercontent.com/amazonjdshop/tv/refs/heads/main/05292026/dyzb.js",
+      "style": {
+        "type": "rect",
+        "ratio": 1.755
+      },
+      "playerType": "2",
+      "searchable": 0,
+      "quickSearch": 0,
+      "changeable": 0
+    },
+
+   {
+      "key": "0530虎牙",
+      "name": "🐯虎牙直播2",
+      "type": 3,
+      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/fantaiying7/EXT/refs/heads/main/drpy2.min.js",
+      "ext": "https://gh-proxy.com/https://raw.githubusercontent.com/fantaiying7/EXT/refs/heads/main/虎牙.js",
+      "style": {
+        "type": "rect",
+        "ratio": 1.755
+      },
+      "timeout": 10,
+      "playerType": "2",
+      "searchable": 1,
+      "quickSearch": 0,
+      "changeable": 0
+    },
+    {
+      "key": "0530斗鱼2",
+      "name": "🐟斗鱼直播2",
+      "type": 3,
+      "api": "https://git.yylx.win/raw.githubusercontent.com/yoursmile66/TVBox/main/js/lib/drpy2.min.js",
+      "ext": "https://git.yylx.win/raw.githubusercontent.com/yoursmile66/TVBox/main/js/斗鱼直播.js",
+      "style": {
+        "type": "rect",
+        "ratio": 1.755
+      },
+      "playerType": "2",
+      "searchable": 0,
+      "quickSearch": 0,
+      "changeable": 0
+    },
+
     {
       "key": "0531爱酷影视",
       "name": "美12❤️(点击此处可切换服务器)",
