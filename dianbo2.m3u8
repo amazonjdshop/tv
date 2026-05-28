@@ -12,8 +12,204 @@
   ],
   "sites": [
     {
-      "key": "0521爱酷影视",
-      "name": "美2222❤️(点击此处可切换服务器)",
+      "key": "0529csp_Gz360",
+      "name": "美1(无广告)❤️(点击此处可切换服务器)",
+      "type": 3,
+      "api": "csp_Gz360",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/ou52.jar"
+    },
+    {
+      "key": "0529天天",
+      "name": "美2❤️(点击此处可切换服务器)",
+      "type": 3,
+      "api": "csp_TTian",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "ext": "7lj763gg0939791h1l3888jig44gi291li"
+    },
+    {
+      "key": "0529金牌",
+      "name": "美3❤️(点击此处可切换服务器)",
+      "type": 3,
+      "api": "csp_Jpys",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "ext": "7lj763gg402i7942463j9j9jh8579590k3hjii5gi4i73l2k5l"
+    },
+    {
+      "key": "0529首发",
+      "name": "美4❤️(点击此处可切换服务器)",
+      "type": 3,
+      "api": "csp_Qiji",
+      "ext": "7lj763gg402i7942483l849kk10ljji4g6li98059ijj72225j5255l2k95g5i1h1g985ggj905j86ig3604gi80lgl30jk3hk637h53ghk49hgi689125k7738h7947igg3k5h3gk6j12718k402802hlkh6k527581gk4936hkj49i8i9g2hh53l320l3i3197"
+    },
+    {
+      "key": "0529趣看",
+      "name": "美5❤️(点击此处可切换服务器)",
+      "type": 3,
+      "api": "csp_Qiji",
+      "ext": "7lj763gg402i79425l239ljhg55099jiljhhj910il877129534l1ik9l1184k401g9g54gk8j5i9097751kh28kh9l211l2lk696110l0ggjlk0339j25j768855553lkl8l1g5i05018428357244jh6l0607k61h5l55j20j0k996hl977gl13g"
+    },
+    {
+      "key": "0529王子",
+      "name": "美6❤️(点击此处可切换服务器)",
+      "type": 3,
+      "api": "csp_Xdai",
+      "ext": "7lj763gg402i7942503g9g9jk909jji3g0li9j088291253h4k141gggkk41435h43924kg6ik48i0856j01k882glkh4kllg538704jl5k4j1gl27j321g03lll"
+    },
+    {
+      "key": "0529灵虎",
+      "name": "美7❤️(点击此处可切换服务器)",
+      "type": 3,
+      "api": "csp_Xdai",
+      "ext": "7lj763gg402i7942532384j7lk0ljji7ghl19313j490266k0g1855k7k103474j1i9349h68842h3h016399jj1g6gk4jlhh367714gk5g2jhji12g819j33jlj1l15k6g492l0"
+    },
+    {
+      "key": "0529csp_Jianpian",
+      "name": "美8❤️(点击此处可切换服务器)",
+      "type": 3,
+      "api": "csp_Jianpian",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "ext": "https://gh-proxy.com/raw.githubusercontent.com/yoursmile66/TVBox/main/json/jianpian.json"
+    },
+    {
+      "key": "0529csp_SaoHuo",
+      "name": "美9❤️(点击此处可切换服务器)",
+      "type": 3,
+      "api": "csp_SaoHuo",
+      "playerType": 2,
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "ext": "https://saohuody.com"
+    },
+    {
+      "key": "0529片吧",
+      "name": "美10❤️(点击此处可切换服务器)",
+      "type": 3,
+      "api": "csp_XBPQ",
+      "ext": {
+        "请求头": "User-Agent$MOBILE_UA",
+        "编码": "UTF-8",
+        "主页url": "http://www.pbpbt.com/",
+        "首页": "120",
+        "起始页": "1",
+        "分类url": "/class/{cateId}-{area}-{by}--{lang}-{letter}---{catePg}---{year}.html;;mrc",
+        "分类": "电影$1#电视剧$2#综艺$3#动漫$4",
+        "二次截取": "",
+        "数组": "lazyload\"&&</a",
+        "标题": "title=\"&&\"",
+        "图片": "data-original=\"&&\"",
+        "副标题": "+text-right\">&&</",
+        "链接": "href=\"&&\"",
+        "影片年代": "年份：&&</p",
+        "影片地区": "地区：&&</p",
+        "影片类型": "类型：&&</p",
+        "状态": "状态：&&</p",
+        "导演": "导演：&&</p",
+        "主演": "主演：&&</p",
+        "简介": "【广告勿信】+style=\"display: none;\"&&</span",
+        "线路二次截取": "",
+        "线路数组": "pull-right1&&/span>",
+        "线路标题": "+>&&<",
+        "播放二次截取": "",
+        "播放数组": "playlist clearfix&&</ul>",
+        "倒序": "0",
+        "播放列表": "<a&&/a>",
+        "播放标题": ">&&<",
+        "播放链接": "href=\"&&\"",
+        "跳转播放链接": "var player_*\"url\":\"&&\"",
+        "搜索请求头": "UTF-8;{User-Agent@Mozilla/5.0",
+        "搜索url": "http://www.pbpbt.com/sou/{wd}----------{pg}---.html",
+        "搜索模式": "1",
+        "搜索后缀": "",
+        "搜索二次截取": "",
+        "搜索数组": "lazyload\"&&</a",
+        "搜索标题": "title=\"&&\"",
+        "搜索图片": "original=\"&&\"",
+        "搜索副标题": "right\">&&</",
+        "搜索链接": "href=\"&&\"",
+        "排序": "最新上映&超高人气&全网热播&高分好评",
+        "排序值": "time&hits&up&score",
+        "筛选": "1",
+        "类型": "动作片$5#喜剧片$6#恐怖片$7#科幻片$8#爱情片$9#剧情片$10#战争片$11||国产剧$13#港台剧$14#欧美剧$15#日韩剧$16#海外剧$17||节目秀$23#纪录片$12#赛事$26||动画电影$21#动画剧集$22"
+      }
+    },
+    {
+      "key": "0529永乐",
+      "name": "美11❤️(点击此处可切换服务器)",
+      "type": 3,
+      "api": "csp_XBPQ",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "ext": {
+        "请求头": "User-Agent$MOBILE_UA",
+        "编码": "UTF-8",
+        "分类": "电影$1#电视剧$2#综艺$3#动漫$4",
+        "类型": "动作片$6#喜剧片$7#爱情片$8#科幻片$9#奇幻片$10#恐怖片$11#剧情片$12#战争片$20#动画片$26#悬疑片$22#冒险片$23#犯罪片$24#惊悚片$45#歌舞片$46#灾难片$47#网络片$48||国产剧$13#港台剧$14#日剧$15#韩剧$33#欧美剧$16#泰剧$34#新马剧$35#其他剧$25||内地综艺$27#港台综艺$28#日本综艺$29#韩国综艺$36#欧美综艺$30#新马泰综艺$37#其他综艺$38||国产动漫$31#日本动漫$32#韩国动漫$39#港台动漫$40#新马泰动漫$41#欧美动漫$42#其他动漫$43",
+        "分类url": "https://www.ylys.tv/vodshow/{cateId}-{area}-{by}-{class}-{lang}-{letter}---{catePg}---{year}.html"
+      }
+    },
+    {
+      "key": "0529csp_Dm84",
+      "name": "🇺🇸动漫1",
+      "type": 3,
+      "api": "csp_Dm84",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "ext": "https://dm84.net"
+    },
+    {
+      "key": "0529番薯",
+      "name": "🇺🇸动漫2",
+      "type": 3,
+      "api": "csp_Xdai",
+      "playerType": 2,
+      "ext": "7lj763gg402i79425l2l9j9jh14i9ijil0h1jk58ih8633354h0l18lil40h755g029i0ghhil4gh89i133hk9i9l1k604i9g4797k09k8k5j3j73kgj1hg725gg575ig9g790"
+    },
+    {
+      "key": "0529虎牙",
+      "name": "🐯虎牙直播",
+      "type": 3,
+      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/fantaiying7/EXT/refs/heads/main/drpy2.min.js",
+      "ext": "https://gh-proxy.com/https://raw.githubusercontent.com/fantaiying7/EXT/refs/heads/main/虎牙.js",
+      "style": {
+        "type": "rect",
+        "ratio": 1.755
+      },
+      "timeout": 10,
+      "playerType": "2",
+      "searchable": 1,
+      "quickSearch": 0,
+      "changeable": 0
+    },
+    {
+      "key": "0529斗鱼",
+      "name": "🐟斗鱼直播",
+      "type": 3,
+      "api": "https://git.yylx.win/raw.githubusercontent.com/yoursmile66/TVBox/main/js/lib/drpy2.min.js",
+      "ext": "https://git.yylx.win/raw.githubusercontent.com/yoursmile66/TVBox/main/js/斗鱼直播.js",
+      "style": {
+        "type": "rect",
+        "ratio": 1.755
+      },
+      "playerType": "2",
+      "searchable": 0,
+      "quickSearch": 0,
+      "changeable": 0
+    },
+    {
+      "key": "0529爱酷影视",
+      "name": "美12❤️(点击此处可切换服务器)",
       "type": 1,
       "searchable": 1,
       "quickSearch": 1,
@@ -69,8 +265,8 @@
       ]
     },
     {
-      "key": "0521光速影视",
-      "name": "美3❤️(点击此处可切换服务器)",
+      "key": "0529光速影视",
+      "name": "美13❤️(点击此处可切换服务器)",
       "type": 0,
       "playerType": 2,
       "searchable": 0,
@@ -106,8 +302,8 @@
       ]
     },
     {
-      "key": "0521火狐影视",
-      "name": "美4❤️(点击此处可切换服务器)",
+      "key": "0529火狐影视",
+      "name": "美14❤️(点击此处可切换服务器)",
       "type": 1,
       "searchable": 0,
       "quickSearch": 1,
@@ -151,8 +347,8 @@
       ]
     },
     {
-      "key": "0521极速影视",
-      "name": "美5❤️(点击此处可切换服务器)",
+      "key": "0529极速影视",
+      "name": "美15❤️(点击此处可切换服务器)",
       "type": 0,
       "playerType": 2,
       "searchable": 1,
@@ -197,8 +393,8 @@
       ]
     },
     {
-      "key": "0521红牛影视",
-      "name": "美6❤️(点击此处可切换服务器)",
+      "key": "0529红牛影视",
+      "name": "美16❤️(点击此处可切换服务器)",
       "type": 1,
       "searchable": 1,
       "quickSearch": 1,
@@ -234,24 +430,24 @@
       ]
     },
     {
-      "key": "0521非凡影视",
-      "name": "美7❤️(点击此处可切换服务器)",
+      "key": "0529非凡影视",
+      "name": "美17❤️(点击此处可切换服务器)",
       "type": 0,
       "searchable": "1",
       "changeable": "1",
       "api": "http://ffzy1.tv/api.php/provide/vod/at/xml/"
     },
     {
-      "key": "0521量子影视",
-      "name": "美8❤️(点击此处可切换服务器)",
+      "key": "0529量子影视",
+      "name": "美18❤️(点击此处可切换服务器)",
       "type": 1,
       "searchable": 1,
       "quickSearch": 1,
       "api": "http://cj.lziapi.com/api.php/provide/vod/"
     },
     {
-      "key": "0521虎牙影视",
-      "name": "美9❤️(点击此处可切换服务器)",
+      "key": "0529虎牙影视",
+      "name": "美19❤️(点击此处可切换服务器)",
       "type": 1,
       "searchable": 0,
       "quickSearch": 1,
@@ -287,7 +483,7 @@
       ]
     },
     {
-      "key": "0521全服集合",
+      "key": "0529全服集合",
       "name": "全服集合❤️(点击此处可切换服务器)",
       "type": 3,
       "api": "csp_Douban",
@@ -295,8 +491,8 @@
       "searchable": 0
     },
     {
-      "key": "0521淘片影视",
-      "name": "美10❤️(点击此处可切换服务器)",
+      "key": "0529淘片影视",
+      "name": "美20❤️(点击此处可切换服务器)",
       "type": 0,
       "playerType": 2,
       "searchable": 1,
@@ -308,8 +504,8 @@
       ]
     },
     {
-      "key": "0521荐片",
-      "name": "美11 多线路❤️(点击此处可切换服务器)",
+      "key": "0529荐片",
+      "name": "美21 多线路❤️(点击此处可切换服务器)",
       "quickSearch": 0,
       "changeable": "0",
       "searchable": 1,
@@ -322,250 +518,6 @@
       },
       "ext": "https://api.ztcgi.com",
       "jar": "https://cn.oilgasgpts.com/resource/profile/2026/05/18/NJ4ZWwg7_20260518095827A465.jpg;md5;84edf41db6dbaf56b1ccdc7a11cc0ddf"
-    },
-    {
-      "key": "0521csp_Gz360",
-      "name": "美99(无广告)❤️(点击此处可切换服务器)",
-      "type": 3,
-      "api": "csp_Gz360",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/ou52.jar"
-    },
-    {
-      "name": "🏭厂长",
-      "key": "Czzy",
-      "type": 3,
-      "api": "csp_CzzyAmns",
-      "searchable": 1,
-      "filterable": 1,
-      "quickSearch": 1,
-      "ext": {
-        "sites": "https://czzyv.com",
-        "filters": ""
-      },
-      "jar": "https://jihulab.com/yoursmile3/TVBox/-/raw/main/custom_spider.jar"
-    },
-    {
-      "name": "🏭厂长2",
-      "key": "Czzy2",
-      "type": 3,
-      "api": "csp_CzzyAmns",
-      "searchable": 1,
-      "filterable": 1,
-      "quickSearch": 1,
-      "jar": "https://jihulab.com/yoursmile3/TVBox/-/raw/main/custom_spider.jar"
-    },
-    {
-      "key": "csp_GuaZi",
-      "name": "🍉瓜子",
-      "type": 3,
-      "api": "csp_GuaziAmns",
-      "searchable": 1,
-      "filterable": 1,
-      "quickSearch": 1,
-      "ext": {
-        "sites": "",
-        "filters": "https://jihulab.com/yoursmile3/TVBox/-/raw/main/guazi.json"
-      },
-      "jar": "https://jihulab.com/yoursmile3/TVBox/-/raw/main/custom_spider.jar"
-    },
-    {
-      "key": "csp_GuaZi2",
-      "name": "🍉瓜子2",
-      "type": 3,
-      "api": "csp_GuaziAmns",
-      "searchable": 1,
-      "filterable": 1,
-      "quickSearch": 1,
-      "jar": "https://jihulab.com/yoursmile3/TVBox/-/raw/main/custom_spider.jar"
-    },
-    {
-      "key": "天天",
-      "name": "⛅天天",
-      "type": 3,
-      "api": "csp_TTian",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "ext": "7lj763gg0939791h1l3888jig44gi291li"
-    },
-    {
-      "key": "金牌",
-      "name": "🥇金牌",
-      "type": 3,
-      "api": "csp_Jpys",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "ext": "7lj763gg402i7942463j9j9jh8579590k3hjii5gi4i73l2k5l"
-    },
-    {
-      "key": "首发",
-      "name": "🚀首发",
-      "type": 3,
-      "api": "csp_Qiji",
-      "ext": "7lj763gg402i7942483l849kk10ljji4g6li98059ijj72225j5255l2k95g5i1h1g985ggj905j86ig3604gi80lgl30jk3hk637h53ghk49hgi689125k7738h7947igg3k5h3gk6j12718k402802hlkh6k527581gk4936hkj49i8i9g2hh53l320l3i3197"
-    },
-    {
-      "key": "趣看",
-      "name": "🥽趣看",
-      "type": 3,
-      "api": "csp_Qiji",
-      "ext": "7lj763gg402i79425l239ljhg55099jiljhhj910il877129534l1ik9l1184k401g9g54gk8j5i9097751kh28kh9l211l2lk696110l0ggjlk0339j25j768855553lkl8l1g5i05018428357244jh6l0607k61h5l55j20j0k996hl977gl13g"
-    },
-    {
-      "key": "王子",
-      "name": "🍟王子",
-      "type": 3,
-      "api": "csp_Xdai",
-      "ext": "7lj763gg402i7942503g9g9jk909jji3g0li9j088291253h4k141gggkk41435h43924kg6ik48i0856j01k882glkh4kllg538704jl5k4j1gl27j321g03lll"
-    },
-    {
-      "key": "灵虎",
-      "name": "🦁灵虎",
-      "type": 3,
-      "api": "csp_Xdai",
-      "ext": "7lj763gg402i7942532384j7lk0ljji7ghl19313j490266k0g1855k7k103474j1i9349h68842h3h016399jj1g6gk4jlhh367714gk5g2jhji12g819j33jlj1l15k6g492l0"
-    },
-    {
-      "key": "csp_Jianpian",
-      "name": "✂️荐片",
-      "type": 3,
-      "api": "csp_Jianpian",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "ext": "https://gh-proxy.com/raw.githubusercontent.com/yoursmile66/TVBox/main/json/jianpian.json"
-    },
-    {
-      "key": "csp_SaoHuo",
-      "name": "🔥骚火",
-      "type": 3,
-      "api": "csp_SaoHuo",
-      "playerType": 2,
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "ext": "https://saohuody.com"
-    },
-    {
-      "key": "片吧",
-      "name": "🍁片吧",
-      "type": 3,
-      "api": "csp_XBPQ",
-      "ext": {
-        "请求头": "User-Agent$MOBILE_UA",
-        "编码": "UTF-8",
-        "主页url": "http://www.pbpbt.com/",
-        "首页": "120",
-        "起始页": "1",
-        "分类url": "/class/{cateId}-{area}-{by}--{lang}-{letter}---{catePg}---{year}.html;;mrc",
-        "分类": "电影$1#电视剧$2#综艺$3#动漫$4",
-        "二次截取": "",
-        "数组": "lazyload\"&&</a",
-        "标题": "title=\"&&\"",
-        "图片": "data-original=\"&&\"",
-        "副标题": "+text-right\">&&</",
-        "链接": "href=\"&&\"",
-        "影片年代": "年份：&&</p",
-        "影片地区": "地区：&&</p",
-        "影片类型": "类型：&&</p",
-        "状态": "状态：&&</p",
-        "导演": "导演：&&</p",
-        "主演": "主演：&&</p",
-        "简介": "【广告勿信】+style=\"display: none;\"&&</span",
-        "线路二次截取": "",
-        "线路数组": "pull-right1&&/span>",
-        "线路标题": "+>&&<",
-        "播放二次截取": "",
-        "播放数组": "playlist clearfix&&</ul>",
-        "倒序": "0",
-        "播放列表": "<a&&/a>",
-        "播放标题": ">&&<",
-        "播放链接": "href=\"&&\"",
-        "跳转播放链接": "var player_*\"url\":\"&&\"",
-        "搜索请求头": "UTF-8;{User-Agent@Mozilla/5.0",
-        "搜索url": "http://www.pbpbt.com/sou/{wd}----------{pg}---.html",
-        "搜索模式": "1",
-        "搜索后缀": "",
-        "搜索二次截取": "",
-        "搜索数组": "lazyload\"&&</a",
-        "搜索标题": "title=\"&&\"",
-        "搜索图片": "original=\"&&\"",
-        "搜索副标题": "right\">&&</",
-        "搜索链接": "href=\"&&\"",
-        "排序": "最新上映&超高人气&全网热播&高分好评",
-        "排序值": "time&hits&up&score",
-        "筛选": "1",
-        "类型": "动作片$5#喜剧片$6#恐怖片$7#科幻片$8#爱情片$9#剧情片$10#战争片$11||国产剧$13#港台剧$14#欧美剧$15#日韩剧$16#海外剧$17||节目秀$23#纪录片$12#赛事$26||动画电影$21#动画剧集$22"
-      }
-    },
-    {
-      "key": "永乐",
-      "name": "🍰永乐",
-      "type": 3,
-      "api": "csp_XBPQ",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "ext": {
-        "请求头": "User-Agent$MOBILE_UA",
-        "编码": "UTF-8",
-        "分类": "电影$1#电视剧$2#综艺$3#动漫$4",
-        "类型": "动作片$6#喜剧片$7#爱情片$8#科幻片$9#奇幻片$10#恐怖片$11#剧情片$12#战争片$20#动画片$26#悬疑片$22#冒险片$23#犯罪片$24#惊悚片$45#歌舞片$46#灾难片$47#网络片$48||国产剧$13#港台剧$14#日剧$15#韩剧$33#欧美剧$16#泰剧$34#新马剧$35#其他剧$25||内地综艺$27#港台综艺$28#日本综艺$29#韩国综艺$36#欧美综艺$30#新马泰综艺$37#其他综艺$38||国产动漫$31#日本动漫$32#韩国动漫$39#港台动漫$40#新马泰动漫$41#欧美动漫$42#其他动漫$43",
-        "分类url": "https://www.ylys.tv/vodshow/{cateId}-{area}-{by}-{class}-{lang}-{letter}---{catePg}---{year}.html"
-      }
-    },
-    {
-      "key": "csp_Dm84",
-      "name": "🚌动漫巴士",
-      "type": 3,
-      "api": "csp_Dm84",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "ext": "https://dm84.net"
-    },
-    {
-      "key": "番薯",
-      "name": "💢番薯动漫",
-      "type": 3,
-      "api": "csp_Xdai",
-      "playerType": 2,
-      "ext": "7lj763gg402i79425l2l9j9jh14i9ijil0h1jk58ih8633354h0l18lil40h755g029i0ghhil4gh89i133hk9i9l1k604i9g4797k09k8k5j3j73kgj1hg725gg575ig9g790"
-    },
-    {
-      "key": "虎牙",
-      "name": "🐯虎牙直播",
-      "type": 3,
-      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/fantaiying7/EXT/refs/heads/main/drpy2.min.js",
-      "ext": "https://gh-proxy.com/https://raw.githubusercontent.com/fantaiying7/EXT/refs/heads/main/虎牙.js",
-      "style": {
-        "type": "rect",
-        "ratio": 1.755
-      },
-      "timeout": 10,
-      "playerType": "2",
-      "searchable": 1,
-      "quickSearch": 0,
-      "changeable": 0
-    },
-    {
-      "key": "斗鱼",
-      "name": "🐟斗鱼直播",
-      "type": 3,
-      "api": "https://git.yylx.win/raw.githubusercontent.com/yoursmile66/TVBox/main/js/lib/drpy2.min.js",
-      "ext": "https://git.yylx.win/raw.githubusercontent.com/yoursmile66/TVBox/main/js/斗鱼直播.js",
-      "style": {
-        "type": "rect",
-        "ratio": 1.755
-      },
-      "playerType": "2",
-      "searchable": 0,
-      "quickSearch": 0,
-      "changeable": 0
     }
   ],
   "logo": "https://cdn.wmpvp.com/steamWeb/B96F868DE45B45D690B5F9F490D0BC60-1745866248445.gif"
