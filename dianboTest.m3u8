@@ -208,12 +208,12 @@
       "changeable": 0
     },
 
- {
-      "key": "0531虎牙",
-      "name": "🐯虎牙直播",
+   {
+      "key": "0601虎牙1",
+      "name": "🐯虎牙直播1",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/amazonjdshop/tv/refs/heads/main/05292026/drpy2.min0.js",
-      "ext": "https://raw.githubusercontent.com/amazonjdshop/tv/refs/heads/main/05292026/hy.js",
+      "api": "https://raw.githubusercontent.com/fantaiying7/EXT/refs/heads/main/drpy2.min.js",
+      "ext": "https://raw.githubusercontent.com/fantaiying7/EXT/refs/heads/main/虎牙.js",
       "style": {
         "type": "rect",
         "ratio": 1.755
@@ -225,11 +225,11 @@
       "changeable": 0
     },
     {
-      "key": "0531斗鱼",
-      "name": "🐟斗鱼直播",
+      "key": "0601斗鱼1",
+      "name": "🐟斗鱼直播1",
       "type": 3,
-      "api": "https://raw.githubusercontent.com/amazonjdshop/tv/refs/heads/main/05292026/drpy2.min.js",
-      "ext": "https://raw.githubusercontent.com/amazonjdshop/tv/refs/heads/main/05292026/dyzb.js",
+      "api": "https://raw.githubusercontent.com/yoursmile66/TVBox/main/js/lib/drpy2.min.js",
+      "ext": "https://raw.githubusercontent.com/yoursmile66/TVBox/main/js/斗鱼直播.js",
       "style": {
         "type": "rect",
         "ratio": 1.755
@@ -240,72 +240,9 @@
       "changeable": 0
     },
 
- {
-      "key": "0531虎牙4",
-      "name": "🐯虎牙直播4",
-      "type": 3,
-      "api": "https://raw.githubusercontent.com/amazonjdshop/tv/refs/heads/main/05292026/drpy2.min.js",
-      "ext": "https://raw.githubusercontent.com/amazonjdshop/tv/refs/heads/main/05292026/hy.js",
-      "style": {
-        "type": "rect",
-        "ratio": 1.755
-      },
-      "timeout": 10,
-      "playerType": "2",
-      "searchable": 1,
-      "quickSearch": 0,
-      "changeable": 0
-    },
-    {
-      "key": "0531斗鱼4",
-      "name": "🐟斗鱼直播4",
-      "type": 3,
-      "api": "https://raw.githubusercontent.com/amazonjdshop/tv/refs/heads/main/05292026/drpy2.min0.js",
-      "ext": "https://raw.githubusercontent.com/amazonjdshop/tv/refs/heads/main/05292026/dyzb.js",
-      "style": {
-        "type": "rect",
-        "ratio": 1.755
-      },
-      "playerType": "2",
-      "searchable": 0,
-      "quickSearch": 0,
-      "changeable": 0
-    },
-
- {
-      "key": "0531虎牙3",
-      "name": "🐯虎牙直播3",
-      "type": 3,
-      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/amazonjdshop/tv/refs/heads/main/05292026/drpy2.min0.js",
-      "ext": "https://gh-proxy.com/https://raw.githubusercontent.com/amazonjdshop/tv/refs/heads/main/05292026/hy.js",
-      "style": {
-        "type": "rect",
-        "ratio": 1.755
-      },
-      "timeout": 10,
-      "playerType": "2",
-      "searchable": 1,
-      "quickSearch": 0,
-      "changeable": 0
-    },
-    {
-      "key": "0531斗鱼3",
-      "name": "🐟斗鱼直播3",
-      "type": 3,
-      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/amazonjdshop/tv/refs/heads/main/05292026/drpy2.min.js",
-      "ext": "https://gh-proxy.com/https://raw.githubusercontent.com/amazonjdshop/tv/refs/heads/main/05292026/dyzb.js",
-      "style": {
-        "type": "rect",
-        "ratio": 1.755
-      },
-      "playerType": "2",
-      "searchable": 0,
-      "quickSearch": 0,
-      "changeable": 0
-    },
 
    {
-      "key": "0530虎牙",
+      "key": "0601虎牙",
       "name": "🐯虎牙直播2",
       "type": 3,
       "api": "https://gh-proxy.com/https://raw.githubusercontent.com/fantaiying7/EXT/refs/heads/main/drpy2.min.js",
@@ -321,7 +258,7 @@
       "changeable": 0
     },
     {
-      "key": "0530斗鱼2",
+      "key": "0601斗鱼2",
       "name": "🐟斗鱼直播2",
       "type": 3,
       "api": "https://git.yylx.win/raw.githubusercontent.com/yoursmile66/TVBox/main/js/lib/drpy2.min.js",
