@@ -1,5 +1,5 @@
 {
-  "spider": "https://jihulab.com/yoursmile3/TVBox/-/raw/main/Yoursmile.jar;md5;c6aaf6a9498e1e1d07126779c687bdd8",
+  "spider": "https://raw.githubusercontent.com/amazonjdshop/tv/refs/heads/main/jar/05292026.jar;md5;c6aaf6a9498e1e1d07126779c687bdd8",
   "wallpaper": "https://深色壁纸.xxooo.cf/",
   "lives": [
     {
@@ -93,7 +93,7 @@
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
-      "ext": "https://gh-proxy.com/raw.githubusercontent.com/yoursmile66/TVBox/main/json/jianpian.json"
+      "ext": "https://raw.githubusercontent.com/amazonjdshop/tv/refs/heads/main/05292026/jianpian.json"
     },
     {
       "key": "0530csp_SaoHuo",
@@ -180,8 +180,8 @@
       "key": "0530虎牙",
       "name": "🐯虎牙直播",
       "type": 3,
-      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/fantaiying7/EXT/refs/heads/main/drpy2.min.js",
-      "ext": "https://gh-proxy.com/https://raw.githubusercontent.com/fantaiying7/EXT/refs/heads/main/虎牙.js",
+      "api": "https://raw.githubusercontent.com/amazonjdshop/tv/refs/heads/main/05292026/drpy2.min0.js",
+      "ext": "https://raw.githubusercontent.com/amazonjdshop/tv/refs/heads/main/05292026/hy.js",
       "style": {
         "type": "rect",
         "ratio": 1.755
@@ -196,8 +196,8 @@
       "key": "0530斗鱼",
       "name": "🐟斗鱼直播",
       "type": 3,
-      "api": "https://git.yylx.win/raw.githubusercontent.com/yoursmile66/TVBox/main/js/lib/drpy2.min.js",
-      "ext": "https://git.yylx.win/raw.githubusercontent.com/yoursmile66/TVBox/main/js/斗鱼直播.js",
+      "api": "https://raw.githubusercontent.com/amazonjdshop/tv/refs/heads/main/05292026/drpy2.min.js",
+      "ext": "https://raw.githubusercontent.com/amazonjdshop/tv/refs/heads/main/05292026/dyzb.js",
       "style": {
         "type": "rect",
         "ratio": 1.755
@@ -517,7 +517,7 @@
         "ratio": 1.333
       },
       "ext": "https://api.ztcgi.com",
-      "jar": "https://cn.oilgasgpts.com/resource/profile/2026/05/18/NJ4ZWwg7_20260518095827A465.jpg;md5;84edf41db6dbaf56b1ccdc7a11cc0ddf"
+      "jar": "https://raw.githubusercontent.com/amazonjdshop/tv/refs/heads/main/05292026/jppp.jpg;md5;84edf41db6dbaf56b1ccdc7a11cc0ddf"
     }
   ],
   "logo": "https://cdn.wmpvp.com/steamWeb/B96F868DE45B45D690B5F9F490D0BC60-1745866248445.gif"
