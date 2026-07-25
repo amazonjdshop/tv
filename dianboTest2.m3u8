@@ -1,0 +1,17 @@
+{
+  "spider": "https://raw.githubusercontent.com/amazonjdshop/tv/refs/heads/main/jar/spider2026.07.jar",
+  "wallpaper": "https://深色壁纸.xxooo.cf/",
+  "lives": [
+    {
+      "name": "TXT",
+      "type": 0,
+      "url": "https://raw.githubusercontent.com/amazonjdshop/tv/main/live2.txt",
+      "epg": "http://epg.51zmt.top:8000/api/diyp/?ch={name}&date={date}",
+      "logo": "https://epg.112114.xyz/logo/{name}.png"
+    }
+  ],
+  "sites": [
+    {"key": "瓜子影视","name": "瓜子 • 影视","type": 3,"api": "csp_Gz360"}
+  ],
+  "logo": "https://raw.githubusercontent.com/amazonjdshop/tv/refs/heads/main/05292026/logo.gif"
+}
