@@ -11,637 +11,8 @@
     }
   ],
   "sites": [
-        {
-            "key": "豆瓣",
-            "name": "👀旭叔┃带你体验新视界🔍",
-            "type": 3,
-            "api": "csp_Douban",
-            "searchable": 0,
-            "changeable": 0
-        },
-        {
-            "key": "本地",
-            "name": "🗂本地┃文件",
-            "type": 3,
-            "api": "csp_LocalFile",
-            "searchable": 0,
-            "changeable": 0
-        },
-        {
-            "key": "配置中心",
-            "name": "💻配置┃中心",
-            "type": 3,
-            "api": "csp_Config",
-            "searchable": 0,
-            "changeable": 0,
-            "indexs": 0,
-            "style": {
-                "type": "rect",
-                "ratio": 1.597
-            }
-        },
-        {
-            "key": "热播",
-            "name": "☀️热播┃旭叔",
-            "type": 3,
-            "api": "csp_AppRJ",
-            "searchable": 1,
-            "quickSearch": 1,
-            "filterable": 0,
-            "ext": {
-                "url": "http://v.rbotv.cn"
-            }
-        },
-        {
-            "key": "浪酷",
-            "name": "🏄‍浪酷┃旭叔",
-            "type": 3,
-            "api": "./py/浪酷.py",
-            "ext": "http://43.248.117.123:4680"
-        },
-        {
-            "key": "金牌",
-            "name": "🥇金牌┃旭叔",
-            "type": 3,
-            "api": "csp_Jpys",
-            "ext": "https://y2s52n7.com,https://m.hkybqufgh.com,https://m.sizhengxt.com,https://m.9zhoukj.com,https://m.sizhengxt.com,https://m.jiabaide.cn"
-        },
-        {
-            "key": "枫叶",
-            "name": "🍎苹果┃旭叔",
-            "type": 3,
-            "api": "./py/枫叶.py",
-            "searchable": 1,
-            "quickSearch": 1,
-            "changeable": 1,
-            "filterable": 1
-        },
-        {
-      "key": "瓜子",
-      "name": "🍉瓜子┃旭叔",
-      "type": 3,
-      "api": "./py/瓜子.py",
-      "searchable": 1,
-      "quickSearch": 1,
-      "changeable": 1,
-      "filterable": 1
-    },
-        {
-            "key": "小镇",
-            "name": "🥝奇异┃旭叔",
-            "type": 3,
-            "api": "csp_XBPQ",
-            "ext": "./XBPQ/小镇.json"
-        },
-        {
-            "key": "猎手",
-            "name": "🦊火狐┃旭叔",
-            "type": 3,
-            "api": "./py/猎手.py",
-            "searchable": 1,
-            "changeable": 1,
-            "quickSearch": 1,
-            "filterable": 1,
-            "playerType": 2
-        },
-        {
-            "key": "农民",
-            "name": "👨‍🌾农民┃旭叔",
-            "type": 3,
-            "api": "csp_XYQHiker",
-            "searchable": 1,
-            "quickSearch": 1,
-            "filterable": 1,
-            "ext": "./XBPQ/农民.json"
-        },
-        {
-            "key": "荐片",
-            "name": "🕵️‍♂️荐片┃旭叔",
-            "type": 3,
-            "api": "./js/jianpian.js",
-            "ext": ""
-        },
-        {
-            "key": "暴风",
-            "name": "🌀暴风┃旭叔",
-            "type": 1,
-            "api": "https://bfzyapi.com/api.php/provide/vod/",
-            "searchable": 1,
-            "quickSearch": 1,
-            "categories": [
-                "动作片",
-                "喜剧片",
-                "恐怖片",
-                "科幻片",
-                "爱情片",
-                "剧情片",
-                "战争片",
-                "纪录片",
-                "国产剧",
-                "欧美剧",
-                "香港剧",
-                "韩国剧",
-                "台湾剧",
-                "海外剧",
-                "泰国剧",
-                "动漫片",
-                "国产动漫",
-                "日韩动漫",
-                "欧美动漫",
-                "港台动漫",
-                "海外动漫",
-                "大陆综艺",
-                "港台综艺",
-                "日韩综艺",
-                "欧美综艺",
-                "动画片"
-            ]
-        },
-        {
-            "key": "如意",
-            "name": "🎀如意┃旭叔",
-            "type": 1,
-            "api": "https://cj.rycjapi.com/api.php/provide/vod/",
-            "searchable": 1,
-            "quickSearch": 1,
-            "categories": [
-                "动作片",
-                "喜剧片",
-                "爱情片",
-                "科幻片",
-                "恐怖片",
-                "记录片",
-                "战争片",
-                "国产剧",
-                "香港剧",
-                "日本剧",
-                "韩国剧",
-                "欧美剧",
-                "泰国剧",
-                "短剧",
-                "国产动漫",
-                "动画片",
-                "日韩动漫",
-                "电影",
-                "电视剧"
-            ]
-        },
-        {
-            "key": "独播库",
-            "name": "🔥独播┃旭叔",
-            "type": 3,
-            "api": "./js/独播库.js"
-        },
-        {
-            "key": "小斑快映",
-            "name": "📽快映┃旭叔",
-            "type": 3,
-            "api": "csp_PanWebShare",
-            "searchable": 1,
-            "quickSearch": 1,
-            "filterable": 1,
-            "changeable": 0,
-            "ext": {
-                "site": [
-                    "http://38.76.197.172:12521",
-                    "http://103.45.162.207:12512"
-                ]
-            }
-        },
-        {
-            "key": "玩偶哥哥",
-            "name": "👽玩偶┃旭叔",
-            "type": 3,
-            "api": "csp_Wogg",
-            "searchable": 1,
-            "quickSearch": 1,
-            "filterable": 1,
-            "changeable": 0,
-            "ext": {
-                "site": [
-                    "https://www.wogg.net",
-                    "https://www.wogg.live",
-                    "https://wogg.xxooo.cf",
-                    "https://woggpan.888484.xyz"
-                ]
-            }
-        },
-        {
-            "key": "蜡笔",
-            "name": "💄蜡笔┃旭叔",
-            "type": 3,
-            "api": "csp_PanWebShare",
-            "searchable": 1,
-            "quickSearch": 1,
-            "filterable": 1,
-            "changeable": 0,
-            "ext": {
-                "site": [
-                    "http://tvpanpan.site",
-                    "http://www.xiaocgege.shop",
-                    "http://feimo.fun",
-                    "http://xiaocgege.shop"
-                ]
-            }
-        },
-        {
-            "key": "至臻",
-            "name": "🎥至臻┃旭叔",
-            "type": 3,
-            "api": "csp_PanWebShare",
-            "searchable": 1,
-            "quickSearch": 1,
-            "filterable": 1,
-            "changeable": 0,
-            "ext": {
-                "site": [
-                    "https://mihdr.top",
-                    "https://www.miqk.cc",
-                    "https://www.mihdr.top"
-                ]
-            }
-        },
-        {
-            "key": "木偶",
-            "name": "📦木偶┃旭叔",
-            "type": 3,
-            "api": "csp_PanWebShare",
-            "searchable": 1,
-            "quickSearch": 1,
-            "filterable": 1,
-            "changeable": 0,
-            "ext": {
-                "site": [
-                    "https://123.666291.xyz",
-                    "https://666.666291.xyz",
-                    "https://www.muou.site",
-                    "https://www.muou.asia"
-                ]
-            }
-        },
-        {
-            "key": "二小",
-            "name": "🃏小二┃旭叔",
-            "type": 3,
-            "api": "csp_PanWebShare",
-            "searchable": 1,
-            "quickSearch": 1,
-            "filterable": 1,
-            "changeable": 0,
-            "ext": {
-                "site": [
-                    "https://www.wexwp.cc",
-                    "https://wexwp.cc",
-                    "https://2xiaopan.top",
-                    "https://www.2xiaopan.top"
-                ]
-            }
-        },
-        {
-            "key": "欧哥",
-            "name": "⭕欧哥┃旭叔",
-            "type": 3,
-            "api": "csp_PanWebShare",
-            "searchable": 1,
-            "quickSearch": 1,
-            "filterable": 1,
-            "changeable": 0,
-            "ext": {
-                "site": [
-                    "https://woog.nxog.eu.org",
-                    "https://woog.nxog.fun",
-                    "https://woog.nxog.de5.net",
-                    "https://woog.430520.xyz"
-                ]
-            }
-        },
-        {
-            "key": "虎斑",
-            "name": "🐯小虎┃旭叔",
-            "type": 3,
-            "api": "csp_PanWebShare",
-            "searchable": 1,
-            "quickSearch": 1,
-            "filterable": 1,
-            "changeable": 0,
-            "ext": {
-                "site": [
-                    "http://38.76.197.172:16969",
-                    "http://103.45.162.207:20720",
-                    "http://xhban.xyz:20720",
-                    "http://154.222.27.33:20720",
-                    "http://109.244.63.150:16969"
-                ]
-            }
-        },
-        {
-            "key": "闪电",
-            "name": "💥闪电┃旭叔",
-            "type": 3,
-            "api": "csp_PanWebShare",
-            "searchable": 1,
-            "quickSearch": 1,
-            "filterable": 1,
-            "changeable": 0,
-            "ext": {
-                "site": [
-                    "https://shandian.blog",
-                    "https://sd.sduc.site"
-                ]
-            }
-        },
-        {
-            "key": "盘库",
-            "name": "📀盘库┃旭叔",
-            "type": 3,
-            "api": "csp_PanSou",
-            "changeable": 0,
-            "searchable": 1,
-            "quickSearch": 0,
-            "filterable": 0
-        },
-        {
-            "key": "派搜",
-            "name": "📀片库┃旭叔",
-            "type": 3,
-            "api": "csp_PanSouPan",
-            "changeable": 0,
-            "searchable": 1,
-            "quickSearch": 0,
-            "filterable": 0
-        },
-        {
-            "key": "影库",
-            "name": "📀影库┃旭叔",
-            "type": 3,
-            "api": "csp_PanSouyk",
-            "changeable": 0,
-            "searchable": 1,
-            "quickSearch": 0,
-            "filterable": 0
-        },
-        {
-            "key": "音海",
-            "name": "💿盘搜┃旭叔",
-            "type": 3,
-            "api": "csp_YinHai",
-            "changeable": 0,
-            "searchable": 1,
-            "quickSearch": 1,
-            "filterable": 1
-        },
-        {
-            "key": "混合搜",
-            "name": "💿聚搜┃旭叔",
-            "type": 3,
-            "api": "csp_HunHePan",
-            "changeable": 0
-        },
-        {
-            "key": "米搜",
-            "name": "💿米搜┃旭叔",
-            "type": 3,
-            "api": "csp_MiSou",
-            "changeable": 0
-        },
-        {
-            "key": "夸父",
-            "name": "🧿夸父┃旭叔",
-            "type": 3,
-            "api": "csp_PanWebShareCloudXKF",
-            "searchable": 1,
-            "quickSearch": 1,
-            "filterable": 1,
-            "changeable": 0,
-            "style": {
-                "type": "list",
-                "ratio": 1.433
-            },
-            "ext": "./json/xkf.json"
-        },
-        {
-            "key": "夸圈",
-            "name": "🧿夸圈┃旭叔",
-            "type": 3,
-            "api": "csp_PanWebShareCloudKQ",
-            "searchable": 1,
-            "quickSearch": 1,
-            "filterable": 1,
-            "changeable": 0,
-            "style": {
-                "type": "list",
-                "ratio": 1.433
-            },
-            "ext": "./json/kq.json"
-        },
-        {
-            "key": "趣盘搜",
-            "name": "🧿夸搜┃旭叔",
-            "type": 3,
-            "api": "csp_QuPanSo",
-            "changeable": 0
-        },
-        {
-            "key": "123",
-            "name": "⛔二三┃旭叔",
-            "type": 3,
-            "api": "csp_PanWebShareCloud12345",
-            "searchable": 1,
-            "quickSearch": 1,
-            "filterable": 1,
-            "changeable": 0,
-            "style": {
-                "type": "list",
-                "ratio": 1.433
-            },
-            "ext": "./json/123.json"
-        },
-        {
-            "key": "渡盘社",
-            "name": "🎯佰渡┃旭叔",
-            "type": 3,
-            "api": "csp_PanWebQu",
-            "searchable": 1,
-            "quickSearch": 1,
-            "filterable": 1,
-            "changeable": 0,
-            "style": {
-                "type": "list",
-                "ratio": 1.433
-            },
-            "ext": {
-                "url": "https://www.qupanshe.com"
-            }
-        },
-        {
-            "key": "逸搜",
-            "name": "🛩天益┃旭叔",
-            "type": 3,
-            "api": "csp_TianYiSo",
-            "changeable": 0
-        },
-        {
-            "key": "bz戏曲",
-            "name": "🅱️哔哩┃戏曲",
-            "type": 3,
-            "api": "csp_Bili",
-            "searchable": 0,
-            "quickSearch": 0,
-            "filterable": 0,
-            "changeable": 0,
-            "ext": {
-                "cookie": "http://127.0.0.1:9978/file/TVBox/bili_cookie.txt",
-                "json": "./json/bz戏曲.json"
-            },
-            "style": {
-                "type": "rect",
-                "ratio": 1.597
-            }
-        },
-        {
-            "key": "bz相声",
-            "name": "🅱️哔哩┃相声",
-            "type": 3,
-            "api": "csp_Bili",
-            "searchable": 0,
-            "quickSearch": 0,
-            "filterable": 0,
-            "changeable": 0,
-            "ext": {
-                "cookie": "http://127.0.0.1:9978/file/TVBox/bili_cookie.txt",
-                "json": "./json/bz相声.json"
-            },
-            "style": {
-                "type": "rect",
-                "ratio": 1.597
-            }
-        },
-        {
-            "key": "bz小品",
-            "name": "🅱️哔哩┃小品",
-            "type": 3,
-            "api": "csp_Bili",
-            "searchable": 0,
-            "quickSearch": 0,
-            "filterable": 0,
-            "changeable": 0,
-            "ext": {
-                "cookie": "http://127.0.0.1:9978/file/TVBox/bili_cookie.txt",
-                "json": "./json/bz小品.json"
-            },
-            "style": {
-                "type": "rect",
-                "ratio": 1.597
-            }
-        },
-        {
-            "key": "bz儿童",
-            "name": "🆎哔哩┃儿童",
-            "type": 3,
-            "api": "csp_Bili",
-            "searchable": 0,
-            "quickSearch": 0,
-            "changeable": 0,
-            "filterable": 1,
-            "ext": {
-                "json": "./json/bz儿童.json",
-                "cookie": "http://127.0.0.1:9978/file/TVBox/bili_cookie.txt"
-            },
-            "style": {
-                "type": "rect",
-                "ratio": 1.597
-            }
-        },
-        {
-            "key": "bz视频",
-            "name": "🆎哔哩┃视频",
-            "type": 3,
-            "api": "csp_BiliYS",
-            "searchable": 0,
-            "quickSearch": 0,
-            "filterable": 0,
-            "changeable": 0,
-            "style": {
-                "type": "rect",
-                "ratio": 1.433
-            },
-            "ext": {
-                "json": "./json/bz视频.json",
-                "cookie": "http://127.0.0.1:9978/file/TVBox/bili_cookie.txt"
-            }
-        },
-        {
-            "key": "bz合集",
-            "name": "🆎哔哩┃合集",
-            "type": 3,
-            "api": "csp_Bili",
-            "searchable": 0,
-            "quickSearch": 0,
-            "filterable": 0,
-            "changeable": 0,
-            "style": {
-                "type": "rect",
-                "ratio": 1.433
-            },
-            "ext": {
-                "json": "./json/bz合集.json",
-                "cookie": "http://127.0.0.1:9978/file/TVBox/bili_cookie.txt"
-            }
-        },
-        {
-            "key": "夸客云盘",
-            "name": "🗂我的┃夸客",
-            "type": 3,
-            "api": "csp_PanQuark",
-            "searchable": 0,
-            "filterable": 0,
-            "changeable": 0,
-            "style": {
-                "type": "list",
-                "ratio": 1.433
-            },
-            "ext": "./json/quarkShare.json"
-        },
-        {
-            "key": "优汐云盘",
-            "name": "🗂我的┃优汐",
-            "type": 3,
-            "api": "csp_PanUc",
-            "searchable": 0,
-            "filterable": 0,
-            "changeable": 0,
-            "style": {
-                "type": "list",
-                "ratio": 1.433
-            },
-            "ext": "./json/ucShare.json"
-        },
-        {
-            "key": "佰渡云盘",
-            "name": "🗂我的┃佰渡",
-            "type": 3,
-            "api": "csp_PanBaiDu",
-            "searchable": 0,
-            "filterable": 0,
-            "changeable": 0,
-            "style": {
-                "type": "list",
-                "ratio": 1.433
-            }
-        },
-        {
-            "key": "push_agent",
-            "name": "📱手机┃推送",
-            "type": 3,
-            "api": "csp_Push",
-            "searchable": 0,
-            "filterable": 0,
-            "changeable": 0
-        },
-
-
     {
-      "key": "0601永乐",
+      "key": "0701永乐",
       "name": "美1(无广告)❤️(点击此处可切换服务器)",
       "type": 3,
       "api": "csp_XBPQ",
@@ -657,7 +28,36 @@
       }
     },
     {
-      "key": "0601csp_Gz360",
+      "key": "0701如意",
+      "name": "美0(无广告)❤️(点击此处可切换服务器)",
+      "type": 1,
+      "api": "https://cj.rycjapi.com/api.php/provide/vod/",
+      "searchable": 1,
+      "quickSearch": 1,
+      "categories": [
+        "动作片",
+        "喜剧片",
+        "爱情片",
+        "科幻片",
+        "恐怖片",
+        "记录片",
+        "战争片",
+        "国产剧",
+        "香港剧",
+        "日本剧",
+        "韩国剧",
+        "欧美剧",
+        "泰国剧",
+        "短剧",
+        "国产动漫",
+        "动画片",
+        "日韩动漫",
+        "电影",
+        "电视剧"
+      ]
+    },
+    {
+      "key": "0701csp_Gz360",
       "name": "美2(无广告)❤️(点击此处可切换服务器)",
       "type": 3,
       "api": "csp_Gz360",
@@ -667,7 +67,7 @@
       "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/ou52.jar"
     },
     {
-      "key": "0601天天",
+      "key": "0701天天",
       "name": "美3❤️(点击此处可切换服务器)",
       "type": 3,
       "api": "csp_TTian",
@@ -677,7 +77,7 @@
       "ext": "7lj763gg0939791h1l3888jig44gi291li"
     },
     {
-      "key": "0601金牌",
+      "key": "0701金牌",
       "name": "美4❤️(点击此处可切换服务器)",
       "type": 3,
       "api": "csp_Jpys",
@@ -687,35 +87,35 @@
       "ext": "7lj763gg402i7942463j9j9jh8579590k3hjii5gi4i73l2k5l"
     },
     {
-      "key": "0601首发",
+      "key": "0701首发",
       "name": "美5❤️(点击此处可切换服务器)",
       "type": 3,
       "api": "csp_Qiji",
       "ext": "7lj763gg402i7942483l849kk10ljji4g6li98059ijj72225j5255l2k95g5i1h1g985ggj905j86ig3604gi80lgl30jk3hk637h53ghk49hgi689125k7738h7947igg3k5h3gk6j12718k402802hlkh6k527581gk4936hkj49i8i9g2hh53l320l3i3197"
     },
     {
-      "key": "0601趣看",
+      "key": "0701趣看",
       "name": "美6❤️(点击此处可切换服务器)",
       "type": 3,
       "api": "csp_Qiji",
       "ext": "7lj763gg402i79425l239ljhg55099jiljhhj910il877129534l1ik9l1184k401g9g54gk8j5i9097751kh28kh9l211l2lk696110l0ggjlk0339j25j768855553lkl8l1g5i05018428357244jh6l0607k61h5l55j20j0k996hl977gl13g"
     },
     {
-      "key": "0601王子",
+      "key": "0701王子",
       "name": "美7❤️(点击此处可切换服务器)",
       "type": 3,
       "api": "csp_Xdai",
       "ext": "7lj763gg402i7942503g9g9jk909jji3g0li9j088291253h4k141gggkk41435h43924kg6ik48i0856j01k882glkh4kllg538704jl5k4j1gl27j321g03lll"
     },
     {
-      "key": "0601灵虎",
+      "key": "0701灵虎",
       "name": "美8❤️(点击此处可切换服务器)",
       "type": 3,
       "api": "csp_Xdai",
       "ext": "7lj763gg402i7942532384j7lk0ljji7ghl19313j490266k0g1855k7k103474j1i9349h68842h3h016399jj1g6gk4jlhh367714gk5g2jhji12g819j33jlj1l15k6g492l0"
     },
     {
-      "key": "0601csp_Jianpian",
+      "key": "0701csp_Jianpian",
       "name": "美9❤️(点击此处可切换服务器)",
       "type": 3,
       "api": "csp_Jianpian",
@@ -725,7 +125,7 @@
       "ext": "https://raw.githubusercontent.com/amazonjdshop/tv/refs/heads/main/05292026/jianpian.json"
     },
     {
-      "key": "0601csp_SaoHuo",
+      "key": "0701csp_SaoHuo",
       "name": "美10❤️(点击此处可切换服务器)",
       "type": 3,
       "api": "csp_SaoHuo",
@@ -736,7 +136,7 @@
       "ext": "https://saohuody.com"
     },
     {
-      "key": "0601片吧",
+      "key": "0701片吧",
       "name": "美11❤️(点击此处可切换服务器)",
       "type": 3,
       "api": "csp_XBPQ",
@@ -788,7 +188,7 @@
       }
     },
     {
-      "key": "0601csp_Dm84",
+      "key": "0701csp_Dm84",
       "name": "🇺🇸动漫1",
       "type": 3,
       "api": "csp_Dm84",
@@ -798,7 +198,7 @@
       "ext": "https://dm84.net"
     },
     {
-      "key": "0601番薯",
+      "key": "0701番薯",
       "name": "🇺🇸动漫2",
       "type": 3,
       "api": "csp_Xdai",
@@ -806,7 +206,7 @@
       "ext": "7lj763gg402i79425l2l9j9jh14i9ijil0h1jk58ih8633354h0l18lil40h755g029i0ghhil4gh89i133hk9i9l1k604i9g4797k09k8k5j3j73kgj1hg725gg575ig9g790"
     },
     {
-      "key": "0601虎牙",
+      "key": "0701虎牙",
       "name": "🐯虎牙直播",
       "type": 3,
       "api": "https://gh-proxy.com/https://raw.githubusercontent.com/fantaiying7/EXT/refs/heads/main/drpy2.min.js",
@@ -822,7 +222,7 @@
       "changeable": 0
     },
     {
-      "key": "0601斗鱼",
+      "key": "0701斗鱼",
       "name": "🐟斗鱼直播",
       "type": 3,
       "api": "https://git.yylx.win/raw.githubusercontent.com/yoursmile66/TVBox/main/js/lib/drpy2.min.js",
@@ -837,7 +237,7 @@
       "changeable": 0
     },
     {
-      "key": "0601爱酷影视",
+      "key": "0701爱酷影视",
       "name": "美12❤️(点击此处可切换服务器)",
       "type": 1,
       "searchable": 1,
@@ -894,7 +294,7 @@
       ]
     },
     {
-      "key": "0601光速影视",
+      "key": "0701光速影视",
       "name": "美13❤️(点击此处可切换服务器)",
       "type": 0,
       "playerType": 2,
@@ -931,7 +331,7 @@
       ]
     },
     {
-      "key": "0601火狐影视",
+      "key": "0701火狐影视",
       "name": "美14❤️(点击此处可切换服务器)",
       "type": 1,
       "searchable": 0,
@@ -976,7 +376,7 @@
       ]
     },
     {
-      "key": "0601极速影视",
+      "key": "0701极速影视",
       "name": "美15❤️(点击此处可切换服务器)",
       "type": 0,
       "playerType": 2,
@@ -1022,7 +422,7 @@
       ]
     },
     {
-      "key": "0601红牛影视",
+      "key": "0701红牛影视",
       "name": "美16❤️(点击此处可切换服务器)",
       "type": 1,
       "searchable": 1,
@@ -1059,7 +459,7 @@
       ]
     },
     {
-      "key": "0601非凡影视",
+      "key": "0701非凡影视",
       "name": "美17❤️(点击此处可切换服务器)",
       "type": 0,
       "searchable": "1",
@@ -1067,7 +467,7 @@
       "api": "http://ffzy1.tv/api.php/provide/vod/at/xml/"
     },
     {
-      "key": "0601量子影视",
+      "key": "0701量子影视",
       "name": "美18❤️(点击此处可切换服务器)",
       "type": 1,
       "searchable": 1,
@@ -1075,7 +475,7 @@
       "api": "http://cj.lziapi.com/api.php/provide/vod/"
     },
     {
-      "key": "0601虎牙影视",
+      "key": "0701虎牙影视",
       "name": "美19❤️(点击此处可切换服务器)",
       "type": 1,
       "searchable": 0,
@@ -1112,7 +512,7 @@
       ]
     },
     {
-      "key": "0601全服集合",
+      "key": "0701全服集合",
       "name": "全服集合❤️(点击此处可切换服务器)",
       "type": 3,
       "api": "csp_Douban",
@@ -1120,20 +520,17 @@
       "searchable": 0
     },
     {
-      "key": "0601淘片影视",
+      "key": "0701淘片影视",
       "name": "美20❤️(点击此处可切换服务器)",
       "type": 0,
       "playerType": 2,
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
-      "api": "https://taopianapi.com/cjapi/mc10/vod/at/xml",
-      "categories": [
-        "电视剧/台湾剧"
-      ]
+      "api": "https://taopianapi.com/cjapi/mc10/vod/at/xml"
     },
     {
-      "key": "0601荐片",
+      "key": "0701荐片",
       "name": "美21 多线路❤️(点击此处可切换服务器)",
       "quickSearch": 0,
       "changeable": "0",
@@ -1147,6 +544,12 @@
       },
       "ext": "https://api.ztcgi.com",
       "jar": "https://raw.githubusercontent.com/amazonjdshop/tv/refs/heads/main/05292026/jppp.jpg;md5;84edf41db6dbaf56b1ccdc7a11cc0ddf"
+    },
+    {
+      "key": "0701独播库",
+      "name": "美22❤️(点击此处可切换服务器)",
+      "type": 3,
+      "api": "./js/独播库.js"
     }
   ],
   "logo": "https://raw.githubusercontent.com/amazonjdshop/tv/refs/heads/main/05292026/logo.gif"
