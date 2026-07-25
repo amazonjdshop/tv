@@ -1,0 +1,30 @@
+{
+    "SiteUrl": "https://www.kuafuzy.com,https://www.kuafuzy.vip,https://www.kuafuzy.cc",
+    "Classes": [
+        {
+            "type_name": "电影",
+            "type_id": "1"
+        },
+        {
+            "type_name": "剧集",
+            "type_id": "2"
+        },
+        {
+            "type_name": "4K电影",
+            "type_id": "3"
+        },
+        {
+            "type_name": "4K剧集",
+            "type_id": "4"
+        },
+        {
+            "type_name": "动漫",
+            "type_id": "5"
+        },
+        {
+            "type_name": "短剧",
+            "type_id": "6"
+        }
+    ],
+    "Cookie": "bbs_token=QnojKEfc3OHdS5Eqnhho1MCIaRcsikKG_2F4vobUsD_2Fg1776p0; bbs_sid=2ad8kkvi8qbjk47t8av5cjtp2g"
+}
