@@ -1,5 +1,5 @@
 {
-"spider": "https://raw.githubusercontent.com/amazonjdshop/tv/refs/heads/main/spider20260724.jar",
+"spider": "https://gh-proxy.com/https://github.com/tianze889/dszb/raw/refs/heads/main/jar/ouge.jar",
 "wallpaper": "https://深色壁纸.xxooo.cf/",
 "lives": [
 {
@@ -11,6 +11,15 @@
 }
 ],
 "sites": [
+
+    {
+      "key": "瓜子影视",
+      "name": "💡瓜子｜影视",
+      "type": 3,
+      "api": "csp_Gz360"
+    },
+
+
 {
 "key": "0701永乐",
 "name": "美1(无广告)❤️(点击此处可切换服务器)",
