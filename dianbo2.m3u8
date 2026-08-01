@@ -11,95 +11,45 @@
     }
   ],
   "sites": [
-{
-"key": "月佬瓜子影视",
-"name": "月佬瓜子影视",
-"type": 4,
-"api": "https://vod.catvod.ggff.net/guazi"
-},
-{
-"key": "Qile优视频",
-"name": "Qile优视频",
-"type": 4,
-"api": "https://vod.catvod.ggff.net/uvod"
-},
-{
-"key": "嗷呜爱瓜TV",
-"name": "嗷呜爱瓜TV",
-"type": 4,
-"api": "https://vod.catvod.ggff.net/aigua"
-},
-{
-"key": "独播库",
-"name": "独播库",
-"type": 4,
-"api": "https://vod.catvod.ggff.net/duboku"
-},
-{
-"key": "欧乐影院",
-"name": "欧乐影院",
-"type": 4,
-"api": "https://vod.catvod.ggff.net/oule"
-},
-{
-"key": "荐片",
-"name": "荐片",
-"type": 4,
-"api": "https://vod.catvod.ggff.net/jianpian"
-},
-{
-"key": "嗷呜金牌影院",
-"name": "嗷呜金牌影院",
-"type": 3,
-"api": "https://github.com/nitan-tv/nitan/raw/refs/heads/main/py/py_jinpai.py"
-},
-{
-"key": "泥潭看球①",
-"name": "泥潭看球①",
-"type": 4,
-"api": "https://vod.catvod.ggff.net/sport",
-"timeout": 10,
-"searchable": 0,
-"changeable": 0,
-"style": {
-"type": "list"
-}
-},
-{
-"key": "泥潭看球②",
-"name": "泥潭看球②",
-"type": 4,
-"api": "https://vod.catvod.ggff.net/kq",
-"timeout": 10,
-"searchable": 0,
-"changeable": 0,
-"style": {
-"type": "list"
-}
-},
-{
-"key": "Qile看球",
-"name": "Qile看球",
-"type": 4,
-"api": "https://vod.catvod.ggff.net/kanqiu",
-"timeout": 10,
-"searchable": 0,
-"changeable": 0,
-"style": {
-"type": "list"
-}
-},
-{
-"key": "4K追剧",
-"name": "4K追剧",
-"type": 4,
-"api": "https://vod.catvod.ggff.net/tg"
-},
-
-
+    {
+      "key": "0701嗷呜爱瓜TV",
+      "name": "美0❤️(点击此处可切换服务器)",
+      "type": 4,
+      "api": "https://vod.catvod.ggff.net/aigua"
+    },
+    {
+      "key": "0701月佬瓜子影视",
+      "name": "美1❤️(点击此处可切换服务器)",
+      "type": 4,
+      "api": "https://vod.catvod.ggff.net/guazi"
+    },
+    {
+      "key": "0701独播库",
+      "name": "美2❤️(点击此处可切换服务器)",
+      "type": 4,
+      "api": "https://vod.catvod.ggff.net/duboku"
+    },
+    {
+      "key": "0701Qile优视频",
+      "name": "美3❤️(点击此处可切换服务器)",
+      "type": 4,
+      "api": "https://vod.catvod.ggff.net/uvod"
+    },
+    {
+      "key": "0701欧乐影院",
+      "name": "美4❤️(点击此处可切换服务器)",
+      "type": 4,
+      "api": "https://vod.catvod.ggff.net/oule"
+    },
+    {
+      "key": "0701荐片",
+      "name": "美5❤️(点击此处可切换服务器)",
+      "type": 4,
+      "api": "https://vod.catvod.ggff.net/jianpian"
+    },
     {
       "key": "0701永乐",
-      "name": "美1(无广告)❤️(点击此处可切换服务器)",
+      "name": "美6❤️(点击此处可切换服务器)",
       "type": 3,
       "api": "csp_XBPQ",
       "searchable": 1,
@@ -115,7 +65,7 @@
     },
     {
       "key": "0701如意",
-      "name": "美0(无广告)❤️(点击此处可切换服务器)",
+      "name": "美7❤️(点击此处可切换服务器)",
       "type": 1,
       "api": "https://cj.rycjapi.com/api.php/provide/vod/",
       "searchable": 1,
@@ -143,18 +93,8 @@
       ]
     },
     {
-      "key": "0701csp_Gz360",
-      "name": "美2(无广告)❤️(点击此处可切换服务器)",
-      "type": 3,
-      "api": "csp_Gz360",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/ou52.jar"
-    },
-    {
       "key": "0701天天",
-      "name": "美3❤️(点击此处可切换服务器)",
+      "name": "美8❤️(点击此处可切换服务器)",
       "type": 3,
       "api": "csp_TTian",
       "searchable": 1,
@@ -164,7 +104,7 @@
     },
     {
       "key": "0701金牌",
-      "name": "美4❤️(点击此处可切换服务器)",
+      "name": "美9❤️(点击此处可切换服务器)",
       "type": 3,
       "api": "csp_Jpys",
       "searchable": 1,
@@ -174,35 +114,35 @@
     },
     {
       "key": "0701首发",
-      "name": "美5❤️(点击此处可切换服务器)",
+      "name": "美10❤️(点击此处可切换服务器)",
       "type": 3,
       "api": "csp_Qiji",
       "ext": "7lj763gg402i7942483l849kk10ljji4g6li98059ijj72225j5255l2k95g5i1h1g985ggj905j86ig3604gi80lgl30jk3hk637h53ghk49hgi689125k7738h7947igg3k5h3gk6j12718k402802hlkh6k527581gk4936hkj49i8i9g2hh53l320l3i3197"
     },
     {
       "key": "0701趣看",
-      "name": "美6❤️(点击此处可切换服务器)",
+      "name": "美11❤️(点击此处可切换服务器)",
       "type": 3,
       "api": "csp_Qiji",
       "ext": "7lj763gg402i79425l239ljhg55099jiljhhj910il877129534l1ik9l1184k401g9g54gk8j5i9097751kh28kh9l211l2lk696110l0ggjlk0339j25j768855553lkl8l1g5i05018428357244jh6l0607k61h5l55j20j0k996hl977gl13g"
     },
     {
       "key": "0701王子",
-      "name": "美7❤️(点击此处可切换服务器)",
+      "name": "美12❤️(点击此处可切换服务器)",
       "type": 3,
       "api": "csp_Xdai",
       "ext": "7lj763gg402i7942503g9g9jk909jji3g0li9j088291253h4k141gggkk41435h43924kg6ik48i0856j01k882glkh4kllg538704jl5k4j1gl27j321g03lll"
     },
     {
       "key": "0701灵虎",
-      "name": "美8❤️(点击此处可切换服务器)",
+      "name": "美13❤️(点击此处可切换服务器)",
       "type": 3,
       "api": "csp_Xdai",
       "ext": "7lj763gg402i7942532384j7lk0ljji7ghl19313j490266k0g1855k7k103474j1i9349h68842h3h016399jj1g6gk4jlhh367714gk5g2jhji12g819j33jlj1l15k6g492l0"
     },
     {
       "key": "0701csp_Jianpian",
-      "name": "美9❤️(点击此处可切换服务器)",
+      "name": "美14❤️(点击此处可切换服务器)",
       "type": 3,
       "api": "csp_Jianpian",
       "searchable": 1,
@@ -212,7 +152,7 @@
     },
     {
       "key": "0701csp_SaoHuo",
-      "name": "美10❤️(点击此处可切换服务器)",
+      "name": "美15❤️(点击此处可切换服务器)",
       "type": 3,
       "api": "csp_SaoHuo",
       "playerType": 2,
@@ -223,7 +163,7 @@
     },
     {
       "key": "0701片吧",
-      "name": "美11❤️(点击此处可切换服务器)",
+      "name": "美16❤️(点击此处可切换服务器)",
       "type": 3,
       "api": "csp_XBPQ",
       "ext": {
@@ -324,7 +264,7 @@
     },
     {
       "key": "0701爱酷影视",
-      "name": "美12❤️(点击此处可切换服务器)",
+      "name": "美17❤️(点击此处可切换服务器)",
       "type": 1,
       "searchable": 1,
       "quickSearch": 1,
@@ -381,7 +321,7 @@
     },
     {
       "key": "0701光速影视",
-      "name": "美13❤️(点击此处可切换服务器)",
+      "name": "美18❤️(点击此处可切换服务器)",
       "type": 0,
       "playerType": 2,
       "searchable": 0,
@@ -418,7 +358,7 @@
     },
     {
       "key": "0701火狐影视",
-      "name": "美14❤️(点击此处可切换服务器)",
+      "name": "美19❤️(点击此处可切换服务器)",
       "type": 1,
       "searchable": 0,
       "quickSearch": 1,
@@ -463,7 +403,7 @@
     },
     {
       "key": "0701极速影视",
-      "name": "美15❤️(点击此处可切换服务器)",
+      "name": "美20❤️(点击此处可切换服务器)",
       "type": 0,
       "playerType": 2,
       "searchable": 1,
@@ -509,7 +449,7 @@
     },
     {
       "key": "0701红牛影视",
-      "name": "美16❤️(点击此处可切换服务器)",
+      "name": "美21❤️(点击此处可切换服务器)",
       "type": 1,
       "searchable": 1,
       "quickSearch": 1,
@@ -546,7 +486,7 @@
     },
     {
       "key": "0701非凡影视",
-      "name": "美17❤️(点击此处可切换服务器)",
+      "name": "美22❤️(点击此处可切换服务器)",
       "type": 0,
       "searchable": "1",
       "changeable": "1",
@@ -554,7 +494,7 @@
     },
     {
       "key": "0701量子影视",
-      "name": "美18❤️(点击此处可切换服务器)",
+      "name": "美23❤️(点击此处可切换服务器)",
       "type": 1,
       "searchable": 1,
       "quickSearch": 1,
@@ -562,7 +502,7 @@
     },
     {
       "key": "0701虎牙影视",
-      "name": "美19❤️(点击此处可切换服务器)",
+      "name": "美24❤️(点击此处可切换服务器)",
       "type": 1,
       "searchable": 0,
       "quickSearch": 1,
@@ -607,7 +547,7 @@
     },
     {
       "key": "0701淘片影视",
-      "name": "美20❤️(点击此处可切换服务器)",
+      "name": "美25❤️(点击此处可切换服务器)",
       "type": 0,
       "playerType": 2,
       "searchable": 1,
@@ -617,7 +557,7 @@
     },
     {
       "key": "0701荐片",
-      "name": "美21 多线路❤️(点击此处可切换服务器)",
+      "name": "美26 多线路❤️(点击此处可切换服务器)",
       "quickSearch": 0,
       "changeable": "0",
       "searchable": 1,
@@ -633,7 +573,7 @@
     },
     {
       "key": "0701独播库",
-      "name": "美22❤️(点击此处可切换服务器)",
+      "name": "美27❤️(点击此处可切换服务器)",
       "type": 3,
       "api": "./js/独播库.js"
     }
