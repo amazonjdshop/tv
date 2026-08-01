@@ -11,6 +11,92 @@
     }
   ],
   "sites": [
+{
+"key": "月佬瓜子影视",
+"name": "月佬瓜子影视",
+"type": 4,
+"api": "https://vod.catvod.ggff.net/guazi"
+},
+{
+"key": "Qile优视频",
+"name": "Qile优视频",
+"type": 4,
+"api": "https://vod.catvod.ggff.net/uvod"
+},
+{
+"key": "嗷呜爱瓜TV",
+"name": "嗷呜爱瓜TV",
+"type": 4,
+"api": "https://vod.catvod.ggff.net/aigua"
+},
+{
+"key": "独播库",
+"name": "独播库",
+"type": 4,
+"api": "https://vod.catvod.ggff.net/duboku"
+},
+{
+"key": "欧乐影院",
+"name": "欧乐影院",
+"type": 4,
+"api": "https://vod.catvod.ggff.net/oule"
+},
+{
+"key": "荐片",
+"name": "荐片",
+"type": 4,
+"api": "https://vod.catvod.ggff.net/jianpian"
+},
+{
+"key": "嗷呜金牌影院",
+"name": "嗷呜金牌影院",
+"type": 3,
+"api": "https://github.com/nitan-tv/nitan/raw/refs/heads/main/py/py_jinpai.py"
+},
+{
+"key": "泥潭看球①",
+"name": "泥潭看球①",
+"type": 4,
+"api": "https://vod.catvod.ggff.net/sport",
+"timeout": 10,
+"searchable": 0,
+"changeable": 0,
+"style": {
+"type": "list"
+}
+},
+{
+"key": "泥潭看球②",
+"name": "泥潭看球②",
+"type": 4,
+"api": "https://vod.catvod.ggff.net/kq",
+"timeout": 10,
+"searchable": 0,
+"changeable": 0,
+"style": {
+"type": "list"
+}
+},
+{
+"key": "Qile看球",
+"name": "Qile看球",
+"type": 4,
+"api": "https://vod.catvod.ggff.net/kanqiu",
+"timeout": 10,
+"searchable": 0,
+"changeable": 0,
+"style": {
+"type": "list"
+}
+},
+{
+"key": "4K追剧",
+"name": "4K追剧",
+"type": 4,
+"api": "https://vod.catvod.ggff.net/tg"
+},
+
+
     {
       "key": "0701永乐",
       "name": "美1(无广告)❤️(点击此处可切换服务器)",
