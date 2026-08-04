@@ -1,0 +1,22 @@
+{
+    "SiteUrl": "https://www.kfzy.net",
+    "Classes": [
+        {
+            "type_name": "电影",
+            "type_id": "9"
+        },
+        {
+            "type_name": "剧集",
+            "type_id": "1"
+        },
+        {
+            "type_name": "动漫",
+            "type_id": "3"
+        },
+        {
+            "type_name": "短剧",
+            "type_id": "2"
+        }
+    ],
+    "Cookie": "bbs_sid=gffchm87k1568qpt9k1142bg24;bbs_token=ZR3orPjZQGcrPq2y67GrSaMvP4xzN3Kp4HEsHeZ8e2yT5Ba3"
+}
