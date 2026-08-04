@@ -8,6 +8,9 @@ worker_path = "/Users/jundelin/Dev/HMTV_Channels/cloudflare_worker_unified.js"
 playlist_path = "/Users/jundelin/Dev/HMTV_Channels/playlist.txt"
 valid_path = "/Users/jundelin/Dev/HMTV_Channels/valid_channels.txt"
 playlist_pure_path = "/Users/jundelin/Dev/HMTV_Channels/playlist_pure.txt"
+live_path = "/Users/jundelin/Dev/HMTV_Channels/live.txt"
+live2_path = "/Users/jundelin/Dev/HMTV_Channels/live2.txt"
+live3_path = "/Users/jundelin/Dev/HMTV_Channels/live3.txt"
 
 category_order = [
     "央视频道",
@@ -246,7 +249,7 @@ def main():
                 if u:
                     yuechan_urls.add(u)
 
-    # 2. Write to playlist.txt (All-inclusive playlist)
+    # 2. Write to playlist.txt & live3.txt (All-inclusive playlist)
     domain = "round-snowflake-2d83.linda11-28-2022.workers.dev"
     playlist_lines = []
     current_cat = None
@@ -262,11 +265,14 @@ def main():
         else:
             playlist_lines.append(f"{c['name']},https://{domain}/live/{c['key']}/index.m3u8")
         
+    playlist_content = "\n".join(playlist_lines) + "\n"
     with open(playlist_path, "w", encoding="utf-8") as f:
-        f.write("\n".join(playlist_lines) + "\n")
-    print(f"Updated {playlist_path}")
+        f.write(playlist_content)
+    with open(live3_path, "w", encoding="utf-8") as f:
+        f.write(playlist_content)
+    print(f"Updated {playlist_path} and {live3_path}")
     
-    # 2.1 Write to playlist_pure.txt (Pure playlist: No YouTube, No YueChan)
+    # 2.1 Write to playlist_pure.txt, live.txt & live2.txt (Pure playlist: No YouTube, No YueChan)
     playlist_pure_lines = []
     current_cat_pure = None
     for c in channels_with_keys:
@@ -278,9 +284,14 @@ def main():
             playlist_pure_lines.append(f"{current_cat_pure},#genre#")
         playlist_pure_lines.append(f"{c['name']},https://{domain}/live/{c['key']}/index.m3u8")
         
+    playlist_pure_content = "\n".join(playlist_pure_lines) + "\n"
     with open(playlist_pure_path, "w", encoding="utf-8") as f:
-        f.write("\n".join(playlist_pure_lines) + "\n")
-    print(f"Updated {playlist_pure_path}")
+        f.write(playlist_pure_content)
+    with open(live_path, "w", encoding="utf-8") as f:
+        f.write(playlist_pure_content)
+    with open(live2_path, "w", encoding="utf-8") as f:
+        f.write(playlist_pure_content)
+    print(f"Updated {playlist_pure_path}, {live_path} and {live2_path}")
     
     # 3. Write to cloudflare_worker_unified.js
     # Build CHANNEL_MAP javascript object string
