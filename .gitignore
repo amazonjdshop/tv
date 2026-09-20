@@ -5,3 +5,12 @@ __pycache__/
 *copy.txt
 *copy.js
 cloudflare_worker_unified.js
+
+# Automation & private local files (do not commit to GitHub)
+daily_update.py
+deep_check_playlist.py
+generate_excel.py
+merged_channels.txt
+yuechan_urls.txt
+dist/
+.wrangler/

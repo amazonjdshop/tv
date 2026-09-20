@@ -3,14 +3,15 @@ import json
 import hashlib
 import os
 
-merged_path = "/Users/jundelin/.gemini/antigravity/brain/3c8d7468-8e1f-4e38-8b28-5c4bea8b8bf4/scratch/merged_channels.txt"
-worker_path = "/Users/jundelin/Dev/HMTV_Channels/cloudflare_worker_unified.js"
-playlist_path = "/Users/jundelin/Dev/HMTV_Channels/playlist.txt"
-valid_path = "/Users/jundelin/Dev/HMTV_Channels/valid_channels.txt"
-playlist_pure_path = "/Users/jundelin/Dev/HMTV_Channels/playlist_pure.txt"
-live_path = "/Users/jundelin/Dev/HMTV_Channels/live.txt"
-live2_path = "/Users/jundelin/Dev/HMTV_Channels/live2.txt"
-live3_path = "/Users/jundelin/Dev/HMTV_Channels/live3.txt"
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+merged_path = os.path.join(SCRIPT_DIR, "merged_channels.txt")
+worker_path = os.path.join(SCRIPT_DIR, "cloudflare_worker_unified.js")
+playlist_path = os.path.join(SCRIPT_DIR, "playlist.txt")
+valid_path = os.path.join(SCRIPT_DIR, "valid_channels.txt")
+playlist_pure_path = os.path.join(SCRIPT_DIR, "playlist_pure.txt")
+live_path = os.path.join(SCRIPT_DIR, "live.txt")
+live2_path = os.path.join(SCRIPT_DIR, "live2.txt")
+live3_path = os.path.join(SCRIPT_DIR, "live3.txt")
 
 category_order = [
     "央视频道",
@@ -240,7 +241,7 @@ def main():
     print(f"Updated {valid_path}")
             
     # Load YueChan URLs to bypass Cloudflare
-    yuechan_urls_file = "/Users/jundelin/.gemini/antigravity/brain/3c8d7468-8e1f-4e38-8b28-5c4bea8b8bf4/scratch/yuechan_urls.txt"
+    yuechan_urls_file = os.path.join(SCRIPT_DIR, "yuechan_urls.txt")
     yuechan_urls = set()
     if os.path.exists(yuechan_urls_file):
         with open(yuechan_urls_file, "r", encoding="utf-8") as f:
@@ -259,8 +260,9 @@ def main():
             playlist_lines.append(f"{current_cat},#genre#")
             
         url_lower = c["url"].lower()
-        # Direct links for YouTube or YueChan
-        if "youtube.com" in url_lower or "youtu.be" in url_lower or url_lower in yuechan_urls:
+        is_movie = c["category"] in ["最新电影", "影视点播"]
+        # Direct links for YouTube, YueChan, or Movies
+        if "youtube.com" in url_lower or "youtu.be" in url_lower or url_lower in yuechan_urls or is_movie:
             playlist_lines.append(f"{c['name']},{c['url']}")
         else:
             playlist_lines.append(f"{c['name']},https://{domain}/live/{c['key']}/index.m3u8")
@@ -282,7 +284,12 @@ def main():
         if c["category"] != current_cat_pure:
             current_cat_pure = c["category"]
             playlist_pure_lines.append(f"{current_cat_pure},#genre#")
-        playlist_pure_lines.append(f"{c['name']},https://{domain}/live/{c['key']}/index.m3u8")
+        
+        is_movie = c["category"] in ["最新电影", "影视点播"]
+        if is_movie:
+            playlist_pure_lines.append(f"{c['name']},{c['url']}")
+        else:
+            playlist_pure_lines.append(f"{c['name']},https://{domain}/live/{c['key']}/index.m3u8")
         
     playlist_pure_content = "\n".join(playlist_pure_lines) + "\n"
     with open(playlist_pure_path, "w", encoding="utf-8") as f:
@@ -298,8 +305,9 @@ def main():
     map_lines = []
     for c in channels_with_keys:
         url_lower = c["url"].lower()
-        # Skip YouTube and YueChan in the Worker CHANNEL_MAP
-        if "youtube.com" in url_lower or "youtu.be" in url_lower or url_lower in yuechan_urls:
+        is_movie = c["category"] in ["最新电影", "影视点播"]
+        # Skip YouTube, YueChan, and Movies in the Worker CHANNEL_MAP
+        if "youtube.com" in url_lower or "youtu.be" in url_lower or url_lower in yuechan_urls or is_movie:
             continue
         escaped_key = json.dumps(c["key"], ensure_ascii=False)
         escaped_url = json.dumps(c["url"], ensure_ascii=False)
