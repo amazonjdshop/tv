@@ -14,3 +14,6 @@ merged_channels.txt
 yuechan_urls.txt
 dist/
 .wrangler/
+run_daily.sh
+cron.log
+
