@@ -53,37 +53,31 @@ def clean_category(cat, name, url=""):
     if is_cctv:
         return "央视频道"
 
-    # 2. International Chinese (Singapore, Overseas Chinese)
+    # 2. Weather channels (MUST NOT be Sports!)
+    if any(x in name_lower for x in ["weather", "accuweather"]):
+        if any(x in name_lower for x in ["fox weather", "the weather channel", "weathernation", "accuweather"]):
+            return "美国主流台"
+        return "国际频道"
+
+    # 3. International Chinese (Singapore, Overseas Chinese)
     is_chinese_intl = any(x in name for x in ["新傳媒", "新传媒", "CNA", "ABN華語", "看中國", "中國旅遊", "金磚電視", "美國之音中文"])
     if is_chinese_intl:
         return "国际华语"
-
-    # 3. Sports
-    is_sports_name = any(x in name_lower for x in [
-        "足球", "台球", "体育", "sport", "sports", "combat", "kickboxing", 
-        "billiards", "fight", "ufc", "nhl", "mlb", "nba", "espn", "dazn", 
-        "fite", "fanduel", "glory", "billiard", "lacrosse", "extreme", "bek", 
-        "bke", "swere", "eurosport", "stadium", "sportsgrid", "poker"
-    ])
-    is_sports_cat = "体育" in cat or "sports" in cat.lower() or cat == "体育频道"
-    if is_sports_name or is_sports_cat:
-        if any(x in name_lower for x in ["tvb", "澳視體育", "澳视体育"]):
-            return "港澳台"
-        if not ("cctv-5" in name_lower or "cctv5" in name_lower):
-            return "体育频道"
 
     # 4. Satellite check (mainland satellite stations)
     if "卫视" in name or cat in ["地方卫视", "卫视频道"] or name in ["看东方", "海峡卫视"]:
         if not any(x in name for x in ["澳门莲花卫视", "澳門蓮花衛視", "香港卫视", "TVBS", "凤凰"]):
             return "卫视频道"
 
-    # 5. Provincial mainland categories & channels (check before HK/Taiwan to prevent provincial leaks)
+    # 5. Provincial mainland categories & channels (check before HK/Taiwan and Sports)
     provincial_prefixes = [
         "浙江", "江苏", "江西", "广东", "广西", "福建", "河北", "湖北", 
         "吉林", "内蒙古", "黑龙江", "甘肃", "山东", "陕西", "四川", "青海", 
         "新疆", "上海", "湖南", "北京", "河南", "贵州", "山西", "大庆", 
         "苏州", "逊克", "乌海", "乌兰察布", "锡林郭勒", "每日经济新闻"
     ]
+    if name == "广东体育":
+        return "体育频道"
     is_provincial_name = any(name.startswith(p) for p in provincial_prefixes)
     is_provincial_cat = any(cat.startswith(p) for p in provincial_prefixes) or cat in ["更多地方频道", "地方频道", "其他地方台"]
     if is_provincial_name or is_provincial_cat:
@@ -91,6 +85,51 @@ def clean_category(cat, name, url=""):
             if name.startswith(big_p) or cat.startswith(big_p):
                 return big_p + "频道"
         return "其他地方台"
+
+    # 6. HK / Macau / Taiwan Broadcasters (check before Sports to rescue 凤凰香港, 莲花电影, ViuTV, 天映)
+    is_hk_now = bool(re.search(r'(^|\b)now\s*(tv|新闻|财经|剧集|华剧|宽频|爆谷|直播|\d{2,3})', name_lower))
+    hk_tw_keywords = [
+        "tvb", "翡翠", "明珠", "无线", "hoy", "viu", "rthk", "千禧", "星河", 
+        "中天", "tvbs", "寰宇", "台视", "中视", "华视", "东森", "三立", "民视", 
+        "台湾", "客家", "凤凰", "astro", "澳视", "澳視", "莲花", "澳門", "澳门", 
+        "公视", "原住民族", "原视", "天映", "龙华", "美亞", "美亚", "亞洲劇台", 
+        "信大", "环球电视台", "axn台灣", "cgn中文", "新唐人", "dali tv", "good tv", 
+        "bltv", "taiwan", "人間衛視", "好消息", "大立電視"
+    ]
+    is_hk_tw = is_hk_now or any(x in name_lower for x in hk_tw_keywords)
+    is_foreign_english = any(x in name_lower for x in ["pet club", "supreme master", "pluto", "electric", "now_90", "true crime"])
+    if (is_hk_tw or cat in ["澳门频道", "港台", "港台频道", "港澳台"]) and not is_foreign_english:
+        if any(x in name_lower for x in ["澳視體育", "澳视体育"]):
+            return "港澳台"
+        return "港澳台"
+
+    # 7. Non-sports specific filters (clean bad tags from 体育频道)
+    if "ipanda" in name_lower or "熊猫" in name:
+        return "其他频道"
+    if any(x in name_lower for x in ["bek", "bke"]):
+        return "美国地方台"
+    if "his glory" in name_lower:
+        return "国际频道"
+    if any(x in name_lower for x in ["rtm malaysia", "sbt brazil"]):
+        return "多语种国际台"
+    if any(x in name_lower for x in ["trutv", "tnt_west", "rev'n action", "rock extreme"]):
+        return "欧美影视"
+
+    # 8. Sports
+    sports_keywords = [
+        "足球", "台球", "体育", "sport", "sports", "combat", "kickboxing", 
+        "billiards", "fight", "espn", "dazn", "fite", "fanduel", "billiard", 
+        "lacrosse", "eurosport", "stadium", "sportsgrid", "poker", "golf", 
+        "tennis", "racing", "boxing", "wrestling", "fifa", "nhra", "acc network", 
+        "bein", "draftkings", "golazo", "pac-12", "red bull tv", "rally tv", 
+        "slopes tv", "speed sport"
+    ]
+    is_sports_acronym = bool(re.search(r'\b(nfl|nba|mlb|nhl|mma|ufc)\b', name_lower))
+    is_sports_name = is_sports_acronym or any(x in name_lower for x in sports_keywords)
+    is_sports_cat = "体育" in cat or "sports" in cat.lower() or cat == "体育频道"
+    if is_sports_name or is_sports_cat:
+        if not ("cctv-5" in name_lower or "cctv5" in name_lower):
+            return "体育频道"
 
     # 6. Classic TV / Cartoons / Live China
     if "重温经典" in name:
@@ -138,22 +177,7 @@ def clean_category(cat, name, url=""):
     if "stvp-in" in url_lower or any(x in name_lower for x in ["aaj tak", "abp news", "zee", "9x ", "ndtv"]):
         return "多语种国际台"
 
-    # 11. HK / Macau / Taiwan Broadcasters
-    is_hk_now = bool(re.search(r'(^|\b)now\s*(tv|新闻|财经|剧集|华剧|宽频|爆谷|直播|\d{2,3})', name_lower))
-    hk_tw_keywords = [
-        "tvb", "翡翠", "明珠", "无线", "hoy", "viu", "rthk", "千禧", "星河", 
-        "中天", "tvbs", "寰宇", "台视", "中视", "华视", "东森", "三立", "民视", 
-        "台湾", "客家", "凤凰", "astro", "澳视", "澳視", "莲花", "澳門", "澳门", 
-        "公视", "原住民族", "原视", "天映", "龙华", "美亞", "美亚", "亞洲劇台", 
-        "信大", "环球电视台", "axn台灣", "cgn中文", "新唐人", "dali tv", "good tv", 
-        "bltv", "taiwan", "人間衛視", "好消息", "大立電視"
-    ]
-    is_hk_tw = is_hk_now or any(x in name_lower for x in hk_tw_keywords)
-    is_foreign_english = any(x in name_lower for x in ["pet club", "supreme master", "pluto", "electric", "now_90", "true crime"])
-    if (is_hk_tw or cat in ["澳门频道", "港台", "港台频道", "港澳台"]) and not is_foreign_english:
-        return "港澳台"
-
-    # 12. Latest Movies
+    # 13. Latest Movies
     if cat == "最新电影":
         return "最新电影"
 
