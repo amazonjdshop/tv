@@ -53,65 +53,78 @@ def clean_category(cat, name, url=""):
     if is_cctv:
         return "央视频道"
 
-    # 2. TVB/HK/Macau/Taiwan
-    is_tvb_etc = any(x in name_lower for x in ["tvb", "翡翠", "明珠", "无线", "hoy", "viu", "now", "rthk", "千禧", "星河", "中天", "tvbs", "寰宇", "台视", "中视", "华视", "东森", "三立", "民视", "台湾", "客家", "凤凰", "wcetv", "astro", "澳视", "莲花"])
-    if is_tvb_etc or cat in ["澳门频道", "港台", "港台频道", "港澳台"]:
-        return "港澳台"
-
-    # 3. Sports
-    is_sports_name = any(x in name_lower for x in ["足球", "台球", "体育", "sport", "sports", "combat", "kickboxing", "billiards", "fight", "ufc", "nhl", "mlb", "nba", "espn", "dazn", "fite", "fanduel", "glory", "billiard", "lacrosse", "extreme", "bek", "bke", "swere", "skynewsweather", "weather", "eurosport", "stadium", "sportsgrid", "poker"])
-    is_sports_cat = "体育" in cat or "sports" in cat.lower() or cat == "体育频道"
-    if is_sports_name or (is_sports_cat and not (is_tvb_etc or is_cctv)):
-        if not ("cctv-5" in name_lower or "cctv5" in name_lower):
-            return "体育频道"
-
-    # 4. Satellite check (must not map to provincial groups)
-    if "卫视" in name or cat == "卫视频道":
-        return "卫视频道"
-
-    # 5. International Chinese (Singapore, Macau & Global Chinese)
+    # 2. International Chinese (Singapore, Overseas Chinese)
     is_chinese_intl = any(x in name for x in ["新傳媒", "新传媒", "CNA", "ABN華語", "看中國", "中國旅遊", "金磚電視", "美國之音中文"])
     if is_chinese_intl:
         return "国际华语"
 
-    # 6. Standard category cleanups for fallbacks before provincial mapping
-    if cat == "浙江":
-        cat = "浙江频道"
-    elif cat == "贵州&四川":
-        cat = "四川频道"
-    elif cat == "山东&西安":
-        cat = "陕西频道"
-    elif cat == "吉林&内蒙古":
-        cat = "吉林频道"
-    elif cat == "黑龙江&甘肃":
-        cat = "黑龙江频道"
-    elif cat == "福建&广东&广西":
-        cat = "广东频道"
-    elif cat == "地方卫视":
-        cat = "卫视频道"
+    # 3. Sports
+    is_sports_name = any(x in name_lower for x in [
+        "足球", "台球", "体育", "sport", "sports", "combat", "kickboxing", 
+        "billiards", "fight", "ufc", "nhl", "mlb", "nba", "espn", "dazn", 
+        "fite", "fanduel", "glory", "billiard", "lacrosse", "extreme", "bek", 
+        "bke", "swere", "eurosport", "stadium", "sportsgrid", "poker"
+    ])
+    is_sports_cat = "体育" in cat or "sports" in cat.lower() or cat == "体育频道"
+    if is_sports_name or is_sports_cat:
+        if any(x in name_lower for x in ["tvb", "澳視體育", "澳视体育"]):
+            return "港澳台"
+        if not ("cctv-5" in name_lower or "cctv5" in name_lower):
+            return "体育频道"
 
-    # 7. Map regional groups
-    regional_categories = {
-        "浙江频道", "江苏频道", "江西频道", "广东频道", "广西频道", 
-        "福建频道", "河北频道", "湖北频道", "吉林频道", "内蒙古频道", 
-        "黑龙江频道", "甘肃频道", "山东频道", "陕西频道", "四川频道", 
-        "青海频道", "新疆频道", "上海频道", "更多地方频道", "地方频道", "其他地方台"
-    }
-    if cat in regional_categories or any(cat.startswith(p) for p in ["浙江", "江苏", "江西", "广东", "广西", "福建", "河北", "湖北", "吉林", "内蒙古", "黑龙江", "甘肃", "山东", "陕西", "四川", "青海", "新疆", "上海"]):
-        small_provinces = {
-            "河北频道", "山东频道", "广西频道", "陕西频道", 
-            "湖北频道", "江西频道", "青海频道", "新疆频道",
-            "上海频道", "更多地方频道", "地方频道", "其他地方台"
-        }
-        if cat in small_provinces or any(cat.startswith(p) for p in ["河北", "山东", "广西", "陕西", "湖北", "江西", "青海", "新疆", "上海"]):
-            return "其他地方台"
-        return cat if cat.endswith("频道") else cat + "频道"
+    # 4. Satellite check (mainland satellite stations)
+    if "卫视" in name or cat in ["地方卫视", "卫视频道"] or name in ["看东方", "海峡卫视"]:
+        if not any(x in name for x in ["澳门莲花卫视", "澳門蓮花衛視", "香港卫视", "TVBS", "凤凰"]):
+            return "卫视频道"
 
-    # 8. Latest Movies
-    if cat == "最新电影":
-        return "最新电影"
+    # 5. Provincial mainland categories & channels (check before HK/Taiwan to prevent provincial leaks)
+    provincial_prefixes = [
+        "浙江", "江苏", "江西", "广东", "广西", "福建", "河北", "湖北", 
+        "吉林", "内蒙古", "黑龙江", "甘肃", "山东", "陕西", "四川", "青海", 
+        "新疆", "上海", "湖南", "北京", "河南", "贵州", "山西", "大庆", 
+        "苏州", "逊克", "乌海", "乌兰察布", "锡林郭勒", "每日经济新闻"
+    ]
+    is_provincial_name = any(name.startswith(p) for p in provincial_prefixes)
+    is_provincial_cat = any(cat.startswith(p) for p in provincial_prefixes) or cat in ["更多地方频道", "地方频道", "其他地方台"]
+    if is_provincial_name or is_provincial_cat:
+        for big_p in ["黑龙江", "浙江", "吉林", "广东", "江苏", "内蒙古", "福建", "甘肃", "四川"]:
+            if name.startswith(big_p) or cat.startswith(big_p):
+                return big_p + "频道"
+        return "其他地方台"
 
-    # 9. Multilingual International (Korean, Spanish, French, German, Italian, Hindi)
+    # 6. Classic TV / Cartoons / Live China
+    if "重温经典" in name:
+        return "影视经典"
+    if "猫和老鼠" in name:
+        return "欧美影视"
+    if name == "直播中国":
+        return "其他频道"
+
+    # 7. US Major Networks / News / Weather / Finance
+    us_major_keywords = [
+        "abc news", "cbs news", "nbc news", "livenow from fox", "fox live now", "fox news", "fox weather",
+        "bloomberg", "cnbc", "newsmax", "scripps news", "weathernation", "accuweather", "court tv",
+        "cheddar", "nasa tv", "c-span", "cspan", "america's voice", "america teve", "buzzr", "pbs news", "accuweathernow"
+    ]
+    if any(k in name_lower for k in us_major_keywords):
+        return "美国主流台"
+
+    # 8. Western Movies / Series / Entertainment
+    movie_keywords = [
+        "movie", "movies", "cinema", "film", "series", "filmrise", "cinevault", "retro tv", 
+        "drybar", "comedy", "thriller", "drama", "action", "sci-fi", "horror", "crime", 
+        "mystery", "western", "electric now", "true crime now"
+    ]
+    if any(k in name_lower for k in movie_keywords) or cat in ["电影经典", "影视经典"]:
+        return "欧美影视"
+
+    # 9. US Local Affiliates
+    if re.match(r'^(abc|cbs|nbc|fox|cw|pbs)\s+[a-z0-9\-]+', name_lower) or any(x in name_lower for x in ["channel 1", "channel 2", "channel 3", "channel 4", "channel 5", "channel 6", "channel 7", "channel 8", "channel 9", "channel 10", "channel 11", "channel 12", "channel 13"]):
+        return "美国地方台"
+    if "stvp-us" in url_lower or "wsoc now" in name_lower or "wcetv" in name_lower or "rightnow" in name_lower:
+        return "美国地方台"
+
+    # 10. Multilingual International (Korean, Spanish, French, German, Italian, Hindi)
     if re.search(r'[\uac00-\ud7a3]', name) or "stvp-kr" in url_lower:
         return "多语种国际台"
     if any(x in url_lower for x in ["stvp-es", "stvp-mx"]) or re.search(r'[áéíóúñ¿¡]', name):
@@ -120,33 +133,32 @@ def clean_category(cat, name, url=""):
         return "多语种国际台"
     if "stvp-de" in url_lower or "stvp-at" in url_lower or "stvp-ch" in url_lower or re.search(r'[äöüß]', name):
         return "多语种国际台"
-    if "stvp-it" in url_lower:
+    if "stvp-it" in url_lower or name in ["WXTV", "WXTV-DT1"]:
         return "多语种国际台"
     if "stvp-in" in url_lower or any(x in name_lower for x in ["aaj tak", "abp news", "zee", "9x ", "ndtv"]):
         return "多语种国际台"
 
-    # 10. US Major Networks / News / Weather / Finance
-    us_major_keywords = [
-        "abc news", "cbs news", "nbc news", "livenow from fox", "fox live now", "fox news", "fox weather",
-        "bloomberg", "cnbc", "newsmax", "scripps news", "weathernation", "accuweather", "court tv",
-        "cheddar", "nasa tv", "c-span", "cspan", "america's voice", "america teve", "buzzr", "pbs news"
+    # 11. HK / Macau / Taiwan Broadcasters
+    is_hk_now = bool(re.search(r'(^|\b)now\s*(tv|新闻|财经|剧集|华剧|宽频|爆谷|直播|\d{2,3})', name_lower))
+    hk_tw_keywords = [
+        "tvb", "翡翠", "明珠", "无线", "hoy", "viu", "rthk", "千禧", "星河", 
+        "中天", "tvbs", "寰宇", "台视", "中视", "华视", "东森", "三立", "民视", 
+        "台湾", "客家", "凤凰", "astro", "澳视", "澳視", "莲花", "澳門", "澳门", 
+        "公视", "原住民族", "原视", "天映", "龙华", "美亞", "美亚", "亞洲劇台", 
+        "信大", "环球电视台", "axn台灣", "cgn中文", "新唐人", "dali tv", "good tv", 
+        "bltv", "taiwan", "人間衛視", "好消息", "大立電視"
     ]
-    if any(k in name_lower for k in us_major_keywords):
-        return "美国主流台"
+    is_hk_tw = is_hk_now or any(x in name_lower for x in hk_tw_keywords)
+    is_foreign_english = any(x in name_lower for x in ["pet club", "supreme master", "pluto", "electric", "now_90", "true crime"])
+    if (is_hk_tw or cat in ["澳门频道", "港台", "港台频道", "港澳台"]) and not is_foreign_english:
+        return "港澳台"
 
-    # 11. Western Movies / Series / Entertainment
-    movie_keywords = ["movie", "movies", "cinema", "film", "series", "filmrise", "cinevault", "retro tv", "drybar", "comedy", "thriller", "drama", "action", "sci-fi", "horror", "crime", "mystery", "western"]
-    if any(k in name_lower for k in movie_keywords) or cat in ["电影经典", "影视经典"]:
-        return "欧美影视"
-
-    # 12. US Local Affiliates
-    if re.match(r'^(abc|cbs|nbc|fox|cw|pbs)\s+[a-z0-9\-]+', name_lower) or any(x in name_lower for x in ["channel 1", "channel 2", "channel 3", "channel 4", "channel 5", "channel 6", "channel 7", "channel 8", "channel 9", "channel 10", "channel 11", "channel 12", "channel 13"]):
-        return "美国地方台"
-    if "stvp-us" in url_lower:
-        return "美国地方台"
+    # 12. Latest Movies
+    if cat == "最新电影":
+        return "最新电影"
 
     # 13. Fallback: International English
-    if cat in ["English合集", "电影频道 (英文)", "电视剧频道 (英文)", "动漫卡通频道 (英文)", "记录频道", "户外旅行频道 (英文)", "新闻频道 (英文)", "北美频道", "国际频道"]:
+    if cat in ["English合集", "电影频道 (英文)", "电视剧频道 (英文)", "动漫卡通频道 (英文)", "记录频道", "户外旅行频道 (英文)", "新闻频道 (英文)", "北美频道", "国际频道"] or is_foreign_english:
         return "国际频道"
 
     return "其他频道"
@@ -222,7 +234,11 @@ def main():
                 '澳门咨询': '澳視資訊',
                 '澳视澳门': '澳視澳門',
                 '澳视卫星': '澳門衛星頻道',
-                '澳门Macau': '澳視澳門'
+                '澳门Macau': '澳視澳門',
+                'Beautiful Life TV': '人間衛視 BLTV',
+                'Good': 'GOOD TV 好消息 1台',
+                'Good 2': 'GOOD TV 好消息 2台',
+                'Dali TV': '大立電視'
             }
             stripped_prefix = re.sub(r'^[^\w\s\-]+', '', name).strip()
             if stripped_prefix in sg_mo_map:
