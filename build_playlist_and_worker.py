@@ -176,6 +176,31 @@ def main():
                 name = re.sub(r'_\d+$', '', name).strip()
                 name_lower = name.lower()
             
+            # Normalize Singapore, Macau and regional channels to standard Chinese names
+            sg_mo_map = {
+                'CH8': '新傳媒8頻道',
+                'Channel 8': '新傳媒8頻道',
+                'CHU': '新傳媒U頻道',
+                'CHANNEL U': '新傳媒U頻道',
+                'CH5': '新傳媒5頻道',
+                'CHANNEL 5': '新傳媒5頻道',
+                'CNA': 'CNA亞洲新聞台',
+                '澳门莲花': '澳門蓮花衛視',
+                'Lotus TV': '澳門蓮花衛視',
+                '澳门体育': '澳視體育',
+                '澳门综艺': '澳視綜藝',
+                '澳门资讯': '澳視資訊',
+                '澳门咨询': '澳視資訊',
+                '澳视澳门': '澳視澳門',
+                '澳视卫星': '澳門衛星頻道',
+                '澳门Macau': '澳視澳門'
+            }
+            stripped_prefix = re.sub(r'^[^\w\s\-]+', '', name).strip()
+            if stripped_prefix in sg_mo_map:
+                name = sg_mo_map[stripped_prefix]
+            elif name in sg_mo_map:
+                name = sg_mo_map[name]
+                
             cleaned_cat = clean_category(category, name)
             
             channels.append({
