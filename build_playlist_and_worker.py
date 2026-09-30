@@ -19,11 +19,12 @@ category_order = [
     "央视频道",
     "卫视频道",
     "港澳台",
-    "国际华语",
+    "影视剧场",
     "少儿卡通",
     "纪实探索",
     "体育频道",
     "教育频道",
+    "国际华语",
     "浙江频道",
     "黑龙江频道",
     "广东频道",
@@ -31,7 +32,6 @@ category_order = [
     "地方综合台",
     "美国主流台",
     "美国地方台",
-    "影视剧场",
     "国际频道",
     "多语种国际台",
     "最新电影"
@@ -87,14 +87,16 @@ def clean_category(cat, name, url=""):
             return "卫视频道"
 
     # 5. HK / Macau / Taiwan Broadcasters (check before Sports to rescue 凤凰香港, 莲花电影, ViuTV, 天映)
+    if any(x in name for x in ["纬来体育", "緯來體育", "爱尔达体育", "愛爾達體育"]):
+        return "体育频道"
     is_hk_now = bool(re.search(r'(^|\b)now\s*(tv|新闻|财经|剧集|华剧|宽频|爆谷|直播|\d{2,3})', name_lower))
     hk_tw_keywords = [
         "tvb", "翡翠", "明珠", "无线", "hoy", "viu", "rthk", "千禧", "星河", 
         "中天", "tvbs", "寰宇", "台视", "中视", "华视", "东森", "三立", "民视", 
         "台湾", "客家", "凤凰", "astro", "澳视", "澳視", "莲花", "澳門", "澳门", 
         "公视", "原住民族", "原视", "天映", "龙华", "美亞", "美亚", "亞洲劇台", 
-        "信大", "环球电视台", "axn台灣", "cgn中文", "新唐人", "dali tv", "good tv", 
-        "bltv", "taiwan", "人間衛視", "好消息", "大立電視"
+        "信大", "环球电视台", "axn台灣", "axn", "cgn中文", "新唐人", "dali tv", "good tv", 
+        "bltv", "taiwan", "人間衛視", "好消息", "大立電視", "纬来", "緯來"
     ]
     is_hk_tw = is_hk_now or any(x in name_lower for x in hk_tw_keywords)
     is_foreign_english = any(x in name_lower for x in ["pet club", "supreme master", "pluto", "electric", "now_90", "true crime"])
@@ -132,7 +134,11 @@ def clean_category(cat, name, url=""):
         "浙江": "浙江频道",
         "黑龙江": "黑龙江频道",
         "广东": "广东频道",
-        "江苏": "江苏频道"
+        "江苏": "江苏频道",
+        "湖南": "湖南频道",
+        "北京": "北京频道",
+        "上海": "上海频道",
+        "四川": "四川频道"
     }
     jiangsu_cities = ["苏州", "无锡", "常州", "南通", "扬州", "镇江", "泰州", "宿迁", "淮安", "盐城", "连云港", "徐州"]
     if any(city in name for city in jiangsu_cities) or any(city in cat for city in jiangsu_cities):
@@ -144,7 +150,7 @@ def clean_category(cat, name, url=""):
         "新疆", "上海", "湖南", "北京", "河南", "贵州", "山西", "大庆", 
         "逊克", "乌海", "乌兰察布", "锡林郭勒", "每日经济新闻", "兵团", "海南", "辽宁", "云南", "西藏", "天津", "重庆"
     ]
-    if name == "广东体育":
+    if name in ["广东体育", "五星体育", "五星体育HD"]:
         return "体育频道"
     for mp, target_cat in major_provinces.items():
         if name.startswith(mp) or cat.startswith(mp):
@@ -182,11 +188,11 @@ def clean_category(cat, name, url=""):
 
     # 12. Western Movies / Series / Entertainment (影视剧场)
     movie_keywords = [
-        "movie", "movies", "cinema", "film", "series", "filmrise", "cinevault", "retro tv", 
+        "chc", "电影", "影院", "剧场", "movie", "movies", "cinema", "film", "series", "filmrise", "cinevault", "retro tv", 
         "drybar", "comedy", "thriller", "drama", "action", "sci-fi", "horror", "crime", 
         "mystery", "western", "electric now", "true crime now", "重温经典", "猫和老鼠"
     ]
-    if any(k in name_lower for k in movie_keywords) or cat in ["电影经典", "影视经典", "欧美影视"]:
+    if any(k in name_lower for k in movie_keywords) or cat in ["电影经典", "影视经典", "欧美影视", "影视剧场"]:
         return "影视剧场"
 
     # 13. US Local Affiliates
@@ -256,8 +262,8 @@ def main():
             raw_name = parts[1].strip()
             url = parts[2].strip()
             
-            # Filter out adware restreamer and looping test streams
-            if "107.150.60.122" in url.lower() or "lantian/channel001" in url.lower():
+            # Filter out adware restreamer, ad networks, and looping test streams
+            if any(k in url.lower() for k in ["107.150.60.122", "lantian/channel001", "198.204.228.26", "appadhw", "tvzb", "47.97.252.137"]):
                 continue
             
             # Normalize CCTV names (CCTV-1 to CCTV-17, CCTV-4K, CCTV-8K, including CCTV-5+ and CCTV-16)
@@ -423,14 +429,29 @@ def main():
             n_lower = n.lower()
             
             prio = 0
-            if cat == "少儿卡通" and n.startswith("CCTV-14"):
-                prio = -1
-            elif cat == "纪实探索" and n.startswith("CCTV-9"):
-                prio = -1
-            elif cat == "教育频道" and (n.startswith("CETV") or n.startswith("CCTV")):
-                prio = -1
-            elif cat == "体育频道" and "nba" in n_lower:
-                prio = -1
+            if cat == "影视剧场":
+                if n.upper().startswith("CHC") or "chc电影" in n_lower:
+                    prio = -3
+                elif any(k in n for k in ["重温经典", "电影", "影院"]):
+                    prio = -2
+            elif cat == "少儿卡通":
+                if any(k in n for k in ["CCTV-14", "金鹰卡通", "卡酷", "优漫", "炫动"]):
+                    prio = -3
+                elif any(k in n_lower for k in ["迪士尼", "尼克", "cartoon", "animax"]):
+                    prio = -2
+            elif cat == "纪实探索":
+                if any(k in n for k in ["CCTV-9", "探索", "国家地理", "动物星球", "历史"]):
+                    prio = -3
+                elif any(k in n_lower for k in ["discovery", "nat geo", "animal planet", "history"]):
+                    prio = -2
+            elif cat == "教育频道":
+                if n.startswith("CETV"):
+                    prio = -3
+                elif n.startswith("CCTV"):
+                    prio = -2
+            elif cat == "体育频道":
+                if any(k in n_lower for k in ["爱尔达", "緯來", "纬来", "nba", "cctv"]):
+                    prio = -3
                 
             is_ascii = bool(n and n[0].isascii())
             return (cat_idx, prio, is_ascii, (n_lower, n), suffix_num, c["url"])
@@ -613,6 +634,10 @@ export default {{
             }}
           }}
           break;
+        }}
+        
+        if (!targetResponse || !targetResponse.ok) {{
+          return Response.redirect(targetUrl, 302);
         }}
         
         // 动态改写 M3U8 播放列表内容，将相对 TS 切片路径转换为走代理的绝对路径
