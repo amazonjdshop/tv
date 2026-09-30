@@ -314,37 +314,54 @@ def main():
                 
             cleaned_cat = clean_category(category, name, url)
             
-            # Stream capping: max 4 lines per (cleaned_cat, name)
-            key = (cleaned_cat, name)
-            stream_counts[key] += 1
-            if stream_counts[key] <= 4:
-                channels.append({
-                    "category": cleaned_cat,
-                    "name": name,
-                    "url": url
-                })
+            channels.append({
+                "category": cleaned_cat,
+                "name": name,
+                "url": url
+            })
             
             # Cross-listing: CCTV-14 to 少儿卡通, CCTV-9 to 纪实探索
             if name == "CCTV-14":
-                key_kids = ("少儿卡通", "CCTV-14少儿")
-                stream_counts[key_kids] += 1
-                if stream_counts[key_kids] <= 4:
-                    channels.append({
-                        "category": "少儿卡通",
-                        "name": "CCTV-14少儿",
-                        "url": url
-                    })
+                channels.append({
+                    "category": "少儿卡通",
+                    "name": "CCTV-14少儿",
+                    "url": url
+                })
             elif name == "CCTV-9":
-                key_doc = ("纪实探索", "CCTV-9纪录")
-                stream_counts[key_doc] += 1
-                if stream_counts[key_doc] <= 4:
-                    channels.append({
-                        "category": "纪实探索",
-                        "name": "CCTV-9纪录",
-                        "url": url
-                    })
+                channels.append({
+                    "category": "纪实探索",
+                    "name": "CCTV-9纪录",
+                    "url": url
+                })
             
-    # Assign unique keys for duplicate names in original file order (using Chinese names in paths)
+    # Prioritize higher quality streams for each channel before key assignment and capping
+    from collections import OrderedDict
+    name_groups = OrderedDict()
+    for c in channels:
+        name_groups.setdefault((c["category"], c["name"]), []).append(c)
+
+    def stream_quality_score(url):
+        score = 0
+        u_lower = url.lower()
+        if "1080p" in u_lower or "[1080]" in u_lower or "/1080" in u_lower:
+            score += 15
+        if "newlive" in u_lower:
+            score += 10
+        if "720p" in u_lower or "[720]" in u_lower:
+            score += 5
+        if "kankanlive" in u_lower:
+            score -= 10
+        return score
+
+    sorted_channels = []
+    for cat_name, grp in name_groups.items():
+        # Sort descending by stream quality
+        grp.sort(key=lambda x: stream_quality_score(x["url"]), reverse=True)
+        # Cap at max 5 highest-quality lines per channel
+        sorted_channels.extend(grp[:5])
+    channels = sorted_channels
+
+    # Assign unique keys for duplicate names in quality-sorted order
     used_names = {}
     for c in channels:
         name = c["name"]
