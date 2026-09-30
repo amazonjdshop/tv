@@ -249,6 +249,10 @@ def main():
             raw_name = parts[1].strip()
             url = parts[2].strip()
             
+            # Filter out adware restreamer 107.150.60.122
+            if "107.150.60.122" in url.lower():
+                continue
+            
             # Normalize CCTV names (CCTV-1 to CCTV-17, including CCTV-5+ and CCTV-16)
             name_lower = raw_name.lower()
             # Strip emojis / non-alphanumeric prefixes to match CCTV names correctly
