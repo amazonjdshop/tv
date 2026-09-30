@@ -16,8 +16,8 @@ CCTV-3, http://119.233.255.62:1234/624878271
 CCTV-4, http://38.75.136.137:98/gslb/dsdqpub/cctv4k.m3u8?auth=testpub
 CCTV-4, http://173.208.212.130:8181/1080p/cctv4.m3u8
 CCTV-4, http://74.91.26.218:82/live/cctv4hd.m3u8
-CCTV-4, https://live-play-hls.cctvnews.cctv.com/CCTVChannel/channel_cctv4_mhd.m3u8?auth_key=1790777700-1-044e657af0da02fac29321d9de76e15de37baa3a982c5fb7b7d689fb101cd031-ea0e486db782083e82097c86aac10b91
 CCTV-4, https://php.jdshipin.com:2096/TVOD/iptv.php?id=cctv4
+CCTV-4, https://cdn.qd.je/163189.php?id=cctv4
 CCTV-5体育, http://118.122.144.115:8888/newlive/live/hls/5/live.m3u8
 CCTV-5体育, http://38.75.136.137:98/gslb/dsdqbv/cctv5hd.m3u8?auth=test20251009
 CCTV-5体育, http://173.208.212.130:8181/720p/cctv5.m3u8
@@ -44,15 +44,15 @@ CCTV-8, http://74.91.26.218:82/live/cctv8hd.m3u8
 CCTV-8, https://php.jdshipin.com:2096/TVOD/iptv.php?id=cctv8
 CCTV-8, https://cdn.qd.je/163189.php?id=cctv8
 CCTV-9, http://63.141.230.178:82/gslb/zbdq5.m3u8?id=cctv9hd
-CCTV-9, https://live-play-hls.cctvnews.cctv.com/CCTVChannel/channel_cctv9_mhd.m3u8?auth_key=1790777700-1-044e657af0da02fac29321d9de76e15de37baa3a982c5fb7b7d689fb101cd031-5aa9403060b4dc531929d8b880f29906
 CCTV-9, http://74.91.26.218:82/live/cctv9hd.m3u8
 CCTV-9, http://192.151.150.154/live/cctv9hd.m3u8
 CCTV-9, http://198.204.228.26/live/cctv9hd.m3u8
+CCTV-9, https://xykt-fix.github.io/Y77.m3u8
 CCTV-10, http://204.12.221.218:8181/3m1080p/cctv10.m3u8
 CCTV-10, http://118.122.144.115:8888/newlive/live/hls/11/live.m3u8
 CCTV-10, http://38.75.136.137:98/gslb/dsdqbv/cctv10hd.m3u8?auth=test20251009
 CCTV-10, http://74.91.26.218:82/live/cctv10hd.m3u8
-CCTV-10, https://live-play-hls.cctvnews.cctv.com/CCTVChannel/channel_cctv10_mhd.m3u8?auth_key=1790777700-1-044e657af0da02fac29321d9de76e15de37baa3a982c5fb7b7d689fb101cd031-de46f8d033ec56100170e1910e3cb42e
+CCTV-10, https://cdn4.skygo.mn/live/disk1/CCTV-10/HLSv3-FTA/CCTV-10.m3u8
 CCTV-11, http://204.12.221.218:8181/3m1080p/cctv11.m3u8
 CCTV-11, http://113.57.140.161:10081/newlive/live/hls/12/live.m3u8
 CCTV-11, http://38.75.136.137:98/gslb/dsdqbv/cctv11hd.m3u8?auth=test20251009
@@ -62,12 +62,12 @@ CCTV-12, http://204.12.221.218:8181/3m1080p/cctv12.m3u8
 CCTV-12, http://38.75.136.137:98/gslb/dsdqpub/cctv12hd.m3u8?auth=testpub
 CCTV-12, http://38.75.136.137:98/gslb/dsdqbv/cctv12hd.m3u8?auth=test20251009
 CCTV-12, http://74.91.26.218:82/live/cctv12hd.m3u8
-CCTV-12, https://live-play-hls.cctvnews.cctv.com/CCTVChannel/channel_cctv12_mhd.m3u8?auth_key=1790777700-1-044e657af0da02fac29321d9de76e15de37baa3a982c5fb7b7d689fb101cd031-86746c0e529612c08db4e091286d5fa1
+CCTV-12, https://php.jdshipin.com:2096/TVOD/iptv.php?id=cctv12
 CCTV-13, http://63.141.230.178:82/gslb/zbdq5.m3u8?id=cctv13hd
 CCTV-13, http://38.75.136.137:98/gslb/dsdqbv/cctv13hd.m3u8?auth=test20251009
 CCTV-13, http://74.91.26.218:82/live/cctv13hd.m3u8
-CCTV-13, https://live-play-hls.cctvnews.cctv.com/CCTVChannel/channel_cctv13_mhd.m3u8?auth_key=1790777700-1-044e657af0da02fac29321d9de76e15de37baa3a982c5fb7b7d689fb101cd031-c40a721558f5507932d4f6b6df22c35d
 CCTV-13, https://php.jdshipin.com:2096/TVOD/iptv.php?id=cctv13
+CCTV-13, https://cdn.qd.je/163189.php?id=cctv13
 CCTV-14, http://173.208.212.130:8181/1080p/cctv14.m3u8
 CCTV-14, http://204.12.221.218:8181/3m1080p/cctv14.m3u8
 CCTV-14, http://63.141.230.178:82/gslb/zbdq5.m3u8?id=cctv14hd
@@ -86,9 +86,8 @@ CCTV-16奥林匹克, https://cdn.qd.je/163189.php?id=cctv16
 CCTV-17, http://63.141.230.178:82/gslb/zbdq5.m3u8?id=cctv17hd
 CCTV-17, http://38.75.136.137:98/gslb/dsdqbv/cctv17hd.m3u8?auth=test20251009
 CCTV-17, http://74.91.26.218:82/live/cctv17hd.m3u8
-CCTV-17, https://live-play-hls.cctvnews.cctv.com/CCTVChannel/channel_cctv17_mhd.m3u8?auth_key=1790777700-1-044e657af0da02fac29321d9de76e15de37baa3a982c5fb7b7d689fb101cd031-74adbe32fb807daeb89f646429b846d1
 CCTV-17, https://php.jdshipin.com:2096/TVOD/iptv.php?id=cctv17
-CCTV-4K, https://live-play-hls.cctvnews.cctv.com/CCTVChannel/channel_cctv4k_mhd.m3u8?auth_key=1790777700-1-044e657af0da02fac29321d9de76e15de37baa3a982c5fb7b7d689fb101cd031-35e7190709b3acddf53caa430bbd3794
+CCTV-17, https://cdn.qd.je/163189.php?id=cctv17
 CCTV-8K, http://192.151.150.154/live/cctv8k.m3u8
 CCTV+, https://cd-live-stream.news.cctvplus.com/live/smil:CHANNEL1.smil/playlist.m3u8
 CCTV+2, https://cd-live-stream.news.cctvplus.com/live/smil:CHANNEL2.smil/playlist.m3u8
@@ -560,10 +559,10 @@ Toon Goggles, https://jmp2.uk/stvp-USBB1900004J9
 Toonami Aftermath, http://api.toonamiaftermath.com:3000/est/playlist.m3u8
 WASABI Cartoon, https://amg01796-amg01796c3-rakuten-uk-2555.playouts.now.amagi.tv/playlist/amg01796-fastmediafast-wasabii-rakutenuk/playlist.m3u8
 CCTV-9纪录, http://63.141.230.178:82/gslb/zbdq5.m3u8?id=cctv9hd
-CCTV-9纪录, https://live-play-hls.cctvnews.cctv.com/CCTVChannel/channel_cctv9_mhd.m3u8?auth_key=1790777700-1-044e657af0da02fac29321d9de76e15de37baa3a982c5fb7b7d689fb101cd031-5aa9403060b4dc531929d8b880f29906
 CCTV-9纪录, http://74.91.26.218:82/live/cctv9hd.m3u8
 CCTV-9纪录, http://192.151.150.154/live/cctv9hd.m3u8
 CCTV-9纪录, http://198.204.228.26/live/cctv9hd.m3u8
+CCTV-9纪录, https://xykt-fix.github.io/Y77.m3u8
 之江纪录, http://ali-xwl.cztv.com/live/channel121080Pnew.m3u8
 之江纪录, https://zwebl06.cztv.com/live/channel121080Pnew.m3u8?auth_key=1790481681684-0-0-de02424be7b68b522201a862bda744aa
 之江纪录, https://zwebl06.cztv.com/live/channel121080Pnew.m3u8?auth_key=1790568085728-0-0-086642ded858864d02c34269f649a2a6
