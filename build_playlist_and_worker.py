@@ -54,6 +54,9 @@ def clean_channel_name(name):
     n = re.sub(r"(?i)\s+[-_]?\s*(?:HD|SD)\s*$", "", n)
     # Clean redundant whitespace
     n = re.sub(r"\s+", " ", n).strip()
+    # Traditional to simplified mapping for key satellite channels
+    if n in ["湖南衛視", "湖南卫视 HD", "湖南卫视 1080P", "湖南卫视1080P"]:
+        n = "湖南卫视"
     return n
 
 def clean_category(cat, name, url=""):
@@ -79,7 +82,7 @@ def clean_category(cat, name, url=""):
         return "国际华语"
 
     # 4. Satellite check (mainland satellite stations)
-    if "卫视" in name or cat in ["地方卫视", "卫视频道"] or name in ["看东方", "海峡卫视"]:
+    if "卫视" in name or "衛視" in name or cat in ["地方卫视", "卫视频道"] or name in ["看东方", "海峡卫视"]:
         if not any(x in name for x in ["澳门莲花卫视", "澳門蓮花衛視", "香港卫视", "TVBS", "凤凰"]):
             return "卫视频道"
 
@@ -253,8 +256,8 @@ def main():
             raw_name = parts[1].strip()
             url = parts[2].strip()
             
-            # Filter out adware restreamer 107.150.60.122
-            if "107.150.60.122" in url.lower():
+            # Filter out adware restreamer and looping test streams
+            if "107.150.60.122" in url.lower() or "lantian/channel001" in url.lower():
                 continue
             
             # Normalize CCTV names (CCTV-1 to CCTV-17, CCTV-4K, CCTV-8K, including CCTV-5+ and CCTV-16)
