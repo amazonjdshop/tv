@@ -265,6 +265,10 @@ def main():
             # Filter out adware restreamer, ad networks, and looping test streams
             if any(k in url.lower() for k in ["107.150.60.122", "lantian/channel001", "198.204.228.26", "appadhw", "tvzb", "47.97.252.137"]):
                 continue
+            if any(k in raw_name for k in ["支持作者", "关注公众号", "防失联", "微信", "更新时间"]):
+                continue
+            if url.lower().endswith(".mp4") and "春晚" not in raw_name and "电影" not in raw_name and category not in ["最新电影", "春晚"]:
+                continue
             
             # Normalize CCTV names (CCTV-1 to CCTV-17, CCTV-4K, CCTV-8K, including CCTV-5+ and CCTV-16)
             name_lower = raw_name.lower()
@@ -500,19 +504,19 @@ def main():
         f.write(playlist_content)
     print(f"Updated {playlist_path} and {live3_path}")
     
-    # 2.1 Write to playlist_pure.txt, live.txt & live2.txt (Pure playlist: No YouTube, No YueChan)
+    # 2.1 Write to playlist_pure.txt, live.txt & live2.txt (Pure playlist: No YouTube, Includes Direct TV & Worker TV)
     playlist_pure_lines = []
     current_cat_pure = None
     for c in channels_with_keys:
         url_lower = c["url"].lower()
-        if "youtube.com" in url_lower or "youtu.be" in url_lower or url_lower in yuechan_urls:
+        if "youtube.com" in url_lower or "youtu.be" in url_lower:
             continue
         if c["category"] != current_cat_pure:
             current_cat_pure = c["category"]
             playlist_pure_lines.append(f"{current_cat_pure},#genre#")
         
         is_movie = c["category"] in ["最新电影", "影视点播"]
-        if is_movie:
+        if is_movie or url_lower in yuechan_urls:
             playlist_pure_lines.append(f"{c['name']},{c['url']}")
         else:
             playlist_pure_lines.append(f"{c['name']},https://{domain}/live/{c['key']}/index.m3u8")
