@@ -317,6 +317,7 @@ def main():
             channels.append({
                 "category": cleaned_cat,
                 "name": name,
+                "raw_name": raw_name,
                 "url": url
             })
             
@@ -325,12 +326,14 @@ def main():
                 channels.append({
                     "category": "少儿卡通",
                     "name": "CCTV-14少儿",
+                    "raw_name": raw_name,
                     "url": url
                 })
             elif name == "CCTV-9":
                 channels.append({
                     "category": "纪实探索",
                     "name": "CCTV-9纪录",
+                    "raw_name": raw_name,
                     "url": url
                 })
             
@@ -340,23 +343,41 @@ def main():
     for c in channels:
         name_groups.setdefault((c["category"], c["name"]), []).append(c)
 
-    def stream_quality_score(url):
+    def stream_quality_score(c):
         score = 0
-        u_lower = url.lower()
-        if "1080p" in u_lower or "[1080]" in u_lower or "/1080" in u_lower:
-            score += 15
-        if "newlive" in u_lower:
+        u_lower = c["url"].lower()
+        raw_lower = c.get("raw_name", "").lower()
+        combined = f"{raw_lower} {u_lower}"
+
+        # 4K / 8K 超高清
+        if any(k in combined for k in ["4k", "8k", "2160p", "uhd"]):
+            score += 25
+        # 1080P 全高清
+        elif any(k in combined for k in ["1080p", "1080", "fhd", "超清"]):
+            score += 18
+
+        # 电信/联通/移动原生广播级专网 IPTV (50fps/高码率)
+        if any(k in u_lower for k in ["newlive", "chinamobile", "gslb"]):
             score += 10
-        if "720p" in u_lower or "[720]" in u_lower:
-            score += 5
+
+        # 720P 高清
+        if any(k in combined for k in ["720p", "720", "hd", "高清"]):
+            score += 6
+
+        # 576P / 480P / 标清
+        if any(k in combined for k in ["576", "480", "sd", "标清"]):
+            score -= 6
+
+        # 已知低码率压缩转码源 (如 800x600 的 kankanlive)
         if "kankanlive" in u_lower:
             score -= 10
+
         return score
 
     sorted_channels = []
     for cat_name, grp in name_groups.items():
-        # Sort descending by stream quality
-        grp.sort(key=lambda x: stream_quality_score(x["url"]), reverse=True)
+        # Sort descending by stream quality score
+        grp.sort(key=lambda x: stream_quality_score(x), reverse=True)
         # Cap at max 5 highest-quality lines per channel
         sorted_channels.extend(grp[:5])
     channels = sorted_channels
