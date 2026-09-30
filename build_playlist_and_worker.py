@@ -48,8 +48,8 @@ def clean_channel_name(name):
     n = re.sub(r"[\s_]*(?:线路|源|line|src)\s*\d+$", "", n, flags=re.I)
     # Replace underscores with spaces
     n = n.replace("_", " ")
-    # Remove resolution tags
-    n = re.sub(r"(?i)[\[\(]?(?:1080[pi]?|720[pi]?|4k|fhd)[\]\)]?", "", n)
+    # Remove resolution tags (preserve CCTV-4K and CCTV-8K)
+    n = re.sub(r"(?i)[\[\(]?(?:1080[pi]?|720[pi]?|(?<!cctv-)4k|(?<!cctv-)8k|fhd)[\]\)]?", "", n)
     # Remove trailing HD/SD tag
     n = re.sub(r"(?i)\s+[-_]?\s*(?:HD|SD)\s*$", "", n)
     # Clean redundant whitespace
@@ -227,6 +227,10 @@ def get_category_index(cat):
         return len(category_order)
 
 def cctv_sort_key(name):
+    if "4k" in name.lower():
+        return (0, 998, 0, name)
+    if "8k" in name.lower():
+        return (0, 999, 0, name)
     match = re.search(r'cctv[-]?(\d+)(\+)?', name.lower())
     if match:
         num = int(match.group(1))
@@ -253,12 +257,16 @@ def main():
             if "107.150.60.122" in url.lower():
                 continue
             
-            # Normalize CCTV names (CCTV-1 to CCTV-17, including CCTV-5+ and CCTV-16)
+            # Normalize CCTV names (CCTV-1 to CCTV-17, CCTV-4K, CCTV-8K, including CCTV-5+ and CCTV-16)
             name_lower = raw_name.lower()
             # Strip emojis / non-alphanumeric prefixes to match CCTV names correctly
             clean_name_match = re.sub(r'^[^\w\s\-]+', '', name_lower).strip()
             cctv_match = re.search(r'(cctv[-]?\d+)', clean_name_match)
-            if cctv_match:
+            if "cctv-4k" in name_lower or "cctv4k" in name_lower:
+                name = "CCTV-4K"
+            elif "cctv-8k" in name_lower or "cctv8k" in name_lower:
+                name = "CCTV-8K"
+            elif cctv_match:
                 cctv_base = cctv_match.group(1).upper()
                 # Ensure standard format (e.g. CCTV-5 instead of CCTV5)
                 if not cctv_base.startswith("CCTV-"):

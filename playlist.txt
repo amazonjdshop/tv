@@ -29,7 +29,6 @@ CCTV-7,http://74.91.26.218:82/live/cctv7hd.m3u8
 CCTV-8,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CCTV-8/index.m3u8
 CCTV-8,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CCTV-8_1/index.m3u8
 CCTV-8,http://74.91.26.218:82/live/cctv8hd.m3u8
-CCTV-8,http://192.151.150.154/live/cctv8k.m3u8
 CCTV-9,https://xykt-fix.github.io/Y77.m3u8
 CCTV-9,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CCTV-9_1/index.m3u8
 CCTV-9,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CCTV-9_2/index.m3u8
@@ -64,6 +63,8 @@ CCTV-17,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CCTV-17/in
 CCTV-17,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CCTV-17_1/index.m3u8
 CCTV-17,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CCTV-17_2/index.m3u8
 CCTV-17,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CCTV-17_3/index.m3u8
+CCTV-4K,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CCTV-4K/index.m3u8
+CCTV-8K,http://192.151.150.154/live/cctv8k.m3u8
 CCTV+,https://cd-live-stream.news.cctvplus.com/live/smil:CHANNEL1.smil/playlist.m3u8
 CCTV+2,https://cd-live-stream.news.cctvplus.com/live/smil:CHANNEL2.smil/playlist.m3u8
 CCTV-世界地理,http://38.75.136.137:98/gslb/dsdqpub/sjdl.m3u8?auth=testpub
