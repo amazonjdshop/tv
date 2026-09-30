@@ -16,4 +16,7 @@ dist/
 .wrangler/
 run_daily.sh
 cron.log
+quick_cctv_sync.py
+run_cctv_sync.sh
+cctv_sync.log
 
