@@ -45,8 +45,8 @@ CCTV-8,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CCTV-8_4/in
 CCTV-9,http://63.141.230.178:82/gslb/zbdq5.m3u8?id=cctv9hd
 CCTV-9,http://192.151.150.154/live/cctv9hd.m3u8
 CCTV-9,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CCTV-9_2/index.m3u8
-CCTV-9,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CCTV-9_3/index.m3u8
 CCTV-9,https://xykt-fix.github.io/Y77.m3u8
+CCTV-9,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CCTV-9_4/index.m3u8
 CCTV-10,http://204.12.221.218:8181/3m1080p/cctv10.m3u8
 CCTV-10,http://118.122.144.115:8888/newlive/live/hls/11/live.m3u8
 CCTV-10,http://38.75.136.137:98/gslb/dsdqbv/cctv10hd.m3u8?auth=test20251009
@@ -87,7 +87,6 @@ CCTV-17,http://38.75.136.137:98/gslb/dsdqbv/cctv17hd.m3u8?auth=test20251009
 CCTV-17,http://74.91.26.218:82/live/cctv17hd.m3u8
 CCTV-17,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CCTV-17_3/index.m3u8
 CCTV-17,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CCTV-17_4/index.m3u8
-CCTV-4K,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CCTV-4K/index.m3u8
 CCTV-8K,http://192.151.150.154/live/cctv8k.m3u8
 CCTV+,https://cd-live-stream.news.cctvplus.com/live/smil:CHANNEL1.smil/playlist.m3u8
 CCTV+2,https://cd-live-stream.news.cctvplus.com/live/smil:CHANNEL2.smil/playlist.m3u8
@@ -722,8 +721,8 @@ Toonami Aftermath,http://api.toonamiaftermath.com:3000/est/playlist.m3u8
 CCTV-9纪录,http://63.141.230.178:82/gslb/zbdq5.m3u8?id=cctv9hd
 CCTV-9纪录,http://192.151.150.154/live/cctv9hd.m3u8
 CCTV-9纪录,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CCTV-9纪录_2/index.m3u8
-CCTV-9纪录,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CCTV-9纪录_3/index.m3u8
 CCTV-9纪录,https://xykt-fix.github.io/Y77.m3u8
+CCTV-9纪录,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CCTV-9纪录_4/index.m3u8
 Autentic History,https://9e754fa707344ccca6d84955c8fcaf36.mediatailor.us-east-1.amazonaws.com/v1/master/44f73ba4d03e9607dcd9bebdcb8494d86964f1d8/RlaxxTV-eu_AutenticHistory/playlist.m3u8
 History,http://212.5.144.156:8080/history/index.m3u8
 History Hit,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/History Hit/index.m3u8
@@ -784,9 +783,6 @@ WildEarth,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/WildEart
 Wilder Planet,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Wilder Planet/index.m3u8
 Wildest Wish TV,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Wildest Wish TV/index.m3u8
 体育频道,#genre#
-纬来体育,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/纬来体育/index.m3u8
-纬来体育,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/纬来体育_1/index.m3u8
-纬来体育,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/纬来体育_2/index.m3u8
 NBA TV,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/NBA TV/index.m3u8
 NBA TV,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/NBA TV_1/index.m3u8
 NBA TV,http://23.237.104.106:8080/USA_NBA/index.m3u8
@@ -794,13 +790,10 @@ TVS Pinball Network,https://rpn.bozztv.com/gusa/gusa-TVSCartoonNetwork/index.m3u
 五星体育HD,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/五星体育HD/index.m3u8
 五星体育HD,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/五星体育HD_1/index.m3u8
 广东体育,http://38.75.136.137:98/gslb/dsdqpub/gdty.m3u8?auth=testpub
-广东体育,https://epg.pw/stream/7b470f9fc5c305db0c8622117b7b25ca00eb35ba3e93e865cf0ff9df5c736681.m3u8
 广东体育,http://r.jdshipin.com/LiYdg
 广东体育,http://php.jdshipin.com/TVOD/iptv.php?id=gdty
 广东体育,http://php.jdshipin.com/PLTV/iptv.php?id=gdty
-精品体育,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/精品体育/index.m3u8
-精品体育,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/精品体育_1/index.m3u8
-精品体育,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/精品体育_2/index.m3u8
+广东体育,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/广东体育_6/index.m3u8
 ACC Network,http://23.239.31.26:8989/accnetwork/index.m3u8
 ACISport,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/ACISport/index.m3u8
 BeIN Sports XTRA,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/BeIN Sports XTRA/index.m3u8
