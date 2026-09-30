@@ -7,7 +7,7 @@ CCTV-2, http://204.12.221.218:8181/3m1080p/cctv2.m3u8
 CCTV-2, http://74.91.26.218:82/live/cctv2hd.m3u8
 CCTV-2, http://192.151.150.154/live/cctv2hd.m3u8
 CCTV-2, http://173.208.212.130:8181/720p/cctv2.m3u8
-CCTV-2, https://php.jdshipin.com:2096/TVOD/iptv.php?id=cctv2
+CCTV-2, https://live-play-hls.cctvnews.cctv.com/CCTVChannel/channel_cctv2_mhd.m3u8?auth_key=1790832600-1-134a3ea273921f7098d56b82b467f1b2bdc5d5db8a79597dcde7cb76309a41a9-e4e5ced67cb1513d3ad637acefbf30d1
 CCTV-3, http://63.141.230.178:82/gslb/zbdq5.m3u8?id=cctv3hd
 CCTV-3, http://74.91.26.218:82/live/cctv3hd.m3u8
 CCTV-3, https://php.jdshipin.com:2096/TVOD/iptv.php?id=cctv3
@@ -45,7 +45,7 @@ CCTV-9, http://63.141.230.178:82/gslb/zbdq5.m3u8?id=cctv9hd
 CCTV-9, http://192.151.150.154/live/cctv9hd.m3u8
 CCTV-9, http://74.91.26.218:82/live/cctv9hd.m3u8
 CCTV-9, https://live-play-hls.cctvnews.cctv.com/CCTVChannel/channel_cctv9_mhd.m3u8?auth_key=1790808300-1-4f894c9ce205813696442ab28aa711dcda9125fbbe3c72616686669833793257-e1a8e8aff1ac7672429addc9c9b08872
-CCTV-9, https://xykt-fix.github.io/Y77.m3u8
+CCTV-9, https://live-play-hls.cctvnews.cctv.com/CCTVChannel/channel_cctv9_mhd.m3u8?auth_key=1790832600-1-134a3ea273921f7098d56b82b467f1b2bdc5d5db8a79597dcde7cb76309a41a9-6eb2bacfcba2f2cf2fe1f7fb88d83077
 CCTV-10, http://204.12.221.218:8181/3m1080p/cctv10.m3u8
 CCTV-10, http://118.122.144.115:8888/newlive/live/hls/11/live.m3u8
 CCTV-10, http://38.75.136.137:98/gslb/dsdqbv/cctv10hd.m3u8?auth=test20251009
@@ -60,7 +60,7 @@ CCTV-12, http://204.12.221.218:8181/3m1080p/cctv12.m3u8
 CCTV-12, http://38.75.136.137:98/gslb/dsdqbv/cctv12hd.m3u8?auth=test20251009
 CCTV-12, http://38.75.136.137:98/gslb/dsdqpub/cctv12hd.m3u8?auth=testpub
 CCTV-12, http://74.91.26.218:82/live/cctv12hd.m3u8
-CCTV-12, https://php.jdshipin.com:2096/TVOD/iptv.php?id=cctv12
+CCTV-12, https://live-play-hls.cctvnews.cctv.com/CCTVChannel/channel_cctv12_mhd.m3u8?auth_key=1790832600-1-134a3ea273921f7098d56b82b467f1b2bdc5d5db8a79597dcde7cb76309a41a9-b773050e8ce68f8e7992620de7aa7934
 CCTV-13, http://ali-m-l.cztv.com/channels/lantian/channel21/1080p.m3u8
 CCTV-13, http://63.141.230.178:82/gslb/zbdq5.m3u8?id=cctv13hd
 CCTV-13, http://38.75.136.137:98/gslb/dsdqbv/cctv13hd.m3u8?auth=test20251009
@@ -85,7 +85,8 @@ CCTV-17, http://63.141.230.178:82/gslb/zbdq5.m3u8?id=cctv17hd
 CCTV-17, http://38.75.136.137:98/gslb/dsdqbv/cctv17hd.m3u8?auth=test20251009
 CCTV-17, http://74.91.26.218:82/live/cctv17hd.m3u8
 CCTV-17, https://live-play-hls.cctvnews.cctv.com/CCTVChannel/channel_cctv17_mhd.m3u8?auth_key=1790808300-1-4f894c9ce205813696442ab28aa711dcda9125fbbe3c72616686669833793257-a400e81d412b888d1f0ce032cc1e2242
-CCTV-17, https://php.jdshipin.com:2096/TVOD/iptv.php?id=cctv17
+CCTV-17, https://live-play-hls.cctvnews.cctv.com/CCTVChannel/channel_cctv17_mhd.m3u8?auth_key=1790832600-1-134a3ea273921f7098d56b82b467f1b2bdc5d5db8a79597dcde7cb76309a41a9-f5523135d65fba485b99dbf9d3f6b995
+CCTV-4K, https://live-play-hls.cctvnews.cctv.com/CCTVChannel/channel_cctv4k_mhd.m3u8?auth_key=1790832600-1-134a3ea273921f7098d56b82b467f1b2bdc5d5db8a79597dcde7cb76309a41a9-e466b888b73c895245f971fa6df0b6f1
 CCTV-4K, https://live-play-hls.cctvnews.cctv.com/CCTVChannel/channel_cctv4k_mhd.m3u8?auth_key=1790808300-1-4f894c9ce205813696442ab28aa711dcda9125fbbe3c72616686669833793257-f2ef34bf6ba17fdd5762c1a93f08848d
 CCTV-8K, http://192.151.150.154/live/cctv8k.m3u8
 CCTV+, https://cd-live-stream.news.cctvplus.com/live/smil:CHANNEL1.smil/playlist.m3u8
@@ -746,7 +747,7 @@ CCTV-9纪录, http://63.141.230.178:82/gslb/zbdq5.m3u8?id=cctv9hd
 CCTV-9纪录, http://192.151.150.154/live/cctv9hd.m3u8
 CCTV-9纪录, http://74.91.26.218:82/live/cctv9hd.m3u8
 CCTV-9纪录, https://live-play-hls.cctvnews.cctv.com/CCTVChannel/channel_cctv9_mhd.m3u8?auth_key=1790808300-1-4f894c9ce205813696442ab28aa711dcda9125fbbe3c72616686669833793257-e1a8e8aff1ac7672429addc9c9b08872
-CCTV-9纪录, https://xykt-fix.github.io/Y77.m3u8
+CCTV-9纪录, https://live-play-hls.cctvnews.cctv.com/CCTVChannel/channel_cctv9_mhd.m3u8?auth_key=1790832600-1-134a3ea273921f7098d56b82b467f1b2bdc5d5db8a79597dcde7cb76309a41a9-6eb2bacfcba2f2cf2fe1f7fb88d83077
 Autentic History, https://9e754fa707344ccca6d84955c8fcaf36.mediatailor.us-east-1.amazonaws.com/v1/master/44f73ba4d03e9607dcd9bebdcb8494d86964f1d8/RlaxxTV-eu_AutenticHistory/playlist.m3u8
 History, http://212.5.144.156:8080/history/index.m3u8
 History Hit, https://jmp2.uk/stvp-GBBA2200005ZA
