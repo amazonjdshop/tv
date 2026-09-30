@@ -281,14 +281,18 @@ CCTV中文国际, https://www.youtube.com/embed/vNVp6bxkL1c
 黑龙江卫视, http://198.204.228.26/live/hljwshd.m3u8
 黑龙江卫视, http://183.10.180.238:9901/tsfile/live/0143_1.m3u8?key=txiptv&playlive=1&authid=0
 黑龙江卫视, http://36.136.38.87:9901/tsfile/live/0143_1.m3u8?key=txiptv&playlive=1&authid=0
+三立台湾台, http://198.204.228.26/live/sltw.m3u8
 三立新闻, https://www.youtube.com/embed/QsGswQvRmtU
 三立新闻, https://www.youtube.com/embed/MV9mI0GChwo
 东森新闻, https://www.youtube.com/embed/V1p33hqPrUk
 东森新闻51台, https://www.youtube.com/embed/E0zhe2gkXBs
+东森电影台, http://198.204.228.26/live/ebcmovie.m3u8
 东森财经, https://www.youtube.com/embed/1I2iq41Akmo
 中天新闻, http://222.128.55.152:9080/live/fc.m3u8
 中天新闻, https://www.youtube.com/embed/vr3XyVCR4T0
 中天新闻, http://xiangxiws.vip:6777/qlw.php?key=qq%E7%BE%A4746405779&id=ztxw
+中天新闻台, http://198.204.228.26/live/ctinews.m3u8
+中天综合台, http://198.204.228.26/live/cti.m3u8
 中视新闻, https://www.youtube.com/embed/TCnaIE_SAtM
 亚洲武侠, https://cdn.qd.je/163189.php?id=yzwx
 亞洲劇台, http://103.172.187.30:12000/stream/mytv/null-11/master.m3u8
@@ -357,6 +361,7 @@ CCTV中文国际, https://www.youtube.com/embed/vNVp6bxkL1c
 澳门莲花电影, https://cdn6.123.rr.kg/163189/amlh
 环球电视台, https://tv.timetv.uk/utv1.hqtvzb.com:9999/hls/world.m3u8
 直播中国, https://gcalic.v.myalicdn.com/gc/qdls03_1/index.m3u8
+纬来电影台, http://198.204.228.26/live/vl_movie.m3u8
 美亞電影台, http://103.172.187.30:12000/stream/mytv/null-9/master.m3u8
 翡翠台, https://cdn.qd.je/163189.php?id=fct
 翡翠台, https://cdn3.indevs.in/stream/tvb/fct/
@@ -382,6 +387,7 @@ astro AWANI, https://d2idp3hzkhjpih.cloudfront.net/out/v1/4b85d9c2bf97413eb0c9fd
 Astro 欢喜台, https://cdn3.indevs.in/stream/live/hxt/
 Astro 爱奇艺, https://cdn3.indevs.in/stream/live/iqiyi/
 Astro欢喜台, https://cdn.qd.je/163189/hxt
+AXN台湾, http://198.204.228.26/live/axn.m3u8
 AXN台灣, http://125.227.210.55:4050/VideoInput/play.ts
 CGN中文台, https://d3e05csss9c272.cloudfront.net/out/v1/f0bf71c57581470fb9379f603e8f5d83/CGNWebLiveCN.m3u8
 GOOD TV 好消息 1台, https://live.streamingfast.net/osmflivech1.m3u8
@@ -419,6 +425,7 @@ TVBS 55新闻, https://www.youtube.com/embed/2mCSYvcfhtc
 TVBS 56台, https://www.youtube.com/embed/o_-hSMgpAzs
 TVBS NEWS, https://www.youtube.com/embed/m_dhMSvUCIc
 TVBS-Asia, http://38.64.72.148/hls/modn/list/4005/playlist.m3u8
+TVBS新闻台, http://198.204.228.26/live/tvbsn.m3u8
 TVB亚洲武侠, https://cdn6.cc.cd/163189/yzwx
 TVB傍晚新闻, https://www.youtube.com/embed?listType=playlist&list=PLKoXXVQa3yxBlMRa-1lq0gDur_RstqgLr
 TVB剧集, https://cdn.qd.je/163189.php?id=tvbd
@@ -437,25 +444,429 @@ tvN Asia, http://58.8.186.128:10005/bysid/2518
 ViuTV, https://cdn.qd.je/163189.php?id=viu
 ViuTV, https://cdn.qd.je/163189/viu
 ViuTVsix, https://cdn.qd.je/163189/viu6
-中國旅遊, https://fastlive.cctvplus.com/out/v1/ca6f9297b7314a63959435028af287fc/index.m3u8
-新傳媒5頻道, https://cdn.qd.je/163189.php?id=ch5
-新傳媒5頻道, https://cdn.qd.je/163189/ch5
-新傳媒8頻道, https://cdn.qd.je/163189.php?id=ch8
-新傳媒8頻道, https://cdn.qd.je/163189/ch8
-新傳媒U頻道, https://cdn.qd.je/163189.php?id=chu
-新傳媒U頻道, https://cdn.qd.je/163189/chu
-看中國, https://fastlive.cctvplus.com/out/v1/8442c3bfd4c64a3984389328f6087879/index.m3u8
-美國之音中文電視, https://voa-ingest.akamaized.net/hls/live/2033878/tvmc08/playlist.m3u8
-金磚電視中文台, https://chibrics.mediacdn.ru/cdn/brics/chinese/playlist.m3u8
-ABN華語台, https://mediaserver.abnvideos.com/streams/abnchina.m3u8
-CNA亞洲新聞台, https://www.youtube.com/embed/XWq5kBlakcQ
-CNA亞洲新聞台, https://d2e1asnsl7br7b.cloudfront.net/7782e205e72f43aeb4a48ec97f66ebbe/index_5.m3u8
-CNA特輯, https://amg01082-cna-amg01082c1-rlaxx-us-11304.playouts.now.amagi.tv/playlist.m3u8
+CHC动作电影, http://63.141.230.178:82/gslb/zbdq5.m3u8?id=chcdz
+CHC动作电影, http://38.75.136.137:98/gslb/dsdqpub/chcdz.m3u8?auth=testpub
+CHC动作电影, http://198.204.228.26/live/chcdz.m3u8
+CHC家庭影院, http://63.141.230.178:82/gslb/zbdq5.m3u8?id=chcjt
+CHC家庭影院, http://38.75.136.137:98/gslb/dsdqpub/chcjt.m3u8?auth=testpub
+CHC家庭影院, http://198.204.228.26/live/chcjt.m3u8
+CHC高清电影, http://198.204.228.26/live/chcgq.m3u8
+重温经典, https://php.jdshipin.com:2096/TVOD/iptv.php?id=cwjd
+重温经典, https://php.jdshipin.com/TVOD/iptv.php?id=cwjd
+重温经典, https://cdn.qd.je/163189/cwjd
+韩国电影1, https://stream.ads.ottera.tv/playlist.m3u8?network_id=595
+韩国电影2, https://stream.ads.ottera.tv/playlist.m3u8?network_id=743
+剧场版 尸囚狱 后篇, https://hn.bfvvs.com/play/9avGVW5b/index.m3u8
+猫和老鼠, https://live20.bozztv.com/giatvplayout7/giatv-208314/playlist.m3u8
+00s Replay, https://jmp2.uk/plu-62ba60f059624e000781c436.m3u8
+100% Cinema, https://jmp2.uk/stvp-FR13000020W
+100% Comedy, https://jmp2.uk/stvp-FR3600003DS
+100% Docs Crime, https://jmp2.uk/stvp-FRBD39000064E
+24 Hour Free Movies, https://d1j2u714xk898n.cloudfront.net/scheduler/scheduleMaster/145.m3u8
+30A TV Classic Movies, https://30a-tv.com/feeds/pzaz/30atvmovies.m3u8
+50 Cent Action, https://jmp2.uk/plu-68487fb3f212bedacf5a53e3.m3u8
+70s Cinema, https://jmp2.uk/plu-5f4d878d3d19b30007d2e782.m3u8
+80s Rewind, https://jmp2.uk/plu-5ca525b650be2571e3943c63.m3u8
+90s Throwback, https://jmp2.uk/plu-5f4d86f519358a00072b978e.m3u8
+Action Club, https://jmp2.uk/stvp-FRBD2300001UQ
+Action Hollywood Movies, https://actionhollywood-klowdtv.amagi.tv/playlist.m3u8
+Action Movie Channel, https://jmp2.uk/stvp-ITBC400001LX
+Action Movie Channel, https://jmp2.uk/stvp-ESBC40000248
+Action Movies, https://action-rakuten-tv-uk.fast.rakuten.tv/v1/manifest/0547f18649bd788bec7b67b746e47670f558b6b2/production-LiveChannel-6065/8e7f1d8c-5ba7-4dde-9834-b058e17f6bfe/4.m3u8
+Action Movies, https://54045f0c40fd442c8b06df076aaf1e85.mediatailor.eu-west-1.amazonaws.com/v1/master/0547f18649bd788bec7b67b746e47670f558b6b2/production-LiveChannel-6065/master.m3u8
+Action Movies - Rakuten TV, https://jmp2.uk/stvp-GB2600015OS
+Actionfilme - Rakuten TV, https://jmp2.uk/stvp-AT26000054S
+Actionfilme - Rakuten TV, https://jmp2.uk/stvp-CH2600004R1
+Actionfilme - Rakuten TV, https://jmp2.uk/stvp-DE2600005XA
+Adrenalina Pura TV, https://jmp2.uk/plu-61b793ccf571b80007b7a610.m3u8
+Adrenaline Movies, https://jmp2.uk/stvp-ITBC11000050E
+Alfred Hitchcock Presents, https://jmp2.uk/stvp-US1800014CG
+ALL ACTION, https://jmp2.uk/stvp-USBB2300001QP
+AMC, http://23.239.31.26:8989/amc/index.m3u8
+AMC Thrillers, https://436f59579436473e8168284cac5d725f.mediatailor.us-east-1.amazonaws.com/v1/master/44f73ba4d03e9607dcd9bebdcb8494d86964f1d8/Plex_RushByAMC/playlist.m3u8
+AMC Thrillers, https://amc-rushbyamc-1-us.vizio.wurl.tv/playlist.m3u8
+American Crimes, https://jmp2.uk/stvp-USBD42000250Q
+American Horrors, http://107.167.7.162:8081/playlist/amhor/playlist.m3u8
+AVASERIES, https://avaserieshls.wns.live/hls/stream.m3u8
+AVI Rewind, http://45.70.201.81:8000/play/a010/index.m3u8
+Battlestar Galactica, https://jmp2.uk/plu-69d7ebff029c431826bd328e.m3u8
+BBC Comedy, https://bbc-comedy-1-us.plex.wurl.tv/1200.m3u8
+BBC Series, https://amg00793-amg00793c40-rakuten-es-5444.playouts.now.amagi.tv/playlist/amg00793-bbcstudios-bbcdramaspain-rakutenes/playlist.m3u8
+Best Action TV, https://streams2.sofast.tv/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/9a4a5412-ca99-48d3-9013-d1811b95b9d2/manifest.m3u8
+Best Drama TV, https://streams2.sofast.tv/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/9800ea5c-2183-4160-9f01-70e5d6428a50/manifest.m3u8
+Best Thriller TV, https://streams2.sofast.tv/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/ce168a85-c8d4-41d6-a597-cc8fd7baddd9/manifest.m3u8
+BET Cinema, https://jmp2.uk/plu-58af4c093a41ca9d4ecabe96.m3u8
+BET Comedy Movies, https://jmp2.uk/plu-68c32d88f56983aba40052bd.m3u8
+BET Visionaries, https://jmp2.uk/plu-663946c1b18d700008d9c168.m3u8
+BibleMovies, https://mediaserver.abnvideos.com/streams/abnbiblemovies.m3u8
+Bizzarro Movies, https://jmp2.uk/stvp-ITBA3300024IU
+Bonanza, https://jmp2.uk/plu-68e9913c4a666b9054849832.m3u8
+Box Office Action, https://jmp2.uk/stvp-FR370000288
+Box Office Drama, https://jmp2.uk/stvp-FR3700003N4
+Box Office Thriller, https://jmp2.uk/stvp-FR3700001AG
+Brefcinema, https://jmp2.uk/stvp-FRBA1000009KO
+Brividy Cinema, https://jmp2.uk/stvp-ITBD600001CL
+CBC Comedy, https://jmp2.uk/stvp-CABD1200043OK
+CG Grandi Film, https://jmp2.uk/stvp-ITBA14000093A
+Charge!, https://fast-channels.sinclairstoryline.com/CHARGE/index.m3u8
+Cine Adrenalina, https://jmp2.uk/plu-5d8d164d92e97a5e107638d2.m3u8
+Cine Amor, https://jmp2.uk/plu-5f5136317aedfb0007016f93.m3u8
+Cine Premiere, https://jmp2.uk/plu-5cf968040ab7d8f181e6a68b.m3u8
+Cine Terror, https://jmp2.uk/plu-5d8d180092e97a5e107638d3.m3u8
+Cine Thriller, https://jmp2.uk/stvp-ITBD3200002DU
+Cine Western, https://jmp2.uk/stvp-ES2300005G7
+Cinema italiano, https://jmp2.uk/stvp-ITBA33000238E
+Cinemadame, https://jmp2.uk/stvp-ITBD1400003D0
+Cinemalizia, https://jmp2.uk/stvp-IT300029U3
+Cinemax, https://cors-anywhere.yidianzhishi.cn/http://23.237.104.106:8080/USA_CINEMAX/index.m3u8
+Cinemax Classics, http://23.237.104.106:8080/USA_5STARMAX/index.m3u8
+CINEMAXMOREMAX, http://23.237.104.106:8080/USA_MOREMAX/index.m3u8
+CINEVAULT, https://jmp2.uk/stvp-USAJ30000148W
+Cinevault Westerns, https://jmp2.uk/stvp-CA35000078O
+Cinevault Westerns, https://gsn-cinevault-westerns-2-us.roku.wurl.tv/playlist.m3u8
+CINEVAULT: Classics, https://jmp2.uk/stvp-USBB3200015M8
+CINEVAULT: Classics, https://jmp2.uk/stvp-CAAJ3400009KT
+CINEVAULT: Westerns, https://jmp2.uk/stvp-USAK3508709A
+CineWestern, https://jmp2.uk/stvp-CHAJ3500001Z8
+CineWestern, https://jmp2.uk/stvp-ITBB20000072M
+Ciné Western, https://jmp2.uk/stvp-FRBD19000095S
+CJ ENM MOVIE, https://jmp2.uk/stvp-KRBC32000191N
+Classic Cinema, https://rpn.bozztv.com/gusa/gusa-classiccinema/index.m3u8
+Classic Movie Westerns, https://jmp2.uk/plu-61f33318210549000806a530.m3u8
+Classic Movies, https://bozztv.com/gusa/gusa-tvsclassicmovies/index.m3u8
+Classic Movies Channel, https://jmp2.uk/plu-561c5b0dada51f8004c4d855.m3u8
+Classic TV Comedy, https://jmp2.uk/plu-5f15e32b297f96000768f928.m3u8
+Classic TV Crime Drama, https://jmp2.uk/plu-61325c4f982acd000723287e.m3u8
+Classic TV Drama, https://jmp2.uk/plu-5f15e3cccf49290007053c67.m3u8
+Comedy & Shows, https://jmp2.uk/stvp-AT3400004QH
+Comedy & Shows, https://jmp2.uk/stvp-DE3400003PW
+Comedy & Shows, https://jmp2.uk/stvp-CH340000286
+Comedy Central en Espanol, https://jmp2.uk/plu-5cf96dad1652631e36d43320.m3u8
+Comedy Central Pluto TV, https://jmp2.uk/stvp-CHAK3504510A
+Comedy Central Pluto TV, https://jmp2.uk/stvp-ATAK3504510A
+Comedy Central Pluto TV, https://jmp2.uk/stvp-DEAK3504500A
+Comedy Central Pluto TV, https://jmp2.uk/plu-5ca671f215a62078d2ec0abf.m3u8
+Comedy Dynamics, https://jmp2.uk/stvp-USBD7000145C
+Comedy Dynamics, https://jmp2.uk/stvp-CABC5200020WJ
+Comedy Hub, https://jmp2.uk/stvp-GBBD25000038Y
+Comedy King, https://jmp2.uk/stvp-IN3600006RT
+Comedy Movies, https://comedy-rakuten-tv-uk.fast.rakuten.tv/v1/manifest/0547f18649bd788bec7b67b746e47670f558b6b2/production-LiveChannel-6181/34b2bcf8-3a15-4ef7-bedb-04cae730c688/4.m3u8
+Comedy Movies, https://9be783d652cd4b099cf63e1dc134c4a3.mediatailor.eu-west-1.amazonaws.com/v1/master/0547f18649bd788bec7b67b746e47670f558b6b2/production-LiveChannel-6181/master.m3u8
+Comedy Movies - Rakuten TV, https://jmp2.uk/stvp-GB2600020OP
+Comedy Tadka, https://streams2.sofast.tv/WiseM3U8_27/sofast/cleanhls/master.m3u8
+Comedy TV, https://ec613694ee5049d3b8f30913b619662e.mediatailor.us-west-2.amazonaws.com/v1/master/ba62fe743df0fe93366eba3a257d792884136c7f/LINEAR-804-UK-SONYONECOMEDYTV-LG_UK/playlist.m3u8
+Cowboy Movie Channel, https://streams2.sofast.tv/sofastplayout/32eb332e-f644-46e5-ad91-e55ad80d14f7_0_HLS/master.m3u8
+Crime & Justice, https://linear-474.frequency.stream/dist/glewedtv/474/hls/master/playlist.m3u8
+Crime + Investigation, http://23.237.104.106:8080/USA_CRIME_INVESTIGATION/index.m3u8
+Crime - Rakuten TV, https://jmp2.uk/stvp-FR2600009UG
+Crime 24/7, https://jmp2.uk/stvp-USAK3508703A
+Crime 360, https://jmp2.uk/stvp-CA4700015P1
+Crime 360, https://jmp2.uk/plu-657880c46e4f6a00087404d0.m3u8
+Crime Network, https://jmp2.uk/stvp-GBBD4100010H1
+Crime Scene TV, https://jmp2.uk/stvp-IN24000030L
+Crime Serien - Rakuten TV, https://jmp2.uk/stvp-DE2600004U3
+Crime Serien - Rakuten TV, https://jmp2.uk/stvp-AT260000634
+Crime Serien - Rakuten TV, https://jmp2.uk/stvp-CH2600007IJ
+Crime Tak, https://jmp2.uk/stvp-IN2600015OO
+Crime ThrillHer, https://jmp2.uk/stvp-USBB52000236D
+Crime Time, https://jmp2.uk/stvp-IT3600001Q1
+Crime Time, https://jmp2.uk/stvp-AT4500001S1
+Crime Time, https://jmp2.uk/stvp-DEBD1900002CB
+Crime Zone, https://jmp2.uk/stvp-USBB36000040M
+CrimeFlix, https://dgx2snzx175pa.cloudfront.net/scheduler/scheduleMaster/391.m3u8
+Crimen & Historia, https://jmp2.uk/stvp-ES33000025N
+Crimen - Rakuten TV, https://jmp2.uk/stvp-ES2600005G9
+Crimenes Imperfectos, https://jmp2.uk/plu-5e94cd036cc69d0007e8a1ba.m3u8
+Crimenes Reales, https://jmp2.uk/stvp-ES3300001MC
+Crimes Cults Killers, https://jmp2.uk/stvp-USBB5200022PY
+Crimes Enquêtes Faits Divers, https://jmp2.uk/stvp-FR600002ZR
+De Pelicula US, http://138.121.15.230:9002/DEPELICULA/index.m3u8
+Demand Drama, https://jmp2.uk/stvp-GB900005KI
+Drama Filme - Rakuten TV, https://jmp2.uk/stvp-AT2600004LH
+Drama Filme - Rakuten TV, https://jmp2.uk/stvp-CH2600002VE
+Drama Filme - Rakuten TV, https://jmp2.uk/stvp-DE2600007ET
+Drama Movies, https://drama-rakuten-tv-uk.fast.rakuten.tv/v1/manifest/0547f18649bd788bec7b67b746e47670f558b6b2/production-LiveChannel-6093/c4bcddc4-dfdf-4499-ae5d-7a68c79fcde9/4.m3u8
+Drama Movies, https://fee09fd665814f51b939b6d106cf5f66.mediatailor.eu-west-1.amazonaws.com/v1/master/0547f18649bd788bec7b67b746e47670f558b6b2/production-LiveChannel-6093/master.m3u8
+Drama Movies - Rakuten TV, https://jmp2.uk/stvp-GB2600012R3
+Drive In Movie Channel, https://streams2.sofast.tv/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/e5056383-20ac-488f-b299-6577f66881ff/manifest.m3u8
+Drive In Movies, https://bozztv.com/gusa/gusa-tvsdriveinmovie/index.m3u8
+Dry Bar Comedy, https://jmp2.uk/stvp-CAAJ3400013EH
+Dry Bar Comedy, https://jmp2.uk/stvp-USAJ30000039U
+EBS Cinema, https://rpn.bozztv.com/ebstv/ebscinema/index.m3u8
+Electric Now, https://amg01705-amg01705c1-amgplt0095.playout.now3.amagi.tv/playlist.m3u8
+ETV Comedy, https://jmp2.uk/stvp-IN4900003U3
+Feel Good Drama, https://jmp2.uk/plu-65775af3b3801200084a3aa4.m3u8
+Film Al Femminile - Wedo Movies, https://jmp2.uk/stvp-ITBC4700004EQ
+Film Al Femminile - Wedo Movies [IT], https://jmp2.uk/stvp-CHBD600003EI
+Film Asiatici - Rakuten TV, https://jmp2.uk/stvp-IT2600006JG
+Film d'azione - Rakuten TV, https://jmp2.uk/stvp-IT2600003FM
+Film Top - Rakuten TV, https://jmp2.uk/stvp-IT2600002F6
+Filmgold, https://jmp2.uk/stvp-ATBC300000551
+Filmgold, https://jmp2.uk/stvp-DEBC35000020P
+Filmgold, https://jmp2.uk/stvp-CHBC3500004YJ
+FilmRise Action, https://jmp2.uk/stvp-CAAJ2700014EE
+FilmRise Canadien, https://jmp2.uk/stvp-CA3500005NS
+FilmRise Classic TV, https://d2tv4k5moji5m7.cloudfront.net/v1/master/3722c60a815c199d9c0ef36c5b73da68a62b09d1/cc-lu4pzh9l4b57p/master.m3u8
+FilmRise Classic TV, https://jmp2.uk/stvp-CAAJ2700008QA
+FilmRise Forensic Files, https://pb-x9qsxrudiq9d2.akamaized.net/webvtt/v1/18584c3f3a2a4df8/88886014/master.m3u8
+FilmRise Free Movies, https://jmp2.uk/stvp-CAAJ40000077N
+FilmRise Horror, https://jmp2.uk/stvp-CA35000044I
+FilmRise True Crime, https://jmp2.uk/stvp-CAAJ27000079E
+FilmRise Western, https://jmp2.uk/stvp-USBB32000196O
+FilmRise Western, https://jmp2.uk/stvp-CAAJ27000159K
+Films d'action - Rakuten TV, https://jmp2.uk/stvp-FR2600002X9
+Films Romantiques - Rakuten TV, https://jmp2.uk/stvp-FR2600003OZ
+Flicks of Fury, https://jmp2.uk/plu-58e55b14ad8e9c364d55f717.m3u8
+Free Comedy, https://jmp2.uk/stvp-DE1200001JW
+Free Comedy, https://jmp2.uk/stvp-AT12000011L
+FrightFlix, https://stream-us-east-1.getpublica.com/playlist.m3u8?network_id=2229
+Genie K-Drama, https://jmp2.uk/stvp-US2000012KX
+Genie K-Drama, https://jmp2.uk/stvp-CA2000007YG
+Genie K-Drama, https://jmp2.uk/stvp-GB2100002R7
+Genie K-Movie, https://jmp2.uk/stvp-US200001137
+Genie K-Movie, https://jmp2.uk/stvp-CA2000005K2
+Genie K-Movie, https://jmp2.uk/stvp-GB21000038X
+Genie Movie, https://jmp2.uk/stvp-KR12000017G
+GET Comedy, https://jmp2.uk/stvp-US350000563
+GET Comedy, https://jmp2.uk/stvp-CA3500006PD
+Girlfriends Films, https://jmp2.uk/plu-66ba1e4446762a000855cd87.m3u8
+Gotham Comedy Live, https://jmp2.uk/stvp-CA4700013NG
+Gotham Comedy Live, https://jmp2.uk/stvp-US4700029QM
+Gravitas Movies, https://jmp2.uk/stvp-USBD700011RE
+Gravitas Movies, https://jmp2.uk/stvp-CABD1200001SY
+Gravitas Movies, https://d6dg3ebeih71x.cloudfront.net/Gravitas_Movies.m3u8
+Great! Movies, https://jmp2.uk/stvp-GBBC900007Q5
+GREAT!movies, https://amg01753-narrativeuk-amg01753c3-lg-gb-1833.playouts.now.amagi.tv/playlist/amg01753-narrativeuk-greatmovies-lggb/playlist.m3u8
+Grjngo - Films De Western, https://jmp2.uk/stvp-FR900003DP
+Grjngo - Western Movies, https://jmp2.uk/stvp-GBBD500007TG
+Grjngo- Film Western, https://jmp2.uk/stvp-ITBD10000019E
+Hallmark Movies & More, https://jmp2.uk/stvp-USBD270001633
+HBO Drama, https://sra72yz.s.gy/HBO_DRAMA_HD.m3u8
+HBO Movies, http://23.237.104.106:8080/USA_HBO_ZONE/index.m3u8
+Horror by ALTER, https://jmp2.uk/stvp-USBC100001175
+Horror Comedy, https://jmp2.uk/stvp-DE3800001CR
+Horror TV, https://streams2.sofast.tv/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/93dc292b-cbcf-4988-ab97-94feced4c14b/manifest.m3u8
+HorrorMachine, https://naviofrequency-horrormachine-klowdtv.amagi.tv/playlist.m3u8
+Hot Wheels Action, https://jmp2.uk/stvp-US2900013AY
+House of Crime, https://jmp2.uk/stvp-IN4600004HW
+Icon Film Channel, https://jmp2.uk/stvp-GB12000052F
+Icon Film Channel, https://09e3020901654256a51f2f2e9213765a.mediatailor.us-east-1.amazonaws.com/v1/master/04fd913bb278d8775298c26fdca9d9841f37601f/LG-gb_IconFilmChannelClassics/playlist.m3u8
+IFC, http://23.237.104.106:8080/USA_IFC/index.m3u8
+Inside Crime, https://jmp2.uk/stvp-GBBD500002R4
+IntoCrime, https://jmp2.uk/stvp-FR300032ZK
+ION Mystery, https://jmp2.uk/stvp-USBC24000223S
+K-Drama by CJ ENM, https://jmp2.uk/stvp-CA17000023Q
+K-Drama by CJ ENM, https://jmp2.uk/stvp-US17000164B
+K-Drama+, https://jmp2.uk/stvp-CA1700004QS
+K-Drama+, https://jmp2.uk/stvp-US1700017NM
+K-Drama+, https://jmp2.uk/stvp-ITBD41000054B
+K-Drama+, https://jmp2.uk/stvp-FRBD41000124S
+K-Drama+, https://jmp2.uk/stvp-DEBD4100002H1
+Kings Of Comedy, https://jmp2.uk/stvp-IN46000184H
+Law & Crime, https://jmp2.uk/stvp-USAK3508710A
+Law&Crime, https://a-cdn.klowdtv.com/live3/law_720p/playlist.m3u8
+Law&Crime, https://cdn.lawandcrime.net/rewind/playlist_scte.m3u8
+LAX Airport Action Runways, https://www.youtube.com/embed/12KqO5IBLeY
+LG 1 Film, https://stream.ads.ottera.tv/playlist.m3u8?network_id=15465&avod=1&coppa=0&td=6&is_lat=[LMT]&dnt=[DNS]&us_privacy=[US_PRIVACY]&did=[DEVICE_ID]&ip=[IP]&ua=[UA]&ifa_type=[IFA_TYPE]&app_bundle=[APP_BUNDLE]&app_store_url=[APP_STOREURL]&app_name=[APP_NAME]&custom_targeting=html5&custom_4=lg_channels_uk&player_height=720&player_width=1280&content_channel=lg_channels&content_dist_name=lg_channels&device_make=[DEVICE_MAKE]&device_model=[DEVICE_MODEL]&device_os=html5&consent=[GDPR_CONSENT]&gdpr=[GDPR]&gender=not_specified&yob=0&livestream=1&custom_param_0=[DEVICE_MODEL]&custom_param_1=tv&custom_param_2=[DEVICE_MAKE]&custom_param_3=[DEVICE_ID]&custom_param_4=lg_channels&custom_param_5=html5&fck=[FCK]&viewsize=[VIEWSIZE]
+Lifetime Movie Favorites, https://jmp2.uk/stvp-USBB5200019FO
+Lifetime Movies, https://jmp2.uk/stvp-GB37000067A
+Lifetime Movies: Black Stories, https://jmp2.uk/stvp-US1600002OK
+Maverick Black Cinema, https://jmp2.uk/stvp-USAJ3000007MT
+Maverick Black Cinema, https://maverick-maverick-black-cinema-3-us.roku.wurl.tv/playlist.m3u8
+MBC Drama USA, https://shd-gcp-live.edgenextcdn.net/live/bitmovin-mbc-drama-usa/ea2f5db904aff224b7066e59c7f585a2/index.m3u8
+Miramax Movie, https://linear-798.frequency.stream/mt/plex/798/hls/master/playlist.m3u8
+Miramax Movie Channel, https://jmp2.uk/stvp-US18000163F
+More True Crime, https://jmp2.uk/plu-6532e6a9bdf3cf000887ab29.m3u8
+More TV Drama, https://jmp2.uk/plu-613260e4bdb71c00070d63fa.m3u8
+Movie Box, https://cdn4.skygo.mn/live/disk1/Moviebox/HLS-FTA/Moviebox.m3u8
+Movie Hub, https://jmp2.uk/stvp-USBA3000041ZP
+Movie Hub Action, https://jmp2.uk/stvp-USBD3500032H0
+Movie Hub Action West, https://jmp2.uk/stvp-US38000108V
+Movie Hub Romance, https://jmp2.uk/stvp-USBD3500033U0
+Movie Hub West, https://jmp2.uk/stvp-USBD3500036HP
+Moviedome, https://jmp2.uk/stvp-DEBA3300039TT
+Moviedome, https://jmp2.uk/stvp-ATBA33000280A
+Moviedome, https://jmp2.uk/stvp-CHBA330002991
+Moviedome Family, https://jmp2.uk/stvp-ATBA330002946
+Moviedome Family, https://jmp2.uk/stvp-CHBA3300030AJ
+Moviedome Family, https://jmp2.uk/stvp-DEBA3300040CR
+Movies! KPVM-LD, https://2-fss-2.streamhoster.com/pl_120/206858-4412962-1/playlist.m3u8
+MovieSphere, https://jmp2.uk/stvp-USBD17000117B
+Moviesphere by Lionsgate, https://jmp2.uk/stvp-DE4000002I3
+Moviesphere by Lionsgate, https://jmp2.uk/stvp-GBBA33000557H
+MovieSphere Gold WFXT, https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg01438-ewscrippscompan-ionmystery-tablo/playlist.m3u8
+Mr Bean Live Action, https://jmp2.uk/stvp-GB4000008O5
+Mundo Series, https://streams2.sofast.tv/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/e3189902-0967-48a7-9d32-9401e34471c6/manifest.m3u8
+Mystery TV, https://jmp2.uk/stvp-GBBD50000320
+MyTime Movie Network, https://jmp2.uk/stvp-USBC3900018K6
+MyTime Movie Network, https://jmp2.uk/stvp-ATBA3300021BW
+MyTime Movie Network, https://jmp2.uk/stvp-ESBA2200004G5
+MyTime Movie Network, https://jmp2.uk/stvp-DEBA3300032UV
+MyTime Movie Network, https://jmp2.uk/stvp-FRBA2200010VN
+MyTime MovieNetwork, https://amg00500-amg00500c3-rakuten-uk-3910.playouts.now.amagi.tv/playlist/amg00500-studiocitypicturesfast-mytimemovienetworkspain-rakutenuk/playlist.m3u8
+NEW K-MOVIES, https://jmp2.uk/stvp-ES170000433
+NEW K-MOVIES, https://jmp2.uk/stvp-GB1700007PK
+NEW KMOVIES, https://jmp2.uk/stvp-USAJ30000122O
+NEW KMOVIES, https://jmp2.uk/stvp-CA18000032W
+New Kmovies, https://ads.its-newid.net/api/manifest.m3u8?tp=lg_channels&channel_name=newkmovies&channel_id=newid_219&mpf=adfc204d-39af1962-13a2f01a&apikey=48230e6b-1cea0097-15975f93-39af1962&auth=b62c2c8b-8316a771-295eba28-f4663ddd&ads.live=[CONTENT_LIVE]&ads.deviceid=[DEVICE_ID]&ads.ifa=[IFA]&ads.ifatype=[IFA_TYPE]&ads.lat=[LMT]&ads.donotsell=[DNS]&ads.ua=[UA]&ads.ip=[IP]&ads.gdpr=[GDPR]&ads.gdpr_consent=[GDPR_CONSENT]&ads.country=[COUNTRY]&ads.us_privacy=[US_PRIVACY]&ads.appstoreurl=[APP_STOREURL]&ads.bundleid=[APP_BUNDLE]&ads.appname=[APP_NAME]&ads.appversion=[APP_VERSION]&ads.devicetype=[DEVICE_TYPE]&ads.devicemake=[DEVICE_MAKE]&ads.devicemodel=[DEVICE_MODEL]&ads.targetad=[TARGETAD_ALLOWED]&ads.fck=[FCK]&ads.viewsize=[VIEWSIZE]&ads.givn=[NONCE]
+NOST, https://a-cdn.klowdtv.com/live2/nost_720p/playlist.m3u8
+OutdoorAction, https://careco-outdoor-action-1-eu.xiaomi.wurl.tv/playlist.m3u8
+OuterSphere, https://d3o593mz1glx8d.cloudfront.net/OuterSphere_US.m3u8
+OUTflix Movies, https://jmp2.uk/stvp-CA800002TN
+OUTflix Movies, https://jmp2.uk/stvp-US8000024G
+Oxygen True Crimes Archive, https://jmp2.uk/stvp-US1900005VB
+Paramount Movie Channel, https://jmp2.uk/stvp-USAJ26000054W
+Paramount Movie Channel, https://jmp2.uk/plu-5cb0cae7a461406ffe3f5213.m3u8
+Paramount+ Picks, https://jmp2.uk/plu-5ff8c708653d080007361b14.m3u8
+Películas de Drama - Rakuten TV, https://jmp2.uk/stvp-ES2600003UM
+Pitaara Comedy, https://jmp2.uk/stvp-IN1600001OG
+PLAYGRAM MOVIES, https://jmp2.uk/stvp-KRBC3200004D1
+Pluto TV Action, https://jmp2.uk/stvp-GBAK3504503A
+Pluto TV Action, https://jmp2.uk/plu-561d7d484dc7c8770484914a.m3u8
+Pluto TV Cine Comedia, https://jmp2.uk/plu-5f513564e4622a0007c578c0.m3u8
+Pluto TV Comedy, https://jmp2.uk/plu-5a4d3a00ad95e4718ae8d8db.m3u8
+Pluto TV Crime, https://jmp2.uk/stvp-GBAK3504516A
+Pluto TV Crime Drama, https://jmp2.uk/plu-5f31fd1b4c510e00071c3103.m3u8
+Pluto TV Crime Movies, https://jmp2.uk/plu-5f4d8594eb979c0007706de7.m3u8
+Pluto TV Cult Films, https://jmp2.uk/plu-5c665db3e6c01b72c4977bc2.m3u8
+Pluto TV Drama, https://jmp2.uk/plu-5b4e92e4694c027be6ecece1.m3u8
+Pluto TV Estrellas de Accion, https://jmp2.uk/plu-5e972a21ad709d00074195ba.m3u8
+Pluto TV Film, https://jmp2.uk/stvp-ITAJ38000055E
+Pluto TV Film Azione, https://jmp2.uk/stvp-ITBC3000003CT
+Pluto TV Film Commedia, https://jmp2.uk/stvp-ITBC3000002WL
+Pluto TV Film Romantici, https://jmp2.uk/stvp-ITAJ3800009J1
+Pluto TV Franchise Favorites, https://jmp2.uk/plu-68fbf8101d26140175db8b58.m3u8
+Pluto TV Hometown Drama, https://jmp2.uk/plu-69d6c7befde57cd5ba0160c3.m3u8
+Pluto TV Horror, https://jmp2.uk/plu-569546031a619b8f07ce6e25.m3u8
+Pluto TV Icons, https://jmp2.uk/plu-64b585f84ea480000838e446.m3u8
+Pluto TV Movies, https://jmp2.uk/stvp-ATAK3504514A
+Pluto TV Movies, https://jmp2.uk/stvp-DEAK3504517A
+Pluto TV Movies, https://jmp2.uk/stvp-GBAK3504504A
+Pluto TV Movies, https://jmp2.uk/stvp-CHAK3504514A
+Pluto TV Reaction, https://jmp2.uk/plu-617b37b361e0fd0008cfd8c5.m3u8
+Pluto TV Romance, https://jmp2.uk/plu-5a66795ef91fef2c7031c599.m3u8
+Pluto TV Sci-Fi, https://jmp2.uk/plu-5b4fc274694c027be6ed3eea.m3u8
+Pluto TV Spotlight, https://jmp2.uk/plu-5ba3fb9c4b078e0f37ad34e8.m3u8
+Pluto TV Staff Picks, https://jmp2.uk/plu-5f4d863b98b41000076cd061.m3u8
+Pluto TV Terror, https://jmp2.uk/plu-5c6dc88fcd232425a6e0f06e.m3u8
+Pluto TV Thrillers, https://jmp2.uk/plu-5b4e69e08291147bd04a9fd7.m3u8
+Pluto TV Trending Now, https://jmp2.uk/plu-673247127d5da5000817b4d6.m3u8
+Pluto TV True Crime, https://jmp2.uk/plu-5812be1c249444e05d09cc50.m3u8
+Pluto TV Westerns, https://jmp2.uk/plu-5b4e94282d4ec87bdcbb87cd.m3u8
+Rakuten TV Top Films, https://93ed06eba1ef4cf783b66dc6ea7c4f28.mediatailor.eu-west-1.amazonaws.com/v1/master/0547f18649bd788bec7b67b746e47670f558b6b2/production-LiveChannel-5986/master.m3u8
+RakutenFamilyMoviesUK, https://e3207568b726401995c25670faaf32e4.mediatailor.eu-west-1.amazonaws.com/v1/master/0547f18649bd788bec7b67b746e47670f558b6b2/production-LiveChannel-6203/master.m3u8
+Rawhide, https://jmp2.uk/plu-634f307c7a068e00072c9982.m3u8
+Retro TV, https://lukentvlive.vgcdn.net/v1/master/cef183924f24adfa3d5d7601c3a17769082c0c2b/retro/index.m3u8
+Retro TV, https://freecast-lukentvlive.vgcdn.net/out/v1/665e9f91614b43b0a0654e9317f1d9f3/index.m3u8
+REV'N Action, https://freecast-lukentvlive.vgcdn.net/out/v1/a4f31f297fc5440f814bd2cffd77e689/index.m3u8
+Romance Movies, https://romance-rakuten-tv-uk.fast.rakuten.tv/v1/manifest/0547f18649bd788bec7b67b746e47670f558b6b2/production-LiveChannel-6194/812b4d9e-f255-46f1-9071-decd622f8e1b/4.m3u8
+Romance Movies - Rakuten TV, https://jmp2.uk/stvp-GB2600014LQ
+Runtime, https://jmp2.uk/plu-6086d3f420fc8500075f8dbf.m3u8
+SBS Drama, https://ads.its-newid.net/api/manifest.m3u8?tp=lg_channels&channel_name=sbsk-drama&channel_id=newid_008&mpf=c064f5f4-39af1962-7c36be2c&apikey=48230e6b-1cea0097-15975f93-39af1962&auth=474ab4cb-5d47aa0a-84d0cbca-2a3730a6&ads.live=[CONTENT_LIVE]&ads.deviceid=[DEVICE_ID]&ads.ifa=[IFA]&ads.ifatype=[IFA_TYPE]&ads.lat=[LMT]&ads.donotsell=[DNS]&ads.ua=[UA]&ads.ip=[IP]&ads.gdpr=[GDPR]&ads.gdpr_consent=[GDPR_CONSENT]&ads.country=[COUNTRY]&ads.us_privacy=[US_PRIVACY]&ads.appstoreurl=[APP_STOREURL]&ads.bundleid=[APP_BUNDLE]&ads.appname=[APP_NAME]&ads.appversion=[APP_VERSION]&ads.devicetype=[DEVICE_TYPE]&ads.devicemake=[DEVICE_MAKE]&ads.devicemodel=[DEVICE_MODEL]&ads.targetad=[TARGETAD_ALLOWED]&ads.fck=[FCK]&ads.viewsize=[VIEWSIZE]&ads.givn=[NONCE]
+Sci-Fi, https://sci-fi-rakuten-tv-uk.fast.rakuten.tv/v1/manifest/0547f18649bd788bec7b67b746e47670f558b6b2/production-LiveChannel-6241/2633b8e1-37ed-4477-9e50-d6b4f489d363/4.m3u8
+Sci-Fi - Rakuten TV, https://jmp2.uk/stvp-FR4100001D0
+Sci-Fi - Rakuten TV, https://jmp2.uk/stvp-ES500004NO
+Sci-Fi - Rakuten TV, https://jmp2.uk/stvp-GB2600013BO
+Sci-Fi World, https://streams2.sofast.tv/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/a985e052-6868-4365-ac45-52afe9008b25/manifest.m3u8
+Serie Crime - Rakuten TV, https://jmp2.uk/stvp-IT2600008RA
+Series K BY MBC, https://jmp2.uk/stvp-IN4600019L1
+Series K COMEDIA ROMÁNTICA, https://jmp2.uk/stvp-ES200041FT
+Series K DRAMA, https://jmp2.uk/stvp-ES200040YF
+Series K Edge, https://jmp2.uk/stvp-GB20009440
+Series K Edge, https://jmp2.uk/stvp-US4400006IX
+Series K Heart, https://jmp2.uk/stvp-US4300002FK
+Series K Legacy, https://jmp2.uk/stvp-US440000708
+Series K Legacy, https://jmp2.uk/stvp-GB200093HQ
+Series K: Heart, https://jmp2.uk/stvp-GB4400001OO
+Sony One Action HITS, https://jmp2.uk/stvp-AT300007S8
+Sony One Action HITS, https://jmp2.uk/stvp-DE30000489
+Sony One Action HITS, https://jmp2.uk/stvp-GB3000041I
+Sony One Action HITS, https://jmp2.uk/stvp-FR3000139Z
+Sony One Action HITS, https://89514e758f814907be6d14bbc0aa66b7.mediatailor.us-west-2.amazonaws.com/v1/master/ba62fe743df0fe93366eba3a257d792884136c7f/LINEAR-800-UK-SONYONEACTIONHITS-LG_UK/playlist.m3u8
+Sony One Comedy HITS, https://jmp2.uk/stvp-GB300003UI
+Sony One Comedy HITS, https://jmp2.uk/stvp-DE300002CL
+Sony One Comedy HITS, https://9f8e2ffcd87f4c469be7194e48f84874.mediatailor.us-west-2.amazonaws.com/v1/master/ba62fe743df0fe93366eba3a257d792884136c7f/LINEAR-802-UK-SONYONECOMEDYHITS-LG_UK/playlist.m3u8
+Sony One Comedy Hits, https://jmp2.uk/stvp-AT300008JS
+Sony One Comedy TV, https://jmp2.uk/stvp-AT2100002QM
+Sony One Comedy TV, https://jmp2.uk/stvp-GB300005ZR
+Sony One Comedy TV, https://jmp2.uk/stvp-DE3000016Q
+Sony One Film divertenti, https://jmp2.uk/stvp-IT300005J9
+Sony One Film d’azione, https://jmp2.uk/stvp-IT300004KM
+Sony One Series Comedia, https://jmp2.uk/stvp-ES30000145
+Sony One Thriller TV, https://jmp2.uk/stvp-DE300003AV
+Sony One Thriller TV, https://jmp2.uk/stvp-GB3000061H
+SonyMovies, https://a-cdn.klowdtv.com/live1/smc_720p/playlist.m3u8
+Space Series, https://streams2.sofast.tv/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/18d329ef-d478-413c-b68f-c123494ac434/manifest.m3u8
+Sparkle Movies, https://jmp2.uk/stvp-DE43000043H
+Sparkle Movies, https://jmp2.uk/stvp-CH4300002NC
+Sparkle Movies, https://jmp2.uk/stvp-GBAJ400042T1
+Sparkle Movies, https://jmp2.uk/stvp-AT430000288
+Spiegel TV action + crime, https://jmp2.uk/stvp-AT900005FB
+Star Trek: Deep Space Nine, https://jmp2.uk/plu-65c69bbfd77d450008c7ffee.m3u8
+Star Trek: The Next Generation, https://jmp2.uk/plu-695c32e61ca20bb8ca802eb9.m3u8
+Star Trek: Voyager, https://jmp2.uk/plu-634dacf51d90320007fcd5fa.m3u8
+Starz Cinema, http://23.237.104.106:8080/USA_STARZ_CINEMA/index.m3u8
+Starz Comedy, http://23.237.104.106:8080/USA_STARZ_COMEDY/index.m3u8
+Supercinema, https://jmp2.uk/stvp-ITBD3200001VR
+Supernatural Drama, https://jmp2.uk/plu-5f24662bebe0f0000767de32.m3u8
+SYFY, http://23.237.104.106:8080/USA_SYFY/index.m3u8
+The Film Detective, https://cinedigm-entertainment-corp-thefilmdetective-1-us.ono.wurl.tv/playlist.m3u8
+The Movie Club+2, https://jmp2.uk/stvp-IN40000100Y
+Thriller TV, https://52aad07d9d4f4d479d9b27e08ddf9e8b.mediatailor.us-west-2.amazonaws.com/v1/master/ba62fe743df0fe93366eba3a257d792884136c7f/LINEAR-808-UK-SONYONETHRILLERTV-LG_UK/playlist.m3u8
+Thrillers, https://thriller-rakuten-tv-uk.fast.rakuten.tv/v1/manifest/0547f18649bd788bec7b67b746e47670f558b6b2/production-LiveChannel-6482/12886224-4a4c-4671-9894-f33d4197ac53/4.m3u8
+Thrillers - Rakuten TV, https://jmp2.uk/stvp-GB4100003VP
+TNT West, https://raw.githubusercontent.com/InsolenceWillow/insolencetvgo/main/streams/tntwest.us.m3u8
+Todo Crimen, https://jmp2.uk/stvp-ES1600004JV
+Todo Drama, https://jmp2.uk/stvp-ES440000327
+Top Filme, https://jmp2.uk/stvp-DEBD5000001VL
+Top Filme - Rakuten TV, https://jmp2.uk/stvp-CH2600006TR
+Top Filme - Rakuten TV, https://jmp2.uk/stvp-DE26000096S
+Top Movies, https://top-movies-rakuten-tv-uk.fast.rakuten.tv/v1/manifest/0547f18649bd788bec7b67b746e47670f558b6b2/production-LiveChannel-5987/8b530802-f923-43a1-8496-e871276a745f/4.m3u8
+Top Movies, https://0145451975a64b35866170fd2e8fa486.mediatailor.eu-west-1.amazonaws.com/v1/master/0547f18649bd788bec7b67b746e47670f558b6b2/production-LiveChannel-5987/master.m3u8
+Top Movies - Rakuten TV, https://jmp2.uk/stvp-GB2600018PD
+Top Sci-Fi, https://jmp2.uk/stvp-FR4600001FK
+Top Sci-Fi, https://jmp2.uk/stvp-DE2300002KX
+True Crime, https://jmp2.uk/stvp-ITBD1000006RD
+True Crime Network+, https://amg00979-amg00979c1-firetv-us-3622.playouts.now.amagi.tv/playlist.m3u8
+True Crime Now, https://amg00376-magellan-amg00376c11-rakuten-us-1700.playouts.now.amagi.tv/playlist/amg00376-magellantv-truecrimenowww-rakutenus/playlist.m3u8
+True Crime UK, https://jmp2.uk/stvp-GBBD1100007AC
+truTV, https://turnerlive.warnermediacdn.com/hls/live/2023178/truwest/slate/VIDEO_0_3564000.m3u8
+TV Land Drama, https://jmp2.uk/stvp-USBB3500002FL
+TV Land Drama, https://jmp2.uk/plu-5d40bebc5e3d2750a2239d7e.m3u8
+TVS Classic Movies, https://rpn.bozztv.com/gusa/gusa-tvsclassicmovies/index.m3u8
+TVS Comedy Network, https://rpn.bozztv.com/gusa/gusa-tvscomedy/index.m3u8
+TVS Drive In Movie, https://rpn.bozztv.com/gusa/gusa-tvsdriveinmovie/index.m3u8
+TVS Nostalgia Movies, https://rpn.bozztv.com/gusa/gusa-tvsNostalgiaMovies/index.m3u8
+TVS Western Movie, https://rpn.bozztv.com/gusa/gusa-tvswesternmovies/index.m3u8
+Universal Cinema, http://45.167.1.138:8000/play/a06m
+Universal Comedy, http://bantel-cdn1.iptvperu.tv:1935/btnscrtn/universalcomedy/playlist.m3u8
+Universal Crime, http://bantel-cdn1.iptvperu.tv:1935/btnscrtn/universalcrime/playlist.m3u8
+Watch it Scream!, https://stream-us-east-1.getpublica.com/playlist.m3u8?network_id=2246
+wedo movies, https://jmp2.uk/stvp-DEBA3300034HH
+Western TV, https://jmp2.uk/plu-5e8df4bc16e34700077e77d3.m3u8
+Westerns 4U, http://181.224.255.210:8001/play/a0rq/index.m3u8
+Whiplash Cinema, https://cdn.whiplash.cc/whiplash-cinema/index.m3u8
+Zee Comedy Nation, https://jmp2.uk/stvp-IN2100002GD
+Zee Horror Nights, https://jmp2.uk/stvp-IN2100004C4
+优漫卡通, http://63.141.230.178:82/gslb/zbdq5.m3u8?id=ymkt
+优漫卡通, http://198.204.228.26/live/ymkt.m3u8
+北京卡酷少儿, http://198.204.228.26/live/kaku.m3u8
+哈哈炫动, http://198.204.228.26/live/hhxd.m3u8
+金鹰卡通, http://198.204.228.26/live/jinying.m3u8
 CCTV-14少儿, http://173.208.212.130:8181/1080p/cctv14.m3u8
 CCTV-14少儿, http://204.12.221.218:8181/3m1080p/cctv14.m3u8
 CCTV-14少儿, http://63.141.230.178:82/gslb/zbdq5.m3u8?id=cctv14hd
 CCTV-14少儿, http://38.75.136.137:98/gslb/dsdqbv/cctv14hd.m3u8?auth=test20251009
 CCTV-14少儿, http://74.91.26.218:82/live/cctv14hd.m3u8
+尼克少儿, http://198.204.228.26/live/nick.m3u8
+迪士尼频道, http://198.204.228.26/live/disney.m3u8
+A+Cartoon, https://linear-918.frequency.stream/mt/plex/918/hls/master/playlist_1920x1080.m3u8
+Cartoon Classics, https://streams2.sofast.tv/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/d5543c06-5122-49a7-9662-32187f48aa2c/manifest.m3u8
+CARTOON NETWORK, https://cors-anywhere.yidianzhishi.cn/http://23.237.104.106:8080/USA_CARTOON_NETWORK/index.m3u8
+Cartoon Network, http://198.204.228.26/live/cartoon.m3u8
+Duck TV Cartoon, https://dxvpcwoxxgnqg.cloudfront.net/DuckTVHDSAMS/DuckTVHDSAMS_540p_AAC.stream/chunks.m3u8
+Mr. Bean Cartoon, https://amg00627-amg00627c30-rakuten-es-3990.playouts.now.amagi.tv/playlist/amg00627-banijayfast-mrbeanescc-rakutenes/playlist.m3u8
+WASABI Cartoon, https://amg01796-amg01796c3-rakuten-uk-2555.playouts.now.amagi.tv/playlist/amg01796-fastmediafast-wasabii-rakutenuk/playlist.m3u8
 少儿频道, http://ali-xwl.cztv.com/live/channel081080Plxw.m3u8
 少儿频道, https://zwebl06.cztv.com/live/channel081080Pnew.m3u8?auth_key=1790481680404-0-0-bf0689df4484cba40dd0f6ccc7a1dcdd
 少儿频道, https://zwebl06.cztv.com/live/channel081080Pnew.m3u8?auth_key=1790568084261-0-0-eb082240ecde5e993a14864135608069
@@ -464,11 +875,9 @@ CCTV-14少儿, http://74.91.26.218:82/live/cctv14hd.m3u8
 浙江少儿, https://ali-xwl.cztv.com/live/channel081080Plxw.m3u8
 浙江少儿, https://ali-xwl.cztv.com/live/channel08720Plxw.m3u8
 浙江少儿频道, https://ali-m-l.cztv.com/channels/lantian/channel008/1080p.m3u8
-金鹰卡通, https://padqq.qing.mgtv.com/nn_live/nn_x64/Y2hzPSZkZWY9MSZ1aXA9NDcuMTA4LjcyLjQ1JnRlcm09NCZtYWNpZD1kOWRjZGYwNi03YzI0LTQ2MWItOTJiYy02NTM0MGQyMWY1NTkmcWlkPSZyYXV0aF9lbmFibGU9b24mY2RuZXhfaWQ9cXFfcGhvbmVfbGl2ZSZlcz0xNzkwNzM3MjQ4JnV1aWQ9Yjg5ODgyODFkZmNhYjYwMDlhYTA1NzFjZmFmM2Y5NjAtMmY2YzQ4MmQmcz1mNTgyYjYzZTAzOGQ3YWZiMjZhMTllZjBiY2Q5NjdlZSZ1aWQ9Jm5kdj1wY193ZWItaW1nb3R2LXBjaDUtMS4yLjMmdj0yJmFzPTAmX2NhckNvZGU9MA,,/JYKTMPP360.m3u8
 3ABN Kids, https://3abn.bozztv.com/3abn2/Kids_live/smil:Kids_live.smil/playlist.m3u8
 90's Kids, https://jmp2.uk/plu-6452c814939a590008567a3b.m3u8
 90s Kids TV 2, https://jmp2.uk/plu-6452c77ed3fdde00080eb3a8.m3u8
-A+Cartoon, https://linear-918.frequency.stream/mt/plex/918/hls/master/playlist_1920x1080.m3u8
 Animation+, https://jmp2.uk/stvp-US400002PS
 Animation+, https://jmp2.uk/stvp-CA400003FQ
 Animation+, https://pb-ioe9d0fpkd6pp.akamaized.net/playlist.m3u8
@@ -481,8 +890,6 @@ Baby Shark TV, https://newidco-babysharktv-1-us.roku.wurl.tv/playlist.m3u8
 BabyFirst, https://cdn.fast.jwp.services/v1/channel/1_jB6940Ei_TvhvIHDL/manifest.m3u8
 BabyFirst Spanish, http://168.196.127.137:6001/play/a06j/index.m3u8
 BOOMERANG, https://cors-anywhere.yidianzhishi.cn/http://23.237.104.106:8080/USA_BOOMERANG/index.m3u8
-Cartoon Classics, https://streams2.sofast.tv/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/d5543c06-5122-49a7-9662-32187f48aa2c/manifest.m3u8
-CARTOON NETWORK, https://cors-anywhere.yidianzhishi.cn/http://23.237.104.106:8080/USA_CARTOON_NETWORK/index.m3u8
 Comedy Central Animation, https://jmp2.uk/plu-64f8a949f5b5e4000862467c.m3u8
 DeAPlaneta Kids, https://jmp2.uk/stvp-ITBD3200007SZ
 Disney Channel, https://www.youtube.com/embed/s1Ylmj87gXY
@@ -493,7 +900,6 @@ Disney Jr., https://www.youtube.com/embed/w2sB87jLE1I
 Disney Kids, https://www.youtube.com/embed/URXBh2PRp0o
 DISNEY XD, https://cors-anywhere.yidianzhishi.cn/http://23.237.104.106:8080/USA_DISNEY_XD/index.m3u8
 Disney XD, http://23.237.104.106:8080/USA_DISNEY_XD/index.m3u8
-Duck TV Cartoon, https://dxvpcwoxxgnqg.cloudfront.net/DuckTVHDSAMS/DuckTVHDSAMS_540p_AAC.stream/chunks.m3u8
 duckTV, https://jmp2.uk/stvp-ESBC4700001GR
 duckTV, https://jmp2.uk/stvp-ITBC4700001E6
 duckTV, https://jmp2.uk/stvp-DEBC4700007JV
@@ -521,7 +927,6 @@ LooLoo Kids, https://jmp2.uk/stvp-DEBD4700001UN
 LooLoo Kids, https://jmp2.uk/stvp-AT400001GG
 LooLoo Kids, https://jmp2.uk/stvp-GB430000144
 MoonbugKids, https://moonbug-rokuus.amagi.tv/playlist.m3u8
-Mr. Bean Cartoon, https://amg00627-amg00627c30-rakuten-es-3990.playouts.now.amagi.tv/playlist/amg00627-banijayfast-mrbeanescc-rakutenes/playlist.m3u8
 Nick en Espanol, https://jmp2.uk/stvp-US39000177S
 Nick Jr., http://212.5.144.156:8080/nickjr/index.m3u8
 Nick Jr. East, https://sra72yz.s.gy/NICK_JR_HD.m3u8
@@ -557,23 +962,43 @@ TG Junior, https://jmp2.uk/stvp-USBB3600001R6
 TG Junior, https://d3i6upqaqzosi1.cloudfront.net/tg/jr_us/tg_jr_us.m3u8
 Toon Goggles, https://jmp2.uk/stvp-USBB1900004J9
 Toonami Aftermath, http://api.toonamiaftermath.com:3000/est/playlist.m3u8
-WASABI Cartoon, https://amg01796-amg01796c3-rakuten-uk-2555.playouts.now.amagi.tv/playlist/amg01796-fastmediafast-wasabii-rakutenuk/playlist.m3u8
+动物星球, http://198.204.228.26/live/animal.m3u8
+历史频道, http://198.204.228.26/live/history.m3u8
+国家地理, http://198.204.228.26/live/ngc.m3u8
+探索频道, http://198.204.228.26/live/discovery.m3u8
 CCTV-9纪录, http://63.141.230.178:82/gslb/zbdq5.m3u8?id=cctv9hd
 CCTV-9纪录, http://74.91.26.218:82/live/cctv9hd.m3u8
 CCTV-9纪录, http://192.151.150.154/live/cctv9hd.m3u8
 CCTV-9纪录, http://198.204.228.26/live/cctv9hd.m3u8
 CCTV-9纪录, https://xykt-fix.github.io/Y77.m3u8
+Alone By History, https://jmp2.uk/stvp-USBD27000156I
+American Pickers by History, https://jmp2.uk/stvp-USBD3500041ZF
+ANIMAL PLANET, https://cors-anywhere.yidianzhishi.cn/http://23.237.104.106:8080/USA_ANIMAL_PLANET/index.m3u8
+Autentic History, https://9e754fa707344ccca6d84955c8fcaf36.mediatailor.us-east-1.amazonaws.com/v1/master/44f73ba4d03e9607dcd9bebdcb8494d86964f1d8/RlaxxTV-eu_AutenticHistory/playlist.m3u8
+Discovery Turbo TV, https://jmp2.uk/stvp-USBC3600005U9
+History, http://212.5.144.156:8080/history/index.m3u8
+History & Warfare, https://jmp2.uk/stvp-CA600001C3
+History 365, https://jmp2.uk/stvp-USBD35000428O
+History Hit, https://jmp2.uk/stvp-GBBA2200005ZA
+History Hunters, https://jmp2.uk/stvp-GB1200002ON
+HISTORY TV18, https://jmp2.uk/stvp-IN1600008DN
+HISTORY TV18 - Hindi, https://jmp2.uk/stvp-IN1600009NL
+Love Crime & History, https://jmp2.uk/stvp-FRBD43000016D
+Modern Marvels Presented by History, https://jmp2.uk/stvp-USBB5200025DO
+NAT GEO, https://cors-anywhere.yidianzhishi.cn/http://23.237.104.106:8080/USA_NAT_GEO/index.m3u8
+Nat Geo Animals, https://www.youtube.com/embed/MiQe9ob9aDc
+NAT GEO WILD, https://cors-anywhere.yidianzhishi.cn/http://23.237.104.106:8080/USA_NAT_GEO_WILD/index.m3u8
+Pluto TV History, https://jmp2.uk/plu-5a4d35dfa5c02e717a234f86.m3u8
+True History, https://linear-188.frequency.stream/dist/glewedtv/188/hls/master/playlist.m3u8
+TVS Hollywood History, https://rpn.bozztv.com/gusa/gusa-tvshollywoohistory/index.m3u8
+Xtreme Outdoor Presented by HISTORY, https://jmp2.uk/stvp-USAK3508706A
+XtremeOutdoorbyHistory, https://57f9d766.wurl.com/master/f36d25e7e52f1ba8d7e56eb859c636563214f541/TEdfU2tpbGxzQW5kVGhyaWxsc19ITFM/playlist.m3u8
 之江纪录, http://ali-xwl.cztv.com/live/channel121080Pnew.m3u8
 之江纪录, https://zwebl06.cztv.com/live/channel121080Pnew.m3u8?auth_key=1790481681684-0-0-de02424be7b68b522201a862bda744aa
 之江纪录, https://zwebl06.cztv.com/live/channel121080Pnew.m3u8?auth_key=1790568085728-0-0-086642ded858864d02c34269f649a2a6
 之江纪录, https://zwebl06.cztv.com/live/channel12720Pnew.m3u8?auth_key=1790481681684-0-0-416b010be939ab9dcafbd420ff0661a9
 之江纪录, https://zwebl06.cztv.com/live/channel12720Pnew.m3u8?auth_key=1790568085728-0-0-0917b1e177c10f5a8b30cd45ca340e07
 浙江之江纪录, https://ali-m-l.cztv.com/channels/lantian/channel012/1080p.m3u8
-金鹰纪实, https://padqq.qing.mgtv.com/nn_live/nn_x64/Y2hzPSZkZWY9MSZ1aXA9NDcuMTA4LjcyLjQ1JnRlcm09NCZtYWNpZD1kOWRjZGYwNi03YzI0LTQ2MWItOTJiYy02NTM0MGQyMWY1NTkmcWlkPSZyYXV0aF9lbmFibGU9b24mY2RuZXhfaWQ9cXFfcGhvbmVfbGl2ZSZlcz0xNzkwNzM3MjYwJnV1aWQ9MTcxNmQ3NjVkMDVhZDEzOTIyZmM1N2JjZjc2MWU3OWQtMmY2YzQ4MmQmcz1mNTAzMDE3ODNlYmMyMWMyMjRjNjE5OGI3YWI5NDNjNiZ1aWQ9Jm5kdj1wY193ZWItaW1nb3R2LXBjaDUtMS4yLjMmdj0yJmFzPTAmX2NhckNvZGU9MA,,/JYJSMPP360.m3u8
-Alone By History, https://jmp2.uk/stvp-USBD27000156I
-American Pickers by History, https://jmp2.uk/stvp-USBD3500041ZF
-ANIMAL PLANET, https://cors-anywhere.yidianzhishi.cn/http://23.237.104.106:8080/USA_ANIMAL_PLANET/index.m3u8
-Autentic History, https://9e754fa707344ccca6d84955c8fcaf36.mediatailor.us-east-1.amazonaws.com/v1/master/44f73ba4d03e9607dcd9bebdcb8494d86964f1d8/RlaxxTV-eu_AutenticHistory/playlist.m3u8
 Better Life Nature Channel, https://tgn.bozztv.com/betterlife/betternature/betternature/index.m3u8
 Brave Wilderness, https://jmp2.uk/stvp-US2100010AB
 Brave Wilderness, https://jmp2.uk/stvp-IN3600008TY
@@ -585,23 +1010,14 @@ Curiosity Explora, https://jmp2.uk/stvp-US22000020U
 Curiosity Motores, https://jmp2.uk/stvp-US2200003ZN
 Destination Nature, https://jmp2.uk/stvp-FRBC4000001IO
 Destination Nature [FR], https://jmp2.uk/stvp-CHBC4000006ZD
-Discovery Turbo TV, https://jmp2.uk/stvp-USBC3600005U9
 Docu Vision, https://streams2.sofast.tv/sofastplayout/7e8d2a51-985d-4e76-bf7e-91edf0aa6e5f_0_HLS/master.m3u8
 Documentary+, https://jmp2.uk/stvp-USAJ3504701A
 Documentary+, https://jmp2.uk/stvp-CABC2300019UD
 Documentary+, https://ef79b15c8c7c46c7a9de9d33001dbd07.mediatailor.us-west-2.amazonaws.com/v1/master/ba62fe743df0fe93366eba3a257d792884136c7f/LINEAR-859-DOCUMENTARYPLUS-DOCUMENTARYPLUS/mt/documentaryplus/859/hls/master/playlist.m3u8
 Genesis Science Network, https://2-fss-1.streamhoster.com/pl_122/amlst:206018-2645902/playlist.m3u8
 Go Wild, https://jmp2.uk/stvp-IN2400002A3
-History, http://212.5.144.156:8080/history/index.m3u8
-History & Warfare, https://jmp2.uk/stvp-CA600001C3
-History 365, https://jmp2.uk/stvp-USBD35000428O
-History Hit, https://jmp2.uk/stvp-GBBA2200005ZA
-History Hunters, https://jmp2.uk/stvp-GB1200002ON
-HISTORY TV18, https://jmp2.uk/stvp-IN1600008DN
-HISTORY TV18 - Hindi, https://jmp2.uk/stvp-IN1600009NL
 INWILD, https://jmp2.uk/stvp-INBA4900007JX
 INWILD, https://jmp2.uk/stvp-GBBA220000751
-Love Crime & History, https://jmp2.uk/stvp-FRBD43000016D
 Love Nature, https://jmp2.uk/stvp-USBA3400003IP
 Love Nature, https://www.youtube.com/embed/Zns4k_dICzs
 Love Nature, https://mumbai-edge.smartplaytv.in/LoveNature/index.m3u8
@@ -612,13 +1028,9 @@ Love the Planet, https://jmp2.uk/stvp-GBBD500001F5
 Love the Planet, https://jmp2.uk/stvp-ITBC4700003GR
 MagellanTV Wildest, https://jmp2.uk/stvp-USAJ340000677
 MagellanTV Wildest, https://jmp2.uk/stvp-CAAJ3400017AE
-Modern Marvels Presented by History, https://jmp2.uk/stvp-USBB5200025DO
 Mystery Science Theater 3000, https://jmp2.uk/stvp-US4500004SQ
 Mystery Science Theater 3000, https://mst3k-vizio.amagi.tv/playlist.m3u8
 Mystery Science Theater 3000, https://d1c73nj8qxp55a.cloudfront.net/Mystery_Science_Theater_3000.m3u8
-NAT GEO, https://cors-anywhere.yidianzhishi.cn/http://23.237.104.106:8080/USA_NAT_GEO/index.m3u8
-Nat Geo Animals, https://www.youtube.com/embed/MiQe9ob9aDc
-NAT GEO WILD, https://cors-anywhere.yidianzhishi.cn/http://23.237.104.106:8080/USA_NAT_GEO_WILD/index.m3u8
 National Geographic, https://www.youtube.com/embed/wVd836vHl6s
 National Geographic, http://212.5.144.156:8080/natgeo/index.m3u8
 National Geographic HD East, http://198.58.104.90:8989/natgeo/index.m3u8
@@ -635,7 +1047,6 @@ PBS Nature, https://amg02333-pbs-amg02333c11-firetv-us-4242.playouts.now.amagi.t
 PBS Nature, https://d3mr43kyql7wgk.cloudfront.net/PBS_Nature.m3u8
 Planeta de Cine, https://jmp2.uk/stvp-ES2800001G7
 Planeta Salvaje, https://jmp2.uk/stvp-ES1600003FF
-Pluto TV History, https://jmp2.uk/plu-5a4d35dfa5c02e717a234f86.m3u8
 Pluto TV Science, https://jmp2.uk/stvp-CHAK3504503A
 Pluto TV Science, https://jmp2.uk/stvp-ATAK3504503A
 Pluto TV Science, https://jmp2.uk/stvp-DEAK3504506A
@@ -654,8 +1065,6 @@ Terra Mater WILD, https://jmp2.uk/stvp-ATBD2700001KY
 Terra Mater WILD, https://jmp2.uk/stvp-CHBD2700002B7
 Terra Mater WILD English, https://amg01775-amg01775c1-amgplt0343.playout.now3.amagi.tv/playlist/amg01775-amg01775c1-amgplt0343/playlist.m3u8
 The Wild Wild West, https://jmp2.uk/plu-664e640a0120f40008be4582.m3u8
-True History, https://linear-188.frequency.stream/dist/glewedtv/188/hls/master/playlist.m3u8
-TVS Hollywood History, https://rpn.bozztv.com/gusa/gusa-tvshollywoohistory/index.m3u8
 Wild 'N Out, https://jmp2.uk/stvp-USBA3000100X
 Wild 'N Out, https://jmp2.uk/plu-5d48678d34ceb37d3c458a55.m3u8
 Wild Earth, https://wildearth-plex.amagi.tv/masterR1080p.m3u8
@@ -667,8 +1076,8 @@ WildEarth, https://jmp2.uk/stvp-US3800007CR
 WildEarth, https://jmp2.uk/stvp-ITBA3300046KE
 Wilder Planet, https://jmp2.uk/stvp-CHBA3300028G3
 Wildest Wish TV, https://streams2.sofast.tv/sofast3/v1/0197e8dd18f31ebd4704322ec12ab7/0197e8dd477d1ea506ec3673c3696b/playlist.m3u8
-Xtreme Outdoor Presented by HISTORY, https://jmp2.uk/stvp-USAK3508706A
-XtremeOutdoorbyHistory, https://57f9d766.wurl.com/master/f36d25e7e52f1ba8d7e56eb859c636563214f541/TEdfU2tpbGxzQW5kVGhyaWxsc19ITFM/playlist.m3u8
+爱尔达体育2台, http://198.204.228.26/live/elta2.m3u8
+纬来体育台, http://198.204.228.26/live/vl_sport.m3u8
 NBA TV, https://amg00556-amg00556c3-firetv-us-6060.playouts.now.amagi.tv/playlist1080p.m3u8
 NBA TV, https://amg00556-amg00556c3-firetv-us-6060.playouts.now.amagi.tv/playlist.m3u8
 NBA TV, http://23.237.104.106:8080/USA_NBA/index.m3u8
@@ -799,6 +1208,19 @@ WorldBillardsTV, https://9a81dd4ee3884d0dbcacafaf0d81327a.mediatailor.us-east-1.
 Wrestling Legends TV, https://jmp2.uk/stvp-GB500013LT
 XFC TV, https://stream-us-east-1.getpublica.com/playlist.m3u8?network_id=2247
 Xtrem Sports, https://streams2.sofast.tv/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/e0b81a5c-6ab5-48cd-aaa9-f82de4ab5bf9/manifest.m3u8
+CETV-1, http://63.141.230.178:82/gslb/zbdq5.m3u8?id=cetv1hd
+CETV-1, http://38.75.136.137:98/gslb/dsdqpub/cetv1hd.m3u8?auth=testpub
+CETV-1, http://198.204.228.26/live/cetv1hd.m3u8
+CETV-2, http://63.141.230.178:82/gslb/zbdq5.m3u8?id=cetv2
+CETV-2, http://38.75.136.137:98/gslb/dsdqpub/cetv2.m3u8?auth=testpub
+CETV-2, http://198.204.228.26/live/cetv2.m3u8
+CETV-3, http://63.141.230.178:82/gslb/zbdq5.m3u8?id=cetv3
+CETV-3, http://38.75.136.137:98/gslb/dsdqpub/cetv3.m3u8?auth=testpub
+CETV-3, http://198.204.228.26/live/cetv3.m3u8
+CETV-4, http://63.141.230.178:82/gslb/zbdq5.m3u8?id=cetv4
+CETV-4, http://38.75.136.137:98/gslb/dsdqpub/cetv4.m3u8?auth=testpub
+CETV-4, http://198.204.228.26/live/cetv4.m3u8
+CETV早期教育, http://198.204.228.26/live/cetve.m3u8
 广元文化生活, https://m3u8.channel.dzsm.com/nmip-media/channellive/channel101257/playlist.m3u8
 文化影视, http://live.shaoxing.com.cn/video/s10001-sxtv3/index.m3u8
 文物宝库, https://dxtx.hntv.tv/live/wwbk.m3u8?txSecret=317b89626134fd6bea6e129455b5ff18&txTime=7C4C635C&wsSecret=87c5daf4f4c3a09fb4e4cce0843d4a1c&wsTime=1770400669
@@ -861,6 +1283,20 @@ WCETV Digital Channel 31.8, https://h5cul1yar48um3t.wcetv.com/hls/wcetv318.m3u8
 World Channel, https://world.lls.pbs.org/index.m3u8
 WPS-TV, https://2-fss-2.streamhoster.com/pl_120/amlst:203530-1426406/playlist.m3u8
 Yu-Gi-Oh!, https://amg01796-amg01796c19-rakuten-gb-7486.playouts.now.amagi.tv/playlist/amg01796-fastmediafast-yugioh2en-rakutengb/playlist.m3u8
+中國旅遊, https://fastlive.cctvplus.com/out/v1/ca6f9297b7314a63959435028af287fc/index.m3u8
+新傳媒5頻道, https://cdn.qd.je/163189.php?id=ch5
+新傳媒5頻道, https://cdn.qd.je/163189/ch5
+新傳媒8頻道, https://cdn.qd.je/163189.php?id=ch8
+新傳媒8頻道, https://cdn.qd.je/163189/ch8
+新傳媒U頻道, https://cdn.qd.je/163189.php?id=chu
+新傳媒U頻道, https://cdn.qd.je/163189/chu
+看中國, https://fastlive.cctvplus.com/out/v1/8442c3bfd4c64a3984389328f6087879/index.m3u8
+美國之音中文電視, https://voa-ingest.akamaized.net/hls/live/2033878/tvmc08/playlist.m3u8
+金磚電視中文台, https://chibrics.mediacdn.ru/cdn/brics/chinese/playlist.m3u8
+ABN華語台, https://mediaserver.abnvideos.com/streams/abnchina.m3u8
+CNA亞洲新聞台, https://www.youtube.com/embed/XWq5kBlakcQ
+CNA亞洲新聞台, https://d2e1asnsl7br7b.cloudfront.net/7782e205e72f43aeb4a48ec97f66ebbe/index_5.m3u8
+CNA特輯, https://amg01082-cna-amg01082c1-rlaxx-us-11304.playouts.now.amagi.tv/playlist.m3u8
 中国蓝新闻, https://ali-m-l.cztv.com/channels/lantian/channel009/1080p.m3u8
 好易购, https://zwebl06.cztv.com/live/channel111080Pnew.m3u8?auth_key=1790654487757-0-0-7158b963340205009d759858b4103f44
 好易购, https://zwebl06.cztv.com/live/channel111080Pnew.m3u8?auth_key=1790708482589-0-0-47b705b77cb468eda19b6ce4319fd579
@@ -1032,7 +1468,6 @@ Yu-Gi-Oh!, https://amg01796-amg01796c19-rakuten-gb-7486.playouts.now.amagi.tv/pl
 开化国家公园, https://l.cztvcloud.com/channels/lantian/SXkaihua2/720p.m3u8
 张掖新闻综合, https://play.kankanlive.com/live/1720583434627241.m3u8
 快乐垂钓, https://padhw.qing.mgtv.com/nn_live/nn_x64/Y2hzPSZkZWY9MSZ1aXA9NDcuMTA4LjcyLjQ1JnRlcm09NCZtYWNpZD1kOWRjZGYwNi03YzI0LTQ2MWItOTJiYy02NTM0MGQyMWY1NTkmcWlkPSZyYXV0aF9lbmFibGU9b24mY2RuZXhfaWQ9aHdfcGhvbmUmZXM9MTc5MDczNzI3NCZ1dWlkPWRjNTMwNmNiYjc1MzJiMTg2ZjUwMjE0NjA5NDQ2YmU5LTJmNmM0ODJkJnM9YjM1NWNiMjk2NGVhODViZTQzMTFiY2NlOGNjYzY1MzAmdWlkPSZuZHY9cGNfd2ViLWltZ290di1wY2g1LTEuMi4zJnY9MiZhcz0wJl9jYXJDb2RlPTA,/KLCDMPP360.m3u8
-快乐购, https://padqq.qing.mgtv.com/nn_live/nn_x64/Y2hzPSZkZWY9MSZ1aXA9NDcuMTA4LjcyLjQ1JnRlcm09NCZtYWNpZD1kOWRjZGYwNi03YzI0LTQ2MWItOTJiYy02NTM0MGQyMWY1NTkmcWlkPSZyYXV0aF9lbmFibGU9b24mY2RuZXhfaWQ9cXFfcGhvbmVfbGl2ZSZlcz0xNzkwNzM3MjQ5JnV1aWQ9ZjE5ODY4Y2QyYTliNGVlMzA3NzYzYTg2ZmJiMTQwY2QtMmY2YzQ4MmQmcz0zY2M1NzQ0ZmVmNDIxMmZmZDIyMWVlMDdhNWRmZGY3YyZ1aWQ9Jm5kdj1wY193ZWItaW1nb3R2LXBjaDUtMS4yLjMmdj0yJmFzPTAmX2NhckNvZGU9MA,,/KLGMPP360.m3u8
 怀仁综合, https://1yp7hc5p.live.sxmty.com/live/hls/bff8529922344209985b6e49baa9555a/efa2543628fc4a7ea93d3d6c975f77dc-1.m3u8
 拜泉综合, https://cors-anywhere.yidianzhishi.cn/https://masterpull.hljtv.com/live/zHtOXXUz.m3u8
 教科影院, http://ali-xwl.cztv.com/live/channel041080Plxw.m3u8
@@ -1058,12 +1493,7 @@ Yu-Gi-Oh!, https://amg01796-amg01796c19-rakuten-gb-7486.playouts.now.amagi.tv/pl
 河北直播, https://event.pull.hebtv.com:443/live/live102.m3u8
 泰来综合, https://cors-anywhere.yidianzhishi.cn/https://masterpull.hljtv.com/live/cfkAgOUK.m3u8
 泸州新闻综合, https://m3u8.channel.luzhoubs.com/nmip-media/channellive/channel106011/playlist.m3u8
-湖南娱乐, https://padqq.qing.mgtv.com/nn_live/nn_x64/Y2hzPSZkZWY9MSZ1aXA9NDcuMTA4LjcyLjQ1JnRlcm09NCZtYWNpZD1kOWRjZGYwNi03YzI0LTQ2MWItOTJiYy02NTM0MGQyMWY1NTkmcWlkPSZyYXV0aF9lbmFibGU9b24mY2RuZXhfaWQ9cXFfcGhvbmVfbGl2ZSZlcz0xNzkwNzM3MjUzJnV1aWQ9MWJhMDk2YzAwZDk1ZDIzYThkZGRmMmZmODBhZGMwMTctMmY2YzQ4MmQmcz0xZTUzMDY1OWY4Y2Q5ODNiZTUzYjAxYTkzNmVmNzZkZSZ1aWQ9Jm5kdj1wY193ZWItaW1nb3R2LXBjaDUtMS4yLjMmdj0yJmFzPTAmX2NhckNvZGU9MA,,/HNYLMPP360.m3u8
-湖南爱晚, https://padqq.qing.mgtv.com/nn_live/nn_x64/Y2hzPSZkZWY9MSZ1aXA9NDcuMTA4LjcyLjQ1JnRlcm09NCZtYWNpZD1kOWRjZGYwNi03YzI0LTQ2MWItOTJiYy02NTM0MGQyMWY1NTkmcWlkPSZyYXV0aF9lbmFibGU9b24mY2RuZXhfaWQ9cXFfcGhvbmVfbGl2ZSZlcz0xNzkwNzM3MjYyJnV1aWQ9NDc2MDlmNzhmNjQ0ODkzYjY5MjhhYWI1OWUzMmMzMjItMmY2YzQ4MmQmcz02NjVlMzJlOGUzYjY0OWRhN2Q3ZjhjNjU5YTJhOTZmMyZ1aWQ9Jm5kdj1wY193ZWItaW1nb3R2LXBjaDUtMS4yLjMmdj0yJmFzPTAmX2NhckNvZGU9MA,,/HNGGMPP360.m3u8
-湖南电影, https://padqq.qing.mgtv.com/nn_live/nn_x64/Y2hzPSZkZWY9MSZ1aXA9NDcuMTA4LjcyLjQ1JnRlcm09NCZtYWNpZD1kOWRjZGYwNi03YzI0LTQ2MWItOTJiYy02NTM0MGQyMWY1NTkmcWlkPSZyYXV0aF9lbmFibGU9b24mY2RuZXhfaWQ9cXFfcGhvbmVfbGl2ZSZlcz0xNzkwNzM3MjU2JnV1aWQ9ZjJmNjNjODU1YmQ1MzcwZjdhMGJjOWE5MGEyZTI0NDMtMmY2YzQ4MmQmcz1mZDJhY2M1ZjZmMTU3MGQ3NGM1NzgzODY2NWQyNTZhZSZ1aWQ9Jm5kdj1wY193ZWItaW1nb3R2LXBjaDUtMS4yLjMmdj0yJmFzPTAmX2NhckNvZGU9MA,,/HNDYMPP360.m3u8
 湖南电视剧, https://padhw.qing.mgtv.com/nn_live/nn_x64/Y2hzPSZkZWY9MSZ1aXA9NDcuMTA4LjcyLjQ1JnRlcm09NCZtYWNpZD1kOWRjZGYwNi03YzI0LTQ2MWItOTJiYy02NTM0MGQyMWY1NTkmcWlkPSZyYXV0aF9lbmFibGU9b2ZmJmNkbmV4X2lkPWh3X3Bob25lJmVzPTE3OTA3MzcyNTcmdXVpZD0yY2ZkOGMyZDYwNzEzNjRlZDc0NGJjMzI3YzhjOTY5Zi0yZjZjNDgyZCZzPTRkZWEyYWFkZjg4YjcxNzI0MTRmNTZkN2FlMzRlMDNiJnVpZD0mbmR2PXBjX3dlYi1pbWdvdHYtcGNoNS0xLjIuMyZ2PTImYXM9MCZfY2FyQ29kZT0w/HNDSJMPP360.m3u8
-湖南经视, https://padqq.qing.mgtv.com/nn_live/nn_x64/Y2hzPSZkZWY9MSZ1aXA9NDcuMTA4LjcyLjQ1JnRlcm09NCZtYWNpZD1kOWRjZGYwNi03YzI0LTQ2MWItOTJiYy02NTM0MGQyMWY1NTkmcWlkPSZyYXV0aF9lbmFibGU9b24mY2RuZXhfaWQ9cXFfcGhvbmVfbGl2ZSZlcz0xNzkwNzM3MjUwJnV1aWQ9NjZkNTYwN2E0MTBlNTAyOGQ1NWY3OGExMTFjODQwMzUtMmY2YzQ4MmQmcz0zYThhZDdlMDBlODdjMDk2ZWZmNmRmNTI0ZjQ3NDVmNyZ1aWQ9Jm5kdj1wY193ZWItaW1nb3R2LXBjaDUtMS4yLjMmdj0yJmFzPTAmX2NhckNvZGU9MA,,/HNJSMPP360.m3u8
-湖南都市, https://padqq.qing.mgtv.com/nn_live/nn_x64/Y2hzPSZkZWY9MSZ1aXA9NDcuMTA4LjcyLjQ1JnRlcm09NCZtYWNpZD1kOWRjZGYwNi03YzI0LTQ2MWItOTJiYy02NTM0MGQyMWY1NTkmcWlkPSZyYXV0aF9lbmFibGU9b24mY2RuZXhfaWQ9cXFfcGhvbmVfbGl2ZSZlcz0xNzkwNzM3MjU3JnV1aWQ9NTU4ODdkZWExYTViZjY1MWRmOWEwOTI4NmZmYjEyMDktMmY2YzQ4MmQmcz1kYjRhODQ4ZTlkZTc0NzdjYzY3ZjQzNWMxYzI2YTcxOSZ1aWQ9Jm5kdj1wY193ZWItaW1nb3R2LXBjaDUtMS4yLjMmdj0yJmFzPTAmX2NhckNvZGU9MA,,/HNDSMPP360.m3u8
 漠河市综合, https://cors-anywhere.yidianzhishi.cn/https://masterpull.hljtv.com/live/rlVvbTZN.m3u8
 甘孜综合, https://m3u8channel.ganzitv.com/nmip-media/channellive/channel1/playlist.m3u8
 白城新闻综合, https://stream2.jlntv.cn/baicheng1/sd/live.m3u8
@@ -1100,7 +1530,6 @@ Yu-Gi-Oh!, https://amg01796-amg01796c19-rakuten-gb-7486.playouts.now.amagi.tv/pl
 锡林郭勒盟一套, https://play1-qk.nmtv.cn/live/1735546994821050.m3u8
 长春综合, https://stream2.jlntv.cn/jlcc/sd/live.m3u8
 长沙政法, https://padhw.qing.mgtv.com/nn_live/nn_x64/Y2hzPSZkZWY9MSZ1aXA9NDcuMTA4LjcyLjQ1JnRlcm09NCZtYWNpZD1kOWRjZGYwNi03YzI0LTQ2MWItOTJiYy02NTM0MGQyMWY1NTkmcWlkPSZyYXV0aF9lbmFibGU9b24mY2RuZXhfaWQ9aHdfcGhvbmUmZXM9MTc5MDczNzI3NyZ1dWlkPTRlMWQ5YTYxNGZmNTNlNTE5MWJhMWRhMGUxZTBhNTIyLTJmNmM0ODJkJnM9Mzg3NGQ1MjJhYWJhY2QxNTQyYWM0M2ZiMDJmNGJiNjcmdWlkPSZuZHY9cGNfd2ViLWltZ290di1wY2g1LTEuMi4zJnY9MiZhcz0wJl9jYXJDb2RlPTA,/CSZFMPP360.m3u8
-长沙新闻综合, https://padqq.qing.mgtv.com/nn_live/nn_x64/Y2hzPSZkZWY9MSZ1aXA9NDcuMTA4LjcyLjQ1JnRlcm09NCZtYWNpZD1kOWRjZGYwNi03YzI0LTQ2MWItOTJiYy02NTM0MGQyMWY1NTkmcWlkPSZyYXV0aF9lbmFibGU9b24mY2RuZXhfaWQ9cXFfcGhvbmVfbGl2ZSZlcz0xNzkwNzM3Mjc2JnV1aWQ9NGY5ZjBkZjgzYzZjNDY2ZDI2ZmY2ZDZmZjY4ZGM5MTAtMmY2YzQ4MmQmcz1hNzgyZGQxZWExZGI5NGQ0NDZiNTJhYzI3NTg5ZDU3MiZ1aWQ9Jm5kdj1wY193ZWItaW1nb3R2LXBjaDUtMS4yLjMmdj0yJmFzPTAmX2NhckNvZGU9MA,,/CSXWMPP360.m3u8
 阿拉善新闻综合, https://play1-qk.nmtv.cn/live/1735547046115053.m3u8
 陇南公共, https://play.kankanlive.com/live/1709171893138901.m3u8
 陇南综合, https://play.kankanlive.com/live/1709171819929902.m3u8
@@ -1112,8 +1541,6 @@ Yu-Gi-Oh!, https://amg01796-amg01796c19-rakuten-gb-7486.playouts.now.amagi.tv/pl
 青島生活, http://video10.qtv.com.cn/drm/qtv2at/manifest.m3u8
 青島都市, http://video10.qtv.com.cn/drm/qtv4at/manifest.m3u8
 青島青少旅遊, http://video10.qtv.com.cn/drm/qtv6at/manifest.m3u8
-韩国电影1, https://stream.ads.ottera.tv/playlist.m3u8?network_id=595
-韩国电影2, https://stream.ads.ottera.tv/playlist.m3u8?network_id=743
 鶴壁新聞綜合, http://pili-live-hls.hebitv.com/hebi/hebi.m3u8
 龙江综合, https://cors-anywhere.yidianzhishi.cn/https://masterpull.hljtv.com/live/vRSdDMSR.m3u8
 Ando TV, http://play.kankanlive.com/live/1711956137852982.m3u8
@@ -1245,7 +1672,6 @@ AccessVision Channel 16, https://livestream.telvue.com/accvision1/f7b44cfafd5c52
 According to Jim, https://jmp2.uk/stvp-US4100028ZF
 Acorn TV Mysteries, https://jmp2.uk/stvp-US35000201T
 AFV with Alfonso Ribeiro, https://jmp2.uk/stvp-US4100038R9
-Alfred Hitchcock Presents, https://jmp2.uk/stvp-US1800014CG
 Alien Nation by DUST, https://jmp2.uk/stvp-USBC100000630
 All Babies Channel, https://jmp2.uk/stvp-USBD3300019OU
 All Reality We TV, https://jmp2.uk/stvp-USBD12000061R
@@ -1645,399 +2071,6 @@ XITE Reggae Vibes, https://jmp2.uk/stvp-US4600008JA
 XITE Summer, https://jmp2.uk/stvp-USBD350003932
 Xplore, https://jmp2.uk/stvp-USBC2100008DP
 Yo! MTV, https://jmp2.uk/stvp-US3900009ZV
-猫和老鼠, https://live20.bozztv.com/giatvplayout7/giatv-208314/playlist.m3u8
-重温经典, https://php.jdshipin.com:2096/TVOD/iptv.php?id=cwjd
-重温经典, https://php.jdshipin.com/TVOD/iptv.php?id=cwjd
-重温经典, https://cdn.qd.je/163189/cwjd
-00s Replay, https://jmp2.uk/plu-62ba60f059624e000781c436.m3u8
-100% Cinema, https://jmp2.uk/stvp-FR13000020W
-100% Comedy, https://jmp2.uk/stvp-FR3600003DS
-100% Docs Crime, https://jmp2.uk/stvp-FRBD39000064E
-24 Hour Free Movies, https://d1j2u714xk898n.cloudfront.net/scheduler/scheduleMaster/145.m3u8
-30A TV Classic Movies, https://30a-tv.com/feeds/pzaz/30atvmovies.m3u8
-50 Cent Action, https://jmp2.uk/plu-68487fb3f212bedacf5a53e3.m3u8
-70s Cinema, https://jmp2.uk/plu-5f4d878d3d19b30007d2e782.m3u8
-80s Rewind, https://jmp2.uk/plu-5ca525b650be2571e3943c63.m3u8
-90s Throwback, https://jmp2.uk/plu-5f4d86f519358a00072b978e.m3u8
-Action Club, https://jmp2.uk/stvp-FRBD2300001UQ
-Action Hollywood Movies, https://actionhollywood-klowdtv.amagi.tv/playlist.m3u8
-Action Movie Channel, https://jmp2.uk/stvp-ITBC400001LX
-Action Movie Channel, https://jmp2.uk/stvp-ESBC40000248
-Action Movies, https://action-rakuten-tv-uk.fast.rakuten.tv/v1/manifest/0547f18649bd788bec7b67b746e47670f558b6b2/production-LiveChannel-6065/8e7f1d8c-5ba7-4dde-9834-b058e17f6bfe/4.m3u8
-Action Movies, https://54045f0c40fd442c8b06df076aaf1e85.mediatailor.eu-west-1.amazonaws.com/v1/master/0547f18649bd788bec7b67b746e47670f558b6b2/production-LiveChannel-6065/master.m3u8
-Action Movies - Rakuten TV, https://jmp2.uk/stvp-GB2600015OS
-Actionfilme - Rakuten TV, https://jmp2.uk/stvp-AT26000054S
-Actionfilme - Rakuten TV, https://jmp2.uk/stvp-CH2600004R1
-Actionfilme - Rakuten TV, https://jmp2.uk/stvp-DE2600005XA
-Adrenalina Pura TV, https://jmp2.uk/plu-61b793ccf571b80007b7a610.m3u8
-Adrenaline Movies, https://jmp2.uk/stvp-ITBC11000050E
-ALL ACTION, https://jmp2.uk/stvp-USBB2300001QP
-AMC, http://23.239.31.26:8989/amc/index.m3u8
-AMC Thrillers, https://436f59579436473e8168284cac5d725f.mediatailor.us-east-1.amazonaws.com/v1/master/44f73ba4d03e9607dcd9bebdcb8494d86964f1d8/Plex_RushByAMC/playlist.m3u8
-AMC Thrillers, https://amc-rushbyamc-1-us.vizio.wurl.tv/playlist.m3u8
-American Crimes, https://jmp2.uk/stvp-USBD42000250Q
-American Horrors, http://107.167.7.162:8081/playlist/amhor/playlist.m3u8
-AVASERIES, https://avaserieshls.wns.live/hls/stream.m3u8
-AVI Rewind, http://45.70.201.81:8000/play/a010/index.m3u8
-Battlestar Galactica, https://jmp2.uk/plu-69d7ebff029c431826bd328e.m3u8
-BBC Comedy, https://bbc-comedy-1-us.plex.wurl.tv/1200.m3u8
-BBC Series, https://amg00793-amg00793c40-rakuten-es-5444.playouts.now.amagi.tv/playlist/amg00793-bbcstudios-bbcdramaspain-rakutenes/playlist.m3u8
-Best Action TV, https://streams2.sofast.tv/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/9a4a5412-ca99-48d3-9013-d1811b95b9d2/manifest.m3u8
-Best Drama TV, https://streams2.sofast.tv/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/9800ea5c-2183-4160-9f01-70e5d6428a50/manifest.m3u8
-Best Thriller TV, https://streams2.sofast.tv/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/ce168a85-c8d4-41d6-a597-cc8fd7baddd9/manifest.m3u8
-BET Cinema, https://jmp2.uk/plu-58af4c093a41ca9d4ecabe96.m3u8
-BET Comedy Movies, https://jmp2.uk/plu-68c32d88f56983aba40052bd.m3u8
-BET Visionaries, https://jmp2.uk/plu-663946c1b18d700008d9c168.m3u8
-BibleMovies, https://mediaserver.abnvideos.com/streams/abnbiblemovies.m3u8
-Bizzarro Movies, https://jmp2.uk/stvp-ITBA3300024IU
-Bonanza, https://jmp2.uk/plu-68e9913c4a666b9054849832.m3u8
-Box Office Action, https://jmp2.uk/stvp-FR370000288
-Box Office Drama, https://jmp2.uk/stvp-FR3700003N4
-Box Office Thriller, https://jmp2.uk/stvp-FR3700001AG
-Brefcinema, https://jmp2.uk/stvp-FRBA1000009KO
-Brividy Cinema, https://jmp2.uk/stvp-ITBD600001CL
-CBC Comedy, https://jmp2.uk/stvp-CABD1200043OK
-CG Grandi Film, https://jmp2.uk/stvp-ITBA14000093A
-Charge!, https://fast-channels.sinclairstoryline.com/CHARGE/index.m3u8
-Cine Adrenalina, https://jmp2.uk/plu-5d8d164d92e97a5e107638d2.m3u8
-Cine Amor, https://jmp2.uk/plu-5f5136317aedfb0007016f93.m3u8
-Cine Premiere, https://jmp2.uk/plu-5cf968040ab7d8f181e6a68b.m3u8
-Cine Terror, https://jmp2.uk/plu-5d8d180092e97a5e107638d3.m3u8
-Cine Thriller, https://jmp2.uk/stvp-ITBD3200002DU
-Cine Western, https://jmp2.uk/stvp-ES2300005G7
-Cinema italiano, https://jmp2.uk/stvp-ITBA33000238E
-Cinemadame, https://jmp2.uk/stvp-ITBD1400003D0
-Cinemalizia, https://jmp2.uk/stvp-IT300029U3
-Cinemax, https://cors-anywhere.yidianzhishi.cn/http://23.237.104.106:8080/USA_CINEMAX/index.m3u8
-Cinemax Classics, http://23.237.104.106:8080/USA_5STARMAX/index.m3u8
-CINEMAXMOREMAX, http://23.237.104.106:8080/USA_MOREMAX/index.m3u8
-CINEVAULT, https://jmp2.uk/stvp-USAJ30000148W
-Cinevault Westerns, https://jmp2.uk/stvp-CA35000078O
-Cinevault Westerns, https://gsn-cinevault-westerns-2-us.roku.wurl.tv/playlist.m3u8
-CINEVAULT: Classics, https://jmp2.uk/stvp-USBB3200015M8
-CINEVAULT: Classics, https://jmp2.uk/stvp-CAAJ3400009KT
-CINEVAULT: Westerns, https://jmp2.uk/stvp-USAK3508709A
-CineWestern, https://jmp2.uk/stvp-CHAJ3500001Z8
-CineWestern, https://jmp2.uk/stvp-ITBB20000072M
-Ciné Western, https://jmp2.uk/stvp-FRBD19000095S
-CJ ENM MOVIE, https://jmp2.uk/stvp-KRBC32000191N
-Classic Cinema, https://rpn.bozztv.com/gusa/gusa-classiccinema/index.m3u8
-Classic Movie Westerns, https://jmp2.uk/plu-61f33318210549000806a530.m3u8
-Classic Movies, https://bozztv.com/gusa/gusa-tvsclassicmovies/index.m3u8
-Classic Movies Channel, https://jmp2.uk/plu-561c5b0dada51f8004c4d855.m3u8
-Classic TV Comedy, https://jmp2.uk/plu-5f15e32b297f96000768f928.m3u8
-Classic TV Crime Drama, https://jmp2.uk/plu-61325c4f982acd000723287e.m3u8
-Classic TV Drama, https://jmp2.uk/plu-5f15e3cccf49290007053c67.m3u8
-Comedy & Shows, https://jmp2.uk/stvp-AT3400004QH
-Comedy & Shows, https://jmp2.uk/stvp-DE3400003PW
-Comedy & Shows, https://jmp2.uk/stvp-CH340000286
-Comedy Central en Espanol, https://jmp2.uk/plu-5cf96dad1652631e36d43320.m3u8
-Comedy Central Pluto TV, https://jmp2.uk/stvp-CHAK3504510A
-Comedy Central Pluto TV, https://jmp2.uk/stvp-ATAK3504510A
-Comedy Central Pluto TV, https://jmp2.uk/stvp-DEAK3504500A
-Comedy Central Pluto TV, https://jmp2.uk/plu-5ca671f215a62078d2ec0abf.m3u8
-Comedy Dynamics, https://jmp2.uk/stvp-USBD7000145C
-Comedy Dynamics, https://jmp2.uk/stvp-CABC5200020WJ
-Comedy Hub, https://jmp2.uk/stvp-GBBD25000038Y
-Comedy King, https://jmp2.uk/stvp-IN3600006RT
-Comedy Movies, https://comedy-rakuten-tv-uk.fast.rakuten.tv/v1/manifest/0547f18649bd788bec7b67b746e47670f558b6b2/production-LiveChannel-6181/34b2bcf8-3a15-4ef7-bedb-04cae730c688/4.m3u8
-Comedy Movies, https://9be783d652cd4b099cf63e1dc134c4a3.mediatailor.eu-west-1.amazonaws.com/v1/master/0547f18649bd788bec7b67b746e47670f558b6b2/production-LiveChannel-6181/master.m3u8
-Comedy Movies - Rakuten TV, https://jmp2.uk/stvp-GB2600020OP
-Comedy Tadka, https://streams2.sofast.tv/WiseM3U8_27/sofast/cleanhls/master.m3u8
-Comedy TV, https://ec613694ee5049d3b8f30913b619662e.mediatailor.us-west-2.amazonaws.com/v1/master/ba62fe743df0fe93366eba3a257d792884136c7f/LINEAR-804-UK-SONYONECOMEDYTV-LG_UK/playlist.m3u8
-Cowboy Movie Channel, https://streams2.sofast.tv/sofastplayout/32eb332e-f644-46e5-ad91-e55ad80d14f7_0_HLS/master.m3u8
-Crime & Justice, https://linear-474.frequency.stream/dist/glewedtv/474/hls/master/playlist.m3u8
-Crime + Investigation, http://23.237.104.106:8080/USA_CRIME_INVESTIGATION/index.m3u8
-Crime - Rakuten TV, https://jmp2.uk/stvp-FR2600009UG
-Crime 24/7, https://jmp2.uk/stvp-USAK3508703A
-Crime 360, https://jmp2.uk/stvp-CA4700015P1
-Crime 360, https://jmp2.uk/plu-657880c46e4f6a00087404d0.m3u8
-Crime Network, https://jmp2.uk/stvp-GBBD4100010H1
-Crime Scene TV, https://jmp2.uk/stvp-IN24000030L
-Crime Serien - Rakuten TV, https://jmp2.uk/stvp-DE2600004U3
-Crime Serien - Rakuten TV, https://jmp2.uk/stvp-AT260000634
-Crime Serien - Rakuten TV, https://jmp2.uk/stvp-CH2600007IJ
-Crime Tak, https://jmp2.uk/stvp-IN2600015OO
-Crime ThrillHer, https://jmp2.uk/stvp-USBB52000236D
-Crime Time, https://jmp2.uk/stvp-IT3600001Q1
-Crime Time, https://jmp2.uk/stvp-AT4500001S1
-Crime Time, https://jmp2.uk/stvp-DEBD1900002CB
-Crime Zone, https://jmp2.uk/stvp-USBB36000040M
-CrimeFlix, https://dgx2snzx175pa.cloudfront.net/scheduler/scheduleMaster/391.m3u8
-Crimen & Historia, https://jmp2.uk/stvp-ES33000025N
-Crimen - Rakuten TV, https://jmp2.uk/stvp-ES2600005G9
-Crimenes Imperfectos, https://jmp2.uk/plu-5e94cd036cc69d0007e8a1ba.m3u8
-Crimenes Reales, https://jmp2.uk/stvp-ES3300001MC
-Crimes Cults Killers, https://jmp2.uk/stvp-USBB5200022PY
-Crimes Enquêtes Faits Divers, https://jmp2.uk/stvp-FR600002ZR
-De Pelicula US, http://138.121.15.230:9002/DEPELICULA/index.m3u8
-Demand Drama, https://jmp2.uk/stvp-GB900005KI
-Drama Filme - Rakuten TV, https://jmp2.uk/stvp-AT2600004LH
-Drama Filme - Rakuten TV, https://jmp2.uk/stvp-CH2600002VE
-Drama Filme - Rakuten TV, https://jmp2.uk/stvp-DE2600007ET
-Drama Movies, https://drama-rakuten-tv-uk.fast.rakuten.tv/v1/manifest/0547f18649bd788bec7b67b746e47670f558b6b2/production-LiveChannel-6093/c4bcddc4-dfdf-4499-ae5d-7a68c79fcde9/4.m3u8
-Drama Movies, https://fee09fd665814f51b939b6d106cf5f66.mediatailor.eu-west-1.amazonaws.com/v1/master/0547f18649bd788bec7b67b746e47670f558b6b2/production-LiveChannel-6093/master.m3u8
-Drama Movies - Rakuten TV, https://jmp2.uk/stvp-GB2600012R3
-Drive In Movie Channel, https://streams2.sofast.tv/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/e5056383-20ac-488f-b299-6577f66881ff/manifest.m3u8
-Drive In Movies, https://bozztv.com/gusa/gusa-tvsdriveinmovie/index.m3u8
-Dry Bar Comedy, https://jmp2.uk/stvp-CAAJ3400013EH
-Dry Bar Comedy, https://jmp2.uk/stvp-USAJ30000039U
-EBS Cinema, https://rpn.bozztv.com/ebstv/ebscinema/index.m3u8
-Electric Now, https://amg01705-amg01705c1-amgplt0095.playout.now3.amagi.tv/playlist.m3u8
-ETV Comedy, https://jmp2.uk/stvp-IN4900003U3
-Feel Good Drama, https://jmp2.uk/plu-65775af3b3801200084a3aa4.m3u8
-Film Al Femminile - Wedo Movies, https://jmp2.uk/stvp-ITBC4700004EQ
-Film Al Femminile - Wedo Movies [IT], https://jmp2.uk/stvp-CHBD600003EI
-Film Asiatici - Rakuten TV, https://jmp2.uk/stvp-IT2600006JG
-Film d'azione - Rakuten TV, https://jmp2.uk/stvp-IT2600003FM
-Film Top - Rakuten TV, https://jmp2.uk/stvp-IT2600002F6
-Filmgold, https://jmp2.uk/stvp-ATBC300000551
-Filmgold, https://jmp2.uk/stvp-DEBC35000020P
-Filmgold, https://jmp2.uk/stvp-CHBC3500004YJ
-FilmRise Action, https://jmp2.uk/stvp-CAAJ2700014EE
-FilmRise Canadien, https://jmp2.uk/stvp-CA3500005NS
-FilmRise Classic TV, https://d2tv4k5moji5m7.cloudfront.net/v1/master/3722c60a815c199d9c0ef36c5b73da68a62b09d1/cc-lu4pzh9l4b57p/master.m3u8
-FilmRise Classic TV, https://jmp2.uk/stvp-CAAJ2700008QA
-FilmRise Forensic Files, https://pb-x9qsxrudiq9d2.akamaized.net/webvtt/v1/18584c3f3a2a4df8/88886014/master.m3u8
-FilmRise Free Movies, https://jmp2.uk/stvp-CAAJ40000077N
-FilmRise Horror, https://jmp2.uk/stvp-CA35000044I
-FilmRise True Crime, https://jmp2.uk/stvp-CAAJ27000079E
-FilmRise Western, https://jmp2.uk/stvp-USBB32000196O
-FilmRise Western, https://jmp2.uk/stvp-CAAJ27000159K
-Films d'action - Rakuten TV, https://jmp2.uk/stvp-FR2600002X9
-Films Romantiques - Rakuten TV, https://jmp2.uk/stvp-FR2600003OZ
-Flicks of Fury, https://jmp2.uk/plu-58e55b14ad8e9c364d55f717.m3u8
-Free Comedy, https://jmp2.uk/stvp-DE1200001JW
-Free Comedy, https://jmp2.uk/stvp-AT12000011L
-FrightFlix, https://stream-us-east-1.getpublica.com/playlist.m3u8?network_id=2229
-Genie K-Drama, https://jmp2.uk/stvp-US2000012KX
-Genie K-Drama, https://jmp2.uk/stvp-CA2000007YG
-Genie K-Drama, https://jmp2.uk/stvp-GB2100002R7
-Genie K-Movie, https://jmp2.uk/stvp-US200001137
-Genie K-Movie, https://jmp2.uk/stvp-CA2000005K2
-Genie K-Movie, https://jmp2.uk/stvp-GB21000038X
-Genie Movie, https://jmp2.uk/stvp-KR12000017G
-GET Comedy, https://jmp2.uk/stvp-US350000563
-GET Comedy, https://jmp2.uk/stvp-CA3500006PD
-Girlfriends Films, https://jmp2.uk/plu-66ba1e4446762a000855cd87.m3u8
-Gotham Comedy Live, https://jmp2.uk/stvp-CA4700013NG
-Gotham Comedy Live, https://jmp2.uk/stvp-US4700029QM
-Gravitas Movies, https://jmp2.uk/stvp-USBD700011RE
-Gravitas Movies, https://jmp2.uk/stvp-CABD1200001SY
-Gravitas Movies, https://d6dg3ebeih71x.cloudfront.net/Gravitas_Movies.m3u8
-Great! Movies, https://jmp2.uk/stvp-GBBC900007Q5
-GREAT!movies, https://amg01753-narrativeuk-amg01753c3-lg-gb-1833.playouts.now.amagi.tv/playlist/amg01753-narrativeuk-greatmovies-lggb/playlist.m3u8
-Grjngo - Films De Western, https://jmp2.uk/stvp-FR900003DP
-Grjngo - Western Movies, https://jmp2.uk/stvp-GBBD500007TG
-Grjngo- Film Western, https://jmp2.uk/stvp-ITBD10000019E
-Hallmark Movies & More, https://jmp2.uk/stvp-USBD270001633
-HBO Drama, https://sra72yz.s.gy/HBO_DRAMA_HD.m3u8
-HBO Movies, http://23.237.104.106:8080/USA_HBO_ZONE/index.m3u8
-Horror by ALTER, https://jmp2.uk/stvp-USBC100001175
-Horror Comedy, https://jmp2.uk/stvp-DE3800001CR
-Horror TV, https://streams2.sofast.tv/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/93dc292b-cbcf-4988-ab97-94feced4c14b/manifest.m3u8
-HorrorMachine, https://naviofrequency-horrormachine-klowdtv.amagi.tv/playlist.m3u8
-Hot Wheels Action, https://jmp2.uk/stvp-US2900013AY
-House of Crime, https://jmp2.uk/stvp-IN4600004HW
-Icon Film Channel, https://jmp2.uk/stvp-GB12000052F
-Icon Film Channel, https://09e3020901654256a51f2f2e9213765a.mediatailor.us-east-1.amazonaws.com/v1/master/04fd913bb278d8775298c26fdca9d9841f37601f/LG-gb_IconFilmChannelClassics/playlist.m3u8
-IFC, http://23.237.104.106:8080/USA_IFC/index.m3u8
-Inside Crime, https://jmp2.uk/stvp-GBBD500002R4
-IntoCrime, https://jmp2.uk/stvp-FR300032ZK
-ION Mystery, https://jmp2.uk/stvp-USBC24000223S
-K-Drama by CJ ENM, https://jmp2.uk/stvp-CA17000023Q
-K-Drama by CJ ENM, https://jmp2.uk/stvp-US17000164B
-K-Drama+, https://jmp2.uk/stvp-CA1700004QS
-K-Drama+, https://jmp2.uk/stvp-US1700017NM
-K-Drama+, https://jmp2.uk/stvp-ITBD41000054B
-K-Drama+, https://jmp2.uk/stvp-FRBD41000124S
-K-Drama+, https://jmp2.uk/stvp-DEBD4100002H1
-Kings Of Comedy, https://jmp2.uk/stvp-IN46000184H
-Law & Crime, https://jmp2.uk/stvp-USAK3508710A
-Law&Crime, https://a-cdn.klowdtv.com/live3/law_720p/playlist.m3u8
-Law&Crime, https://cdn.lawandcrime.net/rewind/playlist_scte.m3u8
-LAX Airport Action Runways, https://www.youtube.com/embed/12KqO5IBLeY
-LG 1 Film, https://stream.ads.ottera.tv/playlist.m3u8?network_id=15465&avod=1&coppa=0&td=6&is_lat=[LMT]&dnt=[DNS]&us_privacy=[US_PRIVACY]&did=[DEVICE_ID]&ip=[IP]&ua=[UA]&ifa_type=[IFA_TYPE]&app_bundle=[APP_BUNDLE]&app_store_url=[APP_STOREURL]&app_name=[APP_NAME]&custom_targeting=html5&custom_4=lg_channels_uk&player_height=720&player_width=1280&content_channel=lg_channels&content_dist_name=lg_channels&device_make=[DEVICE_MAKE]&device_model=[DEVICE_MODEL]&device_os=html5&consent=[GDPR_CONSENT]&gdpr=[GDPR]&gender=not_specified&yob=0&livestream=1&custom_param_0=[DEVICE_MODEL]&custom_param_1=tv&custom_param_2=[DEVICE_MAKE]&custom_param_3=[DEVICE_ID]&custom_param_4=lg_channels&custom_param_5=html5&fck=[FCK]&viewsize=[VIEWSIZE]
-Lifetime Movie Favorites, https://jmp2.uk/stvp-USBB5200019FO
-Lifetime Movies, https://jmp2.uk/stvp-GB37000067A
-Lifetime Movies: Black Stories, https://jmp2.uk/stvp-US1600002OK
-Maverick Black Cinema, https://jmp2.uk/stvp-USAJ3000007MT
-Maverick Black Cinema, https://maverick-maverick-black-cinema-3-us.roku.wurl.tv/playlist.m3u8
-MBC Drama USA, https://shd-gcp-live.edgenextcdn.net/live/bitmovin-mbc-drama-usa/ea2f5db904aff224b7066e59c7f585a2/index.m3u8
-Miramax Movie, https://linear-798.frequency.stream/mt/plex/798/hls/master/playlist.m3u8
-Miramax Movie Channel, https://jmp2.uk/stvp-US18000163F
-More True Crime, https://jmp2.uk/plu-6532e6a9bdf3cf000887ab29.m3u8
-More TV Drama, https://jmp2.uk/plu-613260e4bdb71c00070d63fa.m3u8
-Movie Box, https://cdn4.skygo.mn/live/disk1/Moviebox/HLS-FTA/Moviebox.m3u8
-Movie Hub, https://jmp2.uk/stvp-USBA3000041ZP
-Movie Hub Action, https://jmp2.uk/stvp-USBD3500032H0
-Movie Hub Action West, https://jmp2.uk/stvp-US38000108V
-Movie Hub Romance, https://jmp2.uk/stvp-USBD3500033U0
-Movie Hub West, https://jmp2.uk/stvp-USBD3500036HP
-Moviedome, https://jmp2.uk/stvp-DEBA3300039TT
-Moviedome, https://jmp2.uk/stvp-ATBA33000280A
-Moviedome, https://jmp2.uk/stvp-CHBA330002991
-Moviedome Family, https://jmp2.uk/stvp-ATBA330002946
-Moviedome Family, https://jmp2.uk/stvp-CHBA3300030AJ
-Moviedome Family, https://jmp2.uk/stvp-DEBA3300040CR
-Movies! KPVM-LD, https://2-fss-2.streamhoster.com/pl_120/206858-4412962-1/playlist.m3u8
-MovieSphere, https://jmp2.uk/stvp-USBD17000117B
-Moviesphere by Lionsgate, https://jmp2.uk/stvp-DE4000002I3
-Moviesphere by Lionsgate, https://jmp2.uk/stvp-GBBA33000557H
-MovieSphere Gold WFXT, https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg01438-ewscrippscompan-ionmystery-tablo/playlist.m3u8
-Mr Bean Live Action, https://jmp2.uk/stvp-GB4000008O5
-Mundo Series, https://streams2.sofast.tv/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/e3189902-0967-48a7-9d32-9401e34471c6/manifest.m3u8
-Mystery TV, https://jmp2.uk/stvp-GBBD50000320
-MyTime Movie Network, https://jmp2.uk/stvp-USBC3900018K6
-MyTime Movie Network, https://jmp2.uk/stvp-ATBA3300021BW
-MyTime Movie Network, https://jmp2.uk/stvp-ESBA2200004G5
-MyTime Movie Network, https://jmp2.uk/stvp-DEBA3300032UV
-MyTime Movie Network, https://jmp2.uk/stvp-FRBA2200010VN
-MyTime MovieNetwork, https://amg00500-amg00500c3-rakuten-uk-3910.playouts.now.amagi.tv/playlist/amg00500-studiocitypicturesfast-mytimemovienetworkspain-rakutenuk/playlist.m3u8
-NEW K-MOVIES, https://jmp2.uk/stvp-ES170000433
-NEW K-MOVIES, https://jmp2.uk/stvp-GB1700007PK
-NEW KMOVIES, https://jmp2.uk/stvp-USAJ30000122O
-NEW KMOVIES, https://jmp2.uk/stvp-CA18000032W
-New Kmovies, https://ads.its-newid.net/api/manifest.m3u8?tp=lg_channels&channel_name=newkmovies&channel_id=newid_219&mpf=adfc204d-39af1962-13a2f01a&apikey=48230e6b-1cea0097-15975f93-39af1962&auth=b62c2c8b-8316a771-295eba28-f4663ddd&ads.live=[CONTENT_LIVE]&ads.deviceid=[DEVICE_ID]&ads.ifa=[IFA]&ads.ifatype=[IFA_TYPE]&ads.lat=[LMT]&ads.donotsell=[DNS]&ads.ua=[UA]&ads.ip=[IP]&ads.gdpr=[GDPR]&ads.gdpr_consent=[GDPR_CONSENT]&ads.country=[COUNTRY]&ads.us_privacy=[US_PRIVACY]&ads.appstoreurl=[APP_STOREURL]&ads.bundleid=[APP_BUNDLE]&ads.appname=[APP_NAME]&ads.appversion=[APP_VERSION]&ads.devicetype=[DEVICE_TYPE]&ads.devicemake=[DEVICE_MAKE]&ads.devicemodel=[DEVICE_MODEL]&ads.targetad=[TARGETAD_ALLOWED]&ads.fck=[FCK]&ads.viewsize=[VIEWSIZE]&ads.givn=[NONCE]
-NOST, https://a-cdn.klowdtv.com/live2/nost_720p/playlist.m3u8
-OutdoorAction, https://careco-outdoor-action-1-eu.xiaomi.wurl.tv/playlist.m3u8
-OuterSphere, https://d3o593mz1glx8d.cloudfront.net/OuterSphere_US.m3u8
-OUTflix Movies, https://jmp2.uk/stvp-CA800002TN
-OUTflix Movies, https://jmp2.uk/stvp-US8000024G
-Oxygen True Crimes Archive, https://jmp2.uk/stvp-US1900005VB
-Paramount Movie Channel, https://jmp2.uk/stvp-USAJ26000054W
-Paramount Movie Channel, https://jmp2.uk/plu-5cb0cae7a461406ffe3f5213.m3u8
-Paramount+ Picks, https://jmp2.uk/plu-5ff8c708653d080007361b14.m3u8
-Películas de Drama - Rakuten TV, https://jmp2.uk/stvp-ES2600003UM
-Pitaara Comedy, https://jmp2.uk/stvp-IN1600001OG
-PLAYGRAM MOVIES, https://jmp2.uk/stvp-KRBC3200004D1
-Pluto TV Action, https://jmp2.uk/stvp-GBAK3504503A
-Pluto TV Action, https://jmp2.uk/plu-561d7d484dc7c8770484914a.m3u8
-Pluto TV Cine Comedia, https://jmp2.uk/plu-5f513564e4622a0007c578c0.m3u8
-Pluto TV Comedy, https://jmp2.uk/plu-5a4d3a00ad95e4718ae8d8db.m3u8
-Pluto TV Crime, https://jmp2.uk/stvp-GBAK3504516A
-Pluto TV Crime Drama, https://jmp2.uk/plu-5f31fd1b4c510e00071c3103.m3u8
-Pluto TV Crime Movies, https://jmp2.uk/plu-5f4d8594eb979c0007706de7.m3u8
-Pluto TV Cult Films, https://jmp2.uk/plu-5c665db3e6c01b72c4977bc2.m3u8
-Pluto TV Drama, https://jmp2.uk/plu-5b4e92e4694c027be6ecece1.m3u8
-Pluto TV Estrellas de Accion, https://jmp2.uk/plu-5e972a21ad709d00074195ba.m3u8
-Pluto TV Film, https://jmp2.uk/stvp-ITAJ38000055E
-Pluto TV Film Azione, https://jmp2.uk/stvp-ITBC3000003CT
-Pluto TV Film Commedia, https://jmp2.uk/stvp-ITBC3000002WL
-Pluto TV Film Romantici, https://jmp2.uk/stvp-ITAJ3800009J1
-Pluto TV Franchise Favorites, https://jmp2.uk/plu-68fbf8101d26140175db8b58.m3u8
-Pluto TV Hometown Drama, https://jmp2.uk/plu-69d6c7befde57cd5ba0160c3.m3u8
-Pluto TV Horror, https://jmp2.uk/plu-569546031a619b8f07ce6e25.m3u8
-Pluto TV Icons, https://jmp2.uk/plu-64b585f84ea480000838e446.m3u8
-Pluto TV Movies, https://jmp2.uk/stvp-ATAK3504514A
-Pluto TV Movies, https://jmp2.uk/stvp-DEAK3504517A
-Pluto TV Movies, https://jmp2.uk/stvp-GBAK3504504A
-Pluto TV Movies, https://jmp2.uk/stvp-CHAK3504514A
-Pluto TV Reaction, https://jmp2.uk/plu-617b37b361e0fd0008cfd8c5.m3u8
-Pluto TV Romance, https://jmp2.uk/plu-5a66795ef91fef2c7031c599.m3u8
-Pluto TV Sci-Fi, https://jmp2.uk/plu-5b4fc274694c027be6ed3eea.m3u8
-Pluto TV Spotlight, https://jmp2.uk/plu-5ba3fb9c4b078e0f37ad34e8.m3u8
-Pluto TV Staff Picks, https://jmp2.uk/plu-5f4d863b98b41000076cd061.m3u8
-Pluto TV Terror, https://jmp2.uk/plu-5c6dc88fcd232425a6e0f06e.m3u8
-Pluto TV Thrillers, https://jmp2.uk/plu-5b4e69e08291147bd04a9fd7.m3u8
-Pluto TV Trending Now, https://jmp2.uk/plu-673247127d5da5000817b4d6.m3u8
-Pluto TV True Crime, https://jmp2.uk/plu-5812be1c249444e05d09cc50.m3u8
-Pluto TV Westerns, https://jmp2.uk/plu-5b4e94282d4ec87bdcbb87cd.m3u8
-Rakuten TV Top Films, https://93ed06eba1ef4cf783b66dc6ea7c4f28.mediatailor.eu-west-1.amazonaws.com/v1/master/0547f18649bd788bec7b67b746e47670f558b6b2/production-LiveChannel-5986/master.m3u8
-RakutenFamilyMoviesUK, https://e3207568b726401995c25670faaf32e4.mediatailor.eu-west-1.amazonaws.com/v1/master/0547f18649bd788bec7b67b746e47670f558b6b2/production-LiveChannel-6203/master.m3u8
-Rawhide, https://jmp2.uk/plu-634f307c7a068e00072c9982.m3u8
-Retro TV, https://lukentvlive.vgcdn.net/v1/master/cef183924f24adfa3d5d7601c3a17769082c0c2b/retro/index.m3u8
-Retro TV, https://freecast-lukentvlive.vgcdn.net/out/v1/665e9f91614b43b0a0654e9317f1d9f3/index.m3u8
-REV'N Action, https://freecast-lukentvlive.vgcdn.net/out/v1/a4f31f297fc5440f814bd2cffd77e689/index.m3u8
-Romance Movies, https://romance-rakuten-tv-uk.fast.rakuten.tv/v1/manifest/0547f18649bd788bec7b67b746e47670f558b6b2/production-LiveChannel-6194/812b4d9e-f255-46f1-9071-decd622f8e1b/4.m3u8
-Romance Movies - Rakuten TV, https://jmp2.uk/stvp-GB2600014LQ
-Runtime, https://jmp2.uk/plu-6086d3f420fc8500075f8dbf.m3u8
-SBS Drama, https://ads.its-newid.net/api/manifest.m3u8?tp=lg_channels&channel_name=sbsk-drama&channel_id=newid_008&mpf=c064f5f4-39af1962-7c36be2c&apikey=48230e6b-1cea0097-15975f93-39af1962&auth=474ab4cb-5d47aa0a-84d0cbca-2a3730a6&ads.live=[CONTENT_LIVE]&ads.deviceid=[DEVICE_ID]&ads.ifa=[IFA]&ads.ifatype=[IFA_TYPE]&ads.lat=[LMT]&ads.donotsell=[DNS]&ads.ua=[UA]&ads.ip=[IP]&ads.gdpr=[GDPR]&ads.gdpr_consent=[GDPR_CONSENT]&ads.country=[COUNTRY]&ads.us_privacy=[US_PRIVACY]&ads.appstoreurl=[APP_STOREURL]&ads.bundleid=[APP_BUNDLE]&ads.appname=[APP_NAME]&ads.appversion=[APP_VERSION]&ads.devicetype=[DEVICE_TYPE]&ads.devicemake=[DEVICE_MAKE]&ads.devicemodel=[DEVICE_MODEL]&ads.targetad=[TARGETAD_ALLOWED]&ads.fck=[FCK]&ads.viewsize=[VIEWSIZE]&ads.givn=[NONCE]
-Sci-Fi, https://sci-fi-rakuten-tv-uk.fast.rakuten.tv/v1/manifest/0547f18649bd788bec7b67b746e47670f558b6b2/production-LiveChannel-6241/2633b8e1-37ed-4477-9e50-d6b4f489d363/4.m3u8
-Sci-Fi - Rakuten TV, https://jmp2.uk/stvp-FR4100001D0
-Sci-Fi - Rakuten TV, https://jmp2.uk/stvp-ES500004NO
-Sci-Fi - Rakuten TV, https://jmp2.uk/stvp-GB2600013BO
-Sci-Fi World, https://streams2.sofast.tv/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/a985e052-6868-4365-ac45-52afe9008b25/manifest.m3u8
-Serie Crime - Rakuten TV, https://jmp2.uk/stvp-IT2600008RA
-Series K BY MBC, https://jmp2.uk/stvp-IN4600019L1
-Series K COMEDIA ROMÁNTICA, https://jmp2.uk/stvp-ES200041FT
-Series K DRAMA, https://jmp2.uk/stvp-ES200040YF
-Series K Edge, https://jmp2.uk/stvp-GB20009440
-Series K Edge, https://jmp2.uk/stvp-US4400006IX
-Series K Heart, https://jmp2.uk/stvp-US4300002FK
-Series K Legacy, https://jmp2.uk/stvp-US440000708
-Series K Legacy, https://jmp2.uk/stvp-GB200093HQ
-Series K: Heart, https://jmp2.uk/stvp-GB4400001OO
-Sony One Action HITS, https://jmp2.uk/stvp-AT300007S8
-Sony One Action HITS, https://jmp2.uk/stvp-DE30000489
-Sony One Action HITS, https://jmp2.uk/stvp-GB3000041I
-Sony One Action HITS, https://jmp2.uk/stvp-FR3000139Z
-Sony One Action HITS, https://89514e758f814907be6d14bbc0aa66b7.mediatailor.us-west-2.amazonaws.com/v1/master/ba62fe743df0fe93366eba3a257d792884136c7f/LINEAR-800-UK-SONYONEACTIONHITS-LG_UK/playlist.m3u8
-Sony One Comedy HITS, https://jmp2.uk/stvp-GB300003UI
-Sony One Comedy HITS, https://jmp2.uk/stvp-DE300002CL
-Sony One Comedy HITS, https://9f8e2ffcd87f4c469be7194e48f84874.mediatailor.us-west-2.amazonaws.com/v1/master/ba62fe743df0fe93366eba3a257d792884136c7f/LINEAR-802-UK-SONYONECOMEDYHITS-LG_UK/playlist.m3u8
-Sony One Comedy Hits, https://jmp2.uk/stvp-AT300008JS
-Sony One Comedy TV, https://jmp2.uk/stvp-AT2100002QM
-Sony One Comedy TV, https://jmp2.uk/stvp-GB300005ZR
-Sony One Comedy TV, https://jmp2.uk/stvp-DE3000016Q
-Sony One Film divertenti, https://jmp2.uk/stvp-IT300005J9
-Sony One Film d’azione, https://jmp2.uk/stvp-IT300004KM
-Sony One Series Comedia, https://jmp2.uk/stvp-ES30000145
-Sony One Thriller TV, https://jmp2.uk/stvp-DE300003AV
-Sony One Thriller TV, https://jmp2.uk/stvp-GB3000061H
-SonyMovies, https://a-cdn.klowdtv.com/live1/smc_720p/playlist.m3u8
-Space Series, https://streams2.sofast.tv/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/18d329ef-d478-413c-b68f-c123494ac434/manifest.m3u8
-Sparkle Movies, https://jmp2.uk/stvp-DE43000043H
-Sparkle Movies, https://jmp2.uk/stvp-CH4300002NC
-Sparkle Movies, https://jmp2.uk/stvp-GBAJ400042T1
-Sparkle Movies, https://jmp2.uk/stvp-AT430000288
-Spiegel TV action + crime, https://jmp2.uk/stvp-AT900005FB
-Star Trek: Deep Space Nine, https://jmp2.uk/plu-65c69bbfd77d450008c7ffee.m3u8
-Star Trek: The Next Generation, https://jmp2.uk/plu-695c32e61ca20bb8ca802eb9.m3u8
-Star Trek: Voyager, https://jmp2.uk/plu-634dacf51d90320007fcd5fa.m3u8
-Starz Cinema, http://23.237.104.106:8080/USA_STARZ_CINEMA/index.m3u8
-Starz Comedy, http://23.237.104.106:8080/USA_STARZ_COMEDY/index.m3u8
-Supercinema, https://jmp2.uk/stvp-ITBD3200001VR
-Supernatural Drama, https://jmp2.uk/plu-5f24662bebe0f0000767de32.m3u8
-SYFY, http://23.237.104.106:8080/USA_SYFY/index.m3u8
-The Film Detective, https://cinedigm-entertainment-corp-thefilmdetective-1-us.ono.wurl.tv/playlist.m3u8
-The Movie Club+2, https://jmp2.uk/stvp-IN40000100Y
-Thriller TV, https://52aad07d9d4f4d479d9b27e08ddf9e8b.mediatailor.us-west-2.amazonaws.com/v1/master/ba62fe743df0fe93366eba3a257d792884136c7f/LINEAR-808-UK-SONYONETHRILLERTV-LG_UK/playlist.m3u8
-Thrillers, https://thriller-rakuten-tv-uk.fast.rakuten.tv/v1/manifest/0547f18649bd788bec7b67b746e47670f558b6b2/production-LiveChannel-6482/12886224-4a4c-4671-9894-f33d4197ac53/4.m3u8
-Thrillers - Rakuten TV, https://jmp2.uk/stvp-GB4100003VP
-TNT West, https://raw.githubusercontent.com/InsolenceWillow/insolencetvgo/main/streams/tntwest.us.m3u8
-Todo Crimen, https://jmp2.uk/stvp-ES1600004JV
-Todo Drama, https://jmp2.uk/stvp-ES440000327
-Top Filme, https://jmp2.uk/stvp-DEBD5000001VL
-Top Filme - Rakuten TV, https://jmp2.uk/stvp-CH2600006TR
-Top Filme - Rakuten TV, https://jmp2.uk/stvp-DE26000096S
-Top Movies, https://top-movies-rakuten-tv-uk.fast.rakuten.tv/v1/manifest/0547f18649bd788bec7b67b746e47670f558b6b2/production-LiveChannel-5987/8b530802-f923-43a1-8496-e871276a745f/4.m3u8
-Top Movies, https://0145451975a64b35866170fd2e8fa486.mediatailor.eu-west-1.amazonaws.com/v1/master/0547f18649bd788bec7b67b746e47670f558b6b2/production-LiveChannel-5987/master.m3u8
-Top Movies - Rakuten TV, https://jmp2.uk/stvp-GB2600018PD
-Top Sci-Fi, https://jmp2.uk/stvp-FR4600001FK
-Top Sci-Fi, https://jmp2.uk/stvp-DE2300002KX
-True Crime, https://jmp2.uk/stvp-ITBD1000006RD
-True Crime Network+, https://amg00979-amg00979c1-firetv-us-3622.playouts.now.amagi.tv/playlist.m3u8
-True Crime Now, https://amg00376-magellan-amg00376c11-rakuten-us-1700.playouts.now.amagi.tv/playlist/amg00376-magellantv-truecrimenowww-rakutenus/playlist.m3u8
-True Crime UK, https://jmp2.uk/stvp-GBBD1100007AC
-truTV, https://turnerlive.warnermediacdn.com/hls/live/2023178/truwest/slate/VIDEO_0_3564000.m3u8
-TV Land Drama, https://jmp2.uk/stvp-USBB3500002FL
-TV Land Drama, https://jmp2.uk/plu-5d40bebc5e3d2750a2239d7e.m3u8
-TVS Classic Movies, https://rpn.bozztv.com/gusa/gusa-tvsclassicmovies/index.m3u8
-TVS Comedy Network, https://rpn.bozztv.com/gusa/gusa-tvscomedy/index.m3u8
-TVS Drive In Movie, https://rpn.bozztv.com/gusa/gusa-tvsdriveinmovie/index.m3u8
-TVS Nostalgia Movies, https://rpn.bozztv.com/gusa/gusa-tvsNostalgiaMovies/index.m3u8
-TVS Western Movie, https://rpn.bozztv.com/gusa/gusa-tvswesternmovies/index.m3u8
-Universal Cinema, http://45.167.1.138:8000/play/a06m
-Universal Comedy, http://bantel-cdn1.iptvperu.tv:1935/btnscrtn/universalcomedy/playlist.m3u8
-Universal Crime, http://bantel-cdn1.iptvperu.tv:1935/btnscrtn/universalcrime/playlist.m3u8
-Watch it Scream!, https://stream-us-east-1.getpublica.com/playlist.m3u8?network_id=2246
-wedo movies, https://jmp2.uk/stvp-DEBA3300034HH
-Western TV, https://jmp2.uk/plu-5e8df4bc16e34700077e77d3.m3u8
-Westerns 4U, http://181.224.255.210:8001/play/a0rq/index.m3u8
-Whiplash Cinema, https://cdn.whiplash.cc/whiplash-cinema/index.m3u8
-Zee Comedy Nation, https://jmp2.uk/stvp-IN2100002GD
-Zee Horror Nights, https://jmp2.uk/stvp-IN2100004C4
 大愛電視, https://pull.daaiplus.com/live-DAAIPLUS/live-DAAIPLUS_HD.m3u8
 廣東電視美洲台, https://h5cul1yar48um3t.wcetv.com/hls/gdtv.m3u8
 &TV, https://jmp2.uk/stvp-GB800002OP
@@ -4257,7 +4290,6 @@ Zee TV HD DE, https://jmp2.uk/stvp-AT1400001YL
 初体验之日, https://hn.bfvvs.com/play/xboqqzBe/index.m3u8
 初尝禁果, https://hn.bfvvs.com/play/9avP3g8d/index.m3u8
 前女友, https://hn.bfvvs.com/play/xboqXoze/index.m3u8
-剧场版 尸囚狱 后篇, https://hn.bfvvs.com/play/9avGVW5b/index.m3u8
 危墙, https://hn.bfvvs.com/play/mbkJWWKa/index.m3u8
 危险小姨子, https://hn.bfvvs.com/play/wdLow5Db/index.m3u8
 变性记, https://hn.bfvvs.com/play/kazMMX7e/index.m3u8
