@@ -16,8 +16,8 @@ CCTV-3, http://222.169.85.8:9901/tsfile/live/0003_1.m3u8?key=txiptv&playlive=1&a
 CCTV-4, http://38.75.136.137:98/gslb/dsdqpub/cctv4k.m3u8?auth=testpub
 CCTV-4, http://173.208.212.130:8181/1080p/cctv4.m3u8
 CCTV-4, http://74.91.26.218:82/live/cctv4hd.m3u8
+CCTV-4, https://live-play-hls.cctvnews.cctv.com/CCTVChannel/channel_cctv4_mhd.m3u8?auth_key=1790808300-1-4f894c9ce205813696442ab28aa711dcda9125fbbe3c72616686669833793257-cf608f07e306f590d58df6cf61c9ab8c
 CCTV-4, https://php.jdshipin.com:2096/TVOD/iptv.php?id=cctv4
-CCTV-4, https://cdn.qd.je/163189.php?id=cctv4
 CCTV-5体育, http://118.122.144.115:8888/newlive/live/hls/5/live.m3u8
 CCTV-5体育, http://38.75.136.137:98/gslb/dsdqbv/cctv5hd.m3u8?auth=test20251009
 CCTV-5体育, http://173.208.212.130:8181/720p/cctv5.m3u8
@@ -31,9 +31,10 @@ CCTV-6, https://php.jdshipin.com:2096/TVOD/iptv.php?id=cctv6
 CCTV-6, https://cdn.qd.je/163189.php?id=cctv6
 CCTV-6, http://198.204.240.250:82/live/cctv6.m3u8
 CCTV-7, http://63.141.230.178:82/gslb/zbdq5.m3u8?id=cctv7hd
+CCTV-7, http://74.91.26.218:82/live/cctv7hd.m3u8
+CCTV-7, https://live-play-hls.cctvnews.cctv.com/CCTVChannel/channel_cctv7_mhd.m3u8?auth_key=1790808300-1-4f894c9ce205813696442ab28aa711dcda9125fbbe3c72616686669833793257-b81fe87cb69deabc54f81b3104b1fc8e
 CCTV-7, https://php.jdshipin.com:2096/TVOD/iptv.php?id=cctv7
 CCTV-7, https://cdn.qd.je/163189.php?id=cctv7
-CCTV-7, http://69.30.245.50/live/cctv7.m3u8
 CCTV-8, http://63.141.230.178:82/gslb/zbdq5.m3u8?id=cctv8k
 CCTV-8, http://120.40.39.246:352/newlive/live/hls/9/live.m3u8
 CCTV-8, http://74.91.26.218:82/live/cctv8hd.m3u8
@@ -41,14 +42,14 @@ CCTV-8, https://php.jdshipin.com:2096/TVOD/iptv.php?id=cctv8
 CCTV-8, https://cdn.qd.je/163189.php?id=cctv8
 CCTV-9, http://63.141.230.178:82/gslb/zbdq5.m3u8?id=cctv9hd
 CCTV-9, http://192.151.150.154/live/cctv9hd.m3u8
+CCTV-9, https://live-play-hls.cctvnews.cctv.com/CCTVChannel/channel_cctv9_mhd.m3u8?auth_key=1790808300-1-4f894c9ce205813696442ab28aa711dcda9125fbbe3c72616686669833793257-e1a8e8aff1ac7672429addc9c9b08872
+CCTV-9, http://74.91.26.218:82/live/cctv9hd.m3u8
 CCTV-9, https://xykt-fix.github.io/Y77.m3u8
-CCTV-9, https://php.jdshipin.com:2096/TVOD/iptv.php?id=cctv9
-CCTV-9, https://cdn.qd.je/163189.php?id=cctv9
 CCTV-10, http://204.12.221.218:8181/3m1080p/cctv10.m3u8
 CCTV-10, http://118.122.144.115:8888/newlive/live/hls/11/live.m3u8
 CCTV-10, http://38.75.136.137:98/gslb/dsdqbv/cctv10hd.m3u8?auth=test20251009
 CCTV-10, http://74.91.26.218:82/live/cctv10hd.m3u8
-CCTV-10, https://cdn4.skygo.mn/live/disk1/CCTV-10/HLSv3-FTA/CCTV-10.m3u8
+CCTV-10, https://live-play-hls.cctvnews.cctv.com/CCTVChannel/channel_cctv10_mhd.m3u8?auth_key=1790808300-1-4f894c9ce205813696442ab28aa711dcda9125fbbe3c72616686669833793257-7c3ba11649c1a621d96f4a6d908e19b9
 CCTV-11, http://204.12.221.218:8181/3m1080p/cctv11.m3u8
 CCTV-11, http://113.57.140.161:10081/newlive/live/hls/12/live.m3u8
 CCTV-11, http://38.75.136.137:98/gslb/dsdqpub/cctv11hd.m3u8?auth=testpub
@@ -56,14 +57,14 @@ CCTV-11, http://38.75.136.137:98/gslb/dsdqbv/cctv11hd.m3u8?auth=test20251009
 CCTV-11, http://74.91.26.218:82/live/cctv11hd.m3u8
 CCTV-12, http://204.12.221.218:8181/3m1080p/cctv12.m3u8
 CCTV-12, http://38.75.136.137:98/gslb/dsdqbv/cctv12hd.m3u8?auth=test20251009
+CCTV-12, http://38.75.136.137:98/gslb/dsdqpub/cctv12hd.m3u8?auth=testpub
 CCTV-12, http://74.91.26.218:82/live/cctv12hd.m3u8
 CCTV-12, https://php.jdshipin.com:2096/TVOD/iptv.php?id=cctv12
-CCTV-12, https://cdn.qd.je/163189.php?id=cctv12
 CCTV-13, http://ali-m-l.cztv.com/channels/lantian/channel21/1080p.m3u8
 CCTV-13, http://63.141.230.178:82/gslb/zbdq5.m3u8?id=cctv13hd
 CCTV-13, http://38.75.136.137:98/gslb/dsdqbv/cctv13hd.m3u8?auth=test20251009
 CCTV-13, http://74.91.26.218:82/live/cctv13hd.m3u8
-CCTV-13, https://php.jdshipin.com:2096/TVOD/iptv.php?id=cctv13
+CCTV-13, https://live-play-hls.cctvnews.cctv.com/CCTVChannel/channel_cctv13_mhd.m3u8?auth_key=1790808300-1-4f894c9ce205813696442ab28aa711dcda9125fbbe3c72616686669833793257-4f28896dc3a31f2abcfdb517d3237c61
 CCTV-14, http://173.208.212.130:8181/1080p/cctv14.m3u8
 CCTV-14, http://204.12.221.218:8181/3m1080p/cctv14.m3u8
 CCTV-14, http://63.141.230.178:82/gslb/zbdq5.m3u8?id=cctv14hd
@@ -82,8 +83,9 @@ CCTV-16奥林匹克, https://cdn.qd.je/163189.php?id=cctv16
 CCTV-17, http://63.141.230.178:82/gslb/zbdq5.m3u8?id=cctv17hd
 CCTV-17, http://38.75.136.137:98/gslb/dsdqbv/cctv17hd.m3u8?auth=test20251009
 CCTV-17, http://74.91.26.218:82/live/cctv17hd.m3u8
+CCTV-17, https://live-play-hls.cctvnews.cctv.com/CCTVChannel/channel_cctv17_mhd.m3u8?auth_key=1790808300-1-4f894c9ce205813696442ab28aa711dcda9125fbbe3c72616686669833793257-a400e81d412b888d1f0ce032cc1e2242
 CCTV-17, https://php.jdshipin.com:2096/TVOD/iptv.php?id=cctv17
-CCTV-17, https://cdn.qd.je/163189.php?id=cctv17
+CCTV-4K, https://live-play-hls.cctvnews.cctv.com/CCTVChannel/channel_cctv4k_mhd.m3u8?auth_key=1790808300-1-4f894c9ce205813696442ab28aa711dcda9125fbbe3c72616686669833793257-f2ef34bf6ba17fdd5762c1a93f08848d
 CCTV-8K, http://192.151.150.154/live/cctv8k.m3u8
 CCTV+, https://cd-live-stream.news.cctvplus.com/live/smil:CHANNEL1.smil/playlist.m3u8
 CCTV+2, https://cd-live-stream.news.cctvplus.com/live/smil:CHANNEL2.smil/playlist.m3u8
@@ -121,6 +123,7 @@ CCTV中文国际, https://www.youtube.com/embed/vNVp6bxkL1c
 东南卫视, http://38.75.136.137:98/gslb/dsdqpub/dnwshd.m3u8?auth=testpub
 东南卫视, http://36.136.38.87:9901/tsfile/live/0137_1.m3u8?key=txiptv&playlive=1&authid=0
 东南卫视, http://120.76.248.139/live/bfgd/4200000483.m3u8
+东方卫视, http://63.141.230.178:82/gslb/zbdq5.m3u8?id=dfwshd
 东方卫视, http://38.75.136.137:98/gslb/dsdqbv/dfwshd.m3u8?auth=test20251009
 东方卫视, http://38.75.136.137:98/gslb/dsdqpub/dfwshd.m3u8?auth=testpub
 东方卫视, http://bp-resource-dfl.bestv.cn/155/3/video.m3u8
@@ -170,6 +173,7 @@ CCTV中文国际, https://www.youtube.com/embed/vNVp6bxkL1c
 安徽卫视, http://104.152.209.49:8181/720p/ahws.m3u8
 安徽衛視, https://restream.pdtvhd.com/memfs/c1cd2ed0-3b2b-4c25-af98-a7fb0b1eb130.m3u8
 山东卫视, http://63.141.230.178:82/gslb/zbdq5.m3u8?id=sdwshd
+山东卫视, http://38.75.136.137:98/gslb/dsdqpub/sdwshd.m3u8?auth=testpub
 山东卫视, http://222.169.85.8:9901/tsfile/live/0131_1.m3u8?key=txiptv&playlive=1&authid=0
 山东卫视, http://120.76.248.139/live/bfgd/4200000099.m3u8
 山东教育卫视, https://test1.live.sdetv.com.cn/live/dianshizhibo/playlist.m3u8
@@ -196,7 +200,7 @@ CCTV中文国际, https://www.youtube.com/embed/vNVp6bxkL1c
 新疆卫视, http://38.75.136.137:98/gslb/dsdqpub/xjws.m3u8?auth=testpub
 新疆卫视, http://218.84.12.186:8001/hls/main/playlist.m3u8?zxinjd;http://218.84.12.186:8001/hls/main/playlist.m3u8zxinjd
 新疆卫视, http://59.39.89.130:60901/tsfile/live/0125_17.m3u8?key=txiptv&playlive=1&authid=0
-新疆卫视, https://live.264788.xyz/channel/xinjiangweishi?streamid=4f481f56ae39ce5d24203471de9df635&livekey=01WgOR41rriMmMkzNsd0UoaxJRwetZdxIvtVk
+新疆卫视, http://222.169.85.8:9901/tsfile/live/0110_1.m3u8?key=txiptv&playlive=1&authid=0
 東方衛視國際台, https://restream.pdtvhd.com/memfs/0b1b95c9-3543-4af9-9fdb-cf45f1602f17.m3u8
 江苏卫视, http://63.141.230.178:82/gslb/zbdq5.m3u8?id=jswshd
 江苏卫视, http://118.122.144.115:8888/newlive/live/hls/31/live.m3u8
@@ -268,11 +272,12 @@ CCTV中文国际, https://www.youtube.com/embed/vNVp6bxkL1c
 辽宁卫视, http://222.169.85.8:9901/tsfile/live/0121_1.m3u8?key=txiptv&playlive=1&authid=0
 重庆卫视, http://63.141.230.178:82/gslb/zbdq5.m3u8?id=cqwshd
 重庆卫视, http://222.169.85.8:9901/tsfile/live/0142_1.m3u8?key=txiptv&playlive=1&authid=0
+陕西农林卫视, https://live.chinacert.cftest5.cn/cnmg/live/956904896
 陕西卫视, http://63.141.230.178:82/gslb/zbdq5.m3u8?id=sxwshd
 陕西卫视, http://63.141.230.178:82/gslb/zbdq5.m3u8?id=snwshd
 陕西卫视, http://192.151.150.154/live/snwshd.m3u8
 陕西卫视, http://183.10.180.238:9901/tsfile/live/0136_1.m3u8?key=txiptv&playlive=1&authid=0
-陕西卫视, https://live.264788.xyz/channel/shaanxiweishi?streamid=9dc887dba8ecb4e4143baf4f2373800c&livekey=01WgOR41rriMmMkzNsd0UoaxJRwetZdxIvtVk
+陕西卫视, http://222.169.85.8:9901/tsfile/live/0136_1.m3u8?key=txiptv&playlive=1&authid=0
 青海卫视, http://63.141.230.178:82/gslb/zbdq5.m3u8?id=qhws
 青海卫视, https://hls-qhmh.lanzhousobey.cn/qhmh/mhds.m3u8
 青海卫视, http://121.19.134.202:808/tsfile/live/0140_1.m3u8?key=txiptv&playlive=1&authid=0
@@ -738,9 +743,9 @@ TG Junior, https://d3i6upqaqzosi1.cloudfront.net/tg/jr_us/tg_jr_us.m3u8
 Toonami Aftermath, http://api.toonamiaftermath.com:3000/est/playlist.m3u8
 CCTV-9纪录, http://63.141.230.178:82/gslb/zbdq5.m3u8?id=cctv9hd
 CCTV-9纪录, http://192.151.150.154/live/cctv9hd.m3u8
+CCTV-9纪录, https://live-play-hls.cctvnews.cctv.com/CCTVChannel/channel_cctv9_mhd.m3u8?auth_key=1790808300-1-4f894c9ce205813696442ab28aa711dcda9125fbbe3c72616686669833793257-e1a8e8aff1ac7672429addc9c9b08872
+CCTV-9纪录, http://74.91.26.218:82/live/cctv9hd.m3u8
 CCTV-9纪录, https://xykt-fix.github.io/Y77.m3u8
-CCTV-9纪录, https://php.jdshipin.com:2096/TVOD/iptv.php?id=cctv9
-CCTV-9纪录, https://cdn.qd.je/163189.php?id=cctv9
 Autentic History, https://9e754fa707344ccca6d84955c8fcaf36.mediatailor.us-east-1.amazonaws.com/v1/master/44f73ba4d03e9607dcd9bebdcb8494d86964f1d8/RlaxxTV-eu_AutenticHistory/playlist.m3u8
 History, http://212.5.144.156:8080/history/index.m3u8
 History Hit, https://jmp2.uk/stvp-GBBA2200005ZA
@@ -806,6 +811,9 @@ Wild TV, https://dfhsahpa45kk2.cloudfront.net/v1/master/9d062541f2ff39b5c0f48b74
 WildEarth, https://jmp2.uk/stvp-ITBA3300046KE
 Wilder Planet, https://jmp2.uk/stvp-CHBA3300028G3
 Wildest Wish TV, https://streams2.sofast.tv/sofast3/v1/0197e8dd18f31ebd4704322ec12ab7/0197e8dd477d1ea506ec3673c3696b/playlist.m3u8
+纬来体育, https://epg.pw/stream/4f18dfe0593db5c686eb64ae8edaf2a9202d4d46bdc9bbde2cee27708e12ea01.m3u8
+纬来体育, https://epg.pw/stream/8855a9936e37e608a0ec8a014cce1673dee9c5d68d560da376cc92e5edef2b25.m3u8
+纬来体育, https://epg.pw/stream/ab6df63b64d0cc44a1f4f029ed847a26fa54a7aebd455578fb05a63f02c22f4b.m3u8
 NBA TV, https://amg00556-amg00556c3-firetv-us-6060.playouts.now.amagi.tv/playlist1080p.m3u8
 NBA TV, https://amg00556-amg00556c3-firetv-us-6060.playouts.now.amagi.tv/playlist.m3u8
 NBA TV, http://23.237.104.106:8080/USA_NBA/index.m3u8
@@ -817,6 +825,9 @@ TVS Pinball Network, https://rpn.bozztv.com/gusa/gusa-TVSCartoonNetwork/index.m3
 广东体育, http://r.jdshipin.com/LiYdg
 广东体育, http://php.jdshipin.com/TVOD/iptv.php?id=gdty
 广东体育, http://php.jdshipin.com/PLTV/iptv.php?id=gdty
+精品体育, https://epg.pw/stream/f7556eccd4ae06b0c2991fdc7a4f8388496559f728cc82459a8e50346040e226.m3u8
+精品体育, https://epg.pw/stream/866a097a0907c9832440f8df38272dd555abf05200dfbafcc137e214c9b30ca7.m3u8
+精品体育, https://epg.pw/stream/94ed0232b61ce8d89883160a4cdfbfc8f3225cae70ef8e17d93eec249a3c8ad6.m3u8
 ACC Network, http://23.239.31.26:8989/accnetwork/index.m3u8
 ACISport, https://webstream.multistream.it/memfs/e2cb3629-c1a2-495b-b43a-9eb386f04ed8.m3u8
 BeIN Sports XTRA, https://amg01334-beinsportsllc-beinxtra-localnow-kcy6r.amagi.tv/playlist.m3u8
@@ -1141,6 +1152,7 @@ CNA特輯, https://amg01082-cna-amg01082c1-rlaxx-us-11304.playouts.now.amagi.tv/
 徐州公共, https://stream3.huaihai.tv/xz4t/sd/live.m3u8
 徐州新闻, https://stream3.huaihai.tv/xwzh1t/sd/live.m3u8
 徐州经济, https://stream3.huaihai.tv/xz2t/sd/live.m3u8
+江苏体育, https://live.chinacert.cftest5.cn/cnmg/live/626064707
 江苏南京牛首山, https://gcalic.v.myalicdn.com/gc/nss01_1/index.m3u8
 江苏徐州云龙湖风景区云龙山观景台西, https://gcalic.v.myalicdn.com/gc/ylh04_1/index.m3u8
 苏州, https://live-auth.51kandianshi.com/szgd/csztv4k_hd.m3u8

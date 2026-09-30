@@ -34,7 +34,8 @@ CCTV-6,http://198.204.240.250:82/live/cctv6.m3u8
 CCTV-7,http://63.141.230.178:82/gslb/zbdq5.m3u8?id=cctv7hd
 CCTV-7,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CCTV-7_1/index.m3u8
 CCTV-7,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CCTV-7_2/index.m3u8
-CCTV-7,http://69.30.245.50/live/cctv7.m3u8
+CCTV-7,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CCTV-7_3/index.m3u8
+CCTV-7,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CCTV-7_4/index.m3u8
 CCTV-8,http://63.141.230.178:82/gslb/zbdq5.m3u8?id=cctv8k
 CCTV-8,http://120.40.39.246:352/newlive/live/hls/9/live.m3u8
 CCTV-8,http://74.91.26.218:82/live/cctv8hd.m3u8
@@ -42,9 +43,9 @@ CCTV-8,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CCTV-8_3/in
 CCTV-8,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CCTV-8_4/index.m3u8
 CCTV-9,http://63.141.230.178:82/gslb/zbdq5.m3u8?id=cctv9hd
 CCTV-9,http://192.151.150.154/live/cctv9hd.m3u8
-CCTV-9,https://xykt-fix.github.io/Y77.m3u8
+CCTV-9,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CCTV-9_2/index.m3u8
 CCTV-9,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CCTV-9_3/index.m3u8
-CCTV-9,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CCTV-9_4/index.m3u8
+CCTV-9,https://xykt-fix.github.io/Y77.m3u8
 CCTV-10,http://204.12.221.218:8181/3m1080p/cctv10.m3u8
 CCTV-10,http://118.122.144.115:8888/newlive/live/hls/11/live.m3u8
 CCTV-10,http://38.75.136.137:98/gslb/dsdqbv/cctv10hd.m3u8?auth=test20251009
@@ -57,8 +58,8 @@ CCTV-11,http://38.75.136.137:98/gslb/dsdqbv/cctv11hd.m3u8?auth=test20251009
 CCTV-11,http://74.91.26.218:82/live/cctv11hd.m3u8
 CCTV-12,http://204.12.221.218:8181/3m1080p/cctv12.m3u8
 CCTV-12,http://38.75.136.137:98/gslb/dsdqbv/cctv12hd.m3u8?auth=test20251009
+CCTV-12,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CCTV-12_2/index.m3u8
 CCTV-12,http://74.91.26.218:82/live/cctv12hd.m3u8
-CCTV-12,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CCTV-12_3/index.m3u8
 CCTV-12,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CCTV-12_4/index.m3u8
 CCTV-13,http://ali-m-l.cztv.com/channels/lantian/channel21/1080p.m3u8
 CCTV-13,http://63.141.230.178:82/gslb/zbdq5.m3u8?id=cctv13hd
@@ -85,6 +86,7 @@ CCTV-17,http://38.75.136.137:98/gslb/dsdqbv/cctv17hd.m3u8?auth=test20251009
 CCTV-17,http://74.91.26.218:82/live/cctv17hd.m3u8
 CCTV-17,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CCTV-17_3/index.m3u8
 CCTV-17,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CCTV-17_4/index.m3u8
+CCTV-4K,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CCTV-4K/index.m3u8
 CCTV-8K,http://192.151.150.154/live/cctv8k.m3u8
 CCTV+,https://cd-live-stream.news.cctvplus.com/live/smil:CHANNEL1.smil/playlist.m3u8
 CCTV+2,https://cd-live-stream.news.cctvplus.com/live/smil:CHANNEL2.smil/playlist.m3u8
@@ -123,6 +125,7 @@ CCTV中文国际,https://www.youtube.com/embed/vNVp6bxkL1c
 东南卫视,http://38.75.136.137:98/gslb/dsdqpub/dnwshd.m3u8?auth=testpub
 东南卫视,http://36.136.38.87:9901/tsfile/live/0137_1.m3u8?key=txiptv&playlive=1&authid=0
 东南卫视,http://120.76.248.139/live/bfgd/4200000483.m3u8
+东方卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/东方卫视/index.m3u8
 东方卫视,http://38.75.136.137:98/gslb/dsdqbv/dfwshd.m3u8?auth=test20251009
 东方卫视,http://38.75.136.137:98/gslb/dsdqpub/dfwshd.m3u8?auth=testpub
 东方卫视,http://bp-resource-dfl.bestv.cn/155/3/video.m3u8
@@ -172,6 +175,7 @@ CCTV中文国际,https://www.youtube.com/embed/vNVp6bxkL1c
 安徽卫视,http://104.152.209.49:8181/720p/ahws.m3u8
 安徽衛視,https://restream.pdtvhd.com/memfs/c1cd2ed0-3b2b-4c25-af98-a7fb0b1eb130.m3u8
 山东卫视,http://63.141.230.178:82/gslb/zbdq5.m3u8?id=sdwshd
+山东卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/山东卫视_1/index.m3u8
 山东卫视,http://222.169.85.8:9901/tsfile/live/0131_1.m3u8?key=txiptv&playlive=1&authid=0
 山东卫视,http://120.76.248.139/live/bfgd/4200000099.m3u8
 山东教育卫视,https://test1.live.sdetv.com.cn/live/dianshizhibo/playlist.m3u8
@@ -198,7 +202,7 @@ CCTV中文国际,https://www.youtube.com/embed/vNVp6bxkL1c
 新疆卫视,http://38.75.136.137:98/gslb/dsdqpub/xjws.m3u8?auth=testpub
 新疆卫视,http://218.84.12.186:8001/hls/main/playlist.m3u8?zxinjd;http://218.84.12.186:8001/hls/main/playlist.m3u8zxinjd
 新疆卫视,http://59.39.89.130:60901/tsfile/live/0125_17.m3u8?key=txiptv&playlive=1&authid=0
-新疆卫视,https://live.264788.xyz/channel/xinjiangweishi?streamid=4f481f56ae39ce5d24203471de9df635&livekey=01WgOR41rriMmMkzNsd0UoaxJRwetZdxIvtVk
+新疆卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/新疆卫视_4/index.m3u8
 東方衛視國際台,https://restream.pdtvhd.com/memfs/0b1b95c9-3543-4af9-9fdb-cf45f1602f17.m3u8
 江苏卫视,http://63.141.230.178:82/gslb/zbdq5.m3u8?id=jswshd
 江苏卫视,http://118.122.144.115:8888/newlive/live/hls/31/live.m3u8
@@ -270,11 +274,12 @@ CCTV中文国际,https://www.youtube.com/embed/vNVp6bxkL1c
 辽宁卫视,http://222.169.85.8:9901/tsfile/live/0121_1.m3u8?key=txiptv&playlive=1&authid=0
 重庆卫视,http://63.141.230.178:82/gslb/zbdq5.m3u8?id=cqwshd
 重庆卫视,http://222.169.85.8:9901/tsfile/live/0142_1.m3u8?key=txiptv&playlive=1&authid=0
+陕西农林卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/陕西农林卫视/index.m3u8
 陕西卫视,http://63.141.230.178:82/gslb/zbdq5.m3u8?id=sxwshd
 陕西卫视,http://63.141.230.178:82/gslb/zbdq5.m3u8?id=snwshd
 陕西卫视,http://192.151.150.154/live/snwshd.m3u8
 陕西卫视,http://183.10.180.238:9901/tsfile/live/0136_1.m3u8?key=txiptv&playlive=1&authid=0
-陕西卫视,https://live.264788.xyz/channel/shaanxiweishi?streamid=9dc887dba8ecb4e4143baf4f2373800c&livekey=01WgOR41rriMmMkzNsd0UoaxJRwetZdxIvtVk
+陕西卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/陕西卫视_4/index.m3u8
 青海卫视,http://63.141.230.178:82/gslb/zbdq5.m3u8?id=qhws
 青海卫视,https://hls-qhmh.lanzhousobey.cn/qhmh/mhds.m3u8
 青海卫视,http://121.19.134.202:808/tsfile/live/0140_1.m3u8?key=txiptv&playlive=1&authid=0
@@ -744,9 +749,9 @@ Toonami Aftermath,http://api.toonamiaftermath.com:3000/est/playlist.m3u8
 纪实探索,#genre#
 CCTV-9纪录,http://63.141.230.178:82/gslb/zbdq5.m3u8?id=cctv9hd
 CCTV-9纪录,http://192.151.150.154/live/cctv9hd.m3u8
-CCTV-9纪录,https://xykt-fix.github.io/Y77.m3u8
+CCTV-9纪录,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CCTV-9纪录_2/index.m3u8
 CCTV-9纪录,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CCTV-9纪录_3/index.m3u8
-CCTV-9纪录,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CCTV-9纪录_4/index.m3u8
+CCTV-9纪录,https://xykt-fix.github.io/Y77.m3u8
 Autentic History,https://9e754fa707344ccca6d84955c8fcaf36.mediatailor.us-east-1.amazonaws.com/v1/master/44f73ba4d03e9607dcd9bebdcb8494d86964f1d8/RlaxxTV-eu_AutenticHistory/playlist.m3u8
 History,http://212.5.144.156:8080/history/index.m3u8
 History Hit,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/History Hit/index.m3u8
@@ -813,6 +818,9 @@ WildEarth,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/WildEart
 Wilder Planet,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Wilder Planet/index.m3u8
 Wildest Wish TV,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Wildest Wish TV/index.m3u8
 体育频道,#genre#
+纬来体育,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/纬来体育/index.m3u8
+纬来体育,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/纬来体育_1/index.m3u8
+纬来体育,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/纬来体育_2/index.m3u8
 NBA TV,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/NBA TV/index.m3u8
 NBA TV,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/NBA TV_1/index.m3u8
 NBA TV,http://23.237.104.106:8080/USA_NBA/index.m3u8
@@ -824,6 +832,9 @@ TVS Pinball Network,https://rpn.bozztv.com/gusa/gusa-TVSCartoonNetwork/index.m3u
 广东体育,http://r.jdshipin.com/LiYdg
 广东体育,http://php.jdshipin.com/TVOD/iptv.php?id=gdty
 广东体育,http://php.jdshipin.com/PLTV/iptv.php?id=gdty
+精品体育,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/精品体育/index.m3u8
+精品体育,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/精品体育_1/index.m3u8
+精品体育,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/精品体育_2/index.m3u8
 ACC Network,http://23.239.31.26:8989/accnetwork/index.m3u8
 ACISport,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/ACISport/index.m3u8
 BeIN Sports XTRA,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/BeIN Sports XTRA/index.m3u8
@@ -1154,6 +1165,7 @@ CNA特輯,https://amg01082-cna-amg01082c1-rlaxx-us-11304.playouts.now.amagi.tv/p
 徐州公共,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/徐州公共/index.m3u8
 徐州新闻,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/徐州新闻/index.m3u8
 徐州经济,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/徐州经济/index.m3u8
+江苏体育,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/江苏体育/index.m3u8
 江苏南京牛首山,https://gcalic.v.myalicdn.com/gc/nss01_1/index.m3u8
 江苏徐州云龙湖风景区云龙山观景台西,https://gcalic.v.myalicdn.com/gc/ylh04_1/index.m3u8
 苏州,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/苏州/index.m3u8
