@@ -13,34 +13,48 @@ live_path = os.path.join(SCRIPT_DIR, "live.txt")
 live2_path = os.path.join(SCRIPT_DIR, "live2.txt")
 live3_path = os.path.join(SCRIPT_DIR, "live3.txt")
 
+from collections import defaultdict
+
 category_order = [
     "央视频道",
     "卫视频道",
     "港澳台",
     "国际华语",
+    "少儿卡通",
+    "纪实探索",
     "体育频道",
     "教育频道",
-    # 大于 5 个频道的大省保留独立分组
-    "黑龙江频道",
     "浙江频道",
-    "吉林频道",
+    "黑龙江频道",
     "广东频道",
     "江苏频道",
-    "内蒙古频道",
-    "福建频道",
-    "甘肃频道",
-    "四川频道",
-    # 5 个及以下频道的小省及其他地方台合并
-    "其他地方台",
+    "地方综合台",
     "美国主流台",
     "美国地方台",
-    "欧美影视",
+    "影视剧场",
     "国际频道",
     "多语种国际台",
-    "影视经典",
-    "其他频道",
     "最新电影"
 ]
+
+def clean_channel_name(name):
+    n = name.strip()
+    # Strip emojis and symbols
+    n = re.sub(r"[\U00010000-\U0010ffff]", "", n)
+    n = re.sub(r"[\u2600-\u27bf\u2300-\u23ff\u2b50\u2b55\u200d\ufe0f]", "", n)
+    # Strip line markers at the end before replacing underscores
+    n = re.sub(r"_\d+$", "", n)
+    n = re.sub(r"[\(\[]\d+[\)\]]$", "", n)
+    n = re.sub(r"[\s_]*(?:线路|源|line|src)\s*\d+$", "", n, flags=re.I)
+    # Replace underscores with spaces
+    n = n.replace("_", " ")
+    # Remove resolution tags
+    n = re.sub(r"(?i)[\[\(]?(?:1080[pi]?|720[pi]?|4k|fhd)[\]\)]?", "", n)
+    # Remove trailing HD/SD tag
+    n = re.sub(r"(?i)\s+[-_]?\s*(?:HD|SD)\s*$", "", n)
+    # Clean redundant whitespace
+    n = re.sub(r"\s+", " ", n).strip()
+    return n
 
 def clean_category(cat, name, url=""):
     cat = cat.strip()
@@ -61,7 +75,7 @@ def clean_category(cat, name, url=""):
 
     # 3. International Chinese (Singapore, Overseas Chinese)
     is_chinese_intl = any(x in name for x in ["新傳媒", "新传媒", "CNA", "ABN華語", "看中國", "中國旅遊", "金磚電視", "美國之音中文"])
-    if is_chinese_intl:
+    if is_chinese_intl or cat == "国际华语":
         return "国际华语"
 
     # 4. Satellite check (mainland satellite stations)
@@ -69,24 +83,7 @@ def clean_category(cat, name, url=""):
         if not any(x in name for x in ["澳门莲花卫视", "澳門蓮花衛視", "香港卫视", "TVBS", "凤凰"]):
             return "卫视频道"
 
-    # 5. Provincial mainland categories & channels (check before HK/Taiwan and Sports)
-    provincial_prefixes = [
-        "浙江", "江苏", "江西", "广东", "广西", "福建", "河北", "湖北", 
-        "吉林", "内蒙古", "黑龙江", "甘肃", "山东", "陕西", "四川", "青海", 
-        "新疆", "上海", "湖南", "北京", "河南", "贵州", "山西", "大庆", 
-        "苏州", "逊克", "乌海", "乌兰察布", "锡林郭勒", "每日经济新闻"
-    ]
-    if name == "广东体育":
-        return "体育频道"
-    is_provincial_name = any(name.startswith(p) for p in provincial_prefixes)
-    is_provincial_cat = any(cat.startswith(p) for p in provincial_prefixes) or cat in ["更多地方频道", "地方频道", "其他地方台"]
-    if is_provincial_name or is_provincial_cat:
-        for big_p in ["黑龙江", "浙江", "吉林", "广东", "江苏", "内蒙古", "福建", "甘肃", "四川"]:
-            if name.startswith(big_p) or cat.startswith(big_p):
-                return big_p + "频道"
-        return "其他地方台"
-
-    # 6. HK / Macau / Taiwan Broadcasters (check before Sports to rescue 凤凰香港, 莲花电影, ViuTV, 天映)
+    # 5. HK / Macau / Taiwan Broadcasters (check before Sports to rescue 凤凰香港, 莲花电影, ViuTV, 天映)
     is_hk_now = bool(re.search(r'(^|\b)now\s*(tv|新闻|财经|剧集|华剧|宽频|爆谷|直播|\d{2,3})', name_lower))
     hk_tw_keywords = [
         "tvb", "翡翠", "明珠", "无线", "hoy", "viu", "rthk", "千禧", "星河", 
@@ -99,23 +96,63 @@ def clean_category(cat, name, url=""):
     is_hk_tw = is_hk_now or any(x in name_lower for x in hk_tw_keywords)
     is_foreign_english = any(x in name_lower for x in ["pet club", "supreme master", "pluto", "electric", "now_90", "true crime"])
     if (is_hk_tw or cat in ["澳门频道", "港台", "港台频道", "港澳台"]) and not is_foreign_english:
-        if any(x in name_lower for x in ["澳視體育", "澳视体育"]):
-            return "港澳台"
         return "港澳台"
 
-    # 7. Non-sports specific filters (clean bad tags from 体育频道)
-    if "ipanda" in name_lower or "熊猫" in name:
-        return "其他频道"
-    if any(x in name_lower for x in ["bek", "bke"]):
-        return "美国地方台"
-    if "his glory" in name_lower:
-        return "国际频道"
-    if any(x in name_lower for x in ["rtm malaysia", "sbt brazil"]):
-        return "多语种国际台"
-    if any(x in name_lower for x in ["trutv", "tnt_west", "rev'n action", "rock extreme"]):
-        return "欧美影视"
+    # 6. Kids & Animation (少儿卡通)
+    kids_keywords = [
+        "少儿", "卡通", "动画", "动漫", "卡酷", "炫动", "金鹰卡通", "哈哈炫动", "优漫卡通",
+        "kids", "cartoon", "animation", "anime", "toon", "disney", "nick", "nickelodeon",
+        "boomerang", "baby", "ducktv", "junior", "happy kids", "children"
+    ]
+    if any(x in name_lower for x in kids_keywords) or any(x in cat.lower() for x in ["少儿", "卡通", "动画", "动漫", "kids", "cartoon"]):
+        return "少儿卡通"
 
-    # 8. Sports
+    # 7. Documentary & Science (纪实探索)
+    doc_keywords = [
+        "纪录", "记录", "纪实", "探索", "发现", "之江纪录", "地理", "历史",
+        "docu", "documentary", "discovery", "history", "nat geo", "national geographic",
+        "animal planet", "science", "nature", "curiosity", "wild", "planet", "smithsonian"
+    ]
+    if any(x in name_lower for x in doc_keywords) or any(x in cat.lower() for x in ["纪录", "记录", "纪实", "探索", "discovery", "documentary"]):
+        return "纪实探索"
+
+    # 8. Education & Culture (教育频道)
+    edu_keywords = [
+        "教育", "科教", "课堂", "cetv", "中小学", "空中课堂", "高考", "招考",
+        "戏曲", "梨园", "曲艺", "文物宝库", "国学", "书画", "文化"
+    ]
+    if any(x in name_lower for x in edu_keywords) or any(x in cat.lower() for x in ["教育", "科教", "课堂", "cetv"]):
+        return "教育频道"
+
+    # 9. Provincial mainland categories & channels
+    major_provinces = {
+        "浙江": "浙江频道",
+        "黑龙江": "黑龙江频道",
+        "广东": "广东频道",
+        "江苏": "江苏频道"
+    }
+    jiangsu_cities = ["苏州", "无锡", "常州", "南通", "扬州", "镇江", "泰州", "宿迁", "淮安", "盐城", "连云港", "徐州"]
+    if any(city in name for city in jiangsu_cities) or any(city in cat for city in jiangsu_cities):
+        return "江苏频道"
+
+    provincial_prefixes = [
+        "浙江", "江苏", "江西", "广东", "广西", "福建", "河北", "湖北", 
+        "吉林", "内蒙古", "黑龙江", "甘肃", "山东", "陕西", "四川", "青海", 
+        "新疆", "上海", "湖南", "北京", "河南", "贵州", "山西", "大庆", 
+        "逊克", "乌海", "乌兰察布", "锡林郭勒", "每日经济新闻", "兵团", "海南", "辽宁", "云南", "西藏", "天津", "重庆"
+    ]
+    if name == "广东体育":
+        return "体育频道"
+    for mp, target_cat in major_provinces.items():
+        if name.startswith(mp) or cat.startswith(mp):
+            return target_cat
+
+    is_provincial_name = any(name.startswith(p) for p in provincial_prefixes)
+    is_provincial_cat = any(cat.startswith(p) for p in provincial_prefixes) or cat in ["更多地方频道", "地方频道", "其他地方台", "地方综合台", "吉林&内蒙古", "黑龙江&甘肃", "福建&广东&广西", "贵州&四川", "山东&西安"]
+    if is_provincial_name or is_provincial_cat:
+        return "地方综合台"
+
+    # 10. Sports
     sports_keywords = [
         "足球", "台球", "体育", "sport", "sports", "combat", "kickboxing", 
         "billiards", "fight", "espn", "dazn", "fite", "fanduel", "billiard", 
@@ -131,15 +168,7 @@ def clean_category(cat, name, url=""):
         if not ("cctv-5" in name_lower or "cctv5" in name_lower):
             return "体育频道"
 
-    # 6. Classic TV / Cartoons / Live China
-    if "重温经典" in name:
-        return "影视经典"
-    if "猫和老鼠" in name:
-        return "欧美影视"
-    if name == "直播中国":
-        return "其他频道"
-
-    # 7. US Major Networks / News / Weather / Finance
+    # 11. US Major Networks / News / Weather / Finance
     us_major_keywords = [
         "abc news", "cbs news", "nbc news", "livenow from fox", "fox live now", "fox news", "fox weather",
         "bloomberg", "cnbc", "newsmax", "scripps news", "weathernation", "accuweather", "court tv",
@@ -148,22 +177,22 @@ def clean_category(cat, name, url=""):
     if any(k in name_lower for k in us_major_keywords):
         return "美国主流台"
 
-    # 8. Western Movies / Series / Entertainment
+    # 12. Western Movies / Series / Entertainment (影视剧场)
     movie_keywords = [
         "movie", "movies", "cinema", "film", "series", "filmrise", "cinevault", "retro tv", 
         "drybar", "comedy", "thriller", "drama", "action", "sci-fi", "horror", "crime", 
-        "mystery", "western", "electric now", "true crime now"
+        "mystery", "western", "electric now", "true crime now", "重温经典", "猫和老鼠"
     ]
-    if any(k in name_lower for k in movie_keywords) or cat in ["电影经典", "影视经典"]:
-        return "欧美影视"
+    if any(k in name_lower for k in movie_keywords) or cat in ["电影经典", "影视经典", "欧美影视"]:
+        return "影视剧场"
 
-    # 9. US Local Affiliates
+    # 13. US Local Affiliates
     if re.match(r'^(abc|cbs|nbc|fox|cw|pbs)\s+[a-z0-9\-]+', name_lower) or any(x in name_lower for x in ["channel 1", "channel 2", "channel 3", "channel 4", "channel 5", "channel 6", "channel 7", "channel 8", "channel 9", "channel 10", "channel 11", "channel 12", "channel 13"]):
         return "美国地方台"
-    if "stvp-us" in url_lower or "wsoc now" in name_lower or "wcetv" in name_lower or "rightnow" in name_lower:
+    if "stvp-us" in url_lower or "wsoc now" in name_lower or "wcetv" in name_lower or "rightnow" in name_lower or any(x in name_lower for x in ["bek", "bke"]):
         return "美国地方台"
 
-    # 10. Multilingual International (Korean, Spanish, French, German, Italian, Hindi)
+    # 14. Multilingual International (Korean, Spanish, French, German, Italian, Hindi)
     if re.search(r'[\uac00-\ud7a3]', name) or "stvp-kr" in url_lower:
         return "多语种国际台"
     if any(x in url_lower for x in ["stvp-es", "stvp-mx"]) or re.search(r'[áéíóúñ¿¡]', name):
@@ -174,18 +203,22 @@ def clean_category(cat, name, url=""):
         return "多语种国际台"
     if "stvp-it" in url_lower or name in ["WXTV", "WXTV-DT1"]:
         return "多语种国际台"
-    if "stvp-in" in url_lower or any(x in name_lower for x in ["aaj tak", "abp news", "zee", "9x ", "ndtv"]):
+    if "stvp-in" in url_lower or any(x in name_lower for x in ["aaj tak", "abp news", "zee", "9x ", "ndtv", "rtm malaysia", "sbt brazil"]):
         return "多语种国际台"
 
-    # 13. Latest Movies
-    if cat == "最新电影":
+    # 15. Latest Movies
+    if cat in ["最新电影", "影视点播"]:
         return "最新电影"
 
-    # 13. Fallback: International English
-    if cat in ["English合集", "电影频道 (英文)", "电视剧频道 (英文)", "动漫卡通频道 (英文)", "记录频道", "户外旅行频道 (英文)", "新闻频道 (英文)", "北美频道", "国际频道"] or is_foreign_english:
+    # 16. Fallback: International English
+    if cat in ["English合集", "电影频道 (英文)", "电视剧频道 (英文)", "动漫卡通频道 (英文)", "记录频道", "户外旅行频道 (英文)", "新闻频道 (英文)", "北美频道", "国际频道"] or is_foreign_english or "his glory" in name_lower:
         return "国际频道"
 
-    return "其他频道"
+    if name == "直播中国":
+        return "地方综合台"
+    if any("\u4e00" <= ch <= "\u9fff" for ch in name):
+        return "地方综合台"
+    return "国际频道"
 
 def get_category_index(cat):
     try:
@@ -203,6 +236,7 @@ def cctv_sort_key(name):
 
 def main():
     channels = []
+    stream_counts = defaultdict(int)
     with open(merged_path, "r", encoding="utf-8") as f:
         for line in f:
             line = line.strip()
@@ -212,21 +246,21 @@ def main():
             if len(parts) < 3:
                 continue
             category = parts[0].strip()
-            name = parts[1].strip()
+            raw_name = parts[1].strip()
             url = parts[2].strip()
             
             # Normalize CCTV names (CCTV-1 to CCTV-17, including CCTV-5+ and CCTV-16)
-            name_lower = name.lower()
+            name_lower = raw_name.lower()
             # Strip emojis / non-alphanumeric prefixes to match CCTV names correctly
-            clean_name = re.sub(r'^[^\w\s\-]+', '', name_lower).strip()
-            cctv_match = re.search(r'(cctv[-]?\d+)', clean_name)
+            clean_name_match = re.sub(r'^[^\w\s\-]+', '', name_lower).strip()
+            cctv_match = re.search(r'(cctv[-]?\d+)', clean_name_match)
             if cctv_match:
                 cctv_base = cctv_match.group(1).upper()
                 # Ensure standard format (e.g. CCTV-5 instead of CCTV5)
                 if not cctv_base.startswith("CCTV-"):
                     cctv_base = "CCTV-" + cctv_base[4:]
                 
-                if "cctv-5+" in name_lower or "cctv5+" in name_lower or ("cctv5" in name_lower and "+" in name):
+                if "cctv-5+" in name_lower or "cctv5+" in name_lower or ("cctv5" in name_lower and "+" in raw_name):
                     name = "CCTV-5+体育赛事"
                 elif cctv_base == "CCTV-5":
                     name = "CCTV-5体育"
@@ -235,11 +269,7 @@ def main():
                 else:
                     name = cctv_base
             else:
-                # Strip common duplicate suffixes like _1, _2, (1), (2), 线路1, 线路2 at the end of non-CCTV channels
-                # So they can be grouped as multiple lines under the same name in the player
-                name = re.sub(r'[\s_]+(?:线路|\()?\d+\)?$', '', name).strip()
-                name = re.sub(r'_\d+$', '', name).strip()
-                name_lower = name.lower()
+                name = clean_channel_name(raw_name)
             
             # Normalize Singapore, Macau and regional channels to standard Chinese names
             sg_mo_map = {
@@ -272,21 +302,35 @@ def main():
                 
             cleaned_cat = clean_category(category, name, url)
             
-            channels.append({
-                "category": cleaned_cat,
-                "name": name,
-                "url": url
-            })
-            
-            # Check if this channel should also be duplicated into the Education list
-            is_edu = (any(x in name_lower for x in ["教育", "科教", "课堂", "cetv", "cctv-9", "cctv-10", "cctv9", "cctv10", "纪录", "记录", "cgtn外语纪录", "教体", "戏曲", "梨园", "曲艺", "文物宝库"])
-                      or any(x in category.lower() for x in ["教育", "科教", "课堂", "cetv", "纪录", "记录", "教体", "戏曲", "梨园", "曲艺", "文物宝库"]))
-            if is_edu and not ("性教育" in name_lower):
+            # Stream capping: max 4 lines per (cleaned_cat, name)
+            key = (cleaned_cat, name)
+            stream_counts[key] += 1
+            if stream_counts[key] <= 4:
                 channels.append({
-                    "category": "教育频道",
+                    "category": cleaned_cat,
                     "name": name,
                     "url": url
                 })
+            
+            # Cross-listing: CCTV-14 to 少儿卡通, CCTV-9 to 纪实探索
+            if name == "CCTV-14":
+                key_kids = ("少儿卡通", "CCTV-14少儿")
+                stream_counts[key_kids] += 1
+                if stream_counts[key_kids] <= 4:
+                    channels.append({
+                        "category": "少儿卡通",
+                        "name": "CCTV-14少儿",
+                        "url": url
+                    })
+            elif name == "CCTV-9":
+                key_doc = ("纪实探索", "CCTV-9纪录")
+                stream_counts[key_doc] += 1
+                if stream_counts[key_doc] <= 4:
+                    channels.append({
+                        "category": "纪实探索",
+                        "name": "CCTV-9纪录",
+                        "url": url
+                    })
             
     # Assign unique keys for duplicate names in original file order (using Chinese names in paths)
     used_names = {}
@@ -311,8 +355,9 @@ def main():
     # 1. By category order in category_order
     # 2. Within category:
     #    - If CCTV, numerically by CCTV number
-    #    - If Sports, NBA channels first, then others
-    #    - Otherwise, alphabetically by name, and then by url to be stable
+    #    - High priority channels first (CCTV-14 in 少儿, CCTV-9 in 纪实, CETV in 教育, NBA in 体育)
+    #    - Chinese channels first, then English/foreign
+    #    - Alphabetically by name, and then by url to be stable
     def sort_key(c):
         cat_idx = get_category_index(c["category"])
         is_cctv_cat = "cctv" in c["category"].lower() or "央视" in c["category"]
@@ -320,9 +365,22 @@ def main():
         if is_cctv_cat:
             return (cat_idx, cctv_sort_key(c["name"]), suffix_num, c["url"])
         else:
-            is_ascii = bool(c["name"] and c["name"][0].isascii())
-            is_nba = -1 if (c["category"] == "体育频道" and "nba" in c["name"].lower()) else 0
-            return (cat_idx, is_nba, is_ascii, (c["name"].lower(), c["name"]), suffix_num, c["url"])
+            cat = c["category"]
+            n = c["name"]
+            n_lower = n.lower()
+            
+            prio = 0
+            if cat == "少儿卡通" and n.startswith("CCTV-14"):
+                prio = -1
+            elif cat == "纪实探索" and n.startswith("CCTV-9"):
+                prio = -1
+            elif cat == "教育频道" and (n.startswith("CETV") or n.startswith("CCTV")):
+                prio = -1
+            elif cat == "体育频道" and "nba" in n_lower:
+                prio = -1
+                
+            is_ascii = bool(n and n[0].isascii())
+            return (cat_idx, prio, is_ascii, (n_lower, n), suffix_num, c["url"])
             
     channels.sort(key=sort_key)
     channels_with_keys = channels
