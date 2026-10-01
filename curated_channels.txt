@@ -12,16 +12,31 @@
 # ==============================================================================
 
 # ==============================================================================
-# 中央广播电视总台 (CCTV-1 ~ CCTV-17 官方正规 IPTV 原生组播专线 · 永久 0 广告)
+# 中央广播电视总台 (CCTV-1 ~ CCTV-17 官方正规 IPTV 原生组播 1080P 超清专线 · 永久 0 广告)
 # ==============================================================================
+央视频道|CCTV-1|http://59.39.89.130:60901/tsfile/live/1001_1.m3u8?key=txiptv&playlive=1&authid=0
+央视频道|CCTV-1|http://116.128.243.121:85/tsfile/live/1001_1.m3u8?key=txiptv&playlive=0&authid=0
 央视频道|CCTV-1|http://59.39.89.130:60901/tsfile/live/0001_1.m3u8?key=txiptv&playlive=1&authid=0
+央视频道|CCTV-2|http://59.39.89.130:60901/tsfile/live/1002_1.m3u8?key=txiptv&playlive=1&authid=0
+央视频道|CCTV-2|http://116.128.243.121:85/tsfile/live/1002_1.m3u8?key=txiptv&playlive=0&authid=0
 央视频道|CCTV-2|http://59.39.89.130:60901/tsfile/live/0002_1.m3u8?key=txiptv&playlive=1&authid=0
+央视频道|CCTV-3|http://59.39.89.130:60901/tsfile/live/1003_1.m3u8?key=txiptv&playlive=1&authid=0
+央视频道|CCTV-3|http://116.128.243.121:85/tsfile/live/1003_1.m3u8?key=txiptv&playlive=0&authid=0
 央视频道|CCTV-3|http://59.39.89.130:60901/tsfile/live/0003_1.m3u8?key=txiptv&playlive=1&authid=0
+央视频道|CCTV-4|http://59.39.89.130:60901/tsfile/live/1004_1.m3u8?key=txiptv&playlive=1&authid=0
 央视频道|CCTV-4|http://59.39.89.130:60901/tsfile/live/0004_1.m3u8?key=txiptv&playlive=1&authid=0
+央视频道|CCTV-5|http://59.39.89.130:60901/tsfile/live/1005_1.m3u8?key=txiptv&playlive=1&authid=0
+央视频道|CCTV-5|http://116.128.243.121:85/tsfile/live/1005_1.m3u8?key=txiptv&playlive=0&authid=0
 央视频道|CCTV-5|http://59.39.89.130:60901/tsfile/live/0005_1.m3u8?key=txiptv&playlive=1&authid=0
+央视频道|CCTV-6|http://59.39.89.130:60901/tsfile/live/1006_1.m3u8?key=txiptv&playlive=1&authid=0
+央视频道|CCTV-6|http://116.128.243.121:85/tsfile/live/1006_1.m3u8?key=txiptv&playlive=0&authid=0
 央视频道|CCTV-6|http://59.39.89.130:60901/tsfile/live/0006_1.m3u8?key=txiptv&playlive=1&authid=0
+央视频道|CCTV-7|http://59.39.89.130:60901/tsfile/live/1007_1.m3u8?key=txiptv&playlive=1&authid=0
+央视频道|CCTV-7|http://116.128.243.121:85/tsfile/live/1007_1.m3u8?key=txiptv&playlive=0&authid=0
 央视频道|CCTV-7|http://59.39.89.130:60901/tsfile/live/0007_1.m3u8?key=txiptv&playlive=1&authid=0
+央视频道|CCTV-8|http://116.128.243.121:85/tsfile/live/1008_1.m3u8?key=txiptv&playlive=0&authid=0
 央视频道|CCTV-8|http://59.39.89.130:60901/tsfile/live/0008_1.m3u8?key=txiptv&playlive=1&authid=0
+央视频道|CCTV-9|http://116.128.243.121:85/tsfile/live/1009_1.m3u8?key=txiptv&playlive=0&authid=0
 央视频道|CCTV-9|http://59.39.89.130:60901/tsfile/live/0009_1.m3u8?key=txiptv&playlive=1&authid=0
 央视频道|CCTV-10|http://59.39.89.130:60901/tsfile/live/0010_1.m3u8?key=txiptv&playlive=1&authid=0
 央视频道|CCTV-11|http://59.39.89.130:60901/tsfile/live/0011_1.m3u8?key=txiptv&playlive=1&authid=0

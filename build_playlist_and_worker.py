@@ -371,94 +371,6 @@ def main():
         except Exception:
             cached_metrics = {}
 
-    # Identify multi-line channels that require quality & speed differentiation
-    multi_line_urls = []
-    seen_multi_urls = set()
-    for (cat_name, ch_name), grp in name_groups.items():
-        if len(grp) > 1:
-            for item in grp:
-                u_norm = item["url"].strip()
-                if u_norm not in seen_multi_urls:
-                    seen_multi_urls.add(u_norm)
-                    now_ts = time.time()
-                    m = cached_metrics.get(u_norm)
-                    # Re-probe if not cached or tested more than 2 hours ago
-                    if not m or (now_ts - m.get("tested_at", 0) > 7200):
-                        multi_line_urls.append(item)
-
-    if multi_line_urls:
-        print(f"Benchmarking clarity & speed for {len(multi_line_urls)} multi-line channel streams...")
-        import urllib.request, ssl, concurrent.futures
-        probe_ctx = ssl._create_unverified_context()
-
-        def probe_line(item):
-            url = item["url"]
-            t0 = time.time()
-            res_tier = 2
-            res_name = "720P"
-            latency_ms = 9999
-
-            if "youtube.com" in url.lower() or "youtu.be" in url.lower():
-                return url, {"res_tier": 3, "res_name": "1080P", "latency_ms": 120, "tested_at": time.time()}
-
-            combined = f"{item.get('raw_name', '')} {url}".lower()
-            clean_combined = combined.replace("cctv4k", "cctv4_temp") if "cctv-4k" not in combined and "cctv 4k" not in combined else combined
-            if any(k in clean_combined for k in ["4k", "8k", "2160p", "uhd", "超高清"]):
-                res_tier, res_name = 4, "4K"
-            elif any(k in combined for k in ["1080p", "1080", "fhd", "超清", "3m1080p"]):
-                res_tier, res_name = 3, "1080P"
-            elif any(k in combined for k in ["720p", "720", "hd", "高清"]):
-                res_tier, res_name = 2, "720P"
-            elif any(k in combined for k in ["576", "480", "sd", "标清", "kankanlive"]):
-                res_tier, res_name = 1, "SD"
-
-            try:
-                req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
-                with urllib.request.urlopen(req, context=probe_ctx, timeout=2.0) as r:
-                    latency_ms = int((time.time() - t0) * 1000)
-                    chunk = r.read(4000).decode('utf-8', errors='ignore')
-                    m_res = re.search(r'RESOLUTION=(\d+)x(\d+)', chunk, re.I)
-                    if m_res:
-                        w, h = int(m_res.group(1)), int(m_res.group(2))
-                        if h >= 2160 or w >= 3840:
-                            res_tier, res_name = 4, f"4K ({w}x{h})"
-                        elif h >= 1080 or w >= 1920:
-                            res_tier, res_name = 3, f"1080P ({w}x{h})"
-                        elif h >= 720 or w >= 1280:
-                            res_tier, res_name = 2, f"720P ({w}x{h})"
-                        else:
-                            res_tier, res_name = 1, f"SD ({w}x{h})"
-                    else:
-                        m_bw = re.search(r'BANDWIDTH=(\d+)', chunk, re.I)
-                        if m_bw:
-                            bw = int(m_bw.group(1))
-                            if bw >= 12000000:
-                                res_tier, res_name = 4, "4K"
-                            elif bw >= 3500000:
-                                res_tier, res_name = 3, "1080P"
-                            elif bw >= 1800000:
-                                res_tier, res_name = 2, "720P"
-            except Exception:
-                latency_ms = 9999
-
-            return url, {
-                "res_tier": res_tier,
-                "res_name": res_name,
-                "latency_ms": latency_ms,
-                "tested_at": time.time()
-            }
-
-        with concurrent.futures.ThreadPoolExecutor(max_workers=50) as ex:
-            for u_res, m_res in ex.map(probe_line, multi_line_urls):
-                cached_metrics[u_res] = m_res
-
-        # Persist metrics
-        try:
-            with open(METRICS_PATH, "w", encoding="utf-8") as mf:
-                json.dump(cached_metrics, mf, ensure_ascii=False, indent=2)
-        except Exception:
-            pass
-
     def stream_stability_score(c):
         score = 0
         u_lower = c["url"].lower()
@@ -493,8 +405,7 @@ def main():
         """
         纯净度分级 (Purity Tiers):
         Tier 2 (最高): 100% 物理广播骨干专线与官方纯净流 (永久 0 广告，点开即正片)
-          - 国内运营商正规 IPTV 原生组播专线 (key=txiptv, :9901/, :60901/, :50085/)
-          - 电信/联通 8181 骨干专线 (:8181/3m1080p, :8181/1080p)
+          - 国内运营商正规 IPTV 原生组播专线 (key=txiptv, :9901/, :60901/, :50085/, :85/tsfile/)
           - 广电/卫视官方无广告流 (cztv.com, sdetv.com, hebtv.com, gztv.com, tdm.com.mo, kylintv.tv, bestv.cn, cnr.cn)
           - YouTube 24/7 官方直播
         Tier 1 (普通): 常见常规网络流 (无已知商业贴片中间人)
@@ -518,8 +429,7 @@ def main():
         ]):
             return 0
         if any(k in u_lower for k in [
-            "key=txiptv", ":9901/", ":60901/", ":50085/",
-            ":8181/3m1080p", ":8181/1080p",
+            "key=txiptv", ":9901/", ":60901/", ":50085/", ":85/tsfile/",
             "cztv.com", "sdetv.com", "hebtv.com", "gztv.com", "tdm.com.mo",
             "kylintv.tv", "cnr.cn", "bestv.cn", "sun0769.com", "wcetv.com",
             "amagi.tv", "sofast.tv", "mediatailor", "youtube.com", "youtu.be",
@@ -527,6 +437,97 @@ def main():
         ]):
             return 2
         return 1
+
+    # Identify multi-line channels that require quality & speed differentiation
+    multi_line_urls = []
+    seen_multi_urls = set()
+    for (cat_name, ch_name), grp in name_groups.items():
+        if len(grp) > 1:
+            for item in grp:
+                u_norm = item["url"].strip()
+                if u_norm not in seen_multi_urls:
+                    seen_multi_urls.add(u_norm)
+                    now_ts = time.time()
+                    m = cached_metrics.get(u_norm)
+                    # Re-probe if not cached or tested more than 2 hours ago
+                    if not m or (now_ts - m.get("tested_at", 0) > 7200):
+                        multi_line_urls.append(item)
+
+    if multi_line_urls:
+        print(f"Benchmarking clarity & speed for {len(multi_line_urls)} multi-line channel streams...")
+        import urllib.request, ssl, concurrent.futures
+        probe_ctx = ssl._create_unverified_context()
+
+        def probe_line(item):
+            url = item["url"]
+            t0 = time.time()
+            res_tier = 2
+            res_name = "720P"
+            latency_ms = 9999
+
+            if "youtube.com" in url.lower() or "youtu.be" in url.lower():
+                return url, {"res_tier": 3, "res_name": "1080P", "latency_ms": 120, "tested_at": time.time()}
+
+            combined = f"{item.get('raw_name', '')} {url}".lower()
+            clean_combined = combined.replace("cctv4k", "cctv4_temp") if "cctv-4k" not in combined and "cctv 4k" not in combined else combined
+            if any(k in clean_combined for k in ["4k", "8k", "2160p", "uhd", "超高清"]):
+                res_tier, res_name = 4, "4K"
+            elif any(k in combined for k in ["1080p", "1080", "fhd", "超清", "3m1080p"]) or re.search(r'/[1-9]\d{3}_1\.m3u8', url):
+                res_tier, res_name = 3, "1080P"
+            elif any(k in combined for k in ["720p", "720", "hd", "高清"]):
+                res_tier, res_name = 2, "720P"
+            elif any(k in combined for k in ["576", "480", "sd", "标清", "kankanlive"]) or re.search(r'/0\d{3}_1\.m3u8', url):
+                res_tier, res_name = 1, "SD"
+
+            is_adware = stream_purity_tier(item) == 0
+
+            try:
+                req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
+                with urllib.request.urlopen(req, context=probe_ctx, timeout=2.0) as r:
+                    latency_ms = int((time.time() - t0) * 1000)
+                    chunk = r.read(4000).decode('utf-8', errors='ignore')
+                    m_res = re.search(r'RESOLUTION=(\d+)x(\d+)', chunk, re.I)
+                    if m_res:
+                        w, h = int(m_res.group(1)), int(m_res.group(2))
+                        if h >= 2160 or w >= 3840:
+                            res_tier, res_name = 4, f"4K ({w}x{h})"
+                        elif h >= 1080 or w >= 1920:
+                            res_tier, res_name = 3, f"1080P ({w}x{h})"
+                        elif h >= 720 or w >= 1280:
+                            res_tier, res_name = 2, f"720P ({w}x{h})"
+                        else:
+                            res_tier, res_name = 1, f"SD ({w}x{h})"
+                    else:
+                        m_bw = re.search(r'BANDWIDTH=(\d+)', chunk, re.I)
+                        # 防范广告服务器虚标 BANDWIDTH（如 qd.je/jdshipin 虚标 5000000 欺骗播放器）
+                        if m_bw and not is_adware:
+                            bw = int(m_bw.group(1))
+                            if bw >= 12000000:
+                                res_tier, res_name = 4, "4K"
+                            elif bw >= 7000000:
+                                res_tier, res_name = 3, "1080P"
+                            elif bw >= 1800000:
+                                res_tier, res_name = 2, "720P"
+            except Exception:
+                latency_ms = 9999
+
+            return url, {
+                "res_tier": res_tier,
+                "res_name": res_name,
+                "latency_ms": latency_ms,
+                "tested_at": time.time()
+            }
+
+        with concurrent.futures.ThreadPoolExecutor(max_workers=50) as ex:
+            for u_res, m_res in ex.map(probe_line, multi_line_urls):
+                cached_metrics[u_res] = m_res
+
+        # Persist metrics
+        try:
+            with open(METRICS_PATH, "w", encoding="utf-8") as mf:
+                json.dump(cached_metrics, mf, ensure_ascii=False, indent=2)
+        except Exception:
+            pass
 
     def multi_line_sort_key(c):
         u = c["url"].strip()
@@ -536,21 +537,20 @@ def main():
             combined = f"{c.get('raw_name', '')} {u}".lower()
             clean_combined = combined.replace("cctv4k", "cctv4_temp") if "cctv-4k" not in combined and "cctv 4k" not in combined else combined
             if any(k in clean_combined for k in ["4k", "8k", "2160p", "uhd"]): res_tier = 4
-            elif any(k in combined for k in ["1080p", "1080", "fhd", "超清", "3m1080p"]): res_tier = 3
+            elif any(k in combined for k in ["1080p", "1080", "fhd", "超清", "3m1080p"]) or re.search(r'/[1-9]\d{3}_1\.m3u8', u): res_tier = 3
             elif any(k in combined for k in ["720p", "720", "hd", "高清"]): res_tier = 2
-            elif any(k in combined for k in ["576", "480", "sd", "标清", "kankanlive"]): res_tier = 1
+            elif any(k in combined for k in ["576", "480", "sd", "标清", "kankanlive"]) or re.search(r'/0\d{3}_1\.m3u8', u): res_tier = 1
             else: res_tier = 2
 
         latency_ms = m.get("latency_ms", 9999)
         stability = stream_stability_score(c)
         purity = stream_purity_tier(c)
-
-        # 核心多维排序规则：
-        # 1. 第零优先级：纯净度（2=纯净骨干专线 > 1=普通纯净流 > 0=商业贴片广告源）
-        # 2. 第一优先级：清晰度（4K > 1080P > 720P > SD）
-        # 3. 第二优先级：速度（延迟越低越快越靠前，使用 -latency_ms）
-        # 4. 第三优先级：稳定性（长效/专线保底平局）
-        return (purity, res_tier, -latency_ms, stability)
+        # 核心多维排序规则（严格遵从用户指示）：
+        # 1. 第一优先级：清晰度（4K/8K=4 > 1080P=3 > 720P=2 > SD=1）
+        # 2. 第二优先级：纯净度（同清晰度下：无广告纯净流 Tier 2 / Tier 1 优先，有广告 Tier 0 靠后）
+        # 3. 第三优先级：速度（同清晰度且同纯净度下：延迟越低/响应越快越靠前，使用 -latency_ms）
+        # 4. 第四优先级：稳定性（长效/专线保底平局）
+        return (res_tier, purity, -latency_ms, stability)
 
     sorted_channels = []
     for cat_name, grp in name_groups.items():
