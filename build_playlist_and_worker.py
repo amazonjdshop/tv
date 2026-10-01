@@ -402,7 +402,8 @@ def main():
                 return url, {"res_tier": 3, "res_name": "1080P", "latency_ms": 120, "tested_at": time.time()}
 
             combined = f"{item.get('raw_name', '')} {url}".lower()
-            if any(k in combined for k in ["4k", "8k", "2160p", "uhd", "超高清"]):
+            clean_combined = combined.replace("cctv4k", "cctv4_temp") if "cctv-4k" not in combined and "cctv 4k" not in combined else combined
+            if any(k in clean_combined for k in ["4k", "8k", "2160p", "uhd", "超高清"]):
                 res_tier, res_name = 4, "4K"
             elif any(k in combined for k in ["1080p", "1080", "fhd", "超清", "3m1080p"]):
                 res_tier, res_name = 3, "1080P"
@@ -461,7 +462,7 @@ def main():
     def stream_stability_score(c):
         score = 0
         u_lower = c["url"].lower()
-        if any(k in u_lower for k in ["gslb/zbdq", "gslb/dsdq", "gslb/"]):
+        if any(k in u_lower for k in ["gslb/zbdq", "gslb/dsdq", "gslb/"]) and "dsdqpub" not in u_lower:
             score += 40
         elif any(k in u_lower for k in [":8181/3m1080p", ":8181/1080p", ":82/live/"]):
             score += 35
@@ -480,7 +481,7 @@ def main():
             score -= 50
         if any(k in u_lower for k in ["auth_key=", "sign=", "token="]) and not any(k in u_lower for k in ["auth=test", "key=txiptv"]):
             score -= 30
-        if any(k in u_lower for k in ["qd.je", "jdshipin.com", "sryze.cc", "kankanlive", "xykt-fix", "livehwc"]):
+        if any(k in u_lower for k in ["qd.je", "jdshipin.com", "sryze.cc", "kankanlive", "xykt-fix", "livehwc", "173.208.212.130", "dsdqpub", "auth=testpub", "cctv4k.m3u8"]):
             score -= 40
         return score
 
@@ -488,7 +489,7 @@ def main():
         """
         纯净度分级 (Purity Tiers):
         Tier 2 (最高): 100% 物理广播骨干专线与官方纯净流 (永久 0 广告，点开即正片)
-          - GSLB 卫星转播专线 (63.141..., 38.75...)
+          - GSLB 卫星转播专线 (63.141..., 38.75... dsdqbv, zbdq)
           - 电信/联通 8181 骨干专线 (:8181/3m1080p, :8181/1080p, :8181/720p)
           - 82 广电直播专线节点 (:82/live/)
           - 联通 IPTV 原生组播专线 (key=txiptv)
@@ -501,12 +502,13 @@ def main():
           - user_session_id=, edge_slice= (广告会话跟踪)
           - miguvideo / wd_r2 (移动端 app 流，带 bean=mgspad 广告参数)
           - newlive (酒店网关开机迎宾广告)
+          - dsdqpub / auth=testpub / cctv4k.m3u8 (公共测试/广告轮播流)
         """
         u_lower = c["url"].lower()
         if any(k in u_lower for k in [
             "qd.je", "jdshipin.com", "sryze.cc", "xykt-fix", "kankanlive", 
             "livehwc", "edge_slice", "user_session_id", "wd_r2", "newlive",
-            "173.208.212.130", "appadhw", "cdnwh"
+            "173.208.212.130", "appadhw", "cdnwh", "cctv4k.m3u8", "dsdqpub", "auth=testpub"
         ]):
             return 0
         if any(k in u_lower for k in [
@@ -523,7 +525,8 @@ def main():
         res_tier = m.get("res_tier")
         if res_tier is None:
             combined = f"{c.get('raw_name', '')} {u}".lower()
-            if any(k in combined for k in ["4k", "8k", "2160p", "uhd"]): res_tier = 4
+            clean_combined = combined.replace("cctv4k", "cctv4_temp") if "cctv-4k" not in combined and "cctv 4k" not in combined else combined
+            if any(k in clean_combined for k in ["4k", "8k", "2160p", "uhd"]): res_tier = 4
             elif any(k in combined for k in ["1080p", "1080", "fhd", "超清", "3m1080p"]): res_tier = 3
             elif any(k in combined for k in ["720p", "720", "hd", "高清"]): res_tier = 2
             elif any(k in combined for k in ["576", "480", "sd", "标清", "kankanlive"]): res_tier = 1

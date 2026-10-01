@@ -14,16 +14,16 @@ CCTV-3,http://63.141.230.178:82/gslb/zbdq5.m3u8?id=cctv3hd
 CCTV-3,http://222.169.85.8:9901/tsfile/live/0003_1.m3u8?key=txiptv&playlive=1&authid=0
 CCTV-3,http://69.30.245.50/live/cctv3.m3u8
 CCTV-3,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CCTV-3_4/index.m3u8
-CCTV-4,http://38.75.136.137:98/gslb/dsdqpub/cctv4k.m3u8?auth=testpub
 CCTV-4,http://74.91.26.218:82/live/cctv4hd.m3u8
+CCTV-4,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CCTV-4_1/index.m3u8
 CCTV-4,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CCTV-4_2/index.m3u8
+CCTV-4,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CCTV-4_3/index.m3u8
 CCTV-4,https://dash2.antik.sk/live/test_cctv_tizen/playlist.m3u8
-CCTV-4,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CCTV-4_4/index.m3u8
 CCTV-5体育,http://38.75.136.137:98/gslb/dsdqbv/cctv5hd.m3u8?auth=test20251009
 CCTV-5体育,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CCTV-5体育_1/index.m3u8
-CCTV-5体育,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CCTV-5体育_2/index.m3u8
 CCTV-5体育,http://118.122.144.115:8888/newlive/live/hls/5/live.m3u8
 CCTV-5体育,http://173.208.212.130:8181/720p/cctv5.m3u8
+CCTV-5体育,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CCTV-5体育_4/index.m3u8
 CCTV-5+体育赛事,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CCTV-5+体育赛事/index.m3u8
 CCTV-5+体育赛事,http://38.75.136.137:98/gslb/dsdqbv/cctv5p.m3u8?auth=test20251009
 CCTV-6,http://74.91.26.218:82/live/cctv6hd.m3u8
@@ -77,10 +77,10 @@ CCTV-15,http://38.75.136.137:98/gslb/dsdqbv/cctv15hd.m3u8?auth=test20251009
 CCTV-15,http://63.141.230.178:82/gslb/zbdq5.m3u8?id=cctv15hd
 CCTV-15,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CCTV-15_4/index.m3u8
 CCTV-16奥林匹克,http://38.75.136.137:98/gslb/dsdqbv/cctv16hd.m3u8?auth=test20251009
-CCTV-16奥林匹克,http://38.75.136.137:98/gslb/dsdqpub/cctv16hd.m3u8?auth=testpub
 CCTV-16奥林匹克,http://gmxw.7766.org:808/hls/169/index.m3u8
+CCTV-16奥林匹克,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CCTV-16奥林匹克_2/index.m3u8
 CCTV-16奥林匹克,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CCTV-16奥林匹克_3/index.m3u8
-CCTV-16奥林匹克,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CCTV-16奥林匹克_4/index.m3u8
+CCTV-16奥林匹克,http://38.75.136.137:98/gslb/dsdqpub/cctv16hd.m3u8?auth=testpub
 CCTV-17,http://74.91.26.218:82/live/cctv17hd.m3u8
 CCTV-17,http://38.75.136.137:98/gslb/dsdqbv/cctv17hd.m3u8?auth=test20251009
 CCTV-17,http://63.141.230.178:82/gslb/zbdq5.m3u8?id=cctv17hd
@@ -108,13 +108,13 @@ CCTV-高爾夫網球,http://38.75.136.137:98/gslb/dsdqpub/gefwq.m3u8?auth=testpu
 三沙卫视,http://38.75.136.137:98/gslb/dsdqpub/ssws.m3u8?auth=testpub
 东南卫视,http://63.141.230.178:82/gslb/zbdq5.m3u8?id=dnwshd
 东南卫视,http://36.136.38.87:9901/tsfile/live/0137_1.m3u8?key=txiptv&playlive=1&authid=0
-东南卫视,http://38.75.136.137:98/gslb/dsdqpub/dnwshd.m3u8?auth=testpub
 东南卫视,http://live.zohi.tv/video/s10001-fztv-3/index.m3u8
+东南卫视,http://38.75.136.137:98/gslb/dsdqpub/dnwshd.m3u8?auth=testpub
 东方卫视,http://38.75.136.137:98/gslb/dsdqbv/dfwshd.m3u8?auth=test20251009
 东方卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/东方卫视_1/index.m3u8
 东方卫视,https://txmov2.a.kwimgs.com/bs3/video-hls/5219953535631090825_hlsb.m3u8
-东方卫视,http://38.75.136.137:98/gslb/dsdqpub/dfwshd.m3u8?auth=testpub
 东方卫视,http://bp-resource-dfl.bestv.cn/155/3/video.m3u8
+东方卫视,http://38.75.136.137:98/gslb/dsdqpub/dfwshd.m3u8?auth=testpub
 云南卫视,http://63.141.230.178:82/gslb/zbdq5.m3u8?id=ynwshd
 云南卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/云南卫视_1/index.m3u8
 云南卫视,http://36.136.38.87:9901/tsfile/live/0119_1.m3u8?key=txiptv&playlive=1&authid=0
@@ -142,8 +142,8 @@ CCTV-高爾夫網球,http://38.75.136.137:98/gslb/dsdqpub/gefwq.m3u8?auth=testpu
 四川卫视,http://222.169.85.8:9901/tsfile/live/0123_1.m3u8?key=txiptv&playlive=1&authid=0
 四川卫视,http://38.75.136.137:98/gslb/dsdqpub/scwshd.m3u8?auth=testpub
 大湾区卫视,http://63.141.230.178:82/gslb/zbdq5.m3u8?id=nfws
-大湾区卫视,http://38.75.136.137:98/gslb/dsdqpub/nfws.m3u8?auth=testpub
 大湾区卫视,http://222.128.55.152:9080/live/dwq.m3u8
+大湾区卫视,http://38.75.136.137:98/gslb/dsdqpub/nfws.m3u8?auth=testpub
 天津卫视,http://63.141.230.178:82/gslb/zbdq5.m3u8?id=tjwshd
 天津卫视,http://153.0.171.163:9901/tsfile/live/0135_1.m3u8?key=txiptv&playlive=1&authid=0
 天津卫视,http://36.136.38.87:9901/tsfile/live/0135_1.m3u8?key=txiptv&playlive=1&authid=0
@@ -164,11 +164,11 @@ CCTV-高爾夫網球,http://38.75.136.137:98/gslb/dsdqpub/gefwq.m3u8?auth=testpu
 山西卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/山西卫视_2/index.m3u8
 山西卫视,http://222.169.85.8:9901/tsfile/live/0118_1.m3u8?key=txiptv&playlive=1&authid=0
 山西卫视,http://36.136.38.87:9901/tsfile/live/0118_1.m3u8?key=txiptv&playlive=1&authid=0
-广东卫视,http://38.75.136.137:98/gslb/dsdqpub/gdwshd.m3u8?auth=testpub
-广东卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/广东卫视_1/index.m3u8
+广东卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/广东卫视/index.m3u8
 广东卫视,http://63.141.230.178:82/gslb/zbdq5.m3u8?id=gdwshd
-广东卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/广东卫视_3/index.m3u8
+广东卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/广东卫视_2/index.m3u8
 广东卫视,http://120.238.94.82:9901/tsfile/live/1009_1.m3u8
+广东卫视,http://38.75.136.137:98/gslb/dsdqpub/gdwshd.m3u8?auth=testpub
 广西卫视,http://63.141.230.178:82/gslb/zbdq5.m3u8?id=gxwshd
 广西卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/广西卫视_1/index.m3u8
 广西卫视,http://38.75.136.137:98/gslb/dsdqpub/gxwshd.m3u8?auth=testpub
@@ -181,13 +181,13 @@ CCTV-高爾夫網球,http://38.75.136.137:98/gslb/dsdqpub/gefwq.m3u8?auth=testpu
 新疆卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/新疆卫视_1/index.m3u8
 新疆卫视,http://59.39.89.130:60901/tsfile/live/0125_17.m3u8?key=txiptv&playlive=1&authid=0
 新疆卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/新疆卫视_3/index.m3u8
-新疆卫视,http://38.75.136.137:98/gslb/dsdqpub/xjws.m3u8?auth=testpub
+新疆卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/新疆卫视_4/index.m3u8
 東方衛視國際台,https://restream.pdtvhd.com/memfs/0b1b95c9-3543-4af9-9fdb-cf45f1602f17.m3u8
-江苏卫视,http://38.75.136.137:98/gslb/dsdqpub/jswshd.m3u8?auth=testpub
 江苏卫视,http://38.75.136.137:98/gslb/dsdqbv/jswshd.m3u8?auth=test20251009
 江苏卫视,http://63.141.230.178:82/gslb/zbdq5.m3u8?id=jswshd
 江苏卫视,http://104.152.209.49:8181/720p/jsws.m3u8
 江苏卫视,http://124.228.160.112:9901/tsfile/live/0127_1.m3u8?key=txiptv&playlive=1&authid=0
+江苏卫视,http://38.75.136.137:98/gslb/dsdqpub/jswshd.m3u8?auth=testpub
 江西卫视,http://63.141.230.178:82/gslb/zbdq5.m3u8?id=jxwshd
 江西卫视,http://222.169.85.8:9901/tsfile/live/0138_1.m3u8?key=txiptv&playlive=1&authid=0
 江西卫视,http://112.27.5.218:9901/tsfile/live/faacts/0138_1.m3u8?key=txiptv&playlive=1&authid=0
@@ -196,10 +196,10 @@ CCTV-高爾夫網球,http://38.75.136.137:98/gslb/dsdqpub/gefwq.m3u8?auth=testpu
 河北卫视,http://63.141.230.178:82/gslb/zbdq5.m3u8?id=hewshd
 河北卫视,http://63.141.230.178:82/gslb/zbdq5.m3u8?id=hbwshd
 河北卫视,http://36.136.38.87:9901/tsfile/live/0117_1.m3u8?key=txiptv&playlive=1&authid=0
-河北卫视,http://38.75.136.137:98/gslb/dsdqpub/hewshd.m3u8?auth=testpub
-河南卫视,http://38.75.136.137:98/gslb/dsdqpub/hawshd.m3u8?auth=testpub
+河北卫视,http://event.pull.hebtv.com/jishi/weishi_tingyun.m3u8
 河南卫视,http://63.141.230.178:82/gslb/zbdq5.m3u8?id=hawshd
 河南卫视,http://111.59.139.82:11888/tsfile/live/0139_1.m3u8?key=txiptv&playlive=1&authid=0
+河南卫视,http://38.75.136.137:98/gslb/dsdqpub/hawshd.m3u8?auth=testpub
 河南卫视,http://173.208.212.130:8181/720p/haws.m3u8
 浙江卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/浙江卫视/index.m3u8
 浙江卫视,http://ali-xwl.cztv.com/live/channel011080Plxw.m3u8
@@ -211,8 +211,8 @@ CCTV-高爾夫網球,http://38.75.136.137:98/gslb/dsdqpub/gefwq.m3u8?auth=testpu
 深圳卫视,http://63.141.230.178:82/gslb/zbdq5.m3u8?id=szwshd
 深圳卫视,http://36.136.38.87:9901/tsfile/live/0126_1.m3u8?key=txiptv&playlive=1&authid=0
 深圳卫视,http://222.169.85.8:9901/tsfile/live/0126_1.m3u8?key=txiptv&playlive=1&authid=0
-深圳卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/深圳卫视_3/index.m3u8
 深圳卫视,http://38.64.72.148:80/hls/modn/list/4007/playlist.m3u8
+深圳卫视,http://120.238.94.82:9901/tsfile/live/1065_1.m3u8
 湖北卫视,http://63.141.230.178:82/gslb/zbdq5.m3u8?id=hbwshd
 湖北卫视,http://222.169.85.8:9901/tsfile/live/0132_1.m3u8?key=txiptv&playlive=1&authid=0
 湖南卫视,http://74.91.26.218:82/live/hnwshd.m3u8
@@ -224,8 +224,8 @@ CCTV-高爾夫網球,http://38.75.136.137:98/gslb/dsdqpub/gefwq.m3u8?auth=testpu
 澳门卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/澳门卫视_1/index.m3u8
 甘肃卫视,http://63.141.230.178:82/gslb/zbdq5.m3u8?id=gswshd
 甘肃卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/甘肃卫视_1/index.m3u8
-甘肃卫视,http://38.75.136.137:98/gslb/dsdqpub/gswshd.m3u8?auth=testpub
 甘肃卫视,http://218.13.170.98:9901/tsfile/live/0141_1.m3u8
+甘肃卫视,http://38.75.136.137:98/gslb/dsdqpub/gswshd.m3u8?auth=testpub
 看东方,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/看东方/index.m3u8
 看东方,https://bp-resource-dfl.bestv.cn/148/3/video.m3u8
 福建海峡卫视,http://38.64.72.148:80/hls/modn/list/4009/playlist.m3u8
@@ -239,10 +239,10 @@ CCTV-高爾夫網球,http://38.75.136.137:98/gslb/dsdqpub/gefwq.m3u8?auth=testpu
 西藏卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/西藏卫视_4/index.m3u8
 西藏衛視藏語台,http://php.jdshipin.com:8880/xztv.php?id=zy
 贵州卫视,http://204.12.221.218:8181/3m1080p/gzws.m3u8
-贵州卫视,http://38.75.136.137:98/gslb/dsdqpub/gzwshd.m3u8?auth=testpub
 贵州卫视,http://63.141.230.178:82/gslb/zbdq5.m3u8?id=gzwshd
 贵州卫视,http://222.169.85.8:9901/tsfile/live/0120_1.m3u8?key=txiptv&playlive=1&authid=0
 贵州卫视,http://36.136.38.87:9901/tsfile/live/0120_1.m3u8?key=txiptv&playlive=1&authid=0
+贵州卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/贵州卫视_4/index.m3u8
 辽宁卫视,http://204.12.221.218:8181/3m1080p/lnws.m3u8
 辽宁卫视,http://63.141.230.178:82/gslb/zbdq5.m3u8?id=lnwshd
 辽宁卫视,http://222.169.85.8:9901/tsfile/live/0121_1.m3u8?key=txiptv&playlive=1&authid=0
@@ -260,9 +260,9 @@ CCTV-高爾夫網球,http://38.75.136.137:98/gslb/dsdqpub/gefwq.m3u8?auth=testpu
 青海卫视,http://121.19.134.202:808/tsfile/live/0140_1.m3u8?key=txiptv&playlive=1&authid=0
 青海卫视,https://hls-qhmh.lanzhousobey.cn/qhmh/mhds.m3u8
 黑龙江卫视,http://63.141.230.178:82/gslb/zbdq5.m3u8?id=hljwshd
-黑龙江卫视,http://38.75.136.137:98/gslb/dsdqpub/hljwshd.m3u8?auth=testpub
 黑龙江卫视,http://36.136.38.87:9901/tsfile/live/0143_1.m3u8?key=txiptv&playlive=1&authid=0
-黑龙江卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/黑龙江卫视_3/index.m3u8
+黑龙江卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/黑龙江卫视_2/index.m3u8
+黑龙江卫视,http://38.75.136.137:98/gslb/dsdqpub/hljwshd.m3u8?auth=testpub
 港澳台,#genre#
 三立华剧,https://www.youtube.com/embed/G8CKPKEXNf4
 三立新闻,https://www.youtube.com/embed/yeYC0mbSIOo
@@ -433,8 +433,8 @@ ViuTVsix,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/ViuTVsix/
 CHC动作电影,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CHC动作电影/index.m3u8
 CHC动作电影,http://38.75.136.137:98/gslb/dsdqpub/chcdz.m3u8?auth=testpub
 CHC家庭影院,http://63.141.230.178:82/gslb/zbdq5.m3u8?id=chcjt
-CHC家庭影院,http://38.75.136.137:98/gslb/dsdqpub/chcjt.m3u8?auth=testpub
 CHC家庭影院,http://192.151.150.154/live/chcjt.m3u8
+CHC家庭影院,http://38.75.136.137:98/gslb/dsdqpub/chcjt.m3u8?auth=testpub
 CHC电影,http://183.237.95.108:9901/tsfile/live/1008_1.m3u8?key=txiptv&playlive=0&authid=0
 重温经典,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/重温经典/index.m3u8
 重温经典,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/重温经典_1/index.m3u8
@@ -734,10 +734,10 @@ NBA TV,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/NBA TV_2/in
 TVS Pinball Network,https://rpn.bozztv.com/gusa/gusa-TVSCartoonNetwork/index.m3u8
 五星体育HD,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/五星体育HD/index.m3u8
 五星体育HD,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/五星体育HD_1/index.m3u8
-广东体育,http://38.75.136.137:98/gslb/dsdqpub/gdty.m3u8?auth=testpub
 广东体育,http://r.jdshipin.com/LiYdg
 广东体育,http://php.jdshipin.com/TVOD/iptv.php?id=gdty
 广东体育,http://php.jdshipin.com/PLTV/iptv.php?id=gdty
+广东体育,http://38.75.136.137:98/gslb/dsdqpub/gdty.m3u8?auth=testpub
 ACC Network,http://23.239.31.26:8989/accnetwork/index.m3u8
 ACISport,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/ACISport/index.m3u8
 BeIN Sports XTRA,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/BeIN Sports XTRA/index.m3u8
@@ -833,8 +833,8 @@ Wrestling Legends TV,https://round-snowflake-2d83.linda11-28-2022.workers.dev/li
 XFC TV,https://stream-us-east-1.getpublica.com/playlist.m3u8?network_id=2247
 Xtrem Sports,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Xtrem Sports/index.m3u8
 教育频道,#genre#
-CETV-1,http://38.75.136.137:98/gslb/dsdqpub/cetv1hd.m3u8?auth=testpub
 CETV-1,http://63.141.230.178:82/gslb/zbdq5.m3u8?id=cetv1hd
+CETV-1,http://38.75.136.137:98/gslb/dsdqpub/cetv1hd.m3u8?auth=testpub
 CETV-2,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CETV-2/index.m3u8
 CETV-2,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CETV-2_1/index.m3u8
 CETV-3,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CETV-3/index.m3u8
@@ -921,11 +921,11 @@ CNA特輯,https://amg01082-cna-amg01082c1-rlaxx-us-11304.playouts.now.amagi.tv/p
 东莞生活资讯,https://stream.sun0769.com/dgrtv1/mp4tv2_800/index.m3u8
 东莞生活资讯,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/东莞生活资讯_1/index.m3u8
 广东新闻,http://38.75.136.137:98/gslb/dsdqpub/gdxw.m3u8?auth=testpub
-广东民生,http://38.75.136.137:98/gslb/dsdqpub/gdgg.m3u8?auth=testpub
 广东民生,http://183.11.239.36:808/hls/18/index.m3u8
+广东民生,http://38.75.136.137:98/gslb/dsdqpub/gdgg.m3u8?auth=testpub
+广东珠江,http://r.jdshipin.com/sE5vO
 广东珠江,http://38.75.136.137:98/gslb/dsdqpub/gdzja.m3u8?auth=testpub
 广东珠江,http://38.75.136.137:98/gslb/dsdqpub/gdzj.m3u8?auth=testpub
-广东珠江,http://r.jdshipin.com/sE5vO
 广州南国都市频道,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/广州南国都市频道/index.m3u8
 广州新闻,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/广州新闻/index.m3u8
 广州新闻,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/广州新闻_1/index.m3u8
@@ -1056,8 +1056,8 @@ CNA特輯,https://amg01082-cna-amg01082c1-rlaxx-us-11304.playouts.now.amagi.tv/p
 北京文艺,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/北京文艺/index.m3u8
 北京文艺,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/北京文艺_1/index.m3u8
 北京新闻,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/北京新闻/index.m3u8
-北京新闻,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/北京新闻_1/index.m3u8
 北京新闻,https://satellitepull.cnr.cn/live/wxbjxwgb/playlist.m3u8
+北京新闻,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/北京新闻_2/index.m3u8
 北京生活,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/北京生活/index.m3u8
 北京生活,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/北京生活_1/index.m3u8
 北京财经,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/北京财经/index.m3u8
@@ -1258,8 +1258,8 @@ CNA特輯,https://amg01082-cna-amg01082c1-rlaxx-us-11304.playouts.now.amagi.tv/p
 广西国际,http://63.141.230.178:82/gslb/zbdq5.m3u8?id=gxgj
 广西国际,https://hlscdn.liangtv.cn/live/0234c48e0bc24fe1b41b9999a253e581/1075ee38e04f490690f6a36a16e09c79.m3u8
 广西新闻,http://63.141.230.178:82/gslb/zbdq5.m3u8?id=gxxw
-广西新闻,http://38.75.136.137:98/gslb/dsdqpub/gxxw.m3u8?auth=testpub
 广西新闻,http://192.151.150.154/live/gxxw.m3u8
+广西新闻,http://38.75.136.137:98/gslb/dsdqpub/gxxw.m3u8?auth=testpub
 广西桂林漓江景区,https://gcalic.v.myalicdn.com/gc/gllj01_1/index.m3u8
 庆元综合,http://l.cztvcloud.com/channels/lantian/SXqingyuan1/720p.m3u8
 庆元综合,http://l.cztvcloud.com/channels/lantian/SXqingyuan1/720p.m3u8?zzhed?
