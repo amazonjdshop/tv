@@ -274,6 +274,9 @@ def main():
                 continue
             if url.lower().endswith(".mp4") and "春晚" not in raw_name and "电影" not in raw_name and category not in ["最新电影", "春晚"]:
                 continue
+            # IPTV guard: 1001_1 ~ 1099_1 are provincial local channels (Hunan City TV, JiaJia Cartoon, etc.), NEVER CCTV!
+            if ("cctv" in raw_name.lower() or "cctv" in category.lower()) and re.search(r'tsfile/live/10\d{2}_1\.m3u8', url):
+                continue
             
             # Normalize CCTV names (CCTV-1 to CCTV-17, CCTV-4K, CCTV-8K, including CCTV-5+ and CCTV-16)
             name_lower = raw_name.lower()
@@ -469,17 +472,21 @@ def main():
                 return url, {"res_tier": 3, "res_name": "1080P", "latency_ms": 120, "tested_at": time.time()}
 
             combined = f"{item.get('raw_name', '')} {url}".lower()
-            clean_combined = combined.replace("cctv4k", "cctv4_temp") if "cctv-4k" not in combined and "cctv 4k" not in combined else combined
-            if any(k in clean_combined for k in ["4k", "8k", "2160p", "uhd", "超高清"]):
-                res_tier, res_name = 4, "4K"
-            elif any(k in combined for k in ["1080p", "1080", "fhd", "超清", "3m1080p"]) or re.search(r'/[1-9]\d{3}_1\.m3u8', url):
-                res_tier, res_name = 3, "1080P"
-            elif any(k in combined for k in ["720p", "720", "hd", "高清"]):
-                res_tier, res_name = 2, "720P"
-            elif any(k in combined for k in ["576", "480", "sd", "标清", "kankanlive"]) or re.search(r'/0\d{3}_1\.m3u8', url):
-                res_tier, res_name = 1, "SD"
-
+            clean_combined = re.sub(r'cctv\d+k', '', combined) if ("cctv-4k" not in combined and "cctv 4k" not in combined and "cctv-8k" not in combined and "cctv 8k" not in combined) else combined
             is_adware = stream_purity_tier(item) == 0
+
+            is_4k_8k = bool(re.search(r'(?:^|[^0-9a-zA-Z])(4k|8k|2160p|uhd|超高清)(?:$|[^0-9a-zA-Z])', clean_combined, re.I))
+            if is_4k_8k:
+                res_tier, res_name = 4, "4K"
+            elif not is_adware and any(k in combined for k in ["1080p", "1080", "fhd", "超清", "3m1080p"]):
+                res_tier, res_name = 3, "1080P"
+            elif re.search(r'/00(0[1-6]|0[8-9]|1[0-7])_1\.m3u8', url):
+                # CCTV-1~6, CCTV-8~17 IPTV multicast streams (1080P Full HD)
+                res_tier, res_name = 3, "1080P"
+            elif any(k in combined for k in ["720p", "720", "hd", "高清"]) or re.search(r'/0007_1\.m3u8', url):
+                res_tier, res_name = 2, "720P"
+            elif any(k in combined for k in ["576", "480", "sd", "标清", "kankanlive"]):
+                res_tier, res_name = 1, "SD"
 
             try:
                 req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
@@ -533,13 +540,16 @@ def main():
         u = c["url"].strip()
         m = cached_metrics.get(u, {})
         res_tier = m.get("res_tier")
+        is_adware = stream_purity_tier(c) == 0
         if res_tier is None:
             combined = f"{c.get('raw_name', '')} {u}".lower()
-            clean_combined = combined.replace("cctv4k", "cctv4_temp") if "cctv-4k" not in combined and "cctv 4k" not in combined else combined
-            if any(k in clean_combined for k in ["4k", "8k", "2160p", "uhd"]): res_tier = 4
-            elif any(k in combined for k in ["1080p", "1080", "fhd", "超清", "3m1080p"]) or re.search(r'/[1-9]\d{3}_1\.m3u8', u): res_tier = 3
-            elif any(k in combined for k in ["720p", "720", "hd", "高清"]): res_tier = 2
-            elif any(k in combined for k in ["576", "480", "sd", "标清", "kankanlive"]) or re.search(r'/0\d{3}_1\.m3u8', u): res_tier = 1
+            clean_combined = re.sub(r'cctv\d+k', '', combined) if ("cctv-4k" not in combined and "cctv 4k" not in combined and "cctv-8k" not in combined and "cctv 8k" not in combined) else combined
+            is_4k_8k = bool(re.search(r'(?:^|[^0-9a-zA-Z])(4k|8k|2160p|uhd|超高清)(?:$|[^0-9a-zA-Z])', clean_combined, re.I))
+            if is_4k_8k: res_tier = 4
+            elif not is_adware and any(k in combined for k in ["1080p", "1080", "fhd", "超清", "3m1080p"]): res_tier = 3
+            elif re.search(r'/00(0[1-6]|0[8-9]|1[0-7])_1\.m3u8', u): res_tier = 3
+            elif any(k in combined for k in ["720p", "720", "hd", "高清"]) or re.search(r'/0007_1\.m3u8', u): res_tier = 2
+            elif any(k in combined for k in ["576", "480", "sd", "标清", "kankanlive"]): res_tier = 1
             else: res_tier = 2
 
         latency_ms = m.get("latency_ms", 9999)
