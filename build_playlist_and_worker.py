@@ -696,8 +696,8 @@ def main():
     for c in channels_with_keys:
         url_lower = c["url"].lower()
         is_movie = c["category"] in ["最新电影", "影视点播"]
-        # Skip YouTube, YueChan, and Movies in the Worker CHANNEL_MAP
-        if "youtube.com" in url_lower or "youtu.be" in url_lower or url_lower in yuechan_urls or is_movie:
+        # Skip YouTube and Movies in the Worker CHANNEL_MAP
+        if "youtube.com" in url_lower or "youtu.be" in url_lower or is_movie:
             continue
         escaped_key = json.dumps(c["key"], ensure_ascii=False)
         escaped_url = json.dumps(c["url"], ensure_ascii=False)
