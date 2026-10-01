@@ -26,10 +26,14 @@ category_order = [
     "体育频道",
     "教育频道",
     "国际华语",
-    "浙江频道",
-    "黑龙江频道",
     "广东频道",
+    "浙江频道",
     "江苏频道",
+    "湖南频道",
+    "北京频道",
+    "上海频道",
+    "四川频道",
+    "黑龙江频道",
     "地方综合台",
     "美国主流台",
     "美国地方台",
@@ -548,7 +552,7 @@ def main():
         is_cctv_cat = "cctv" in c["category"].lower() or "央视" in c["category"]
         suffix_num = get_key_suffix_num(c["key"])
         if is_cctv_cat:
-            return (cat_idx, cctv_sort_key(c["name"]), suffix_num, c["url"])
+            return (cat_idx, c["category"], cctv_sort_key(c["name"]), suffix_num, c["url"])
         else:
             cat = c["category"]
             n = c["name"]
@@ -580,7 +584,7 @@ def main():
                     prio = -3
                 
             is_ascii = bool(n and n[0].isascii())
-            return (cat_idx, prio, is_ascii, (n_lower, n), suffix_num, c["url"])
+            return (cat_idx, c["category"], prio, is_ascii, (n_lower, n), suffix_num, c["url"])
             
     channels.sort(key=sort_key)
     channels_with_keys = channels
