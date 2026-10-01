@@ -687,6 +687,52 @@ const CHANNEL_MAP = {{
 export default {{
   async fetch(request, env, ctx) {{
     const url = new URL(request.url);
+
+    // 0. 上报追踪接口：电视盒播放任何电台（无论是否走 Worker 反代）均可上报 (支持 GET / POST / OPTIONS)
+    if (url.pathname === '/report' || url.pathname === '/track') {{
+      const corsHeaders = {{
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
+        'Access-Control-Allow-Headers': '*',
+      }};
+
+      if (request.method === 'OPTIONS') {{
+        return new Response(null, {{ status: 204, headers: corsHeaders }});
+      }}
+
+      const clientIP = request.headers.get('CF-Connecting-IP') || '未知IP';
+      const country = request.cf?.country || '未知国家';
+      const city = request.cf?.city || '未知城市';
+
+      let channel = url.searchParams.get('channel') || url.searchParams.get('name') || '';
+      let group = url.searchParams.get('group') || '';
+      let line = url.searchParams.get('line') || '';
+      let device = url.searchParams.get('device') || '';
+      let targetStreamUrl = url.searchParams.get('url') || '';
+
+      if (request.method === 'POST') {{
+        try {{
+          const body = await request.json();
+          channel = channel || body.channel || body.name || '';
+          group = group || body.group || '';
+          line = line || body.line || '';
+          device = device || body.device || '';
+          targetStreamUrl = targetStreamUrl || body.url || '';
+        }} catch (e) {{}}
+      }}
+
+      channel = channel || '未知频道';
+
+      console.log(`[用户看播追踪] 客户端: ${{clientIP}} (${{country}}/${{city}}) | 设备: ${{device || '默认设备'}} | 分组: ${{group || '默认分组'}} | 频道: ${{channel}} (线路: ${{line || '1'}}) | 源: ${{targetStreamUrl}}`);
+
+      return new Response(JSON.stringify({{ status: "ok" }}), {{
+        status: 200,
+        headers: {{
+          'Content-Type': 'application/json; charset=utf-8',
+          ...corsHeaders
+        }}
+      }});
+    }}
     const pathSegments = url.pathname.split('/').map(segment => decodeURIComponent(segment));
     
     // 期望的路由路径结构是：/live/[频道名称]/index.m3u8
@@ -838,6 +884,12 @@ function getTargetUrl(channelUrl, requestedFile, searchParams) {{
     with open(worker_path, "w", encoding="utf-8") as f:
         f.write(worker_template)
     print(f"Updated {worker_path}")
+
+    dist_index_path = os.path.join(SCRIPT_DIR, "dist", "index.js")
+    if os.path.exists(os.path.join(SCRIPT_DIR, "dist")):
+        with open(dist_index_path, "w", encoding="utf-8") as f:
+            f.write(worker_template)
+        print(f"Updated {dist_index_path}")
 
 if __name__ == "__main__":
     main()
