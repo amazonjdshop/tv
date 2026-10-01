@@ -655,8 +655,8 @@ def main():
             
         url_lower = c["url"].lower()
         is_movie = c["category"] in ["最新电影", "影视点播"]
-        # Direct links for YouTube, YueChan, Movies, or CCTV-4
-        if "youtube.com" in url_lower or "youtu.be" in url_lower or url_lower in yuechan_urls or is_movie or c["name"] == "CCTV-4":
+        # Direct links for YouTube or Movies, all TV channels point to Cloudflare Worker
+        if "youtube.com" in url_lower or "youtu.be" in url_lower or is_movie:
             playlist_lines.append(f"{c['name']},{c['url']}")
         else:
             playlist_lines.append(f"{c['name']},https://{domain}/live/{c['key']}/index.m3u8")
@@ -668,7 +668,7 @@ def main():
         f.write(playlist_content)
     print(f"Updated {playlist_path} and {live3_path}")
     
-    # 2.1 Write to playlist_pure.txt, live.txt & live2.txt (Pure playlist: No YouTube, Includes Direct TV & Worker TV)
+    # 2.1 Write to playlist_pure.txt, live.txt & live2.txt (Pure playlist: No YouTube, All TV via Worker)
     playlist_pure_lines = []
     current_cat_pure = None
     for c in channels_with_keys:
@@ -680,7 +680,7 @@ def main():
             playlist_pure_lines.append(f"{current_cat_pure},#genre#")
         
         is_movie = c["category"] in ["最新电影", "影视点播"]
-        if is_movie or url_lower in yuechan_urls or c["name"] == "CCTV-4":
+        if is_movie:
             playlist_pure_lines.append(f"{c['name']},{c['url']}")
         else:
             playlist_pure_lines.append(f"{c['name']},https://{domain}/live/{c['key']}/index.m3u8")
@@ -803,100 +803,37 @@ export default {{
       targetUrl = getTargetUrl(channelUrl, requestedFile, url.search);
     }}
 
+    // 2.5 处理 OPTIONS 预检请求（支持 Web 播放器 CORS）
+    if (request.method === 'OPTIONS') {{
+      return new Response(null, {{
+        status: 204,
+        headers: {{
+          'Access-Control-Allow-Origin': '*',
+          'Access-Control-Allow-Methods': 'GET, HEAD, OPTIONS',
+          'Access-Control-Allow-Headers': '*'
+        }}
+      }});
+    }}
+
     // 3. 只在请求主播放列表（即点击播放的瞬间）打印一次日志记录
     if (requestedFile === 'index.m3u8' || requestedFile === '') {{
       const clientIP = request.headers.get('CF-Connecting-IP') || '未知IP';
-      console.log(`[播放日志] 客户端IP: ${{clientIP}} 正在启动播放频道: ${{channelName}}`);
+      console.log(`[播放日志] 客户端IP: ${{clientIP}} 正在启动播放频道: ${{channelName}} -> 302 引导至: ${{targetUrl}}`);
     }}
 
-    // 4. 【核心直连优化】：
-    // 为了防止电视盒子（如 Android TV / Apple TV）因安全策略拦截 HTTPS 到 HTTP 的跨协议跳转（Mixed Content）
-    // 或者因防火墙屏蔽非标准端口，对这些不安全或非标准端口的视频源采用【代理反代模式】；
-    // 对于常规的标准端口 HTTPS 视频源，采用最节省资源的【302 重定向模式】。
-    try {{
-      const targetUrlObj = new URL(targetUrl);
-      const isHttp = targetUrlObj.protocol === "http:";
-      const hasNonStandardPort = targetUrlObj.port && targetUrlObj.port !== "" && targetUrlObj.port !== "80" && targetUrlObj.port !== "443";
-      
-      if (isHttp || hasNonStandardPort) {{
-        let currentUrl = targetUrl;
-        let targetResponse = null;
-        let redirectCount = 0;
-        
-        while (redirectCount < 5) {{
-          const ipMatch = currentUrl.match(/\\/\\/([0-9]{{1,3}}\\.[0-9]{{1,3}}\\.[0-9]{{1,3}}\\.[0-9]{{1,3}})(:\\d+)?/);
-          if (ipMatch) {{
-            const ip = ipMatch[1];
-            currentUrl = currentUrl.replace(ip, ip + ".nip.io");
-          }}
-          
-          targetResponse = await fetch(currentUrl, {{
-            headers: {{
-              'User-Agent': request.headers.get('User-Agent') || 'Mozilla/5.0',
-              'Accept': '*/*'
-            }},
-            method: request.method,
-            redirect: 'manual'
-          }});
-          
-          if ([301, 302, 303, 307, 308].includes(targetResponse.status)) {{
-            const redirectUrl = targetResponse.headers.get('location');
-            if (redirectUrl) {{
-              currentUrl = new URL(redirectUrl, currentUrl).toString();
-              redirectCount++;
-              continue;
-            }}
-          }}
-          break;
-        }}
-        
-        if (!targetResponse || !targetResponse.ok) {{
-          return Response.redirect(targetUrl, 302);
-        }}
-        
-        // 动态改写 M3U8 播放列表内容，将相对 TS 切片路径转换为走代理的绝对路径
-        let bodyText = await targetResponse.text();
-        if (bodyText.includes("#EXTM3U")) {{
-          const finalBaseUrl = getBaseUrl(currentUrl);
-          const lines = bodyText.split('\\n');
-          const rewrittenLines = lines.map(line => {{
-            const trimmed = line.trim();
-            if (trimmed && !trimmed.startsWith('#')) {{
-              if (trimmed.startsWith('http')) {{
-                return `https://${{url.host}}/live/${{encodeURIComponent(channelName)}}/ts_segment?_url=${{encodeURIComponent(trimmed)}}`;
-              }} else {{
-                return `https://${{url.host}}/live/${{encodeURIComponent(channelName)}}/${{trimmed}}?_host=${{encodeURIComponent(finalBaseUrl)}}`;
-              }}
-            }}
-            return line;
-          }});
-          bodyText = rewrittenLines.join('\\n');
-          
-          const responseHeaders = new Headers(targetResponse.headers);
-          responseHeaders.set("Access-Control-Allow-Origin", "*");
-          responseHeaders.set("Content-Type", "application/vnd.apple.mpegurl");
-          
-          return new Response(bodyText, {{
-            status: targetResponse.status,
-            statusText: targetResponse.statusText,
-            headers: responseHeaders
-          }});
-        }}
-        
-        const responseHeaders = new Headers(targetResponse.headers);
-        responseHeaders.set("Access-Control-Allow-Origin", "*");
-        
-        return new Response(targetResponse.body, {{
-          status: targetResponse.status,
-          statusText: targetResponse.statusText,
-          headers: responseHeaders
-        }});
+    // 4. 【模式 3：302 纯直连重定向模式 (极速轻量/零代理消耗)】
+    // 电视盒子首次请求频道时，Worker 在 2ms 内以 302 重定向下发真实源站地址；
+    // 电视盒子随后直接与源站进行视频分块（TS 切片）的下载，零中转延迟、绝不耗费 Worker 流量与计算额度、100% 避免因 Cloudflare 代理导致的播放卡顿！
+    return new Response(null, {{
+      status: 302,
+      headers: {{
+        'Location': targetUrl,
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'GET, HEAD, OPTIONS',
+        'Access-Control-Expose-Headers': 'Location',
+        'Cache-Control': 'no-cache, no-store, must-revalidate'
       }}
-    }} catch (err) {{
-      // 容错处理：如果 URL 解析出错，走常规 302
-    }}
-
-    return Response.redirect(targetUrl, 302);
+    }});
   }}
 }};
 
