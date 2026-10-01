@@ -18,6 +18,7 @@ live3_path = os.path.join(SCRIPT_DIR, "live3.txt")
 from collections import defaultdict
 
 category_order = [
+    "测试频道",
     "央视频道",
     "卫视频道",
     "港澳台",
@@ -71,6 +72,10 @@ def clean_category(cat, name, url=""):
     name_lower = name.lower()
     url_lower = url.lower() if url else ""
     
+    # 0. Test Channels (测试频道)
+    if cat in ["测试频道", "广告测试"] or "广告测试" in name:
+        return "测试频道"
+
     # 1. CCTV/pay-TV channels
     is_cctv = "cctv" in name_lower or "央视" in name or "风云" in name or "怀旧" in name or "兵器" in name or "世界地理" in name or "--服务器" in name_lower
     if is_cctv:
@@ -279,31 +284,35 @@ def main():
             if ("cctv" in raw_name.lower() or "cctv" in category.lower()) and re.search(r'tsfile/live/10\d{2}_1\.m3u8', url):
                 continue
             
-            # Normalize CCTV names (CCTV-1 to CCTV-17, CCTV-4K, CCTV-8K, including CCTV-5+ and CCTV-16)
-            name_lower = raw_name.lower()
-            # Strip emojis / non-alphanumeric prefixes to match CCTV names correctly
-            clean_name_match = re.sub(r'^[^\w\s\-]+', '', name_lower).strip()
-            cctv_match = re.search(r'(cctv[-]?\d+)', clean_name_match)
-            if "cctv-4k" in name_lower or "cctv4k" in name_lower:
-                name = "CCTV-4K"
-            elif "cctv-8k" in name_lower or "cctv8k" in name_lower:
-                name = "CCTV-8K"
-            elif cctv_match:
-                cctv_base = cctv_match.group(1).upper()
-                # Ensure standard format (e.g. CCTV-5 instead of CCTV5)
-                if not cctv_base.startswith("CCTV-"):
-                    cctv_base = "CCTV-" + cctv_base[4:]
-                
-                if "cctv-5+" in name_lower or "cctv5+" in name_lower or ("cctv5" in name_lower and "+" in raw_name):
-                    name = "CCTV-5+体育赛事"
-                elif cctv_base == "CCTV-5":
-                    name = "CCTV-5体育"
-                elif cctv_base == "CCTV-16":
-                    name = "CCTV-16奥林匹克"
-                else:
-                    name = cctv_base
+            # If in test channel category, keep the specific test name
+            if category in ["测试频道", "广告测试"] or "广告测试" in raw_name:
+                name = raw_name
             else:
-                name = clean_channel_name(raw_name)
+                # Normalize CCTV names (CCTV-1 to CCTV-17, CCTV-4K, CCTV-8K, including CCTV-5+ and CCTV-16)
+                name_lower = raw_name.lower()
+                # Strip emojis / non-alphanumeric prefixes to match CCTV names correctly
+                clean_name_match = re.sub(r'^[^\w\s\-]+', '', name_lower).strip()
+                cctv_match = re.search(r'(cctv[-]?\d+)', clean_name_match)
+                if "cctv-4k" in name_lower or "cctv4k" in name_lower:
+                    name = "CCTV-4K"
+                elif "cctv-8k" in name_lower or "cctv8k" in name_lower:
+                    name = "CCTV-8K"
+                elif cctv_match:
+                    cctv_base = cctv_match.group(1).upper()
+                    # Ensure standard format (e.g. CCTV-5 instead of CCTV5)
+                    if not cctv_base.startswith("CCTV-"):
+                        cctv_base = "CCTV-" + cctv_base[4:]
+                    
+                    if "cctv-5+" in name_lower or "cctv5+" in name_lower or ("cctv5" in name_lower and "+" in raw_name):
+                        name = "CCTV-5+体育赛事"
+                    elif cctv_base == "CCTV-5":
+                        name = "CCTV-5体育"
+                    elif cctv_base == "CCTV-16":
+                        name = "CCTV-16奥林匹克"
+                    else:
+                        name = cctv_base
+                else:
+                    name = clean_channel_name(raw_name)
             
             # Normalize Singapore, Macau and regional channels to standard Chinese names
             sg_mo_map = {
@@ -344,20 +353,21 @@ def main():
             })
             
             # Cross-listing: CCTV-14 to 少儿卡通, CCTV-9 to 纪实探索
-            if name == "CCTV-14":
-                channels.append({
-                    "category": "少儿卡通",
-                    "name": "CCTV-14少儿",
-                    "raw_name": raw_name,
-                    "url": url
-                })
-            elif name == "CCTV-9":
-                channels.append({
-                    "category": "纪实探索",
-                    "name": "CCTV-9纪录",
-                    "raw_name": raw_name,
-                    "url": url
-                })
+            if cleaned_cat != "测试频道":
+                if name == "CCTV-14":
+                    channels.append({
+                        "category": "少儿卡通",
+                        "name": "CCTV-14少儿",
+                        "raw_name": raw_name,
+                        "url": url
+                    })
+                elif name == "CCTV-9":
+                    channels.append({
+                        "category": "纪实探索",
+                        "name": "CCTV-9纪录",
+                        "raw_name": raw_name,
+                        "url": url
+                    })
             
     # Prioritize higher quality streams for each channel before key assignment and capping
     from collections import OrderedDict
@@ -659,7 +669,10 @@ def main():
         cat_idx = get_category_index(c["category"])
         is_cctv_cat = "cctv" in c["category"].lower() or "央视" in c["category"]
         suffix_num = get_key_suffix_num(c["key"])
-        if is_cctv_cat:
+        if c["category"] == "测试频道":
+            is_cctv = "cctv" in c["name"].lower()
+            return (cat_idx, 0 if is_cctv else 1, cctv_sort_key(c["name"]) if is_cctv else (1, 0, 0, c["name"]), suffix_num, c["url"])
+        elif is_cctv_cat:
             return (cat_idx, c["category"], cctv_sort_key(c["name"]), suffix_num, c["url"])
         else:
             cat = c["category"]
@@ -855,7 +868,10 @@ export default {{
     const requestedFile = pathSegments.slice(3).join('/');
 
     // 1. 从映射表中查找该频道真实的 URL
-    const channelUrl = CHANNEL_MAP[channelName];
+    let channelUrl = CHANNEL_MAP[channelName];
+    if (!channelUrl) {{
+      channelUrl = CHANNEL_MAP[channelName.replace(/_/g, ' ')] || CHANNEL_MAP[channelName.replace(/ /g, '_')];
+    }}
     if (!channelUrl) {{
       return new Response(`未找到频道: ${{channelName}}`, {{ status: 404 }});
     }}
