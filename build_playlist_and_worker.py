@@ -18,7 +18,6 @@ live3_path = os.path.join(SCRIPT_DIR, "live3.txt")
 from collections import defaultdict
 
 category_order = [
-    "测试频道",
     "央视频道",
     "卫视频道",
     "港澳台",
@@ -41,7 +40,8 @@ category_order = [
     "美国地方台",
     "国际频道",
     "多语种国际台",
-    "最新电影"
+    "最新电影",
+    "测试频道"
 ]
 
 def clean_channel_name(name):
