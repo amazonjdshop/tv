@@ -644,22 +644,14 @@ def main():
                 if u:
                     yuechan_urls.add(u)
 
-    # 2. Write to playlist.txt & live3.txt (All-inclusive playlist)
-    domain = "round-snowflake-2d83.linda11-28-2022.workers.dev"
+    # 2. Write to playlist.txt & live3.txt (All-inclusive playlist with 100% direct stream URLs)
     playlist_lines = []
     current_cat = None
     for c in channels_with_keys:
         if c["category"] != current_cat:
             current_cat = c["category"]
             playlist_lines.append(f"{current_cat},#genre#")
-            
-        url_lower = c["url"].lower()
-        is_movie = c["category"] in ["最新电影", "影视点播"]
-        # Direct links for YouTube, YueChan, or Movies
-        if "youtube.com" in url_lower or "youtu.be" in url_lower or url_lower in yuechan_urls or is_movie:
-            playlist_lines.append(f"{c['name']},{c['url']}")
-        else:
-            playlist_lines.append(f"{c['name']},https://{domain}/live/{c['key']}/index.m3u8")
+        playlist_lines.append(f"{c['name']},{c['url']}")
         
     playlist_content = "\n".join(playlist_lines) + "\n"
     with open(playlist_path, "w", encoding="utf-8") as f:
@@ -668,7 +660,7 @@ def main():
         f.write(playlist_content)
     print(f"Updated {playlist_path} and {live3_path}")
     
-    # 2.1 Write to playlist_pure.txt, live.txt & live2.txt (Pure playlist: No YouTube, Includes Direct TV & Worker TV)
+    # 2.1 Write to playlist_pure.txt, live.txt & live2.txt (Pure playlist: No YouTube, 100% Direct TV URLs)
     playlist_pure_lines = []
     current_cat_pure = None
     for c in channels_with_keys:
@@ -678,12 +670,7 @@ def main():
         if c["category"] != current_cat_pure:
             current_cat_pure = c["category"]
             playlist_pure_lines.append(f"{current_cat_pure},#genre#")
-        
-        is_movie = c["category"] in ["最新电影", "影视点播"]
-        if is_movie or url_lower in yuechan_urls:
-            playlist_pure_lines.append(f"{c['name']},{c['url']}")
-        else:
-            playlist_pure_lines.append(f"{c['name']},https://{domain}/live/{c['key']}/index.m3u8")
+        playlist_pure_lines.append(f"{c['name']},{c['url']}")
         
     playlist_pure_content = "\n".join(playlist_pure_lines) + "\n"
     with open(playlist_pure_path, "w", encoding="utf-8") as f:
