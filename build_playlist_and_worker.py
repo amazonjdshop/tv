@@ -462,16 +462,14 @@ def main():
     def stream_stability_score(c):
         score = 0
         u_lower = c["url"].lower()
-        if any(k in u_lower for k in ["gslb/zbdq", "gslb/dsdq", "gslb/"]) and "dsdqpub" not in u_lower:
-            score += 40
-        elif any(k in u_lower for k in [":8181/3m1080p", ":8181/1080p", ":82/live/"]):
+        if any(k in u_lower for k in [":8181/3m1080p", ":8181/1080p"]):
             score += 35
         elif ":8181/720p" in u_lower:
             score += 28
         elif any(k in u_lower for k in ["cztv.com/live", "kylintv", "skygo.mn", "bestv.cn", "mgtv.com"]):
             score += 30
-        elif "chinamobile" in u_lower or "unicom" in u_lower or "key=txiptv" in u_lower:
-            score += 25
+        elif "chinamobile" in u_lower or "unicom" in u_lower or "key=txiptv" in u_lower or ":9901/" in u_lower or ":60901/" in u_lower or ":50085/" in u_lower:
+            score += 45
         elif "?" not in u_lower and not any(k in u_lower for k in ["cctvnews.cctv.com", "newlive", "wd_r2"]):
             score += 20
 
@@ -481,40 +479,51 @@ def main():
             score -= 50
         if any(k in u_lower for k in ["auth_key=", "sign=", "token="]) and not any(k in u_lower for k in ["auth=test", "key=txiptv"]):
             score -= 30
-        if any(k in u_lower for k in ["qd.je", "jdshipin.com", "sryze.cc", "kankanlive", "xykt-fix", "livehwc", "173.208.212.130", "dsdqpub", "auth=testpub", "cctv4k.m3u8"]):
-            score -= 40
+        if any(k in u_lower for k in [
+            "qd.je", "jdshipin.com", "sryze.cc", "kankanlive", "xykt-fix", "livehwc", 
+            "173.208.", "dsdqpub", "auth=testpub", "cctv4k.m3u8",
+            "gslb/zbdq", "gslb/dsdq", "gslb/", ":82/live/", ":82/gslb/", ":88/", ":81/live/",
+            "74.91.", "63.141.", "69.30.", "69.197.", "107.150.", "204.12.",
+            "192.151.", "198.204.", "207.56.", "192.187."
+        ]):
+            score -= 60
         return score
 
     def stream_purity_tier(c):
         """
         纯净度分级 (Purity Tiers):
         Tier 2 (最高): 100% 物理广播骨干专线与官方纯净流 (永久 0 广告，点开即正片)
-          - GSLB 卫星转播专线 (63.141..., 38.75... dsdqbv, zbdq)
-          - 电信/联通 8181 骨干专线 (:8181/3m1080p, :8181/1080p, :8181/720p)
-          - 82 广电直播专线节点 (:82/live/)
-          - 联通 IPTV 原生组播专线 (key=txiptv)
-          - 广电/卫视官方无广告流 (cztv.com, sdetv.com, hebtv.com, iyb983.cn, kwimgs.com)
+          - 国内运营商正规 IPTV 原生组播专线 (key=txiptv, :9901/, :60901/, :50085/)
+          - 电信/联通 8181 骨干专线 (:8181/3m1080p, :8181/1080p)
+          - 广电/卫视官方无广告流 (cztv.com, sdetv.com, hebtv.com, gztv.com, tdm.com.mo, kylintv.tv, bestv.cn, cnr.cn)
           - YouTube 24/7 官方直播
         Tier 1 (普通): 常见常规网络流 (无已知商业贴片中间人)
-        Tier 0 (最低/备用): 具有首次连接商业插播广告/贴片会话特征的代理转接流 (作为第 4/5 备用线路，绝不占 Line 1)
+        Tier 0 (最低/备用): 具有首次连接商业插播广告/贴片会话/暗投切片特征的流 (仅作为末尾备用线路，绝不占 Line 1)
           - qd.je, jdshipin.com, sryze.cc (底层均为 168.sryze.cc 商业广告代理)
           - xykt-fix, kankanlive, livehwc (商业 H5 流，带开播前置广告)
           - user_session_id=, edge_slice= (广告会话跟踪)
           - miguvideo / wd_r2 (移动端 app 流，带 bean=mgspad 广告参数)
           - newlive (酒店网关开机迎宾广告)
           - dsdqpub / auth=testpub / cctv4k.m3u8 (公共测试/广告轮播流)
+          - 海外裸IP灰产反代源 (:82/live/, :82/gslb/, gslb/zbdq, gslb/dsdq, gslb/, :88/, :81/live/, 74.91., 63.141., 69.30., 69.197., 107.150., 204.12., 192.151., 198.204., 207.56., 192.187., 173.208.)
         """
         u_lower = c["url"].lower()
         if any(k in u_lower for k in [
             "qd.je", "jdshipin.com", "sryze.cc", "xykt-fix", "kankanlive", 
             "livehwc", "edge_slice", "user_session_id", "wd_r2", "newlive",
-            "173.208.212.130", "appadhw", "cdnwh", "cctv4k.m3u8", "dsdqpub", "auth=testpub"
+            "appadhw", "cdnwh", "cctv4k.m3u8", "dsdqpub", "auth=testpub",
+            ":82/live/", ":82/gslb/", "gslb/zbdq", "gslb/dsdq", "gslb/", ":88/", ":81/live/",
+            "74.91.", "63.141.", "69.30.", "69.197.", "107.150.", "204.12.",
+            "192.151.", "198.204.", "207.56.", "192.187.", "173.208."
         ]):
             return 0
         if any(k in u_lower for k in [
-            "gslb/zbdq", "gslb/dsdq", "gslb/", ":8181/3m1080p", ":8181/1080p", ":8181/720p",
-            ":82/live/", "key=txiptv", "cztv.com", "sdetv.com", "hebtv.com", "iyb983.cn",
-            "kwimgs.com", "youtube.com", "youtu.be"
+            "key=txiptv", ":9901/", ":60901/", ":50085/",
+            ":8181/3m1080p", ":8181/1080p",
+            "cztv.com", "sdetv.com", "hebtv.com", "gztv.com", "tdm.com.mo",
+            "kylintv.tv", "cnr.cn", "bestv.cn", "sun0769.com", "wcetv.com",
+            "amagi.tv", "sofast.tv", "mediatailor", "youtube.com", "youtu.be",
+            "cctvnews.cctv.com", "iyb983.cn", "kwimgs.com", "211.72.174.95"
         ]):
             return 2
         return 1

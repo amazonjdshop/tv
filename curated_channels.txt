@@ -11,6 +11,27 @@
 # 即使某天频道因临时网络波动被清洗移除，次日流水线启动时仍会重新探测并自动救回恢复（自愈机制）。
 # ==============================================================================
 
+# ==============================================================================
+# 中央广播电视总台 (CCTV-1 ~ CCTV-17 官方正规 IPTV 原生组播专线 · 永久 0 广告)
+# ==============================================================================
+央视频道|CCTV-1|http://59.39.89.130:60901/tsfile/live/0001_1.m3u8?key=txiptv&playlive=1&authid=0
+央视频道|CCTV-2|http://59.39.89.130:60901/tsfile/live/0002_1.m3u8?key=txiptv&playlive=1&authid=0
+央视频道|CCTV-3|http://59.39.89.130:60901/tsfile/live/0003_1.m3u8?key=txiptv&playlive=1&authid=0
+央视频道|CCTV-4|http://59.39.89.130:60901/tsfile/live/0004_1.m3u8?key=txiptv&playlive=1&authid=0
+央视频道|CCTV-5|http://59.39.89.130:60901/tsfile/live/0005_1.m3u8?key=txiptv&playlive=1&authid=0
+央视频道|CCTV-6|http://59.39.89.130:60901/tsfile/live/0006_1.m3u8?key=txiptv&playlive=1&authid=0
+央视频道|CCTV-7|http://59.39.89.130:60901/tsfile/live/0007_1.m3u8?key=txiptv&playlive=1&authid=0
+央视频道|CCTV-8|http://59.39.89.130:60901/tsfile/live/0008_1.m3u8?key=txiptv&playlive=1&authid=0
+央视频道|CCTV-9|http://59.39.89.130:60901/tsfile/live/0009_1.m3u8?key=txiptv&playlive=1&authid=0
+央视频道|CCTV-10|http://59.39.89.130:60901/tsfile/live/0010_1.m3u8?key=txiptv&playlive=1&authid=0
+央视频道|CCTV-11|http://59.39.89.130:60901/tsfile/live/0011_1.m3u8?key=txiptv&playlive=1&authid=0
+央视频道|CCTV-12|http://59.39.89.130:60901/tsfile/live/0012_1.m3u8?key=txiptv&playlive=1&authid=0
+央视频道|CCTV-13|http://59.39.89.130:60901/tsfile/live/0013_1.m3u8?key=txiptv&playlive=1&authid=0
+央视频道|CCTV-14|http://59.39.89.130:60901/tsfile/live/0014_1.m3u8?key=txiptv&playlive=1&authid=0
+央视频道|CCTV-15|http://59.39.89.130:60901/tsfile/live/0015_1.m3u8?key=txiptv&playlive=1&authid=0
+央视频道|CCTV-16|http://59.39.89.130:60901/tsfile/live/0016_1.m3u8?key=txiptv&playlive=1&authid=0
+央视频道|CCTV-17|http://59.39.89.130:60901/tsfile/live/0017_1.m3u8?key=txiptv&playlive=1&authid=0
+
 # 国家级旗舰高清电影专线 (海外 GSLB 广播主干直连推流)
 影视剧场|CHC高清电影|http://63.141.230.178:82/gslb/zbdq5.m3u8?id=chchd
 影视剧场|CHC高清电影|http://38.75.136.137:98/gslb/dsdqpub/chchd.m3u8?auth=testpub
