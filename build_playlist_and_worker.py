@@ -3,6 +3,7 @@ import json
 import hashlib
 import os
 import time
+import urllib.parse
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 merged_path = os.path.join(SCRIPT_DIR, "merged_channels.txt")
@@ -467,9 +468,11 @@ def main():
             res_tier = 2
             res_name = "720P"
             latency_ms = 9999
+            download_kbps = 0
+            smooth_tier = 1
 
             if "youtube.com" in url.lower() or "youtu.be" in url.lower():
-                return url, {"res_tier": 3, "res_name": "1080P", "latency_ms": 120, "tested_at": time.time()}
+                return url, {"res_tier": 3, "res_name": "1080P", "latency_ms": 120, "download_kbps": 30000, "smooth_tier": 1, "tested_at": time.time()}
 
             combined = f"{item.get('raw_name', '')} {url}".lower()
             clean_combined = re.sub(r'cctv\d+k', '', combined) if ("cctv-4k" not in combined and "cctv 4k" not in combined and "cctv-8k" not in combined and "cctv 8k" not in combined) else combined
@@ -490,9 +493,10 @@ def main():
 
             try:
                 req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
-                with urllib.request.urlopen(req, context=probe_ctx, timeout=2.0) as r:
+                with urllib.request.urlopen(req, context=probe_ctx, timeout=2.5) as r:
                     latency_ms = int((time.time() - t0) * 1000)
-                    chunk = r.read(4000).decode('utf-8', errors='ignore')
+                    final_url = r.geturl()
+                    chunk = r.read(8000).decode('utf-8', errors='ignore')
                     m_res = re.search(r'RESOLUTION=(\d+)x(\d+)', chunk, re.I)
                     if m_res:
                         w, h = int(m_res.group(1)), int(m_res.group(2))
@@ -515,13 +519,56 @@ def main():
                                 res_tier, res_name = 3, "1080P"
                             elif bw >= 1800000:
                                 res_tier, res_name = 2, "720P"
+
+                    # 方案 C 测速：下载 1MB 视频切片样本，检验真实网络下行能否跑赢视频播放码率
+                    lines = [l.strip() for l in chunk.splitlines() if l.strip() and not l.startswith("#")]
+                    if lines:
+                        target_seg = urllib.parse.urljoin(final_url, lines[0])
+                        if "#EXT-X-STREAM-INF" in chunk or ".m3u" in target_seg or "php" in target_seg or "sryze.cc" in target_seg:
+                            try:
+                                req_sub = urllib.request.Request(target_seg, headers={'User-Agent': 'Mozilla/5.0'})
+                                with urllib.request.urlopen(req_sub, context=probe_ctx, timeout=2.0) as r_sub:
+                                    sub_url = r_sub.geturl()
+                                    sub_content = r_sub.read(8000).decode('utf-8', errors='ignore')
+                                    if sub_content.startswith("#EXTM3U"):
+                                        sub_lines = [l.strip() for l in sub_content.splitlines() if l.strip() and not l.startswith("#")]
+                                        if sub_lines:
+                                            target_seg = urllib.parse.urljoin(sub_url, sub_lines[0])
+                            except Exception:
+                                pass
+
+                        t_seg_start = time.time()
+                        req_seg = urllib.request.Request(target_seg, headers={'User-Agent': 'Mozilla/5.0'})
+                        with urllib.request.urlopen(req_seg, context=probe_ctx, timeout=3.0) as r_seg:
+                            bytes_read = 0
+                            while bytes_read < 1048576: # 1MB 取样
+                                c = r_seg.read(65536)
+                                if not c: break
+                                bytes_read += len(c)
+                                if (time.time() - t_seg_start) > 2.0: break
+                            elapsed = time.time() - t_seg_start
+                            download_kbps = int((bytes_read * 8 / 1024) / elapsed) if elapsed > 0 else 0
             except Exception:
                 latency_ms = 9999
+                download_kbps = 0
+
+            # 方案 C 核心判定：流畅播放阈值判定
+            # 1080P/4K 高码率流需至少 3000 kbps 才能保证不频频卡顿；720P 需 1500 kbps；标清需 700 kbps
+            if latency_ms == 9999 or download_kbps == 0:
+                smooth_tier = 0
+            elif res_tier >= 3:
+                smooth_tier = 1 if download_kbps >= 3000 else 0
+            elif res_tier == 2:
+                smooth_tier = 1 if download_kbps >= 1500 else 0
+            else:
+                smooth_tier = 1 if download_kbps >= 700 else 0
 
             return url, {
                 "res_tier": res_tier,
                 "res_name": res_name,
                 "latency_ms": latency_ms,
+                "download_kbps": download_kbps,
+                "smooth_tier": smooth_tier,
                 "tested_at": time.time()
             }
 
@@ -552,15 +599,19 @@ def main():
             elif any(k in combined for k in ["576", "480", "sd", "标清", "kankanlive"]): res_tier = 1
             else: res_tier = 2
 
+        smooth_tier = m.get("smooth_tier", 1)
+        download_kbps = m.get("download_kbps", 0)
         latency_ms = m.get("latency_ms", 9999)
         stability = stream_stability_score(c)
         purity = stream_purity_tier(c)
-        # 核心多维排序规则（严格遵从用户指示）：
-        # 1. 第一优先级：清晰度（4K/8K=4 > 1080P=3 > 720P=2 > SD=1）
-        # 2. 第二优先级：纯净度（同清晰度下：无广告纯净流 Tier 2 / Tier 1 优先，有广告 Tier 0 靠后）
-        # 3. 第三优先级：速度（同清晰度且同纯净度下：延迟越低/响应越快越靠前，使用 -latency_ms）
-        # 4. 第四优先级：稳定性（长效/专线保底平局）
-        return (res_tier, purity, -latency_ms, stability)
+
+        # 方案 C 核心多维排序规则：
+        # 1. 第一优先级：流畅度（smooth_tier: 1 能够跑赢码率连续播放 > 0 严重带宽不足死循环卡顿）
+        # 2. 第二优先级：清晰度（4K/8K=4 > 1080P=3 > 720P=2 > SD=1）
+        # 3. 第三优先级：纯净度（同清晰度下：无广告纯净流 Tier 2 / Tier 1 优先，有广告 Tier 0 靠后）
+        # 4. 第四优先级：速度（实际下行带宽越高越好 download_kbps，平局使用首包响应 -latency_ms）
+        # 5. 第五优先级：稳定性（长效/专线保底平局）
+        return (smooth_tier, res_tier, purity, download_kbps, -latency_ms, stability)
 
     sorted_channels = []
     for cat_name, grp in name_groups.items():
