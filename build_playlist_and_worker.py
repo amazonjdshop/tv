@@ -263,7 +263,7 @@ def main():
             url = parts[2].strip()
             
             # Filter out adware restreamer, ad networks, and looping test streams
-            if any(k in url.lower() for k in ["107.150.60.122", "lantian/channel001", "198.204.228.26", "appadhw", "tvzb", "47.97.252.137", "3y1.xyz", "nosignal", "epg.pw/stream", "applive"]):
+            if any(k in url.lower() for k in ["107.150.60.122", "lantian/channel001", "198.204.228.26", "appadhw", "tvzb", "47.97.252.137", "3y1.xyz", "nosignal", "epg.pw/stream", "applive", "cnlive.club", "sailei", "dpdns.org"]):
                 continue
             if any(k in raw_name for k in ["支持作者", "关注公众号", "防失联", "微信", "更新时间"]):
                 continue
@@ -362,24 +362,54 @@ def main():
         raw_lower = c.get("raw_name", "").lower()
         combined = f"{raw_lower} {u_lower}"
 
+        # 1. 分辨率 / 画质基准分 (Resolution / Codec)
         # 4K / 8K 超高清
         if any(k in combined for k in ["4k", "8k", "2160p", "uhd"]):
             score += 25
         # 1080P 全高清
         elif any(k in combined for k in ["1080p", "1080", "fhd", "超清"]):
             score += 18
-
-        # 电信/联通/移动原生广播级专网 IPTV (50fps/高码率)
-        if any(k in u_lower for k in ["newlive", "chinamobile", "gslb"]):
-            score += 10
-
         # 720P 高清
-        if any(k in combined for k in ["720p", "720", "hd", "高清"]):
-            score += 6
-
+        elif any(k in combined for k in ["720p", "720", "hd", "高清"]):
+            score += 10
         # 576P / 480P / 标清
-        if any(k in combined for k in ["576", "480", "sd", "标清"]):
+        elif any(k in combined for k in ["576", "480", "sd", "标清"]):
             score -= 6
+
+        # 2. 稳定性与长效直连加分 (Stability Bonus - 确保主力源 Line 1 为永久无 Token / 长效专线)
+        # 广播级专网 GSLB 直链 (永不超时、50fps高码率稳定)
+        if any(k in u_lower for k in ["gslb/zbdq", "gslb/dsdq", "gslb/"]):
+            score += 40
+        # 永久固定端口直连 (纯净专线，无任何短期 Token)
+        elif any(k in u_lower for k in [":8181/3m1080p", ":8181/1080p", ":82/live/"]):
+            score += 35
+        elif ":8181/720p" in u_lower:
+            score += 28
+        # 官方直连 / 自建稳定中转代理
+        elif any(k in u_lower for k in ["jdshipin.com", "cztv.com/live", "kylintv", "skygo.mn", "bestv.cn", "mgtv.com"]):
+            score += 30
+        # 电信/移动专网 IPTV 且无短期动态参数
+        elif "chinamobile" in u_lower or "unicom" in u_lower:
+            score += 25
+        # 没有任何 query 参数的纯净 m3u8 直链（天然无 Token，永不过期）
+        elif "?" not in u_lower and not any(k in u_lower for k in ["cctvnews.cctv.com", "newlive", "wd_r2"]):
+            score += 20
+
+        # 3. 短效动态 Token 严重降权 (Demote to Line 3/4/5 Backup Lines)
+        # 央视新闻客户端 App 抓取动态 HLS (Token 有效期 30~60 分钟)
+        if "cctvnews.cctv.com" in u_lower:
+            score -= 60
+        # 咪咕移动端临时切片 (Token 极短)
+        if "wd_r2/cctv" in u_lower:
+            score -= 60
+        # 酒店/私网动态切片 (易会话超时)
+        if "newlive" in u_lower:
+            score -= 50
+        # 带有动态过期时间戳/防盗链特征参数
+        if "wssecret=" in u_lower or "wstime=" in u_lower:
+            score -= 50
+        if any(k in u_lower for k in ["auth_key=", "sign=", "token="]) and not any(k in u_lower for k in ["auth=test", "key=txiptv"]):
+            score -= 30
 
         # 已知低码率压缩转码源 (如 800x600 的 kankanlive)
         if "kankanlive" in u_lower:
@@ -389,10 +419,18 @@ def main():
 
     sorted_channels = []
     for cat_name, grp in name_groups.items():
+        # Deduplicate identical or case-insensitive duplicate URLs within the same channel
+        seen_urls = set()
+        dedup_grp = []
+        for x in grp:
+            norm_u = x["url"].strip().lower()
+            if norm_u not in seen_urls:
+                seen_urls.add(norm_u)
+                dedup_grp.append(x)
         # Sort descending by stream quality score
-        grp.sort(key=lambda x: stream_quality_score(x), reverse=True)
+        dedup_grp.sort(key=lambda x: stream_quality_score(x), reverse=True)
         # Cap at max 5 highest-quality lines per channel
-        sorted_channels.extend(grp[:5])
+        sorted_channels.extend(dedup_grp[:5])
     channels = sorted_channels
 
     # Assign unique keys for duplicate names in quality-sorted order
