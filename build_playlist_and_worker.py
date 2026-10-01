@@ -2,6 +2,7 @@ import re
 import json
 import hashlib
 import os
+import time
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 merged_path = os.path.join(SCRIPT_DIR, "merged_channels.txt")
@@ -356,66 +357,149 @@ def main():
     for c in channels:
         name_groups.setdefault((c["category"], c["name"]), []).append(c)
 
-    def stream_quality_score(c):
+    # ── Resolution and Speed Multi-Level Benchmark ───────────────────────────
+    METRICS_PATH = os.path.join(SCRIPT_DIR, "stream_metrics.json")
+    cached_metrics = {}
+    if os.path.exists(METRICS_PATH):
+        try:
+            with open(METRICS_PATH, "r", encoding="utf-8") as mf:
+                cached_metrics = json.load(mf)
+        except Exception:
+            cached_metrics = {}
+
+    # Identify multi-line channels that require quality & speed differentiation
+    multi_line_urls = []
+    seen_multi_urls = set()
+    for (cat_name, ch_name), grp in name_groups.items():
+        if len(grp) > 1:
+            for item in grp:
+                u_norm = item["url"].strip()
+                if u_norm not in seen_multi_urls:
+                    seen_multi_urls.add(u_norm)
+                    now_ts = time.time()
+                    m = cached_metrics.get(u_norm)
+                    # Re-probe if not cached or tested more than 2 hours ago
+                    if not m or (now_ts - m.get("tested_at", 0) > 7200):
+                        multi_line_urls.append(item)
+
+    if multi_line_urls:
+        print(f"Benchmarking clarity & speed for {len(multi_line_urls)} multi-line channel streams...")
+        import urllib.request, ssl, concurrent.futures
+        probe_ctx = ssl._create_unverified_context()
+
+        def probe_line(item):
+            url = item["url"]
+            t0 = time.time()
+            res_tier = 2
+            res_name = "720P"
+            latency_ms = 9999
+
+            if "youtube.com" in url.lower() or "youtu.be" in url.lower():
+                return url, {"res_tier": 3, "res_name": "1080P", "latency_ms": 120, "tested_at": time.time()}
+
+            combined = f"{item.get('raw_name', '')} {url}".lower()
+            if any(k in combined for k in ["4k", "8k", "2160p", "uhd", "超高清"]):
+                res_tier, res_name = 4, "4K"
+            elif any(k in combined for k in ["1080p", "1080", "fhd", "超清", "3m1080p"]):
+                res_tier, res_name = 3, "1080P"
+            elif any(k in combined for k in ["720p", "720", "hd", "高清"]):
+                res_tier, res_name = 2, "720P"
+            elif any(k in combined for k in ["576", "480", "sd", "标清", "kankanlive"]):
+                res_tier, res_name = 1, "SD"
+
+            try:
+                req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
+                with urllib.request.urlopen(req, context=probe_ctx, timeout=2.0) as r:
+                    latency_ms = int((time.time() - t0) * 1000)
+                    chunk = r.read(4000).decode('utf-8', errors='ignore')
+                    m_res = re.search(r'RESOLUTION=(\d+)x(\d+)', chunk, re.I)
+                    if m_res:
+                        w, h = int(m_res.group(1)), int(m_res.group(2))
+                        if h >= 2160 or w >= 3840:
+                            res_tier, res_name = 4, f"4K ({w}x{h})"
+                        elif h >= 1080 or w >= 1920:
+                            res_tier, res_name = 3, f"1080P ({w}x{h})"
+                        elif h >= 720 or w >= 1280:
+                            res_tier, res_name = 2, f"720P ({w}x{h})"
+                        else:
+                            res_tier, res_name = 1, f"SD ({w}x{h})"
+                    else:
+                        m_bw = re.search(r'BANDWIDTH=(\d+)', chunk, re.I)
+                        if m_bw:
+                            bw = int(m_bw.group(1))
+                            if bw >= 12000000:
+                                res_tier, res_name = 4, "4K"
+                            elif bw >= 3500000:
+                                res_tier, res_name = 3, "1080P"
+                            elif bw >= 1800000:
+                                res_tier, res_name = 2, "720P"
+            except Exception:
+                latency_ms = 9999
+
+            return url, {
+                "res_tier": res_tier,
+                "res_name": res_name,
+                "latency_ms": latency_ms,
+                "tested_at": time.time()
+            }
+
+        with concurrent.futures.ThreadPoolExecutor(max_workers=50) as ex:
+            for u_res, m_res in ex.map(probe_line, multi_line_urls):
+                cached_metrics[u_res] = m_res
+
+        # Persist metrics
+        try:
+            with open(METRICS_PATH, "w", encoding="utf-8") as mf:
+                json.dump(cached_metrics, mf, ensure_ascii=False, indent=2)
+        except Exception:
+            pass
+
+    def stream_stability_score(c):
         score = 0
         u_lower = c["url"].lower()
-        raw_lower = c.get("raw_name", "").lower()
-        combined = f"{raw_lower} {u_lower}"
-
-        # 1. 分辨率 / 画质基准分 (Resolution / Codec)
-        # 4K / 8K 超高清
-        if any(k in combined for k in ["4k", "8k", "2160p", "uhd"]):
-            score += 25
-        # 1080P 全高清
-        elif any(k in combined for k in ["1080p", "1080", "fhd", "超清"]):
-            score += 18
-        # 720P 高清
-        elif any(k in combined for k in ["720p", "720", "hd", "高清"]):
-            score += 10
-        # 576P / 480P / 标清
-        elif any(k in combined for k in ["576", "480", "sd", "标清"]):
-            score -= 6
-
-        # 2. 稳定性与长效直连加分 (Stability Bonus - 确保主力源 Line 1 为永久无 Token / 长效专线)
-        # 广播级专网 GSLB 直链 (永不超时、50fps高码率稳定)
         if any(k in u_lower for k in ["gslb/zbdq", "gslb/dsdq", "gslb/"]):
             score += 40
-        # 永久固定端口直连 (纯净专线，无任何短期 Token)
         elif any(k in u_lower for k in [":8181/3m1080p", ":8181/1080p", ":82/live/"]):
             score += 35
         elif ":8181/720p" in u_lower:
             score += 28
-        # 官方直连 / 自建稳定中转代理
         elif any(k in u_lower for k in ["jdshipin.com", "cztv.com/live", "kylintv", "skygo.mn", "bestv.cn", "mgtv.com"]):
             score += 30
-        # 电信/移动专网 IPTV 且无短期动态参数
         elif "chinamobile" in u_lower or "unicom" in u_lower:
             score += 25
-        # 没有任何 query 参数的纯净 m3u8 直链（天然无 Token，永不过期）
         elif "?" not in u_lower and not any(k in u_lower for k in ["cctvnews.cctv.com", "newlive", "wd_r2"]):
             score += 20
 
-        # 3. 短效动态 Token 严重降权 (Demote to Line 3/4/5 Backup Lines)
-        # 央视新闻客户端 App 抓取动态 HLS (Token 有效期 30~60 分钟)
-        if "cctvnews.cctv.com" in u_lower:
+        if "cctvnews.cctv.com" in u_lower or "wd_r2/cctv" in u_lower:
             score -= 60
-        # 咪咕移动端临时切片 (Token 极短)
-        if "wd_r2/cctv" in u_lower:
-            score -= 60
-        # 酒店/私网动态切片 (易会话超时)
-        if "newlive" in u_lower:
-            score -= 50
-        # 带有动态过期时间戳/防盗链特征参数
-        if "wssecret=" in u_lower or "wstime=" in u_lower:
+        if "newlive" in u_lower or "wssecret=" in u_lower or "wstime=" in u_lower:
             score -= 50
         if any(k in u_lower for k in ["auth_key=", "sign=", "token="]) and not any(k in u_lower for k in ["auth=test", "key=txiptv"]):
             score -= 30
-
-        # 已知低码率压缩转码源 (如 800x600 的 kankanlive)
         if "kankanlive" in u_lower:
             score -= 10
-
         return score
+
+    def multi_line_sort_key(c):
+        u = c["url"].strip()
+        m = cached_metrics.get(u, {})
+        res_tier = m.get("res_tier")
+        if res_tier is None:
+            combined = f"{c.get('raw_name', '')} {u}".lower()
+            if any(k in combined for k in ["4k", "8k", "2160p", "uhd"]): res_tier = 4
+            elif any(k in combined for k in ["1080p", "1080", "fhd", "超清", "3m1080p"]): res_tier = 3
+            elif any(k in combined for k in ["720p", "720", "hd", "高清"]): res_tier = 2
+            elif any(k in combined for k in ["576", "480", "sd", "标清", "kankanlive"]): res_tier = 1
+            else: res_tier = 2
+
+        latency_ms = m.get("latency_ms", 9999)
+        stability = stream_stability_score(c)
+
+        # 核心排序规则：
+        # 1. 第一优先级：清晰度（4K > 1080P > 720P > SD）
+        # 2. 第二优先级：速度（延迟越低越快越靠前，使用 -latency_ms）
+        # 3. 第三优先级：稳定性（长效/专线保底平局）
+        return (res_tier, -latency_ms, stability)
 
     sorted_channels = []
     for cat_name, grp in name_groups.items():
@@ -427,8 +511,8 @@ def main():
             if norm_u not in seen_urls:
                 seen_urls.add(norm_u)
                 dedup_grp.append(x)
-        # Sort descending by stream quality score
-        dedup_grp.sort(key=lambda x: stream_quality_score(x), reverse=True)
+        # Sort descending: Clearest line first; if clarity identical, fastest speed first
+        dedup_grp.sort(key=multi_line_sort_key, reverse=True)
         # Cap at max 5 highest-quality lines per channel
         sorted_channels.extend(dedup_grp[:5])
     channels = sorted_channels
