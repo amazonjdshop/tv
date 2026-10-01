@@ -8,21 +8,20 @@ CCTV-2,http://204.12.221.218:8181/3m1080p/cctv2.m3u8
 CCTV-2,http://74.91.26.218:82/live/cctv2hd.m3u8
 CCTV-2,http://222.169.85.8:9901/tsfile/live/0002_1.m3u8?key=txiptv&playlive=1&authid=0
 CCTV-2,http://116.128.243.121:85/tsfile/live/0002_1.m3u8?key=txiptv&playlive=0&authid=0
-CCTV-2,http://173.208.212.130:8181/720p/cctv2.m3u8
+CCTV-2,http://192.151.150.154/live/cctv2hd.m3u8
 CCTV-3,http://74.91.26.218:82/live/cctv3hd.m3u8
 CCTV-3,http://63.141.230.178:82/gslb/zbdq5.m3u8?id=cctv3hd
 CCTV-3,http://222.169.85.8:9901/tsfile/live/0003_1.m3u8?key=txiptv&playlive=1&authid=0
 CCTV-3,http://69.30.245.50/live/cctv3.m3u8
 CCTV-3,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CCTV-3_4/index.m3u8
 CCTV-4,http://38.75.136.137:98/gslb/dsdqpub/cctv4k.m3u8?auth=testpub
-CCTV-4,http://173.208.212.130:8181/1080p/cctv4.m3u8
 CCTV-4,http://74.91.26.218:82/live/cctv4hd.m3u8
-CCTV-4,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CCTV-4_3/index.m3u8
+CCTV-4,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CCTV-4_2/index.m3u8
 CCTV-4,https://dash2.antik.sk/live/test_cctv_tizen/playlist.m3u8
+CCTV-4,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CCTV-4_4/index.m3u8
 CCTV-5体育,http://38.75.136.137:98/gslb/dsdqbv/cctv5hd.m3u8?auth=test20251009
 CCTV-5体育,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CCTV-5体育_1/index.m3u8
-CCTV-5体育,http://173.208.212.130:8181/720p/cctv5.m3u8
-CCTV-5体育,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CCTV-5体育_3/index.m3u8
+CCTV-5体育,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CCTV-5体育_2/index.m3u8
 CCTV-5体育,http://118.122.144.115:8888/newlive/live/hls/5/live.m3u8
 CCTV-5+体育赛事,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CCTV-5+体育赛事/index.m3u8
 CCTV-5+体育赛事,http://38.75.136.137:98/gslb/dsdqbv/cctv5p.m3u8?auth=test20251009
@@ -67,10 +66,10 @@ CCTV-13,http://38.75.136.137:98/gslb/dsdqbv/cctv13hd.m3u8?auth=test20251009
 CCTV-13,http://63.141.230.178:82/gslb/zbdq5.m3u8?id=cctv13hd
 CCTV-13,https://event.pull.hebtv.com/jishi/cp1.m3u8
 CCTV-14,http://204.12.221.218:8181/3m1080p/cctv14.m3u8
-CCTV-14,http://173.208.212.130:8181/1080p/cctv14.m3u8
 CCTV-14,http://74.91.26.218:82/live/cctv14hd.m3u8
 CCTV-14,http://38.75.136.137:98/gslb/dsdqbv/cctv14hd.m3u8?auth=test20251009
 CCTV-14,http://63.141.230.178:82/gslb/zbdq5.m3u8?id=cctv14hd
+CCTV-14,https://event.pull.hebtv.com/jishi/cp2.m3u8
 CCTV-15,http://204.12.221.218:8181/3m1080p/cctv15.m3u8
 CCTV-15,http://74.91.26.218:82/live/cctv15hd.m3u8
 CCTV-15,http://38.75.136.137:98/gslb/dsdqbv/cctv15hd.m3u8?auth=test20251009
@@ -200,7 +199,6 @@ CCTV-高爾夫網球,http://38.75.136.137:98/gslb/dsdqpub/gefwq.m3u8?auth=testpu
 河南卫视,http://38.75.136.137:98/gslb/dsdqpub/hawshd.m3u8?auth=testpub
 河南卫视,http://63.141.230.178:82/gslb/zbdq5.m3u8?id=hawshd
 河南卫视,http://111.59.139.82:11888/tsfile/live/0139_1.m3u8?key=txiptv&playlive=1&authid=0
-河南卫视,http://173.208.212.130:8181/720p/haws.m3u8
 浙江卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/浙江卫视/index.m3u8
 浙江卫视,http://ali-xwl.cztv.com/live/channel011080Plxw.m3u8
 浙江卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/浙江卫视_2/index.m3u8
@@ -582,10 +580,10 @@ Zee Horror Nights,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/
 少儿卡通,#genre#
 金鹰卡通,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/金鹰卡通/index.m3u8
 CCTV-14少儿,http://204.12.221.218:8181/3m1080p/cctv14.m3u8
-CCTV-14少儿,http://173.208.212.130:8181/1080p/cctv14.m3u8
 CCTV-14少儿,http://74.91.26.218:82/live/cctv14hd.m3u8
 CCTV-14少儿,http://38.75.136.137:98/gslb/dsdqbv/cctv14hd.m3u8?auth=test20251009
 CCTV-14少儿,http://63.141.230.178:82/gslb/zbdq5.m3u8?id=cctv14hd
+CCTV-14少儿,https://event.pull.hebtv.com/jishi/cp2.m3u8
 A+Cartoon,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/A+Cartoon/index.m3u8
 Cartoon Classics,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Cartoon Classics/index.m3u8
 Duck TV Cartoon,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Duck TV Cartoon/index.m3u8

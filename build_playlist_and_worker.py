@@ -268,7 +268,7 @@ def main():
             url = parts[2].strip()
             
             # Filter out adware restreamer, ad networks, and looping test streams
-            if any(k in url.lower() for k in ["107.150.60.122", "lantian/channel001", "198.204.228.26", "appadhw", "tvzb", "47.97.252.137", "3y1.xyz", "nosignal", "epg.pw/stream", "applive", "cnlive.club", "sailei", "dpdns.org"]):
+            if any(k in url.lower() for k in ["173.208.212.130", "cdnwh", "107.150.60.122", "lantian/channel001", "198.204.228.26", "appadhw", "tvzb", "47.97.252.137", "3y1.xyz", "nosignal", "epg.pw/stream", "applive", "cnlive.club", "sailei", "dpdns.org"]):
                 continue
             if any(k in raw_name for k in ["支持作者", "关注公众号", "防失联", "微信", "更新时间"]):
                 continue
