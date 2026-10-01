@@ -467,22 +467,54 @@ def main():
             score += 35
         elif ":8181/720p" in u_lower:
             score += 28
-        elif any(k in u_lower for k in ["jdshipin.com", "cztv.com/live", "kylintv", "skygo.mn", "bestv.cn", "mgtv.com"]):
+        elif any(k in u_lower for k in ["cztv.com/live", "kylintv", "skygo.mn", "bestv.cn", "mgtv.com"]):
             score += 30
-        elif "chinamobile" in u_lower or "unicom" in u_lower:
+        elif "chinamobile" in u_lower or "unicom" in u_lower or "key=txiptv" in u_lower:
             score += 25
         elif "?" not in u_lower and not any(k in u_lower for k in ["cctvnews.cctv.com", "newlive", "wd_r2"]):
             score += 20
 
-        if "cctvnews.cctv.com" in u_lower or "wd_r2/cctv" in u_lower:
+        if "cctvnews.cctv.com" in u_lower or "wd_r2/cctv" in u_lower or "wd_r2" in u_lower:
             score -= 60
         if "newlive" in u_lower or "wssecret=" in u_lower or "wstime=" in u_lower:
             score -= 50
         if any(k in u_lower for k in ["auth_key=", "sign=", "token="]) and not any(k in u_lower for k in ["auth=test", "key=txiptv"]):
             score -= 30
-        if "kankanlive" in u_lower:
-            score -= 10
+        if any(k in u_lower for k in ["qd.je", "jdshipin.com", "sryze.cc", "kankanlive", "xykt-fix", "livehwc"]):
+            score -= 40
         return score
+
+    def stream_purity_tier(c):
+        """
+        纯净度分级 (Purity Tiers):
+        Tier 2 (最高): 100% 物理广播骨干专线与官方纯净流 (永久 0 广告，点开即正片)
+          - GSLB 卫星转播专线 (63.141..., 38.75...)
+          - 电信/联通 8181 骨干专线 (:8181/3m1080p, :8181/1080p, :8181/720p)
+          - 82 广电直播专线节点 (:82/live/)
+          - 联通 IPTV 原生组播专线 (key=txiptv)
+          - 广电/卫视官方无广告流 (cztv.com, sdetv.com, hebtv.com, iyb983.cn, kwimgs.com)
+          - YouTube 24/7 官方直播
+        Tier 1 (普通): 常见常规网络流 (无已知商业贴片中间人)
+        Tier 0 (最低/备用): 具有首次连接商业插播广告/贴片会话特征的代理转接流 (作为第 4/5 备用线路，绝不占 Line 1)
+          - qd.je, jdshipin.com, sryze.cc (底层均为 168.sryze.cc 商业广告代理)
+          - xykt-fix, kankanlive, livehwc (商业 H5 流，带开播前置广告)
+          - user_session_id=, edge_slice= (广告会话跟踪)
+          - miguvideo / wd_r2 (移动端 app 流，带 bean=mgspad 广告参数)
+          - newlive (酒店网关开机迎宾广告)
+        """
+        u_lower = c["url"].lower()
+        if any(k in u_lower for k in [
+            "qd.je", "jdshipin.com", "sryze.cc", "xykt-fix", "kankanlive", 
+            "livehwc", "edge_slice", "user_session_id", "wd_r2", "newlive"
+        ]):
+            return 0
+        if any(k in u_lower for k in [
+            "gslb/zbdq", "gslb/dsdq", "gslb/", ":8181/3m1080p", ":8181/1080p", ":8181/720p",
+            ":82/live/", "key=txiptv", "cztv.com", "sdetv.com", "hebtv.com", "iyb983.cn",
+            "kwimgs.com", "youtube.com", "youtu.be"
+        ]):
+            return 2
+        return 1
 
     def multi_line_sort_key(c):
         u = c["url"].strip()
@@ -498,12 +530,14 @@ def main():
 
         latency_ms = m.get("latency_ms", 9999)
         stability = stream_stability_score(c)
+        purity = stream_purity_tier(c)
 
-        # 核心排序规则：
-        # 1. 第一优先级：清晰度（4K > 1080P > 720P > SD）
-        # 2. 第二优先级：速度（延迟越低越快越靠前，使用 -latency_ms）
-        # 3. 第三优先级：稳定性（长效/专线保底平局）
-        return (res_tier, -latency_ms, stability)
+        # 核心多维排序规则：
+        # 1. 第零优先级：纯净度（2=纯净骨干专线 > 1=普通纯净流 > 0=商业贴片广告源）
+        # 2. 第一优先级：清晰度（4K > 1080P > 720P > SD）
+        # 3. 第二优先级：速度（延迟越低越快越靠前，使用 -latency_ms）
+        # 4. 第三优先级：稳定性（长效/专线保底平局）
+        return (purity, res_tier, -latency_ms, stability)
 
     sorted_channels = []
     for cat_name, grp in name_groups.items():
