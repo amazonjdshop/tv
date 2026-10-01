@@ -27,24 +27,24 @@ CCTV-5+体育赛事, http://59.39.89.130:60901/tsfile/live/0016_1.m3u8?key=txipt
 CCTV-5+体育赛事, http://38.75.136.137:98/gslb/dsdqbv/cctv5p.m3u8?auth=test20251009
 CCTV-6, http://59.39.89.130:60901/tsfile/live/0006_1.m3u8?key=txiptv&playlive=1&authid=0
 CCTV-6, http://222.169.85.8:9901/tsfile/live/0006_1.m3u8?key=txiptv&playlive=1&authid=0
+CCTV-6, http://112.123.243.37:50085/tsfile/live/0007_1.m3u8?key=txiptv&playlive=0&authid=0
 CCTV-6, https://cdn.qd.je/163189.php?id=cctv6
 CCTV-6, http://74.91.26.218:82/live/cctv6hd.m3u8
-CCTV-6, http://69.30.245.50/live/cctv6.m3u8
+CCTV-7, http://112.123.243.37:50085/tsfile/live/0008_1.m3u8?key=txiptv&playlive=0&authid=0
 CCTV-7, http://59.39.89.130:60901/tsfile/live/0007_1.m3u8?key=txiptv&playlive=1&authid=0
 CCTV-7, http://222.169.85.8:9901/tsfile/live/0007_1.m3u8?key=txiptv&playlive=1&authid=0
 CCTV-7, https://cdn.qd.je/163189.php?id=cctv7
 CCTV-7, https://php.jdshipin.com:2096/TVOD/iptv.php?id=cctv7
-CCTV-7, http://74.91.26.218:82/live/cctv7hd.m3u8
 CCTV-8, http://59.39.89.130:60901/tsfile/live/0008_1.m3u8?key=txiptv&playlive=1&authid=0
+CCTV-8, http://112.123.243.37:50085/tsfile/live/0009_1.m3u8?key=txiptv&playlive=0&authid=0
 CCTV-8, http://222.169.85.8:9901/tsfile/live/0008_1.m3u8?key=txiptv&playlive=1&authid=0
 CCTV-8, http://bztv.tvbus.cc:8081/cdnlive/cctv8.m3u8
 CCTV-8, https://cdn.qd.je/163189.php?id=cctv8
-CCTV-8, http://74.91.26.218:82/live/cctv8hd.m3u8
+CCTV-9, http://112.123.243.37:50085/tsfile/live/0010_1.m3u8?key=txiptv&playlive=0&authid=0
 CCTV-9, http://59.39.89.130:60901/tsfile/live/0009_1.m3u8?key=txiptv&playlive=1&authid=0
 CCTV-9, http://222.169.85.8:9901/tsfile/live/0009_1.m3u8?key=txiptv&playlive=1&authid=0
 CCTV-9, https://xykt-fix.github.io/Y77.m3u8
 CCTV-9, https://cdn.qd.je/163189.php?id=cctv9
-CCTV-9, http://74.91.26.218:82/live/cctv9hd.m3u8
 CCTV-10, http://59.39.89.130:60901/tsfile/live/0010_1.m3u8?key=txiptv&playlive=1&authid=0
 CCTV-10, http://222.169.85.8:9901/tsfile/live/0010_1.m3u8?key=txiptv&playlive=1&authid=0
 CCTV-10, http://204.12.221.218:8181/3m1080p/cctv10.m3u8
@@ -52,14 +52,14 @@ CCTV-10, http://bztv.tvbus.cc:8081/cdnlive/cctv10.m3u8
 CCTV-10, https://cdn.qd.je/163189.php?id=cctv10
 CCTV-11, http://222.169.85.8:9901/tsfile/live/0011_1.m3u8?key=txiptv&playlive=1&authid=0
 CCTV-11, http://59.39.89.130:60901/tsfile/live/0011_1.m3u8?key=txiptv&playlive=1&authid=0
+CCTV-11, http://112.123.243.37:50085/tsfile/live/0012_1.m3u8?key=txiptv&playlive=0&authid=0
 CCTV-11, http://204.12.221.218:8181/3m1080p/cctv11.m3u8
 CCTV-11, https://cdn.qd.je/163189.php?id=cctv11
-CCTV-11, http://74.91.26.218:82/live/cctv11hd.m3u8
 CCTV-12, http://59.39.89.130:60901/tsfile/live/0012_1.m3u8?key=txiptv&playlive=1&authid=0
+CCTV-12, http://112.123.243.37:50085/tsfile/live/0013_1.m3u8?key=txiptv&playlive=0&authid=0
 CCTV-12, http://204.12.221.218:8181/3m1080p/cctv12.m3u8
 CCTV-12, https://cdn.qd.je/163189.php?id=cctv12
 CCTV-12, http://74.91.26.218:82/live/cctv12hd.m3u8
-CCTV-12, http://38.75.136.137:98/gslb/dsdqbv/cctv12hd.m3u8?auth=test20251009
 CCTV-13, http://59.39.89.130:60901/tsfile/live/0013_1.m3u8?key=txiptv&playlive=1&authid=0
 CCTV-13, http://ali-m-l.cztv.com/channels/lantian/channel21/1080p.m3u8
 CCTV-13, https://event.pull.hebtv.com/jishi/cp1.m3u8
@@ -663,11 +663,11 @@ SuperToons TV, https://jmp2.uk/stvp-ITBD51000010V
 TG Junior, https://d3i6upqaqzosi1.cloudfront.net/tg/jr_us/tg_jr_us.m3u8
 Toonami Aftermath, http://api.toonamiaftermath.com:3000/est/playlist.m3u8
 Toonami Aftermath West, http://api.toonamiaftermath.com:3000/pst/playlist.m3u8
+CCTV-9纪录, http://112.123.243.37:50085/tsfile/live/0010_1.m3u8?key=txiptv&playlive=0&authid=0
 CCTV-9纪录, http://59.39.89.130:60901/tsfile/live/0009_1.m3u8?key=txiptv&playlive=1&authid=0
 CCTV-9纪录, http://222.169.85.8:9901/tsfile/live/0009_1.m3u8?key=txiptv&playlive=1&authid=0
 CCTV-9纪录, https://xykt-fix.github.io/Y77.m3u8
 CCTV-9纪录, https://cdn.qd.je/163189.php?id=cctv9
-CCTV-9纪录, http://74.91.26.218:82/live/cctv9hd.m3u8
 Autentic History, https://9e754fa707344ccca6d84955c8fcaf36.mediatailor.us-east-1.amazonaws.com/v1/master/44f73ba4d03e9607dcd9bebdcb8494d86964f1d8/RlaxxTV-eu_AutenticHistory/playlist.m3u8
 History, http://212.5.144.156:8080/history/index.m3u8
 History Hit, https://jmp2.uk/stvp-GBBA2200005ZA
