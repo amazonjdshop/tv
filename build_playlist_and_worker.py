@@ -24,6 +24,7 @@ category_order = [
     "影视剧场",
     "少儿卡通",
     "纪实探索",
+    "直播中国",
     "体育频道",
     "教育频道",
     "国际华语",
@@ -75,6 +76,10 @@ def clean_category(cat, name, url=""):
     # 0. Test Channels (测试频道)
     if cat in ["测试频道", "广告测试"] or "广告测试" in name:
         return "测试频道"
+
+    # 0.1 直播中国 (24小时全国5A风景与名胜实景慢直播)
+    if cat in ["直播中国", "慢直播", "风景直播", "实景直播"] or "gcalic.v.myalicdn.com" in url_lower or "gctxyc.liveplay.myqcloud.com" in url_lower or "gcwbndali.v.myalicdn.com" in url_lower:
+        return "直播中国"
 
     # 1. CCTV/pay-TV channels
     is_cctv = "cctv" in name_lower or "央视" in name or "风云" in name or "怀旧" in name or "兵器" in name or "世界地理" in name or "--服务器" in name_lower
@@ -234,8 +239,8 @@ def clean_category(cat, name, url=""):
     if cat in ["English合集", "电影频道 (英文)", "电视剧频道 (英文)", "动漫卡通频道 (英文)", "记录频道", "户外旅行频道 (英文)", "新闻频道 (英文)", "北美频道", "国际频道"] or is_foreign_english or "his glory" in name_lower:
         return "国际频道"
 
-    if name == "直播中国":
-        return "地方综合台"
+    if name == "直播中国" or "直播中国" in cat:
+        return "直播中国"
     if any("\u4e00" <= ch <= "\u9fff" for ch in name):
         return "地方综合台"
     return "国际频道"
@@ -447,7 +452,8 @@ def main():
             "cztv.com", "sdetv.com", "hebtv.com", "gztv.com", "tdm.com.mo",
             "kylintv.tv", "cnr.cn", "bestv.cn", "sun0769.com", "wcetv.com",
             "amagi.tv", "sofast.tv", "mediatailor", "youtube.com", "youtu.be",
-            "cctvnews.cctv.com", "iyb983.cn", "kwimgs.com", "211.72.174.95"
+            "cctvnews.cctv.com", "iyb983.cn", "kwimgs.com", "211.72.174.95",
+            "gcalic.v.myalicdn.com", "myqcloud.com", "gcwbndali.v.myalicdn.com"
         ]):
             return 2
         return 1
@@ -680,7 +686,12 @@ def main():
             n_lower = n.lower()
             
             prio = 0
-            if cat == "影视剧场":
+            if cat == "直播中国":
+                if n in ["直播中国", "直播中国精编直播"]:
+                    prio = -3
+                elif "熊猫" in n:
+                    prio = -2
+            elif cat == "影视剧场":
                 if n.upper().startswith("CHC") or "chc电影" in n_lower:
                     prio = -3
                 elif any(k in n for k in ["重温经典", "电影", "影院"]):
