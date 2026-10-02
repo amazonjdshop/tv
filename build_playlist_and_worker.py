@@ -468,6 +468,13 @@ def main():
 
             cleaned_cat = clean_category(category, name, url)
             
+            # YouTube 独立频道标识：来自 YouTube 的源独立显示为 [电视台名字-YT]，
+            # 绝不与 Cloudflare 代理的官方正规电视频道合并在同一个电视台名字下，
+            # 确保主电视台列表 100% 为电视机顶盒即点即播的流媒体，同时清晰区分 YouTube 线路
+            if "youtube.com" in url.lower() or "youtu.be" in url.lower():
+                clean_base = re.sub(r'[-_ ]*(YT|YouTube|youtube)$', '', name).strip()
+                name = f"{clean_base}-YT"
+            
             channels.append({
                 "category": cleaned_cat,
                 "name": name,
@@ -1311,7 +1318,7 @@ export default {{
 
       // 严格防护单机 IP 绑定节点（如 :88/applive 或 u=<IP>）：若上游重定向至单机绑定节点，电视机等外部设备播放 TS 必 403 报错
       // 立即返回 403 明确错误，促使播放器以 1ms 极限速度瞬间轮换下一条有效线路，绝不卡死
-      if ((/:\b88\/|applive|[?&]u=\d+\.\d+\.\d+\.\d+/).test(finalUrl)) {{
+      if ((/:88[/]|applive|[?&]u=\\d+\\.\\d+\\.\\d+\\.\\d+/).test(finalUrl)) {{
         return new Response('403 Forbidden: IP Bound Node', {{
           status: 403,
           headers: {{ 'Access-Control-Allow-Origin': '*' }}
