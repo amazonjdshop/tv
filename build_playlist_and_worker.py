@@ -615,7 +615,7 @@ def main():
                 "latency_ms": latency_ms,
                 "download_kbps": download_kbps,
                 "smooth_tier": smooth_tier,
-                "tested_at": time.time()
+                "tested_at": time.time() if smooth_tier > 0 else 0
             }
 
         with concurrent.futures.ThreadPoolExecutor(max_workers=50) as ex:
@@ -669,15 +669,8 @@ def main():
             if norm_u not in seen_urls:
                 seen_urls.add(norm_u)
                 dedup_grp.append(x)
-        # If healthy lines exist, purge completely dead lines (404 / timed out / 0 kbps)
-        working_lines = [
-            x for x in dedup_grp 
-            if not (cached_metrics.get(x["url"].strip(), {}).get("latency_ms") == 9999 and 
-                    cached_metrics.get(x["url"].strip(), {}).get("download_kbps") == 0)
-        ]
-        if working_lines:
-            dedup_grp = working_lines
         # Sort descending: Clearest line first; if clarity identical, fastest speed first
+        # Temporarily degraded lines (smooth_tier=0) naturally drop to fallback positions (Line 3/4/5) rather than being deleted
         dedup_grp.sort(key=multi_line_sort_key, reverse=True)
         # Cap at max 5 highest-quality lines per channel
         sorted_channels.extend(dedup_grp[:5])
