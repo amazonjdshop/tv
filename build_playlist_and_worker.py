@@ -40,6 +40,7 @@ category_order = [
     "美国主流台",
     "美国地方台",
     "国际频道",
+    "韩国/朝鲜",
     "多语种国际台",
     "最新电影",
     "测试频道"
@@ -101,6 +102,22 @@ def clean_category(cat, name, url=""):
     if "卫视" in name or "衛視" in name or cat in ["地方卫视", "卫视频道"] or name in ["看东方", "海峡卫视"]:
         if not any(x in name for x in ["澳门莲花卫视", "澳門蓮花衛視", "香港卫视", "TVBS", "凤凰"]):
             return "卫视频道"
+
+    # 4.5 Korean & North Korean Broadcasters (韩国/朝鲜)
+    is_north_korea = (any(x in name_lower for x in ["朝鲜中央", "kctv", "ryongnamsan", "朝鲜", "조선"]) or "koryocdn.org" in url_lower) and not ("akctv" in name_lower or "akc tv" in name_lower)
+    is_korean_hangul = bool(re.search(r'[\uac00-\ud7a3]', name))
+    is_korean_stvp = "stvp-kr" in url_lower
+    is_korean_brand = False
+    if not any(x in name_lower for x in ["akctv", "akc tv", "kbsi", "kbsv", "wsbs", "wmbc", "mbc 1", "mbc 3", "mbc masr", "wxtv"]):
+        if any(x in name_lower for x in ["tvn asia", "tvn korea", "arirang", "tbs korea", "ebs kids", "llbn tv korean"]):
+            is_korean_brand = True
+        elif name_lower.startswith("kbs") or name_lower.startswith("sbs") or name_lower.startswith("mbc") or name_lower.startswith("jtbc") or name_lower.startswith("ytn"):
+            is_korean_brand = True
+        elif ("korea" in name_lower or "korean" in name_lower) and not any(x in name_lower for x in ["america", "taiwan", "china", "cctv"]):
+            is_korean_brand = True
+
+    if cat in ["韩国/朝鲜", "韩国频道", "朝鲜频道", "韩国", "朝鲜"] or is_north_korea or is_korean_hangul or is_korean_stvp or is_korean_brand:
+        return "韩国/朝鲜"
 
     # 5. HK / Macau / Taiwan Broadcasters (check before Sports to rescue 凤凰香港, 莲花电影, ViuTV, 天映)
     if any(x in name for x in ["纬来体育", "緯來體育", "爱尔达体育", "愛爾達體育"]):
@@ -218,9 +235,7 @@ def clean_category(cat, name, url=""):
     if "stvp-us" in url_lower or "wsoc now" in name_lower or "wcetv" in name_lower or "rightnow" in name_lower or any(x in name_lower for x in ["bek", "bke"]):
         return "美国地方台"
 
-    # 14. Multilingual International (Korean, Spanish, French, German, Italian, Hindi)
-    if re.search(r'[\uac00-\ud7a3]', name) or "stvp-kr" in url_lower:
-        return "多语种国际台"
+    # 14. Multilingual International (Spanish, French, German, Italian, Hindi)
     if any(x in url_lower for x in ["stvp-es", "stvp-mx"]) or re.search(r'[áéíóúñ¿¡]', name):
         return "多语种国际台"
     if "stvp-fr" in url_lower or re.search(r'[àâçèéêëîïôûùüÿœ]', name):
@@ -715,6 +730,23 @@ def main():
                     prio = -2
             elif cat == "体育频道":
                 if any(k in n_lower for k in ["爱尔达", "緯來", "纬来", "nba", "cctv"]):
+                    prio = -3
+            elif cat == "韩国/朝鲜":
+                if any(k in n for k in ["朝鲜中央电视台", "KCTV"]):
+                    prio = -10
+                elif any(k in n for k in ["龙南山电视台", "体育电视台"]):
+                    prio = -9
+                elif n.startswith("KBS") or "kbs" in n_lower:
+                    prio = -8
+                elif n.startswith("SBS") or "sbs" in n_lower:
+                    prio = -7
+                elif n.startswith("MBC") or "mbc" in n_lower:
+                    prio = -6
+                elif n.startswith("tvN") or "tvn" in n_lower:
+                    prio = -5
+                elif n.startswith("JTBC") or "jtbc" in n_lower:
+                    prio = -4
+                elif "ytn" in n_lower or "arirang" in n_lower:
                     prio = -3
                 
             is_ascii = bool(n and n[0].isascii())
