@@ -339,8 +339,11 @@ def main():
             raw_name = parts[1].strip()
             url = parts[2].strip()
             
-            # Filter out adware restreamer, ad networks, and looping test streams
-            if any(k in url.lower() for k in ["107.150.60.122", "lantian/channel001", "198.204.228.26", "appadhw", "tvzb", "47.97.252.", "173.208.212.130", "3y1.xyz", "nosignal", "epg.pw/stream", "cnlive.club", "sailei", "dpdns.org"]):
+            # Filter out adware restreamer, ad networks, looping test streams, and single-IP bound streams
+            u_lower = url.lower()
+            if any(k in u_lower for k in ["107.150.60.122", "lantian/channel001", "198.204.228.26", "appadhw", "tvzb", "47.97.252.", "173.208.212.130", "3y1.xyz", "nosignal", "epg.pw/stream", "cnlive.club", "sailei", "dpdns.org"]):
+                continue
+            if "u=" in u_lower and "applive" in u_lower:
                 continue
             if any(k in raw_name for k in ["支持作者", "关注公众号", "防失联", "微信", "更新时间"]):
                 continue
@@ -533,6 +536,10 @@ def main():
 
                         # 2. 若底层带动态 Token 鉴权，直接提纯并返回带有时效 Token 的真实底层推流节点！
                         # 彻底绕开 GSLB 调度机前端所植入的开播/贴片广告，实现客户端秒开直连！
+                        # 严格防护：若包含 u= 参数或 :88/applive，说明该 Token 强绑定了单机出口 IP，其它客户端播放会 403 触发回退广告，必须排除！
+                        if "u=" in final_url_lower or ":88/applive" in final_url_lower:
+                            return None
+
                         try:
                             req_final = urllib.request.Request(final_url, headers={"User-Agent": "Mozilla/5.0"})
                             with urllib.request.urlopen(req_final, context=gslb_ctx, timeout=2.5) as r_final:
@@ -1226,9 +1233,9 @@ export default {{
 
     // 3. 分流决策：判断是否需要执行智能 M3U8 动态去广告清洗
     // - 经实测确认免 Token 且零广告的美国本土底层节点（如 69.197.146.138:82）及纯净运营商 IPTV 组播流，保持 2ms 极速 302 直连
-    // - 其它公网源与可能带贴片的代理源，由 Worker 执行 M3U8 动态清洗网关（剥离广告切片，TS 切片绝对化直连原站）
     const isDirectParam = url.searchParams.get('direct') === '1' || url.searchParams.get('raw') === '1';
-    const isDirectCleanNode = targetUrl.includes(':82/') || targetUrl.includes(':8181/') || targetUrl.includes(':98/') || targetUrl.includes('69.197.146.138') || targetUrl.includes('tsfile/live/') || targetUrl.includes(':50085') || targetUrl.includes(':9901') || targetUrl.includes(':60901');
+    const isGslb = targetUrl.includes('gslb') || targetUrl.includes('redirect') || targetUrl.includes(':98/');
+    const isDirectCleanNode = !isGslb && (targetUrl.includes(':82/live/') || targetUrl.includes('69.197.146.138') || targetUrl.includes('tsfile/live/') || targetUrl.includes(':50085') || targetUrl.includes(':9901') || targetUrl.includes(':60901'));
     const isM3u8Request = requestedFile === 'index.m3u8' || requestedFile === '' || targetUrl.includes('.m3u8');
 
     if (isDirectParam || isDirectCleanNode || !isM3u8Request) {{
