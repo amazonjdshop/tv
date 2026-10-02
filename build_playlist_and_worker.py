@@ -474,6 +474,27 @@ def main():
             channels.extend(new_flattened)
             print(f"Auto-flattened {len(new_flattened)} direct tokenless underlying nodes from GSLB.")
 
+            # 自动沉淀：将提纯出免 Token 的健康底层直连节点持久化写入 merged_channels.txt
+            # 这样 GSLB 未来即使调度到新 Worker B，已沉淀的 Worker A 也不会丢失，实现多 Worker 线路池自动壮大
+            try:
+                existing_db_urls = set()
+                for fpath in [merged_path, curated_path]:
+                    if os.path.exists(fpath):
+                        with open(fpath, "r", encoding="utf-8") as f:
+                            for l in f:
+                                parts = l.strip().split("|")
+                                if len(parts) >= 3:
+                                    existing_db_urls.add(parts[2].strip().lower())
+
+                to_persist = [ch for ch in new_flattened if ch["url"].strip().lower() not in existing_db_urls]
+                if to_persist:
+                    with open(merged_path, "a", encoding="utf-8") as mf:
+                        for ch in to_persist:
+                            mf.write(f"{ch['category']}|{ch['name']}|{ch['url']}\n")
+                    print(f"  💾 [Auto-Persist] 成功沉淀 {len(to_persist)} 个底层真实 Worker 节点至数据库 (merged_channels.txt)")
+            except Exception as pe:
+                print(f"  ⚠️ Auto-persist warning: {pe}")
+
     # Prioritize higher quality streams for each channel before key assignment and capping
     from collections import OrderedDict
     name_groups = OrderedDict()
