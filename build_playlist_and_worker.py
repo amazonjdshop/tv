@@ -499,8 +499,8 @@ def main():
                     seen_multi_urls.add(u_norm)
                     now_ts = time.time()
                     m = cached_metrics.get(u_norm)
-                    # Re-probe if not cached or tested more than 25 minutes ago (ensuring dynamic re-ranking every 30-min sync)
-                    if not m or (now_ts - m.get("tested_at", 0) > 1500):
+                    # Re-probe if not cached or tested more than 16 minutes ago (ensuring 100% fresh re-benchmarking on every 30-min sync)
+                    if not m or (now_ts - m.get("tested_at", 0) > 1000):
                         multi_line_urls.append(item)
 
     if multi_line_urls:
