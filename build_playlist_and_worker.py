@@ -282,8 +282,24 @@ def cctv_sort_key(name):
 def main():
     channels = []
     stream_counts = defaultdict(int)
-    with open(merged_path, "r", encoding="utf-8") as f:
-        for line in f:
+    curated_path = os.path.join(SCRIPT_DIR, "curated_channels.txt")
+    all_source_lines = []
+    seen_source_urls = set()
+    for s_path in [curated_path, merged_path]:
+        if os.path.exists(s_path):
+            with open(s_path, "r", encoding="utf-8") as sf:
+                for s_line in sf:
+                    s_line = s_line.strip()
+                    if s_line and "|" in s_line and not s_line.startswith("#"):
+                        parts = s_line.split("|")
+                        if len(parts) >= 3:
+                            u_norm = parts[2].strip().lower()
+                            if u_norm not in seen_source_urls:
+                                seen_source_urls.add(u_norm)
+                                all_source_lines.append(s_line)
+
+    with open(merged_path, "r", encoding="utf-8") as _unused:
+        for line in all_source_lines:
             line = line.strip()
             if not line or "|" not in line:
                 continue
@@ -430,10 +446,13 @@ def main():
         u_lower = c["url"].lower()
         if any(k in u_lower for k in [":8181", "204.12.221.", "204.12.241.", "173.208.212."]):
             score -= 60
+        # 美国本土极速直连骨干节点（免 Token、永久 0 广告、0 跳转）赋予最高保底优先级
+        if "69.197.146.138:82" in u_lower:
+            score += 100
         elif any(k in u_lower for k in [
             "cztv.com/live", "kylintv", "skygo.mn", "bestv.cn", "mgtv.com",
             "63.141.", "74.91.", "192.151.", "69.30.", "198.204.", "207.56.",
-            "38.64.", "38.75.", "bztv.tvbus.cc"
+            "38.64.", "38.75.", "bztv.tvbus.cc", "69.197."
         ]):
             score += 35
         elif "chinamobile" in u_lower or "unicom" in u_lower or "key=txiptv" in u_lower or ":9901/" in u_lower or ":60901/" in u_lower or ":50085/" in u_lower:
@@ -449,9 +468,9 @@ def main():
             score -= 30
         if any(k in u_lower for k in [
             "qd.je", "jdshipin.com", "sryze.cc", "kankanlive", "xykt-fix", "livehwc", 
-            "appadhw", "dsdqpub", "auth=testpub", "cctv4k.m3u8"
+            "appadhw", "dsdqpub", "auth=testpub", "cctv4k.m3u8", "107.m3u8", "zmt.m3u8", "47.97.252."
         ]):
-            score -= 60
+            score -= 80
         return score
 
     def stream_purity_tier(c):
@@ -459,7 +478,7 @@ def main():
         纯净度分级 (Purity Tiers):
         Tier 2 (最高): 官方正规源及高性能 CDN 直连流 (永久 0 广告，点开即正片)
           - 广电/卫视官方无广告流 (cztv.com, sdetv.com, hebtv.com, gztv.com, tdm.com.mo, kylintv.tv, bestv.cn, cnr.cn)
-          - 骨干机房高带宽加速源 (204.12., 63.141., 74.91., 192.151., 69.30., 198.204., 207.56., 38.64., 38.75., bztv.tvbus.cc)
+          - 骨干机房高带宽加速源 (69.197., 63.141., 74.91., 192.151., 69.30., 198.204., 207.56., 38.64., 38.75., bztv.tvbus.cc)
           - YouTube 24/7 官方直播
         Tier 1 (普通): 常见常规网络流及运营商 IPTV 组播流
         Tier 0 (最低/备用): 具有首次连接商业插播广告/贴片会话/暗投切片特征的流 (仅作为末尾备用线路，绝不占 Line 1)
@@ -468,13 +487,14 @@ def main():
           - user_session_id=, edge_slice= (广告会话跟踪)
           - miguvideo / wd_r2 (移动端 app 流，带 bean=mgspad 广告参数)
           - newlive (酒店网关开机迎宾广告)
-          - dsdqpub / auth=testpub / cctv4k.m3u8 (公共测试/广告轮播流)
+          - dsdqpub / auth=testpub / cctv4k.m3u8 / 107.m3u8 / zmt.m3u8 (公共测试/广告轮播流)
         """
         u_lower = c["url"].lower()
         if any(k in u_lower for k in [
             "qd.je", "jdshipin.com", "sryze.cc", "xykt-fix", "kankanlive", 
             "livehwc", "edge_slice", "user_session_id", "wd_r2", "newlive",
-            "appadhw", "cctv4k.m3u8", "dsdqpub", "auth=testpub"
+            "appadhw", "cctv4k.m3u8", "dsdqpub", "auth=testpub",
+            "107.m3u8", "zmt.m3u8", "47.97.252."
         ]):
             return 0
         if any(k in u_lower for k in [
@@ -484,7 +504,7 @@ def main():
             "cctvnews.cctv.com", "iyb983.cn", "kwimgs.com", "211.72.174.95",
             "gcalic.v.myalicdn.com", "myqcloud.com", "gcwbndali.v.myalicdn.com",
             "pluto.tv", "akamaized.net", "simplestreamcdn.com", "51kandianshi.com",
-            "204.12.", "63.141.", "74.91.", "192.151.", "69.30.",
+            "69.197.", "63.141.", "74.91.", "192.151.", "69.30.",
             "198.204.", "207.56.", "38.64.", "38.75.", "bztv.tvbus.cc", "dsdqbv"
         ]):
             return 2
@@ -722,10 +742,10 @@ def main():
         # 1. 第一优先级：流畅度（smooth_tier: 2 绝对流畅零缓冲 > 1 基本可播 > 0 码率倒挂必然卡顿）
         # 2. 第二优先级：清晰度（4K/8K=4 > 1080P=3 > 720P=2 > SD=1）
         # 3. 第三优先级：纯净度（Tier 2/1 纯净流 > Tier 0 广告流）
-        # 4. 第四优先级：有效带宽（effective_speed: 骨干机房高带宽 CDN 专线 15~30 Mbps 绝对优先，防止单线家庭中继抢占 Line 1）
-        # 5. 第五优先级：首包响应（-latency_ms）
-        # 6. 第六优先级：稳定性（长效/专线保底平局）
-        return (smooth_tier, res_tier, purity, effective_speed, -latency_ms, stability)
+        # 4. 第四优先级：稳定性（免 Token、永久 0 广告的美国本土底层骨干节点优先于 GSLB 重定向代理）
+        # 5. 第五优先级：有效带宽（effective_speed: 骨干机房高带宽 CDN 专线 15~30 Mbps）
+        # 6. 第六优先级：首包响应（-latency_ms）
+        return (smooth_tier, res_tier, purity, stability, effective_speed, -latency_ms)
 
     sorted_channels = []
     for cat_name, grp in name_groups.items():
@@ -1029,13 +1049,13 @@ export default {{
     }}
 
     // 3. 分流决策：判断是否需要执行智能 M3U8 动态去广告清洗
-    // - 纯净运营商 IPTV 组播流（无公网劫持与贴片广告风险）或用户显式指定 ?direct=1 时，保持 2ms 极速 302 直连
-    // - 其它所有公网源与可能带贴片的代理源，由 Worker 执行 M3U8 动态清洗网关（剥离广告切片，TS 切片绝对化直连原站）
+    // - 经实测确认免 Token 且零广告的美国本土底层节点（如 69.197.146.138:82）及纯净运营商 IPTV 组播流，保持 2ms 极速 302 直连
+    // - 其它公网源与可能带贴片的代理源，由 Worker 执行 M3U8 动态清洗网关（剥离广告切片，TS 切片绝对化直连原站）
     const isDirectParam = url.searchParams.get('direct') === '1' || url.searchParams.get('raw') === '1';
-    const isTelecomMulticast = targetUrl.includes('tsfile/live/') || targetUrl.includes(':50085') || targetUrl.includes(':9901') || targetUrl.includes(':60901');
+    const isDirectCleanNode = targetUrl.includes('69.197.146.138') || targetUrl.includes('tsfile/live/') || targetUrl.includes(':50085') || targetUrl.includes(':9901') || targetUrl.includes(':60901');
     const isM3u8Request = requestedFile === 'index.m3u8' || requestedFile === '' || targetUrl.includes('.m3u8');
 
-    if (isDirectParam || isTelecomMulticast || !isM3u8Request) {{
+    if (isDirectParam || isDirectCleanNode || !isM3u8Request) {{
       if (requestedFile === 'index.m3u8' || requestedFile === '') {{
         const clientIP = request.headers.get('CF-Connecting-IP') || '未知IP';
         console.log(`[直连直通] 客户端IP: ${{clientIP}} 频道: ${{channelName}} -> 302: ${{targetUrl}}`);
