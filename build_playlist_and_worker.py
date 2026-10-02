@@ -703,7 +703,7 @@ def main():
             clean_combined = re.sub(r'cctv\d+k', '', combined) if ("cctv-4k" not in combined and "cctv 4k" not in combined and "cctv-8k" not in combined and "cctv 8k" not in combined) else combined
             is_4k_8k = bool(re.search(r'(?:^|[^0-9a-zA-Z])(4k|8k|2160p|uhd|超高清)(?:$|[^0-9a-zA-Z])', clean_combined, re.I))
             if is_4k_8k: res_tier = 4
-            elif any(k in combined for k in ["1080p", "1080", "fhd", "超清", "3m1080p"]): res_tier = 3
+            elif any(k in combined for k in ["1080p", "1080", "fhd", "超清"]): res_tier = 3
             elif re.search(r'/00(0[1-6]|0[8-9]|1[0-7])_1\.m3u8', u): res_tier = 2
             elif any(k in combined for k in ["720p", "720", "hd", "高清"]) or re.search(r'/0007_1\.m3u8', u): res_tier = 2
             elif any(k in combined for k in ["576", "480", "sd", "标清", "kankanlive"]): res_tier = 1
@@ -1028,25 +1028,113 @@ export default {{
       }});
     }}
 
-    // 3. 只在请求主播放列表（即点击播放的瞬间）打印一次日志记录
-    if (requestedFile === 'index.m3u8' || requestedFile === '') {{
-      const clientIP = request.headers.get('CF-Connecting-IP') || '未知IP';
-      console.log(`[播放日志] 客户端IP: ${{clientIP}} 正在启动播放频道: ${{channelName}} -> 302 引导至: ${{targetUrl}}`);
+    // 3. 分流决策：判断是否需要执行智能 M3U8 动态去广告清洗
+    // - 纯净运营商 IPTV 组播流（无公网劫持与贴片广告风险）或用户显式指定 ?direct=1 时，保持 2ms 极速 302 直连
+    // - 其它所有公网源与可能带贴片的代理源，由 Worker 执行 M3U8 动态清洗网关（剥离广告切片，TS 切片绝对化直连原站）
+    const isDirectParam = url.searchParams.get('direct') === '1' || url.searchParams.get('raw') === '1';
+    const isTelecomMulticast = targetUrl.includes('tsfile/live/') || targetUrl.includes(':50085') || targetUrl.includes(':9901') || targetUrl.includes(':60901');
+    const isM3u8Request = requestedFile === 'index.m3u8' || requestedFile === '' || targetUrl.includes('.m3u8');
+
+    if (isDirectParam || isTelecomMulticast || !isM3u8Request) {{
+      if (requestedFile === 'index.m3u8' || requestedFile === '') {{
+        const clientIP = request.headers.get('CF-Connecting-IP') || '未知IP';
+        console.log(`[直连直通] 客户端IP: ${{clientIP}} 频道: ${{channelName}} -> 302: ${{targetUrl}}`);
+      }}
+      return new Response(null, {{
+        status: 302,
+        headers: {{
+          'Location': targetUrl,
+          'Access-Control-Allow-Origin': '*',
+          'Access-Control-Allow-Methods': 'GET, HEAD, OPTIONS',
+          'Access-Control-Expose-Headers': 'Location',
+          'Cache-Control': 'no-cache, no-store, must-revalidate'
+        }}
+      }});
     }}
 
-    // 4. 【模式 3：302 纯直连重定向模式 (极速轻量/零代理消耗)】
-    // 电视盒子首次请求频道时，Worker 在 2ms 内以 302 重定向下发真实源站地址；
-    // 电视盒子随后直接与源站进行视频分块（TS 切片）的下载，零中转延迟、绝不耗费 Worker 流量与计算额度、100% 避免因 Cloudflare 代理导致的播放卡顿！
-    return new Response(null, {{
-      status: 302,
-      headers: {{
-        'Location': targetUrl,
-        'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Methods': 'GET, HEAD, OPTIONS',
-        'Access-Control-Expose-Headers': 'Location',
-        'Cache-Control': 'no-cache, no-store, must-revalidate'
+    // 4. 【智能 M3U8 广告切片动态清洗与秒跳网关 (Smart Ad-Stripping Proxy)】
+    // Worker 仅抓取清洗约 1KB 的 M3U8 文本，所有 TS 切片自动转为原站绝对链接，电视盒直连原站 CDN 下载，0 Cloudflare 视频流量消耗！
+    try {{
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 3500);
+
+      const upstreamRes = await fetch(targetUrl, {{
+        signal: controller.signal,
+        headers: {{
+          'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+          'Referer': targetUrl,
+        }},
+        redirect: 'follow'
+      }});
+      clearTimeout(timeoutId);
+
+      if (!upstreamRes.ok) {{
+        if (url.searchParams.get('debug') === '1') {{
+          return new Response(JSON.stringify({{ error: 'upstream_not_ok', status: upstreamRes.status, url: targetUrl }}), {{
+            status: 500,
+            headers: {{ 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' }}
+          }});
+        }}
+        return new Response(null, {{
+          status: 302,
+          headers: {{
+            'Location': targetUrl,
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Methods': 'GET, HEAD, OPTIONS'
+          }}
+        }});
       }}
-    }});
+
+      const finalUrl = upstreamRes.url || targetUrl;
+      const rawText = await upstreamRes.text();
+
+      if (!rawText.includes('#EXTM3U')) {{
+        if (url.searchParams.get('debug') === '1') {{
+          return new Response(JSON.stringify({{ error: 'not_m3u8', text: rawText.slice(0, 300), url: targetUrl }}), {{
+            status: 500,
+            headers: {{ 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' }}
+          }});
+        }}
+        return new Response(null, {{
+          status: 302,
+          headers: {{
+            'Location': targetUrl,
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Methods': 'GET, HEAD, OPTIONS'
+          }}
+        }});
+      }}
+
+      const clientIP = request.headers.get('CF-Connecting-IP') || '未知IP';
+      console.log(`[智能去广告] 客户端IP: ${{clientIP}} 频道: ${{channelName}} (M3U8清洗生效，TS直连)`);
+
+      const cleanedM3u8 = cleanAndRewriteM3u8Text(rawText, finalUrl);
+
+      return new Response(cleanedM3u8, {{
+        status: 200,
+        headers: {{
+          'Content-Type': 'application/vnd.apple.mpegurl; charset=utf-8',
+          'Access-Control-Allow-Origin': '*',
+          'Access-Control-Allow-Methods': 'GET, HEAD, OPTIONS',
+          'Cache-Control': 'public, max-age=2, no-transform',
+        }}
+      }});
+    }} catch (e) {{
+      if (url.searchParams.get('debug') === '1') {{
+        return new Response(JSON.stringify({{ error: 'exception', message: e.message, stack: e.stack, url: targetUrl }}), {{
+          status: 500,
+          headers: {{ 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' }}
+        }});
+      }}
+      return new Response(null, {{
+        status: 302,
+        headers: {{
+          'Location': targetUrl,
+          'Access-Control-Allow-Origin': '*',
+          'Access-Control-Allow-Methods': 'GET, HEAD, OPTIONS',
+        }}
+      }});
+    }}
   }}
 }};
 
@@ -1066,6 +1154,120 @@ function getTargetUrl(channelUrl, requestedFile, searchParams) {{
   }}
   const base = getBaseUrl(channelUrl);
   return base + requestedFile + searchParams;
+}}
+
+// 辅助函数：M3U8 文本动态去广告与切片绝对路径转换
+function cleanAndRewriteM3u8Text(rawText, finalUrl) {{
+  const lines = rawText.split('\\n');
+
+  if (rawText.includes('#EXT-X-STREAM-INF')) {{
+    const newLines = lines.map(line => {{
+      const trimmed = line.trim();
+      if (!trimmed || trimmed.startsWith('#')) return line;
+      try {{
+        return new URL(trimmed, finalUrl).toString();
+      }} catch (e) {{
+        return trimmed;
+      }}
+    }});
+    return newLines.join('\\n');
+  }}
+
+  const adKeywords = [
+    'appadhw', '107.m3u8', 'zmt.m3u8', 'macau', 'casino', 'bet365', 
+    'poker', 'guanggao', '_ad.ts', '-ad.ts', '/ad/', 'welcome.ts'
+  ];
+
+  let hasEarlyDiscontinuity = false;
+  let discontinuityLineIdx = -1;
+  let segmentCountBeforeDiscontinuity = 0;
+
+  for (let i = 0; i < lines.length; i++) {{
+    const l = lines[i].trim();
+    if (l === '#EXT-X-DISCONTINUITY') {{
+      hasEarlyDiscontinuity = true;
+      discontinuityLineIdx = i;
+      break;
+    }}
+    if (l && !l.startsWith('#')) {{
+      segmentCountBeforeDiscontinuity++;
+      if (segmentCountBeforeDiscontinuity > 4) {{
+        break;
+      }}
+    }}
+  }}
+
+  let shouldStripPrefix = false;
+  if (hasEarlyDiscontinuity && segmentCountBeforeDiscontinuity <= 3) {{
+    let preSegments = [];
+    for (let i = 0; i < discontinuityLineIdx; i++) {{
+      const l = lines[i].trim();
+      if (l && !l.startsWith('#')) preSegments.push(l);
+    }}
+    const hasAdKeyword = preSegments.some(s => adKeywords.some(k => s.toLowerCase().includes(k)));
+    shouldStripPrefix = hasAdKeyword || preSegments.length > 0;
+  }}
+
+  const resultLines = [];
+  let skippingPrefix = shouldStripPrefix;
+  let skipNextSegment = false;
+
+  for (let i = 0; i < lines.length; i++) {{
+    const origLine = lines[i];
+    const trimmed = origLine.trim();
+
+    if (!trimmed) continue;
+
+    if (trimmed.startsWith('#EXT-X-VERSION') || 
+        trimmed.startsWith('#EXT-X-TARGETDURATION') || 
+        trimmed.startsWith('#EXT-X-MEDIA-SEQUENCE')) {{
+      resultLines.push(origLine);
+      continue;
+    }}
+
+    if (skippingPrefix) {{
+      if (trimmed === '#EXT-X-DISCONTINUITY') {{
+        skippingPrefix = false;
+      }}
+      continue;
+    }}
+
+    if (trimmed.startsWith('#EXTINF')) {{
+      const nextLine = (lines[i + 1] || '').trim();
+      if (nextLine && !nextLine.startsWith('#')) {{
+        const isAd = adKeywords.some(k => nextLine.toLowerCase().includes(k));
+        if (isAd) {{
+          skipNextSegment = true;
+          continue;
+        }}
+      }}
+      resultLines.push(origLine);
+      continue;
+    }}
+
+    if (skipNextSegment) {{
+      skipNextSegment = false;
+      continue;
+    }}
+
+    if (!trimmed.startsWith('#')) {{
+      try {{
+        const absUrl = new URL(trimmed, finalUrl).toString();
+        resultLines.push(absUrl);
+      }} catch (e) {{
+        resultLines.push(trimmed);
+      }}
+      continue;
+    }}
+
+    resultLines.push(origLine);
+  }}
+
+  if (!resultLines.length || !resultLines[0].startsWith('#EXTM3U')) {{
+    resultLines.unshift('#EXTM3U');
+  }}
+
+  return resultLines.join('\\n');
 }}
 """
     
