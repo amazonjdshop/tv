@@ -49,7 +49,7 @@ def clean_channel_name(name):
     n = name.strip()
     # Strip emojis and symbols
     n = re.sub(r"[\U00010000-\U0010ffff]", "", n)
-    n = re.sub(r"[\u2600-\u27bf\u2300-\u23ff\u2b50\u2b55\u200d\ufe0f]", "", n)
+    n = re.sub(r"[\u2600-\u27bf\u2300-\u23ff\u2b50\u2b55\u200d\ufe0f\u2460-\u24ff]", "", n)
     # Strip line markers at the end before replacing underscores
     n = re.sub(r"_\d+$", "", n)
     n = re.sub(r"[\(\[]\d+[\)\]]$", "", n)
@@ -116,7 +116,7 @@ def clean_category(cat, name, url=""):
     ]
     is_hk_tw = is_hk_now or any(x in name_lower for x in hk_tw_keywords)
     is_foreign_english = any(x in name_lower for x in ["pet club", "supreme master", "pluto", "electric", "now_90", "true crime"])
-    if (is_hk_tw or cat in ["澳门频道", "港台", "港台频道", "港澳台"]) and not is_foreign_english:
+    if (is_hk_tw or cat in ["澳门频道", "港台", "港台频道", "港澳台"] or cat.lower() in ["taiwan", "hong kong", "macau", "hk", "tw", "mo"] or any(x in cat.lower() for x in ["taiwan", "hong kong", "macau"])) and not is_foreign_english:
         return "港澳台"
 
     # 6. Kids & Animation (少儿卡通)
@@ -134,7 +134,7 @@ def clean_category(cat, name, url=""):
         "docu", "documentary", "discovery", "history", "nat geo", "national geographic",
         "animal planet", "science", "nature", "curiosity", "wild", "planet", "smithsonian"
     ]
-    if any(x in name_lower for x in doc_keywords) or any(x in cat.lower() for x in ["纪录", "记录", "纪实", "探索", "discovery", "documentary"]):
+    if any(x in name_lower for x in doc_keywords) or any(x in cat.lower() for x in ["纪录", "记录", "纪实", "探索", "discovery", "documentary", "documentaries"]):
         return "纪实探索"
 
     # 8. Education & Culture (教育频道)
@@ -208,7 +208,8 @@ def clean_category(cat, name, url=""):
         "drybar", "comedy", "thriller", "drama", "action", "sci-fi", "horror", "crime", 
         "mystery", "western", "electric now", "true crime now", "重温经典", "猫和老鼠"
     ]
-    if any(k in name_lower for k in movie_keywords) or cat in ["电影经典", "影视经典", "欧美影视", "影视剧场"]:
+    is_series_cat = any(x in cat for x in ["电视剧", "埋堆堆", "电影经典", "影视经典", "欧美影视", "影视剧场", "剧场", "连续剧"])
+    if any(k in name_lower for k in movie_keywords) or is_series_cat or any(x in cat.lower() for x in ["vod movies", "movies (en)"]):
         return "影视剧场"
 
     # 13. US Local Affiliates
@@ -453,7 +454,8 @@ def main():
             "kylintv.tv", "cnr.cn", "bestv.cn", "sun0769.com", "wcetv.com",
             "amagi.tv", "sofast.tv", "mediatailor", "youtube.com", "youtu.be",
             "cctvnews.cctv.com", "iyb983.cn", "kwimgs.com", "211.72.174.95",
-            "gcalic.v.myalicdn.com", "myqcloud.com", "gcwbndali.v.myalicdn.com"
+            "gcalic.v.myalicdn.com", "myqcloud.com", "gcwbndali.v.myalicdn.com",
+            "pluto.tv", "akamaized.net", "simplestreamcdn.com", "51kandianshi.com"
         ]):
             return 2
         return 1
