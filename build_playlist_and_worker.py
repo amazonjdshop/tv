@@ -489,6 +489,7 @@ def main():
         return 1
 
     # Identify multi-line channels that require quality & speed differentiation
+    # 彻底移除缓存：每次巡检 100% 从零并发测速所有多线路源，确保数据即时绝对真实
     multi_line_urls = []
     seen_multi_urls = set()
     for (cat_name, ch_name), grp in name_groups.items():
@@ -497,11 +498,7 @@ def main():
                 u_norm = item["url"].strip()
                 if u_norm not in seen_multi_urls:
                     seen_multi_urls.add(u_norm)
-                    now_ts = time.time()
-                    m = cached_metrics.get(u_norm)
-                    # Re-probe if not cached or tested more than 16 minutes ago (ensuring 100% fresh re-benchmarking on every 30-min sync)
-                    if not m or (now_ts - m.get("tested_at", 0) > 1000):
-                        multi_line_urls.append(item)
+                    multi_line_urls.append(item)
 
     if multi_line_urls:
         print(f"Benchmarking clarity & speed for {len(multi_line_urls)} multi-line channel streams...")
@@ -539,7 +536,7 @@ def main():
 
             try:
                 req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
-                with urllib.request.urlopen(req, context=probe_ctx, timeout=2.5) as r:
+                with urllib.request.urlopen(req, context=probe_ctx, timeout=3.5) as r:
                     latency_ms = int((time.time() - t0) * 1000)
                     final_url = r.geturl()
                     chunk = r.read(8000).decode('utf-8', errors='ignore')
@@ -585,7 +582,7 @@ def main():
 
                         t_seg_start = time.time()
                         req_seg = urllib.request.Request(target_seg, headers={'User-Agent': 'Mozilla/5.0'})
-                        with urllib.request.urlopen(req_seg, context=probe_ctx, timeout=3.0) as r_seg:
+                        with urllib.request.urlopen(req_seg, context=probe_ctx, timeout=4.0) as r_seg:
                             bytes_read = 0
                             while bytes_read < 1048576: # 1MB 取样
                                 c = r_seg.read(65536)
