@@ -8,6 +8,7 @@ import urllib.request
 import ssl
 import concurrent.futures
 from collections import defaultdict, OrderedDict
+from t2s_data import trad_to_simp
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 merged_path = os.path.join(SCRIPT_DIR, "merged_channels.txt")
@@ -63,10 +64,36 @@ def clean_channel_name(name):
     n = re.sub(r"(?i)[\[\(]?(?:1080[pi]?|720[pi]?|(?<!cctv-)4k|(?<!cctv-)8k|fhd)[\]\)]?", "", n)
     # Remove trailing HD/SD tag
     n = re.sub(r"(?i)\s+[-_]?\s*(?:HD|SD)\s*$", "", n)
+    n = re.sub(r"(?i)(?<=\D)HD$", "", n)
+    n = re.sub(r"\s*(?:BLTV)$", "", n, flags=re.I)
     # Clean redundant whitespace
     n = re.sub(r"\s+", " ", n).strip()
-    # Traditional to simplified mapping for key satellite channels
-    if n in ["湖南衛視", "湖南卫视 HD", "湖南卫视 1080P", "湖南卫视1080P"]:
+
+    # 1. Translate Traditional Chinese to Simplified Chinese (comprehensive OpenCC dictionary)
+    n = trad_to_simp(n)
+
+    # 2. Standardize CCTV Digital Pay Channels (unify CCTV- prefix variants with standard simplified names)
+    cctv_pay = {
+        "CCTV-兵器科技": "兵器科技",
+        "CCTV-央视台球": "央视台球",
+        "CCTV-央视精品": "央视精品",
+        "CCTV-高尔夫网球": "高尔夫网球",
+        "CCTV-第一剧场": "第一剧场",
+        "CCTV-风云剧场": "风云剧场",
+        "CCTV-风云足球": "风云足球",
+        "CCTV-风云音乐": "风云音乐",
+        "CCTV-怀旧剧场": "怀旧剧场",
+        "CCTV-女性时尚": "女性时尚",
+        "CCTV-卫生健康": "卫生健康",
+        "CCTV-世界地理": "世界地理",
+        "CCTV-电视指南": "电视指南",
+        "CCTV-发现之旅": "发现之旅"
+    }
+    if n in cctv_pay:
+        n = cctv_pay[n]
+
+    # 3. Traditional to simplified mapping for key satellite channels
+    if n in ["湖南卫视 HD", "湖南卫视 1080P", "湖南卫视1080P"]:
         n = "湖南卫视"
     return n
 
@@ -85,7 +112,7 @@ def clean_category(cat, name, url=""):
         return "直播中国"
 
     # 1. CCTV/pay-TV channels
-    is_cctv = "cctv" in name_lower or "央视" in name or "风云" in name or "怀旧" in name or "兵器" in name or "世界地理" in name or "--服务器" in name_lower
+    is_cctv = "cctv" in name_lower or "央视" in name or "风云" in name or "怀旧" in name or "兵器" in name or "世界地理" in name or "--服务器" in name_lower or any(x in name for x in ["第一剧场", "女性时尚", "卫生健康", "高尔夫网球", "电视指南", "发现之旅"])
     if is_cctv:
         return "央视频道"
 
@@ -353,29 +380,64 @@ def main():
                 else:
                     name = clean_channel_name(raw_name)
             
-            # Normalize Singapore, Macau and regional channels to standard Chinese names
+            # Normalize Singapore, Macau, Hong Kong, Taiwan and regional channels to standard Chinese names
             sg_mo_map = {
-                'CH8': '新傳媒8頻道',
-                'Channel 8': '新傳媒8頻道',
-                'CHU': '新傳媒U頻道',
-                'CHANNEL U': '新傳媒U頻道',
-                'CH5': '新傳媒5頻道',
-                'CHANNEL 5': '新傳媒5頻道',
-                'CNA': 'CNA亞洲新聞台',
-                '澳门莲花': '澳門蓮花衛視',
-                'Lotus TV': '澳門蓮花衛視',
-                '澳门体育': '澳視體育',
-                '澳门综艺': '澳視綜藝',
-                '澳门资讯': '澳視資訊',
-                '澳门咨询': '澳視資訊',
-                '澳视澳门': '澳視澳門',
-                '澳视卫星': '澳門衛星頻道',
-                '澳门Macau': '澳視澳門',
-                'Beautiful Life TV': '人間衛視 BLTV',
-                'Good': 'GOOD TV 好消息 1台',
-                'Good 2': 'GOOD TV 好消息 2台',
-                'Dali TV': '大立電視'
+                'CH8': '新传媒8频道',
+                'Channel 8': '新传媒8频道',
+                'CHU': '新传媒U频道',
+                'CHANNEL U': '新传媒U频道',
+                'CH5': '新传媒5频道',
+                'CHANNEL 5': '新传媒5频道',
+                'CNA': 'CNA亚洲新闻台',
+                '澳门莲花': '澳门莲花卫视',
+                '澳门莲花电影': '澳门莲花卫视',
+                'Lotus TV': '澳门莲花卫视',
+                '澳门体育': '澳视体育',
+                '澳门综艺': '澳视综艺',
+                '澳门资讯': '澳视资讯',
+                '澳门咨询': '澳视资讯',
+                '澳视澳门': '澳视澳门',
+                '澳视卫星': '澳门卫星频道',
+                '澳门Macau': '澳视澳门',
+                'Beautiful Life TV': '人间卫视',
+                '人间卫视 BLTV': '人间卫视',
+                'Good': '好消息1台',
+                'Good 2': '好消息2台',
+                'GOOD TV 好消息 1台': '好消息1台',
+                'GOOD TV 好消息 2台': '好消息2台',
+                'Dali TV': '大立电视',
+                '大立電視': '大立电视',
+                'TVB翡翠台': '翡翠台',
+                'TVB明珠': '明珠台',
+                'TVB明珠台': '明珠台',
+                'TVB无线新闻': 'TVB新闻',
+                'TVBPlus': 'TVB Plus',
+                'TVBJ1': 'TVB J1',
+                'TVBS亚洲': 'TVBS-Asia',
+                'TVBS新闻': 'TVBS新闻台',
+                '无线新闻台': '无线新闻',
+                'NOW新闻': 'NOW新闻台',
+                '凤凰卫视台': '凤凰中文',
+                '甘肃-白银文化教育': '白银文化教育',
+                '甘肃-张掖新闻综合': '张掖新闻综合',
+                '广州综合频道': '广州综合',
+                '广州新闻频道': '广州新闻',
+                '广州南国都市频道': '广州南国都市',
+                '哈尔滨影视': '哈尔滨影视频道',
+                '绍兴公共': '绍兴公共频道',
+                '浙江国际': '浙江国际频道',
+                '浙江少儿': '浙江少儿频道',
+                '浙江教科': '浙江教科影视',
+                '浙江教科频道': '浙江教科影视',
+                '浙江经济': '浙江经济生活',
+                '浙江民生': '浙江民生休闲',
+                '浙江民生资讯': '浙江民生休闲',
+                '浙江钱江': '浙江钱江都市',
+                '浙江钱江频道': '浙江钱江都市',
+                '舒兰新闻': '舒兰新闻综合',
+                '辉南新闻': '辉南新闻综合'
             }
+            name = trad_to_simp(name)
             stripped_prefix = re.sub(r'^[^\w\s\-]+', '', name).strip()
             if stripped_prefix in sg_mo_map:
                 name = sg_mo_map[stripped_prefix]
