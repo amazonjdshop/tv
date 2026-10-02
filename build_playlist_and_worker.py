@@ -425,6 +425,55 @@ def main():
                         "url": url
                     })
             
+    # ── Auto GSLB Resolver & Direct Node Flattening Engine ───────────────────────
+    # 自动探测并提纯所有 GSLB 调度源背后的真实底层推流节点：
+    # 若底层节点经实测免 Token、无时效限制且为纯净流，则自动提炼为直连新线路加入候选池（自动晋级 Line 1），
+    # 并保留原 GSLB 调度地址作为备用源（Line 2），实现零人工维护的全自动自愈与加速。
+    gslb_channels = [c for c in channels if "gslb" in c["url"].lower() or "redirect" in c["url"].lower()]
+    if gslb_channels:
+        import concurrent.futures, ssl
+        gslb_ctx = ssl._create_unverified_context()
+        
+        def probe_and_flatten_gslb(c):
+            u = c["url"].strip()
+            try:
+                req = urllib.request.Request(u, headers={"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"})
+                with urllib.request.urlopen(req, context=gslb_ctx, timeout=3.0) as resp:
+                    final_url = resp.geturl()
+                    if final_url != u:
+                        clean_url = final_url.split("?")[0]
+                        clean_url_lower = clean_url.lower()
+                        if any(k in clean_url_lower for k in ["107.m3u8", "zmt.m3u8", "appadhw", "47.97.252.", "nosignal", "error"]):
+                            return None
+                        if clean_url != u:
+                            req_clean = urllib.request.Request(clean_url, headers={"User-Agent": "Mozilla/5.0"})
+                            with urllib.request.urlopen(req_clean, context=gslb_ctx, timeout=2.0) as r_clean:
+                                if r_clean.status == 200:
+                                    content = r_clean.read(1500).decode("utf-8", errors="ignore")
+                                    if "#EXTM3U" in content and not any(k in content.lower() for k in ["not available in your area", "appadhw"]):
+                                        return {
+                                            "category": c["category"],
+                                            "name": c["name"],
+                                            "raw_name": c.get("raw_name", c["name"]),
+                                            "url": clean_url
+                                        }
+            except Exception:
+                pass
+            return None
+
+        seen_channel_urls = {c["url"].strip().lower() for c in channels}
+        new_flattened = []
+        with concurrent.futures.ThreadPoolExecutor(max_workers=20) as gslb_ex:
+            for res in gslb_ex.map(probe_and_flatten_gslb, gslb_channels):
+                if res and res["url"].lower() not in seen_channel_urls:
+                    seen_channel_urls.add(res["url"].lower())
+                    new_flattened.append(res)
+                    print(f"  ⚡ [Auto-Flatten] {res['name']} 自动提纯底层直连节点: {res['url']}")
+
+        if new_flattened:
+            channels.extend(new_flattened)
+            print(f"Auto-flattened {len(new_flattened)} direct tokenless underlying nodes from GSLB.")
+
     # Prioritize higher quality streams for each channel before key assignment and capping
     from collections import OrderedDict
     name_groups = OrderedDict()
