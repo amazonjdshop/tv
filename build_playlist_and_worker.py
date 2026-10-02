@@ -295,7 +295,7 @@ def main():
             url = parts[2].strip()
             
             # Filter out adware restreamer, ad networks, and looping test streams
-            if any(k in url.lower() for k in ["107.150.60.122", "lantian/channel001", "198.204.228.26", "appadhw", "tvzb", "47.97.252.137", "3y1.xyz", "nosignal", "epg.pw/stream", "cnlive.club", "sailei", "dpdns.org"]):
+            if any(k in url.lower() for k in ["107.150.60.122", "lantian/channel001", "198.204.228.26", "appadhw", "tvzb", "47.97.252.", "173.208.212.130", "3y1.xyz", "nosignal", "epg.pw/stream", "cnlive.club", "sailei", "dpdns.org"]):
                 continue
             if any(k in raw_name for k in ["支持作者", "关注公众号", "防失联", "微信", "更新时间"]):
                 continue
@@ -434,7 +434,7 @@ def main():
             score += 35
         elif any(k in u_lower for k in [
             "cztv.com/live", "kylintv", "skygo.mn", "bestv.cn", "mgtv.com",
-            "63.141.", "74.91.", "204.12.", "173.208.", "192.151.", "69.30.", "198.204.", "207.56.",
+            "63.141.", "74.91.", "204.12.", "192.151.", "69.30.", "198.204.", "207.56.",
             "38.64.", "38.75.", "bztv.tvbus.cc"
         ]):
             score += 35
@@ -461,7 +461,7 @@ def main():
         纯净度分级 (Purity Tiers):
         Tier 2 (最高): 官方正规源及高性能 CDN 直连流 (永久 0 广告，点开即正片)
           - 广电/卫视官方无广告流 (cztv.com, sdetv.com, hebtv.com, gztv.com, tdm.com.mo, kylintv.tv, bestv.cn, cnr.cn)
-          - 骨干机房高带宽加速源 (204.12., 173.208., 63.141., 74.91., 192.151., 69.30., 198.204., 207.56., 38.64., 38.75., bztv.tvbus.cc)
+          - 骨干机房高带宽加速源 (204.12., 63.141., 74.91., 192.151., 69.30., 198.204., 207.56., 38.64., 38.75., bztv.tvbus.cc)
           - YouTube 24/7 官方直播
         Tier 1 (普通): 常见常规网络流及运营商 IPTV 组播流
         Tier 0 (最低/备用): 具有首次连接商业插播广告/贴片会话/暗投切片特征的流 (仅作为末尾备用线路，绝不占 Line 1)
@@ -476,7 +476,7 @@ def main():
         if any(k in u_lower for k in [
             "qd.je", "jdshipin.com", "sryze.cc", "xykt-fix", "kankanlive", 
             "livehwc", "edge_slice", "user_session_id", "wd_r2", "newlive",
-            "appadhw", "cdnwh", "cctv4k.m3u8", "dsdqpub", "auth=testpub"
+            "appadhw", "cctv4k.m3u8", "dsdqpub", "auth=testpub"
         ]):
             return 0
         if any(k in u_lower for k in [
@@ -486,7 +486,7 @@ def main():
             "cctvnews.cctv.com", "iyb983.cn", "kwimgs.com", "211.72.174.95",
             "gcalic.v.myalicdn.com", "myqcloud.com", "gcwbndali.v.myalicdn.com",
             "pluto.tv", "akamaized.net", "simplestreamcdn.com", "51kandianshi.com",
-            "204.12.", "173.208.", "63.141.", "74.91.", "192.151.", "69.30.",
+            "204.12.", "63.141.", "74.91.", "192.151.", "69.30.",
             "198.204.", "207.56.", "38.64.", "38.75.", "bztv.tvbus.cc", "dsdqbv"
         ]):
             return 2
@@ -545,7 +545,18 @@ def main():
                 with urllib.request.urlopen(req, context=probe_ctx, timeout=3.5) as r:
                     latency_ms = int((time.time() - t0) * 1000)
                     final_url = r.geturl()
+                    final_url_lower = final_url.lower()
+
+                    # 严格拦截 301/302 重定向到广告轮播服务器（如 appadhw, 47.97.252., 107.m3u8, zmt.m3u8）
+                    if any(k in final_url_lower for k in ["appadhw", "47.97.252.", "107.m3u8", "zmt.m3u8"]):
+                        return url, {"res_tier": 0, "res_name": "Adware", "latency_ms": 9999, "download_kbps": 0, "smooth_tier": 0, "tested_at": 0}
+
                     chunk = r.read(8000).decode('utf-8', errors='ignore')
+
+                    # 严格拦截地域锁屏切片与广告切片（如 CCTV-5 体育版权锁屏 "not available in your area"）
+                    if any(k in chunk.lower() for k in ["not available in your area", "appadhw"]):
+                        return url, {"res_tier": 0, "res_name": "GeoBlocked/Ad", "latency_ms": 9999, "download_kbps": 0, "smooth_tier": 0, "tested_at": 0}
+
                     m_res = re.search(r'RESOLUTION=(\d+)x(\d+)', chunk, re.I)
                     if m_res:
                         w, h = int(m_res.group(1)), int(m_res.group(2))
