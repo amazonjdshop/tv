@@ -550,10 +550,14 @@ def main():
                         return url, {"res_tier": 0, "res_name": "Adware", "latency_ms": 9999, "download_kbps": 0, "smooth_tier": 0, "tested_at": 0}
 
                     # 严格拦截严重限速、过期动态 token 导致看一会儿就频繁缓冲的劣质节点
-                    if any(k in final_url_lower for k in ["204.12.221.", "204.12.241.", "from=cdnwh"]):
+                    if any(k in final_url_lower for k in ["204.12.", "192.187.115.", "from=cdnwh", "zbdq11"]):
                         return url, {"res_tier": 1, "res_name": "Throttled/Buffer", "latency_ms": 9999, "download_kbps": 500, "smooth_tier": 0, "tested_at": 0}
 
                     chunk = r.read(8000).decode('utf-8', errors='ignore')
+
+                    # 严格要求流必须为合法的 HLS 播放列表，排除 JSON/HTML 错误页面
+                    if not chunk.strip().startswith("#EXTM3U") and not chunk.startswith("FLV") and "video/" not in r.headers.get("Content-Type", ""):
+                        return url, {"res_tier": 0, "res_name": "Invalid/NotM3U8", "latency_ms": 9999, "download_kbps": 0, "smooth_tier": 0, "tested_at": 0}
 
                     # 严格拦截地域锁屏切片与广告切片（如 CCTV-5 体育版权锁屏 "not available in your area"）
                     if any(k in chunk.lower() for k in ["not available in your area", "appadhw"]):
