@@ -343,7 +343,7 @@ def main():
             u_lower = url.lower()
             if any(k in u_lower for k in ["107.150.60.122", "lantian/channel001", "198.204.228.26", "appadhw", "tvzb", "47.97.252.", "173.208.212.130", "3y1.xyz", "nosignal", "epg.pw/stream", "cnlive.club", "sailei", "dpdns.org"]):
                 continue
-            if "u=" in u_lower and "applive" in u_lower:
+            if any(k in u_lower for k in [":88/applive", ":88/", "applive"]) or re.search(r'[?&]u=\d+\.\d+\.\d+\.\d+', u_lower):
                 continue
             if any(k in raw_name for k in ["支持作者", "关注公众号", "防失联", "微信", "更新时间"]):
                 continue
@@ -537,7 +537,7 @@ def main():
                         # 2. 若底层带动态 Token 鉴权，直接提纯并返回带有时效 Token 的真实底层推流节点！
                         # 彻底绕开 GSLB 调度机前端所植入的开播/贴片广告，实现客户端秒开直连！
                         # 严格防护：若包含 u= 参数或 :88/applive，说明该 Token 强绑定了单机出口 IP，其它客户端播放会 403 触发回退广告，必须排除！
-                        if "u=" in final_url_lower or ":88/applive" in final_url_lower:
+                        if "u=" in final_url_lower or ":88" in final_url_lower or "applive" in final_url_lower:
                             return None
 
                         try:
@@ -630,6 +630,9 @@ def main():
         # 美国本土极速直连骨干节点（免 Token、永久 0 广告、0 跳转）赋予最高保底优先级
         if "69.197.146.138:82" in u_lower:
             score += 100
+        elif any(k in u_lower for k in ["gslb", "redirect", ":98/"]):
+            # GSLB 调度中转地址概率性植入开播广告且增加跳转延迟，施加严厉降级扣分，杜绝占据 Line 1
+            score -= 100
         elif any(k in u_lower for k in [
             "cztv.com/live", "kylintv", "skygo.mn", "bestv.cn", "mgtv.com",
             "63.141.", "74.91.", "192.151.", "69.30.", "198.204.", "207.56.",
@@ -645,9 +648,6 @@ def main():
             score -= 60
         if "newlive" in u_lower or "wssecret=" in u_lower or "wstime=" in u_lower:
             score -= 50
-        # GSLB 调度中转地址有概率植入开机/贴片广告且增加跳转，优先级低于直接提纯出的底层真实节点
-        if "gslb" in u_lower or "redirect" in u_lower:
-            score -= 40
         if any(k in u_lower for k in ["auth_key=", "sign=", "token="]) and not any(k in u_lower for k in ["auth=test", "key=txiptv"]):
             score -= 30
         if any(k in u_lower for k in [
@@ -666,6 +666,7 @@ def main():
           - YouTube 24/7 官方直播
         Tier 1 (普通): 常见常规网络流及运营商 IPTV 组播流
         Tier 0 (最低/备用): 具有首次连接商业插播广告/贴片会话/暗投切片特征的流 (仅作为末尾备用线路，绝不占 Line 1)
+          - gslb / redirect / :98/ (GSLB 广告与调度中转机)
           - qd.je, jdshipin.com, sryze.cc (商业贴片广告代理)
           - xykt-fix, kankanlive, livehwc (商业 H5 流，带开播前置广告)
           - user_session_id=, edge_slice= (广告会话跟踪)
@@ -675,6 +676,7 @@ def main():
         """
         u_lower = c["url"].lower()
         if any(k in u_lower for k in [
+            "gslb", "redirect", ":98/",
             "qd.je", "jdshipin.com", "sryze.cc", "xykt-fix", "kankanlive", 
             "livehwc", "edge_slice", "user_session_id", "wd_r2", "newlive",
             "appadhw", "cctv4k.m3u8", "dsdqpub", "auth=testpub",
@@ -688,8 +690,9 @@ def main():
             "cctvnews.cctv.com", "iyb983.cn", "kwimgs.com", "211.72.174.95",
             "gcalic.v.myalicdn.com", "myqcloud.com", "gcwbndali.v.myalicdn.com",
             "pluto.tv", "akamaized.net", "simplestreamcdn.com", "51kandianshi.com",
+            "nmtv.cn", "yntv.net", "lanzhousobey.cn",
             "69.197.", "63.141.", "74.91.", "192.151.", "69.30.",
-            "198.204.", "207.56.", "38.64.", "38.75.", "bztv.tvbus.cc", "dsdqbv"
+            "198.204.", "207.56.", "38.64.", "38.75.", "bztv.tvbus.cc"
         ]):
             return 2
         return 1
@@ -921,14 +924,14 @@ def main():
         is_residential = any(k in u.lower() for k in [":50085", ":9901", ":60901", "112.123.", "36.136.", "59.39.", "218.13.", "183.10.", "124.228."])
         effective_speed = download_kbps - 2000 if is_residential else download_kbps
 
-        # 方案 C 核心多维排序规则：
-        # 1. 第一优先级：流畅度（smooth_tier: 2 绝对流畅零缓冲 > 1 基本可播 > 0 码率倒挂必然卡顿）
-        # 2. 第二优先级：清晰度（4K/8K=4 > 1080P=3 > 720P=2 > SD=1）
-        # 3. 第三优先级：纯净度（Tier 2/1 纯净流 > Tier 0 广告流）
-        # 4. 第四优先级：稳定性（免 Token、永久 0 广告的美国本土底层骨干节点优先于 GSLB 重定向代理）
+        # 核心多维排序规则：
+        # 1. 第一优先级：纯净度（Tier 2/1 纯净直连流 100% 优先于 Tier 0 GSLB/广告代理源，彻底消除 Line 1 广告与 403 风险）
+        # 2. 第二优先级：流畅度（smooth_tier: 2 绝对流畅零缓冲 > 1 基本可播 > 0 码率倒挂备用）
+        # 3. 第三优先级：清晰度（4K/8K=4 > 1080P=3 > 720P=2 > SD=1）
+        # 4. 第四优先级：稳定性（免 Token、永久 0 广告的美国本土底层骨干节点优先于普通代理）
         # 5. 第五优先级：有效带宽（effective_speed: 骨干机房高带宽 CDN 专线 15~30 Mbps）
         # 6. 第六优先级：首包响应（-latency_ms）
-        return (smooth_tier, res_tier, purity, stability, effective_speed, -latency_ms)
+        return (purity, smooth_tier, res_tier, stability, effective_speed, -latency_ms)
 
     sorted_channels = []
     for cat_name, grp in name_groups.items():
@@ -1290,6 +1293,15 @@ export default {{
 
       const finalUrl = upstreamRes.url || targetUrl;
       const rawText = await upstreamRes.text();
+
+      // 严格防护单机 IP 绑定节点（如 :88/applive 或 u=<IP>）：若上游重定向至单机绑定节点，电视机等外部设备播放 TS 必 403 报错
+      // 立即返回 403 明确错误，促使播放器以 1ms 极限速度瞬间轮换下一条有效线路，绝不卡死
+      if (finalUrl.includes(':88') || finalUrl.includes('applive') || finalUrl.includes('u=')) {{
+        return new Response('403 Forbidden: IP Bound Node', {{
+          status: 403,
+          headers: {{ 'Access-Control-Allow-Origin': '*' }}
+        }});
+      }}
 
       if (!rawText.includes('#EXTM3U')) {{
         if (url.searchParams.get('debug') === '1') {{

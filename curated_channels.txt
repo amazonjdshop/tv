@@ -35,17 +35,57 @@
 测试频道|重温经典 (广告测试)|https://php.jdshipin.com:2096/TVOD/iptv.php?id=cwjd
 
 # ==============================================================================
-# 北美直连机房优质专线 (美国堪萨斯城骨干直出 · 1080P 超清 · 永久 0 广告 · 0 跳转秒开)
+# 北美直连机房优质专线 (美国堪萨斯城骨干直出 · 1080P/720P 超清 · 永久 0 广告 · 0 鉴权 · 0 跳转秒开)
 # ==============================================================================
+央视频道|CCTV-1|http://63.141.224.162:82/live/cctv1md.m3u8
+央视频道|CCTV-2|http://63.141.224.162:82/live/cctv2md.m3u8
+央视频道|CCTV-3|http://63.141.224.162:82/live/cctv3md.m3u8
+央视频道|CCTV-4|http://74.91.26.218:82/live/cctv4hd.m3u8
 央视频道|CCTV-5|http://69.197.146.138:82/live/cctv5.m3u8
+央视频道|CCTV-5|http://63.141.224.162:82/live/cctv5md.m3u8
 央视频道|CCTV-5+|http://69.197.146.138:82/live/cctv5p.m3u8
+央视频道|CCTV-6|http://63.141.224.162:82/live/cctv6md.m3u8
+央视频道|CCTV-7|http://74.91.26.218:82/live/cctv7hd.m3u8
+央视频道|CCTV-8|http://63.141.224.162:82/live/cctv8md.m3u8
+央视频道|CCTV-9|http://74.91.26.218:82/live/cctv9hd.m3u8
+央视频道|CCTV-10|http://74.91.26.218:82/live/cctv10hd.m3u8
+央视频道|CCTV-11|http://74.91.26.218:82/live/cctv11hd.m3u8
 央视频道|CCTV-12|http://69.197.146.138:82/live/cctv12.m3u8
+央视频道|CCTV-12|http://63.141.224.162:82/live/cctv12md.m3u8
 央视频道|CCTV-13|http://69.197.146.138:82/live/cctv13.m3u8
 央视频道|CCTV-14|http://69.197.146.138:82/live/cctv14.m3u8
+央视频道|CCTV-14|http://63.141.224.162:82/live/cctv14md.m3u8
 央视频道|CCTV-15|http://69.197.146.138:82/live/cctv15.m3u8
+央视频道|CCTV-15|http://63.141.224.162:82/live/cctv15md.m3u8
 央视频道|CCTV-16|http://69.197.146.138:82/live/cctv16.m3u8
 央视频道|CCTV-17|http://69.197.146.138:82/live/cctv17.m3u8
+卫视频道|北京卫视|http://74.91.26.218:82/live/btv1.m3u8
+卫视频道|东方卫视|http://142.54.179.26:82/live/dfws.m3u8
 卫视频道|江苏卫视|http://69.197.146.138:82/live/jsws.m3u8
+卫视频道|江苏卫视|http://142.54.179.26:82/live/jsws.m3u8
+卫视频道|浙江卫视|http://142.54.179.26:82/live/zjws.m3u8
+卫视频道|江西卫视|http://69.30.251.138:82/live/jxws.m3u8
+卫视频道|湖南卫视|http://142.54.179.26:82/live/hnws.m3u8
+卫视频道|广东卫视|http://142.54.179.26:82/live/gdws.m3u8
+卫视频道|广东卫视|http://198.204.229.234:82/live/gdws.m3u8
+卫视频道|东南卫视|http://198.204.240.250:82/live/dnwshd.m3u8
+卫视频道|广西卫视|http://198.204.240.250:82/live/gxws.m3u8
+卫视频道|河南卫视|http://142.54.179.26:82/live/hnws.m3u8
+卫视频道|内蒙古卫视|http://play1-qk.nmtv.cn/live/1769652018126032.m3u8
+卫视频道|云南卫视|https://hwapi.yntv.net/ew265l/z1z6s5.m3u8
+卫视频道|青海卫视|https://hls-qhmh.lanzhousobey.cn/qhmh/mhds.m3u8
+卫视频道|贵州卫视|https://7612-5516-affc-d88b.kylintv.tv/live/guizhoutv_iphone.m3u8
+影视剧场|CHC动作电影|http://173.208.187.18:82/live/chcdz.m3u8
+影视剧场|CHC高清电影|http://173.208.187.18:82/live/chchd.m3u8
+影视剧场|风云音乐|http://198.204.229.234:82/live/fyyy.m3u8
+体育频道|风云足球|http://173.208.187.18:82/live/fyzq.m3u8
+四川频道|四川乡村|http://142.54.179.26:82/live/sctv8.m3u8
+四川频道|四川妇女儿童|http://142.54.179.26:82/live/sctv7.m3u8
+四川频道|四川影视文艺|http://142.54.179.26:82/live/sctv5.m3u8
+四川频道|四川文化旅游|http://142.54.179.26:82/live/sctv2.m3u8
+四川频道|四川经济|http://142.54.179.26:82/live/sctv3.m3u8
+上海频道|上海新闻综合|http://69.30.245.51:82/live/shxw.m3u8
+北京频道|北京科教|http://183.10.180.81:9901/tsfile/live/0115_1.m3u8?key=txiptv&playlive=1&authid=0
 
 # ==============================================================================
 # 中央广播电视总台 (CCTV-1 ~ CCTV-17 官方正规 IPTV 原生组播 1080P 超清专线 · 永久 0 广告)
