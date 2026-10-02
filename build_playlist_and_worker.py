@@ -364,6 +364,19 @@ def main():
             elif name in sg_mo_map:
                 name = sg_mo_map[name]
                 
+            # IPTV Guard: reject mismatched IPTV streams (e.g. CCTV-3 with 0019_1, CCTV-5+ with 0016_1, etc.)
+            m_cctv = re.search(r'CCTV[-_ ]?(\d+)', name, re.I)
+            m_code = re.search(r'/00(\d{2})_1\.m3u8', url)
+            if m_cctv and m_code:
+                cctv_num = int(m_cctv.group(1))
+                code_num = int(m_code.group(1))
+                if cctv_num != code_num and not (cctv_num == 5 and code_num == 21):
+                    continue
+            if "cctv-5+" in name.lower() and "/0016_1.m3u8" in url:
+                continue
+            if "cctv" in name.lower() and re.search(r'tsfile/live/10\d{2}_1\.m3u8', url):
+                continue
+
             cleaned_cat = clean_category(category, name, url)
             
             channels.append({
@@ -486,8 +499,8 @@ def main():
                     seen_multi_urls.add(u_norm)
                     now_ts = time.time()
                     m = cached_metrics.get(u_norm)
-                    # Re-probe if not cached or tested more than 2 hours ago
-                    if not m or (now_ts - m.get("tested_at", 0) > 7200):
+                    # Re-probe if not cached or tested more than 25 minutes ago (ensuring dynamic re-ranking every 30-min sync)
+                    if not m or (now_ts - m.get("tested_at", 0) > 1500):
                         multi_line_urls.append(item)
 
     if multi_line_urls:
@@ -556,7 +569,7 @@ def main():
                     # 方案 C 测速：下载 1MB 视频切片样本，检验真实网络下行能否跑赢视频播放码率
                     lines = [l.strip() for l in chunk.splitlines() if l.strip() and not l.startswith("#")]
                     if lines:
-                        target_seg = urllib.parse.urljoin(final_url, lines[0])
+                        target_seg = urllib.parse.urljoin(final_url, lines[-1])
                         if "#EXT-X-STREAM-INF" in chunk or ".m3u" in target_seg or "php" in target_seg or "sryze.cc" in target_seg:
                             try:
                                 req_sub = urllib.request.Request(target_seg, headers={'User-Agent': 'Mozilla/5.0'})
@@ -566,7 +579,7 @@ def main():
                                     if sub_content.startswith("#EXTM3U"):
                                         sub_lines = [l.strip() for l in sub_content.splitlines() if l.strip() and not l.startswith("#")]
                                         if sub_lines:
-                                            target_seg = urllib.parse.urljoin(sub_url, sub_lines[0])
+                                            target_seg = urllib.parse.urljoin(sub_url, sub_lines[-1])
                             except Exception:
                                 pass
 
@@ -656,6 +669,14 @@ def main():
             if norm_u not in seen_urls:
                 seen_urls.add(norm_u)
                 dedup_grp.append(x)
+        # If healthy lines exist, purge completely dead lines (404 / timed out / 0 kbps)
+        working_lines = [
+            x for x in dedup_grp 
+            if not (cached_metrics.get(x["url"].strip(), {}).get("latency_ms") == 9999 and 
+                    cached_metrics.get(x["url"].strip(), {}).get("download_kbps") == 0)
+        ]
+        if working_lines:
+            dedup_grp = working_lines
         # Sort descending: Clearest line first; if clarity identical, fastest speed first
         dedup_grp.sort(key=multi_line_sort_key, reverse=True)
         # Cap at max 5 highest-quality lines per channel
