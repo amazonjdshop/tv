@@ -370,8 +370,14 @@ def main():
             if m_cctv and m_code:
                 cctv_num = int(m_cctv.group(1))
                 code_num = int(m_code.group(1))
-                if cctv_num != code_num and not (cctv_num == 5 and code_num == 21):
-                    continue
+                if "112.123.243.37" in url:
+                    # Anhui Unicom IPTV: CCTV-1~5 are 0001~0005; CCTV-6~16 are 0007~0017 (+1 offset because 0006 doesn't exist)
+                    valid_anhui = (cctv_num <= 5 and code_num == cctv_num) or (6 <= cctv_num <= 16 and code_num == cctv_num + 1)
+                    if not valid_anhui:
+                        continue
+                else:
+                    if cctv_num != code_num and not (cctv_num == 5 and code_num == 21):
+                        continue
             if "cctv-5+" in name.lower() and "/0016_1.m3u8" in url:
                 continue
             if "cctv" in name.lower() and re.search(r'tsfile/live/10\d{2}_1\.m3u8', url):
@@ -513,6 +519,8 @@ def main():
             latency_ms = 9999
             download_kbps = 0
             smooth_tier = 1
+            seg_total_bytes = 0
+            seg_dur = 10.0
 
             if "youtube.com" in url.lower() or "youtu.be" in url.lower():
                 return url, {"res_tier": 3, "res_name": "1080P", "latency_ms": 120, "download_kbps": 30000, "smooth_tier": 1, "tested_at": time.time()}
@@ -524,7 +532,7 @@ def main():
             is_4k_8k = bool(re.search(r'(?:^|[^0-9a-zA-Z])(4k|8k|2160p|uhd|超高清)(?:$|[^0-9a-zA-Z])', clean_combined, re.I))
             if is_4k_8k:
                 res_tier, res_name = 4, "4K"
-            elif not is_adware and any(k in combined for k in ["1080p", "1080", "fhd", "超清", "3m1080p"]):
+            elif any(k in combined for k in ["1080p", "1080", "fhd", "超清", "3m1080p"]):
                 res_tier, res_name = 3, "1080P"
             elif re.search(r'/00(0[1-6]|0[8-9]|1[0-7])_1\.m3u8', url):
                 # CCTV-1~6, CCTV-8~17 IPTV multicast streams (1080P Full HD)
@@ -565,6 +573,17 @@ def main():
 
                     # 方案 C 测速：下载 1MB 视频切片样本，检验真实网络下行能否跑赢视频播放码率
                     lines = [l.strip() for l in chunk.splitlines() if l.strip() and not l.startswith("#")]
+                    seg_dur = 10.0
+                    for l in chunk.splitlines():
+                        m_dur = re.search(r'#EXTINF:([\d\.]+)', l)
+                        if m_dur:
+                            try:
+                                seg_dur = max(float(m_dur.group(1)), 1.0)
+                            except Exception:
+                                pass
+                            break
+
+                    seg_total_bytes = 0
                     if lines:
                         target_seg = urllib.parse.urljoin(final_url, lines[-1])
                         if "#EXT-X-STREAM-INF" in chunk or ".m3u" in target_seg or "php" in target_seg or "sryze.cc" in target_seg:
@@ -577,12 +596,23 @@ def main():
                                         sub_lines = [l.strip() for l in sub_content.splitlines() if l.strip() and not l.startswith("#")]
                                         if sub_lines:
                                             target_seg = urllib.parse.urljoin(sub_url, sub_lines[-1])
+                                        for sl in sub_content.splitlines():
+                                            m_sub_dur = re.search(r'#EXTINF:([\d\.]+)', sl)
+                                            if m_sub_dur:
+                                                try:
+                                                    seg_dur = max(float(m_sub_dur.group(1)), 1.0)
+                                                except Exception:
+                                                    pass
+                                                break
                             except Exception:
                                 pass
 
                         t_seg_start = time.time()
                         req_seg = urllib.request.Request(target_seg, headers={'User-Agent': 'Mozilla/5.0'})
                         with urllib.request.urlopen(req_seg, context=probe_ctx, timeout=4.0) as r_seg:
+                            cl_header = r_seg.headers.get('Content-Length')
+                            if cl_header and cl_header.isdigit():
+                                seg_total_bytes = int(cl_header)
                             bytes_read = 0
                             while bytes_read < 1048576: # 1MB 取样
                                 c = r_seg.read(65536)
@@ -595,16 +625,30 @@ def main():
                 latency_ms = 9999
                 download_kbps = 0
 
-            # 方案 C 核心判定：流畅播放阈值判定
-            # 1080P/4K 高码率流需至少 3000 kbps 才能保证不频频卡顿；720P 需 1500 kbps；标清需 700 kbps
+            # 动态计算流自身所需的视频播放码率 (Stream Bitrate Requirement)
+            if seg_total_bytes > 0:
+                stream_bitrate_kbps = int((seg_total_bytes * 8 / seg_dur) / 1024)
+            elif "key=txiptv" in url or ":50085" in url or ":9901" in url or ":60901" in url or re.search(r'/00\d{2}_1\.m3u8', url):
+                # 运营商未压缩原始组播流通常为 8.5Mbps ~ 9.5Mbps
+                stream_bitrate_kbps = 8500
+            elif res_tier >= 3:
+                stream_bitrate_kbps = 3200
+            elif res_tier == 2:
+                stream_bitrate_kbps = 1600
+            else:
+                stream_bitrate_kbps = 700
+
+            # 核心判定：真实播放流畅度阈值判定
+            # 1. 播放必须具备 25% 以上的下行冗余裕量 (download_kbps >= stream_bitrate * 1.25)
+            # 2. 如果下行速度低于码率 (download_kbps < stream_bitrate)，缓冲区必然耗尽卡顿，直接降级至 0 (备用线路)
             if latency_ms == 9999 or download_kbps == 0:
                 smooth_tier = 0
-            elif res_tier >= 3:
-                smooth_tier = 1 if download_kbps >= 3000 else 0
-            elif res_tier == 2:
-                smooth_tier = 1 if download_kbps >= 1500 else 0
+            elif download_kbps >= max(int(stream_bitrate_kbps * 1.25), 3000):
+                smooth_tier = 2 # 绝对流畅秒开，零缓冲
+            elif download_kbps >= stream_bitrate_kbps:
+                smooth_tier = 1 # 勉强跑平码率
             else:
-                smooth_tier = 1 if download_kbps >= 700 else 0
+                smooth_tier = 0 # 码率倒挂，必然卡顿，降级为备用线路
 
             return url, {
                 "res_tier": res_tier,
@@ -636,7 +680,7 @@ def main():
             clean_combined = re.sub(r'cctv\d+k', '', combined) if ("cctv-4k" not in combined and "cctv 4k" not in combined and "cctv-8k" not in combined and "cctv 8k" not in combined) else combined
             is_4k_8k = bool(re.search(r'(?:^|[^0-9a-zA-Z])(4k|8k|2160p|uhd|超高清)(?:$|[^0-9a-zA-Z])', clean_combined, re.I))
             if is_4k_8k: res_tier = 4
-            elif not is_adware and any(k in combined for k in ["1080p", "1080", "fhd", "超清", "3m1080p"]): res_tier = 3
+            elif any(k in combined for k in ["1080p", "1080", "fhd", "超清", "3m1080p"]): res_tier = 3
             elif re.search(r'/00(0[1-6]|0[8-9]|1[0-7])_1\.m3u8', u): res_tier = 3
             elif any(k in combined for k in ["720p", "720", "hd", "高清"]) or re.search(r'/0007_1\.m3u8', u): res_tier = 2
             elif any(k in combined for k in ["576", "480", "sd", "标清", "kankanlive"]): res_tier = 1
@@ -649,7 +693,7 @@ def main():
         purity = stream_purity_tier(c)
 
         # 方案 C 核心多维排序规则：
-        # 1. 第一优先级：流畅度（smooth_tier: 1 能够跑赢码率连续播放 > 0 严重带宽不足死循环卡顿）
+        # 1. 第一优先级：流畅度（smooth_tier: 2 绝对流畅零缓冲 > 1 基本可播 > 0 码率倒挂必然卡顿）
         # 2. 第二优先级：清晰度（4K/8K=4 > 1080P=3 > 720P=2 > SD=1）
         # 3. 第三优先级：纯净度（同清晰度下：无广告纯净流 Tier 2 / Tier 1 优先，有广告 Tier 0 靠后）
         # 4. 第四优先级：速度（实际下行带宽越高越好 download_kbps，平局使用首包响应 -latency_ms）
