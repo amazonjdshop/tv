@@ -429,13 +429,17 @@ def main():
         score = 0
         u_lower = c["url"].lower()
         if any(k in u_lower for k in [":8181/3m1080p", ":8181/1080p"]):
-            score += 35
+            score += 40
         elif ":8181/720p" in u_lower:
-            score += 28
-        elif any(k in u_lower for k in ["cztv.com/live", "kylintv", "skygo.mn", "bestv.cn", "mgtv.com"]):
-            score += 30
+            score += 35
+        elif any(k in u_lower for k in [
+            "cztv.com/live", "kylintv", "skygo.mn", "bestv.cn", "mgtv.com",
+            "63.141.", "74.91.", "204.12.", "173.208.", "192.151.", "69.30.", "198.204.", "207.56.",
+            "38.64.", "38.75.", "bztv.tvbus.cc"
+        ]):
+            score += 35
         elif "chinamobile" in u_lower or "unicom" in u_lower or "key=txiptv" in u_lower or ":9901/" in u_lower or ":60901/" in u_lower or ":50085/" in u_lower:
-            score += 45
+            score += 15
         elif "?" not in u_lower and not any(k in u_lower for k in ["cctvnews.cctv.com", "newlive", "wd_r2"]):
             score += 20
 
@@ -447,10 +451,7 @@ def main():
             score -= 30
         if any(k in u_lower for k in [
             "qd.je", "jdshipin.com", "sryze.cc", "kankanlive", "xykt-fix", "livehwc", 
-            "173.208.", "dsdqpub", "auth=testpub", "cctv4k.m3u8",
-            "gslb/zbdq", "gslb/dsdq", "gslb/", ":82/live/", ":82/gslb/", ":88/", ":81/live/",
-            "74.91.", "63.141.", "69.30.", "69.197.", "107.150.", "204.12.",
-            "192.151.", "198.204.", "207.56.", "192.187."
+            "appadhw", "dsdqpub", "auth=testpub", "cctv4k.m3u8"
         ]):
             score -= 60
         return score
@@ -458,38 +459,35 @@ def main():
     def stream_purity_tier(c):
         """
         纯净度分级 (Purity Tiers):
-        Tier 2 (最高): 100% 物理广播骨干专线与官方纯净流 (永久 0 广告，点开即正片)
-          - 国内运营商正规 IPTV 原生组播专线 (key=txiptv, :9901/, :60901/, :50085/, :85/tsfile/)
+        Tier 2 (最高): 官方正规源及高性能 CDN 直连流 (永久 0 广告，点开即正片)
           - 广电/卫视官方无广告流 (cztv.com, sdetv.com, hebtv.com, gztv.com, tdm.com.mo, kylintv.tv, bestv.cn, cnr.cn)
+          - 骨干机房高带宽加速源 (204.12., 173.208., 63.141., 74.91., 192.151., 69.30., 198.204., 207.56., 38.64., 38.75., bztv.tvbus.cc)
           - YouTube 24/7 官方直播
-        Tier 1 (普通): 常见常规网络流 (无已知商业贴片中间人)
+        Tier 1 (普通): 常见常规网络流及运营商 IPTV 组播流
         Tier 0 (最低/备用): 具有首次连接商业插播广告/贴片会话/暗投切片特征的流 (仅作为末尾备用线路，绝不占 Line 1)
-          - qd.je, jdshipin.com, sryze.cc (底层均为 168.sryze.cc 商业广告代理)
+          - qd.je, jdshipin.com, sryze.cc (商业贴片广告代理)
           - xykt-fix, kankanlive, livehwc (商业 H5 流，带开播前置广告)
           - user_session_id=, edge_slice= (广告会话跟踪)
           - miguvideo / wd_r2 (移动端 app 流，带 bean=mgspad 广告参数)
           - newlive (酒店网关开机迎宾广告)
           - dsdqpub / auth=testpub / cctv4k.m3u8 (公共测试/广告轮播流)
-          - 海外裸IP灰产反代源 (:82/live/, :82/gslb/, gslb/zbdq, gslb/dsdq, gslb/, :88/, :81/live/, 74.91., 63.141., 69.30., 69.197., 107.150., 204.12., 192.151., 198.204., 207.56., 192.187., 173.208.)
         """
         u_lower = c["url"].lower()
         if any(k in u_lower for k in [
             "qd.je", "jdshipin.com", "sryze.cc", "xykt-fix", "kankanlive", 
             "livehwc", "edge_slice", "user_session_id", "wd_r2", "newlive",
-            "appadhw", "cdnwh", "cctv4k.m3u8", "dsdqpub", "auth=testpub",
-            ":82/live/", ":82/gslb/", "gslb/zbdq", "gslb/dsdq", "gslb/", ":88/", ":81/live/",
-            "74.91.", "63.141.", "69.30.", "69.197.", "107.150.", "204.12.",
-            "192.151.", "198.204.", "207.56.", "192.187.", "173.208."
+            "appadhw", "cdnwh", "cctv4k.m3u8", "dsdqpub", "auth=testpub"
         ]):
             return 0
         if any(k in u_lower for k in [
-            "key=txiptv", ":9901/", ":60901/", ":50085/", ":85/tsfile/",
             "cztv.com", "sdetv.com", "hebtv.com", "gztv.com", "tdm.com.mo",
             "kylintv.tv", "cnr.cn", "bestv.cn", "sun0769.com", "wcetv.com",
             "amagi.tv", "sofast.tv", "mediatailor", "youtube.com", "youtu.be",
             "cctvnews.cctv.com", "iyb983.cn", "kwimgs.com", "211.72.174.95",
             "gcalic.v.myalicdn.com", "myqcloud.com", "gcwbndali.v.myalicdn.com",
-            "pluto.tv", "akamaized.net", "simplestreamcdn.com", "51kandianshi.com"
+            "pluto.tv", "akamaized.net", "simplestreamcdn.com", "51kandianshi.com",
+            "204.12.", "173.208.", "63.141.", "74.91.", "192.151.", "69.30.",
+            "198.204.", "207.56.", "38.64.", "38.75.", "bztv.tvbus.cc", "dsdqbv"
         ]):
             return 2
         return 1
@@ -638,6 +636,10 @@ def main():
             else:
                 stream_bitrate_kbps = 700
 
+            # 纠正 IPTV 清晰度虚标：若未明确标注 1080P 且实测视频切片码率不足 5500 kbps，不可虚标 1080P，纠正为 720P
+            if res_tier == 3 and not any(k in combined for k in ["1080p", "1080", "fhd", "超清", "3m1080p"]) and stream_bitrate_kbps < 5500:
+                res_tier, res_name = 2, "720P"
+
             # 核心判定：真实播放流畅度阈值判定
             # 1. 播放必须具备 25% 以上的下行冗余裕量 (download_kbps >= stream_bitrate * 1.25)
             # 2. 如果下行速度低于码率 (download_kbps < stream_bitrate)，缓冲区必然耗尽卡顿，直接降级至 0 (备用线路)
@@ -681,24 +683,28 @@ def main():
             is_4k_8k = bool(re.search(r'(?:^|[^0-9a-zA-Z])(4k|8k|2160p|uhd|超高清)(?:$|[^0-9a-zA-Z])', clean_combined, re.I))
             if is_4k_8k: res_tier = 4
             elif any(k in combined for k in ["1080p", "1080", "fhd", "超清", "3m1080p"]): res_tier = 3
-            elif re.search(r'/00(0[1-6]|0[8-9]|1[0-7])_1\.m3u8', u): res_tier = 3
+            elif re.search(r'/00(0[1-6]|0[8-9]|1[0-7])_1\.m3u8', u): res_tier = 2
             elif any(k in combined for k in ["720p", "720", "hd", "高清"]) or re.search(r'/0007_1\.m3u8', u): res_tier = 2
             elif any(k in combined for k in ["576", "480", "sd", "标清", "kankanlive"]): res_tier = 1
             else: res_tier = 2
 
-        smooth_tier = m.get("smooth_tier", 1)
+        smooth_tier = m.get("smooth_tier", 0)
         download_kbps = m.get("download_kbps", 0)
         latency_ms = m.get("latency_ms", 9999)
         stability = stream_stability_score(c)
         purity = stream_purity_tier(c)
 
+        is_residential = any(k in u.lower() for k in [":50085", ":9901", ":60901", "112.123.", "36.136.", "59.39.", "218.13.", "183.10.", "124.228."])
+        effective_speed = download_kbps - 2000 if is_residential else download_kbps
+
         # 方案 C 核心多维排序规则：
         # 1. 第一优先级：流畅度（smooth_tier: 2 绝对流畅零缓冲 > 1 基本可播 > 0 码率倒挂必然卡顿）
         # 2. 第二优先级：清晰度（4K/8K=4 > 1080P=3 > 720P=2 > SD=1）
-        # 3. 第三优先级：纯净度（同清晰度下：无广告纯净流 Tier 2 / Tier 1 优先，有广告 Tier 0 靠后）
-        # 4. 第四优先级：速度（实际下行带宽越高越好 download_kbps，平局使用首包响应 -latency_ms）
-        # 5. 第五优先级：稳定性（长效/专线保底平局）
-        return (smooth_tier, res_tier, purity, download_kbps, -latency_ms, stability)
+        # 3. 第三优先级：纯净度（Tier 2/1 纯净流 > Tier 0 广告流）
+        # 4. 第四优先级：有效带宽（effective_speed: 骨干机房高带宽 CDN 专线 15~30 Mbps 绝对优先，防止单线家庭中继抢占 Line 1）
+        # 5. 第五优先级：首包响应（-latency_ms）
+        # 6. 第六优先级：稳定性（长效/专线保底平局）
+        return (smooth_tier, res_tier, purity, effective_speed, -latency_ms, stability)
 
     sorted_channels = []
     for cat_name, grp in name_groups.items():
