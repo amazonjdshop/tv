@@ -428,13 +428,11 @@ def main():
     def stream_stability_score(c):
         score = 0
         u_lower = c["url"].lower()
-        if any(k in u_lower for k in [":8181/3m1080p", ":8181/1080p"]):
-            score += 40
-        elif ":8181/720p" in u_lower:
-            score += 35
+        if any(k in u_lower for k in [":8181", "204.12.221.", "204.12.241.", "173.208.212."]):
+            score -= 60
         elif any(k in u_lower for k in [
             "cztv.com/live", "kylintv", "skygo.mn", "bestv.cn", "mgtv.com",
-            "63.141.", "74.91.", "204.12.", "192.151.", "69.30.", "198.204.", "207.56.",
+            "63.141.", "74.91.", "192.151.", "69.30.", "198.204.", "207.56.",
             "38.64.", "38.75.", "bztv.tvbus.cc"
         ]):
             score += 35
@@ -530,7 +528,7 @@ def main():
             is_4k_8k = bool(re.search(r'(?:^|[^0-9a-zA-Z])(4k|8k|2160p|uhd|超高清)(?:$|[^0-9a-zA-Z])', clean_combined, re.I))
             if is_4k_8k:
                 res_tier, res_name = 4, "4K"
-            elif any(k in combined for k in ["1080p", "1080", "fhd", "超清", "3m1080p"]):
+            elif any(k in combined for k in ["1080p", "1080", "fhd", "超清"]):
                 res_tier, res_name = 3, "1080P"
             elif re.search(r'/00(0[1-6]|0[8-9]|1[0-7])_1\.m3u8', url):
                 # CCTV-1~6, CCTV-8~17 IPTV multicast streams (1080P Full HD)
@@ -550,6 +548,10 @@ def main():
                     # 严格拦截 301/302 重定向到广告轮播服务器（如 appadhw, 47.97.252., 107.m3u8, zmt.m3u8）
                     if any(k in final_url_lower for k in ["appadhw", "47.97.252.", "107.m3u8", "zmt.m3u8"]):
                         return url, {"res_tier": 0, "res_name": "Adware", "latency_ms": 9999, "download_kbps": 0, "smooth_tier": 0, "tested_at": 0}
+
+                    # 严格拦截严重限速、过期动态 token 导致看一会儿就频繁缓冲的劣质节点
+                    if any(k in final_url_lower for k in ["204.12.221.", "204.12.241.", "from=cdnwh"]):
+                        return url, {"res_tier": 1, "res_name": "Throttled/Buffer", "latency_ms": 9999, "download_kbps": 500, "smooth_tier": 0, "tested_at": 0}
 
                     chunk = r.read(8000).decode('utf-8', errors='ignore')
 
@@ -648,17 +650,21 @@ def main():
                 stream_bitrate_kbps = 700
 
             # 纠正 IPTV 清晰度虚标：若未明确标注 1080P 且实测视频切片码率不足 5500 kbps，不可虚标 1080P，纠正为 720P
-            if res_tier == 3 and not any(k in combined for k in ["1080p", "1080", "fhd", "超清", "3m1080p"]) and stream_bitrate_kbps < 5500:
+            if res_tier == 3 and not any(k in combined for k in ["1080p", "1080", "fhd", "超清"]) and stream_bitrate_kbps < 5500:
+                res_tier, res_name = 2, "720P"
+
+            # 任何标注为 1080P/超清的流，若实测下行带宽跑不赢 4500 kbps，降级为 720P，防止虚标高清抢占首位
+            if res_tier >= 3 and download_kbps < 4500:
                 res_tier, res_name = 2, "720P"
 
             # 核心判定：真实播放流畅度阈值判定
             # 1. 播放必须具备 25% 以上的下行冗余裕量 (download_kbps >= stream_bitrate * 1.25)
-            # 2. 如果下行速度低于码率 (download_kbps < stream_bitrate)，缓冲区必然耗尽卡顿，直接降级至 0 (备用线路)
-            if latency_ms == 9999 or download_kbps == 0:
+            # 2. 如果下行速度低于 2500 kbps，长时间播放必然耗尽缓冲区导致频繁转圈缓冲，降级至 0 (备用线路)
+            if latency_ms == 9999 or download_kbps < 2000:
                 smooth_tier = 0
-            elif download_kbps >= max(int(stream_bitrate_kbps * 1.25), 3000):
+            elif download_kbps >= max(int(stream_bitrate_kbps * 1.25), 4000):
                 smooth_tier = 2 # 绝对流畅秒开，零缓冲
-            elif download_kbps >= stream_bitrate_kbps:
+            elif download_kbps >= max(stream_bitrate_kbps, 2500):
                 smooth_tier = 1 # 勉强跑平码率
             else:
                 smooth_tier = 0 # 码率倒挂，必然卡顿，降级为备用线路
