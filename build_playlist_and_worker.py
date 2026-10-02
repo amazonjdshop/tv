@@ -536,8 +536,8 @@ def main():
 
                         # 2. 若底层带动态 Token 鉴权，直接提纯并返回带有时效 Token 的真实底层推流节点！
                         # 彻底绕开 GSLB 调度机前端所植入的开播/贴片广告，实现客户端秒开直连！
-                        # 严格防护：若包含 u= 参数或 :88/applive，说明该 Token 强绑定了单机出口 IP，其它客户端播放会 403 触发回退广告，必须排除！
-                        if "u=" in final_url_lower or ":88" in final_url_lower or "applive" in final_url_lower:
+                        # 严格防护：若包含 u=<IP> 参数或 :88/applive，说明该 Token 强绑定了单机出口 IP，其它客户端播放会 403 触发回退广告，必须排除！
+                        if any(k in final_url_lower for k in [":88/applive", ":88/", "applive"]) or re.search(r'[?&]u=\d+\.\d+\.\d+\.\d+', final_url_lower):
                             return None
 
                         try:
@@ -690,7 +690,7 @@ def main():
             "cctvnews.cctv.com", "iyb983.cn", "kwimgs.com", "211.72.174.95",
             "gcalic.v.myalicdn.com", "myqcloud.com", "gcwbndali.v.myalicdn.com",
             "pluto.tv", "akamaized.net", "simplestreamcdn.com", "51kandianshi.com",
-            "nmtv.cn", "yntv.net", "lanzhousobey.cn",
+            "nmtv.cn", "yntv.net", "lanzhousobey.cn", "cc.cd", "fengshows.cn",
             "69.197.", "63.141.", "74.91.", "192.151.", "69.30.",
             "198.204.", "207.56.", "38.64.", "38.75.", "bztv.tvbus.cc"
         ]):
@@ -924,14 +924,15 @@ def main():
         is_residential = any(k in u.lower() for k in [":50085", ":9901", ":60901", "112.123.", "36.136.", "59.39.", "218.13.", "183.10.", "124.228."])
         effective_speed = download_kbps - 2000 if is_residential else download_kbps
 
-        # 核心多维排序规则：
         # 1. 第一优先级：纯净度（Tier 2/1 纯净直连流 100% 优先于 Tier 0 GSLB/广告代理源，彻底消除 Line 1 广告与 403 风险）
-        # 2. 第二优先级：流畅度（smooth_tier: 2 绝对流畅零缓冲 > 1 基本可播 > 0 码率倒挂备用）
-        # 3. 第三优先级：清晰度（4K/8K=4 > 1080P=3 > 720P=2 > SD=1）
-        # 4. 第四优先级：稳定性（免 Token、永久 0 广告的美国本土底层骨干节点优先于普通代理）
-        # 5. 第五优先级：有效带宽（effective_speed: 骨干机房高带宽 CDN 专线 15~30 Mbps）
-        # 6. 第六优先级：首包响应（-latency_ms）
-        return (purity, smooth_tier, res_tier, stability, effective_speed, -latency_ms)
+        # 2. 第二优先级：直播协议适配（非 YouTube 的直接流媒体 HLS/FLV/TS 优先于网页嵌入式 YouTube，保障电视机顶盒首选可播性）
+        # 3. 第三优先级：流畅度（smooth_tier: 2 绝对流畅零缓冲 > 1 基本可播 > 0 码率倒挂备用）
+        # 4. 第四优先级：清晰度（4K/8K=4 > 1080P=3 > 720P=2 > SD=1）
+        # 5. 第五优先级：稳定性（免 Token、永久 0 广告的美国本土底层骨干节点优先于普通代理）
+        # 6. 第六优先级：有效带宽（effective_speed: 骨干机房高带宽 CDN 专线 15~30 Mbps）
+        # 7. 第七优先级：首包响应（-latency_ms）
+        is_youtube = 1 if ("youtube.com" in u.lower() or "youtu.be" in u.lower()) else 0
+        return (purity, -is_youtube, smooth_tier, res_tier, stability, effective_speed, -latency_ms)
 
     sorted_channels = []
     for cat_name, grp in name_groups.items():
@@ -951,15 +952,29 @@ def main():
     channels = sorted_channels
 
     # Assign unique keys for duplicate names in quality-sorted order
-    used_names = {}
+    # 核心保护：Worker 支持的流（非 YouTube、非电影）必须确保第一条线路分配为原始名称（不带 _1 后缀），
+    # 彻底杜绝播放器请求 /live/频道名/index.m3u8 时报 404 的致命缺陷！
+    used_worker_names = {}
+    used_other_names = {}
     for c in channels:
         name = c["name"]
-        if name not in used_names:
-            used_names[name] = 0
-            key = name
+        url_lower = c["url"].lower()
+        is_movie = c["category"] in ["最新电影", "影视点播"]
+        is_worker_eligible = not ("youtube.com" in url_lower or "youtu.be" in url_lower or is_movie)
+        if is_worker_eligible:
+            if name not in used_worker_names:
+                used_worker_names[name] = 0
+                key = name
+            else:
+                used_worker_names[name] += 1
+                key = f"{name}_{used_worker_names[name]}"
         else:
-            used_names[name] += 1
-            key = f"{name}_{used_names[name]}"
+            if name not in used_other_names:
+                used_other_names[name] = 0
+                key = name
+            else:
+                used_other_names[name] += 1
+                key = f"{name}_{used_other_names[name]}"
         c["key"] = key
 
     def get_key_suffix_num(key):
@@ -1296,7 +1311,7 @@ export default {{
 
       // 严格防护单机 IP 绑定节点（如 :88/applive 或 u=<IP>）：若上游重定向至单机绑定节点，电视机等外部设备播放 TS 必 403 报错
       // 立即返回 403 明确错误，促使播放器以 1ms 极限速度瞬间轮换下一条有效线路，绝不卡死
-      if (finalUrl.includes(':88') || finalUrl.includes('applive') || finalUrl.includes('u=')) {{
+      if ((/:\b88\/|applive|[?&]u=\d+\.\d+\.\d+\.\d+/).test(finalUrl)) {{
         return new Response('403 Forbidden: IP Bound Node', {{
           status: 403,
           headers: {{ 'Access-Control-Allow-Origin': '*' }}
