@@ -341,7 +341,7 @@ def main():
             
             # Filter out adware restreamer, ad networks, looping test streams, and single-IP bound streams
             u_lower = url.lower()
-            if any(k in u_lower for k in ["107.150.60.122", "lantian/channel001", "198.204.228.26", "appadhw", "tvzb", "47.97.252.", "173.208.212.130", "3y1.xyz", "nosignal", "epg.pw/stream", "cnlive.club", "sailei", "dpdns.org"]):
+            if any(k in u_lower for k in ["107.150.60.122", "69.30.245.51", "mkt.m3u8", "lantian/channel001", "198.204.228.26", "appadhw", "tvzb", "47.97.252.", "173.208.212.130", "3y1.xyz", "nosignal", "epg.pw/stream", "cnlive.club", "sailei", "dpdns.org"]):
                 continue
             if any(k in u_lower for k in [":88/applive", ":88/", "applive"]) or re.search(r'[?&]u=\d+\.\d+\.\d+\.\d+', u_lower):
                 continue
@@ -516,11 +516,11 @@ def main():
                     final_url = resp.geturl()
                     if final_url != u:
                         final_url_lower = final_url.lower()
-                        if any(k in final_url_lower for k in ["107.m3u8", "zmt.m3u8", "appadhw", "47.97.252.", "nosignal", "error"]):
+                        if any(k in final_url_lower for k in ["107.m3u8", "zmt.m3u8", "mkt.m3u8", "69.30.245.51", "appadhw", "47.97.252.", "nosignal", "error"]):
                             return None
                         clean_url = final_url.split("?")[0]
                         clean_url_lower = clean_url.lower()
-                        if any(k in clean_url_lower for k in ["107.m3u8", "zmt.m3u8", "appadhw", "47.97.252.", "nosignal", "error"]):
+                        if any(k in clean_url_lower for k in ["107.m3u8", "zmt.m3u8", "mkt.m3u8", "69.30.245.51", "appadhw", "47.97.252.", "nosignal", "error"]):
                             return None
 
                         # 1. 优先尝试探测是否为永久免 Token 的纯净底层节点
@@ -659,7 +659,7 @@ def main():
             score -= 30
         if any(k in u_lower for k in [
             "qd.je", "jdshipin.com", "sryze.cc", "kankanlive", "xykt-fix", "livehwc", 
-            "appadhw", "dsdqpub", "auth=testpub", "cctv4k.m3u8", "107.m3u8", "zmt.m3u8", "47.97.252."
+            "appadhw", "dsdqpub", "auth=testpub", "cctv4k.m3u8", "107.m3u8", "zmt.m3u8", "mkt.m3u8", "47.97.252.", "69.30.245.51"
         ]):
             score -= 80
         return score
@@ -759,7 +759,7 @@ def main():
                     final_url_lower = final_url.lower()
 
                     # 严格拦截 301/302 重定向到广告轮播服务器（如 appadhw, 47.97.252., 107.m3u8, zmt.m3u8）
-                    if any(k in final_url_lower for k in ["appadhw", "47.97.252.", "107.m3u8", "zmt.m3u8"]):
+                    if any(k in final_url_lower for k in ["appadhw", "47.97.252.", "107.m3u8", "zmt.m3u8", "mkt.m3u8", "69.30.245.51"]):
                         return url, {"res_tier": 0, "res_name": "Adware", "latency_ms": 9999, "download_kbps": 0, "smooth_tier": 0, "tested_at": 0}
 
                     # 严格拦截已确认的限速死链特征
@@ -1411,7 +1411,7 @@ function cleanAndRewriteM3u8Text(rawText, finalUrl) {{
   }}
 
   const adKeywords = [
-    'appadhw', '107.m3u8', 'zmt.m3u8', 'macau', 'casino', 'bet365', 
+    'appadhw', '107.m3u8', 'zmt.m3u8', 'mkt.m3u8', 'macau', 'casino', 'bet365', 
     'poker', 'guanggao', '_ad.ts', '-ad.ts', '/ad/', 'welcome.ts'
   ];
 
