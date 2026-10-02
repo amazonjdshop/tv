@@ -353,6 +353,11 @@ def main():
             if ("cctv" in raw_name.lower() or "cctv" in category.lower()) and re.search(r'tsfile/live/10\d{2}_1\.m3u8', url):
                 continue
             
+            # BesTV '看东方' guard: bp-resource-dfl.bestv.cn is '看东方', NEVER '东方卫视'!
+            if "bp-resource-dfl.bestv.cn" in url.lower():
+                raw_name = "看东方"
+                category = "港澳台"
+            
             # If in test channel category, keep the specific test name
             if category in ["测试频道", "广告测试"] or "广告测试" in raw_name:
                 name = raw_name
