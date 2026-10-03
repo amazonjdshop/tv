@@ -7,6 +7,7 @@ import urllib.parse
 import urllib.request
 import ssl
 import concurrent.futures
+import threading
 from collections import defaultdict, OrderedDict
 from t2s_data import trad_to_simp
 
@@ -46,7 +47,8 @@ category_order = [
     "韩国/朝鲜",
     "多语种国际台",
     "最新电影",
-    "测试频道"
+    "测试频道",
+    "⚠️低速/缓冲测试"
 ]
 
 def clean_channel_name(name):
@@ -95,6 +97,16 @@ def clean_channel_name(name):
     # 3. Traditional to simplified mapping for key satellite channels
     if n in ["湖南卫视 HD", "湖南卫视 1080P", "湖南卫视1080P"]:
         n = "湖南卫视"
+
+    # 4. Standardize TVB channel names
+    n = re.sub(r'(?i)tvbj1', 'TVB J1', n)
+    n = re.sub(r'(?i)tvbj2', 'TVB J2', n)
+    n = re.sub(r'(?i)tvbplus', 'TVB Plus', n)
+
+    # 5. Normalize trailing "频道" for municipal channels (e.g. 广州综合频道 -> 广州综合, 广州新闻频道 -> 广州新闻)
+    if any(c in n for c in ["广州", "深圳", "北京", "上海", "天津", "重庆", "广东", "浙江", "江苏", "湖南", "湖北", "四川"]):
+        n = re.sub(r'频道$', '', n)
+
     return n
 
 def clean_category(cat, name, url=""):
@@ -205,6 +217,11 @@ def clean_category(cat, name, url=""):
     jiangsu_cities = ["苏州", "无锡", "常州", "南通", "扬州", "镇江", "泰州", "宿迁", "淮安", "盐城", "连云港", "徐州"]
     if any(city in name for city in jiangsu_cities) or any(city in cat for city in jiangsu_cities):
         return "江苏频道"
+
+    guangdong_cities = ["广州", "深圳", "珠海", "汕头", "佛山", "韶关", "湛江", "肇庆", "江门", "茂名", "惠州", "梅州", "汕尾", "河源", "阳江", "清远", "东莞", "中山", "潮州", "揭阳", "云浮"]
+    if any(city in name for city in guangdong_cities) or any(city in cat for city in guangdong_cities):
+        if not any(k in name for k in ["卫视", "CCTV", "cctv", "体育"]):
+            return "广东频道"
 
     provincial_prefixes = [
         "浙江", "江苏", "江西", "广东", "广西", "福建", "河北", "湖北", 
@@ -431,6 +448,7 @@ def main():
                 '甘肃-白银文化教育': '白银文化教育',
                 '甘肃-张掖新闻综合': '张掖新闻综合',
                 '广州综合频道': '广州综合',
+                'BBC NEWS': 'BBC News',
                 '广州新闻频道': '广州新闻',
                 '广州南国都市频道': '广州南国都市',
                 '哈尔滨影视': '哈尔滨影视频道',
@@ -732,8 +750,16 @@ def main():
                 multi_line_urls.append(item)
 
     if multi_line_urls:
-        print(f"Benchmarking clarity, speed & ad-check for {len(multi_line_urls)} channel streams...")
+        print(f"Benchmarking clarity, speed & ad-check for {len(multi_line_urls)} channel streams with 10s continuous segments & per-host pacing...")
         probe_ctx = ssl._create_unverified_context()
+
+        # 按服务器域名/主机建独占信号量（同一时刻对同一域名并发数 = 1，防止触发机房反爬虫/限速）
+        host_semaphores = defaultdict(lambda: threading.Semaphore(1))
+        host_sem_lock = threading.Lock()
+
+        def get_host_semaphore(netloc):
+            with host_sem_lock:
+                return host_semaphores[netloc]
 
         def probe_line(item):
             url = item["url"]
@@ -743,11 +769,11 @@ def main():
             latency_ms = 9999
             download_kbps = 0
             smooth_tier = 1
-            seg_total_bytes = 0
             seg_dur = 10.0
+            stream_bitrate_kbps = 2000
 
             if "youtube.com" in url.lower() or "youtu.be" in url.lower():
-                return url, {"res_tier": 3, "res_name": "1080P", "latency_ms": 120, "download_kbps": 30000, "smooth_tier": 1, "tested_at": time.time()}
+                return url, {"res_tier": 3, "res_name": "1080P", "latency_ms": 120, "download_kbps": 30000, "smooth_tier": 2, "tested_at": time.time()}
 
             combined = f"{item.get('raw_name', '')} {url}".lower()
             clean_combined = re.sub(r'cctv\d+k', '', combined) if ("cctv-4k" not in combined and "cctv 4k" not in combined and "cctv-8k" not in combined and "cctv 8k" not in combined) else combined
@@ -766,140 +792,219 @@ def main():
             elif any(k in combined for k in ["576", "480", "sd", "标清", "kankanlive"]):
                 res_tier, res_name = 1, "SD"
 
-            try:
-                req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
-                with urllib.request.urlopen(req, context=probe_ctx, timeout=3.5) as r:
-                    latency_ms = int((time.time() - t0) * 1000)
-                    final_url = r.geturl()
-                    final_url_lower = final_url.lower()
+            # 按域名/主机获取信号量并排队，添加 0.15s 换台呼吸间隔
+            netloc = urllib.parse.urlparse(url).netloc.lower()
+            sem = get_host_semaphore(netloc)
+            with sem:
+                time.sleep(0.15)
+                try:
+                    req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
+                    with urllib.request.urlopen(req, context=probe_ctx, timeout=3.5) as r:
+                        latency_ms = int((time.time() - t0) * 1000)
+                        final_url = r.geturl()
+                        final_url_lower = final_url.lower()
 
-                    # 严格拦截 301/302 重定向到广告轮播服务器（如 appadhw, 47.97.252., 107.m3u8, zmt.m3u8）
-                    if any(k in final_url_lower for k in ["appadhw", "47.97.252.", "107.m3u8", "zmt.m3u8", "mkt.m3u8", "69.30.245.51"]):
-                        return url, {"res_tier": 0, "res_name": "Adware", "latency_ms": 9999, "download_kbps": 0, "smooth_tier": 0, "tested_at": 0}
+                        # 严格拦截 301/302 重定向到广告轮播服务器（如 appadhw, 47.97.252., 107.m3u8, zmt.m3u8）
+                        if any(k in final_url_lower for k in ["appadhw", "47.97.252.", "107.m3u8", "zmt.m3u8", "mkt.m3u8", "69.30.245.51"]):
+                            return url, {"res_tier": 0, "res_name": "Adware", "latency_ms": 9999, "download_kbps": 0, "smooth_tier": 0, "tested_at": 0}
 
-                    # 严格拦截已确认的限速死链特征
-                    if any(k in final_url_lower for k in ["192.187.115.", "from=cdnwh", "zbdq11"]):
-                        return url, {"res_tier": 1, "res_name": "Throttled/Buffer", "latency_ms": 9999, "download_kbps": 500, "smooth_tier": 0, "tested_at": 0}
+                        # 严格拦截已确认的限速死链特征
+                        if any(k in final_url_lower for k in ["192.187.115.", "from=cdnwh", "zbdq11"]):
+                            return url, {"res_tier": 1, "res_name": "Throttled/Buffer", "latency_ms": 9999, "download_kbps": 500, "smooth_tier": 0, "tested_at": 0}
 
-                    chunk = r.read(8000).decode('utf-8', errors='ignore')
+                        chunk = r.read(100000).decode('utf-8', errors='ignore')
 
-                    # 严格要求流必须为合法的 HLS 播放列表，排除 JSON/HTML 错误页面
-                    if not chunk.strip().startswith("#EXTM3U") and not chunk.startswith("FLV") and "video/" not in r.headers.get("Content-Type", ""):
-                        return url, {"res_tier": 0, "res_name": "Invalid/NotM3U8", "latency_ms": 9999, "download_kbps": 0, "smooth_tier": 0, "tested_at": 0}
+                        # 严格要求流必须为合法的 HLS 播放列表，排除 JSON/HTML 错误页面
+                        if not chunk.strip().startswith("#EXTM3U") and not chunk.startswith("FLV") and "video/" not in r.headers.get("Content-Type", ""):
+                            return url, {"res_tier": 0, "res_name": "Invalid/NotM3U8", "latency_ms": 9999, "download_kbps": 0, "smooth_tier": 0, "tested_at": 0}
 
-                    # 严格拦截地域锁屏切片与广告切片（如 CCTV-5 体育版权锁屏 "not available in your area"）
-                    if any(k in chunk.lower() for k in ["not available in your area", "appadhw"]):
-                        return url, {"res_tier": 0, "res_name": "GeoBlocked/Ad", "latency_ms": 9999, "download_kbps": 0, "smooth_tier": 0, "tested_at": 0}
+                        # 严格拦截地域锁屏切片与广告切片（如 CCTV-5 体育版权锁屏 "not available in your area"）
+                        if any(k in chunk.lower() for k in ["not available in your area", "appadhw"]):
+                            return url, {"res_tier": 0, "res_name": "GeoBlocked/Ad", "latency_ms": 9999, "download_kbps": 0, "smooth_tier": 0, "tested_at": 0}
 
-                    m_res = re.search(r'RESOLUTION=(\d+)x(\d+)', chunk, re.I)
-                    if m_res:
-                        w, h = int(m_res.group(1)), int(m_res.group(2))
-                        if h >= 2160 or w >= 3840:
-                            res_tier, res_name = 4, f"4K ({w}x{h})"
-                        elif h >= 1080 or w >= 1920:
-                            res_tier, res_name = 3, f"1080P ({w}x{h})"
-                        elif h >= 720 or w >= 1280:
-                            res_tier, res_name = 2, f"720P ({w}x{h})"
+                        # 核心修复：多码率 Master Playlist 全量扫描，取该流支持的最高分辨率（Max Resolution）
+                        all_res = re.findall(r'RESOLUTION=(\d+)x(\d+)', chunk, re.I)
+                        if all_res:
+                            max_w = max(int(w) for w, h in all_res)
+                            max_h = max(int(h) for w, h in all_res)
+                            if max_h >= 2160 or max_w >= 3840:
+                                res_tier, res_name = 4, f"4K ({max_w}x{max_h})"
+                            elif max_h >= 1080 or max_w >= 1920:
+                                res_tier, res_name = 3, f"1080P ({max_w}x{max_h})"
+                            elif max_h >= 720 or max_w >= 1280:
+                                res_tier, res_name = 2, f"720P ({max_w}x{max_h})"
+                            elif max_h >= 540 or max_w >= 960:
+                                # 960x540 / 1024x576 欧美主流 16:9 宽屏高清，赋予 720P 同等准入
+                                res_tier, res_name = 2, f"540P/HD ({max_w}x{max_h})"
+                            else:
+                                res_tier, res_name = 1, f"SD ({max_w}x{max_h})"
                         else:
-                            res_tier, res_name = 1, f"SD ({w}x{h})"
-                    else:
-                        m_bw = re.search(r'BANDWIDTH=(\d+)', chunk, re.I)
-                        # 防范广告服务器虚标 BANDWIDTH（如 qd.je/jdshipin 虚标 5000000 欺骗播放器）
-                        if m_bw and not is_adware:
-                            bw = int(m_bw.group(1))
-                            if bw >= 12000000:
-                                res_tier, res_name = 4, "4K"
-                            elif bw >= 7000000:
-                                res_tier, res_name = 3, "1080P"
-                            elif bw >= 1800000:
-                                res_tier, res_name = 2, "720P"
+                            all_bw = re.findall(r'BANDWIDTH=(\d+)', chunk, re.I)
+                            if all_bw and not is_adware:
+                                max_bw = max(int(b) for b in all_bw)
+                                if max_bw >= 12000000 and res_tier < 4:
+                                    res_tier, res_name = 4, "4K"
+                                elif max_bw >= 6500000 and res_tier < 3:
+                                    res_tier, res_name = 3, "1080P"
+                                elif max_bw >= 1500000 and res_tier < 2:
+                                    res_tier, res_name = 2, "720P"
 
-                    # 方案 C 测速：下载 1MB 视频切片样本，检验真实网络下行能否跑赢视频播放码率
-                    lines = [l.strip() for l in chunk.splitlines() if l.strip() and not l.startswith("#")]
-                    seg_dur = 10.0
-                    for l in chunk.splitlines():
-                        m_dur = re.search(r'#EXTINF:([\d\.]+)', l)
-                        if m_dur:
+                        # 若为 Master Playlist (#EXT-X-STREAM-INF)，解析并获取最高码率对应的真实切片列表 (Media Playlist)
+                        lines = [l.strip() for l in chunk.splitlines() if l.strip() and not l.startswith("#")]
+                        media_url = final_url
+                        media_chunk = chunk
+                        if "#EXT-X-STREAM-INF" in chunk and lines:
+                            target_sub = urllib.parse.urljoin(final_url, lines[-1])
                             try:
-                                seg_dur = max(float(m_dur.group(1)), 1.0)
-                            except Exception:
-                                pass
-                            break
-
-                    seg_total_bytes = 0
-                    if lines:
-                        target_seg = urllib.parse.urljoin(final_url, lines[-1])
-                        if "#EXT-X-STREAM-INF" in chunk or ".m3u" in target_seg or "php" in target_seg or "sryze.cc" in target_seg:
-                            try:
-                                req_sub = urllib.request.Request(target_seg, headers={'User-Agent': 'Mozilla/5.0'})
-                                with urllib.request.urlopen(req_sub, context=probe_ctx, timeout=2.0) as r_sub:
-                                    sub_url = r_sub.geturl()
-                                    sub_content = r_sub.read(8000).decode('utf-8', errors='ignore')
-                                    if sub_content.startswith("#EXTM3U"):
-                                        sub_lines = [l.strip() for l in sub_content.splitlines() if l.strip() and not l.startswith("#")]
-                                        if sub_lines:
-                                            target_seg = urllib.parse.urljoin(sub_url, sub_lines[-1])
-                                        for sl in sub_content.splitlines():
-                                            m_sub_dur = re.search(r'#EXTINF:([\d\.]+)', sl)
-                                            if m_sub_dur:
-                                                try:
-                                                    seg_dur = max(float(m_sub_dur.group(1)), 1.0)
-                                                except Exception:
-                                                    pass
-                                                break
+                                req_sub = urllib.request.Request(target_sub, headers={'User-Agent': 'Mozilla/5.0'})
+                                with urllib.request.urlopen(req_sub, context=probe_ctx, timeout=3.5) as r_sub:
+                                    media_url = r_sub.geturl()
+                                    media_chunk = r_sub.read(200000).decode('utf-8', errors='ignore')
                             except Exception:
                                 pass
 
+                        # 从 Media Playlist 提取连续切片及其真实时长 (#EXTINF)
+                        segments = []
+                        curr_seg_dur = 5.0
+                        for l in media_chunk.splitlines():
+                            l = l.strip()
+                            if not l:
+                                continue
+                            if l.startswith("#EXTINF:"):
+                                m_dur = re.search(r'#EXTINF:([\d\.]+)', l)
+                                if m_dur:
+                                    try:
+                                        curr_seg_dur = max(float(m_dur.group(1)), 0.5)
+                                    except Exception:
+                                        curr_seg_dur = 5.0
+                            elif not l.startswith("#"):
+                                seg_full = urllib.parse.urljoin(media_url, l)
+                                segments.append((seg_full, curr_seg_dur))
+
+                        # 选定满足累计 >= 10.0 秒视频时长的连续切片组（最多取 5 个切片）
+                        # 避开 live edge 最后一秒可能尚未同步的边界竞争，从倒数第2个或第3个切片向前取
+                        cand_segs = segments[:-1] if len(segments) >= 5 else segments
+                        selected_segs = []
+                        accum_dur = 0.0
+                        for s_url, s_dur in reversed(cand_segs):
+                            selected_segs.append((s_url, s_dur))
+                            accum_dur += s_dur
+                            if accum_dur >= 10.0 or len(selected_segs) >= 5:
+                                break
+                        selected_segs.reverse()
+
+                        if not selected_segs and lines:
+                            # 兜底：若未解析到 EXTINF，至少取最后一个 URL
+                            selected_segs = [(urllib.parse.urljoin(media_url, lines[-1]), 5.0)]
+                            accum_dur = 5.0
+
+                        seg_dur = accum_dur / max(len(selected_segs), 1)
+
+                        # 严格执行 10 秒连续切片真实路测，并具备第一片快速止损机制
                         t_seg_start = time.time()
-                        req_seg = urllib.request.Request(target_seg, headers={'User-Agent': 'Mozilla/5.0'})
-                        with urllib.request.urlopen(req_seg, context=probe_ctx, timeout=4.0) as r_seg:
-                            cl_header = r_seg.headers.get('Content-Length')
-                            if cl_header and cl_header.isdigit():
-                                seg_total_bytes = int(cl_header)
-                            bytes_read = 0
-                            while bytes_read < 1048576: # 1MB 取样
-                                c = r_seg.read(65536)
-                                if not c: break
-                                bytes_read += len(c)
-                                if (time.time() - t_seg_start) > 2.0: break
-                            elapsed = time.time() - t_seg_start
-                            download_kbps = int((bytes_read * 8 / 1024) / elapsed) if elapsed > 0 else 0
-            except Exception:
-                latency_ms = 9999
-                download_kbps = 0
+                        total_bytes = 0
+                        has_error = False
 
-            # 动态计算流自身所需的视频播放码率 (Stream Bitrate Requirement)
-            if seg_total_bytes > 0:
-                stream_bitrate_kbps = int((seg_total_bytes * 8 / seg_dur) / 1024)
-            elif "key=txiptv" in url or ":50085" in url or ":9901" in url or ":60901" in url or re.search(r'/00\d{2}_1\.m3u8', url):
-                # 运营商未压缩原始组播流通常为 8.5Mbps ~ 9.5Mbps
-                stream_bitrate_kbps = 8500
-            elif res_tier >= 3:
-                stream_bitrate_kbps = 3200
-            elif res_tier == 2:
-                stream_bitrate_kbps = 1600
-            else:
-                stream_bitrate_kbps = 700
+                        for idx, (s_url, s_dur) in enumerate(selected_segs):
+                            try:
+                                req_seg = urllib.request.Request(s_url, headers={'User-Agent': 'Mozilla/5.0'})
+                                seg_timeout = max(s_dur * 1.5, 4.0)
+                                with urllib.request.urlopen(req_seg, context=probe_ctx, timeout=seg_timeout) as r_seg:
+                                    # 分块读取切片：设置单片硬性时限与数据上限，彻底杜绝无 EOF 持续长直播流导致的无限等待
+                                    b_chunks = []
+                                    seg_bytes = 0
+                                    t_seg_chunk_start = time.time()
+                                    max_seg_time = max(s_dur * 1.2, 3.5)
+                                    while True:
+                                        chunk_part = r_seg.read(65536)
+                                        if not chunk_part:
+                                            break
+                                        b_chunks.append(chunk_part)
+                                        seg_bytes += len(chunk_part)
+                                        t_curr = time.time() - t_seg_chunk_start
+                                        # 快速止损：读取超过 1.8 秒但速率不足 300 kbps，果断判定死缓并退出
+                                        if t_curr > 1.8 and (seg_bytes * 8 / 1024) / t_curr < 300:
+                                            has_error = True
+                                            break
+                                        # 足够测速数据量：超过单片建议时长或单片读取已达 3.5MB，立即完成测速
+                                        if t_curr >= max_seg_time or seg_bytes >= 3500000:
+                                            break
+                                    b = b"".join(b_chunks)
+                                    total_bytes += len(b)
+                                    if has_error:
+                                        break
+                                    # 若第 1 个切片下载速度连 300 kbps 都跑不到，直接判定卡死淘汰
+                                    if idx == 0:
+                                        t_first = time.time() - t_seg_start
+                                        first_speed = (len(b) * 8 / 1024) / max(t_first, 0.001)
+                                        if first_speed < 300:
+                                            has_error = True
+                                            break
+                            except Exception:
+                                has_error = True
+                                break
 
-            # 纠正 IPTV 清晰度虚标：若未明确标注 1080P 且实测视频切片码率不足 5500 kbps，不可虚标 1080P，纠正为 720P
-            if res_tier == 3 and not any(k in combined for k in ["1080p", "1080", "fhd", "超清"]) and stream_bitrate_kbps < 5500:
+                        # 容错：如果已下载了充分的视频数据（>= 300KB）且下行速率良好，单一切片尾部轻微波动不作为致命错误
+                        if has_error and total_bytes >= 300000:
+                            t_part = time.time() - t_seg_start
+                            if t_part > 0 and (total_bytes * 8 / 1024) / t_part >= 1500:
+                                has_error = False
+
+                        elapsed = time.time() - t_seg_start
+                        if total_bytes > 0 and elapsed > 0:
+                            download_kbps = int((total_bytes * 8 / 1024) / elapsed)
+                        else:
+                            download_kbps = 0
+
+                        if accum_dur > 0 and total_bytes > 0:
+                            stream_bitrate_kbps = int((total_bytes * 8 / 1024) / accum_dur)
+                        elif "key=txiptv" in url or ":50085" in url or ":9901" in url or ":60901" in url:
+                            stream_bitrate_kbps = 8500
+                        elif res_tier >= 3:
+                            stream_bitrate_kbps = 3200
+                        elif res_tier == 2:
+                            stream_bitrate_kbps = 1600
+                        else:
+                            stream_bitrate_kbps = 700
+
+                except Exception:
+                    latency_ms = 9999
+                    download_kbps = 0
+                    has_error = True
+
+            # 纠正 IPTV 清晰度虚标：若未明确标注 1080P 且切片码率不足 4500 kbps，纠正为 720P（国际主流大台如 BBC/Amagi/Wurl/CBS 除外）
+            is_intl_fast = any(k in url.lower() for k in ["akamaized", "amagi", "wurl", "cbs", "fox", "nbc", "roku"])
+            if res_tier == 3 and not any(k in combined for k in ["1080p", "1080", "fhd", "超清"]) and stream_bitrate_kbps < 4500 and not is_intl_fast:
                 res_tier, res_name = 2, "720P"
 
-            # 任何标注为 1080P/超清的流，若实测下行带宽跑不赢 4500 kbps，降级为 720P，防止虚标高清抢占首位
-            if res_tier >= 3 and download_kbps < 4500:
+            # 标注为 1080P 的流，若下行带宽跑不赢 3500 kbps，降级为 720P，防止虚标高清抢占首位
+            if res_tier >= 3 and download_kbps < 3500:
                 res_tier, res_name = 2, "720P"
 
-            # 核心判定：真实播放流畅度阈值判定
-            # 1. 播放必须具备 25% 以上的下行冗余裕量 (download_kbps >= stream_bitrate * 1.25)
-            # 2. 如果下行速度低于 2500 kbps，长时间播放必然耗尽缓冲区导致频繁转圈缓冲，降级至 0 (备用线路)
-            if latency_ms == 9999 or download_kbps < 2000:
+            # 核心判定：基于 10 秒真实路测的播放速率比值判定 (speed_ratio = 下行速率 / 播放码率)
+            speed_ratio = download_kbps / max(stream_bitrate_kbps, 1)
+
+            # 官方云 CDN 直播源保护（如阿里云慢直播、广州台腾讯云、TVB cdn.qd.je 等）
+            is_official_cdn = any(k in url.lower() for k in [
+                "gztv.com", "cdn.qd.je", "gcalic.v.myalicdn.com", "gcwbndali.v.myalicdn.com", 
+                "gctxyc.liveplay.myqcloud.com", "akamaized.net", "amagi.tv", "wurl.com", "cbsnstream.cbsnews.com"
+            ])
+
+            if has_error or latency_ms >= 4000 or download_kbps < 700:
                 smooth_tier = 0
-            elif download_kbps >= max(int(stream_bitrate_kbps * 1.25), 4000):
-                smooth_tier = 2 # 绝对流畅秒开，零缓冲
-            elif download_kbps >= max(stream_bitrate_kbps, 2500):
-                smooth_tier = 1 # 勉强跑平码率
+            elif is_official_cdn and download_kbps >= 1800 and latency_ms < 3500:
+                smooth_tier = 2
+            elif speed_ratio >= 1.05 and download_kbps >= 1500:
+                # 下载速度超过播放码率 1.05 倍以上：播放器缓冲池持续增加，绝不卡顿
+                smooth_tier = 2
+            elif speed_ratio >= 0.90 and accum_dur >= 7.0 and download_kbps >= 1200:
+                # 长切片规整流（抗抖动能力强，下行跑平码率）：丝滑秒开
+                smooth_tier = 2
+            elif speed_ratio >= 0.80 and download_kbps >= 1000:
+                smooth_tier = 1
             else:
-                smooth_tier = 0 # 码率倒挂，必然卡顿，降级为备用线路
+                # 下行速度低于播放码率 0.8 倍：10 秒路测确凿卡顿，降级隔离
+                smooth_tier = 0
 
             return url, {
                 "res_tier": res_tier,
@@ -907,19 +1012,49 @@ def main():
                 "latency_ms": latency_ms,
                 "download_kbps": download_kbps,
                 "smooth_tier": smooth_tier,
+                "stream_bitrate_kbps": stream_bitrate_kbps,
+                "seg_dur": seg_dur,
                 "tested_at": time.time() if smooth_tier > 0 else 0
             }
 
-        with concurrent.futures.ThreadPoolExecutor(max_workers=50) as ex:
-            for u_res, m_res in ex.map(probe_line, multi_line_urls):
-                cached_metrics[u_res] = m_res
+        import random
+        # 核心优化：彻底打散待测 URL 顺序，保证各个工作线程同时处理不同域名，消除同域名排队等待瓶颈！
+        shuffled_urls = list(multi_line_urls)
+        random.seed(42)
+        random.shuffle(shuffled_urls)
 
-        # Persist metrics
-        try:
-            with open(METRICS_PATH, "w", encoding="utf-8") as mf:
-                json.dump(cached_metrics, mf, ensure_ascii=False, indent=2)
-        except Exception:
-            pass
+        # 增量加速：若该 URL 在过去 2 小时内已被新版 10 秒引擎完整路测过，直接复用结果；仅对其余流进行测速
+        now_ts = time.time()
+        to_probe = [
+            item for item in shuffled_urls
+            if not (
+                cached_metrics.get(item["url"].strip(), {}).get("tested_at", 0) > now_ts - 7200
+                and "seg_dur" in cached_metrics.get(item["url"].strip(), {})
+            )
+        ]
+        print(f"Total streams: {len(shuffled_urls)} (Reusing {len(shuffled_urls) - len(to_probe)} freshly verified in cache, probing {len(to_probe)} remaining streams)...", flush=True)
+
+        if to_probe:
+            with concurrent.futures.ThreadPoolExecutor(max_workers=25) as ex:
+                futures = {ex.submit(probe_line, item): item for item in to_probe}
+                done_count = 0
+                total_items = len(futures)
+                for f in concurrent.futures.as_completed(futures):
+                    try:
+                        u_res, m_res = f.result()
+                        cached_metrics[u_res] = m_res
+                    except Exception:
+                        pass
+                    done_count += 1
+                    if done_count % 100 == 0 or done_count == total_items:
+                        print(f"  ⚡ [{done_count}/{total_items}] Streams benchmarked ({done_count*100//total_items}%)...", flush=True)
+                        try:
+                            with open(METRICS_PATH, "w", encoding="utf-8") as mf:
+                                json.dump(cached_metrics, mf, ensure_ascii=False, indent=2)
+                        except Exception:
+                            pass
+        else:
+            print("  ⚡ All streams have fresh 10s benchmark metrics in cache.", flush=True)
 
     def multi_line_sort_key(c):
         u = c["url"].strip()
@@ -946,20 +1081,22 @@ def main():
         is_residential = any(k in u.lower() for k in [":50085", ":9901", ":60901", "112.123.", "36.136.", "59.39.", "218.13.", "183.10.", "124.228."])
         effective_speed = download_kbps - 2000 if is_residential else download_kbps
 
-        # 1. 第一优先级：纯净度（Tier 2/1 纯净直连流 100% 优先于 Tier 0 GSLB/广告代理源，彻底消除 Line 1 广告与 403 风险）
-        # 2. 第二优先级：直播协议适配（非 YouTube 的直接流媒体 HLS/FLV/TS 优先于网页嵌入式 YouTube，保障电视机顶盒首选可播性）
-        # 3. 第三优先级：流畅度（smooth_tier: 2 绝对流畅零缓冲 > 1 基本可播 > 0 码率倒挂备用）
+        # 0. 第零优先级：健康可用性（具备充沛流畅度 smooth_tier >= 2 的线路绝对优先，杜绝卡顿线路霸占 Line 1）
+        # 1. 第一优先级：流畅度（smooth_tier: 2 绝对流畅零缓冲 > 1 基本可播 > 0 码率倒挂备用）
+        # 2. 第二优先级：纯净度（Tier 2/1 纯净直连流优先于 Tier 0 GSLB/广告代理源）
+        # 3. 第三优先级：直播协议适配（非 YouTube 的直接流媒体 HLS/FLV/TS 优先于网页嵌入式 YouTube）
         # 4. 第四优先级：清晰度（4K/8K=4 > 1080P=3 > 720P=2 > SD=1）
         # 5. 第五优先级：稳定性（免 Token、永久 0 广告的美国本土底层骨干节点优先于普通代理）
-        # 6. 第六优先级：有效带宽（effective_speed: 骨干机房高带宽 CDN 专线 15~30 Mbps）
+        # 6. 第六优先级：有效带宽（effective_speed）
         # 7. 第七优先级：首包响应（-latency_ms）
-        # 0. 第零优先级：健康可用性（健康可用线路绝对优先于超时断连线路，杜绝挂掉的源霸占 Line 1）
-        is_usable = 1 if (smooth_tier > 0 and res_tier > 0) else 0
+        is_usable = 1 if (smooth_tier >= 2 and res_tier >= 2) else 0
         is_youtube = 1 if ("youtube.com" in u.lower() or "youtu.be" in u.lower()) else 0
-        return (is_usable, purity, -is_youtube, smooth_tier, res_tier, stability, effective_speed, -latency_ms)
+        return (is_usable, smooth_tier, purity, -is_youtube, res_tier, stability, effective_speed, -latency_ms)
 
     sorted_channels = []
-    for cat_name, grp in name_groups.items():
+    buffering_test_channels = []
+
+    for (cat_name, ch_name), grp in name_groups.items():
         # Deduplicate identical or case-insensitive duplicate URLs within the same channel
         seen_urls = set()
         dedup_grp = []
@@ -978,26 +1115,79 @@ def main():
         dedup_grp.sort(key=multi_line_sort_key, reverse=True)
 
         # 核心播放体验防护：杜绝“播放一会儿就要缓冲”
-        # 1. 如果该频道存在流畅线路 (smooth_tier > 0)，则优先只保留流畅线路，剔除严重卡顿线路 (smooth_tier == 0)
-        smooth_lines = [
-            x for x in dedup_grp 
-            if cached_metrics.get(x["url"].strip(), {}).get("smooth_tier", 0) > 0 or 
-               "youtube.com" in x["url"].lower() or 
-               "youtu.be" in x["url"].lower() or 
-               cat_name in ["最新电影", "影视点播"]
-        ]
-        if smooth_lines:
-            dedup_grp = smooth_lines
-        else:
-            # 2. 如果该频道没有任何一条及格的流畅线路 (全部 smooth_tier == 0)，
-            # 且 Line 1 实测下行严重跑不赢码率 (download_kbps < 1200 或超时 9999ms)，
-            # 说明该频道全网源均严重卡顿/不可观看，直接全盘淘汰，绝不让用户在电视上看转圈缓冲！
-            best_m = cached_metrics.get(dedup_grp[0]["url"].strip(), {})
-            if best_m.get("download_kbps", 0) < 1200 or best_m.get("latency_ms", 9999) == 9999:
-                continue
+        # 1. 正规频道准入门槛：任何电视频道必须至少拥有一条可流畅播放且清晰度 >= 720P (res_tier >= 2) 的线路
+        #    （包括 smooth_tier >= 2，或规整切片 seg_dur >= 4.0 且下行跑平码率的 smooth_tier >= 1 线路，YouTube 直播与影视点播除外），
+        def is_line_smooth(x):
+            u = x["url"].strip()
+            if "youtube.com" in u.lower() or "youtu.be" in u.lower() or cat_name in ["最新电影", "影视点播"]:
+                return True
+            m = cached_metrics.get(u, {})
+            s_tier = m.get("smooth_tier", 0)
+            dl_speed = m.get("download_kbps", 0)
+            bitrate = max(m.get("stream_bitrate_kbps", 1), 1)
+            ratio = dl_speed / bitrate
+            seg_dur = m.get("seg_dur", 10.0)
 
-        # Cap at max 5 highest-quality lines per channel
-        sorted_channels.extend(dedup_grp[:5])
+            if s_tier >= 2:
+                return True
+            if ratio >= 1.05 and dl_speed >= 800 and m.get("latency_ms", 9999) < 4500:
+                return True
+            if seg_dur >= 5.0 and ratio >= 0.95 and dl_speed >= 1000 and m.get("latency_ms", 9999) < 4500:
+                return True
+            return False
+
+        has_smooth_line = any(is_line_smooth(x) for x in dedup_grp)
+        if not has_smooth_line:
+            # 独立提取存活、但由于网速跑不赢码率或超短切片而必然缓冲的线路，放入独立测试组
+            alive_candidates = [
+                x for x in dedup_grp
+                if cached_metrics.get(x["url"].strip(), {}).get("latency_ms", 9999) < 6500 and
+                   cached_metrics.get(x["url"].strip(), {}).get("download_kbps", 0) >= 300
+            ]
+            if alive_candidates:
+                # 选取下行速度最高的一条作为测试线路
+                best_cand = max(alive_candidates, key=lambda x: cached_metrics.get(x["url"].strip(), {}).get("download_kbps", 0))
+                test_item = dict(best_cand)
+                test_item["category"] = "⚠️低速/缓冲测试"
+                test_item["name"] = f"{test_item['name']} (缓冲测试)"
+                buffering_test_channels.append(test_item)
+            continue
+
+        # 2. 线路净化与分级保留：
+        #    - 如果该频道有高清流畅线路 (res_tier >= 2 且 is_line_smooth)，优先全部保留高清流畅线路；
+        #    - 如果该频道全网仅有标清 (SD) 线路，但该标清线路流畅不卡顿 (is_line_smooth)，亦予保留，杜绝误杀用户喜爱的高速特色台；
+        #    - 彻底剔除所有下载速度跟不上码率、播放必卡顿的残次线路！
+        hd_smooth = [
+            x for x in dedup_grp 
+            if is_line_smooth(x) and (
+                cached_metrics.get(x["url"].strip(), {}).get("res_tier", 1) >= 2 or
+                "youtube.com" in x["url"].lower() or 
+                "youtu.be" in x["url"].lower() or 
+                cat_name in ["最新电影", "影视点播"]
+            )
+        ]
+        if hd_smooth:
+            # 依用户要求：如果有多个线路都可以，720P 或以上的流畅线路全部保留（不设 5 条上限截断）
+            dedup_grp = hd_smooth
+        else:
+            # 若该频道全网完全没有 720P+ 线路，但标清 (SD) 线路流畅不卡顿，则予以保留
+            dedup_grp = [x for x in dedup_grp if is_line_smooth(x)]
+
+        # 全部保留所有经过实测可流畅播放的高清线路（如无高清则保留全部流畅标清）
+        sorted_channels.extend(dedup_grp)
+
+    def test_prio(c):
+        n = c["name"]
+        if "内蒙古卫视" in n: return 0
+        if "卫视" in n: return 1
+        if "cctv" in n.lower() or "央视" in n: return 2
+        if any(k in n for k in ["中天", "三立", "TVB", "凤凰", "新闻"]): return 3
+        if any("\u4e00" <= ch <= "\u9fff" for ch in n): return 4
+        return 5
+
+    # 附加独立的缓冲测试频道组（用户重点关注的内蒙古卫视排在首位，卫视及央视紧随其后，最多保留 150 个供实测）
+    buffering_test_channels.sort(key=test_prio)
+    sorted_channels.extend(buffering_test_channels[:150])
     channels = sorted_channels
 
     # Assign unique keys for duplicate names in quality-sorted order
@@ -1044,7 +1234,9 @@ def main():
         cat_idx = get_category_index(c["category"])
         is_cctv_cat = "cctv" in c["category"].lower() or "央视" in c["category"]
         suffix_num = get_key_suffix_num(c["key"])
-        if c["category"] == "测试频道":
+        if c["category"] == "⚠️低速/缓冲测试":
+            return (cat_idx, test_prio(c), c["name"], suffix_num, c["url"])
+        elif c["category"] == "测试频道":
             is_cctv = "cctv" in c["name"].lower()
             return (cat_idx, 0 if is_cctv else 1, cctv_sort_key(c["name"]) if is_cctv else (1, 0, 0, c["name"]), suffix_num, c["url"])
         elif is_cctv_cat:
@@ -1322,7 +1514,7 @@ export default {{
       }});
     }}
 
-    if ((/live\.ottiptv\.cc|\.flv|183\.237\.95\.108/).test(targetUrl)) {{
+    if ((/live\\.ottiptv\\.cc|\\.flv|183\\.237\\.95\\.108/).test(targetUrl)) {{
       return new Response('404 Not Found: FLV Stream Not Supported', {{ status: 404, headers: {{ 'Access-Control-Allow-Origin': '*' }} }});
     }}
 
@@ -1350,7 +1542,7 @@ export default {{
           }});
         }}
         // 若上游或目标地址本身具有已知广告机特征，绝不可 302 回退给客户端播放，直接 404 促使切台
-        if ((/appadhw|mkt\.m3u8|107\.m3u8|zmt\.m3u8|47\.97\.252\.|192\.151\.|204\.12\.234\.|:88[/]|applive|live\.ottiptv\.cc|183\.237\.95\.108|\.flv/).test(targetUrl)) {{
+        if ((/appadhw|mkt\\.m3u8|107\\.m3u8|zmt\\.m3u8|47\\.97\\.252\\.|192\\.151\\.|204\\.12\\.234\\.|:88[/]|applive|live\\.ottiptv\\.cc|183\\.237\\.95\\.108|\\.flv/).test(targetUrl)) {{
           return new Response('404 Not Found: Adware Stream Blocked', {{ status: 404, headers: {{ 'Access-Control-Allow-Origin': '*' }} }});
         }}
         return new Response(null, {{
@@ -1367,7 +1559,7 @@ export default {{
       const rawText = await upstreamRes.text();
 
       // 严格防护单机 IP 绑定节点及广告机重定向：若上游重定向至单机绑定节点或广告机，立即返回 404 明确错误，绝不喂给客户端播放广告
-      if ((/:88[/]|applive|[?&]u=\\d+\\.\\d+\\.\\d+\\.\\d+|appadhw|mkt\.m3u8|47\.97\.252\.|107\.m3u8|zmt\.m3u8|204\.12\.234\.|live\.ottiptv\.cc|\.flv/).test(finalUrl)) {{
+      if ((/:88[/]|applive|[?&]u=\\d+\\.\\d+\\.\\d+\\.\\d+|appadhw|mkt\\.m3u8|47\\.97\\.252\\.|107\\.m3u8|zmt\\.m3u8|204\\.12\\.234\\.|live\\.ottiptv\\.cc|\\.flv/).test(finalUrl)) {{
         return new Response('404 Not Found: Adware Stream Blocked', {{
           status: 404,
           headers: {{ 'Access-Control-Allow-Origin': '*' }}
@@ -1381,7 +1573,7 @@ export default {{
             headers: {{ 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' }}
           }});
         }}
-        if ((/appadhw|mkt\.m3u8|107\.m3u8|zmt\.m3u8|47\.97\.252\.|192\.151\.|204\.12\.234\.|:88[/]|applive|live\.ottiptv\.cc|183\.237\.95\.108|\.flv/).test(targetUrl)) {{
+        if ((/appadhw|mkt\\.m3u8|107\\.m3u8|zmt\\.m3u8|47\\.97\\.252\\.|192\\.151\\.|204\\.12\\.234\\.|:88[/]|applive|live\\.ottiptv\\.cc|183\\.237\\.95\\.108|\\.flv/).test(targetUrl)) {{
           return new Response('404 Not Found: Adware Stream Blocked', {{ status: 404, headers: {{ 'Access-Control-Allow-Origin': '*' }} }});
         }}
         return new Response(null, {{
@@ -1415,7 +1607,7 @@ export default {{
           headers: {{ 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' }}
         }});
       }}
-      if ((/appadhw|mkt\.m3u8|107\.m3u8|zmt\.m3u8|47\.97\.252\.|192\.151\.|204\.12\.234\.|:88[/]|applive|live\.ottiptv\.cc|183\.237\.95\.108|\.flv/).test(targetUrl)) {{
+      if ((/appadhw|mkt\\.m3u8|107\\.m3u8|zmt\\.m3u8|47\\.97\\.252\\.|192\\.151\\.|204\\.12\\.234\\.|:88[/]|applive|live\\.ottiptv\\.cc|183\\.237\\.95\\.108|\\.flv/).test(targetUrl)) {{
         return new Response('404 Not Found: Adware Stream Blocked', {{ status: 404, headers: {{ 'Access-Control-Allow-Origin': '*' }} }});
       }}
       return new Response(null, {{
