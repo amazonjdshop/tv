@@ -11,6 +11,8 @@ daily_update.py
 deep_check_playlist.py
 generate_excel.py
 merged_channels.txt
+merged_channels.txt.bak
+sequence_cache.json
 yuechan_urls.txt
 dist/
 .wrangler/
