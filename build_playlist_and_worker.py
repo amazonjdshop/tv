@@ -341,9 +341,11 @@ def main():
             
             # Filter out adware restreamer, ad networks, looping test streams, and single-IP bound streams
             u_lower = url.lower()
-            if any(k in u_lower for k in ["107.150.60.122", "69.30.245.51", "mkt.m3u8", "lantian/channel001", "198.204.228.26", "appadhw", "tvzb", "47.97.252.", "173.208.212.130", "3y1.xyz", "nosignal", "epg.pw/stream", "cnlive.club", "sailei", "dpdns.org"]):
+            if any(k in u_lower for k in ["107.150.60.122", "69.30.245.51", "192.151.", "204.12.", "mkt.m3u8", "lantian/channel001", "198.204.228.26", "appadhw", "tvzb", "47.97.252.", "173.208.", "3y1.xyz", "nosignal", "epg.pw/stream", "cnlive.club", "sailei", "dpdns.org", "cctv8k", "cctv-8k"]):
                 continue
             if any(k in u_lower for k in [":88/applive", ":88/", "applive"]) or re.search(r'[?&]u=\d+\.\d+\.\d+\.\d+', u_lower):
+                continue
+            if "cctv-8" in raw_name.lower() and "cctv8k" in u_lower:
                 continue
             if any(k in raw_name for k in ["支持作者", "关注公众号", "防失联", "微信", "更新时间"]):
                 continue
@@ -521,11 +523,20 @@ def main():
                     final_url = resp.geturl()
                     if final_url != u:
                         final_url_lower = final_url.lower()
-                        if any(k in final_url_lower for k in ["107.m3u8", "zmt.m3u8", "mkt.m3u8", "69.30.245.51", "appadhw", "47.97.252.", "nosignal", "error"]):
+                        bad_gslb_targets = [
+                            "107.m3u8", "zmt.m3u8", "mkt.m3u8", "69.30.245.51", "appadhw", "47.97.252.", 
+                            "nosignal", "error", "192.151.", "204.12.", "173.208.", "198.204.228.26",
+                            "cctv8k", "cctv-8k"
+                        ]
+                        if any(k in final_url_lower for k in bad_gslb_targets):
                             return None
                         clean_url = final_url.split("?")[0]
                         clean_url_lower = clean_url.lower()
-                        if any(k in clean_url_lower for k in ["107.m3u8", "zmt.m3u8", "mkt.m3u8", "69.30.245.51", "appadhw", "47.97.252.", "nosignal", "error"]):
+                        if any(k in clean_url_lower for k in bad_gslb_targets):
+                            return None
+
+                        # Block CCTV-8 from adopting CCTV-8K streams
+                        if "cctv-8" in c["name"].lower() and "cctv8k" in final_url_lower:
                             return None
 
                         # 1. 优先尝试探测是否为永久免 Token 的纯净底层节点
@@ -647,7 +658,7 @@ def main():
             score -= 100
         elif any(k in u_lower for k in [
             "cztv.com/live", "kylintv", "skygo.mn", "bestv.cn", "mgtv.com",
-            "63.141.", "74.91.", "192.151.", "69.30.", "198.204.", "207.56.",
+            "63.141.", "74.91.", "69.30.", "198.204.", "207.56.",
             "38.64.", "38.75.", "bztv.tvbus.cc", "69.197."
         ]):
             score += 35
@@ -664,9 +675,9 @@ def main():
             score -= 30
         if any(k in u_lower for k in [
             "qd.je", "jdshipin.com", "sryze.cc", "kankanlive", "xykt-fix", "livehwc", 
-            "appadhw", "dsdqpub", "auth=testpub", "cctv4k.m3u8", "107.m3u8", "zmt.m3u8", "mkt.m3u8", "47.97.252.", "69.30.245.51"
+            "appadhw", "dsdqpub", "auth=testpub", "cctv4k.m3u8", "107.m3u8", "zmt.m3u8", "mkt.m3u8", "47.97.252.", "69.30.245.51", "192.151.", "204.12.234."
         ]):
-            score -= 80
+            score -= 100
         return score
 
     def stream_purity_tier(c):
@@ -674,7 +685,7 @@ def main():
         纯净度分级 (Purity Tiers):
         Tier 2 (最高): 官方正规源及高性能 CDN 直连流 (永久 0 广告，点开即正片)
           - 广电/卫视官方无广告流 (cztv.com, sdetv.com, hebtv.com, gztv.com, tdm.com.mo, kylintv.tv, bestv.cn, cnr.cn)
-          - 骨干机房高带宽加速源 (69.197., 63.141., 74.91., 192.151., 69.30., 198.204., 207.56., 38.64., 38.75., bztv.tvbus.cc)
+          - 骨干机房高带宽加速源 (69.197., 63.141., 74.91., 69.30., 198.204., 207.56., 38.64., 38.75., bztv.tvbus.cc)
           - YouTube 24/7 官方直播
         Tier 1 (普通): 常见常规网络流及运营商 IPTV 组播流
         Tier 0 (最低/备用): 具有首次连接商业插播广告/贴片会话/暗投切片特征的流 (仅作为末尾备用线路，绝不占 Line 1)
@@ -684,7 +695,7 @@ def main():
           - user_session_id=, edge_slice= (广告会话跟踪)
           - miguvideo / wd_r2 (移动端 app 流，带 bean=mgspad 广告参数)
           - newlive (酒店网关开机迎宾广告)
-          - dsdqpub / auth=testpub / cctv4k.m3u8 / 107.m3u8 / zmt.m3u8 (公共测试/广告轮播流)
+          - dsdqpub / auth=testpub / cctv4k.m3u8 / 107.m3u8 / zmt.m3u8 / 192.151. / 204.12.234. (公共测试/广告轮播流)
         """
         u_lower = c["url"].lower()
         if any(k in u_lower for k in [
@@ -692,7 +703,7 @@ def main():
             "qd.je", "jdshipin.com", "sryze.cc", "xykt-fix", "kankanlive", 
             "livehwc", "edge_slice", "user_session_id", "wd_r2", "newlive",
             "appadhw", "cctv4k.m3u8", "dsdqpub", "auth=testpub",
-            "107.m3u8", "zmt.m3u8", "47.97.252."
+            "107.m3u8", "zmt.m3u8", "mkt.m3u8", "47.97.252.", "192.151.", "204.12.234."
         ]):
             return 0
         if any(k in u_lower for k in [
@@ -703,26 +714,25 @@ def main():
             "gcalic.v.myalicdn.com", "myqcloud.com", "gcwbndali.v.myalicdn.com",
             "pluto.tv", "akamaized.net", "simplestreamcdn.com", "51kandianshi.com",
             "nmtv.cn", "yntv.net", "lanzhousobey.cn", "cc.cd", "fengshows.cn",
-            "69.197.", "63.141.", "74.91.", "192.151.", "69.30.",
+            "69.197.", "63.141.", "74.91.", "69.30.",
             "198.204.", "207.56.", "38.64.", "38.75.", "bztv.tvbus.cc"
         ]):
             return 2
         return 1
 
-    # Identify multi-line channels that require quality & speed differentiation
-    # 彻底移除缓存：每次巡检 100% 从零并发测速所有多线路源，确保数据即时绝对真实
+    # Identify channels that require quality & speed differentiation and ad-screening (including single-line channels)
+    # 彻底移除缓存：每次巡检 100% 从零并发测速所有频道源（涵盖单线路与多线路），确保数据即时绝对真实且彻底过滤广告
     multi_line_urls = []
     seen_multi_urls = set()
     for (cat_name, ch_name), grp in name_groups.items():
-        if len(grp) > 1:
-            for item in grp:
-                u_norm = item["url"].strip()
-                if u_norm not in seen_multi_urls:
-                    seen_multi_urls.add(u_norm)
-                    multi_line_urls.append(item)
+        for item in grp:
+            u_norm = item["url"].strip()
+            if u_norm not in seen_multi_urls:
+                seen_multi_urls.add(u_norm)
+                multi_line_urls.append(item)
 
     if multi_line_urls:
-        print(f"Benchmarking clarity & speed for {len(multi_line_urls)} multi-line channel streams...")
+        print(f"Benchmarking clarity, speed & ad-check for {len(multi_line_urls)} channel streams...")
         probe_ctx = ssl._create_unverified_context()
 
         def probe_line(item):
@@ -943,8 +953,10 @@ def main():
         # 5. 第五优先级：稳定性（免 Token、永久 0 广告的美国本土底层骨干节点优先于普通代理）
         # 6. 第六优先级：有效带宽（effective_speed: 骨干机房高带宽 CDN 专线 15~30 Mbps）
         # 7. 第七优先级：首包响应（-latency_ms）
+        # 0. 第零优先级：健康可用性（健康可用线路绝对优先于超时断连线路，杜绝挂掉的源霸占 Line 1）
+        is_usable = 1 if (smooth_tier > 0 and res_tier > 0) else 0
         is_youtube = 1 if ("youtube.com" in u.lower() or "youtu.be" in u.lower()) else 0
-        return (purity, -is_youtube, smooth_tier, res_tier, stability, effective_speed, -latency_ms)
+        return (is_usable, purity, -is_youtube, smooth_tier, res_tier, stability, effective_speed, -latency_ms)
 
     sorted_channels = []
     for cat_name, grp in name_groups.items():
@@ -956,6 +968,12 @@ def main():
             if norm_u not in seen_urls:
                 seen_urls.add(norm_u)
                 dedup_grp.append(x)
+        
+        # 严格过滤任何实测被重定向至广告机 (res_tier == 0) 的恶意广告源
+        dedup_grp = [x for x in dedup_grp if cached_metrics.get(x["url"].strip(), {}).get("res_tier", 1) > 0]
+        if not dedup_grp:
+            continue
+
         # Sort descending: Clearest line first; if clarity identical, fastest speed first
         # Temporarily degraded lines (smooth_tier=0) naturally drop to fallback positions (Line 3/4/5) rather than being deleted
         dedup_grp.sort(key=multi_line_sort_key, reverse=True)
@@ -1308,6 +1326,10 @@ export default {{
             headers: {{ 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' }}
           }});
         }}
+        // 若上游或目标地址本身具有已知广告机特征，绝不可 302 回退给客户端播放，直接 404 促使切台
+        if ((/appadhw|mkt\\.m3u8|107\\.m3u8|zmt\\.m3u8|47\\.97\\.252\\.|192\\.151\\.|204\\.12\\.234\\.|:88[/]|applive/).test(targetUrl)) {{
+          return new Response('404 Not Found: Adware Stream Blocked', {{ status: 404, headers: {{ 'Access-Control-Allow-Origin': '*' }} }});
+        }}
         return new Response(null, {{
           status: 302,
           headers: {{
@@ -1321,11 +1343,10 @@ export default {{
       const finalUrl = upstreamRes.url || targetUrl;
       const rawText = await upstreamRes.text();
 
-      // 严格防护单机 IP 绑定节点（如 :88/applive 或 u=<IP>）：若上游重定向至单机绑定节点，电视机等外部设备播放 TS 必 403 报错
-      // 立即返回 403 明确错误，促使播放器以 1ms 极限速度瞬间轮换下一条有效线路，绝不卡死
-      if ((/:88[/]|applive|[?&]u=\\d+\\.\\d+\\.\\d+\\.\\d+/).test(finalUrl)) {{
-        return new Response('403 Forbidden: IP Bound Node', {{
-          status: 403,
+      // 严格防护单机 IP 绑定节点及广告机重定向：若上游重定向至单机绑定节点或广告机，立即返回 404 明确错误，绝不喂给客户端播放广告
+      if ((/:88[/]|applive|[?&]u=\\d+\\.\\d+\\.\\d+\\.\\d+|appadhw|mkt\\.m3u8|47\\.97\\.252\\.|107\\.m3u8|zmt\\.m3u8|204\\.12\\.234\\./).test(finalUrl)) {{
+        return new Response('404 Not Found: Adware Stream Blocked', {{
+          status: 404,
           headers: {{ 'Access-Control-Allow-Origin': '*' }}
         }});
       }}
@@ -1336,6 +1357,9 @@ export default {{
             status: 500,
             headers: {{ 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' }}
           }});
+        }}
+        if ((/appadhw|mkt\\.m3u8|107\\.m3u8|zmt\\.m3u8|47\\.97\\.252\\.|192\\.151\\.|204\\.12\\.234\\.|:88[/]|applive/).test(targetUrl)) {{
+          return new Response('404 Not Found: Adware Stream Blocked', {{ status: 404, headers: {{ 'Access-Control-Allow-Origin': '*' }} }});
         }}
         return new Response(null, {{
           status: 302,
@@ -1367,6 +1391,9 @@ export default {{
           status: 500,
           headers: {{ 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' }}
         }});
+      }}
+      if ((/appadhw|mkt\\.m3u8|107\\.m3u8|zmt\\.m3u8|47\\.97\\.252\\.|192\\.151\\.|204\\.12\\.234\\.|:88[/]|applive/).test(targetUrl)) {{
+        return new Response('404 Not Found: Adware Stream Blocked', {{ status: 404, headers: {{ 'Access-Control-Allow-Origin': '*' }} }});
       }}
       return new Response(null, {{
         status: 302,
