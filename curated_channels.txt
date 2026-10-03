@@ -11,28 +11,6 @@
 # 即使某天频道因临时网络波动被清洗移除，次日流水线启动时仍会重新探测并自动救回恢复（自愈机制）。
 # ==============================================================================
 
-# ==============================================================================
-# 广告测试专区 (Adware Test Channels · 带 15s 开播前置商业贴片广告的高速测试源)
-# ==============================================================================
-测试频道|CCTV-1 (广告测试)|https://cdn.qd.je/163189.php?id=cctv1
-测试频道|CCTV-2 (广告测试)|https://cdn.qd.je/163189.php?id=cctv2
-测试频道|CCTV-3 (广告测试)|https://cdn.qd.je/163189.php?id=cctv3
-测试频道|CCTV-4 (广告测试)|https://cdn.qd.je/163189.php?id=cctv4
-测试频道|CCTV-6 (广告测试)|https://cdn.qd.je/163189.php?id=cctv6
-测试频道|CCTV-7 (广告测试)|https://cdn.qd.je/163189.php?id=cctv7
-测试频道|CCTV-8 (广告测试)|https://cdn.qd.je/163189.php?id=cctv8
-测试频道|CCTV-9 (广告测试)|https://cdn.qd.je/163189.php?id=cctv9
-测试频道|CCTV-10 (广告测试)|https://cdn.qd.je/163189.php?id=cctv10
-测试频道|CCTV-11 (广告测试)|https://cdn.qd.je/163189.php?id=cctv11
-测试频道|CCTV-12 (广告测试)|https://cdn.qd.je/163189.php?id=cctv12
-测试频道|CCTV-13 (广告测试)|https://cdn.qd.je/163189.php?id=cctv13
-测试频道|CCTV-14 (广告测试)|https://cdn.qd.je/163189.php?id=cctv14
-测试频道|CCTV-16 (广告测试)|https://cdn.qd.je/163189.php?id=cctv16
-测试频道|CCTV-17 (广告测试)|https://cdn.qd.je/163189.php?id=cctv17
-测试频道|翡翠台 (广告测试)|https://cdn.qd.je/163189.php?id=jade
-测试频道|凤凰香港 (广告测试)|https://cdn.qd.je/163189.php?id=fhhk
-测试频道|广东体育 (广告测试)|https://cdn.qd.je/163189.php?id=gdty
-测试频道|重温经典 (广告测试)|https://php.jdshipin.com:2096/TVOD/iptv.php?id=cwjd
 
 # ==============================================================================
 # 北美直连机房优质专线 (美国堪萨斯城骨干直出 · 1080P/720P 超清 · 永久 0 广告 · 0 鉴权 · 0 跳转秒开)
@@ -270,7 +248,7 @@
 # ==============================================================================
 韩国/朝鲜|YTN新闻-YT|https://www.youtube.com/embed/6QZ_qc75ihU
 韩国/朝鲜|KBS新闻-YT|https://www.youtube.com/embed/2mCSYvcfhtc
-韩国/朝鲜|SBS新闻-YT|https://www.youtube.com/embed/44SIghYADN8
+韩国/朝鲜|SBS新闻-YT|https://www.youtube.com/embed/zBnZc5DGBTg
 韩国/朝鲜|MBC新闻-YT|https://www.youtube.com/embed/rEKifG2XUZg
 韩国/朝鲜|JTBC新闻-YT|https://www.youtube.com/embed/4Ahz2f9wUgI
 韩国/朝鲜|KBS World-YT|https://www.youtube.com/embed/U2faSnFEi3k

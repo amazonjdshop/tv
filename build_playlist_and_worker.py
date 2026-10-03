@@ -46,9 +46,7 @@ category_order = [
     "国际频道",
     "韩国/朝鲜",
     "多语种国际台",
-    "最新电影",
-    "测试频道",
-    "⚠️低速/缓冲测试"
+    "最新电影"
 ]
 
 def clean_channel_name(name):
@@ -56,6 +54,9 @@ def clean_channel_name(name):
     # Strip emojis and symbols
     n = re.sub(r"[\U00010000-\U0010ffff]", "", n)
     n = re.sub(r"[\u2600-\u27bf\u2300-\u23ff\u2b50\u2b55\u200d\ufe0f\u2460-\u24ff]", "", n)
+    # Strip test and buffering suffixes
+    n = re.sub(r"[\s_]*\((?:缓冲测试|广告测试)\)", "", n)
+    n = re.sub(r"[\s_]*(?:缓冲测试|广告测试)", "", n)
     # Strip line markers at the end before replacing underscores
     n = re.sub(r"_\d+$", "", n)
     n = re.sub(r"[\(\[]\d+[\)\]]$", "", n)
@@ -115,9 +116,9 @@ def clean_category(cat, name, url=""):
     name_lower = name.lower()
     url_lower = url.lower() if url else ""
     
-    # 0. Test Channels (测试频道)
-    if cat in ["测试频道", "广告测试"] or "广告测试" in name:
-        return "测试频道"
+    # 0. Test Channels (全面剔除测试频道与缓冲测试频道)
+    if cat in ["测试频道", "广告测试", "⚠️低速/缓冲测试"] or any(k in name for k in ["广告测试", "缓冲测试", "测试频道"]):
+        return None
 
     # 0.1 直播中国 (24小时全国5A风景与名胜实景慢直播)
     if cat in ["直播中国", "慢直播", "风景直播", "实景直播"] or "gcalic.v.myalicdn.com" in url_lower or "gctxyc.liveplay.myqcloud.com" in url_lower or "gcwbndali.v.myalicdn.com" in url_lower:
@@ -377,35 +378,35 @@ def main():
                 raw_name = "看东方"
                 category = "港澳台"
             
-            # If in test channel category, keep the specific test name
-            if category in ["测试频道", "广告测试"] or "广告测试" in raw_name:
-                name = raw_name
-            else:
-                # Normalize CCTV names (CCTV-1 to CCTV-17, CCTV-4K, CCTV-8K, including CCTV-5+ and CCTV-16)
-                name_lower = raw_name.lower()
-                # Strip emojis / non-alphanumeric prefixes to match CCTV names correctly
-                clean_name_match = re.sub(r'^[^\w\s\-]+', '', name_lower).strip()
-                cctv_match = re.search(r'(cctv[-]?\d+)', clean_name_match)
-                if "cctv-4k" in name_lower or "cctv4k" in name_lower:
-                    name = "CCTV-4K"
-                elif "cctv-8k" in name_lower or "cctv8k" in name_lower:
-                    name = "CCTV-8K"
-                elif cctv_match:
-                    cctv_base = cctv_match.group(1).upper()
-                    # Ensure standard format (e.g. CCTV-5 instead of CCTV5)
-                    if not cctv_base.startswith("CCTV-"):
-                        cctv_base = "CCTV-" + cctv_base[4:]
-                    
-                    if "cctv-5+" in name_lower or "cctv5+" in name_lower or ("cctv5" in name_lower and "+" in raw_name):
-                        name = "CCTV-5+体育赛事"
-                    elif cctv_base == "CCTV-5":
-                        name = "CCTV-5体育"
-                    elif cctv_base == "CCTV-16":
-                        name = "CCTV-16奥林匹克"
-                    else:
-                        name = cctv_base
+            # Filter out all test channels and buffering test channels
+            if category in ["测试频道", "广告测试", "⚠️低速/缓冲测试"] or any(k in raw_name for k in ["广告测试", "缓冲测试", "测试频道"]):
+                continue
+
+            # Normalize CCTV names (CCTV-1 to CCTV-17, CCTV-4K, CCTV-8K, including CCTV-5+ and CCTV-16)
+            name_lower = raw_name.lower()
+            # Strip emojis / non-alphanumeric prefixes to match CCTV names correctly
+            clean_name_match = re.sub(r'^[^\w\s\-]+', '', name_lower).strip()
+            cctv_match = re.search(r'(cctv[-]?\d+)', clean_name_match)
+            if "cctv-4k" in name_lower or "cctv4k" in name_lower:
+                name = "CCTV-4K"
+            elif "cctv-8k" in name_lower or "cctv8k" in name_lower:
+                name = "CCTV-8K"
+            elif cctv_match:
+                cctv_base = cctv_match.group(1).upper()
+                # Ensure standard format (e.g. CCTV-5 instead of CCTV5)
+                if not cctv_base.startswith("CCTV-"):
+                    cctv_base = "CCTV-" + cctv_base[4:]
+                
+                if "cctv-5+" in name_lower or "cctv5+" in name_lower or ("cctv5" in name_lower and "+" in raw_name):
+                    name = "CCTV-5+体育赛事"
+                elif cctv_base == "CCTV-5":
+                    name = "CCTV-5体育"
+                elif cctv_base == "CCTV-16":
+                    name = "CCTV-16奥林匹克"
                 else:
-                    name = clean_channel_name(raw_name)
+                    name = cctv_base
+            else:
+                name = clean_channel_name(raw_name)
             
             # Normalize Singapore, Macau, Hong Kong, Taiwan and regional channels to standard Chinese names
             sg_mo_map = {
@@ -1094,7 +1095,6 @@ def main():
         return (is_usable, smooth_tier, purity, -is_youtube, res_tier, stability, effective_speed, -latency_ms)
 
     sorted_channels = []
-    buffering_test_channels = []
 
     for (cat_name, ch_name), grp in name_groups.items():
         # Deduplicate identical or case-insensitive duplicate URLs within the same channel
@@ -1138,19 +1138,6 @@ def main():
 
         has_smooth_line = any(is_line_smooth(x) for x in dedup_grp)
         if not has_smooth_line:
-            # 独立提取存活、但由于网速跑不赢码率或超短切片而必然缓冲的线路，放入独立测试组
-            alive_candidates = [
-                x for x in dedup_grp
-                if cached_metrics.get(x["url"].strip(), {}).get("latency_ms", 9999) < 6500 and
-                   cached_metrics.get(x["url"].strip(), {}).get("download_kbps", 0) >= 300
-            ]
-            if alive_candidates:
-                # 选取下行速度最高的一条作为测试线路
-                best_cand = max(alive_candidates, key=lambda x: cached_metrics.get(x["url"].strip(), {}).get("download_kbps", 0))
-                test_item = dict(best_cand)
-                test_item["category"] = "⚠️低速/缓冲测试"
-                test_item["name"] = f"{test_item['name']} (缓冲测试)"
-                buffering_test_channels.append(test_item)
             continue
 
         # 2. 线路净化与分级保留：
@@ -1176,18 +1163,6 @@ def main():
         # 全部保留所有经过实测可流畅播放的高清线路（如无高清则保留全部流畅标清）
         sorted_channels.extend(dedup_grp)
 
-    def test_prio(c):
-        n = c["name"]
-        if "内蒙古卫视" in n: return 0
-        if "卫视" in n: return 1
-        if "cctv" in n.lower() or "央视" in n: return 2
-        if any(k in n for k in ["中天", "三立", "TVB", "凤凰", "新闻"]): return 3
-        if any("\u4e00" <= ch <= "\u9fff" for ch in n): return 4
-        return 5
-
-    # 附加独立的缓冲测试频道组（用户重点关注的内蒙古卫视排在首位，卫视及央视紧随其后，最多保留 150 个供实测）
-    buffering_test_channels.sort(key=test_prio)
-    sorted_channels.extend(buffering_test_channels[:150])
     channels = sorted_channels
 
     # Assign unique keys for duplicate names in quality-sorted order
@@ -1234,12 +1209,7 @@ def main():
         cat_idx = get_category_index(c["category"])
         is_cctv_cat = "cctv" in c["category"].lower() or "央视" in c["category"]
         suffix_num = get_key_suffix_num(c["key"])
-        if c["category"] == "⚠️低速/缓冲测试":
-            return (cat_idx, test_prio(c), c["name"], suffix_num, c["url"])
-        elif c["category"] == "测试频道":
-            is_cctv = "cctv" in c["name"].lower()
-            return (cat_idx, 0 if is_cctv else 1, cctv_sort_key(c["name"]) if is_cctv else (1, 0, 0, c["name"]), suffix_num, c["url"])
-        elif is_cctv_cat:
+        if is_cctv_cat:
             return (cat_idx, c["category"], cctv_sort_key(c["name"]), suffix_num, c["url"])
         else:
             cat = c["category"]
