@@ -358,7 +358,7 @@ def main():
             
             # Filter out adware restreamer, ad networks, looping test streams, and single-IP bound streams
             u_lower = url.lower()
-            if any(k in u_lower for k in ["107.150.60.122", "69.30.245.51", "192.151.", "204.12.", "mkt.m3u8", "lantian/channel001", "198.204.228.26", "appadhw", "tvzb", "47.97.252.", "173.208.", "3y1.xyz", "nosignal", "epg.pw/stream", "cnlive.club", "sailei", "dpdns.org", "cctv8k", "cctv-8k", "live.ottiptv.cc", "183.237.95.108", ".flv"]):
+            if any(k in u_lower for k in ["107.150.60.122", "69.30.245.51", "192.151.", "204.12.", "mkt.m3u8", "lantian/channel001", "lantian/channel21", "hebtv.com/jishi/cp", "198.204.228.26", "appadhw", "tvzb", "47.97.252.", "173.208.", "3y1.xyz", "nosignal", "epg.pw/stream", "cnlive.club", "sailei", "dpdns.org", "cctv8k", "cctv-8k", "live.ottiptv.cc", "183.237.95.108", ".flv"]):
                 continue
             if any(k in u_lower for k in [":88/applive", ":88/", "applive"]) or re.search(r'[?&]u=\d+\.\d+\.\d+\.\d+', u_lower):
                 continue
