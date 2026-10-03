@@ -341,7 +341,7 @@ def main():
             
             # Filter out adware restreamer, ad networks, looping test streams, and single-IP bound streams
             u_lower = url.lower()
-            if any(k in u_lower for k in ["107.150.60.122", "69.30.245.51", "192.151.", "204.12.", "mkt.m3u8", "lantian/channel001", "198.204.228.26", "appadhw", "tvzb", "47.97.252.", "173.208.", "3y1.xyz", "nosignal", "epg.pw/stream", "cnlive.club", "sailei", "dpdns.org", "cctv8k", "cctv-8k", "live.ottiptv.cc", "183.237.95.108", ".flv"]):
+            if any(k in u_lower for k in ["107.150.60.122", "69.30.245.51", "192.151.", "204.12.", "mkt.m3u8", "lantian/channel001", "198.204.228.26", "appadhw", "tvzb", "47.97.252.", "173.208.", "3y1.xyz", "nosignal", "epg.pw/stream", "cnlive.club", "sailei", "dpdns.org", "cctv8k", "cctv-8k", "live.ottiptv.cc", "183.237.95.108", ".flv", "61.216.67.119", "streamlock.net/bltvhd"]):
                 continue
             if any(k in u_lower for k in [":88/applive", ":88/", "applive"]) or re.search(r'[?&]u=\d+\.\d+\.\d+\.\d+', u_lower):
                 continue
@@ -975,8 +975,27 @@ def main():
             continue
 
         # Sort descending: Clearest line first; if clarity identical, fastest speed first
-        # Temporarily degraded lines (smooth_tier=0) naturally drop to fallback positions (Line 3/4/5) rather than being deleted
         dedup_grp.sort(key=multi_line_sort_key, reverse=True)
+
+        # 核心播放体验防护：杜绝“播放一会儿就要缓冲”
+        # 1. 如果该频道存在流畅线路 (smooth_tier > 0)，则优先只保留流畅线路，剔除严重卡顿线路 (smooth_tier == 0)
+        smooth_lines = [
+            x for x in dedup_grp 
+            if cached_metrics.get(x["url"].strip(), {}).get("smooth_tier", 0) > 0 or 
+               "youtube.com" in x["url"].lower() or 
+               "youtu.be" in x["url"].lower() or 
+               cat_name in ["最新电影", "影视点播"]
+        ]
+        if smooth_lines:
+            dedup_grp = smooth_lines
+        else:
+            # 2. 如果该频道没有任何一条及格的流畅线路 (全部 smooth_tier == 0)，
+            # 且 Line 1 实测下行严重跑不赢码率 (download_kbps < 1200 或超时 9999ms)，
+            # 说明该频道全网源均严重卡顿/不可观看，直接全盘淘汰，绝不让用户在电视上看转圈缓冲！
+            best_m = cached_metrics.get(dedup_grp[0]["url"].strip(), {})
+            if best_m.get("download_kbps", 0) < 1200 or best_m.get("latency_ms", 9999) == 9999:
+                continue
+
         # Cap at max 5 highest-quality lines per channel
         sorted_channels.extend(dedup_grp[:5])
     channels = sorted_channels
@@ -1303,7 +1322,7 @@ export default {{
       }});
     }}
 
-    if ((/live\.ottiptv\.cc|\.flv|183\.237\.95\.108/).test(targetUrl)) {{
+    if ((/live\.ottiptv\.cc|\.flv|183\.237\.95\.108|61\.216\.67\.|streamlock\.net\/bltvhd/).test(targetUrl)) {{
       return new Response('404 Not Found: FLV Stream Not Supported', {{ status: 404, headers: {{ 'Access-Control-Allow-Origin': '*' }} }});
     }}
 
@@ -1331,7 +1350,7 @@ export default {{
           }});
         }}
         // 若上游或目标地址本身具有已知广告机特征，绝不可 302 回退给客户端播放，直接 404 促使切台
-        if ((/appadhw|mkt\.m3u8|107\.m3u8|zmt\.m3u8|47\.97\.252\.|192\.151\.|204\.12\.234\.|:88[/]|applive|live\.ottiptv\.cc|183\.237\.95\.108|\.flv/).test(targetUrl)) {{
+        if ((/appadhw|mkt\.m3u8|107\.m3u8|zmt\.m3u8|47\.97\.252\.|192\.151\.|204\.12\.234\.|:88[/]|applive|live\.ottiptv\.cc|183\.237\.95\.108|\.flv|61\.216\.67\.|streamlock\.net\/bltvhd/).test(targetUrl)) {{
           return new Response('404 Not Found: Adware Stream Blocked', {{ status: 404, headers: {{ 'Access-Control-Allow-Origin': '*' }} }});
         }}
         return new Response(null, {{
@@ -1348,7 +1367,7 @@ export default {{
       const rawText = await upstreamRes.text();
 
       // 严格防护单机 IP 绑定节点及广告机重定向：若上游重定向至单机绑定节点或广告机，立即返回 404 明确错误，绝不喂给客户端播放广告
-      if ((/:88[/]|applive|[?&]u=\\d+\\.\\d+\\.\\d+\\.\\d+|appadhw|mkt\.m3u8|47\.97\.252\.|107\.m3u8|zmt\.m3u8|204\.12\.234\.|live\.ottiptv\.cc|\.flv/).test(finalUrl)) {{
+      if ((/:88[/]|applive|[?&]u=\\d+\\.\\d+\\.\\d+\\.\\d+|appadhw|mkt\.m3u8|47\.97\.252\.|107\.m3u8|zmt\.m3u8|204\.12\.234\.|live\.ottiptv\.cc|\.flv|61\.216\.67\.|streamlock\.net\/bltvhd/).test(finalUrl)) {{
         return new Response('404 Not Found: Adware Stream Blocked', {{
           status: 404,
           headers: {{ 'Access-Control-Allow-Origin': '*' }}
@@ -1362,7 +1381,7 @@ export default {{
             headers: {{ 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' }}
           }});
         }}
-        if ((/appadhw|mkt\.m3u8|107\.m3u8|zmt\.m3u8|47\.97\.252\.|192\.151\.|204\.12\.234\.|:88[/]|applive|live\.ottiptv\.cc|183\.237\.95\.108|\.flv/).test(targetUrl)) {{
+        if ((/appadhw|mkt\.m3u8|107\.m3u8|zmt\.m3u8|47\.97\.252\.|192\.151\.|204\.12\.234\.|:88[/]|applive|live\.ottiptv\.cc|183\.237\.95\.108|\.flv|61\.216\.67\.|streamlock\.net\/bltvhd/).test(targetUrl)) {{
           return new Response('404 Not Found: Adware Stream Blocked', {{ status: 404, headers: {{ 'Access-Control-Allow-Origin': '*' }} }});
         }}
         return new Response(null, {{

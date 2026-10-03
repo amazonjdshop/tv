@@ -1406,7 +1406,6 @@ http://38.64.72.148:80/hls/modn/list/4013/chunklist1.m3u8
 #EXTINF:-1 group-title="世界",TW台视新闻
 http://38.64.72.148:80/hls/modn/list/4013/chunklist0.m3u8
 #EXTINF:-1 group-title="世界",番薯
-http://61.216.67.119:1935/TWHG/E1/chunklist_w705811302.m3u8
 #EXTINF:-1 group-title="世界",民視新聞
 http://38.64.72.148/hls/modn/list/4012/chunklist0.m3u8
 #EXTINF:-1 group-title="世界",民視新聞
@@ -1452,13 +1451,9 @@ https://dqhxk7sbp7xog.cloudfront.net/hls-live/goodtv/_definst_/liveevent/live-ch
 #EXTINF:-1 group-title="世界",GOODTV经典音乐河
 https://dqhxk7sbp7xog.cloudfront.net/hls-live/goodtv/_definst_/liveevent/live-ch6-2.m3u8
 #EXTINF:-1 group-title="世界",番薯台
-http://61.216.67.119:1935/TWHG/E1/chunklist_w70581102.m3u8
 #EXTINF:-1 group-title="世界",人間衛視
-https://5ddce30eb4b55.streamlock.net/bltvhd/bltv1/chunklist_w511254805.m3u8
 #EXTINF:-1 group-title="世界",人間衛視
-http://61.216.67.119:1935/bltvhd/bltv1/chunklist_w1266569526.m3u
 #EXTINF:-1 group-title="世界",人間衛視
-http://61.216.67.119:1935/bltvhd/bltv1/chunklist_w1266569526.m3u8
 #EXTINF:-1 group-title="世界",香港佛陀
 https://js1.amtb.cn/liveedge/_definst_/livetv/playlist.m3u8
 #EXTINF:-1 group-title="世界",民视新闻台
@@ -1499,8 +1494,6 @@ http://38.64.72.148:80/hls/modn/list/4003/chunklist1.m3u8
 http://d2e1asnsl7br7b.cloudfront.net/7782e205e72f43aeb4a48ec97f66ebbe/index_4.m3u8
 #EXTINF:-1 group-title="世界",中国环球电视
 http://live.cgtn.com/500/prog_index.m3u8
-#EXTINF:-1 group-title="世界",人间卫视
-https://5ddce30eb4b55.streamlock.net/bltvhd/bltv1/chunklist_w614428743.m3u8
 #EXTINF:-1 group-title="世界",香港卫视文旅
 https://myun-hw-s3.myun.tv/melj80jz/lxx27bol/1551285536499984128.m3u8
 #EXTINF:-1 group-title="世界",CTN
