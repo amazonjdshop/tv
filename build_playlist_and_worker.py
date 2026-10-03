@@ -341,7 +341,7 @@ def main():
             
             # Filter out adware restreamer, ad networks, looping test streams, and single-IP bound streams
             u_lower = url.lower()
-            if any(k in u_lower for k in ["107.150.60.122", "69.30.245.51", "192.151.", "204.12.", "mkt.m3u8", "lantian/channel001", "198.204.228.26", "appadhw", "tvzb", "47.97.252.", "173.208.", "3y1.xyz", "nosignal", "epg.pw/stream", "cnlive.club", "sailei", "dpdns.org", "cctv8k", "cctv-8k"]):
+            if any(k in u_lower for k in ["107.150.60.122", "69.30.245.51", "192.151.", "204.12.", "mkt.m3u8", "lantian/channel001", "198.204.228.26", "appadhw", "tvzb", "47.97.252.", "173.208.", "3y1.xyz", "nosignal", "epg.pw/stream", "cnlive.club", "sailei", "dpdns.org", "cctv8k", "cctv-8k", "live.ottiptv.cc", "183.237.95.108", ".flv"]):
                 continue
             if any(k in u_lower for k in [":88/applive", ":88/", "applive"]) or re.search(r'[?&]u=\d+\.\d+\.\d+\.\d+', u_lower):
                 continue
@@ -1303,6 +1303,10 @@ export default {{
       }});
     }}
 
+    if ((/live\.ottiptv\.cc|\.flv|183\.237\.95\.108/).test(targetUrl)) {{
+      return new Response('404 Not Found: FLV Stream Not Supported', {{ status: 404, headers: {{ 'Access-Control-Allow-Origin': '*' }} }});
+    }}
+
     // 4. 【智能 M3U8 广告切片动态清洗与秒跳网关 (Smart Ad-Stripping Proxy)】
     // Worker 仅抓取清洗约 1KB 的 M3U8 文本，所有 TS 切片自动转为原站绝对链接，电视盒直连原站 CDN 下载，0 Cloudflare 视频流量消耗！
     try {{
@@ -1327,7 +1331,7 @@ export default {{
           }});
         }}
         // 若上游或目标地址本身具有已知广告机特征，绝不可 302 回退给客户端播放，直接 404 促使切台
-        if ((/appadhw|mkt\\.m3u8|107\\.m3u8|zmt\\.m3u8|47\\.97\\.252\\.|192\\.151\\.|204\\.12\\.234\\.|:88[/]|applive/).test(targetUrl)) {{
+        if ((/appadhw|mkt\.m3u8|107\.m3u8|zmt\.m3u8|47\.97\.252\.|192\.151\.|204\.12\.234\.|:88[/]|applive|live\.ottiptv\.cc|183\.237\.95\.108|\.flv/).test(targetUrl)) {{
           return new Response('404 Not Found: Adware Stream Blocked', {{ status: 404, headers: {{ 'Access-Control-Allow-Origin': '*' }} }});
         }}
         return new Response(null, {{
@@ -1344,7 +1348,7 @@ export default {{
       const rawText = await upstreamRes.text();
 
       // 严格防护单机 IP 绑定节点及广告机重定向：若上游重定向至单机绑定节点或广告机，立即返回 404 明确错误，绝不喂给客户端播放广告
-      if ((/:88[/]|applive|[?&]u=\\d+\\.\\d+\\.\\d+\\.\\d+|appadhw|mkt\\.m3u8|47\\.97\\.252\\.|107\\.m3u8|zmt\\.m3u8|204\\.12\\.234\\./).test(finalUrl)) {{
+      if ((/:88[/]|applive|[?&]u=\\d+\\.\\d+\\.\\d+\\.\\d+|appadhw|mkt\.m3u8|47\.97\.252\.|107\.m3u8|zmt\.m3u8|204\.12\.234\.|live\.ottiptv\.cc|\.flv/).test(finalUrl)) {{
         return new Response('404 Not Found: Adware Stream Blocked', {{
           status: 404,
           headers: {{ 'Access-Control-Allow-Origin': '*' }}
@@ -1358,7 +1362,7 @@ export default {{
             headers: {{ 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' }}
           }});
         }}
-        if ((/appadhw|mkt\\.m3u8|107\\.m3u8|zmt\\.m3u8|47\\.97\\.252\\.|192\\.151\\.|204\\.12\\.234\\.|:88[/]|applive/).test(targetUrl)) {{
+        if ((/appadhw|mkt\.m3u8|107\.m3u8|zmt\.m3u8|47\.97\.252\.|192\.151\.|204\.12\.234\.|:88[/]|applive|live\.ottiptv\.cc|183\.237\.95\.108|\.flv/).test(targetUrl)) {{
           return new Response('404 Not Found: Adware Stream Blocked', {{ status: 404, headers: {{ 'Access-Control-Allow-Origin': '*' }} }});
         }}
         return new Response(null, {{
@@ -1392,7 +1396,7 @@ export default {{
           headers: {{ 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' }}
         }});
       }}
-      if ((/appadhw|mkt\\.m3u8|107\\.m3u8|zmt\\.m3u8|47\\.97\\.252\\.|192\\.151\\.|204\\.12\\.234\\.|:88[/]|applive/).test(targetUrl)) {{
+      if ((/appadhw|mkt\.m3u8|107\.m3u8|zmt\.m3u8|47\.97\.252\.|192\.151\.|204\.12\.234\.|:88[/]|applive|live\.ottiptv\.cc|183\.237\.95\.108|\.flv/).test(targetUrl)) {{
         return new Response('404 Not Found: Adware Stream Blocked', {{ status: 404, headers: {{ 'Access-Control-Allow-Origin': '*' }} }});
       }}
       return new Response(null, {{
