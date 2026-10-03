@@ -1367,8 +1367,9 @@ def main():
     print(f"Updated {playlist_pure_path}, {live_path} and {live2_path}")
     
     # 3. Write to cloudflare_worker_unified.js
-    # Build CHANNEL_MAP javascript object string
+    # Build CHANNEL_MAP and BACKUP_MAP javascript object strings
     map_lines = []
+    station_backups = defaultdict(list)
     for c in channels_with_keys:
         url_lower = c["url"].lower()
         is_movie = c["category"] in ["最新电影", "影视点播"]
@@ -1379,10 +1380,21 @@ def main():
         escaped_url = json.dumps(c["url"], ensure_ascii=False)
         map_lines.append(f"  {escaped_key}: {escaped_url},")
         
+        base_name = re.sub(r'_\d+$', '', c["key"])
+        station_backups[base_name].append(c["url"])
+        
     map_str = "\n".join(map_lines)
     
+    backup_lines = []
+    for base_name, urls in station_backups.items():
+        if len(urls) > 1:
+            escaped_base = json.dumps(base_name, ensure_ascii=False)
+            escaped_backups = json.dumps(urls[1:], ensure_ascii=False)
+            backup_lines.append(f"  {escaped_base}: {escaped_backups},")
+    backup_str = "\n".join(backup_lines)
+    
     worker_template = f"""/**
- * Cloudflare Worker - 多频道统一 HLS 重写/代理服务 (全直连重定向版)
+ * Cloudflare Worker - 多频道统一 HLS 重写/代理服务 (全直连重定向与秒级自动容灾版)
  * 
  * 访问格式：
  *   https://[你的Worker域名]/live/[频道名称]/index.m3u8
@@ -1392,6 +1404,11 @@ def main():
 // {len(channels_with_keys)}个有效电视频道映射表
 const CHANNEL_MAP = {{
 {map_str}
+}};
+
+// 多线路秒级自动容灾备用表 (Failover Map)
+const BACKUP_MAP = {{
+{backup_str}
 }};
 
 export default {{
@@ -1456,12 +1473,37 @@ export default {{
     const channelName = pathSegments[2];
     const requestedFile = pathSegments.slice(3).join('/');
 
+    // 辅助容灾函数：在主线路异常或失效时提取备用线路重定向
+    function getFailoverResponse(targetName, currentUrl) {{
+      const baseKey = targetName.replace(/_\\d+$/, '');
+      const backups = BACKUP_MAP[baseKey] || [];
+      for (const bUrl of backups) {{
+        if (bUrl && bUrl !== currentUrl) {{
+          console.log(`[边缘秒级自动容灾] 频道 ${{targetName}} 触发容灾 -> 自动 302 切换至备用线路: ${{bUrl}}`);
+          return new Response(null, {{
+            status: 302,
+            headers: {{
+              'Location': bUrl,
+              'Access-Control-Allow-Origin': '*',
+              'Access-Control-Allow-Methods': 'GET, HEAD, OPTIONS',
+              'Access-Control-Expose-Headers': 'Location',
+              'Cache-Control': 'no-cache, no-store, must-revalidate',
+              'X-Worker-Failover': 'true'
+            }}
+          }});
+        }}
+      }}
+      return null;
+    }}
+
     // 1. 从映射表中查找该频道真实的 URL
     let channelUrl = CHANNEL_MAP[channelName];
     if (!channelUrl) {{
       channelUrl = CHANNEL_MAP[channelName.replace(/_/g, ' ')] || CHANNEL_MAP[channelName.replace(/ /g, '_')];
     }}
     if (!channelUrl) {{
+      const failoverRes = getFailoverResponse(channelName, '');
+      if (failoverRes) return failoverRes;
       return new Response(`未找到频道: ${{channelName}}`, {{ status: 404 }});
     }}
 
@@ -1541,6 +1583,10 @@ export default {{
             headers: {{ 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' }}
           }});
         }}
+        // 自动容灾：若主线路响应异常(404/5xx)，毫秒级自动切换至备用线路
+        const failoverRes = getFailoverResponse(channelName, targetUrl);
+        if (failoverRes) return failoverRes;
+
         // 若上游或目标地址本身具有已知广告机特征，绝不可 302 回退给客户端播放，直接 404 促使切台
         if ((/appadhw|mkt\\.m3u8|107\\.m3u8|zmt\\.m3u8|47\\.97\\.252\\.|192\\.151\\.|204\\.12\\.234\\.|:88[/]|applive|live\\.ottiptv\\.cc|183\\.237\\.95\\.108|\\.flv/).test(targetUrl)) {{
           return new Response('404 Not Found: Adware Stream Blocked', {{ status: 404, headers: {{ 'Access-Control-Allow-Origin': '*' }} }});
@@ -1560,6 +1606,8 @@ export default {{
 
       // 严格防护单机 IP 绑定节点及广告机重定向：若上游重定向至单机绑定节点或广告机，立即返回 404 明确错误，绝不喂给客户端播放广告
       if ((/:88[/]|applive|[?&]u=\\d+\\.\\d+\\.\\d+\\.\\d+|appadhw|mkt\\.m3u8|47\\.97\\.252\\.|107\\.m3u8|zmt\\.m3u8|204\\.12\\.234\\.|live\\.ottiptv\\.cc|\\.flv/).test(finalUrl)) {{
+        const failoverRes = getFailoverResponse(channelName, targetUrl);
+        if (failoverRes) return failoverRes;
         return new Response('404 Not Found: Adware Stream Blocked', {{
           status: 404,
           headers: {{ 'Access-Control-Allow-Origin': '*' }}
@@ -1573,6 +1621,8 @@ export default {{
             headers: {{ 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' }}
           }});
         }}
+        const failoverRes = getFailoverResponse(channelName, targetUrl);
+        if (failoverRes) return failoverRes;
         if ((/appadhw|mkt\\.m3u8|107\\.m3u8|zmt\\.m3u8|47\\.97\\.252\\.|192\\.151\\.|204\\.12\\.234\\.|:88[/]|applive|live\\.ottiptv\\.cc|183\\.237\\.95\\.108|\\.flv/).test(targetUrl)) {{
           return new Response('404 Not Found: Adware Stream Blocked', {{ status: 404, headers: {{ 'Access-Control-Allow-Origin': '*' }} }});
         }}
@@ -1607,6 +1657,10 @@ export default {{
           headers: {{ 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' }}
         }});
       }}
+      // 自动容灾：若网络连接超时或源站挂掉，毫秒级自动切换至备用线路
+      const failoverRes = getFailoverResponse(channelName, targetUrl);
+      if (failoverRes) return failoverRes;
+
       if ((/appadhw|mkt\\.m3u8|107\\.m3u8|zmt\\.m3u8|47\\.97\\.252\\.|192\\.151\\.|204\\.12\\.234\\.|:88[/]|applive|live\\.ottiptv\\.cc|183\\.237\\.95\\.108|\\.flv/).test(targetUrl)) {{
         return new Response('404 Not Found: Adware Stream Blocked', {{ status: 404, headers: {{ 'Access-Control-Allow-Origin': '*' }} }});
       }}
