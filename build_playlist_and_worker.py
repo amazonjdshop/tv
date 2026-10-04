@@ -68,6 +68,7 @@ def clean_channel_name(name):
     # Remove trailing HD/SD tag
     n = re.sub(r"(?i)\s+[-_]?\s*(?:HD|SD)\s*$", "", n)
     n = re.sub(r"(?i)(?<=\D)HD$", "", n)
+    n = re.sub(r"[\s_]*(?:超高清|高清)$", "", n)
     n = re.sub(r"\s*(?:BLTV)$", "", n, flags=re.I)
     # Clean redundant whitespace
     n = re.sub(r"\s+", " ", n).strip()
@@ -248,7 +249,7 @@ def clean_category(cat, name, url=""):
         "lacrosse", "eurosport", "stadium", "sportsgrid", "poker", "golf", 
         "tennis", "racing", "boxing", "wrestling", "fifa", "nhra", "acc network", 
         "bein", "draftkings", "golazo", "pac-12", "red bull tv", "rally tv", 
-        "slopes tv", "speed sport"
+        "slopes tv", "speed sport", "fubo sports", "swerve sports"
     ]
     is_sports_acronym = bool(re.search(r'\b(nfl|nba|mlb|nhl|mma|ufc)\b', name_lower))
     is_sports_name = is_sports_acronym or any(x in name_lower for x in sports_keywords)
@@ -260,17 +261,19 @@ def clean_category(cat, name, url=""):
     # 11. US Major Networks / News / Weather / Finance
     us_major_keywords = [
         "abc news", "cbs news", "nbc news", "livenow from fox", "fox live now", "fox news", "fox weather",
-        "bloomberg", "cnbc", "newsmax", "scripps news", "weathernation", "accuweather", "court tv",
-        "cheddar", "nasa tv", "c-span", "cspan", "america's voice", "america teve", "buzzr", "pbs news", "accuweathernow"
+        "bloomberg", "cnbc", "cnn", "msnbc", "newsmax", "scripps news", "weathernation", "accuweather", "court tv",
+        "cheddar", "nasa", "c-span", "cspan", "america's voice", "america teve", "buzzr", "pbs news", "pbs", "accuweathernow",
+        "usa today", "reuters", "euronews", "yahoo finance"
     ]
-    if any(k in name_lower for k in us_major_keywords):
+    if any(k in name_lower for k in us_major_keywords) or cat == "美国主流台":
         return "美国主流台"
 
     # 12. Western Movies / Series / Entertainment (影视剧场)
     movie_keywords = [
         "chc", "电影", "影院", "剧场", "movie", "movies", "cinema", "film", "series", "filmrise", "cinevault", "retro tv", 
         "drybar", "comedy", "thriller", "drama", "action", "sci-fi", "horror", "crime", 
-        "mystery", "western", "electric now", "true crime now", "重温经典", "猫和老鼠"
+        "mystery", "western", "electric now", "true crime now", "重温经典", "猫和老鼠",
+        "paramount movie", "star trek", "stories by amc", "amc thrillers", "hallmark"
     ]
     is_series_cat = any(x in cat for x in ["电视剧", "埋堆堆", "电影经典", "影视经典", "欧美影视", "影视剧场", "剧场", "连续剧"])
     if any(k in name_lower for k in movie_keywords) or is_series_cat or any(x in cat.lower() for x in ["vod movies", "movies (en)"]):
@@ -330,6 +333,14 @@ def main():
     channels = []
     stream_counts = defaultdict(int)
     curated_path = os.path.join(SCRIPT_DIR, "curated_channels.txt")
+    merged_urls = set()
+    if os.path.exists(merged_path):
+        with open(merged_path, "r", encoding="utf-8") as mf:
+            for m_line in mf:
+                m_parts = m_line.strip().split("|")
+                if len(m_parts) >= 3:
+                    merged_urls.add(m_parts[2].strip().lower())
+
     all_source_lines = []
     seen_source_urls = set()
     for s_path in [curated_path, merged_path]:
@@ -341,6 +352,10 @@ def main():
                         parts = s_line.split("|")
                         if len(parts) >= 3:
                             u_norm = parts[2].strip().lower()
+                            # YouTube 直播源必须经过健康探测且已入库 merged_channels.txt，
+                            # 严禁将 curated_channels.txt 中已停播/失效的 YouTube 重播录像直接塞入播放列表
+                            if ("youtube.com" in u_norm or "youtu.be" in u_norm) and u_norm not in merged_urls:
+                                continue
                             if u_norm not in seen_source_urls:
                                 seen_source_urls.add(u_norm)
                                 all_source_lines.append(s_line)
@@ -498,6 +513,9 @@ def main():
             # 绝不与 Cloudflare 代理的官方正规电视频道合并在同一个电视台名字下，
             # 确保主电视台列表 100% 为电视机顶盒即点即播的流媒体，同时清晰区分 YouTube 线路
             if "youtube.com" in url.lower() or "youtu.be" in url.lower():
+                # 机顶盒/IPTV 播放器无法播放播放列表 (playlist)，直接忽略
+                if "list=" in url or "listtype=" in url.lower():
+                    continue
                 clean_base = re.sub(r'[-_ ]*(YT|YouTube|youtube)$', '', name).strip()
                 name = f"{clean_base}-YT"
             
