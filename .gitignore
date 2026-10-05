@@ -22,5 +22,6 @@ quick_cctv_sync.py
 run_cctv_sync.sh
 cctv_sync.log
 stream_metrics.json
+stream_fail_tracker.json
 .env
 .env.*
