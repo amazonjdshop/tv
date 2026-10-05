@@ -1521,13 +1521,12 @@ export default {{
     }}
 
     // 3. 分流决策：判断是否需要执行智能 M3U8 动态去广告清洗
-    // - 经实测确认免 Token 且零广告的美国本土底层节点（如 69.197.146.138:82）及纯净运营商 IPTV 组播流，保持 2ms 极速 302 直连
+    // - 全量覆盖：所有 M3U8 请求（包括 direct IP 底层节点、域名源、GSLB 源等）全量尝试走 Worker 内部广告清洗管道
+    // - 仅当外部显式携带 ?direct=1 / ?raw=1，或非 M3U8 资源请求（如客户端误请求 TS/Key）时，才直接 302
     const isDirectParam = url.searchParams.get('direct') === '1' || url.searchParams.get('raw') === '1';
-    const isGslb = targetUrl.includes('gslb') || targetUrl.includes('redirect') || targetUrl.includes(':98/');
-    const isDirectCleanNode = !isGslb && (targetUrl.includes(':82/live/') || targetUrl.includes('69.197.146.138') || targetUrl.includes('tsfile/live/') || targetUrl.includes(':50085') || targetUrl.includes(':9901') || targetUrl.includes(':60901'));
     const isM3u8Request = requestedFile === 'index.m3u8' || requestedFile === '' || targetUrl.includes('.m3u8');
 
-    if (isDirectParam || isDirectCleanNode || !isM3u8Request) {{
+    if (isDirectParam || !isM3u8Request) {{
       if (requestedFile === 'index.m3u8' || requestedFile === '') {{
         const clientIP = request.headers.get('CF-Connecting-IP') || '未知IP';
         console.log(`[直连直通] 客户端IP: ${{clientIP}} 频道: ${{channelName}} -> 302: ${{targetUrl}}`);
@@ -1691,7 +1690,12 @@ function cleanAndRewriteM3u8Text(rawText, finalUrl) {{
       const trimmed = line.trim();
       if (!trimmed || trimmed.startsWith('#')) return line;
       try {{
-        return new URL(trimmed, finalUrl).toString();
+        const subM3u8Url = new URL(trimmed, finalUrl);
+        if (!trimmed.includes('?') && finalUrl.includes('?')) {{
+          const origSearch = new URL(finalUrl).search;
+          if (origSearch) subM3u8Url.search = origSearch;
+        }}
+        return subM3u8Url.toString();
       }} catch (e) {{
         return trimmed;
       }}
@@ -1701,7 +1705,8 @@ function cleanAndRewriteM3u8Text(rawText, finalUrl) {{
 
   const adKeywords = [
     'appadhw', '107.m3u8', 'zmt.m3u8', 'mkt.m3u8', 'macau', 'casino', 'bet365', 
-    'poker', 'guanggao', '_ad.ts', '-ad.ts', '/ad/', 'welcome.ts'
+    'poker', 'guanggao', '_ad.ts', '-ad.ts', '/ad/', 'welcome.ts', 'preroll',
+    'advert', '_ad_', '/ads/', 'adv_', 'adsegment', 'ad_segment'
   ];
 
   let hasEarlyDiscontinuity = false;
@@ -1758,6 +1763,21 @@ function cleanAndRewriteM3u8Text(rawText, finalUrl) {{
       continue;
     }}
 
+    if (trimmed.startsWith('#EXT-X-KEY')) {{
+      const keyUriMatch = trimmed.match(/URI="([^"]+)"/);
+      if (keyUriMatch) {{
+        try {{
+          const absKeyUrl = new URL(keyUriMatch[1], finalUrl);
+          if (!keyUriMatch[1].includes('?') && finalUrl.includes('?')) {{
+            const origSearch = new URL(finalUrl).search;
+            if (origSearch) absKeyUrl.search = origSearch;
+          }}
+          resultLines.push(trimmed.replace(keyUriMatch[0], `URI="${{absKeyUrl.toString()}}"`));
+          continue;
+        }} catch (e) {{}}
+      }}
+    }}
+
     if (trimmed.startsWith('#EXTINF')) {{
       const nextLine = (lines[i + 1] || '').trim();
       if (nextLine && !nextLine.startsWith('#')) {{
@@ -1778,8 +1798,12 @@ function cleanAndRewriteM3u8Text(rawText, finalUrl) {{
 
     if (!trimmed.startsWith('#')) {{
       try {{
-        const absUrl = new URL(trimmed, finalUrl).toString();
-        resultLines.push(absUrl);
+        const absUrl = new URL(trimmed, finalUrl);
+        if (!trimmed.includes('?') && finalUrl.includes('?')) {{
+          const origSearch = new URL(finalUrl).search;
+          if (origSearch) absUrl.search = origSearch;
+        }}
+        resultLines.push(absUrl.toString());
       }} catch (e) {{
         resultLines.push(trimmed);
       }}
