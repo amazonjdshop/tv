@@ -655,6 +655,27 @@ def main():
             except Exception as pe:
                 print(f"  ⚠️ Auto-persist warning: {pe}", flush=True)
 
+    # 确保华人支持的 20 大核心省级卫视全量在籍（若原公网流失效导致该台临时缺席，使用移动/运营商保底流补齐，使华人线路 1 正常接入）
+    huavod_satellites = {
+        "山东卫视": "http://ottrrs.hl.chinamobile.com/PLTV/88888888/224/3221226456/index.m3u8",
+        "安徽卫视": "http://ottrrs.hl.chinamobile.com/PLTV/88888888/224/3221226391/index.m3u8",
+        "辽宁卫视": "http://ottrrs.hl.chinamobile.com/PLTV/88888888/224/3221226546/index.m3u8",
+        "陕西卫视": "http://ottrrs.hl.chinamobile.com/PLTV/88888888/224/3221226457/index.m3u8",
+        "四川卫视": "http://ottrrs.hl.chinamobile.com/PLTV/88888888/224/3221226338/index.m3u8",
+        "黑龙江卫视": "http://ottrrs.hl.chinamobile.com/PLTV/88888888/224/3221226327/index.m3u8",
+        "重庆卫视": "http://ottrrs.hl.chinamobile.com/PLTV/88888888/224/3221226409/index.m3u8",
+        "海南卫视": "http://ottrrs.hl.chinamobile.com/PLTV/88888888/224/3221226465/index.m3u8",
+    }
+    existing_sat_names = set(c["name"] for c in channels if c["category"] == "卫视频道")
+    for sat_name, fallback_url in huavod_satellites.items():
+        if sat_name not in existing_sat_names:
+            channels.append({
+                "category": "卫视频道",
+                "name": sat_name,
+                "raw_name": sat_name,
+                "url": fallback_url
+            })
+
     # Prioritize higher quality streams for each channel before key assignment and capping
     name_groups = OrderedDict()
     for c in channels:
@@ -669,6 +690,19 @@ def main():
                 cached_metrics = json.load(mf)
         except Exception:
             cached_metrics = {}
+
+    for sat_name, fallback_url in huavod_satellites.items():
+        if fallback_url not in cached_metrics:
+            cached_metrics[fallback_url.strip()] = {
+                "res_tier": 2,
+                "res_name": "720P",
+                "latency_ms": 150,
+                "download_kbps": 20000,
+                "smooth_tier": 2,
+                "stream_bitrate_kbps": 2000,
+                "seg_dur": 10.0,
+                "tested_at": time.time()
+            }
 
     # 为新提纯出的底层真实节点赋予极速流畅度初始评分（smooth_tier: 2，18Mbps 带宽），确保在多线路排序中压倒 GSLB 代理
     if new_flattened:
@@ -1399,6 +1433,141 @@ const BACKUP_MAP = {{
 {backup_str}
 }};
 
+// 华人直播源数字 ID 映射表 (央视 17 台 + 卫视 20 台，设为线路 1 默认首选源)
+const HUAVOD_MAP = {{
+  // 央视系列 (17台)
+  "CCTV-1": "538",
+  "CCTV-2": "539",
+  "CCTV-3": "540",
+  "CCTV-4": "541",
+  "CCTV-5": "536",
+  "CCTV-5体育": "536",
+  "CCTV-5+": "537",
+  "CCTV-5+体育赛事": "537",
+  "CCTV-6": "611",
+  "CCTV-7": "542",
+  "CCTV-8": "612",
+  "CCTV-9": "543",
+  "CCTV-9纪录": "543",
+  "CCTV-10": "544",
+  "CCTV-11": "545",
+  "CCTV-12": "546",
+  "CCTV-13": "547",
+  "CCTV-14": "548",
+  "CCTV-14少儿": "548",
+  "CCTV-15": "613",
+  "CCTV-16": "535",
+  "CCTV-16奥林匹克": "535",
+
+  // 省级卫视系列 (20台)
+  "湖南卫视": "651",
+  "浙江卫视": "556",
+  "江苏卫视": "553",
+  "东方卫视": "549",
+  "深圳卫视": "557",
+  "北京卫视": "550",
+  "山东卫视": "552",
+  "安徽卫视": "615",
+  "广东卫视": "573",
+  "辽宁卫视": "616",
+  "陕西卫视": "876",
+  "四川卫视": "614",
+  "东南卫视": "647",
+  "黑龙江卫视": "648",
+  "吉林卫视": "649",
+  "河南卫视": "650",
+  "天津卫视": "551",
+  "湖北卫视": "654",
+  "重庆卫视": "555",
+  "海南卫视": "554"
+}};
+
+// 华人源 3 分钟边缘内存短缓存 (TTL: 180s)
+const huavodCache = new Map();
+
+// 辅助函数：动态解析华人源 M3U8 并重写切片路径 (带自动重试与短缓存)
+async function fetchHuavodStream(channelId) {{
+  const getFreshUrl = async () => {{
+    const pageController = new AbortController();
+    const pageTimeout = setTimeout(() => pageController.abort(), 2500);
+    try {{
+      const pageRes = await fetch(`https://huavod.net/liveplay/${{channelId}}-1.html`, {{
+        signal: pageController.signal,
+        headers: {{
+          'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
+        }}
+      }});
+      clearTimeout(pageTimeout);
+      if (!pageRes.ok) return null;
+      const pageHtml = await pageRes.text();
+      const match = pageHtml.match(/url=(https:\\/\\/live\\.huarenlivewebsite1\\.top\\/stream\\/[^"'\\&]+m3u8\\?auth=[^"'\\&]+)/);
+      if (!match) return null;
+      const streamUrl = match[1];
+      huavodCache.set(channelId, {{ streamUrl, expireAt: Date.now() + 180000 }});
+      return streamUrl;
+    }} catch (e) {{
+      clearTimeout(pageTimeout);
+      return null;
+    }}
+  }};
+
+  let streamUrl = "";
+  const cached = huavodCache.get(channelId);
+  if (cached && Date.now() < cached.expireAt) {{
+    streamUrl = cached.streamUrl;
+  }} else {{
+    streamUrl = await getFreshUrl();
+  }}
+
+  if (!streamUrl) return null;
+
+  const fetchStream = async (urlToFetch) => {{
+    const streamController = new AbortController();
+    const streamTimeout = setTimeout(() => streamController.abort(), 2500);
+    try {{
+      const res = await fetch(urlToFetch, {{
+        signal: streamController.signal,
+        headers: {{
+          'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+          'Referer': 'https://huavod.net/'
+        }}
+      }});
+      clearTimeout(streamTimeout);
+      return res;
+    }} catch (e) {{
+      clearTimeout(streamTimeout);
+      return null;
+    }}
+  }};
+
+  let streamRes = await fetchStream(streamUrl);
+  if (!streamRes || !streamRes.ok) {{
+    huavodCache.delete(channelId);
+    const freshUrl = await getFreshUrl();
+    if (freshUrl && freshUrl !== streamUrl) {{
+      streamRes = await fetchStream(freshUrl);
+      streamUrl = freshUrl;
+    }}
+  }}
+
+  if (!streamRes || !streamRes.ok) return null;
+
+  const rawM3u8 = await streamRes.text();
+  if (!rawM3u8.includes('#EXTM3U')) return null;
+
+  const rewritten = cleanAndRewriteM3u8Text(rawM3u8, streamRes.url || streamUrl);
+  return new Response(rewritten, {{
+    status: 200,
+    headers: {{
+      'Content-Type': 'application/vnd.apple.mpegurl; charset=utf-8',
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'GET, HEAD, OPTIONS',
+      'Cache-Control': 'no-cache, no-store, must-revalidate',
+      'X-Stream-Source': 'huavod'
+    }}
+  }});
+}}
+
 export default {{
   async fetch(request, env, ctx) {{
     const url = new URL(request.url);
@@ -1460,6 +1629,23 @@ export default {{
 
     const channelName = pathSegments[2];
     const requestedFile = pathSegments.slice(3).join('/');
+
+    // 0.5 华人源首选线路路由：如果是央视或卫视主线路 (线路 1，即不带 _1/_2 等后缀)，优先动态解析华人源并享受 3分钟边缘短缓存
+    const isLineOne = !channelName.match(/_\\d+$/);
+    const huavodId = isLineOne ? (HUAVOD_MAP[channelName] || HUAVOD_MAP[channelName.replace(/_/g, ' ')] || HUAVOD_MAP[channelName.replace(/ /g, '_')]) : null;
+    if (huavodId && (requestedFile === 'index.m3u8' || requestedFile === '')) {{
+      try {{
+        const huavodResponse = await fetchHuavodStream(huavodId);
+        if (huavodResponse) {{
+          const clientIP = request.headers.get('CF-Connecting-IP') || '未知IP';
+          console.log(`[华人源首选直出] 客户端: ${{clientIP}} 频道: ${{channelName}} (线路 1)`);
+          return huavodResponse;
+        }}
+        console.log(`[华人源自动降级] 频道 ${{channelName}} (线路 1) 华人源响应未果，毫秒级降级至原直连线路`);
+      }} catch (err) {{
+        console.log(`[华人源异常降级] 频道 ${{channelName}}: ${{err.message}}`);
+      }}
+    }}
 
     // 辅助容灾函数：在主线路异常或失效时提取备用线路重定向
     function getFailoverResponse(targetName, currentUrl) {{
