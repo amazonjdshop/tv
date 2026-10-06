@@ -37,7 +37,8 @@
 央视频道|CCTV-15|http://63.141.224.162:82/live/cctv15md.m3u8
 央视频道|CCTV-16|http://69.197.146.138:82/live/cctv16.m3u8
 央视频道|CCTV-17|http://69.197.146.138:82/live/cctv17.m3u8
-卫视频道|北京卫视|http://74.91.26.218:82/live/btv1.m3u8
+卫视频道|北京卫视|http://120.211.62.180:8000/hls/35/index.m3u8
+卫视频道|北京卫视|http://124.228.160.112:9901/tsfile/live/0122_1.m3u8?key=txiptv&playlive=1&authid=0
 卫视频道|东方卫视|http://142.54.179.26:82/live/dfws.m3u8
 卫视频道|江苏卫视|http://69.197.146.138:82/live/jsws.m3u8
 卫视频道|江苏卫视|http://142.54.179.26:82/live/jsws.m3u8
@@ -115,9 +116,9 @@
 港澳台|台视高清|http://211.72.174.95:8112/0.ts
 
 # 台湾及国际主流新闻与经典频道 YouTube 24小时官方直播 (双层自愈引擎：官方句柄探测 + 全局直播检索)
-港澳台|三立新闻-YT|https://www.youtube.com/embed/sEI4eqlZahU
+港澳台|三立新闻-YT|https://www.youtube.com/embed/X5IQxzNaM7Q
 港澳台|三立新闻iNEWS-YT|https://www.youtube.com/embed/pF507BLtbqU
-港澳台|台视新闻-YT|https://www.youtube.com/embed/9iRAqBMakXY
+港澳台|台视新闻-YT|https://www.youtube.com/embed/AFNc8KtMVg4
 港澳台|华视新闻-YT|https://www.youtube.com/embed/KMMHw8rllic
 港澳台|中视新闻-YT|https://www.youtube.com/embed/baDV1O5EBP0
 港澳台|中天新闻-YT|https://www.youtube.com/embed/vr3XyVCR4T0
@@ -159,10 +160,10 @@
 国际华语|美国之音-YT|https://www.youtube.com/embed/p0GXmI6ArkY
 国际华语|自由亚洲电台-YT|https://www.youtube.com/embed/DnoTqKe04Rc
 国际华语|德国之声中文-YT|https://www.youtube.com/embed/LuKwFajn37U
-国际华语|八度空间新闻-YT|https://www.youtube.com/embed/HQAHJuYiyTQ
+国际华语|八度空间新闻-YT|https://www.youtube.com/embed/2XZE3uuSPeQ
 美国主流台|NASA TV-YT|https://www.youtube.com/embed/M3HKLzjvKPc
 美国主流台|ABC News-YT|https://www.youtube.com/embed/iipR5yUp36o
-美国主流台|NBC News-YT|https://www.youtube.com/embed/uMaWTttJTVc
+美国主流台|NBC News-YT|https://www.youtube.com/embed/cpFDLxCoK-g
 美国主流台|LiveNOW from FOX-YT|https://www.youtube.com/embed/ShuBcJKNbl4
 美国主流台|Bloomberg TV-YT|https://www.youtube.com/embed/QB5BNdBFujE
 美国主流台|Scripps News-YT|https://www.youtube.com/embed/62WrTQb7LdY
@@ -272,5 +273,5 @@
 韩国/朝鲜|KBS新闻-YT|https://www.youtube.com/embed/2mCSYvcfhtc
 韩国/朝鲜|SBS新闻-YT|https://www.youtube.com/embed/rwrIU4Tz6EM
 韩国/朝鲜|MBC新闻-YT|https://www.youtube.com/embed/rEKifG2XUZg
-韩国/朝鲜|JTBC新闻-YT|https://www.youtube.com/embed/RQu8lcQgMSg
+韩国/朝鲜|JTBC新闻-YT|https://www.youtube.com/embed/TV5JJk-w1ug
 韩国/朝鲜|KBS World-YT|https://www.youtube.com/embed/U2faSnFEi3k
