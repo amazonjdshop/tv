@@ -1706,16 +1706,22 @@ export default {{
       }});
     }}
 
-    // 3. 分流决策：判断是否需要执行智能 M3U8 动态去广告清洗
-    // - 全量覆盖：所有 M3U8 请求（包括 direct IP 底层节点、域名源、GSLB 源等）全量尝试走 Worker 内部广告清洗管道
-    // - 仅当外部显式携带 ?direct=1 / ?raw=1，或非 M3U8 资源请求（如客户端误请求 TS/Key）时，才直接 302
-    const isDirectParam = url.searchParams.get('direct') === '1' || url.searchParams.get('raw') === '1';
-    const isM3u8Request = requestedFile === 'index.m3u8' || requestedFile === '' || targetUrl.includes('.m3u8');
+    // 3. 【全直连 302 重定向直通 (零 Worker 额度消耗模式)】
+    // 除华人主线路 1（防盗链鉴权与动态 Token）通过 Worker 反代外，其余所有频道一律直接 302 重定向至真实源站
+    // 电视盒仅在切换频道时请求 1 次 Worker，随后完全由电视盒与源站服务器直连，每天 Worker 请求量趋近于 0！
+    // （若外部显式携带 ?clean=1 或 ?proxy=1 时，仍可选用 Worker 去广告清洗管道）
+    const forceClean = url.searchParams.get('clean') === '1' || url.searchParams.get('proxy') === '1';
 
-    if (isDirectParam || !isM3u8Request) {{
+    if (!forceClean) {{
+      if ((/live\\.ottiptv\\.cc|\\.flv|183\\.237\\.95\\.108|appadhw|mkt\\.m3u8|107\\.m3u8|zmt\\.m3u8|47\\.97\\.252\\.|192\\.151\\.|204\\.12\\.234\\.|:88[/]|applive/).test(targetUrl)) {{
+        const failoverRes = getFailoverResponse(channelName, targetUrl);
+        if (failoverRes) return failoverRes;
+        return new Response('404 Not Found: Adware Stream Blocked', {{ status: 404, headers: {{ 'Access-Control-Allow-Origin': '*' }} }});
+      }}
+
       if (requestedFile === 'index.m3u8' || requestedFile === '') {{
         const clientIP = request.headers.get('CF-Connecting-IP') || '未知IP';
-        console.log(`[直连直通] 客户端IP: ${{clientIP}} 频道: ${{channelName}} -> 302: ${{targetUrl}}`);
+        console.log(`[302直通] 客户端IP: ${{clientIP}} 频道: ${{channelName}} -> 302: ${{targetUrl}}`);
       }}
       return new Response(null, {{
         status: 302,
@@ -1727,10 +1733,6 @@ export default {{
           'Cache-Control': 'no-cache, no-store, must-revalidate'
         }}
       }});
-    }}
-
-    if ((/live\\.ottiptv\\.cc|\\.flv|183\\.237\\.95\\.108/).test(targetUrl)) {{
-      return new Response('404 Not Found: FLV Stream Not Supported', {{ status: 404, headers: {{ 'Access-Control-Allow-Origin': '*' }} }});
     }}
 
     // 4. 【智能 M3U8 广告切片动态清洗与秒跳网关 (Smart Ad-Stripping Proxy)】
