@@ -23,6 +23,7 @@ run_cctv_sync.sh
 cctv_sync.log
 stream_metrics.json
 stream_fail_tracker.json
+huavod_status_cache.json
 build_playlist_and_worker.py
 channels_overview.xlsx
 playlist.txt
