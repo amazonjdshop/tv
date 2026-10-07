@@ -571,6 +571,15 @@
       "name": "美27❤️(点击此处可切换服务器)",
       "type": 3,
       "api": "./js/独播库.js"
+    },
+    {
+      "key": "0802华视影院",
+      "name": "美28❤️华视影院(点击此处可切换服务器)",
+      "type": 3,
+      "api": "./js/huavod.js",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
     }
   ],
   "logo": "https://raw.githubusercontent.com/amazonjdshop/tv/refs/heads/main/05292026/logo.gif"
