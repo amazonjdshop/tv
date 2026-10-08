@@ -163,7 +163,7 @@ async function detail(id) {
             vod_actor: Array.isArray(data.Actor) ? data.Actor.join(',') : data.Actor,
             vod_director: data.Director,
             vod_content: data.Description,
-            vod_play_from: '独播库',
+            vod_play_from: '北美 07',
             vod_play_url: playUrls,
             type_name: `${data.Genre || ''},${data.Scenario || ''}`
         }]
