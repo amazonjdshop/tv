@@ -221,6 +221,42 @@ async function postApi(path, data = {}) {
     return {};
 }
 
+let categoryCache = null;
+let categoryCacheTime = 0;
+let categoryCachePromise = null;
+
+function cleanTopicTitle(str) {
+    if (!str) return '';
+    return str.replace(/（QQ群[：:][^）]+）/g, '')
+              .replace(/\(QQ群[：:][^)]+\)/g, '')
+              .replace(/QQ群[：:][0-9]+/g, '')
+              .trim();
+}
+
+async function getCategoryListCached() {
+    const now = Date.now();
+    if (categoryCache && (now - categoryCacheTime < 300000)) {
+        return categoryCache;
+    }
+    if (categoryCachePromise) {
+        return categoryCachePromise;
+    }
+    categoryCachePromise = (async () => {
+        try {
+            const res = await postApi('/Index/CategoryList', {});
+            if (res && res.list && Array.isArray(res.list) && res.list.length > 0) {
+                categoryCache = res.list;
+                categoryCacheTime = Date.now();
+                return categoryCache;
+            }
+        } catch (e) {} finally {
+            categoryCachePromise = null;
+        }
+        return categoryCache || [];
+    })();
+    return categoryCachePromise;
+}
+
 async function init(cfg) {
     if (cfg) {
         if (typeof cfg === 'string' && cfg.startsWith('http')) {
@@ -237,6 +273,7 @@ async function init(cfg) {
 
 async function home(filter) {
     const classes = [
+        { type_id: 'topics', type_name: '🔥精选专题' },
         { type_id: '1', type_name: '电影' },
         { type_id: '2', type_name: '连续剧' },
         { type_id: '3', type_name: '综艺' },
@@ -395,7 +432,49 @@ async function home(filter) {
         return res;
     }
 
+    let topicFilters = [{ n: '全部', v: '0' }];
+    try {
+        const catList = await getCategoryListCached();
+        if (catList && catList.length > 0) {
+            for (const sec of catList) {
+                if (sec && sec.type) {
+                    topicFilters.push({
+                        n: cleanTopicTitle(sec.type),
+                        v: sec.type
+                    });
+                }
+            }
+        }
+    } catch (e) {}
+
+    if (topicFilters.length <= 1) {
+        topicFilters = [
+            { n: '全部', v: '0' },
+            { n: 'Netflix新片推荐', v: 'Netflix新片推荐' },
+            { n: '港台18🈲电影排行榜', v: '港台18🈲电影排行榜' },
+            { n: '大尺度限制🚫级影片', v: '大尺度限制🚫级影片' },
+            { n: '未删减影视', v: '未删减影视' },
+            { n: '禁播影视', v: '禁播影视' },
+            { n: '下架影视', v: '下架影视' },
+            { n: '长假狂飙高燃爽剧', v: '⛱️长假狂飙！7天炫完全集的高燃爽剧' },
+            { n: 'AI剧场 全新上线', v: 'AI剧场 全新上线' },
+            { n: '第98届奥斯卡获奖影片', v: '🏆第98届奥斯卡获奖影片🏆' },
+            { n: '2026金球奖获奖影片', v: '🔥2026金球奖获奖影片' },
+            { n: '第33届金鹰奖获奖影片', v: '第33届金鹰奖获奖影片🏆' },
+            { n: '第38届百花奖获奖影片', v: '🏆第38届大众电影百花奖获奖影片' },
+            { n: '神级高分纪录片', v: '神级高分纪录片' },
+            { n: '2026爆款剧王', v: '热度口碑双爆🔥2026剧王' },
+            { n: '2026日漫新番', v: '2026日漫新番' },
+            { n: '动漫变真人', v: '动漫变真人：你最pick哪一部' },
+            { n: '殿堂级恐怖片系列', v: '殿堂级恐怖片系列（QQ群：1127581238）' },
+            { n: '瓜友求片上新', v: '瓜友10/06求片上新' },
+            { n: '即将上线', v: '即将上线' },
+            { n: '🏮热门推荐🏮', v: '🏮热门推荐🏮' }
+        ];
+    }
+
     const filters = {
+        'topics': [{ key: 'topic', name: '主题', value: topicFilters }],
         '1': makeFilter(movieClasses),
         '2': makeFilter(tvClasses),
         '3': makeFilter(showClasses),
@@ -416,21 +495,26 @@ async function home(filter) {
 
 async function homeVod() {
     try {
-        const res = await postApi('/Index/CategoryList', {});
+        const catList = await getCategoryListCached();
         let videos = [];
         let seen = new Set();
-        if (res && res.list && Array.isArray(res.list)) {
-            for (let section of res.list) {
+        if (catList && Array.isArray(catList)) {
+            for (let section of catList) {
                 if (section.list && Array.isArray(section.list)) {
                     for (let item of section.list) {
                         const id = String(item.vod_id || '');
                         if (!id || seen.has(id)) continue;
                         seen.add(id);
+                        let remarks = item.vod_continu || '';
+                        if (!remarks) {
+                            const sc = item.vod_douban_score || item.vod_scroe;
+                            if (sc) remarks = sc + '分';
+                        }
                         videos.push({
                             vod_id: id,
                             vod_name: (item.vod_name || item.c_name || '').replace(/💥.*/, '').trim(),
                             vod_pic: item.c_pic || item.vod_pic || '',
-                            vod_remarks: item.vod_continu || (item.vod_douban_score ? item.vod_douban_score + '分' : '') || ''
+                            vod_remarks: remarks
                         });
                     }
                 }
@@ -445,6 +529,61 @@ async function homeVod() {
 async function category(tid, pg, filter, extend = {}) {
     try {
         const page = parseInt(pg || 1);
+
+        if (tid === 'topics' || String(tid) === 'topics') {
+            const catList = await getCategoryListCached();
+            const selTopic = extend && extend.topic ? extend.topic : '0';
+            let targetVideos = [];
+
+            if (selTopic && selTopic !== '0') {
+                const sec = catList.find(s => s.type === selTopic || cleanTopicTitle(s.type) === selTopic || (s.type && s.type.includes(selTopic)));
+                if (sec && sec.list && Array.isArray(sec.list)) {
+                    targetVideos = sec.list;
+                }
+            } else {
+                let seen = new Set();
+                for (const s of catList) {
+                    if (s.list && Array.isArray(s.list)) {
+                        for (const item of s.list) {
+                            const id = String(item.vod_id || '');
+                            if (!id || seen.has(id)) continue;
+                            seen.add(id);
+                            targetVideos.push(item);
+                        }
+                    }
+                }
+            }
+
+            const pageSize = 24;
+            const start = (page - 1) * pageSize;
+            const paged = targetVideos.slice(start, start + pageSize);
+            const list = paged.map(item => {
+                let remarks = item.vod_continu || '';
+                if (!remarks) {
+                    const sc = item.vod_douban_score || item.vod_scroe;
+                    if (sc) remarks = sc + '分';
+                }
+                if (!remarks && item.vod_year) {
+                    remarks = String(item.vod_year);
+                }
+                return {
+                    vod_id: String(item.vod_id),
+                    vod_name: (item.vod_name || item.c_name || '').replace(/💥.*/, '').trim(),
+                    vod_pic: item.vod_pic || item.c_pic || '',
+                    vod_remarks: remarks,
+                    vod_year: item.vod_year || ''
+                };
+            });
+
+            return JSON.stringify({
+                page: page,
+                pagecount: Math.ceil(targetVideos.length / pageSize) || 1,
+                limit: pageSize,
+                total: targetVideos.length,
+                list: list
+            });
+        }
+
         const payload = {
             tid: parseInt(tid || 1),
             page: page,
