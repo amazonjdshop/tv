@@ -23,6 +23,7 @@ run_cctv_sync.sh
 cctv_sync.log
 update_radio.py
 radio_update_summary.json
+radio.json
 *.bak
 stream_metrics.json
 stream_fail_tracker.json
