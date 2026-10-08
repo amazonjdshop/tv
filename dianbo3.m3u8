@@ -13,37 +13,46 @@
   ],
   "sites": [
     {
-      "key": "20261008Qile优视频",
+      "key": "20261009瓜子影视",
+      "name": "北美 01❤️(点击换线)",
+      "type": 3,
+      "api": "./js/guazi.js",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "20261009Qile优视频",
       "name": "北美 02❤️(点击换线)",
       "type": 4,
       "api": "https://vod.catvod.ggff.net/uvod"
     },
     {
-      "key": "20261008嗷呜爱瓜TV",
+      "key": "20261009嗷呜爱瓜TV",
       "name": "北美 03❤️(点击换线)",
       "type": 4,
       "api": "https://vod.catvod.ggff.net/aigua"
     },
     {
-      "key": "20261008独播库",
+      "key": "20261009独播库",
       "name": "北美 04❤️(点击换线)",
       "type": 4,
       "api": "https://vod.catvod.ggff.net/duboku"
     },
     {
-      "key": "20261008欧乐影院",
+      "key": "20261009欧乐影院",
       "name": "北美 05❤️(点击换线)",
       "type": 4,
       "api": "https://vod.catvod.ggff.net/oule"
     },
     {
-      "key": "20261008荐片",
+      "key": "20261009荐片",
       "name": "北美 06❤️(点击换线)",
       "type": 4,
       "api": "https://vod.catvod.ggff.net/jianpian"
     },
     {
-      "key": "20261008永乐",
+      "key": "20261009永乐",
       "name": "北美 07❤️(点击换线)",
       "type": 3,
       "api": "csp_XBPQ",
@@ -59,7 +68,7 @@
       }
     },
     {
-      "key": "20261008如意",
+      "key": "20261009如意",
       "name": "北美 08❤️(点击换线)",
       "type": 1,
       "api": "https://cj.rycjapi.com/api.php/provide/vod/",
@@ -88,7 +97,7 @@
       ]
     },
     {
-      "key": "20261008天天",
+      "key": "20261009天天",
       "name": "北美 09❤️(点击换线)",
       "type": 3,
       "api": "csp_TTian",
@@ -98,7 +107,7 @@
       "ext": "7lj763gg0939791h1l3888jig44gi291li"
     },
     {
-      "key": "20261008金牌",
+      "key": "20261009金牌",
       "name": "北美 10❤️(点击换线)",
       "type": 3,
       "api": "csp_Jpys",
@@ -108,35 +117,35 @@
       "ext": "7lj763gg402i7942463j9j9jh8579590k3hjii5gi4i73l2k5l"
     },
     {
-      "key": "20261008首发",
+      "key": "20261009首发",
       "name": "北美 11❤️(点击换线)",
       "type": 3,
       "api": "csp_Qiji",
       "ext": "7lj763gg402i7942483l849kk10ljji4g6li98059ijj72225j5255l2k95g5i1h1g985ggj905j86ig3604gi80lgl30jk3hk637h53ghk49hgi689125k7738h7947igg3k5h3gk6j12718k402802hlkh6k527581gk4936hkj49i8i9g2hh53l320l3i3197"
     },
     {
-      "key": "20261008趣看",
+      "key": "20261009趣看",
       "name": "北美 12❤️(点击换线)",
       "type": 3,
       "api": "csp_Qiji",
       "ext": "7lj763gg402i79425l239ljhg55099jiljhhj910il877129534l1ik9l1184k401g9g54gk8j5i9097751kh28kh9l211l2lk696110l0ggjlk0339j25j768855553lkl8l1g5i05018428357244jh6l0607k61h5l55j20j0k996hl977gl13g"
     },
     {
-      "key": "20261008王子",
+      "key": "20261009王子",
       "name": "北美 13❤️(点击换线)",
       "type": 3,
       "api": "csp_Xdai",
       "ext": "7lj763gg402i7942503g9g9jk909jji3g0li9j088291253h4k141gggkk41435h43924kg6ik48i0856j01k882glkh4kllg538704jl5k4j1gl27j321g03lll"
     },
     {
-      "key": "20261008灵虎",
+      "key": "20261009灵虎",
       "name": "北美 14❤️(点击换线)",
       "type": 3,
       "api": "csp_Xdai",
       "ext": "7lj763gg402i7942532384j7lk0ljji7ghl19313j490266k0g1855k7k103474j1i9349h68842h3h016399jj1g6gk4jlhh367714gk5g2jhji12g819j33jlj1l15k6g492l0"
     },
     {
-      "key": "20261008csp_Jianpian",
+      "key": "20261009csp_Jianpian",
       "name": "北美 15❤️(点击换线)",
       "type": 3,
       "api": "csp_Jianpian",
@@ -146,7 +155,7 @@
       "ext": "https://raw.githubusercontent.com/amazonjdshop/tv/refs/heads/main/05292026/jianpian.json"
     },
     {
-      "key": "20261008csp_SaoHuo",
+      "key": "20261009csp_SaoHuo",
       "name": "北美 16❤️(点击换线)",
       "type": 3,
       "api": "csp_SaoHuo",
@@ -157,7 +166,7 @@
       "ext": "https://saohuody.com"
     },
     {
-      "key": "20261008片吧",
+      "key": "20261009片吧",
       "name": "北美 17❤️(点击换线)",
       "type": 3,
       "api": "csp_XBPQ",
@@ -209,7 +218,7 @@
       }
     },
     {
-      "key": "20261008csp_Dm84",
+      "key": "20261009csp_Dm84",
       "name": "🇺🇸动漫1",
       "type": 3,
       "api": "csp_Dm84",
@@ -219,7 +228,7 @@
       "ext": "https://dm84.net"
     },
     {
-      "key": "20261008番薯",
+      "key": "20261009番薯",
       "name": "🇺🇸动漫2",
       "type": 3,
       "api": "csp_Xdai",
@@ -227,7 +236,7 @@
       "ext": "7lj763gg402i79425l2l9j9jh14i9ijil0h1jk58ih8633354h0l18lil40h755g029i0ghhil4gh89i133hk9i9l1k604i9g4797k09k8k5j3j73kgj1hg725gg575ig9g790"
     },
     {
-      "key": "20261008虎牙",
+      "key": "20261009虎牙",
       "name": "🐯虎牙直播",
       "type": 3,
       "api": "https://gh-proxy.com/https://raw.githubusercontent.com/fantaiying7/EXT/refs/heads/main/drpy2.min.js",
@@ -243,7 +252,7 @@
       "changeable": 0
     },
     {
-      "key": "20261008斗鱼",
+      "key": "20261009斗鱼",
       "name": "🐟斗鱼直播",
       "type": 3,
       "api": "https://git.yylx.win/raw.githubusercontent.com/yoursmile66/TVBox/main/js/lib/drpy2.min.js",
@@ -258,7 +267,7 @@
       "changeable": 0
     },
     {
-      "key": "20261008爱酷影视",
+      "key": "20261009爱酷影视",
       "name": "北美 18❤️(点击换线)",
       "type": 1,
       "searchable": 1,
@@ -315,7 +324,7 @@
       ]
     },
     {
-      "key": "20261008光速影视",
+      "key": "20261009光速影视",
       "name": "北美 19❤️(点击换线)",
       "type": 0,
       "playerType": 2,
@@ -352,7 +361,7 @@
       ]
     },
     {
-      "key": "20261008火狐影视",
+      "key": "20261009火狐影视",
       "name": "北美 20❤️(点击换线)",
       "type": 1,
       "searchable": 0,
@@ -397,7 +406,7 @@
       ]
     },
     {
-      "key": "20261008极速影视",
+      "key": "20261009极速影视",
       "name": "北美 21❤️(点击换线)",
       "type": 0,
       "playerType": 2,
@@ -443,7 +452,7 @@
       ]
     },
     {
-      "key": "20261008红牛影视",
+      "key": "20261009红牛影视",
       "name": "北美 22❤️(点击换线)",
       "type": 1,
       "searchable": 1,
@@ -480,7 +489,7 @@
       ]
     },
     {
-      "key": "20261008非凡影视",
+      "key": "20261009非凡影视",
       "name": "北美 23❤️(点击换线)",
       "type": 0,
       "searchable": "1",
@@ -488,7 +497,7 @@
       "api": "http://ffzy1.tv/api.php/provide/vod/at/xml/"
     },
     {
-      "key": "20261008量子影视",
+      "key": "20261009量子影视",
       "name": "北美 24❤️(点击换线)",
       "type": 1,
       "searchable": 1,
@@ -496,7 +505,7 @@
       "api": "http://cj.lziapi.com/api.php/provide/vod/"
     },
     {
-      "key": "20261008虎牙影视",
+      "key": "20261009虎牙影视",
       "name": "北美 25❤️(点击换线)",
       "type": 1,
       "searchable": 0,
@@ -533,7 +542,7 @@
       ]
     },
     {
-      "key": "20261008全服集合",
+      "key": "20261009全服集合",
       "name": "全服集合❤️(点击此处可切换服务器)",
       "type": 3,
       "api": "csp_Douban",
@@ -541,7 +550,7 @@
       "searchable": 0
     },
     {
-      "key": "20261008淘片影视",
+      "key": "20261009淘片影视",
       "name": "北美 26❤️(点击换线)",
       "type": 0,
       "playerType": 2,
@@ -551,7 +560,7 @@
       "api": "https://taopianapi.com/cjapi/mc10/vod/at/xml"
     },
     {
-      "key": "20261008荐片_多线路",
+      "key": "20261009荐片_多线路",
       "name": "北美 27 (多线路)❤️(点击换线)",
       "quickSearch": 0,
       "changeable": "0",
@@ -567,25 +576,16 @@
       "jar": "https://raw.githubusercontent.com/amazonjdshop/tv/refs/heads/main/05292026/jppp.jpg;md5;84edf41db6dbaf56b1ccdc7a11cc0ddf"
     },
     {
-      "key": "20261008独播库_js",
+      "key": "20261009独播库_js",
       "name": "北美 28❤️(点击换线)",
       "type": 3,
       "api": "./js/独播库.js"
     },
     {
-      "key": "20261008华视影院",
+      "key": "20261009华视影院",
       "name": "北美 29❤️(点击换线)",
       "type": 3,
       "api": "./js/huavod.js",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1
-    },
-    {
-      "key": "20261008瓜子影视",
-      "name": "北美 01❤️(点击换线)",
-      "type": 3,
-      "api": "./js/guazi.js",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1
