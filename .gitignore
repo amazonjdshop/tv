@@ -25,6 +25,7 @@ run_radio_sync.sh
 radio_sync.log
 update_radio.py
 radio_update_summary.json
+radio_fail_tracker.json
 radio.json
 *.bak
 stream_metrics.json
