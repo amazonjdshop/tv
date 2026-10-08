@@ -21,6 +21,8 @@ cron.log
 quick_cctv_sync.py
 run_cctv_sync.sh
 cctv_sync.log
+run_radio_sync.sh
+radio_sync.log
 update_radio.py
 radio_update_summary.json
 radio.json
