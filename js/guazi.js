@@ -7,7 +7,11 @@ var CryptoJS = (function(){var W,O,I,U,K,X,L,l,j,T,t,N,q,e,Z,V,G,J,Q,Y,$,t1,e1,r
  */
 
 let host = 'https://gz360.tv';
-let apiUrl = 'https://haiwaiapi.1fc8ab0.com/Pc';
+const apiHosts = [
+    'https://haiwaiapi.1fc8ab0.com/Pc',
+    'https://hyperf.718fd9f.com/Pc'
+];
+let apiUrl = apiHosts[0];
 
 const KEY = '181cc88340ae5b2b';
 const IV = '4423d1e2773476ce';
@@ -68,20 +72,50 @@ function b64_decode(str) {
 
 function hexToBase64(hex) {
     hex = (hex || '').trim();
-    let bin = '';
-    for (let i = 0; i < hex.length; i += 2) {
-        bin += String.fromCharCode(parseInt(hex.substr(i, 2), 16));
+    const len = hex.length;
+    let out = '';
+    let i = 0;
+    while (i < len) {
+        const b1 = parseInt(hex.substr(i, 2), 16);
+        i += 2;
+        if (i >= len) {
+            out += b64chars.charAt(b1 >> 2) + b64chars.charAt((b1 & 3) << 4) + '==';
+            break;
+        }
+        const b2 = parseInt(hex.substr(i, 2), 16);
+        i += 2;
+        if (i >= len) {
+            out += b64chars.charAt(b1 >> 2) + b64chars.charAt(((b1 & 3) << 4) | (b2 >> 4)) + b64chars.charAt((b2 & 15) << 2) + '=';
+            break;
+        }
+        const b3 = parseInt(hex.substr(i, 2), 16);
+        i += 2;
+        out += b64chars.charAt(b1 >> 2) + b64chars.charAt(((b1 & 3) << 4) | (b2 >> 4)) + b64chars.charAt(((b2 & 15) << 2) | (b3 >> 6)) + b64chars.charAt(b3 & 63);
     }
-    return b64_encode(bin);
+    return out;
 }
 
 function base64ToHex(b64) {
-    b64 = (b64 || '').trim();
-    const bin = b64_decode(b64);
+    b64 = (b64 || '').replace(/[^A-Za-z0-9+/]/g, '');
     let hex = '';
-    for (let i = 0; i < bin.length; i++) {
-        const c = bin.charCodeAt(i).toString(16);
-        hex += (c.length === 1 ? '0' : '') + c;
+    let i = 0;
+    while (i < b64.length) {
+        const enc1 = b64chars.indexOf(b64.charAt(i++));
+        const enc2 = b64chars.indexOf(b64.charAt(i++));
+        const enc3 = i < b64.length ? b64chars.indexOf(b64.charAt(i++)) : -1;
+        const enc4 = i < b64.length ? b64chars.indexOf(b64.charAt(i++)) : -1;
+
+        const chr1 = (enc1 << 2) | (enc2 >> 4);
+        hex += (chr1 < 16 ? '0' : '') + chr1.toString(16);
+
+        if (enc3 >= 0) {
+            const chr2 = ((enc2 & 15) << 4) | (enc3 >> 2);
+            hex += (chr2 < 16 ? '0' : '') + chr2.toString(16);
+        }
+        if (enc4 >= 0) {
+            const chr3 = ((enc3 & 3) << 6) | enc4;
+            hex += (chr3 < 16 ? '0' : '') + chr3.toString(16);
+        }
     }
     return hex;
 }
@@ -139,45 +173,64 @@ function decrypt(hexStr) {
 }
 
 async function postApi(path, data = {}) {
-    try {
-        const hex = encrypt(data);
-        const bodyStr = JSON.stringify({ params: hex });
-        const res = await req(`${apiUrl}${path}`, {
-            method: 'post',
-            postType: 'json',
-            data: { params: hex },
-            body: bodyStr,
-            headers: defaultHeaders
-        });
+    const hex = encrypt(data);
+    const bodyStr = JSON.stringify({ params: hex });
 
-        if (!res || !res.content) return {};
-        let resJson;
-        try {
-            resJson = JSON.parse(res.content);
-        } catch (e) {
-            return {};
-        }
-
-        if (resJson && resJson.data) {
-            try {
-                const dec = decrypt(resJson.data);
-                return JSON.parse(dec || '{}');
-            } catch (e) {
-                return {};
-            }
-        }
-        return resJson || {};
-    } catch (e) {
-        return {};
+    const hosts = [apiUrl];
+    for (const h of apiHosts) {
+        if (h !== apiUrl) hosts.push(h);
     }
+
+    for (const host of hosts) {
+        try {
+            const url = `${host}${path}`;
+            const res = await req(url, {
+                method: 'post',
+                postType: 'json',
+                data: { params: hex },
+                body: bodyStr,
+                headers: defaultHeaders
+            });
+
+            if (!res || !res.content) continue;
+            let resJson;
+            try {
+                resJson = JSON.parse(res.content);
+            } catch (e) {
+                continue;
+            }
+
+            if (resJson && resJson.data) {
+                if (typeof resJson.data === 'object') {
+                    return resJson.data;
+                }
+                if (typeof resJson.data === 'string') {
+                    try {
+                        const dec = decrypt(resJson.data);
+                        if (dec) return JSON.parse(dec);
+                    } catch (e) {
+                        continue;
+                    }
+                }
+            }
+            if (resJson && resJson.code === 200) {
+                return resJson;
+            }
+        } catch (e) {}
+    }
+    return {};
 }
 
 async function init(cfg) {
-    if (cfg && cfg.ext) {
-        if (typeof cfg.ext === 'string' && cfg.ext.startsWith('http')) {
-            apiUrl = cfg.ext.replace(/\/+$/, '');
-        } else if (cfg.ext.api) {
-            apiUrl = cfg.ext.api.replace(/\/+$/, '');
+    if (cfg) {
+        if (typeof cfg === 'string' && cfg.startsWith('http')) {
+            apiUrl = cfg.replace(/\/+$/, '');
+        } else if (cfg.ext) {
+            if (typeof cfg.ext === 'string' && cfg.ext.startsWith('http')) {
+                apiUrl = cfg.ext.replace(/\/+$/, '');
+            } else if (cfg.ext.api) {
+                apiUrl = cfg.ext.api.replace(/\/+$/, '');
+            }
         }
     }
 }
@@ -435,10 +488,9 @@ async function category(tid, pg, filter, extend = {}) {
 
 async function detail(id) {
     try {
-        const [infoRes, playRes] = await Promise.all([
-            postApi('/Resource/GetVodInfo', { vod_id: parseInt(id) }),
-            postApi('/Resource/GetOnePlayList', { vod_id: parseInt(id), pageSize: 2000 })
-        ]);
+        const vodId = parseInt(id);
+        const infoRes = await postApi('/Resource/GetVodInfo', { vod_id: vodId });
+        const playRes = await postApi('/Resource/GetOnePlayList', { vod_id: vodId, pageSize: 2000 });
 
         const info = (infoRes && infoRes.vodInfo) ? infoRes.vodInfo : {};
         const urls = (playRes && playRes.urls && Array.isArray(playRes.urls)) ? playRes.urls : [];
@@ -522,17 +574,6 @@ async function play(flag, id, flags) {
     });
 }
 
-export function __jsEvalReturn() {
-    return {
-        init: init,
-        home: home,
-        homeVod: homeVod,
-        category: category,
-        detail: detail,
-        play: play,
-        search: search
-    };
-}
 
 export default {
     init: init,
