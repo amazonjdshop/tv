@@ -537,6 +537,52 @@ async function category(tid, pg, filter, extend = {}) {
 
             if (selTopic && selTopic !== '0') {
                 const sec = catList.find(s => s.type === selTopic || cleanTopicTitle(s.type) === selTopic || (s.type && s.type.includes(selTopic)));
+                let res = null;
+                if (sec) {
+                    if (sec.show_id) {
+                        res = await postApi('/Category/GetModuleList', {
+                            show_id: parseInt(sec.show_id),
+                            show_pid: parseInt(sec.show_pid || 1),
+                            page: page,
+                            pageSize: 24
+                        });
+                    } else {
+                        res = await postApi('/Category/GetChoiceList', {
+                            pid: parseInt(sec.pid || 1),
+                            page: page,
+                            pageSize: 24
+                        });
+                    }
+                }
+
+                if (res && res.list && Array.isArray(res.list) && res.list.length > 0) {
+                    const list = res.list.map(item => {
+                        let remarks = item.vod_continu || '';
+                        if (!remarks) {
+                            const sc = item.vod_douban_score || item.vod_scroe;
+                            if (sc) remarks = sc + '分';
+                        }
+                        if (!remarks && item.vod_year) {
+                            remarks = String(item.vod_year);
+                        }
+                        return {
+                            vod_id: String(item.vod_id),
+                            vod_name: (item.vod_name || item.c_name || '').replace(/💥.*/, '').trim(),
+                            vod_pic: item.vod_pic || item.c_pic || '',
+                            vod_remarks: remarks,
+                            vod_year: item.vod_year || ''
+                        };
+                    });
+
+                    return JSON.stringify({
+                        page: page,
+                        pagecount: Math.ceil((res.total || 0) / 24) || page,
+                        limit: 24,
+                        total: res.total || list.length,
+                        list: list
+                    });
+                }
+
                 if (sec && sec.list && Array.isArray(sec.list)) {
                     targetVideos = sec.list;
                 }
