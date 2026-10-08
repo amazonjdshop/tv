@@ -13,7 +13,7 @@
   ],
   "sites": [
     {
-      "key": "20261010_BM01",
+      "key": "20261010瓜子影视",
       "name": "北美 01❤️(点击换线)",
       "type": 3,
       "api": "./js/guazi.js",
@@ -22,37 +22,37 @@
       "filterable": 1
     },
     {
-      "key": "20261010_BM02",
+      "key": "20261010Qile优视频",
       "name": "北美 02❤️(点击换线)",
       "type": 4,
       "api": "https://vod.catvod.ggff.net/uvod"
     },
     {
-      "key": "20261010_BM03",
+      "key": "20261010嗷呜爱瓜TV",
       "name": "北美 03❤️(点击换线)",
       "type": 4,
       "api": "https://vod.catvod.ggff.net/aigua"
     },
     {
-      "key": "20261010_BM04",
+      "key": "20261010独播库",
       "name": "北美 04❤️(点击换线)",
       "type": 4,
       "api": "https://vod.catvod.ggff.net/duboku"
     },
     {
-      "key": "20261010_BM05",
+      "key": "20261010欧乐影院",
       "name": "北美 05❤️(点击换线)",
       "type": 4,
       "api": "https://vod.catvod.ggff.net/oule"
     },
     {
-      "key": "20261010_BM06",
+      "key": "20261010荐片",
       "name": "北美 06❤️(点击换线)",
       "type": 4,
       "api": "https://vod.catvod.ggff.net/jianpian"
     },
     {
-      "key": "20261010_BM07",
+      "key": "20261010独播库_js",
       "name": "北美 07❤️(点击换线)",
       "type": 3,
       "api": "./js/独播库.js",
@@ -61,7 +61,7 @@
       "filterable": 1
     },
     {
-      "key": "20261010_BM08",
+      "key": "20261010片吧",
       "name": "北美 08❤️(点击换线)",
       "type": 3,
       "api": "csp_XBPQ",
@@ -113,7 +113,7 @@
       }
     },
     {
-      "key": "20261010_BM09",
+      "key": "20261010光速影视",
       "name": "北美 09❤️(点击换线)",
       "type": 0,
       "playerType": 2,
@@ -150,7 +150,7 @@
       ]
     },
     {
-      "key": "20261010_BM10",
+      "key": "20261010火狐影视",
       "name": "北美 10❤️(点击换线)",
       "type": 1,
       "searchable": 0,
@@ -195,7 +195,7 @@
       ]
     },
     {
-      "key": "20261010_BM11",
+      "key": "20261010红牛影视",
       "name": "北美 11❤️(点击换线)",
       "type": 1,
       "searchable": 1,
@@ -232,7 +232,7 @@
       ]
     },
     {
-      "key": "20261010_BM12",
+      "key": "20261010虎牙影视",
       "name": "北美 12❤️(点击换线)",
       "type": 1,
       "searchable": 0,
@@ -269,7 +269,7 @@
       ]
     },
     {
-      "key": "20261010_BM13",
+      "key": "20261010爱酷影视",
       "name": "北美 13❤️(点击换线)",
       "type": 1,
       "searchable": 1,
@@ -326,7 +326,7 @@
       ]
     },
     {
-      "key": "20261010_BM14",
+      "key": "20261010如意",
       "name": "北美 14❤️(点击换线)",
       "type": 1,
       "api": "https://cj.rycjapi.com/api.php/provide/vod/",
@@ -355,7 +355,7 @@
       ]
     },
     {
-      "key": "20261010_Live",
+      "key": "20261010虎牙",
       "name": "🐯虎牙直播",
       "type": 3,
       "api": "https://gh-proxy.com/https://raw.githubusercontent.com/fantaiying7/EXT/refs/heads/main/drpy2.min.js",
@@ -371,7 +371,7 @@
       "changeable": 0
     },
     {
-      "key": "20261010_Douban",
+      "key": "20261010全服集合",
       "name": "全服集合❤️(点击此处可切换服务器)",
       "type": 3,
       "api": "csp_Douban",
