@@ -224,21 +224,26 @@ async function refreshKeys() {
 }
 
 function signUrl(baseUrl, params = {}) {
-    const qsParts = [];
-    for (const k in params) {
+    const rawParts = [];
+    const encParts = [];
+    const keys = Object.keys(params).sort();
+    for (const k of keys) {
         const v = params[k];
         if (v !== undefined && v !== null && v !== '') {
-            qsParts.push(`${k}=${v}`);
+            rawParts.push(`${k}=${v}`);
+            encParts.push(`${k}=${encodeURIComponent(v)}`);
         }
     }
-    let qs = qsParts.join('&');
-    if (!/[?&]v=/i.test(qs)) {
-        qs += (qs ? '&' : '') + 'v=1';
+    let rawQs = rawParts.join('&');
+    let encQs = encParts.join('&');
+    if (!/[?&]v=/i.test(rawQs)) {
+        rawQs += (rawQs ? '&' : '') + 'v=1';
+        encQs += (encQs ? '&' : '') + 'v=1';
     }
-    const sigStr = `${publicKey}&${qs.toLowerCase()}&${privateKey}`;
+    const sigStr = `${publicKey}&${rawQs.toLowerCase()}&${privateKey}`;
     const vv = md5(sigStr);
     const conn = baseUrl.includes('?') ? '&' : '?';
-    return `${baseUrl}${conn}${qs}&vv=${vv}&pub=${publicKey}`;
+    return `${baseUrl}${conn}${encQs}&vv=${vv}&pub=${publicKey}`;
 }
 
 // ==================== 高性能 LRU 内存缓存层 ====================
@@ -414,15 +419,96 @@ async function home(filter) {
         { n: "剧场版", v: "0,1,6,57" }
     ];
 
-    function makeFilter(classList) {
-        return [{ key: 'class', name: '类型', value: classList }];
+    const commonAreas = [
+        { n: "全部", v: "" },
+        { n: "大陆", v: "大陆" },
+        { n: "香港", v: "香港" },
+        { n: "台湾", v: "台湾" },
+        { n: "欧美", v: "欧美" },
+        { n: "韩国", v: "韩国" },
+        { n: "日本", v: "日本" },
+        { n: "英国", v: "英国" },
+        { n: "泰国", v: "泰国" },
+        { n: "其它", v: "其它" }
+    ];
+
+    const commonLangs = [
+        { n: "全部", v: "" },
+        { n: "国语", v: "国语" },
+        { n: "粤语", v: "粤语" },
+        { n: "英语", v: "英语" },
+        { n: "韩语", v: "韩语" },
+        { n: "日语", v: "日语" },
+        { n: "泰语", v: "泰国语" },
+        { n: "法语", v: "法语" },
+        { n: "德语", v: "德语" },
+        { n: "西语", v: "西班牙语" },
+        { n: "其它", v: "其它" }
+    ];
+
+    const commonYears = [
+        { n: "全部", v: "" },
+        { n: "2026", v: "2026" },
+        { n: "2025", v: "2025" },
+        { n: "2024", v: "2024" },
+        { n: "2023", v: "2023" },
+        { n: "2022", v: "2022" },
+        { n: "2021", v: "2021" },
+        { n: "2020", v: "2020" },
+        { n: "2019", v: "2019" },
+        { n: "2018", v: "2018" },
+        { n: "2017", v: "2017" },
+        { n: "2016", v: "2016" },
+        { n: "2015", v: "2015" },
+        { n: "2014", v: "2014" },
+        { n: "2013", v: "2013" },
+        { n: "2012", v: "2012" },
+        { n: "2011", v: "2011" },
+        { n: "2010", v: "2010" },
+        { n: "2009", v: "2009" },
+        { n: "2008", v: "2008" },
+        { n: "90年代", v: "90年代" },
+        { n: "80年代", v: "80年代" },
+        { n: "更早", v: "更早" }
+    ];
+
+    const commonSorts = [
+        { n: "热门精选", v: "4" },
+        { n: "最新添加", v: "0" },
+        { n: "最多播放", v: "1" },
+        { n: "评分最高", v: "2" }
+    ];
+
+    const commonStatus = [
+        { n: "全部", v: "" },
+        { n: "连载中", v: "1" },
+        { n: "全集完结", v: "0" }
+    ];
+
+    function makeFilter(classList, hasStatus = false) {
+        const res = [];
+        if (classList && classList.length > 0) {
+            res.push({ key: 'class', name: '类型', value: classList });
+        }
+        res.push({ key: 'area', name: '地区', value: commonAreas });
+        res.push({ key: 'lang', name: '语言', value: commonLangs });
+        res.push({ key: 'year', name: '年份', value: commonYears });
+        res.push({ key: 'sort', name: '排序', value: commonSorts });
+        if (hasStatus) {
+            res.push({ key: 'status', name: '状态', value: commonStatus });
+        }
+        return res;
     }
 
     const filters = {
-        '0,1,3': makeFilter(movieClasses),
-        '0,1,4': makeFilter(tvClasses),
-        '0,1,5': makeFilter(showClasses),
-        '0,1,6': makeFilter(animeClasses)
+        '0,1,3': makeFilter(movieClasses, false),
+        '0,1,4': makeFilter(tvClasses, true),
+        '0,1,5': makeFilter(showClasses, true),
+        '0,1,6': makeFilter(animeClasses, true),
+        '1': makeFilter(movieClasses, false),
+        '2': makeFilter(tvClasses, true),
+        '3': makeFilter(showClasses, true),
+        '4': makeFilter(animeClasses, true)
     };
 
     return JSON.stringify({
@@ -433,32 +519,36 @@ async function home(filter) {
 
 function formatRemarks(item) {
     if (item.lastName) return item.lastName;
-    if (item.score) {
-        const sc = String(item.score).trim();
-        if (sc.includes('分') || sc.includes('暂无')) return sc;
-        return `${sc}分`;
+    if (item.score || item.rating) {
+        const sc = String(item.score || item.rating).trim();
+        if (sc !== '0' && sc !== '') {
+            if (sc.includes('分') || sc.includes('暂无')) return sc;
+            return `${sc}分`;
+        }
     }
+    if (item.year) return String(item.year);
     return '';
 }
 
 async function homeVod() {
     try {
-        const url = signUrl(`${API_BASE}/api/list/index`, {
+        const url = signUrl(`${API_BASE}/api/list/Search`, {
             cinema: '1',
-            cid: '0',
+            cid: '0,1,3',
             page: '1',
             size: '24',
-            isn: '0',
-            isfree: '-1'
+            orderby: '4',
+            desc: '1'
         });
         const res = await fetchJsonWithCache(url, CACHE_TTL_DEFAULT);
-        const rawList = (res && res.data && Array.isArray(res.data.info)) ? res.data.info : [];
+        const info = (res && res.data && Array.isArray(res.data.info) && res.data.info[0]) ? res.data.info[0] : null;
+        const rawList = (info && Array.isArray(info.result)) ? info.result : [];
         const videos = rawList.map(item => ({
             vod_id: String(item.key || item.contxt || ''),
             vod_name: item.title || '',
             vod_pic: item.image || item.imgPath || '',
             vod_remarks: formatRemarks(item),
-            vod_year: item.year || ''
+            vod_year: item.year ? String(item.year) : ''
         })).filter(v => v.vod_id);
 
         return JSON.stringify({ list: videos });
@@ -470,7 +560,7 @@ async function homeVod() {
 async function category(tid, pg, filter, extend = {}) {
     try {
         const page = parseInt(pg || 1);
-        let cid = tid || '0,1,3';
+        let cid = (extend && extend.class) || tid || '0,1,3';
         const tidMap = {
             '1': '0,1,3',
             '2': '0,1,4',
@@ -480,49 +570,75 @@ async function category(tid, pg, filter, extend = {}) {
         if (tidMap[cid]) {
             cid = tidMap[cid];
         }
-        if (extend && extend.class) {
-            cid = extend.class;
-        }
 
-        const url = signUrl(`${API_BASE}/api/list/index`, {
+        const region = (extend && (extend.area || extend.region)) || '';
+        let language = (extend && (extend.lang || extend.language)) || '';
+        if (language === '泰语') language = '泰国语';
+        if (language === '西语') language = '西班牙语';
+        const year = (extend && extend.year) || '';
+        const orderby = (extend && (extend.sort || extend.by || extend.orderBy)) || '4';
+        const status = (extend && extend.status) || '';
+
+        const params = {
             cinema: '1',
             cid: cid,
             page: String(page),
             size: '24',
-            isn: '0',
-            isfree: '-1'
-        });
+            orderby: orderby,
+            desc: '1'
+        };
+        if (region) params.region = region;
+        if (language) params.language = language;
+        if (year) params.year = year;
+        if (status) params.isserial = status;
 
+        const url = signUrl(`${API_BASE}/api/list/Search`, params);
         const res = await fetchJsonWithCache(url, CACHE_TTL_DEFAULT);
-        const rawList = (res && res.data && Array.isArray(res.data.info)) ? res.data.info : [];
+        const info = (res && res.data && Array.isArray(res.data.info) && res.data.info[0]) ? res.data.info[0] : null;
+        let rawList = (info && Array.isArray(info.result)) ? info.result : [];
+        let recordCount = (info && info.recordcount !== undefined) ? parseInt(info.recordcount) : rawList.length;
+
+        // 降级兜底：如果在没有任何筛选条件且 Search 接口异常时，降级到 list/index
+        if (rawList.length === 0 && !region && !language && !year && !status) {
+            const fallbackUrl = signUrl(`${API_BASE}/api/list/index`, {
+                cinema: '1',
+                cid: cid,
+                page: String(page),
+                size: '24',
+                isn: '0',
+                isfree: '-1'
+            });
+            const fbRes = await fetchJsonWithCache(fallbackUrl, CACHE_TTL_DEFAULT);
+            if (fbRes && fbRes.data && Array.isArray(fbRes.data.info)) {
+                rawList = fbRes.data.info;
+                recordCount = 9999;
+            }
+        }
+
         const list = rawList.map(item => ({
             vod_id: String(item.key || item.contxt || ''),
             vod_name: item.title || '',
             vod_pic: item.image || item.imgPath || '',
             vod_remarks: formatRemarks(item),
-            vod_year: item.year || ''
+            vod_year: item.year ? String(item.year) : ''
         })).filter(v => v.vod_id);
 
+        const pageCount = Math.ceil(recordCount / 24) || (list.length < 24 ? page : page + 1);
+
         // 静默后台预拉取下一页
-        if (list.length >= 24 && page < 20) {
+        if (list.length >= 24 && page < pageCount && page < 20) {
             Promise.resolve().then(() => {
-                const nextUrl = signUrl(`${API_BASE}/api/list/index`, {
-                    cinema: '1',
-                    cid: cid,
-                    page: String(page + 1),
-                    size: '24',
-                    isn: '0',
-                    isfree: '-1'
-                });
+                const nextParams = Object.assign({}, params, { page: String(page + 1) });
+                const nextUrl = signUrl(`${API_BASE}/api/list/Search`, nextParams);
                 fetchJsonWithCache(nextUrl, CACHE_TTL_DEFAULT).catch(() => {});
             }).catch(() => {});
         }
 
         return JSON.stringify({
             page: page,
-            pagecount: list.length < 24 ? page : page + 1,
+            pagecount: pageCount,
             limit: 24,
-            total: list.length < 24 ? (page - 1) * 24 + list.length : 9999,
+            total: recordCount,
             list: list
         });
     } catch (e) {
