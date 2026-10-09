@@ -189,7 +189,8 @@ async function postApi(path, data = {}) {
                 postType: 'json',
                 data: { params: hex },
                 body: bodyStr,
-                headers: defaultHeaders
+                headers: defaultHeaders,
+                timeout: 6000
             });
 
             if (!res || !res.content) continue;
@@ -200,21 +201,27 @@ async function postApi(path, data = {}) {
                 continue;
             }
 
+            let resultData = null;
             if (resJson && resJson.data) {
                 if (typeof resJson.data === 'object') {
-                    return resJson.data;
-                }
-                if (typeof resJson.data === 'string') {
+                    resultData = resJson.data;
+                } else if (typeof resJson.data === 'string') {
                     try {
                         const dec = decrypt(resJson.data);
-                        if (dec) return JSON.parse(dec);
+                        if (dec) resultData = JSON.parse(dec);
                     } catch (e) {
                         continue;
                     }
                 }
+            } else if (resJson && resJson.code === 200) {
+                resultData = resJson;
             }
-            if (resJson && resJson.code === 200) {
-                return resJson;
+
+            if (resultData) {
+                if (host !== apiUrl) {
+                    apiUrl = host;
+                }
+                return resultData;
             }
         } catch (e) {}
     }
@@ -342,6 +349,20 @@ async function init(cfg) {
             }
         }
     }
+
+    // 启动静默预热：后台异步拉取分类与电影第1页数据，不阻塞 init 返回
+    Promise.resolve().then(async () => {
+        try {
+            await getCategoryListCached();
+            // 预热电影频道第一页，确保用户切换到电影时 0 延迟秒开
+            postApiWithCache('/Search/GetConditionList', {
+                tid: 1,
+                page: 1,
+                pageSize: 24,
+                keywords: ''
+            }, CACHE_TTL_DEFAULT, r => r && Array.isArray(r.list) && r.list.length > 0).catch(() => {});
+        } catch (e) {}
+    }).catch(() => {});
 }
 
 async function home(filter) {
@@ -660,9 +681,33 @@ async function category(tid, pg, filter, extend = {}) {
                         };
                     });
 
+                    const topicPageCount = Math.ceil((res.total || 0) / 24) || page;
+
+                    // 静默预加载下一页（最多预加载到第 15 页）
+                    if (page < topicPageCount && page <= 15 && sec) {
+                        if (sec.show_id) {
+                            Promise.resolve().then(() => {
+                                postApiWithCache('/Category/GetModuleList', {
+                                    show_id: parseInt(sec.show_id),
+                                    show_pid: parseInt(sec.show_pid || 1),
+                                    page: page + 1,
+                                    pageSize: 24
+                                }, CACHE_TTL_DEFAULT, r => r && Array.isArray(r.list) && r.list.length > 0).catch(() => {});
+                            }).catch(() => {});
+                        } else {
+                            Promise.resolve().then(() => {
+                                postApiWithCache('/Category/GetChoiceList', {
+                                    pid: parseInt(sec.pid || 1),
+                                    page: page + 1,
+                                    pageSize: 24
+                                }, CACHE_TTL_DEFAULT, r => r && Array.isArray(r.list) && r.list.length > 0).catch(() => {});
+                            }).catch(() => {});
+                        }
+                    }
+
                     return JSON.stringify({
                         page: page,
-                        pagecount: Math.ceil((res.total || 0) / 24) || page,
+                        pagecount: topicPageCount,
                         limit: 24,
                         total: res.total || list.length,
                         list: list
@@ -745,9 +790,19 @@ async function category(tid, pg, filter, extend = {}) {
             vod_year: item.vod_year || ''
         }));
 
+        const pageCount = Math.ceil((res.total || 0) / 24) || page;
+
+        // 静默预加载下一页（最多预加载到第 15 页）
+        if (page < pageCount && page <= 15) {
+            const nextPayload = Object.assign({}, payload, { page: page + 1 });
+            Promise.resolve().then(() => {
+                postApiWithCache('/Search/GetConditionList', nextPayload, CACHE_TTL_DEFAULT, r => r && Array.isArray(r.list) && r.list.length > 0).catch(() => {});
+            }).catch(() => {});
+        }
+
         return JSON.stringify({
             page: page,
-            pagecount: Math.ceil((res.total || 0) / 24) || page,
+            pagecount: pageCount,
             limit: 24,
             total: res.total || 0,
             list: list
