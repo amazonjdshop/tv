@@ -331,190 +331,248 @@ async function init(cfg) {
     }).catch(() => {});
 }
 
-async function home(filter) {
-    // 异步触发一次密钥轮换检查
-    refreshKeys().catch(() => {});
+// ==================== 筛选项静态配置 ====================
+const topicClasses = [
+    { n: "全部", v: "" },
+    { n: "电影", v: "3" },
+    { n: "电视剧", v: "4" },
+    { n: "综艺", v: "5" },
+    { n: "动漫", v: "6" },
+    { n: "纪录片", v: "7" }
+];
 
-    const classes = [
-        { type_id: '0,1,3', type_name: '电影' },
-        { type_id: '0,1,4', type_name: '连续剧' },
-        { type_id: '0,1,5', type_name: '综艺' },
-        { type_id: '0,1,6', type_name: '动漫' }
-    ];
+const topicSorts = [
+    { n: "热门片单", v: "2" },
+    { n: "最新添加", v: "0" }
+];
 
-    const movieClasses = [
-        { n: "全部", v: "0,1,3" },
-        { n: "喜剧", v: "0,1,3,19" },
-        { n: "爱情", v: "0,1,3,20" },
-        { n: "动作", v: "0,1,3,21" },
-        { n: "犯罪", v: "0,1,3,22" },
-        { n: "科幻", v: "0,1,3,23" },
-        { n: "奇幻", v: "0,1,3,24" },
-        { n: "冒险", v: "0,1,3,25" },
-        { n: "灾难", v: "0,1,3,26" },
-        { n: "恐怖", v: "0,1,3,123" },
-        { n: "惊悚", v: "0,1,3,27" },
-        { n: "剧情", v: "0,1,3,28" },
-        { n: "战争", v: "0,1,3,29" },
-        { n: "歌舞", v: "0,1,3,30" },
-        { n: "经典", v: "0,1,3,31" },
-        { n: "悬疑", v: "0,1,3,32" },
-        { n: "动画", v: "0,1,3,113" },
-        { n: "网络电影", v: "0,1,3,125" }
-    ];
+const movieClasses = [
+    { n: "全部", v: "0,1,3" },
+    { n: "喜剧", v: "0,1,3,19" },
+    { n: "爱情", v: "0,1,3,20" },
+    { n: "动作", v: "0,1,3,21" },
+    { n: "犯罪", v: "0,1,3,22" },
+    { n: "科幻", v: "0,1,3,23" },
+    { n: "奇幻", v: "0,1,3,24" },
+    { n: "冒险", v: "0,1,3,25" },
+    { n: "灾难", v: "0,1,3,26" },
+    { n: "恐怖", v: "0,1,3,123" },
+    { n: "惊悚", v: "0,1,3,27" },
+    { n: "剧情", v: "0,1,3,28" },
+    { n: "战争", v: "0,1,3,29" },
+    { n: "歌舞", v: "0,1,3,30" },
+    { n: "经典", v: "0,1,3,31" },
+    { n: "悬疑", v: "0,1,3,32" },
+    { n: "动画", v: "0,1,3,113" },
+    { n: "网络电影", v: "0,1,3,125" }
+];
 
-    const tvClasses = [
-        { n: "全部", v: "0,1,4" },
-        { n: "偶像", v: "0,1,4,129" },
-        { n: "爱情", v: "0,1,4,146" },
-        { n: "古装", v: "0,1,4,126" },
-        { n: "历史", v: "0,1,4,141" },
-        { n: "玄幻", v: "0,1,4,142" },
-        { n: "谍战", v: "0,1,4,136" },
-        { n: "都市", v: "0,1,4,132" },
-        { n: "科幻", v: "0,1,4,144" },
-        { n: "军旅", v: "0,1,4,135" },
-        { n: "喜剧", v: "0,1,4,133" },
-        { n: "武侠", v: "0,1,4,128" },
-        { n: "罪案", v: "0,1,4,138" },
-        { n: "青春", v: "0,1,4,131" },
-        { n: "家庭", v: "0,1,4,130" },
-        { n: "战争", v: "0,1,4,134" },
-        { n: "悬疑", v: "0,1,4,137" },
-        { n: "穿越", v: "0,1,4,139" },
-        { n: "警匪", v: "0,1,4,149" },
-        { n: "动作", v: "0,1,4,150" },
-        { n: "剧情", v: "0,1,4,152" }
-    ];
+const tvClasses = [
+    { n: "全部", v: "0,1,4" },
+    { n: "偶像", v: "0,1,4,129" },
+    { n: "爱情", v: "0,1,4,146" },
+    { n: "古装", v: "0,1,4,126" },
+    { n: "历史", v: "0,1,4,141" },
+    { n: "玄幻", v: "0,1,4,142" },
+    { n: "谍战", v: "0,1,4,136" },
+    { n: "都市", v: "0,1,4,132" },
+    { n: "科幻", v: "0,1,4,144" },
+    { n: "军旅", v: "0,1,4,135" },
+    { n: "喜剧", v: "0,1,4,133" },
+    { n: "武侠", v: "0,1,4,128" },
+    { n: "罪案", v: "0,1,4,138" },
+    { n: "青春", v: "0,1,4,131" },
+    { n: "家庭", v: "0,1,4,130" },
+    { n: "战争", v: "0,1,4,134" },
+    { n: "悬疑", v: "0,1,4,137" },
+    { n: "穿越", v: "0,1,4,139" },
+    { n: "警匪", v: "0,1,4,149" },
+    { n: "动作", v: "0,1,4,150" },
+    { n: "剧情", v: "0,1,4,152" }
+];
 
-    const showClasses = [
-        { n: "全部", v: "0,1,5" },
-        { n: "真人秀", v: "0,1,5,39" },
-        { n: "选秀", v: "0,1,5,38" },
-        { n: "网综", v: "0,1,5,94" },
-        { n: "脱口秀", v: "0,1,5,43" },
-        { n: "搞笑", v: "0,1,5,40" },
-        { n: "竞技", v: "0,1,5,91" },
-        { n: "情感", v: "0,1,5,33" },
-        { n: "访谈", v: "0,1,5,34" },
-        { n: "晚会", v: "0,1,5,92" },
-        { n: "其它", v: "0,1,5,45" }
-    ];
+const showClasses = [
+    { n: "全部", v: "0,1,5" },
+    { n: "真人秀", v: "0,1,5,39" },
+    { n: "选秀", v: "0,1,5,38" },
+    { n: "网综", v: "0,1,5,94" },
+    { n: "脱口秀", v: "0,1,5,43" },
+    { n: "搞笑", v: "0,1,5,40" },
+    { n: "竞技", v: "0,1,5,91" },
+    { n: "情感", v: "0,1,5,33" },
+    { n: "访谈", v: "0,1,5,34" },
+    { n: "晚会", v: "0,1,5,92" },
+    { n: "其它", v: "0,1,5,45" }
+];
 
-    const animeClasses = [
-        { n: "全部", v: "0,1,6" },
-        { n: "热血", v: "0,1,6,46" },
-        { n: "格斗", v: "0,1,6,47" },
-        { n: "机战", v: "0,1,6,48" },
-        { n: "少女", v: "0,1,6,49" },
-        { n: "竞技", v: "0,1,6,51" },
-        { n: "科幻", v: "0,1,6,52" },
-        { n: "魔幻", v: "0,1,6,53" },
-        { n: "爆笑", v: "0,1,6,54" },
-        { n: "推理", v: "0,1,6,55" },
-        { n: "冒险", v: "0,1,6,121" },
-        { n: "恋爱", v: "0,1,6,120" },
-        { n: "校园", v: "0,1,6,119" },
-        { n: "穿越", v: "0,1,6,116" },
-        { n: "剧场版", v: "0,1,6,57" }
-    ];
+const animeClasses = [
+    { n: "全部", v: "0,1,6" },
+    { n: "热血", v: "0,1,6,46" },
+    { n: "格斗", v: "0,1,6,47" },
+    { n: "机战", v: "0,1,6,48" },
+    { n: "少女", v: "0,1,6,49" },
+    { n: "竞技", v: "0,1,6,51" },
+    { n: "科幻", v: "0,1,6,52" },
+    { n: "魔幻", v: "0,1,6,53" },
+    { n: "爆笑", v: "0,1,6,54" },
+    { n: "推理", v: "0,1,6,55" },
+    { n: "冒险", v: "0,1,6,121" },
+    { n: "恋爱", v: "0,1,6,120" },
+    { n: "校园", v: "0,1,6,119" },
+    { n: "穿越", v: "0,1,6,116" },
+    { n: "剧场版", v: "0,1,6,57" }
+];
 
-    const commonAreas = [
-        { n: "全部", v: "" },
-        { n: "大陆", v: "大陆" },
-        { n: "香港", v: "香港" },
-        { n: "台湾", v: "台湾" },
-        { n: "欧美", v: "欧美" },
-        { n: "韩国", v: "韩国" },
-        { n: "日本", v: "日本" },
-        { n: "英国", v: "英国" },
-        { n: "泰国", v: "泰国" },
-        { n: "其它", v: "其它" }
-    ];
+const docClasses = [
+    { n: "全部", v: "0,1,7" },
+    { n: "文化", v: "0,1,7,50" },
+    { n: "探索", v: "0,1,7,59" },
+    { n: "军事", v: "0,1,7,60" },
+    { n: "解密", v: "0,1,7,61" },
+    { n: "科技", v: "0,1,7,62" },
+    { n: "历史", v: "0,1,7,63" },
+    { n: "人物", v: "0,1,7,64" },
+    { n: "自然", v: "0,1,7,66" },
+    { n: "其它", v: "0,1,7,67" }
+];
 
-    const commonLangs = [
-        { n: "全部", v: "" },
-        { n: "国语", v: "国语" },
-        { n: "粤语", v: "粤语" },
-        { n: "英语", v: "英语" },
-        { n: "韩语", v: "韩语" },
-        { n: "日语", v: "日语" },
-        { n: "泰语", v: "泰国语" },
-        { n: "法语", v: "法语" },
-        { n: "德语", v: "德语" },
-        { n: "西语", v: "西班牙语" },
-        { n: "其它", v: "其它" }
-    ];
+const sportClasses = [
+    { n: "全部", v: "0,1,95" },
+    { n: "奥运", v: "0,1,95,99" },
+    { n: "综合", v: "0,1,95,98" },
+    { n: "篮球", v: "0,1,95,97" },
+    { n: "足球", v: "0,1,95,96" }
+];
 
-    const commonYears = [
-        { n: "全部", v: "" },
-        { n: "2026", v: "2026" },
-        { n: "2025", v: "2025" },
-        { n: "2024", v: "2024" },
-        { n: "2023", v: "2023" },
-        { n: "2022", v: "2022" },
-        { n: "2021", v: "2021" },
-        { n: "2020", v: "2020" },
-        { n: "2019", v: "2019" },
-        { n: "2018", v: "2018" },
-        { n: "2017", v: "2017" },
-        { n: "2016", v: "2016" },
-        { n: "2015", v: "2015" },
-        { n: "2014", v: "2014" },
-        { n: "2013", v: "2013" },
-        { n: "2012", v: "2012" },
-        { n: "2011", v: "2011" },
-        { n: "2010", v: "2010" },
-        { n: "2009", v: "2009" },
-        { n: "2008", v: "2008" },
-        { n: "90年代", v: "90年代" },
-        { n: "80年代", v: "80年代" },
-        { n: "更早", v: "更早" }
-    ];
+const newsClasses = [
+    { n: "全部", v: "all" },
+    { n: "国际新闻", v: "国际新闻" },
+    { n: "中国新闻", v: "中国新闻" },
+    { n: "华人资讯", v: "华人资讯" },
+    { n: "财经", v: "财经" },
+    { n: "军事", v: "军事" }
+];
 
-    const commonSorts = [
-        { n: "热门精选", v: "4" },
-        { n: "最新添加", v: "0" },
-        { n: "最多播放", v: "1" },
-        { n: "评分最高", v: "2" }
-    ];
+const chineseClasses = [
+    { n: "全部", v: "all" },
+    { n: "留学", v: "留学" },
+    { n: "生活", v: "生活" },
+    { n: "活动", v: "活动" },
+    { n: "演出", v: "演出" },
+    { n: "推广", v: "推广" }
+];
 
-    const commonStatus = [
-        { n: "全部", v: "" },
-        { n: "连载中", v: "1" },
-        { n: "全集完结", v: "0" }
-    ];
+const yuleClasses = [
+    { n: "全部", v: "all" },
+    { n: "娱乐资讯", v: "娱乐资讯" },
+    { n: "影视周边", v: "影视周边" },
+    { n: "明星", v: "明星" },
+    { n: "达人", v: "达人" },
+    { n: "动画", v: "动画" }
+];
 
-    function makeFilter(classList, hasStatus = false) {
-        const res = [];
-        if (classList && classList.length > 0) {
-            res.push({ key: 'class', name: '类型', value: classList });
-        }
-        res.push({ key: 'area', name: '地区', value: commonAreas });
-        res.push({ key: 'lang', name: '语言', value: commonLangs });
-        res.push({ key: 'year', name: '年份', value: commonYears });
-        res.push({ key: 'sort', name: '排序', value: commonSorts });
-        if (hasStatus) {
-            res.push({ key: 'status', name: '状态', value: commonStatus });
-        }
-        return res;
+const lifeClasses = [
+    { n: "全部", v: "all" },
+    { n: "搞笑", v: "搞笑" },
+    { n: "日常", v: "日常" },
+    { n: "美食", v: "美食" },
+    { n: "动物", v: "动物" },
+    { n: "奇葩", v: "奇葩" },
+    { n: "旅游", v: "旅游" },
+    { n: "知识", v: "知识" },
+    { n: "星座", v: "星座" },
+    { n: "婚恋", v: "婚恋" },
+    { n: "赶海", v: "赶海" }
+];
+
+const gamesClasses = [
+    { n: "全部", v: "all" },
+    { n: "电竞", v: "电竞" },
+    { n: "网游", v: "网游" },
+    { n: "单机", v: "单机" },
+    { n: "主机", v: "主机" },
+    { n: "手游", v: "手游" }
+];
+
+const commonAreas = [
+    { n: "全部", v: "" },
+    { n: "大陆", v: "大陆" },
+    { n: "香港", v: "香港" },
+    { n: "台湾", v: "台湾" },
+    { n: "欧美", v: "欧美" },
+    { n: "韩国", v: "韩国" },
+    { n: "日本", v: "日本" },
+    { n: "英国", v: "英国" },
+    { n: "泰国", v: "泰国" },
+    { n: "其它", v: "其它" }
+];
+
+const commonLangs = [
+    { n: "全部", v: "" },
+    { n: "国语", v: "国语" },
+    { n: "粤语", v: "粤语" },
+    { n: "英语", v: "英语" },
+    { n: "韩语", v: "韩语" },
+    { n: "日语", v: "日语" },
+    { n: "泰语", v: "泰国语" },
+    { n: "法语", v: "法语" },
+    { n: "德语", v: "德语" },
+    { n: "西语", v: "西班牙语" },
+    { n: "其它", v: "其它" }
+];
+
+const commonYears = [
+    { n: "全部", v: "" },
+    { n: "2026", v: "2026" },
+    { n: "2025", v: "2025" },
+    { n: "2024", v: "2024" },
+    { n: "2023", v: "2023" },
+    { n: "2022", v: "2022" },
+    { n: "2021", v: "2021" },
+    { n: "2020", v: "2020" },
+    { n: "2019", v: "2019" },
+    { n: "2018", v: "2018" },
+    { n: "2017", v: "2017" },
+    { n: "2016", v: "2016" },
+    { n: "2015", v: "2015" },
+    { n: "2014", v: "2014" },
+    { n: "2013", v: "2013" },
+    { n: "2012", v: "2012" },
+    { n: "2011", v: "2011" },
+    { n: "2010", v: "2010" },
+    { n: "2009", v: "2009" },
+    { n: "2008", v: "2008" },
+    { n: "90年代", v: "90年代" },
+    { n: "80年代", v: "80年代" },
+    { n: "更早", v: "更早" }
+];
+
+const commonSorts = [
+    { n: "热门精选", v: "4" },
+    { n: "最新添加", v: "0" },
+    { n: "最多播放", v: "1" },
+    { n: "评分最高", v: "2" }
+];
+
+const commonStatus = [
+    { n: "全部", v: "" },
+    { n: "连载中", v: "1" },
+    { n: "全集完结", v: "0" }
+];
+
+function makeFilter(classList, hasStatus = false) {
+    const res = [];
+    if (classList && classList.length > 0) {
+        res.push({ key: 'class', name: '类型', value: classList });
     }
-
-    const filters = {
-        '0,1,3': makeFilter(movieClasses, false),
-        '0,1,4': makeFilter(tvClasses, true),
-        '0,1,5': makeFilter(showClasses, true),
-        '0,1,6': makeFilter(animeClasses, true),
-        '1': makeFilter(movieClasses, false),
-        '2': makeFilter(tvClasses, true),
-        '3': makeFilter(showClasses, true),
-        '4': makeFilter(animeClasses, true)
-    };
-
-    return JSON.stringify({
-        class: classes,
-        filters: filters
-    });
+    res.push({ key: 'area', name: '地区', value: commonAreas });
+    res.push({ key: 'lang', name: '语言', value: commonLangs });
+    res.push({ key: 'year', name: '年份', value: commonYears });
+    res.push({ key: 'sort', name: '排序', value: commonSorts });
+    if (hasStatus) {
+        res.push({ key: 'status', name: '状态', value: commonStatus });
+    }
+    return res;
 }
 
 function formatRemarks(item) {
@@ -528,6 +586,57 @@ function formatRemarks(item) {
     }
     if (item.year) return String(item.year);
     return '';
+}
+
+async function home(filter) {
+    refreshKeys().catch(() => {});
+
+    const classes = [
+        { type_id: 'collection', type_name: '🔥精选片单' },
+        { type_id: '0,1,3', type_name: '电影' },
+        { type_id: '0,1,4', type_name: '连续剧' },
+        { type_id: '0,1,5', type_name: '综艺' },
+        { type_id: '0,1,6', type_name: '动漫' },
+        { type_id: '0,1,7', type_name: '纪录片' },
+        { type_id: '0,1,95', type_name: '体育' },
+        { type_id: 'news', type_name: '新闻' },
+        { type_id: 'chinese', type_name: '华人' },
+        { type_id: 'yule', type_name: '娱乐' },
+        { type_id: 'life', type_name: '生活' },
+        { type_id: 'games', type_name: '游戏' }
+    ];
+
+    const filters = {
+        'collection': [
+            { key: 'class', name: '板块', value: topicClasses },
+            { key: 'area', name: '地区', value: commonAreas },
+            { key: 'lang', name: '语言', value: commonLangs },
+            { key: 'sort', name: '排序', value: topicSorts }
+        ],
+        '0,1,3': makeFilter(movieClasses, false),
+        '0,1,4': makeFilter(tvClasses, true),
+        '0,1,5': makeFilter(showClasses, true),
+        '0,1,6': makeFilter(animeClasses, true),
+        '0,1,7': makeFilter(docClasses, false),
+        '0,1,95': [
+            { key: 'class', name: '分类', value: sportClasses },
+            { key: 'sort', name: '排序', value: commonSorts }
+        ],
+        'news': [{ key: 'class', name: '分类', value: newsClasses }],
+        'chinese': [{ key: 'class', name: '分类', value: chineseClasses }],
+        'yule': [{ key: 'class', name: '分类', value: yuleClasses }],
+        'life': [{ key: 'class', name: '分类', value: lifeClasses }],
+        'games': [{ key: 'class', name: '分类', value: gamesClasses }],
+        '1': makeFilter(movieClasses, false),
+        '2': makeFilter(tvClasses, true),
+        '3': makeFilter(showClasses, true),
+        '4': makeFilter(animeClasses, true)
+    };
+
+    return JSON.stringify({
+        class: classes,
+        filters: filters
+    });
 }
 
 async function homeVod() {
@@ -560,6 +669,105 @@ async function homeVod() {
 async function category(tid, pg, filter, extend = {}) {
     try {
         const page = parseInt(pg || 1);
+
+        // 1. 🔥精选片单模块
+        if (tid === 'collection') {
+            const cid = (extend && (extend.class || extend.cid)) || '';
+            const region = (extend && (extend.area || extend.region)) || '';
+            let language = (extend && (extend.lang || extend.language)) || '';
+            if (language === '泰语') language = '泰国语';
+            if (language === '西语') language = '西班牙语';
+            const orderby = (extend && (extend.sort || extend.orderBy)) || '2';
+
+            const params = {
+                cinema: '1',
+                page: String(page),
+                size: '24',
+                orderby: orderby,
+                desc: '1'
+            };
+            if (cid) params.cid = cid;
+            if (region) params.region = region;
+            if (language) params.language = language;
+
+            const url = signUrl(`${API_BASE}/v3/list/GetTopicList`, params);
+            const res = await fetchJsonWithCache(url, CACHE_TTL_DEFAULT);
+            const info = (res && res.data && Array.isArray(res.data.info) && res.data.info[0]) ? res.data.info[0] : null;
+            const rawList = (info && Array.isArray(info.result)) ? info.result : [];
+            const recordCount = (info && info.recordCount !== undefined) ? parseInt(info.recordCount) : rawList.length;
+
+            const list = rawList.map(item => ({
+                vod_id: `topic@@${item.key}`,
+                vod_name: item.title || '',
+                vod_pic: item.logo || (Array.isArray(item.imgs) && item.imgs[0]) || '',
+                vod_remarks: item.filmCount ? `${item.filmCount}部片单` : '精选片单',
+                vod_year: item.addTime ? String(item.addTime).substring(0, 4) : ''
+            })).filter(v => v.vod_id && v.vod_name);
+
+            const pageCount = Math.ceil(recordCount / 24) || (list.length < 24 ? page : page + 1);
+
+            return JSON.stringify({
+                page: page,
+                pagecount: pageCount,
+                limit: 24,
+                total: recordCount,
+                list: list
+            });
+        }
+
+        // 2. 资讯与短视频类板块 (新闻, 华人, 娱乐, 生活, 游戏)
+        const shortVideoTypes = ['news', 'chinese', 'yule', 'life', 'games'];
+        if (shortVideoTypes.includes(tid)) {
+            const url = `https://upload.yfsp.tv/api/home/GetSubList?cid=${tid}`;
+            const res = await fetchJsonWithCache(url, CACHE_TTL_DEFAULT, (j) => j && j.ret === 200);
+            const info = (res && res.data && Array.isArray(res.data.info) && res.data.info[0]) ? res.data.info[0] : {};
+            const subClass = (extend && extend.class) || 'all';
+            let rawList = [];
+
+            if (subClass && subClass !== 'all' && info.subList && Array.isArray(info.subList[subClass])) {
+                rawList = info.subList[subClass];
+            } else {
+                const seen = new Set();
+                if (Array.isArray(info.hotList)) {
+                    for (const item of info.hotList) {
+                        if (item && item.key && !seen.has(item.key)) {
+                            seen.add(item.key);
+                            rawList.push(item);
+                        }
+                    }
+                }
+                if (info.subList && typeof info.subList === 'object') {
+                    for (const group of Object.values(info.subList)) {
+                        if (Array.isArray(group)) {
+                            for (const item of group) {
+                                if (item && item.key && !seen.has(item.key)) {
+                                    seen.add(item.key);
+                                    rawList.push(item);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            const list = rawList.map(item => ({
+                vod_id: String(item.key || ''),
+                vod_name: item.title || '',
+                vod_pic: item.image || '',
+                vod_remarks: item.views ? `${item.views}播放` : (item.lastseconds || ''),
+                vod_year: item.add_Date ? String(item.add_Date).substring(0, 4) : ''
+            })).filter(v => v.vod_id && v.vod_name);
+
+            return JSON.stringify({
+                page: 1,
+                pagecount: 1,
+                limit: list.length,
+                total: list.length,
+                list: list
+            });
+        }
+
+        // 3. 影视长视频类板块 (电影, 电视剧, 综艺, 动漫, 纪录片, 体育)
         let cid = (extend && extend.class) || tid || '0,1,3';
         const tidMap = {
             '1': '0,1,3',
@@ -598,7 +806,7 @@ async function category(tid, pg, filter, extend = {}) {
         let rawList = (info && Array.isArray(info.result)) ? info.result : [];
         let recordCount = (info && info.recordcount !== undefined) ? parseInt(info.recordcount) : rawList.length;
 
-        // 降级兜底：如果在没有任何筛选条件且 Search 接口异常时，降级到 list/index
+        // 降级兜底
         if (rawList.length === 0 && !region && !language && !year && !status) {
             const fallbackUrl = signUrl(`${API_BASE}/api/list/index`, {
                 cinema: '1',
@@ -625,7 +833,6 @@ async function category(tid, pg, filter, extend = {}) {
 
         const pageCount = Math.ceil(recordCount / 24) || (list.length < 24 ? page : page + 1);
 
-        // 静默后台预拉取下一页
         if (list.length >= 24 && page < pageCount && page < 20) {
             Promise.resolve().then(() => {
                 const nextParams = Object.assign({}, params, { page: String(page + 1) });
@@ -656,7 +863,44 @@ async function detail(id) {
     try {
         const vodKey = String(id).trim();
 
-        // 1. 获取视频主体详情
+        // 1. 片单合辑详情处理
+        if (vodKey.startsWith('topic@@')) {
+            const topicKey = vodKey.replace('topic@@', '').trim();
+            const detailUrl = signUrl(`${API_BASE}/v3/list/GetTopicDetail`, {
+                cinema: '1',
+                topicID: topicKey,
+                id: topicKey
+            });
+            const res = await fetchJsonWithCache(detailUrl, CACHE_TTL_DEFAULT);
+            const info = (res && res.data && Array.isArray(res.data.info) && res.data.info[0]) ? res.data.info[0] : {};
+            const films = Array.isArray(info.videolistVM) ? info.videolistVM : [];
+            const epList = [];
+            for (let i = 0; i < films.length; i++) {
+                const f = films[i];
+                const epTitle = (f.title || `影片${i + 1}`).replace(/[$#]/g, '');
+                const epKey = f.key || '';
+                if (epKey) {
+                    epList.push(`${epTitle}$${epKey}@@0`);
+                }
+            }
+            const vod = [{
+                vod_id: vodKey,
+                vod_name: info.title || '精选片单',
+                vod_pic: info.logo || (Array.isArray(info.imgs) && info.imgs[0]) || '',
+                vod_type_name: `精选片单 / 共 ${films.length} 部`,
+                vod_year: info.addTime ? String(info.addTime).substring(0, 4) : '',
+                vod_area: '精选合辑',
+                vod_remarks: `${films.length}部收录`,
+                vod_actor: '多位影星',
+                vod_director: '精选合辑',
+                vod_content: (info.description || '').trim(),
+                vod_play_from: '超清专线',
+                vod_play_url: epList.length > 0 ? epList.join('#') : `暂无影片$${topicKey}@@0`
+            }];
+            return JSON.stringify({ list: vod });
+        }
+
+        // 2. 长视频主体详情
         const detailUrl = signUrl(`${API_BASE}/v3/video/detail`, {
             id: vodKey,
             cinema: '1',
@@ -670,11 +914,43 @@ async function detail(id) {
         });
 
         const res = await fetchJsonWithCache(detailUrl, CACHE_TTL_DEFAULT);
-        const info = (res && res.data && Array.isArray(res.data.info) && res.data.info[0]) ? res.data.info[0] : {};
+        const info = (res && res.data && Array.isArray(res.data.info) && res.data.info[0]) ? res.data.info[0] : null;
 
-        // 2. 获取分集列表
+        // 如果长视频 detail 未命中，尝试短视频播放接口获取详情
+        if (!info || !info.title) {
+            const shortPlayUrl = signUrl('https://upload.yfsp.tv/api/video/play', {
+                id: vodKey,
+                alluser: '1',
+                ispath: '1',
+                device: '1',
+                region: 'GL.'
+            });
+            const sRes = await fetchJsonWithCache(shortPlayUrl, CACHE_TTL_DEFAULT);
+            const sItem = (sRes && sRes.data && Array.isArray(sRes.data.info) && sRes.data.info[0]) ? sRes.data.info[0] : null;
+            if (sItem && sItem.title) {
+                const sVod = [{
+                    vod_id: vodKey,
+                    vod_name: sItem.title,
+                    vod_pic: sItem.image || '',
+                    vod_type_name: sItem.videoType || '短视频',
+                    vod_year: sItem.add_Date ? String(sItem.add_Date).substring(0, 4) : '',
+                    vod_area: (sItem.tags && sItem.tags[0]) || '',
+                    vod_remarks: sItem.add_Date || '',
+                    vod_actor: (sItem.publisher && sItem.publisher.title) || '',
+                    vod_director: (sItem.publisher && sItem.publisher.from) || '',
+                    vod_content: (sItem.contxt || sItem.title || '').trim(),
+                    vod_play_from: '超清专线',
+                    vod_play_url: `正片$${vodKey}@@0`
+                }];
+                return JSON.stringify({ list: sVod });
+            }
+        }
+
+        const validInfo = info || {};
+
+        // 3. 获取长视频分集列表
         const epList = [];
-        const cid = info.cid || '';
+        const cid = validInfo.cid || '';
         const playlistUrl = signUrl(`${API_BASE}/v3/video/languagesplaylist`, {
             cinema: '1',
             vid: vodKey,
@@ -688,7 +964,7 @@ async function detail(id) {
         const playList = (playlistInfo && Array.isArray(playlistInfo.playList)) ? playlistInfo.playList : [];
 
         if (playList.length > 0) {
-            if (playList.length === 1 && (playList[0].name.includes('P') || !info.isSerial)) {
+            if (playList.length === 1 && (playList[0].name.includes('P') || !validInfo.isSerial)) {
                 epList.push(`正片$${playList[0].key || vodKey}@@0`);
             } else {
                 for (let i = 0; i < playList.length; i++) {
@@ -705,27 +981,26 @@ async function detail(id) {
             }
         }
 
-        // 若分集列表为空（如单部电影），默认采用正片播放
         if (epList.length === 0) {
             epList.push(`正片$${vodKey}@@1`);
         }
 
-        const typeName = [info.channel, info.videoType].filter(Boolean).join(' / ');
-        const actors = Array.isArray(info.stars) ? info.stars.join(' / ') : (info.stars || '');
-        const directors = Array.isArray(info.directors) ? info.directors.join(' / ') : (info.directors || '');
+        const typeName = [validInfo.channel, validInfo.videoType].filter(Boolean).join(' / ');
+        const actors = Array.isArray(validInfo.stars) ? validInfo.stars.join(' / ') : (validInfo.stars || '');
+        const directors = Array.isArray(validInfo.directors) ? validInfo.directors.join(' / ') : (validInfo.directors || '');
 
         const vod = [{
             vod_id: vodKey,
-            vod_name: info.title || '',
-            vod_pic: info.imgPath || '',
+            vod_name: validInfo.title || '',
+            vod_pic: validInfo.imgPath || '',
             vod_type_name: typeName,
-            vod_year: String(info.post_Year || '').substring(0, 4),
-            vod_area: info.regional || '',
-            vod_remarks: formatRemarks(info),
+            vod_year: String(validInfo.post_Year || '').substring(0, 4),
+            vod_area: validInfo.regional || '',
+            vod_remarks: formatRemarks(validInfo),
             vod_actor: actors,
             vod_director: directors,
-            vod_content: (info.contxt || '').trim(),
-            vod_play_from: '爱壹帆超清专线',
+            vod_content: (validInfo.contxt || '').trim(),
+            vod_play_from: '超清专线',
             vod_play_url: epList.join('#')
         }];
 
@@ -776,17 +1051,39 @@ async function play(flag, id, flags) {
             return null;
         }
 
-        // 首次尝试指定 aType
+        // 1. 尝试长视频接口
         let playInfo = await fetchPlayUrl(mediaKey, aType);
-        // 若失败，尝试对偶类型（0 互换 1）以确保绝对命中播放
         if (!playInfo) {
             const altA = aType === '1' ? '0' : '1';
             playInfo = await fetchPlayUrl(mediaKey, altA);
         }
 
+        // 2. 若长视频接口未命中，尝试短视频接口
+        if (!playInfo) {
+            const shortPlayUrl = signUrl('https://upload.yfsp.tv/api/video/play', {
+                id: mediaKey,
+                alluser: '1',
+                ispath: '1',
+                device: '1',
+                region: 'GL.'
+            });
+            const sRes = await req(shortPlayUrl, {
+                headers: defaultHeaders,
+                timeout: 6000
+            });
+            if (sRes && sRes.content) {
+                try {
+                    const sd = JSON.parse(sRes.content);
+                    if (sd && sd.data && sd.data.code === 0 && Array.isArray(sd.data.info) && sd.data.info[0]) {
+                        playInfo = sd.data.info[0];
+                    }
+                } catch (e) {}
+            }
+        }
+
         let m3u8Url = '';
         if (playInfo) {
-            // 1. 优先提取 flvPathList 中的 HLS 流
+            // 优先提取 flvPathList 中的 HLS 流
             if (Array.isArray(playInfo.flvPathList)) {
                 for (const flv of playInfo.flvPathList) {
                     if (flv && flv.isHls && (flv.result || flv.rtmp)) {
@@ -805,7 +1102,7 @@ async function play(flag, id, flags) {
                 }
             }
 
-            // 2. 备用清晰度 clarity 流
+            // 备用清晰度 clarity 流
             if (!m3u8Url && Array.isArray(playInfo.clarity)) {
                 for (const c of playInfo.clarity) {
                     if (c && c.path && (c.path.result || c.path.rtmp)) {
@@ -836,7 +1133,7 @@ async function play(flag, id, flags) {
 }
 
 // 导出模块规范支持
-const spider = {
+var spider = {
     init: init,
     home: home,
     homeVod: homeVod,
