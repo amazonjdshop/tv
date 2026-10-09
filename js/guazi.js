@@ -221,6 +221,78 @@ async function postApi(path, data = {}) {
     return {};
 }
 
+// ==================== 高性能 1小时安全内存缓存与防抖并发层 ====================
+const CACHE_TTL_DEFAULT = 3600 * 1000; // 默认 1 小时 (3,600,000 毫秒)
+const CACHE_MAX_ENTRIES = 300;         // 最多保留 300 条记录，LRU 淘汰
+
+const memoryCache = new Map();
+const pendingRequests = new Map();
+
+function setCacheSafe(key, data, ttl = CACHE_TTL_DEFAULT) {
+    if (!key || data === undefined || data === null) return;
+    if (memoryCache.has(key)) {
+        memoryCache.delete(key);
+    } else if (memoryCache.size >= CACHE_MAX_ENTRIES) {
+        const oldestKey = memoryCache.keys().next().value;
+        if (oldestKey) memoryCache.delete(oldestKey);
+    }
+    memoryCache.set(key, {
+        expire: Date.now() + ttl,
+        data: data
+    });
+}
+
+function getCacheSafe(key) {
+    if (!memoryCache.has(key)) return null;
+    const entry = memoryCache.get(key);
+    if (!entry) return null;
+    if (Date.now() > entry.expire) {
+        memoryCache.delete(key);
+        return null;
+    }
+    // 命中缓存：刷新在 Map 迭代器中的位置 (LRU)
+    memoryCache.delete(key);
+    memoryCache.set(key, entry);
+    return entry.data;
+}
+
+async function postApiWithCache(path, data = {}, ttl = CACHE_TTL_DEFAULT, isValid = null) {
+    const cacheKey = `${path}_${JSON.stringify(data)}`;
+
+    const cached = getCacheSafe(cacheKey);
+    if (cached !== null) {
+        return cached;
+    }
+
+    if (pendingRequests.has(cacheKey)) {
+        return pendingRequests.get(cacheKey);
+    }
+
+    const fetchPromise = (async () => {
+        try {
+            const res = await postApi(path, data);
+            let canCache = false;
+            if (typeof isValid === 'function') {
+                canCache = Boolean(isValid(res));
+            } else if (res && typeof res === 'object') {
+                if (Array.isArray(res.list) && res.list.length > 0) canCache = true;
+                else if (res.vodInfo && res.vodInfo.vod_name) canCache = true;
+                else if (Array.isArray(res.urls) && res.urls.length > 0) canCache = true;
+            }
+
+            if (canCache) {
+                setCacheSafe(cacheKey, res, ttl);
+            }
+            return res;
+        } finally {
+            pendingRequests.delete(cacheKey);
+        }
+    })();
+
+    pendingRequests.set(cacheKey, fetchPromise);
+    return fetchPromise;
+}
+
 let categoryCache = null;
 let categoryCacheTime = 0;
 let categoryCachePromise = null;
@@ -235,7 +307,7 @@ function cleanTopicTitle(str) {
 
 async function getCategoryListCached() {
     const now = Date.now();
-    if (categoryCache && (now - categoryCacheTime < 300000)) {
+    if (categoryCache && (now - categoryCacheTime < CACHE_TTL_DEFAULT)) {
         return categoryCache;
     }
     if (categoryCachePromise) {
@@ -256,6 +328,7 @@ async function getCategoryListCached() {
     })();
     return categoryCachePromise;
 }
+
 
 async function init(cfg) {
     if (cfg) {
@@ -553,18 +626,18 @@ async function category(tid, pg, filter, extend = {}) {
                 let res = null;
                 if (sec) {
                     if (sec.show_id) {
-                        res = await postApi('/Category/GetModuleList', {
+                        res = await postApiWithCache('/Category/GetModuleList', {
                             show_id: parseInt(sec.show_id),
                             show_pid: parseInt(sec.show_pid || 1),
                             page: page,
                             pageSize: 24
-                        });
+                        }, CACHE_TTL_DEFAULT, r => r && Array.isArray(r.list) && r.list.length > 0);
                     } else {
-                        res = await postApi('/Category/GetChoiceList', {
+                        res = await postApiWithCache('/Category/GetChoiceList', {
                             pid: parseInt(sec.pid || 1),
                             page: page,
                             pageSize: 24
-                        });
+                        }, CACHE_TTL_DEFAULT, r => r && Array.isArray(r.list) && r.list.length > 0);
                     }
                 }
 
@@ -663,7 +736,7 @@ async function category(tid, pg, filter, extend = {}) {
             }
         }
 
-        const res = await postApi('/Search/GetConditionList', payload);
+        const res = await postApiWithCache('/Search/GetConditionList', payload, CACHE_TTL_DEFAULT, r => r && Array.isArray(r.list) && r.list.length > 0);
         const list = (res.list || []).map(item => ({
             vod_id: String(item.vod_id),
             vod_name: item.vod_name || item.c_name || '',
@@ -693,8 +766,20 @@ async function category(tid, pg, filter, extend = {}) {
 async function detail(id) {
     try {
         const vodId = parseInt(id);
-        const infoRes = await postApi('/Resource/GetVodInfo', { vod_id: vodId });
-        const playRes = await postApi('/Resource/GetOnePlayList', { vod_id: vodId, pageSize: 2000 });
+        const [infoRes, playRes] = await Promise.all([
+            postApiWithCache(
+                '/Resource/GetVodInfo',
+                { vod_id: vodId },
+                CACHE_TTL_DEFAULT,
+                r => r && r.vodInfo && r.vodInfo.vod_name
+            ),
+            postApiWithCache(
+                '/Resource/GetOnePlayList',
+                { vod_id: vodId, pageSize: 2000 },
+                CACHE_TTL_DEFAULT,
+                r => r && Array.isArray(r.urls) && r.urls.length > 0
+            )
+        ]);
 
         const info = (infoRes && infoRes.vodInfo) ? infoRes.vodInfo : {};
         const urls = (playRes && playRes.urls && Array.isArray(playRes.urls)) ? playRes.urls : [];
@@ -736,11 +821,16 @@ async function detail(id) {
 async function search(wd, quick, pg = 1) {
     try {
         const page = parseInt(pg || 1);
-        const res = await postApi('/Search/GetConditionList', {
-            keywords: wd,
-            page: page,
-            pageSize: 24
-        });
+        const res = await postApiWithCache(
+            '/Search/GetConditionList',
+            {
+                keywords: wd,
+                page: page,
+                pageSize: 24
+            },
+            1800 * 1000,
+            r => r && Array.isArray(r.list) && r.list.length > 0
+        );
         const list = (res.list || []).map(item => ({
             vod_id: String(item.vod_id),
             vod_name: item.vod_name || '',
