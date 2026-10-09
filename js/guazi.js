@@ -70,29 +70,47 @@ function b64_decode(str) {
     return out;
 }
 
+const HEX_MAP = [];
+for (let i = 0; i < 256; i++) HEX_MAP[i] = -1;
+for (let i = 0; i < 10; i++) HEX_MAP[48 + i] = i;
+for (let i = 0; i < 6; i++) {
+    HEX_MAP[65 + i] = 10 + i;
+    HEX_MAP[97 + i] = 10 + i;
+}
+
 function hexToBase64(hex) {
     hex = (hex || '').trim();
     const len = hex.length;
-    let out = '';
+    if (len === 0) return '';
+    const parts = [];
+    let chunk = '';
     let i = 0;
     while (i < len) {
-        const b1 = parseInt(hex.substr(i, 2), 16);
-        i += 2;
+        const c1 = HEX_MAP[hex.charCodeAt(i++) & 255];
+        const c2 = HEX_MAP[hex.charCodeAt(i++) & 255];
+        const b1 = (c1 << 4) | c2;
         if (i >= len) {
-            out += b64chars.charAt(b1 >> 2) + b64chars.charAt((b1 & 3) << 4) + '==';
+            chunk += b64chars.charAt(b1 >> 2) + b64chars.charAt((b1 & 3) << 4) + '==';
             break;
         }
-        const b2 = parseInt(hex.substr(i, 2), 16);
-        i += 2;
+        const c3 = HEX_MAP[hex.charCodeAt(i++) & 255];
+        const c4 = HEX_MAP[hex.charCodeAt(i++) & 255];
+        const b2 = (c3 << 4) | c4;
         if (i >= len) {
-            out += b64chars.charAt(b1 >> 2) + b64chars.charAt(((b1 & 3) << 4) | (b2 >> 4)) + b64chars.charAt((b2 & 15) << 2) + '=';
+            chunk += b64chars.charAt(b1 >> 2) + b64chars.charAt(((b1 & 3) << 4) | (b2 >> 4)) + b64chars.charAt((b2 & 15) << 2) + '=';
             break;
         }
-        const b3 = parseInt(hex.substr(i, 2), 16);
-        i += 2;
-        out += b64chars.charAt(b1 >> 2) + b64chars.charAt(((b1 & 3) << 4) | (b2 >> 4)) + b64chars.charAt(((b2 & 15) << 2) | (b3 >> 6)) + b64chars.charAt(b3 & 63);
+        const c5 = HEX_MAP[hex.charCodeAt(i++) & 255];
+        const c6 = HEX_MAP[hex.charCodeAt(i++) & 255];
+        const b3 = (c5 << 4) | c6;
+        chunk += b64chars.charAt(b1 >> 2) + b64chars.charAt(((b1 & 3) << 4) | (b2 >> 4)) + b64chars.charAt(((b2 & 15) << 2) | (b3 >> 6)) + b64chars.charAt(b3 & 63);
+        if (chunk.length > 8192) {
+            parts.push(chunk);
+            chunk = '';
+        }
     }
-    return out;
+    if (chunk) parts.push(chunk);
+    return parts.join('');
 }
 
 function base64ToHex(b64) {
@@ -228,8 +246,8 @@ async function postApi(path, data = {}) {
     return {};
 }
 
-// ==================== 高性能 1小时安全内存缓存与防抖并发层 ====================
-const CACHE_TTL_DEFAULT = 3600 * 1000; // 默认 1 小时 (3,600,000 毫秒)
+// ==================== 高性能 30分钟安全内存缓存与防抖并发层 ====================
+const CACHE_TTL_DEFAULT = 1800 * 1000; // 默认 30 分钟 (1,800,000 毫秒)，兼顾超快响应与及时的服务器更新
 const CACHE_MAX_ENTRIES = 300;         // 最多保留 300 条记录，LRU 淘汰
 
 const memoryCache = new Map();
@@ -350,19 +368,16 @@ async function init(cfg) {
         }
     }
 
-    // 启动静默预热：后台异步拉取分类与电影第1页数据，不阻塞 init 返回
-    Promise.resolve().then(async () => {
-        try {
-            await getCategoryListCached();
-            // 预热电影频道第一页，确保用户切换到电影时 0 延迟秒开
-            postApiWithCache('/Search/GetConditionList', {
-                tid: 1,
-                page: 1,
-                pageSize: 24,
-                keywords: ''
-            }, CACHE_TTL_DEFAULT, r => r && Array.isArray(r.list) && r.list.length > 0).catch(() => {});
-        } catch (e) {}
-    }).catch(() => {});
+    // 启动多任务并行静默预热：并发拉取全站专题数据与电影第1页数据，不阻塞 init 返回
+    Promise.all([
+        getCategoryListCached().catch(() => {}),
+        postApiWithCache('/Search/GetConditionList', {
+            tid: 1,
+            page: 1,
+            pageSize: 24,
+            keywords: ''
+        }, CACHE_TTL_DEFAULT, r => r && Array.isArray(r.list) && r.list.length > 0).catch(() => {})
+    ]).catch(() => {});
 }
 
 async function home(filter) {
@@ -539,45 +554,45 @@ async function home(filter) {
         return res;
     }
 
+    const defaultTopicFilters = [
+        { n: '全部', v: '0' },
+        { n: 'Netflix新片推荐', v: 'Netflix新片推荐' },
+        { n: '港台18🈲电影排行榜', v: '港台18🈲电影排行榜' },
+        { n: '大尺度限制🚫级影片', v: '大尺度限制🚫级影片' },
+        { n: '未删减影视', v: '未删减影视' },
+        { n: '禁播影视', v: '禁播影视' },
+        { n: '下架影视', v: '下架影视' },
+        { n: '长假狂飙高燃爽剧', v: '⛱️长假狂飙！7天炫完全集的高燃爽剧' },
+        { n: 'AI剧场 全新上线', v: 'AI剧场 全新上线' },
+        { n: '第98届奥斯卡获奖影片', v: '🏆第98届奥斯卡获奖影片🏆' },
+        { n: '2026金球奖获奖影片', v: '🔥2026金球奖获奖影片' },
+        { n: '第33届金鹰奖获奖影片', v: '第33届金鹰奖获奖影片🏆' },
+        { n: '第38届百花奖获奖影片', v: '🏆第38届大众电影百花奖获奖影片' },
+        { n: '神级高分纪录片', v: '神级高分纪录片' },
+        { n: '2026爆款剧王', v: '热度口碑双爆🔥2026剧王' },
+        { n: '2026日漫新番', v: '2026日漫新番' },
+        { n: '动漫变真人', v: '动漫变真人：你最pick哪一部' },
+        { n: '殿堂级恐怖片系列', v: '殿堂级恐怖片系列（QQ群：1127581238）' },
+        { n: '瓜友求片上新', v: '瓜友10/06求片上新' },
+        { n: '即将上线', v: '即将上线' },
+        { n: '🏮热门推荐🏮', v: '🏮热门推荐🏮' }
+    ];
+
     let topicFilters = [{ n: '全部', v: '0' }];
-    try {
-        const catList = await getCategoryListCached();
-        if (catList && catList.length > 0) {
-            for (const sec of catList) {
-                if (sec && sec.type) {
-                    topicFilters.push({
-                        n: cleanTopicTitle(sec.type),
-                        v: sec.type
-                    });
-                }
+    if (categoryCache && Array.isArray(categoryCache) && categoryCache.length > 0) {
+        for (const sec of categoryCache) {
+            if (sec && sec.type) {
+                topicFilters.push({
+                    n: cleanTopicTitle(sec.type),
+                    v: sec.type
+                });
             }
         }
-    } catch (e) {}
-
+    }
     if (topicFilters.length <= 1) {
-        topicFilters = [
-            { n: '全部', v: '0' },
-            { n: 'Netflix新片推荐', v: 'Netflix新片推荐' },
-            { n: '港台18🈲电影排行榜', v: '港台18🈲电影排行榜' },
-            { n: '大尺度限制🚫级影片', v: '大尺度限制🚫级影片' },
-            { n: '未删减影视', v: '未删减影视' },
-            { n: '禁播影视', v: '禁播影视' },
-            { n: '下架影视', v: '下架影视' },
-            { n: '长假狂飙高燃爽剧', v: '⛱️长假狂飙！7天炫完全集的高燃爽剧' },
-            { n: 'AI剧场 全新上线', v: 'AI剧场 全新上线' },
-            { n: '第98届奥斯卡获奖影片', v: '🏆第98届奥斯卡获奖影片🏆' },
-            { n: '2026金球奖获奖影片', v: '🔥2026金球奖获奖影片' },
-            { n: '第33届金鹰奖获奖影片', v: '第33届金鹰奖获奖影片🏆' },
-            { n: '第38届百花奖获奖影片', v: '🏆第38届大众电影百花奖获奖影片' },
-            { n: '神级高分纪录片', v: '神级高分纪录片' },
-            { n: '2026爆款剧王', v: '热度口碑双爆🔥2026剧王' },
-            { n: '2026日漫新番', v: '2026日漫新番' },
-            { n: '动漫变真人', v: '动漫变真人：你最pick哪一部' },
-            { n: '殿堂级恐怖片系列', v: '殿堂级恐怖片系列（QQ群：1127581238）' },
-            { n: '瓜友求片上新', v: '瓜友10/06求片上新' },
-            { n: '即将上线', v: '即将上线' },
-            { n: '🏮热门推荐🏮', v: '🏮热门推荐🏮' }
-        ];
+        topicFilters = defaultTopicFilters;
+        // SWR 机制：内存无缓存时先以预设列表秒开，同时在后台异步静默拉取，绝不阻塞 home()
+        getCategoryListCached().catch(() => {});
     }
 
     const filters = {
