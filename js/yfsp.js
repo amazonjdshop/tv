@@ -1011,14 +1011,69 @@ async function detail(id) {
 }
 
 async function search(wd, quick, pg = 1) {
-    // 根据要求关闭搜索功能，搜索时不展示任何影片
-    return JSON.stringify({
-        page: pg || 1,
-        pagecount: 0,
-        limit: 20,
-        total: 0,
-        list: []
-    });
+    try {
+        const page = parseInt(pg || 1);
+        const query = String(wd || '').trim();
+        if (!query) {
+            return JSON.stringify({
+                page: 1,
+                pagecount: 0,
+                limit: 20,
+                total: 0,
+                list: []
+            });
+        }
+
+        // 1. 优先使用 Solr 快速搜索 (rankv21/v3/list/briefsearch)
+        const solrUrl = signUrl(`${RANK_BASE}/v3/list/briefsearch`, {
+            cinema: '1',
+            tags: query,
+            page: String(page),
+            size: '20'
+        });
+        let res = await fetchJsonWithCache(solrUrl, CACHE_TTL_DEFAULT);
+        let info = (res && res.data && Array.isArray(res.data.info) && res.data.info[0]) ? res.data.info[0] : null;
+        let rawList = (info && Array.isArray(info.result)) ? info.result : [];
+
+        // 2. 若 Solr 搜索无果，降级到标准 Search (m10/api/list/Search)
+        if (rawList.length === 0) {
+            const searchUrl = signUrl(`${API_BASE}/api/list/Search`, {
+                cinema: '1',
+                tags: query,
+                page: String(page),
+                size: '20'
+            });
+            const sRes = await fetchJsonWithCache(searchUrl, CACHE_TTL_DEFAULT);
+            const sInfo = (sRes && sRes.data && Array.isArray(sRes.data.info) && sRes.data.info[0]) ? sRes.data.info[0] : null;
+            if (sInfo && Array.isArray(sInfo.result) && sInfo.result.length > 0) {
+                rawList = sInfo.result;
+            }
+        }
+
+        const list = rawList.map(item => ({
+            vod_id: String(item.contxt || item.key || ''),
+            vod_name: item.title || '',
+            vod_pic: item.image || item.imgPath || '',
+            vod_remarks: formatRemarks(item),
+            vod_year: item.year ? String(item.year) : (item.postTime ? String(item.postTime).substring(0, 4) : '')
+        })).filter(v => v.vod_id && v.vod_name);
+
+        return JSON.stringify({
+            page: page,
+            pagecount: list.length >= 20 ? page + 1 : page,
+            limit: 20,
+            total: list.length,
+            list: list
+        });
+    } catch (e) {
+        return JSON.stringify({
+            page: pg || 1,
+            pagecount: 0,
+            limit: 20,
+            total: 0,
+            list: []
+        });
+    }
 }
 
 async function play(flag, id, flags) {
