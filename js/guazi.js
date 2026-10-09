@@ -808,7 +808,7 @@ async function detail(id) {
             vod_actor: info.vod_actor || '',
             vod_director: info.vod_director || '',
             vod_content: (info.vod_use_content || '').trim(),
-            vod_play_from: '瓜子影视',
+            vod_play_from: '北美超清专线',
             vod_play_url: epList.join('#')
         }];
 
