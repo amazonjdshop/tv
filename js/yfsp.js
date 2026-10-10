@@ -332,20 +332,6 @@ async function init(cfg) {
 }
 
 // ==================== 筛选项静态配置 ====================
-const topicClasses = [
-    { n: "全部", v: "" },
-    { n: "电影", v: "3" },
-    { n: "电视剧", v: "4" },
-    { n: "综艺", v: "5" },
-    { n: "动漫", v: "6" },
-    { n: "纪录片", v: "7" }
-];
-
-const topicSorts = [
-    { n: "热门片单", v: "2" },
-    { n: "最新添加", v: "0" }
-];
-
 const movieClasses = [
     { n: "全部", v: "0,1,3" },
     { n: "喜剧", v: "0,1,3,19" },
@@ -592,7 +578,6 @@ async function home(filter) {
     refreshKeys().catch(() => {});
 
     const classes = [
-        { type_id: 'collection', type_name: '🔥精选片单' },
         { type_id: '0,1,3', type_name: '电影' },
         { type_id: '0,1,4', type_name: '连续剧' },
         { type_id: '0,1,5', type_name: '综艺' },
@@ -607,12 +592,6 @@ async function home(filter) {
     ];
 
     const filters = {
-        'collection': [
-            { key: 'class', name: '板块', value: topicClasses },
-            { key: 'area', name: '地区', value: commonAreas },
-            { key: 'lang', name: '语言', value: commonLangs },
-            { key: 'sort', name: '排序', value: topicSorts }
-        ],
         '0,1,3': makeFilter(movieClasses, false),
         '0,1,4': makeFilter(tvClasses, true),
         '0,1,5': makeFilter(showClasses, true),
@@ -670,52 +649,7 @@ async function category(tid, pg, filter, extend = {}) {
     try {
         const page = parseInt(pg || 1);
 
-        // 1. 🔥精选片单模块
-        if (tid === 'collection') {
-            const cid = (extend && (extend.class || extend.cid)) || '';
-            const region = (extend && (extend.area || extend.region)) || '';
-            let language = (extend && (extend.lang || extend.language)) || '';
-            if (language === '泰语') language = '泰国语';
-            if (language === '西语') language = '西班牙语';
-            const orderby = (extend && (extend.sort || extend.orderBy)) || '2';
-
-            const params = {
-                cinema: '1',
-                page: String(page),
-                size: '24',
-                orderby: orderby,
-                desc: '1'
-            };
-            if (cid) params.cid = cid;
-            if (region) params.region = region;
-            if (language) params.language = language;
-
-            const url = signUrl(`${API_BASE}/v3/list/GetTopicList`, params);
-            const res = await fetchJsonWithCache(url, CACHE_TTL_DEFAULT);
-            const info = (res && res.data && Array.isArray(res.data.info) && res.data.info[0]) ? res.data.info[0] : null;
-            const rawList = (info && Array.isArray(info.result)) ? info.result : [];
-            const recordCount = (info && info.recordCount !== undefined) ? parseInt(info.recordCount) : rawList.length;
-
-            const list = rawList.map(item => ({
-                vod_id: `topic@@${item.key}`,
-                vod_name: item.title || '',
-                vod_pic: item.logo || (Array.isArray(item.imgs) && item.imgs[0]) || '',
-                vod_remarks: item.filmCount ? `${item.filmCount}部片单` : '精选片单',
-                vod_year: item.addTime ? String(item.addTime).substring(0, 4) : ''
-            })).filter(v => v.vod_id && v.vod_name);
-
-            const pageCount = Math.ceil(recordCount / 24) || (list.length < 24 ? page : page + 1);
-
-            return JSON.stringify({
-                page: page,
-                pagecount: pageCount,
-                limit: 24,
-                total: recordCount,
-                list: list
-            });
-        }
-
-        // 2. 资讯与短视频类板块 (新闻, 华人, 娱乐, 生活, 游戏)
+        // 1. 资讯与短视频类板块 (新闻, 华人, 娱乐, 生活, 游戏)
         const shortVideoTypes = ['news', 'chinese', 'yule', 'life', 'games'];
         if (shortVideoTypes.includes(tid)) {
             const url = `https://upload.yfsp.tv/api/home/GetSubList?cid=${tid}`;
@@ -863,44 +797,7 @@ async function detail(id) {
     try {
         const vodKey = String(id).trim();
 
-        // 1. 片单合辑详情处理
-        if (vodKey.startsWith('topic@@')) {
-            const topicKey = vodKey.replace('topic@@', '').trim();
-            const detailUrl = signUrl(`${API_BASE}/v3/list/GetTopicDetail`, {
-                cinema: '1',
-                topicID: topicKey,
-                id: topicKey
-            });
-            const res = await fetchJsonWithCache(detailUrl, CACHE_TTL_DEFAULT);
-            const info = (res && res.data && Array.isArray(res.data.info) && res.data.info[0]) ? res.data.info[0] : {};
-            const films = Array.isArray(info.videolistVM) ? info.videolistVM : [];
-            const epList = [];
-            for (let i = 0; i < films.length; i++) {
-                const f = films[i];
-                const epTitle = (f.title || `影片${i + 1}`).replace(/[$#]/g, '');
-                const epKey = f.key || '';
-                if (epKey) {
-                    epList.push(`${epTitle}$${epKey}@@0`);
-                }
-            }
-            const vod = [{
-                vod_id: vodKey,
-                vod_name: info.title || '精选片单',
-                vod_pic: info.logo || (Array.isArray(info.imgs) && info.imgs[0]) || '',
-                vod_type_name: `精选片单 / 共 ${films.length} 部`,
-                vod_year: info.addTime ? String(info.addTime).substring(0, 4) : '',
-                vod_area: '精选合辑',
-                vod_remarks: `${films.length}部收录`,
-                vod_actor: '多位影星',
-                vod_director: '精选合辑',
-                vod_content: (info.description || '').trim(),
-                vod_play_from: '超清专线',
-                vod_play_url: epList.length > 0 ? epList.join('#') : `暂无影片$${topicKey}@@0`
-            }];
-            return JSON.stringify({ list: vod });
-        }
-
-        // 2. 长视频主体详情
+        // 1. 长视频主体详情
         const detailUrl = signUrl(`${API_BASE}/v3/video/detail`, {
             id: vodKey,
             cinema: '1',
