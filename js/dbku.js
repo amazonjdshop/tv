@@ -5,7 +5,7 @@
  * 特性：
  * 1. 30分钟 LRU 内存安全缓存池 (最多 300 条)，杜绝重复请求与内存泄漏
  * 2. 请求防并发击穿 (Pending Promise Deduplication)
- * 3. 首页 home() 零延迟秒开与多级分类支持 (陆剧/日韩/短剧/台泰)
+ * 3. 首页 home() 零延迟秒开与多级分类支持 (连续剧/短剧/电影/综艺/动漫)
  * 4. 高速 原画 M3U8 免嗅探直连解析播放 (parse: 0)
  * 5. 线路名称统一定制为「北美专线」
  * 6. 兼容 TVBox QuickJS 与 Node 调试环境
@@ -160,10 +160,7 @@ async function init(cfg) {
 async function home(filter) {
     const classes = [
         { type_id: '2', type_name: '连续剧' },
-        { type_id: '13', type_name: '陆剧' },
-        { type_id: '15', type_name: '日韩剧' },
         { type_id: '21', type_name: '短剧' },
-        { type_id: '14', type_name: '台泰剧' },
         { type_id: '1', type_name: '电影' },
         { type_id: '3', type_name: '综艺' },
         { type_id: '4', type_name: '动漫' }
@@ -246,10 +243,7 @@ async function home(filter) {
 
     const filters = {
         '2': buildFilter(dramaClasses),
-        '13': buildFilter(dramaClasses),
-        '15': buildFilter(dramaClasses),
         '21': buildFilter(dramaClasses),
-        '14': buildFilter(dramaClasses),
         '1': buildFilter(movieClasses),
         '3': buildFilter(zyClasses),
         '4': buildFilter(dmClasses)
