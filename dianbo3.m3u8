@@ -73,6 +73,22 @@
       "api": "csp_Douban",
       "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/ou52.jar",
       "searchable": 0
+    },
+    {
+      "key": "20261010虎牙",
+      "name": "🐯虎牙直播",
+      "type": 3,
+      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/fantaiying7/EXT/refs/heads/main/drpy2.min.js",
+      "ext": "https://gh-proxy.com/https://raw.githubusercontent.com/fantaiying7/EXT/refs/heads/main/虎牙.js",
+      "style": {
+        "type": "rect",
+        "ratio": 1.755
+      },
+      "timeout": 10,
+      "playerType": "2",
+      "searchable": 0,
+      "quickSearch": 0,
+      "changeable": 0
     }
   ],
   "logo": "https://raw.githubusercontent.com/amazonjdshop/tv/refs/heads/main/05292026/logo.gif"
