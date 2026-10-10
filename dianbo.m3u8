@@ -343,15 +343,6 @@
       "api": "csp_Douban",
       "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/ou52.jar",
       "searchable": 0
-    },
-    {
-      "key": "20261010欧乐影视_js",
-      "name": "北美 13❤️(点击换线)",
-      "type": 3,
-      "api": "./js/olevod.js",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1
     }
   ],
   "logo": "https://raw.githubusercontent.com/amazonjdshop/tv/refs/heads/main/05292026/logo.gif"
