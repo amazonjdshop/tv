@@ -344,7 +344,7 @@ async function detail(id) {
             vod_actor: actor,
             vod_director: director,
             vod_content: desc,
-            vod_play_from: '北美如意专线',
+            vod_play_from: '北美专线',
             vod_play_url: epList.join('#')
         }];
 

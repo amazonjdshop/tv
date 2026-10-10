@@ -404,6 +404,15 @@
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1
+    },
+    {
+      "key": "20261010午夜TV",
+      "name": "午夜TV❤️(点击换线)",
+      "type": 3,
+      "api": "./js/wuye.js",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
     }
   ],
   "logo": "https://raw.githubusercontent.com/amazonjdshop/tv/refs/heads/main/05292026/logo.gif"
