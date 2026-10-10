@@ -19,6 +19,15 @@
   ],
   "sites": [
     {
+      "key": "20261010午夜TV",
+      "name": "午夜TV🔞(点击换线)",
+      "type": 3,
+      "api": "./js/wuye.js",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
       "key": "2222Jabel",
       "name": "Jabel🔞(点击这里可切换服务器:请勿相信视频中广告)",
       "type": 3,
