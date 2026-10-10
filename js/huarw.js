@@ -384,10 +384,20 @@ async function detail(id) {
             lineNames.push(formatLineName(tm[1], lineNames.length));
         }
 
+        function getLinePriority(name) {
+            if (!name) return 50;
+            if (name.includes('无广') || name.includes('暴风') || name.includes('魔都')) return 100;
+            if (name.includes('超清') || name.includes('天涯')) return 90;
+            if (name.includes('高速') || name.includes('非凡')) return 80;
+            if (name.includes('国内')) return 70;
+            if (name.includes('备用') || name.includes('量子') || name.includes('无尽')) return 30;
+            if (name.includes('快车') || name.includes('广告')) return 20;
+            return 50;
+        }
+
         // 提取每条线路的播放列表
         const listBoxRegex = /<ul class="anthology-list-play[^"]*">([\s\S]*?)<\/ul>/g;
-        const playFromList = [];
-        const playUrlList = [];
+        const sources = [];
         let listIndex = 0;
         let lbm;
 
@@ -406,11 +416,21 @@ async function detail(id) {
             }
 
             if (epList.length > 0) {
-                playFromList.push(lineName);
-                playUrlList.push(epList.join('#'));
+                sources.push({
+                    name: lineName,
+                    urls: epList.join('#'),
+                    priority: getLinePriority(lineName),
+                    index: listIndex
+                });
             }
             listIndex++;
         }
+
+        // 智能优选：无广/超清专线置顶，备用/广告源排后
+        sources.sort((a, b) => b.priority - a.priority || a.index - b.index);
+
+        const playFromList = sources.map(s => s.name);
+        const playUrlList = sources.map(s => s.urls);
 
         const vod = [{
             vod_id: String(id),
@@ -496,7 +516,7 @@ async function search(wd, quick, pg = 1) {
 
         return JSON.stringify({
             page: page,
-            pagecount: 1,
+            pagecount: list.length >= 20 ? page + 1 : page,
             limit: 20,
             total: list.length,
             list: list

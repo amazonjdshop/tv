@@ -12,6 +12,11 @@
  */
 
 let HOST = 'https://www.dbku.tv';
+const HOST_LIST = [
+    'https://www.dbku.tv',
+    'https://www.duboku.tv',
+    'https://www.duboku.site'
+];
 
 const defaultHeaders = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
@@ -88,20 +93,41 @@ function getCacheSafe(key) {
 }
 
 async function request(url, options = {}) {
-    if (typeof req === 'function') {
-        const res = await req(url, options);
-        if (res && typeof res === 'object') {
-            return res.content || '';
+    async function doReq(targetUrl) {
+        if (typeof req === 'function') {
+            const res = await req(targetUrl, options);
+            if (res && typeof res === 'object') {
+                return res.content || '';
+            }
+            return String(res || '');
         }
-        return String(res || '');
+        if (typeof globalThis !== 'undefined' && globalThis.fetch) {
+            const resp = await globalThis.fetch(targetUrl, {
+                method: options.method || 'GET',
+                headers: options.headers || defaultHeaders
+            });
+            return await resp.text();
+        }
+        return '';
     }
-    // Node.js 仿真环境 fallback
-    if (typeof globalThis !== 'undefined' && globalThis.fetch) {
-        const resp = await globalThis.fetch(url, {
-            method: options.method || 'GET',
-            headers: options.headers || defaultHeaders
-        });
-        return await resp.text();
+
+    try {
+        const content = await doReq(url);
+        if (content && content.length > 50) return content;
+    } catch (e) {}
+
+    // 域名容灾自动轮换
+    for (const altHost of HOST_LIST) {
+        if (url.startsWith(HOST) && altHost !== HOST) {
+            try {
+                const altUrl = url.replace(HOST, altHost);
+                const altContent = await doReq(altUrl);
+                if (altContent && altContent.length > 50) {
+                    HOST = altHost;
+                    return altContent;
+                }
+            } catch (e) {}
+        }
     }
     return '';
 }
@@ -325,6 +351,16 @@ async function category(tid, pg, filter, extend = {}) {
         const url = `${HOST}/vodshow/${parts.join('-')}.html`;
         const html = await fetchWithCache(url, 600 * 1000);
         const list = parseCards(html);
+
+        // 下一页静默预加载 (无感丝滑翻页，最多预加载至第 15 页)
+        if (list.length > 0 && page <= 15) {
+            const nextParts = [...parts];
+            nextParts[8] = String(page + 1);
+            const nextUrl = `${HOST}/vodshow/${nextParts.join('-')}.html`;
+            Promise.resolve().then(() => {
+                fetchWithCache(nextUrl, 600 * 1000).catch(() => {});
+            }).catch(() => {});
+        }
 
         return JSON.stringify({
             page: page,

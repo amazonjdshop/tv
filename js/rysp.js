@@ -272,6 +272,14 @@ async function category(tid, pg, filter, extend = {}) {
             vod_year: item.year || ''
         }));
 
+        // 下一页静默预加载 (无感丝滑翻页，最多预加载至第 15 页)
+        if (rawList.length > 0 && page < pageCount && page <= 15) {
+            const nextUrl = `${HOST}/video/refresh-cate?channel_id=${channelId}&tag=${tag}&area=${area}&year=${year}&sort=${sort}&page_num=${page + 1}&page_size=24`;
+            Promise.resolve().then(() => {
+                fetchWithCache(nextUrl, 600 * 1000).catch(() => {});
+            }).catch(() => {});
+        }
+
         return JSON.stringify({
             page: page,
             pagecount: pageCount,
@@ -326,7 +334,10 @@ async function detail(id) {
         while ((m = epRegex.exec(html)) !== null) {
             const rawTitle = m[3].replace(/<!--[\s\S]*?-->/g, '').replace(/<[^>]+>/g, '').trim();
             const chapterId = m[2];
-            const epName = rawTitle || `第${epList.length + 1}集`;
+            let epName = rawTitle || `第${epList.length + 1}集`;
+            if (/^\d+$/.test(epName)) {
+                epName = `第${epName}集`;
+            }
             epList.push(`${epName}$${vid}@${chapterId}`);
         }
 
@@ -426,6 +437,20 @@ async function play(flag, id, flags) {
             }
         }
 
+        const cacheKey = `m3u8_${playTargetUrl}`;
+        const cachedStream = getCacheSafe(cacheKey);
+        if (cachedStream) {
+            return JSON.stringify({
+                parse: 0,
+                url: cachedStream,
+                header: {
+                    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+                    'Origin': `${HOST}`,
+                    'Referer': `${HOST}/`
+                }
+            });
+        }
+
         const html = await fetchWithCache(playTargetUrl, 600 * 1000);
 
         // 提取 qualitystr 内的真实 M3U8 地址
@@ -435,6 +460,7 @@ async function play(flag, id, flags) {
             if (streamUrl.startsWith('//')) {
                 streamUrl = 'https:' + streamUrl;
             }
+            setCacheSafe(cacheKey, streamUrl, 900 * 1000); // 缓存 15 分钟
             return JSON.stringify({
                 parse: 0,
                 url: streamUrl,

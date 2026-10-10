@@ -448,6 +448,14 @@ async function category(tid, pg, filter, extend = {}) {
         const total = (res && res.data && res.data.total) ? res.data.total : list.length;
         const pagecount = Math.ceil(total / 20) || (page + 1);
 
+        // 下一页静默预加载 (无感丝滑翻页，最多预加载至第 15 页)
+        if (list.length > 0 && page < pagecount && page <= 15) {
+            const nextUrl = `${API_HOST}/v1/pub/vod/list/true/3/0/${area}/${cateId}/${subClass}/${year}/${sort}/${page + 1}/20?_vv=${getVv()}`;
+            Promise.resolve().then(() => {
+                fetchWithCache(nextUrl, 600 * 1000).catch(() => {});
+            }).catch(() => {});
+        }
+
         return JSON.stringify({
             page: page,
             pagecount: pagecount,
