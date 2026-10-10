@@ -27,6 +27,9 @@ update_radio.py
 radio_update_summary.json
 radio_fail_tracker.json
 radio.json
+run_pandora_health.sh
+check_pandora_health.js
+pandora_health.log
 *.bak
 stream_metrics.json
 stream_fail_tracker.json
