@@ -391,13 +391,44 @@ async function home(filter) {
     refreshKeys().catch(() => {});
 
     const classes = [
+        { type_id: 'rec', type_name: '🔥精选推荐' },
+        { type_id: 'rank', type_name: '👑热门榜单' },
+        { type_id: 'star', type_name: '👩女优专区' },
         { type_id: '0,2,10,85', type_name: '日本' },
         { type_id: '0,2,10,87', type_name: '国产' },
         { type_id: '0,2,10,86', type_name: '欧美' },
         { type_id: '0,2,10,88', type_name: '卡通' }
     ];
 
+    const rankFilter = [
+        {
+            key: 'cid',
+            name: '地区',
+            value: [
+                { n: '日本', v: '0,2,10,85' },
+                { n: '国产', v: '0,2,10,87' },
+                { n: '欧美', v: '0,2,10,86' },
+                { n: '卡通', v: '0,2,10,88' }
+            ]
+        }
+    ];
+
+    const starFilter = [
+        {
+            key: 'orderBy',
+            name: '排序',
+            value: [
+                { n: '更新时间', v: '1' },
+                { n: '人气最高', v: '2' },
+                { n: '添加时间', v: '0' }
+            ]
+        }
+    ];
+
     const filters = {
+        'rec': makeFilter(),
+        'rank': rankFilter,
+        'star': starFilter,
         '0,2,10,85': makeFilter(),
         '0,2,10,87': makeFilter(),
         '0,2,10,86': makeFilter(),
@@ -411,7 +442,7 @@ async function home(filter) {
 }
 
 async function homeVod() {
-    return category('0,2,10,85', 1, false, {});
+    return category('rec', 1, false, {});
 }
 
 async function category(tid, pg, filter, extend = {}) {
@@ -419,12 +450,112 @@ async function category(tid, pg, filter, extend = {}) {
         const page = parseInt(pg || 1);
         const tag = (extend && (extend.tag || extend.class)) || '';
 
+        // 1. 👑 热门榜单
+        if (tid === 'rank') {
+            const cid = (extend && extend.cid) || '0,2,10,85';
+            const rankUrl = signUrl(`${RANK_BASE}/api/list/getAllHotVideoTop`, {
+                cinema: '2',
+                cid: cid,
+                pageSize: '24'
+            });
+            const res = await fetchJsonWithCache(rankUrl, CACHE_TTL_DEFAULT);
+            const rawRankList = (res && res.data && Array.isArray(res.data.info) && res.data.info[0] && Array.isArray(res.data.info[0].rankList))
+                ? res.data.info[0].rankList
+                : [];
+
+            const list = await Promise.all(rawRankList.map(async (item) => {
+                let pic = '';
+                try {
+                    const dUrl = signUrl(`${API_BASE}/v3/video/detail`, { id: item.link, cinema: '2' });
+                    const dRes = await fetchJsonWithCache(dUrl, CACHE_TTL_DEFAULT);
+                    if (dRes && dRes.data && Array.isArray(dRes.data.info) && dRes.data.info[0]) {
+                        pic = dRes.data.info[0].imgPath || '';
+                        if (pic.startsWith('//')) pic = 'https:' + pic;
+                        else if (pic.startsWith('/')) pic = 'https://static.wuye.tv' + pic;
+                    }
+                } catch (e) {}
+
+                let remarks = item.rating ? `${item.rating}分` : '';
+                if (item.number) {
+                    remarks = `TOP ${item.number}` + (remarks ? ` · ${remarks}` : '');
+                }
+
+                return {
+                    vod_id: item.link,
+                    vod_name: item.title || '',
+                    vod_pic: pic,
+                    vod_remarks: remarks,
+                    vod_year: item.year ? String(item.year) : ''
+                };
+            }));
+
+            return JSON.stringify({
+                page: 1,
+                pagecount: 1,
+                limit: 24,
+                total: list.length,
+                list: list.filter(v => v.vod_id && v.vod_name)
+            });
+        }
+
+        // 2. 👩 女优专区
+        if (tid === 'star') {
+            const orderBy = (extend && extend.orderBy) || '1';
+            const starUrl = signUrl(`${API_BASE}/api/list/starlist`, {
+                cinema: '2',
+                page: String(page),
+                size: '24',
+                orderBy: orderBy,
+                desc: '1'
+            });
+            const res = await fetchJsonWithCache(starUrl, CACHE_TTL_DEFAULT);
+            const starInfo = (res && res.data && Array.isArray(res.data.info) && res.data.info[0]) ? res.data.info[0] : null;
+            const rawList = (starInfo && Array.isArray(starInfo.list)) ? starInfo.list : [];
+            const total = (starInfo && starInfo.recored) ? parseInt(starInfo.recored) : 449;
+
+            const list = rawList.map(item => {
+                let pic = item.imgPath || '';
+                if (pic.startsWith('//')) pic = 'https:' + pic;
+                else if (pic.startsWith('/')) pic = 'https://static.wuye.tv' + pic;
+
+                let remarks = item.workNum ? `${item.workNum}部作品` : '';
+                if (item.hot) {
+                    remarks = remarks ? `${remarks} · ${item.hot}人气` : `${item.hot}人气`;
+                }
+
+                return {
+                    vod_id: 'star@@' + item.name,
+                    vod_name: item.name,
+                    vod_pic: pic,
+                    vod_remarks: remarks,
+                    vod_year: item.lastName || ''
+                };
+            }).filter(v => v.vod_id && v.vod_name);
+
+            const pageCount = Math.ceil(total / 24) || (list.length < 24 ? page : page + 1);
+
+            return JSON.stringify({
+                page: page,
+                pagecount: pageCount,
+                limit: 24,
+                total: total,
+                list: list
+            });
+        }
+
+        // 3. 🔥 精选推荐 与 常规分类
         const params = {
             cinema: '2',
-            cid: tid || '0,2,10,85',
             page: String(page),
             size: '24'
         };
+
+        if (tid === 'rec') {
+            params.isRecommended = '1';
+        } else {
+            params.cid = tid || '0,2,10,85';
+        }
+
         if (tag) {
             params.tags = tag;
         }
@@ -434,8 +565,10 @@ async function category(tid, pg, filter, extend = {}) {
         const rawList = (res && res.data && Array.isArray(res.data.info)) ? res.data.info : [];
 
         const list = rawList.map(item => {
-            let pic = item.image || '';
+            let pic = item.image || item.imgPath || '';
             if (pic.startsWith('//')) pic = 'https:' + pic;
+            else if (pic.startsWith('/')) pic = 'https://static.wuye.tv' + pic;
+
             let remarks = item.sNo || '';
             if (item.starring) {
                 remarks = remarks ? `${remarks} ${item.starring}` : item.starring;
@@ -475,6 +608,55 @@ async function detail(id) {
     try {
         const vodKey = String(id).trim();
 
+        // 👩 女优专区 (明星合集 / 作品全集)
+        if (vodKey.startsWith('star@@')) {
+            const starName = vodKey.replace('star@@', '').trim();
+            const searchUrl = signUrl(`${RANK_BASE}/v3/list/briefsearch`, {
+                cinema: '2',
+                tags: starName,
+                page: '1',
+                size: '50'
+            });
+            const res = await fetchJsonWithCache(searchUrl, CACHE_TTL_DEFAULT);
+            const info = (res && res.data && Array.isArray(res.data.info) && res.data.info[0]) ? res.data.info[0] : null;
+            const works = (info && Array.isArray(info.result)) ? info.result : [];
+
+            const epList = [];
+            let actressPic = '';
+            for (let i = 0; i < works.length; i++) {
+                const w = works[i];
+                let title = (w.sNo ? w.sNo + ' ' : '') + (w.title || ('作品 ' + (i + 1)));
+                title = title.replace(/[$#]/g, '_');
+                const epKey = w.contxt || w.key || String(w.id || '');
+                if (epKey) {
+                    epList.push(`${title}$${epKey}`);
+                }
+                if (!actressPic && w.imgPath) {
+                    actressPic = w.imgPath;
+                    if (actressPic.startsWith('//')) actressPic = 'https:' + actressPic;
+                    else if (actressPic.startsWith('/')) actressPic = 'https://static.wuye.tv' + actressPic;
+                }
+            }
+
+            const vod = [{
+                vod_id: vodKey,
+                vod_name: `${starName} 作品全集`,
+                vod_pic: actressPic,
+                vod_type_name: '女优专区 / 明星合集',
+                vod_year: '',
+                vod_area: '日本',
+                vod_remarks: `共收录 ${works.length} 部影片`,
+                vod_actor: starName,
+                vod_director: '',
+                vod_content: `${starName} 参演专属作品合集，已精选收录 ${works.length} 部影片，点击分集即可播放对应作品。`,
+                vod_play_from: '超清专线',
+                vod_play_url: epList.length > 0 ? epList.join('#') : `暂无作品$${vodKey}`
+            }];
+
+            return JSON.stringify({ list: vod });
+        }
+
+        // 普通影片详情
         // 1. 获取视频基本信息
         const detailUrl = signUrl(`${API_BASE}/v3/video/detail`, {
             id: vodKey,
@@ -516,6 +698,7 @@ async function detail(id) {
 
         let pic = info.imgPath || '';
         if (pic.startsWith('//')) pic = 'https:' + pic;
+        else if (pic.startsWith('/')) pic = 'https://static.wuye.tv' + pic;
 
         const typeName = [info.channel, info.videoType].filter(Boolean).join(' / ');
         const actors = Array.isArray(info.stars) ? info.stars.join(' / ') : (info.stars || '');
@@ -570,6 +753,8 @@ async function search(wd, quick, pg = 1) {
         const list = rawList.map(item => {
             let pic = item.imgPath || '';
             if (pic.startsWith('//')) pic = 'https:' + pic;
+            else if (pic.startsWith('/')) pic = 'https://static.wuye.tv' + pic;
+
             let remarks = item.sNo || '';
             if (item.starring) {
                 remarks = remarks ? `${remarks} ${item.starring}` : item.starring;
@@ -608,9 +793,10 @@ async function search(wd, quick, pg = 1) {
 
 async function play(flag, id, flags) {
     try {
-        const mediaKey = String(id || '').trim();
+        let mediaKey = String(id || '').trim();
 
-        const playUrl = signUrl(`${API_BASE}/v3/video/play`, {
+        // 1. 优先直接通过 video/play 播放
+        let playUrl = signUrl(`${API_BASE}/v3/video/play`, {
             cinema: '2',
             id: mediaKey,
             a: '0',
@@ -620,7 +806,7 @@ async function play(flag, id, flags) {
             isMasterSupport: '0'
         });
 
-        const res = await req(playUrl, {
+        let res = await req(playUrl, {
             headers: defaultHeaders,
             timeout: 8000
         });
@@ -635,9 +821,47 @@ async function play(flag, id, flags) {
             } catch (e) {}
         }
 
+        // 2. 如果直接播放失败（如传入的是 vodKey 而非 mediaKey），智能回退通过 languagesplaylist 解析真实 mediaKey
+        if (!playInfo) {
+            const playlistUrl = signUrl(`${API_BASE}/v3/video/languagesplaylist`, {
+                cinema: '2',
+                vid: mediaKey,
+                cid: '0,2,10,85',
+                lsk: '1',
+                taxis: '0'
+            });
+            const plRes = await fetchJsonWithCache(playlistUrl, CACHE_TTL_DEFAULT);
+            const plInfo = (plRes && plRes.data && Array.isArray(plRes.data.info) && plRes.data.info[0]) ? plRes.data.info[0] : null;
+            const pList = (plInfo && Array.isArray(plInfo.playList) && plInfo.playList[0]) ? plInfo.playList[0] : null;
+            if (pList && pList.key) {
+                const realMediaKey = pList.key;
+                playUrl = signUrl(`${API_BASE}/v3/video/play`, {
+                    cinema: '2',
+                    id: realMediaKey,
+                    a: '0',
+                    usersign: '1',
+                    region: 'GL.',
+                    device: '1',
+                    isMasterSupport: '0'
+                });
+                res = await req(playUrl, {
+                    headers: defaultHeaders,
+                    timeout: 8000
+                });
+                if (res && res.content) {
+                    try {
+                        const d = JSON.parse(res.content);
+                        if (d && d.data && d.data.code === 0 && Array.isArray(d.data.info) && d.data.info[0]) {
+                            playInfo = d.data.info[0];
+                        }
+                    } catch (e) {}
+                }
+            }
+        }
+
         let m3u8Url = '';
         if (playInfo) {
-            // 1. 优先提取 flvPathList 中的 HLS 播放流
+            // 优先提取 flvPathList 中的 HLS 播放流
             if (Array.isArray(playInfo.flvPathList)) {
                 for (const flv of playInfo.flvPathList) {
                     if (flv && flv.isHls && (flv.result || flv.rtmp)) {
@@ -656,7 +880,7 @@ async function play(flag, id, flags) {
                 }
             }
 
-            // 2. 备用 clarity 清晰度列表
+            // 备用 clarity 清晰度列表
             if (!m3u8Url && Array.isArray(playInfo.clarity)) {
                 for (const c of playInfo.clarity) {
                     if (c && c.path && (c.path.result || c.path.rtmp)) {
