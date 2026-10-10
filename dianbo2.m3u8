@@ -14,7 +14,7 @@
   "sites": [
     {
       "key": "20261010瓜子影视",
-      "name": "北美 01❤️(点击换线)",
+      "name": "🇺🇸 洛杉矶·极速专线❤️(点击换线)",
       "type": 3,
       "api": "./js/guazi.js",
       "searchable": 1,
@@ -23,37 +23,37 @@
     },
     {
       "key": "20261010Qile优视频",
-      "name": "北美 02❤️(点击换线)",
+      "name": "🇺🇸 纽约·超清专线",
       "type": 4,
       "api": "https://vod.catvod.ggff.net/uvod"
     },
     {
       "key": "20261010嗷呜爱瓜TV",
-      "name": "北美 03❤️(点击换线)",
+      "name": "🇺🇸 旧金山·旗舰专线",
       "type": 4,
       "api": "https://vod.catvod.ggff.net/aigua"
     },
     {
       "key": "20261010独播库",
-      "name": "北美 04❤️(点击换线)",
+      "name": "🇺🇸 西雅图·蓝光专线",
       "type": 4,
       "api": "https://vod.catvod.ggff.net/duboku"
     },
     {
       "key": "20261010欧乐影院",
-      "name": "北美 05❤️(点击换线)",
+      "name": "🇺🇸 芝加哥·全网专线",
       "type": 4,
       "api": "https://vod.catvod.ggff.net/oule"
     },
     {
       "key": "20261010荐片",
-      "name": "北美 06❤️(点击换线)",
+      "name": "🇺🇸 休斯顿·热播专线",
       "type": 4,
       "api": "https://vod.catvod.ggff.net/jianpian"
     },
     {
       "key": "20261010独播库_js",
-      "name": "北美 07❤️(点击换线)",
+      "name": "🇺🇸 达拉斯·同步专线",
       "type": 3,
       "api": "./js/独播库.js",
       "searchable": 1,
@@ -62,7 +62,7 @@
     },
     {
       "key": "20261010片吧",
-      "name": "北美 08❤️(点击换线)",
+      "name": "🇺🇸 波士顿·臻选专线",
       "type": 3,
       "api": "csp_XBPQ",
       "ext": {
@@ -114,7 +114,7 @@
     },
     {
       "key": "20261010光速影视",
-      "name": "北美 09❤️(点击换线)",
+      "name": "🇺🇸 华盛顿·特快专线",
       "type": 0,
       "playerType": 2,
       "searchable": 0,
@@ -151,7 +151,7 @@
     },
     {
       "key": "20261010火狐影视",
-      "name": "北美 10❤️(点击换线)",
+      "name": "🇺🇸 亚特兰大·影视专线",
       "type": 1,
       "searchable": 0,
       "quickSearch": 1,
@@ -196,7 +196,7 @@
     },
     {
       "key": "20261010红牛影视",
-      "name": "北美 11❤️(点击换线)",
+      "name": "🇺🇸 拉斯维加斯·影院专线",
       "type": 1,
       "searchable": 1,
       "quickSearch": 1,
@@ -233,7 +233,7 @@
     },
     {
       "key": "20261010虎牙影视",
-      "name": "北美 12❤️(点击换线)",
+      "name": "🇺🇸 迈阿密·畅享专线",
       "type": 1,
       "searchable": 0,
       "quickSearch": 1,
@@ -270,7 +270,7 @@
     },
     {
       "key": "20261010爱酷影视",
-      "name": "北美 13❤️(点击换线)",
+      "name": "🇺🇸 硅谷·核心专线",
       "type": 1,
       "searchable": 1,
       "quickSearch": 1,
@@ -327,7 +327,7 @@
     },
     {
       "key": "20261010如意",
-      "name": "北美 14❤️(点击换线)",
+      "name": "🇺🇸 圣地亚哥·直连专线",
       "type": 1,
       "api": "https://cj.rycjapi.com/api.php/provide/vod/",
       "searchable": 1,
@@ -380,7 +380,7 @@
     },
     {
       "key": "20261010华人影视",
-      "name": "北美 15❤️(点击换线)",
+      "name": "🇺🇸 丹佛·稳定专线",
       "type": 3,
       "api": "./js/huarw.js",
       "searchable": 1,
@@ -389,7 +389,7 @@
     },
     {
       "key": "20261010yfsp",
-      "name": "北美 16❤️(点击换线)",
+      "name": "🇺🇸 费城·品质专线",
       "type": 3,
       "api": "./js/yfsp.js",
       "searchable": 1,
@@ -398,7 +398,7 @@
     },
     {
       "key": "20261010如意视频",
-      "name": "北美 17❤️(点击换线)",
+      "name": "🇺🇸 奥兰多·综合专线",
       "type": 3,
       "api": "./js/rysp.js",
       "searchable": 1,
@@ -407,7 +407,7 @@
     },
     {
       "key": "20261010欧乐影视_js",
-      "name": "北美 18❤️(点击换线)",
+      "name": "🇺🇸 凤凰城·备用专线",
       "type": 3,
       "api": "./js/olevod.js",
       "searchable": 1,
