@@ -334,9 +334,63 @@ async function home(filter) {
         { n: '玄幻', v: '1213' }
     ];
 
+    const commonAreas = [
+        { n: '全部', v: '' },
+        { n: '大陆', v: '大陆' },
+        { n: '香港', v: '香港' },
+        { n: '台湾', v: '台湾' },
+        { n: '美国', v: '美国' },
+        { n: '韩国', v: '韩国' },
+        { n: '日本', v: '日本' },
+        { n: '泰国', v: '泰国' },
+        { n: '英国', v: '英国' },
+        { n: '法国', v: '法国' },
+        { n: '加拿大', v: '加拿大' },
+        { n: '西班牙', v: '西班牙' },
+        { n: '德国', v: '德国' },
+        { n: '俄罗斯', v: '俄罗斯' },
+        { n: '意大利', v: '意大利' },
+        { n: '新加坡', v: '新加坡' },
+        { n: '马来西亚', v: '马来西亚' },
+        { n: '其它', v: '其它' }
+    ];
+
+    const commonYears = [
+        { n: '全部', v: '' },
+        { n: '2026', v: '2026' },
+        { n: '2025', v: '2025' },
+        { n: '2024', v: '2024' },
+        { n: '2023', v: '2023' },
+        { n: '2022', v: '2022' },
+        { n: '2021', v: '2021' },
+        { n: '2020', v: '2020' },
+        { n: '2019', v: '2019' },
+        { n: '2018', v: '2018' },
+        { n: '2017', v: '2017' },
+        { n: '2016', v: '2016' },
+        { n: '2015', v: '2015' },
+        { n: '2014', v: '2014' },
+        { n: '2013', v: '2013' },
+        { n: '2012', v: '2012' },
+        { n: '2011', v: '2011' },
+        { n: '2010', v: '2010' },
+        { n: '2009', v: '2009' },
+        { n: '2008', v: '2008' },
+        { n: '2007', v: '2007' },
+        { n: '2006', v: '2006' },
+        { n: '2005', v: '2005' },
+        { n: '2004', v: '2004' },
+        { n: '2003', v: '2003' },
+        { n: '2002', v: '2002' },
+        { n: '2001', v: '2001' },
+        { n: '2000', v: '2000' }
+    ];
+
     function buildFilter(subTypes) {
         return [
-            { key: 'class', name: '分类', value: subTypes },
+            { key: 'class', name: '类型', value: subTypes },
+            { key: 'area', name: '地区', value: commonAreas },
+            { key: 'year', name: '年份', value: commonYears },
             { key: 'by', name: '排序', value: commonSorts }
         ];
     }
@@ -364,11 +418,13 @@ async function category(tid, pg, filter, extend = {}) {
         const page = parseInt(pg || 1);
         const cateId = tid || '2';
         const subClass = extend.class || '0';
+        const area = extend.area ? encodeURIComponent(extend.area) : '0';
+        const year = extend.year || '0';
         const sort = extend.by || 'desc';
 
         // 欧乐分类 API 格式:
-        // /v1/pub/vod/list/true/3/0/0/{cateId}/{subClass}/0/{sort}/{page}/20
-        const url = `${API_HOST}/v1/pub/vod/list/true/3/0/0/${cateId}/${subClass}/0/${sort}/${page}/20?_vv=${getVv()}`;
+        // /v1/pub/vod/list/true/3/0/{area}/{cateId}/{subClass}/{year}/{sort}/{page}/20
+        const url = `${API_HOST}/v1/pub/vod/list/true/3/0/${area}/${cateId}/${subClass}/${year}/${sort}/${page}/20?_vv=${getVv()}`;
         const raw = await fetchWithCache(url, 600 * 1000);
         const res = JSON.parse(raw);
 
