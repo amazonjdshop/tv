@@ -758,21 +758,70 @@ async function home(filter) {
         { n: '历史', v: '152' }
     ];
 
-    const makeFilter = (subs) => [
-        { key: 'category_id', name: '类型', value: subs },
-        { key: 'region', name: '地区', value: commonRegions },
-        { key: 'year', name: '年份', value: commonYears }
+    const docSubs = [
+        { n: '全部', v: '0' },
+        { n: '文化', v: '168' },
+        { n: '科技', v: '169' },
+        { n: '历史', v: '170' },
+        { n: '军事', v: '171' },
+        { n: '人物', v: '172' },
+        { n: '解密', v: '173' },
+        { n: '自然', v: '174' }
     ];
+
+    const yueSubs = [
+        { n: '全部', v: '0' },
+        { n: '粤台电影', v: '175' },
+        { n: '港台剧集', v: '176' },
+        { n: '海外剧集', v: '177' },
+        { n: '粤台综艺', v: '178' },
+        { n: '粤语动画', v: '179' }
+    ];
+
+    const childSubs = [
+        { n: '全部', v: '0' },
+        { n: '儿歌', v: '187' },
+        { n: '故事', v: '188' },
+        { n: '学英语', v: '189' },
+        { n: '动作', v: '190' },
+        { n: '百科', v: '191' },
+        { n: '国学', v: '192' },
+        { n: '识字', v: '194' },
+        { n: '数学', v: '195' },
+        { n: '美术', v: '196' },
+        { n: '益智', v: '202' },
+        { n: '手工', v: '193' },
+        { n: '音乐', v: '198' }
+    ];
+
+    const sportSubs = [
+        { n: '全部', v: '0' },
+        { n: '足球', v: '163' },
+        { n: '篮球', v: '164' },
+        { n: '综合', v: '165' },
+        { n: '探索', v: '166' },
+        { n: '奥运', v: '167' }
+    ];
+
+    const makeFilter = (subs) => {
+        const list = [];
+        if (subs && subs.length > 1) {
+            list.push({ key: 'category_id', name: '类型', value: subs });
+        }
+        list.push({ key: 'region', name: '地区', value: commonRegions });
+        list.push({ key: 'year', name: '年份', value: commonYears });
+        return list;
+    };
 
     const filters = {
         '100': makeFilter(movieSubs),
         '101': makeFilter(tvSubs),
         '102': makeFilter(varietySubs),
         '103': makeFilter(animeSubs),
-        '105': makeFilter([{ n: '全部', v: '0' }]),
-        '106': makeFilter([{ n: '全部', v: '0' }]),
-        '107': makeFilter([{ n: '全部', v: '0' }]),
-        '104': makeFilter([{ n: '全部', v: '0' }])
+        '105': makeFilter(docSubs),
+        '106': makeFilter(yueSubs),
+        '107': makeFilter(childSubs),
+        '104': makeFilter(sportSubs)
     };
 
     return JSON.stringify({
