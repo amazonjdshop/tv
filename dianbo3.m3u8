@@ -22,10 +22,10 @@
       "filterable": 1
     },
     {
-      "key": "20261010独播库_js",
-      "name": "🇺🇸 纽约·超清专线",
+      "key": "20261011优视频_js",
+      "name": "🇺🇸 湾区·粤语原声专线",
       "type": 3,
-      "api": "./js/独播库.js",
+      "api": "./js/uvod.js",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1
@@ -35,6 +35,15 @@
       "name": "🇺🇸 旧金山·旗舰专线",
       "type": 3,
       "api": "./js/yfsp.js",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "20261010独播库_js",
+      "name": "🇺🇸 纽约·超清专线",
+      "type": 3,
+      "api": "./js/独播库.js",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1
@@ -62,15 +71,6 @@
       "name": "🇺🇸 休斯顿·热播专线",
       "type": 3,
       "api": "./js/rysp.js",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1
-    },
-    {
-      "key": "20261011优视频_js",
-      "name": "🇺🇸 湾区·粤语原声专线",
-      "type": 3,
-      "api": "./js/uvod.js",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1
