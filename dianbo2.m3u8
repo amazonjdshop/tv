@@ -67,10 +67,13 @@
       "filterable": 1
     },
     {
-      "key": "20261010Qile优视频",
-      "name": "🇺🇸 纽约2·超清专线",
-      "type": 4,
-      "api": "https://vod.catvod.ggff.net/uvod"
+      "key": "20261011优视频_js",
+      "name": "🇺🇸 硅谷·优视专线",
+      "type": 3,
+      "api": "./js/uvod.js",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
     },
     {
       "key": "20261010嗷呜爱瓜TV",
