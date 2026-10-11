@@ -68,36 +68,12 @@
     },
     {
       "key": "20261011优视频_js",
-      "name": "🇺🇸 硅谷·优视专线",
+      "name": "🇺🇸 湾区·粤语原声专线",
       "type": 3,
       "api": "./js/uvod.js",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1
-    },
-    {
-      "key": "20261010嗷呜爱瓜TV",
-      "name": "🇺🇸 旧金山2·旗舰专线",
-      "type": 4,
-      "api": "https://vod.catvod.ggff.net/aigua"
-    },
-    {
-      "key": "20261010独播库",
-      "name": "🇺🇸 西雅图2·蓝光专线",
-      "type": 4,
-      "api": "https://vod.catvod.ggff.net/duboku"
-    },
-    {
-      "key": "20261010欧乐影院",
-      "name": "🇺🇸 芝加哥2·全网专线",
-      "type": 4,
-      "api": "https://vod.catvod.ggff.net/oule"
-    },
-    {
-      "key": "20261010荐片",
-      "name": "🇺🇸 休斯顿2·热播专线",
-      "type": 4,
-      "api": "https://vod.catvod.ggff.net/jianpian"
     },
     {
       "key": "20261010全服集合",

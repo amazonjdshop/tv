@@ -865,7 +865,7 @@ async function detail(id) {
             vod_actor: video.starring || '',
             vod_director: video.director || '',
             vod_content: (video.description || '').trim(),
-            vod_play_from: '优视专线',
+            vod_play_from: '粤语原声专线',
             vod_play_url: epList.join('#')
         }];
 
