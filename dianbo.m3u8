@@ -13,34 +13,13 @@
   ],
   "sites": [
     {
-      "key": "20261010Qile优视频",
-      "name": "🇺🇸 纽约·超清专线❤️(点击换线)",
-      "type": 4,
-      "api": "https://vod.catvod.ggff.net/uvod"
-    },
-    {
-      "key": "20261010嗷呜爱瓜TV",
-      "name": "🇺🇸 旧金山·旗舰专线",
-      "type": 4,
-      "api": "https://vod.catvod.ggff.net/aigua"
-    },
-    {
-      "key": "20261010独播库",
-      "name": "🇺🇸 西雅图·蓝光专线",
-      "type": 4,
-      "api": "https://vod.catvod.ggff.net/duboku"
-    },
-    {
-      "key": "20261010欧乐影院",
-      "name": "🇺🇸 芝加哥·全网专线",
-      "type": 4,
-      "api": "https://vod.catvod.ggff.net/oule"
-    },
-    {
-      "key": "20261010荐片",
-      "name": "🇺🇸 休斯顿·热播专线",
-      "type": 4,
-      "api": "https://vod.catvod.ggff.net/jianpian"
+      "key": "20261011优视频_js",
+      "name": "🇺🇸 湾区·粤语原声专线❤️(点击换线)",
+      "type": 3,
+      "api": "./js/uvod.js",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
     },
     {
       "key": "20261010片吧",
