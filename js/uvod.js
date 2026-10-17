@@ -569,7 +569,9 @@ async function executeHttp(url, headers, body) {
         const res = await req(url, {
             method: 'post',
             headers: headers,
+            data: body,
             body: body,
+            postType: 'json',
             timeout: 10000
         });
         return res ? res.content : '';

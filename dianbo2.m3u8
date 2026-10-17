@@ -26,6 +26,7 @@
       "name": "🇺🇸 湾区·粤语原声专线",
       "type": 3,
       "api": "./js/uvod.js",
+      "playerType": 1,
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1
