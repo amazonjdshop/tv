@@ -1,6 +1,6 @@
 #ad#appadhw,mkt.m3u8,output000.ts,ad_slot,adslot,dpdns.org,nosignal,192.151.,204.12.,173.208.,69.30.245.51,107.150.60.122,198.204.228.26
 央视频道,#genre#
-CCTV-1,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CCTV-1/index.m3u8
+CCTV-1,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CCTV-1/index.m3u8?js=huaren.js&stream=CCTV1_MG&id=538
 CCTV-1,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CCTV-1_1/index.m3u8
 CCTV-1,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CCTV-1_2/index.m3u8
 CCTV-1,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CCTV-1_3/index.m3u8
@@ -20,7 +20,6 @@ CCTV-3,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CCTV-3_1/in
 CCTV-3,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CCTV-3_2/index.m3u8
 CCTV-3,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CCTV-3_3/index.m3u8
 CCTV-3,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CCTV-3_4/index.m3u8
-CCTV-3,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CCTV-3_5/index.m3u8
 CCTV-4,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CCTV-4/index.m3u8?js=huaren.js&stream=CCTV4YT&id=541
 CCTV-4,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CCTV-4_1/index.m3u8
 CCTV-4,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CCTV-4_2/index.m3u8
@@ -32,7 +31,9 @@ CCTV-5体育,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CCTV-
 CCTV-5体育,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CCTV-5体育_3/index.m3u8
 CCTV-5体育,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CCTV-5体育_4/index.m3u8
 CCTV-5体育,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CCTV-5体育_5/index.m3u8
+CCTV-5体育,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CCTV-5体育_6/index.m3u8
 CCTV-5+体育赛事,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CCTV-5+体育赛事/index.m3u8?js=huaren.js&stream=CCTV5P_MG&id=537
+CCTV-5+体育赛事,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CCTV-5+体育赛事_1/index.m3u8
 CCTV-6,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CCTV-6/index.m3u8?js=huaren.js&stream=CCTV6_MG&id=611
 CCTV-6,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CCTV-6_1/index.m3u8
 CCTV-6,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CCTV-6_2/index.m3u8
@@ -116,7 +117,6 @@ CCTV-17,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CCTV-17_2/
 CCTV-17,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CCTV-17_3/index.m3u8
 CCTV-17,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CCTV-17_4/index.m3u8
 CCTV-17,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CCTV-17_5/index.m3u8
-CCTV-17,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CCTV-17_6/index.m3u8
 CCTV+ 1,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CCTV+ 1/index.m3u8
 CCTV+ 2,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CCTV+ 2/index.m3u8
 CGTN,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CGTN/index.m3u8
@@ -153,9 +153,7 @@ CGTN阿语,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CGTN阿
 第一剧场,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/第一剧场/index.m3u8
 风云剧场,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/风云剧场/index.m3u8
 风云足球,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/风云足球/index.m3u8
-风云足球,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/风云足球_1/index.m3u8
 风云音乐,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/风云音乐/index.m3u8
-风云音乐,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/风云音乐_1/index.m3u8
 卫视频道,#genre#
 湖南卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/湖南卫视/index.m3u8?js=huaren.js&stream=nhunan&id=651
 湖南卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/湖南卫视_1/index.m3u8
@@ -195,6 +193,7 @@ CGTN阿语,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CGTN阿
 北京卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/北京卫视_3/index.m3u8
 北京卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/北京卫视_4/index.m3u8
 北京卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/北京卫视_5/index.m3u8
+北京卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/北京卫视_6/index.m3u8
 深圳卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/深圳卫视/index.m3u8?js=huaren.js&stream=nshenzhen&id=557
 深圳卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/深圳卫视_1/index.m3u8
 深圳卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/深圳卫视_2/index.m3u8
@@ -202,7 +201,6 @@ CGTN阿语,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CGTN阿
 深圳卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/深圳卫视_4/index.m3u8
 深圳卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/深圳卫视_5/index.m3u8
 深圳卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/深圳卫视_6/index.m3u8
-深圳卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/深圳卫视_7/index.m3u8
 广东卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/广东卫视/index.m3u8?js=huaren.js&stream=nguangdong&id=573
 广东卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/广东卫视_1/index.m3u8
 广东卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/广东卫视_2/index.m3u8
@@ -235,14 +233,12 @@ CGTN阿语,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CGTN阿
 重庆卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/重庆卫视_1/index.m3u8
 重庆卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/重庆卫视_2/index.m3u8
 重庆卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/重庆卫视_3/index.m3u8
-重庆卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/重庆卫视_4/index.m3u8
 河南卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/河南卫视/index.m3u8?js=huaren.js&stream=nhenan&id=650
 河南卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/河南卫视_1/index.m3u8
 河南卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/河南卫视_2/index.m3u8
 河南卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/河南卫视_3/index.m3u8
 天津卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/天津卫视/index.m3u8?js=huaren.js&stream=ntianjing&id=551
 天津卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/天津卫视_1/index.m3u8
-天津卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/天津卫视_2/index.m3u8
 辽宁卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/辽宁卫视/index.m3u8?js=huaren.js&stream=nliaoning&id=616
 辽宁卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/辽宁卫视_1/index.m3u8
 辽宁卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/辽宁卫视_2/index.m3u8
@@ -267,7 +263,6 @@ CGTN阿语,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CGTN阿
 吉林卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/吉林卫视_4/index.m3u8
 吉林卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/吉林卫视_5/index.m3u8
 吉林卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/吉林卫视_6/index.m3u8
-吉林卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/吉林卫视_7/index.m3u8
 东南卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/东南卫视/index.m3u8?js=huaren.js&stream=ndongnan&id=647
 东南卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/东南卫视_1/index.m3u8
 东南卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/东南卫视_2/index.m3u8
@@ -275,7 +270,6 @@ CGTN阿语,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CGTN阿
 东南卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/东南卫视_4/index.m3u8
 东南卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/东南卫视_5/index.m3u8
 东南卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/东南卫视_6/index.m3u8
-东南卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/东南卫视_7/index.m3u8
 三沙卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/三沙卫视/index.m3u8
 东方卫视国际台,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/东方卫视国际台/index.m3u8
 云南卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/云南卫视/index.m3u8
@@ -360,7 +354,6 @@ CGTN阿语,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CGTN阿
 贵州卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/贵州卫视_2/index.m3u8
 贵州卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/贵州卫视_3/index.m3u8
 贵州卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/贵州卫视_4/index.m3u8
-贵州卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/贵州卫视_5/index.m3u8
 青海卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/青海卫视/index.m3u8
 港澳台,#genre#
 华丽翡翠台,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/华丽翡翠台/index.m3u8
@@ -390,7 +383,6 @@ TVB1,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/TVB1_1/index.
 TVBS,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/TVBS/index.m3u8
 TVBS-Asia,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/TVBS-Asia/index.m3u8
 TVBS-Asia,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/TVBS-Asia_1/index.m3u8
-TVBS新闻台,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/TVBS新闻台/index.m3u8
 TVB亚洲武侠,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/TVB亚洲武侠/index.m3u8
 TVB剧集,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/TVB剧集/index.m3u8
 TVB千禧经典台,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/TVB千禧经典台/index.m3u8
@@ -462,7 +454,6 @@ HOY TV,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/HOY TV/inde
 澳门卫星频道,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/澳门卫星频道/index.m3u8
 猫和老鼠,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/猫和老鼠/index.m3u8
 看中国,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/看中国/index.m3u8
-纬来精采,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/纬来精采/index.m3u8
 美亚电影台,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/美亚电影台/index.m3u8
 美国之音中文电视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/美国之音中文电视/index.m3u8
 耀才财经,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/耀才财经/index.m3u8
@@ -522,6 +513,8 @@ Viutv,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Viutv_1/inde
 广东珠江,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/广东珠江/index.m3u8
 广东珠江,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/广东珠江_1/index.m3u8
 广东珠江,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/广东珠江_2/index.m3u8
+广东珠江,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/广东珠江_3/index.m3u8
+广东珠江,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/广东珠江_4/index.m3u8
 广东电视美洲台,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/广东电视美洲台/index.m3u8
 广州南国都市,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/广州南国都市/index.m3u8
 广州南国都市,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/广州南国都市_1/index.m3u8
@@ -533,7 +526,6 @@ Viutv,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Viutv_1/inde
 广州综合,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/广州综合/index.m3u8
 广州综合,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/广州综合_1/index.m3u8
 广州综合,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/广州综合_2/index.m3u8
-广州综合,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/广州综合_3/index.m3u8
 东莞新闻综合,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/东莞新闻综合/index.m3u8
 东莞新闻综合,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/东莞新闻综合_1/index.m3u8
 南国都市,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/南国都市/index.m3u8
@@ -561,7 +553,6 @@ Viutv,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Viutv_1/inde
 浙江国际频道,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/浙江国际频道/index.m3u8
 浙江国际频道,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/浙江国际频道_1/index.m3u8
 浙江国际频道,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/浙江国际频道_2/index.m3u8
-浙江国际频道,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/浙江国际频道_3/index.m3u8
 浙江教科影视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/浙江教科影视/index.m3u8
 浙江教科影视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/浙江教科影视_1/index.m3u8
 浙江教科影视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/浙江教科影视_2/index.m3u8
@@ -576,12 +567,9 @@ Viutv,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Viutv_1/inde
 浙江民生休闲,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/浙江民生休闲_3/index.m3u8
 浙江经济生活,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/浙江经济生活/index.m3u8
 浙江经济生活,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/浙江经济生活_1/index.m3u8
-浙江经济生活,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/浙江经济生活_2/index.m3u8
-浙江经济生活,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/浙江经济生活_3/index.m3u8
 浙江钱江都市,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/浙江钱江都市/index.m3u8
 浙江钱江都市,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/浙江钱江都市_1/index.m3u8
 嘉兴新闻综合,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/嘉兴新闻综合/index.m3u8
-嘉兴新闻综合,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/嘉兴新闻综合_1/index.m3u8
 绍兴公共频道,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/绍兴公共频道/index.m3u8
 绍兴新闻综合,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/绍兴新闻综合/index.m3u8
 海宁新闻综合,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/海宁新闻综合/index.m3u8
@@ -683,7 +671,6 @@ Viutv,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Viutv_1/inde
 广西国际,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/广西国际_1/index.m3u8
 广西国际,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/广西国际_2/index.m3u8
 广西新闻,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/广西新闻/index.m3u8
-广西新闻,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/广西新闻_1/index.m3u8
 南宁娱乐,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/南宁娱乐/index.m3u8
 南宁影视娱乐,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/南宁影视娱乐/index.m3u8
 南宁文旅,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/南宁文旅/index.m3u8
@@ -709,9 +696,7 @@ Viutv,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Viutv_1/inde
 赤峰新闻综合,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/赤峰新闻综合/index.m3u8
 鄂尔多斯新闻综合,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/鄂尔多斯新闻综合/index.m3u8
 巴彦淖尔新闻综合,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/巴彦淖尔新闻综合/index.m3u8
-乌海新闻综合,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/乌海新闻综合/index.m3u8
 乌兰察布新闻综合,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/乌兰察布新闻综合/index.m3u8
-锡林郭勒盟一套,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/锡林郭勒盟一套/index.m3u8
 阿拉善新闻综合,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/阿拉善新闻综合/index.m3u8
 西宁新闻综合,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/西宁新闻综合/index.m3u8
 亚洲剧台,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/亚洲剧台_1/index.m3u8
@@ -760,7 +745,6 @@ Viutv,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Viutv_1/inde
 衡阳新闻综合,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/衡阳新闻综合/index.m3u8
 西峰综合,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/西峰综合/index.m3u8
 通化县,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/通化县/index.m3u8
-通辽新闻综合,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/通辽新闻综合/index.m3u8
 铜梁综合,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/铜梁综合/index.m3u8
 长影频道,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/长影频道/index.m3u8
 长白朝语,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/长白朝语/index.m3u8
@@ -772,6 +756,7 @@ RT DE（德语）,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/
 CHC动作电影,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CHC动作电影/index.m3u8
 CHC家庭影院,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CHC家庭影院/index.m3u8
 CHC高清电影,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CHC高清电影/index.m3u8
+CHC高清电影,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CHC高清电影_1/index.m3u8
 句容影院,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/句容影院/index.m3u8
 教科影院,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/教科影院/index.m3u8
 湖南电影,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/湖南电影/index.m3u8
@@ -980,7 +965,6 @@ Mystery TV,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Mystery
 Mytime Movie,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Mytime Movie/index.m3u8
 MyTime Movie Network,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/MyTime Movie Network/index.m3u8
 MyTime Movie Network,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/MyTime Movie Network_1/index.m3u8
-MyTime Movie Network,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/MyTime Movie Network_2/index.m3u8
 MyTime MovieNetwork,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/MyTime MovieNetwork/index.m3u8
 NBC Comedy Vault,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/NBC Comedy Vault/index.m3u8
 NEW K.MOVIES,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/NEW K.MOVIES/index.m3u8
@@ -1257,7 +1241,6 @@ NBA TV,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/NBA TV/inde
 NBA TV,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/NBA TV_1/index.m3u8
 NBA TV,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/NBA TV_2/index.m3u8
 The NBA Channel,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/The NBA Channel/index.m3u8
-五星体育,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/五星体育/index.m3u8
 30A Golf Kingdom,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/30A Golf Kingdom/index.m3u8
 ACC Digital Network,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/ACC Digital Network/index.m3u8
 ACC Network,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/ACC Network/index.m3u8
@@ -1558,6 +1541,7 @@ Wildest Wish TV,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Wi
 CETV-1,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CETV-1/index.m3u8
 CETV-1,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CETV-1_1/index.m3u8
 CETV-2,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CETV-2/index.m3u8
+CETV-2,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CETV-2_1/index.m3u8
 CETV-3,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CETV-3/index.m3u8
 上海教育,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/上海教育/index.m3u8
 中国教育电视台1套,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/中国教育电视台1套/index.m3u8
@@ -1617,7 +1601,6 @@ Yu-Gi-Oh!,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Yu-Gi-Oh
 熊猫直播,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/熊猫直播/index.m3u8
 中央电视塔东,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/中央电视塔东/index.m3u8
 中央电视塔南,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/中央电视塔南/index.m3u8
-丽江古城万古楼遥望玉龙雪山,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/丽江古城万古楼遥望玉龙雪山/index.m3u8
 丽江古城大研花巷观景,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/丽江古城大研花巷观景/index.m3u8
 乌镇全景,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/乌镇全景/index.m3u8
 乌镇蓝印花布,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/乌镇蓝印花布/index.m3u8
@@ -1679,7 +1662,6 @@ Yu-Gi-Oh!,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Yu-Gi-Oh
 狮子山鸟瞰丽江古城,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/狮子山鸟瞰丽江古城/index.m3u8
 福建武夷山玉女峰,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/福建武夷山玉女峰/index.m3u8
 福建漳州醉美沙滩翡翠湾,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/福建漳州醉美沙滩翡翠湾/index.m3u8
-贵州省兴义市万峰林,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/贵州省兴义市万峰林/index.m3u8
 都江堰鱼嘴,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/都江堰鱼嘴/index.m3u8
 陕西洋县国宝朱鹮02,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/陕西洋县国宝朱鹮02/index.m3u8
 陕西洋县国宝朱鹮03,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/陕西洋县国宝朱鹮03/index.m3u8
@@ -2782,7 +2764,6 @@ Novelas de Siempre,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live
 Novelisima,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Novelisima/index.m3u8
 Novelisima,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Novelisima_1/index.m3u8
 Ocean Vibes,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Ocean Vibes/index.m3u8
-Olelo 55,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Olelo 55/index.m3u8
 Omid e Iran TV,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Omid e Iran TV/index.m3u8
 Omstars,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Omstars/index.m3u8
 On Patrol: Live,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/On Patrol: Live/index.m3u8
@@ -3242,7 +3223,6 @@ Wipeout Xtra,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Wipeo
 Wipeout Xtra,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Wipeout Xtra_1/index.m3u8
 WipeoutXtra,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/WipeoutXtra/index.m3u8
 Wired2Fish,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Wired2Fish/index.m3u8
-Wired2Fish,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Wired2Fish_1/index.m3u8
 Witness to Justice,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Witness to Justice/index.m3u8
 WLMB,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/WLMB/index.m3u8
 WLNG Radio,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/WLNG Radio/index.m3u8
@@ -3449,7 +3429,6 @@ India TV Aap ki Adalat,https://round-snowflake-2d83.linda11-28-2022.workers.dev/
 Iron Chef en español,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Iron Chef en español/index.m3u8
 Jack Hanna,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Jack Hanna/index.m3u8
 Merhaba Arabische Serien,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Merhaba Arabische Serien/index.m3u8
-Merhaba Arabische Serien,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Merhaba Arabische Serien_1/index.m3u8
 Metallica Takeover,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Metallica Takeover_1/index.m3u8
 Mr Bean Animated,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Mr Bean Animated_1/index.m3u8
 Naruto,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Naruto_1/index.m3u8
