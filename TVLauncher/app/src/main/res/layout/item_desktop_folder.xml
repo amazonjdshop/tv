@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.hm.tvlauncher.ui.view.TVFocusCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cardView"
+    android:layout_width="160dp"
+    android:layout_height="180dp"
+    android:layout_margin="12dp"
+    android:focusable="true"
+    android:clickable="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="12dp">
+
+        <!-- 2x2 Mini Icons Container Preview -->
+        <com.hm.tvlauncher.ui.view.FolderPreviewView
+            android:id="@+id/folderPreview"
+            android:layout_width="84dp"
+            android:layout_height="84dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvFolderName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxWidth="110dp"
+                android:maxLines="1"
+                android:textColor="@color/text_white"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                tools:text="影视点播" />
+
+            <TextView
+                android:id="@+id/tvAppCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:textColor="@color/text_dim"
+                android:textSize="12sp"
+                tools:text="(4)" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</com.hm.tvlauncher.ui.view.TVFocusCardView>

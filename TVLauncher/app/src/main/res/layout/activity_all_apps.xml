@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_launcher_default"
+    android:paddingStart="48dp"
+    android:paddingTop="32dp"
+    android:paddingEnd="48dp"
+    android:paddingBottom="24dp">
+
+    <!-- Header -->
+    <TextView
+        android:id="@+id/tvAllAppsTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/all_apps"
+        android:textColor="@color/text_white"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvAppCountTotal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:textColor="@color/text_dim"
+        android:textSize="16sp"
+        tools:text="已安装 18 个应用"
+        app:layout_constraintBottom_toBottomOf="@id/tvAllAppsTitle"
+        app:layout_constraintStart_toEndOf="@id/tvAllAppsTitle"
+        app:layout_constraintTop_toTopOf="@id/tvAllAppsTitle" />
+
+    <!-- Apps Grid -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvAllApps"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="16dp"
+        android:clipToPadding="false"
+        android:focusable="false"
+        android:overScrollMode="never"
+        app:layout_constraintBottom_toTopOf="@id/tvAllAppsHint"
+        app:layout_constraintTop_toBottomOf="@id/tvAllAppsTitle" />
+
+    <TextView
+        android:id="@+id/tvAllAppsHint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="按遥控器【OK】启动应用   按【菜单键】可添加到主屏或移入文件夹   按【返回键】回桌面"
+        android:textColor="@color/text_dim"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

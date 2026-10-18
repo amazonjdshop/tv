@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="48dp"
+    android:height="48dp"
+    android:viewportWidth="48"
+    android:viewportHeight="48">
+    <!-- Sun core -->
+    <path
+        android:fillColor="#FFD54F"
+        android:pathData="M24,14 A10,10 0 1,0 24,34 A10,10 0 1,0 24,14" />
+    <!-- Sun rays -->
+    <path
+        android:fillColor="#FFD54F"
+        android:pathData="M22,4 h4 v6 h-4 z M22,38 h4 v6 h-4 z M4,22 h6 v4 h-6 z M38,22 h6 v4 h-6 z M9.86,8.44 l4.24,4.24 l-2.83,2.83 l-4.24,-4.24 z M36.73,35.31 l4.24,4.24 l-2.83,2.83 l-4.24,-4.24 z M8.44,38.14 l4.24,-4.24 l2.83,2.83 l-4.24,4.24 z M35.31,11.27 l4.24,-4.24 l2.83,2.83 l-4.24,4.24 z" />
+</vector>

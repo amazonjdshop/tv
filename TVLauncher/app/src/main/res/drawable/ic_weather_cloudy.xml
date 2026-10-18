@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="48dp"
+    android:height="48dp"
+    android:viewportWidth="48"
+    android:viewportHeight="48">
+    <!-- Sun peeking -->
+    <path
+        android:fillColor="#FFA726"
+        android:pathData="M19,17 A7,7 0 1,0 26,10 A7,7 0 0,0 19,17" />
+    <path
+        android:fillColor="#FFA726"
+        android:pathData="M25,2 h2 v4 h-2 z M36.3,8.7 l2.8,-2.8 l-1.4,-1.4 l-2.8,2.8 z M38,17 h4 v2 h-4 z" />
+    <!-- Cloud -->
+    <path
+        android:fillColor="#E0E6ED"
+        android:pathData="M37,36 H15 A10,10 0 0,1 15,16 A13,13 0 0,1 36,20 A8,8 0 0,1 37,36 Z" />
+</vector>

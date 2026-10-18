@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="48dp"
+    android:height="48dp"
+    android:viewportWidth="48"
+    android:viewportHeight="48">
+    <!-- Back dark cloud -->
+    <path
+        android:fillColor="#90A4AE"
+        android:pathData="M37,28 H17 A8,8 0 0,1 17,12 A11,11 0 0,1 36,15 A7,7 0 0,1 37,28 Z" />
+    <!-- Front cloud -->
+    <path
+        android:fillColor="#CFD8DC"
+        android:pathData="M39,36 H13 A9,9 0 0,1 13,18 A12,12 0 0,1 35,21 A8,8 0 0,1 39,36 Z" />
+</vector>

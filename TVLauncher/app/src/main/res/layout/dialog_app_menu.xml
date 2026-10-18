@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="340dp"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_dialog_rounded"
+    android:orientation="vertical"
+    android:padding="24dp">
+
+    <!-- App Info Header -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/ivMenuAppIcon"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            tools:src="@drawable/ic_launcher_tv" />
+
+        <TextView
+            android:id="@+id/tvMenuAppName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_weight="1"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textColor="@color/text_white"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            tools:text="应用管理" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="12dp"
+        android:background="#26FFFFFF" />
+
+    <!-- Action List Container -->
+    <LinearLayout
+        android:id="@+id/menuActionsContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Move to folder option -->
+        <TextView
+            android:id="@+id/btnMenuMoveToFolder"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@drawable/bg_status_btn"
+            android:focusable="true"
+            android:clickable="true"
+            android:gravity="center_vertical"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:text="@string/menu_move_to_folder"
+            android:textColor="@color/text_white"
+            android:textSize="15sp" />
+
+        <!-- Remove from folder (dynamic visibility) -->
+        <TextView
+            android:id="@+id/btnMenuRemoveFromFolder"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/bg_status_btn"
+            android:focusable="true"
+            android:clickable="true"
+            android:gravity="center_vertical"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:text="@string/menu_remove_from_folder"
+            android:textColor="@color/text_white"
+            android:textSize="15sp"
+            android:visibility="gone" />
+
+        <!-- Remove from Home -->
+        <TextView
+            android:id="@+id/btnMenuRemoveFromHome"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/bg_status_btn"
+            android:focusable="true"
+            android:clickable="true"
+            android:gravity="center_vertical"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:text="@string/menu_remove_from_home"
+            android:textColor="@color/text_white"
+            android:textSize="15sp" />
+
+        <!-- App Details / Info -->
+        <TextView
+            android:id="@+id/btnMenuAppInfo"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/bg_status_btn"
+            android:focusable="true"
+            android:clickable="true"
+            android:gravity="center_vertical"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:text="@string/menu_app_info"
+            android:textColor="@color/text_white"
+            android:textSize="15sp" />
+
+        <!-- Uninstall -->
+        <TextView
+            android:id="@+id/btnMenuUninstall"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/bg_status_btn"
+            android:focusable="true"
+            android:clickable="true"
+            android:gravity="center_vertical"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:text="@string/menu_uninstall"
+            android:textColor="@color/red_danger"
+            android:textSize="15sp" />
+
+    </LinearLayout>
+
+</LinearLayout>

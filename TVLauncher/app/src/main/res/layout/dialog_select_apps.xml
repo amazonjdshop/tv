@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="860dp"
+    android:layout_height="520dp"
+    android:background="@drawable/bg_dialog_rounded"
+    android:padding="28dp">
+
+    <TextView
+        android:id="@+id/tvSelectTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="选择应用"
+        android:textColor="@color/text_white"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvSelectSubtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:text="按遥控器OK键勾选或取消"
+        android:textColor="@color/text_dim"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@id/tvSelectTitle"
+        app:layout_constraintStart_toEndOf="@id/tvSelectTitle"
+        app:layout_constraintTop_toTopOf="@id/tvSelectTitle" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvSelectableApps"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:clipToPadding="false"
+        android:focusable="false"
+        app:layout_constraintBottom_toTopOf="@id/btnConfirmSelection"
+        app:layout_constraintTop_toBottomOf="@id/tvSelectTitle" />
+
+    <Button
+        android:id="@+id/btnConfirmSelection"
+        android:layout_width="140dp"
+        android:layout_height="48dp"
+        android:background="@drawable/bg_status_btn"
+        android:text="@string/confirm"
+        android:textColor="@color/text_white"
+        android:textSize="15sp"
+        android:focusable="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/btnCancelSelection"
+        android:layout_width="140dp"
+        android:layout_height="48dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/bg_status_btn"
+        android:text="@string/cancel"
+        android:textColor="@color/text_secondary"
+        android:textSize="15sp"
+        android:focusable="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/btnConfirmSelection" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

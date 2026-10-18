@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primary">#2979FF</color>
+    <color name="primary_dark">#1565C0</color>
+    <color name="accent">#00E5FF</color>
+    
+    <!-- Backgrounds -->
+    <color name="bg_dark">#0F141C</color>
+    <color name="bg_card">#26FFFFFF</color>
+    <color name="bg_card_dark">#33000000</color>
+    <color name="bg_card_focused">#50FFFFFF</color>
+    <color name="bg_folder_dialog">#EA141923</color>
+    <color name="bg_menu_dialog">#F5181F2C</color>
+
+    <!-- TV Focus Glow -->
+    <color name="focus_glow">#4000E5FF</color>
+    <color name="focus_border">#00E5FF</color>
+    <color name="focus_border_inner">#80FFFFFF</color>
+
+    <!-- Texts -->
+    <color name="text_white">#FFFFFFFF</color>
+    <color name="text_secondary">#B3FFFFFF</color>
+    <color name="text_dim">#80FFFFFF</color>
+    <color name="text_gold">#FFD54F</color>
+
+    <!-- Status -->
+    <color name="green_online">#00E676</color>
+    <color name="blue_btn">#2979FF</color>
+    <color name="red_danger">#FF5252</color>
+</resources>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">HM桌面</string>
+    <string name="weather_loading">天气加载中…</string>
+    <string name="weather_offline">离线天气</string>
+    <string name="clean_memory">一键加速</string>
+    <string name="system_settings">设置</string>
+    <string name="all_apps">全部应用</string>
+    <string name="add_to_home">添加应用</string>
+    <string name="create_folder">新建文件夹</string>
+    <string name="folder_default_name">未命名文件夹</string>
+    <string name="empty_folder">空文件夹</string>
+    <string name="hint_menu">按遥控器【菜单键】管理应用</string>
+    
+    <!-- App Menu -->
+    <string name="menu_move_to_folder">移入文件夹</string>
+    <string name="menu_remove_from_folder">从文件夹移出</string>
+    <string name="menu_remove_from_home">从主屏移除</string>
+    <string name="menu_pin_to_home">固定到桌面</string>
+    <string name="menu_app_info">应用详情</string>
+    <string name="menu_uninstall">卸载应用</string>
+    
+    <!-- Folder Dialog -->
+    <string name="folder_add_app">添加应用到此文件夹</string>
+    <string name="folder_rename">重命名</string>
+    <string name="folder_delete">解散文件夹</string>
+    <string name="confirm">确定</string>
+    <string name="cancel">取消</string>
+    
+    <!-- Weather Forecast -->
+    <string name="weather_detail_title">天气预报详情</string>
+    <string name="humidity">湿度</string>
+    <string name="wind_speed">风速</string>
+    
+    <!-- Memory Clean -->
+    <string name="memory_cleaned">加速完成！已释放 %1$d MB 内存</string>
+</resources>
