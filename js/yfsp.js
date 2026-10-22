@@ -702,7 +702,11 @@ async function category(tid, pg, filter, extend = {}) {
         }
 
         // 3. 影视长视频类板块 (电影, 电视剧, 综艺, 动漫, 纪录片, 体育)
-        let cid = (extend && extend.class) || tid || '0,1,3';
+        let extClass = extend && extend.class;
+        if (extClass === '0' || extClass === 'all' || extClass === '全部' || extClass === '全部类别' || extClass === '全部分类') {
+            extClass = '';
+        }
+        let cid = extClass || tid || '0,1,3';
         const tidMap = {
             '1': '0,1,3',
             '2': '0,1,4',
@@ -713,13 +717,21 @@ async function category(tid, pg, filter, extend = {}) {
             cid = tidMap[cid];
         }
 
-        const region = (extend && (extend.area || extend.region)) || '';
+        let region = (extend && (extend.area || extend.region)) || '';
+        if (region === '0' || region === 'all' || region === '全部' || region === '全部地区') region = '';
+
         let language = (extend && (extend.lang || extend.language)) || '';
+        if (language === '0' || language === 'all' || language === '全部') language = '';
         if (language === '泰语') language = '泰国语';
         if (language === '西语') language = '西班牙语';
-        const year = (extend && extend.year) || '';
+
+        let year = (extend && extend.year) || '';
+        if (year === '0' || year === 'all' || year === '全部' || year === '全部年份') year = '';
+
         const orderby = (extend && (extend.sort || extend.by || extend.orderBy)) || '4';
-        const status = (extend && extend.status) || '';
+
+        let status = (extend && extend.status) || '';
+        if (status === 'all' || status === '全部') status = '';
 
         const params = {
             cinema: '1',

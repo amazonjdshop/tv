@@ -327,10 +327,20 @@ async function category(tid, pg, filter, extend = {}) {
     try {
         const page = parseInt(pg || 1);
         const cateId = tid || '2';
-        const area = extend.area ? encodeURIComponent(extend.area) : '';
+        
+        let rawArea = extend.area || '';
+        if (rawArea === '0' || rawArea === '全部' || rawArea === '全部地区' || rawArea === 'all') rawArea = '';
+        const area = rawArea ? encodeURIComponent(rawArea) : '';
+
         const by = extend.by ? encodeURIComponent(extend.by) : '';
-        const cls = extend.class ? encodeURIComponent(extend.class) : '';
-        const year = extend.year || '';
+
+        let rawCls = extend.class || '';
+        if (rawCls === '0' || rawCls === '全部' || rawCls === '全部类别' || rawCls === '全部分类' || rawCls === 'all') rawCls = '';
+        const cls = rawCls ? encodeURIComponent(rawCls) : '';
+
+        let rawYear = extend.year || '';
+        if (rawYear === '0' || rawYear === '全部' || rawYear === '全部年份' || rawYear === 'all') rawYear = '';
+        const year = rawYear;
 
         // MacCMS vodshow 严格 12 段 URL 规范:
         // [0:id, 1:area, 2:by, 3:class, 4:lang, 5:letter, 6:level, 7:tag, 8:page, 9:empty, 10:empty, 11:year]

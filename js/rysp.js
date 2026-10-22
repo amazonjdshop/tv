@@ -244,9 +244,25 @@ async function category(tid, pg, filter, extend = {}) {
     try {
         const page = parseInt(pg || 1);
         const channelId = tid || '2';
-        const tag = extend.tag || '0';
-        const area = extend.area || '0';
-        const year = extend.year || '0';
+        let tag = extend.tag || extend.class || '0';
+        if (tag === '全部' || tag === '全部类别' || tag === '全部分类' || tag === 'all') tag = '0';
+
+        let area = extend.area || '0';
+        if (area === '全部' || area === '全部地区' || area === 'all') area = '0';
+        const areaMap = {
+            '国产': '18', '大陆': '18', '内地': '18', '欧美': '19', '香港': '20',
+            '韩国': '21', '日本': '24', '台湾': '23', '英国': '22', '泰国': '31'
+        };
+        if (areaMap[area]) area = areaMap[area];
+
+        let year = extend.year || '0';
+        if (year === '全部' || year === '全部年份' || year === 'all') year = '0';
+        const yearMap = {
+            '2026': '132', '2025': '131', '2024': '130', '2023': '129',
+            '2022': '21', '2021': '22', '2020': '23', '2019': '24', '2018': '25'
+        };
+        if (yearMap[year]) year = yearMap[year];
+
         const sort = extend.sort || 'new';
 
         const url = `${HOST}/video/refresh-cate?channel_id=${channelId}&page_num=${page}&page_size=24&tag=${tag}&area=${area}&year=${year}&sort=${sort}`;

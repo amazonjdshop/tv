@@ -856,10 +856,18 @@ async function category(tid, pg, filter, extend = {}) {
             page_size: 24
         };
         if (extend) {
-            if (extend.category_id && extend.category_id !== '0') payload.category_id = parseInt(extend.category_id);
-            else if (extend.class && extend.class !== '0') payload.category_id = parseInt(extend.class);
-            if (extend.year && extend.year !== '0') payload.year = parseInt(extend.year);
-            if (extend.region && extend.region !== '0') payload.region = extend.region;
+            const rawCat = extend.category_id || extend.class;
+            if (rawCat && rawCat !== '0' && rawCat !== '全部' && rawCat !== '全部类别' && rawCat !== '全部分类' && rawCat !== 'all') {
+                const parsedCat = parseInt(rawCat);
+                if (!isNaN(parsedCat)) payload.category_id = parsedCat;
+            }
+            if (extend.year && extend.year !== '0' && extend.year !== '全部' && extend.year !== '全部年份' && extend.year !== 'all') {
+                const parsedYear = parseInt(extend.year);
+                if (!isNaN(parsedYear)) payload.year = parsedYear;
+            }
+            if (extend.region && extend.region !== '0' && extend.region !== '全部' && extend.region !== '全部地区' && extend.region !== 'all') {
+                payload.region = extend.region;
+            }
         }
 
         const res = await postApiWithCache('/video/list', payload);

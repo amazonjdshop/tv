@@ -417,9 +417,16 @@ async function category(tid, pg, filter, extend = {}) {
     try {
         const page = parseInt(pg || 1);
         const cateId = tid || '2';
-        const subClass = extend.class || '0';
-        const area = extend.area ? encodeURIComponent(extend.area) : '0';
-        const year = extend.year || '0';
+        let subClass = extend.class || '0';
+        if (subClass === '全部' || subClass === '全部类别' || subClass === '全部分类' || subClass === 'all') subClass = '0';
+
+        let rawArea = extend.area || '0';
+        if (rawArea === '全部' || rawArea === '全部地区' || rawArea === 'all') rawArea = '0';
+        const area = encodeURIComponent(rawArea);
+
+        let year = extend.year || '0';
+        if (year === '全部' || year === '全部年份' || year === 'all') year = '0';
+
         const sort = extend.by || 'desc';
 
         // 欧乐分类 API 格式:

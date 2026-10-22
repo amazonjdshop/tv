@@ -268,14 +268,20 @@ async function category(tid, pg, filter, extend = {}) {
     try {
         const page = parseInt(pg || 1);
         let base = tid;
-        if (extend && extend.class) {
+        if (extend && extend.class && extend.class !== '0' && extend.class !== '全部' && extend.class !== '全部类别' && extend.class !== '全部分类' && extend.class !== 'all') {
             base = extend.class;
         }
 
         let path = `/show/${base}`;
-        if (extend && extend.area) path += `/area/${encodeURIComponent(extend.area)}`;
-        if (extend && extend.year) path += `/year/${encodeURIComponent(extend.year)}`;
-        if (extend && extend.lang) path += `/lang/${encodeURIComponent(extend.lang)}`;
+        if (extend && extend.area && extend.area !== '0' && extend.area !== '全部' && extend.area !== '全部地区' && extend.area !== 'all') {
+            path += `/area/${encodeURIComponent(extend.area)}`;
+        }
+        if (extend && extend.year && extend.year !== '0' && extend.year !== '全部' && extend.year !== '全部年份' && extend.year !== 'all') {
+            path += `/year/${encodeURIComponent(extend.year)}`;
+        }
+        if (extend && extend.lang && extend.lang !== '0' && extend.lang !== '全部' && extend.lang !== 'all') {
+            path += `/lang/${encodeURIComponent(extend.lang)}`;
+        }
         path += `/page/${page}`;
 
         const url = `${HOST}${path}`;
