@@ -700,9 +700,11 @@ async function home(filter) {
     const commonRegions = [
         { n: '全部', v: '0' },
         { n: '大陆', v: '大陆' },
+        { n: '香港', v: '香港' },
+        { n: '台湾', v: '台湾' },
         { n: '欧美', v: '欧美' },
-        { n: '日韩', v: '日韩' },
-        { n: '港台', v: '港台' },
+        { n: '日本', v: '日本' },
+        { n: '韩国', v: '韩国' },
         { n: '其他', v: '其他' }
     ];
 
@@ -866,7 +868,10 @@ async function category(tid, pg, filter, extend = {}) {
                 if (!isNaN(parsedYear)) payload.year = parsedYear;
             }
             if (extend.region && extend.region !== '0' && extend.region !== '全部' && extend.region !== '全部地区' && extend.region !== 'all') {
-                payload.region = extend.region;
+                let reg = extend.region;
+                if (reg === '港台') reg = '香港';
+                else if (reg === '日韩') reg = '日本';
+                payload.region = reg;
             }
         }
 
