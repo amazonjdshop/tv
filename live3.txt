@@ -70,7 +70,6 @@ CCTV-10,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CCTV-10_2/
 CCTV-10,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CCTV-10_3/index.m3u8
 CCTV-10,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CCTV-10_4/index.m3u8
 CCTV-10,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CCTV-10_5/index.m3u8
-CCTV-10,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CCTV-10_6/index.m3u8
 CCTV-11,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CCTV-11/index.m3u8
 CCTV-11,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CCTV-11_1/index.m3u8
 CCTV-11,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CCTV-11_2/index.m3u8
@@ -144,6 +143,7 @@ CGTN财经,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CGTN财
 CGTN财经,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CGTN财经_1/index.m3u8
 CGTN阿语,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CGTN阿语/index.m3u8
 世界地理,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/世界地理/index.m3u8
+世界地理,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/世界地理_1/index.m3u8
 兵器科技,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/兵器科技/index.m3u8
 兵器科技,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/兵器科技_1/index.m3u8
 兵器科技,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/兵器科技_2/index.m3u8
@@ -193,11 +193,11 @@ CCTV中文国际-YT,https://www.youtube.com/embed/vNVp6bxkL1c
 东方卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/东方卫视_4/index.m3u8
 东方卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/东方卫视_5/index.m3u8
 东方卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/东方卫视_6/index.m3u8
+东方卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/东方卫视_7/index.m3u8
 北京卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/北京卫视/index.m3u8?js=huaren.js&stream=nbeijing&id=550
 北京卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/北京卫视_1/index.m3u8
 北京卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/北京卫视_2/index.m3u8
 北京卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/北京卫视_3/index.m3u8
-北京卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/北京卫视_4/index.m3u8
 深圳卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/深圳卫视/index.m3u8?js=huaren.js&stream=nshenzhen&id=557
 深圳卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/深圳卫视_1/index.m3u8
 深圳卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/深圳卫视_2/index.m3u8
@@ -218,7 +218,6 @@ CCTV中文国际-YT,https://www.youtube.com/embed/vNVp6bxkL1c
 安徽卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/安徽卫视/index.m3u8?js=huaren.js&stream=nanhui&id=615
 安徽卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/安徽卫视_1/index.m3u8
 安徽卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/安徽卫视_2/index.m3u8
-安徽卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/安徽卫视_3/index.m3u8
 湖北卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/湖北卫视/index.m3u8?js=huaren.js&stream=nhubei&id=654
 湖北卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/湖北卫视_1/index.m3u8
 湖北卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/湖北卫视_2/index.m3u8
@@ -240,6 +239,7 @@ CCTV中文国际-YT,https://www.youtube.com/embed/vNVp6bxkL1c
 辽宁卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/辽宁卫视/index.m3u8?js=huaren.js&stream=nliaoning&id=616
 辽宁卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/辽宁卫视_1/index.m3u8
 辽宁卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/辽宁卫视_2/index.m3u8
+辽宁卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/辽宁卫视_3/index.m3u8
 陕西卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/陕西卫视/index.m3u8
 陕西卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/陕西卫视_1/index.m3u8
 陕西卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/陕西卫视_2/index.m3u8
@@ -248,12 +248,10 @@ CCTV中文国际-YT,https://www.youtube.com/embed/vNVp6bxkL1c
 黑龙江卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/黑龙江卫视_2/index.m3u8
 黑龙江卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/黑龙江卫视_3/index.m3u8
 黑龙江卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/黑龙江卫视_4/index.m3u8
-黑龙江卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/黑龙江卫视_5/index.m3u8
 吉林卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/吉林卫视/index.m3u8
 吉林卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/吉林卫视_1/index.m3u8
 吉林卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/吉林卫视_2/index.m3u8
 吉林卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/吉林卫视_3/index.m3u8
-吉林卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/吉林卫视_4/index.m3u8
 东南卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/东南卫视/index.m3u8?js=huaren.js&stream=ndongnan&id=647
 东南卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/东南卫视_1/index.m3u8
 东南卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/东南卫视_2/index.m3u8
@@ -261,6 +259,7 @@ CCTV中文国际-YT,https://www.youtube.com/embed/vNVp6bxkL1c
 东南卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/东南卫视_4/index.m3u8
 东南卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/东南卫视_5/index.m3u8
 三沙卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/三沙卫视/index.m3u8
+三沙卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/三沙卫视_1/index.m3u8
 云南卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/云南卫视/index.m3u8
 云南卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/云南卫视_1/index.m3u8
 云南卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/云南卫视_2/index.m3u8
@@ -274,7 +273,6 @@ CCTV中文国际-YT,https://www.youtube.com/embed/vNVp6bxkL1c
 厦门卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/厦门卫视/index.m3u8
 厦门卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/厦门卫视_1/index.m3u8
 厦门卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/厦门卫视_2/index.m3u8
-厦门卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/厦门卫视_3/index.m3u8
 大湾区卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/大湾区卫视/index.m3u8
 大湾区卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/大湾区卫视_1/index.m3u8
 大湾区卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/大湾区卫视_2/index.m3u8
@@ -289,7 +287,6 @@ CCTV中文国际-YT,https://www.youtube.com/embed/vNVp6bxkL1c
 山西卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/山西卫视_4/index.m3u8
 山西卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/山西卫视_5/index.m3u8
 山西卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/山西卫视_6/index.m3u8
-山西卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/山西卫视_7/index.m3u8
 广西卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/广西卫视/index.m3u8
 广西卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/广西卫视_1/index.m3u8
 广西卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/广西卫视_2/index.m3u8
@@ -307,12 +304,14 @@ CCTV中文国际-YT,https://www.youtube.com/embed/vNVp6bxkL1c
 江西卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/江西卫视_2/index.m3u8
 江西卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/江西卫视_3/index.m3u8
 江西卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/江西卫视_4/index.m3u8
+江西卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/江西卫视_5/index.m3u8
 河北卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/河北卫视/index.m3u8
 河北卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/河北卫视_1/index.m3u8
 河北卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/河北卫视_2/index.m3u8
 河北卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/河北卫视_3/index.m3u8
 海峡卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/海峡卫视/index.m3u8
 海峡卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/海峡卫视_1/index.m3u8
+海峡卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/海峡卫视_2/index.m3u8
 澳门卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/澳门卫视/index.m3u8
 澳门卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/澳门卫视_1/index.m3u8
 甘肃卫视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/甘肃卫视/index.m3u8
@@ -356,8 +355,8 @@ TVB J1,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/TVB J1_2/in
 无线新闻,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/无线新闻/index.m3u8
 无线新闻,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/无线新闻_1/index.m3u8
 无线新闻,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/无线新闻_2/index.m3u8
+无线新闻,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/无线新闻_3/index.m3u8
 无线新闻新闻透视-YT,https://www.youtube.com/embed/13C8jdbqQcI
-TVB Pearl Drama,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/TVB Pearl Drama/index.m3u8
 TVB1,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/TVB1/index.m3u8
 TVB1,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/TVB1_1/index.m3u8
 TVBS,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/TVBS/index.m3u8
@@ -365,6 +364,7 @@ TVBS 56台-YT,https://www.youtube.com/embed/o_-hSMgpAzs
 TVBS-Asia,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/TVBS-Asia/index.m3u8
 TVBS-Asia,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/TVBS-Asia_1/index.m3u8
 TVBS新闻-YT,https://www.youtube.com/embed/m_dhMSvUCIc
+TVBS新闻台,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/TVBS新闻台/index.m3u8
 TVB亚洲武侠,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/TVB亚洲武侠/index.m3u8
 TVB剧集,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/TVB剧集/index.m3u8
 TVB千禧经典台,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/TVB千禧经典台/index.m3u8
@@ -410,22 +410,22 @@ HOY TV,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/HOY TV/inde
 东森新闻51台-YT,https://www.youtube.com/embed/E0zhe2gkXBs
 东森财经新闻-YT,https://www.youtube.com/embed/1I2iq41Akmo
 东森超视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/东森超视/index.m3u8
+三立新闻-YT,https://www.youtube.com/embed/yeYC0mbSIOo
 三立新闻-YT,https://www.youtube.com/embed/KUv6poLq4aM
 三立新闻-YT,https://www.youtube.com/embed/XYSkOnlFads
-三立新闻-YT,https://www.youtube.com/embed/yeYC0mbSIOo
 三立新闻iNEWS-YT,https://www.youtube.com/embed/pF507BLtbqU
 民视新闻-YT,https://www.youtube.com/embed/ylYJSBUgaMA
 FTV News (民视新闻台)-YT,https://www.youtube.com/watch?v=ylYJSBUgaMA
 台视新闻,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/台视新闻/index.m3u8
 台视新闻,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/台视新闻_1/index.m3u8
-TTV News (台视新闻台)-YT,https://www.youtube.com/embed/QWntIEnzxps
-中视新闻-YT,https://www.youtube.com/embed/TCnaIE_SAtM
+TTV News (台视新闻台)-YT,https://www.youtube.com/embed/sRDpG4ST28M
 中视新闻-YT,https://www.youtube.com/embed/baDV1O5EBP0
+中视新闻-YT,https://www.youtube.com/embed/TCnaIE_SAtM
 中视经典-YT,https://www.youtube.com/embed/ADDSmXoPDY8
 CTV News Channel (中视新闻台)-YT,https://www.youtube.com/watch?v=TCnaIE_SAtM
 华视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/华视/index.m3u8
-华视新闻-YT,https://www.youtube.com/embed/KMMHw8rllic
 华视新闻-YT,https://www.youtube.com/embed/wM0g8EoUZ_E
+华视新闻-YT,https://www.youtube.com/embed/KMMHw8rllic
 公视新闻-YT,https://www.youtube.com/embed/hg4nYb3jE9A
 三立华剧-YT,https://www.youtube.com/embed/G8CKPKEXNf4
 三立戏剧,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/三立戏剧/index.m3u8
@@ -462,6 +462,7 @@ CTV News Channel (中视新闻台)-YT,https://www.youtube.com/watch?v=TCnaIE_SAt
 澳门MACAU,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/澳门MACAU/index.m3u8
 猫和老鼠,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/猫和老鼠/index.m3u8
 看中国,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/看中国/index.m3u8
+纬来精采,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/纬来精采/index.m3u8
 美亚电影台,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/美亚电影台/index.m3u8
 美国之音中文电视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/美国之音中文电视/index.m3u8
 耀才财经,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/耀才财经/index.m3u8
@@ -524,8 +525,6 @@ Viutv,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Viutv_1/inde
 广东民生,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/广东民生/index.m3u8
 广东珠江,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/广东珠江/index.m3u8
 广东珠江,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/广东珠江_1/index.m3u8
-广东珠江,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/广东珠江_2/index.m3u8
-广东珠江,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/广东珠江_3/index.m3u8
 广东电视美洲台,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/广东电视美洲台/index.m3u8
 广州南国都市,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/广州南国都市/index.m3u8
 广州南国都市,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/广州南国都市_1/index.m3u8
@@ -585,7 +584,6 @@ Viutv,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Viutv_1/inde
 浙江钱江都市,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/浙江钱江都市_1/index.m3u8
 嘉兴新闻综合,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/嘉兴新闻综合/index.m3u8
 嘉兴新闻综合,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/嘉兴新闻综合_1/index.m3u8
-绍兴新闻综合,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/绍兴新闻综合/index.m3u8
 海宁新闻综合,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/海宁新闻综合/index.m3u8
 象山综合,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/象山综合/index.m3u8
 钱江都市,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/钱江都市/index.m3u8
@@ -608,9 +606,12 @@ Viutv,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Viutv_1/inde
 荥经综合,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/荥经综合/index.m3u8
 青川综合,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/青川综合/index.m3u8
 乐至综合,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/乐至综合/index.m3u8
+湖南娱乐,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/湖南娱乐/index.m3u8
 湖南爱晚,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/湖南爱晚/index.m3u8
 湖南电视剧,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/湖南电视剧_1/index.m3u8
 湖南电视剧,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/湖南电视剧_2/index.m3u8
+湖南电视剧,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/湖南电视剧_3/index.m3u8
+湖南经视,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/湖南经视/index.m3u8
 湖南都市,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/湖南都市/index.m3u8
 十堰经济旅游,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/十堰经济旅游/index.m3u8
 荆门新闻综合,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/荆门新闻综合/index.m3u8
@@ -689,7 +690,6 @@ Viutv,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Viutv_1/inde
 广西新闻,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/广西新闻_1/index.m3u8
 南宁娱乐,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/南宁娱乐/index.m3u8
 南宁影视娱乐,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/南宁影视娱乐/index.m3u8
-南宁文旅,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/南宁文旅/index.m3u8
 南宁新闻,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/南宁新闻/index.m3u8
 南宁都市生活,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/南宁都市生活/index.m3u8
 来宾综合,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/来宾综合/index.m3u8
@@ -791,7 +791,6 @@ CHC高清电影,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CH
 欢笑剧场,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/欢笑剧场/index.m3u8
 都市剧场,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/都市剧场/index.m3u8
 都市剧场,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/都市剧场_1/index.m3u8
-都市剧场,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/都市剧场_2/index.m3u8
 龙门飞甲,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/龙门飞甲/index.m3u8
 100% Docs Crime,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/100% Docs Crime/index.m3u8
 1987年春晚,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/1987年春晚/index.m3u8
@@ -900,7 +899,6 @@ FilmRise British TV,https://round-snowflake-2d83.linda11-28-2022.workers.dev/liv
 FilmRise Classic TV,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/FilmRise Classic TV/index.m3u8
 FilmRise Classic TV,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/FilmRise Classic TV_1/index.m3u8
 FilmRise Comedy,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/FilmRise Comedy/index.m3u8
-FilmRise Concursos de Cocina,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/FilmRise Concursos de Cocina/index.m3u8
 FilmRise Creators,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/FilmRise Creators/index.m3u8
 FilmRise Crímenes Verdaderos,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/FilmRise Crímenes Verdaderos/index.m3u8
 FilmRise Drama,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/FilmRise Drama/index.m3u8
@@ -911,7 +909,6 @@ FilmRise Music,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Fil
 FilmRise Mysteries,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/FilmRise Mysteries/index.m3u8
 FilmRise Películas Gratis,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/FilmRise Películas Gratis/index.m3u8
 FilmRise Sci-Fi,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/FilmRise Sci-Fi/index.m3u8
-FilmRise Series Gratis,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/FilmRise Series Gratis/index.m3u8
 FilmRise True Crime,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/FilmRise True Crime/index.m3u8
 FilmRise Western,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/FilmRise Western/index.m3u8
 FilmRise Westerns,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/FilmRise Westerns/index.m3u8
@@ -924,13 +921,12 @@ Graham Norton,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Grah
 Gravitas Movies,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Gravitas Movies/index.m3u8
 Gravitas Movies,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Gravitas Movies_1/index.m3u8
 GREAT!movies,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/GREAT!movies/index.m3u8
-Grjngo - Western Movies,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Grjngo - Western Movies/index.m3u8
 Grjngo Western Movies,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Grjngo Western Movies/index.m3u8
+Hallmark Channel,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Hallmark Channel/index.m3u8
 Hallmark Movies & More,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Hallmark Movies & More/index.m3u8
 Hallmark Movies & More,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Hallmark Movies & More_1/index.m3u8
 Hallmark Movies & More,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Hallmark Movies & More_2/index.m3u8
 HBO,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/HBO/index.m3u8
-HBO Hits,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/HBO Hits/index.m3u8
 Horror by ALTER,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Horror by ALTER/index.m3u8
 Horror by ALTER,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Horror by ALTER_1/index.m3u8
 Horror Comedy,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Horror Comedy/index.m3u8
@@ -964,7 +960,6 @@ MGM Presents: Westerns,https://round-snowflake-2d83.linda11-28-2022.workers.dev/
 Miramax Channel,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Miramax Channel/index.m3u8
 Miramax Movie,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Miramax Movie/index.m3u8
 Miramax Movie Channel,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Miramax Movie Channel/index.m3u8
-Movie Hub Action,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Movie Hub Action/index.m3u8
 Moviedome Family,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Moviedome Family/index.m3u8
 Moviedome Family,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Moviedome Family_1/index.m3u8
 Movieitaly Channel,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Movieitaly Channel/index.m3u8
@@ -991,7 +986,6 @@ New Kmovies,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/New Km
 NOST,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/NOST/index.m3u8
 OutdoorAction,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/OutdoorAction/index.m3u8
 OuterSphere,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/OuterSphere/index.m3u8
-OUTFLIX MOVIES,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/OUTFLIX MOVIES/index.m3u8
 OUTflix Movies,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/OUTflix Movies/index.m3u8
 Oxygen True Crime Archives,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Oxygen True Crime Archives/index.m3u8
 Paramount Movie Channel,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Paramount Movie Channel/index.m3u8
@@ -1090,7 +1084,6 @@ Stingray DJAZZ,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Sti
 Stingray Greatest Hits,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Stingray Greatest Hits/index.m3u8
 Stingray Greatest Holiday Hits,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Stingray Greatest Holiday Hits/index.m3u8
 Stingray Holidayscapes,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Stingray Holidayscapes/index.m3u8
-Stingray Hot Country,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Stingray Hot Country/index.m3u8
 Stingray Karaoke,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Stingray Karaoke/index.m3u8
 Stingray Soul Storm,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Stingray Soul Storm/index.m3u8
 Vevo Country Rewind,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Vevo Country Rewind/index.m3u8
@@ -1161,6 +1154,7 @@ UrbanMusic,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/UrbanMu
 少儿卡通,#genre#
 金鹰卡通,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/金鹰卡通/index.m3u8
 金鹰卡通,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/金鹰卡通_1/index.m3u8
+金鹰卡通,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/金鹰卡通_2/index.m3u8
 CCTV-14少儿,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CCTV-14少儿/index.m3u8
 CCTV-14少儿,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CCTV-14少儿_1/index.m3u8
 CCTV-14少儿,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CCTV-14少儿_2/index.m3u8
@@ -1207,7 +1201,6 @@ Disney Junior,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Disn
 ducktv,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/ducktv/index.m3u8
 FilmRise Anime,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/FilmRise Anime/index.m3u8
 FilmRise Anime,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/FilmRise Anime_1/index.m3u8
-FilmRise Kids,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/FilmRise Kids/index.m3u8
 HappyKids,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/HappyKids/index.m3u8
 Kartoon Channel,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Kartoon Channel/index.m3u8
 Kartoon Channel!,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Kartoon Channel!/index.m3u8
@@ -1283,8 +1276,6 @@ Channel Fight,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Chan
 Combat War Channel,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Combat War Channel/index.m3u8
 CombaTV,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CombaTV/index.m3u8
 Cowboy+ Sports,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Cowboy+ Sports/index.m3u8
-CW Presents WWE NXT,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CW Presents WWE NXT/index.m3u8
-DAZN Ringside,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/DAZN Ringside/index.m3u8
 DraftKings Network,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/DraftKings Network/index.m3u8
 DraftKings Network,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/DraftKings Network_1/index.m3u8
 ESPN,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/ESPN/index.m3u8
@@ -1333,7 +1324,6 @@ MLB Strike Zone,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/ML
 MotoGP Channel,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/MotoGP Channel/index.m3u8
 MotoGP Channel,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/MotoGP Channel_1/index.m3u8
 MSG SportsZone,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/MSG SportsZone/index.m3u8
-MSG SportsZone,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/MSG SportsZone_1/index.m3u8
 MTRSPT1,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/MTRSPT1/index.m3u8
 NASCAR Channel,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/NASCAR Channel/index.m3u8
 NBC Sports NOW,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/NBC Sports NOW/index.m3u8
@@ -1341,7 +1331,6 @@ NBC Sports NOW,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/NBC
 NBC Sports NOW,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/NBC Sports NOW_2/index.m3u8
 NBC Sports NOW,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/NBC Sports NOW_3/index.m3u8
 NFL Channel,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/NFL Channel/index.m3u8
-NFL Channel,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/NFL Channel_1/index.m3u8
 NHL,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/NHL/index.m3u8
 NHL FAST,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/NHL FAST/index.m3u8
 NHRA TV,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/NHRA TV/index.m3u8
@@ -1352,7 +1341,6 @@ Pac-12 Insider,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Pac
 Pac-12 Insider,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Pac-12 Insider_2/index.m3u8
 PFL,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/PFL/index.m3u8
 PFL MMA,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/PFL MMA/index.m3u8
-PGA TOUR,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/PGA TOUR/index.m3u8
 PGA Tour,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/PGA Tour/index.m3u8
 PGA Tour,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/PGA Tour_1/index.m3u8
 PickleballTV,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/PickleballTV/index.m3u8
@@ -1482,6 +1470,7 @@ XtremeOutdoorbyHistory,https://round-snowflake-2d83.linda11-28-2022.workers.dev/
 之江纪录,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/之江纪录_2/index.m3u8
 宠物俱乐部,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/宠物俱乐部_1/index.m3u8
 文旅纪录,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/文旅纪录/index.m3u8
+金鹰纪实,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/金鹰纪实/index.m3u8
 Ancient Aliens,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Ancient Aliens/index.m3u8
 Ancient Aliens,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Ancient Aliens_1/index.m3u8
 BBC Earth,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/BBC Earth/index.m3u8
@@ -1519,7 +1508,6 @@ Love Nature en Espanol,https://round-snowflake-2d83.linda11-28-2022.workers.dev/
 Love The Planet,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Love The Planet/index.m3u8
 Love the Planet,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Love the Planet/index.m3u8
 Love the Planet,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Love the Planet_1/index.m3u8
-MagellanTV Wildest,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/MagellanTV Wildest/index.m3u8
 Military Heroes,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Military Heroes/index.m3u8
 Mystery Science Theater 3000,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Mystery Science Theater 3000/index.m3u8
 NASA+,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/NASA+/index.m3u8
@@ -1620,7 +1608,6 @@ Yu-Gi-Oh!,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Yu-Gi-Oh
 丽江古城大研花巷观景,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/丽江古城大研花巷观景/index.m3u8
 乌镇全景,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/乌镇全景/index.m3u8
 乌镇蓝印花布,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/乌镇蓝印花布/index.m3u8
-乌镇西市河,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/乌镇西市河/index.m3u8
 乌镇龙形田,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/乌镇龙形田/index.m3u8
 乐山大佛全景,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/乐山大佛全景/index.m3u8
 云南丽江冰川,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/云南丽江冰川/index.m3u8
@@ -1687,7 +1674,6 @@ Yu-Gi-Oh!,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Yu-Gi-Oh
 雪乡大石碑,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/雪乡大石碑/index.m3u8
 雪乡梦幻家园,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/雪乡梦幻家园/index.m3u8
 青岛崂山八水河,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/青岛崂山八水河/index.m3u8
-青岛崂山双福,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/青岛崂山双福/index.m3u8
 鸣沙山,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/鸣沙山/index.m3u8
 黄山,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/黄山/index.m3u8
 黄山始信新道,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/黄山始信新道/index.m3u8
@@ -1697,7 +1683,6 @@ Yu-Gi-Oh!,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Yu-Gi-Oh
 黄花城水长城01,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/黄花城水长城01/index.m3u8
 黄花城水长城02,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/黄花城水长城02/index.m3u8
 黄花城水长城03,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/黄花城水长城03/index.m3u8
-黄龙,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/黄龙/index.m3u8
 欧美主流台,#genre#
 ABC News,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/ABC News/index.m3u8
 ABC News Live,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/ABC News Live/index.m3u8
@@ -1731,7 +1716,6 @@ Bloomberg Originals,https://round-snowflake-2d83.linda11-28-2022.workers.dev/liv
 Bloomberg Originals,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Bloomberg Originals_1/index.m3u8
 Bloomberg Originals,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Bloomberg Originals_2/index.m3u8
 Bloomberg Originals,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Bloomberg Originals_3/index.m3u8
-Bloomberg Originals,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Bloomberg Originals_4/index.m3u8
 Bloomberg TV,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Bloomberg TV/index.m3u8
 Bloomberg TV,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Bloomberg TV_1/index.m3u8
 Bloomberg TV,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Bloomberg TV_2/index.m3u8
@@ -1748,7 +1732,6 @@ CNN,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CNN_2/index.m3
 CNN Chile,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CNN Chile/index.m3u8
 CNN en Espanol,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CNN en Espanol/index.m3u8
 CNN Headlines,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CNN Headlines/index.m3u8
-CNN News18,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CNN News18/index.m3u8
 CNN Originals,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CNN Originals/index.m3u8
 BBC News,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/BBC News/index.m3u8
 BBC News,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/BBC News_1/index.m3u8
@@ -1910,7 +1893,6 @@ CVTV Channel 192,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/C
 CVTV Channel 194,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CVTV Channel 194/index.m3u8
 CW FOREVER,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CW FOREVER/index.m3u8
 CW Forever,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CW Forever/index.m3u8
-CW Forever,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CW Forever_1/index.m3u8
 CW Gold,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CW Gold/index.m3u8
 CW Gold,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CW Gold_1/index.m3u8
 Detroit Channel 21,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Detroit Channel 21/index.m3u8
@@ -2002,7 +1984,6 @@ WXXV-TV News (Biloxi MS),https://round-snowflake-2d83.linda11-28-2022.workers.de
 5-Minute Crafts,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/5-Minute Crafts/index.m3u8
 60 Days In by A&E,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/60 Days In by A&E/index.m3u8
 60 Minutes,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/60 Minutes/index.m3u8
-80's Sitcom Flashback,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/80's Sitcom Flashback/index.m3u8
 A Touch of Frost,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/A Touch of Frost/index.m3u8
 A&E,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/A&E/index.m3u8
 A&E Alaska State Troopers,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/A&E Alaska State Troopers/index.m3u8
@@ -2074,7 +2055,6 @@ American Stories,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/A
 America’s Funniest Home Videos,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/America’s Funniest Home Videos/index.m3u8
 Ameritrade,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Ameritrade/index.m3u8
 AMG TV,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/AMG TV/index.m3u8
-AMGA TV,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/AMGA TV/index.m3u8
 AMP 1,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/AMP 1/index.m3u8
 AMP 2,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/AMP 2/index.m3u8
 Amu TV,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Amu TV/index.m3u8
@@ -2124,7 +2104,6 @@ BBC America,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/BBC Am
 BBC Food,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/BBC Food/index.m3u8
 BBC Food,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/BBC Food_1/index.m3u8
 BBC Food,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/BBC Food_2/index.m3u8
-BBC Game Shows,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/BBC Game Shows/index.m3u8
 BBC Home,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/BBC Home/index.m3u8
 BBC Home & Garden,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/BBC Home & Garden/index.m3u8
 BBC Home & Garden,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/BBC Home & Garden_1/index.m3u8
@@ -2144,7 +2123,6 @@ Better Health TV,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/B
 Better Life TV,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Better Life TV/index.m3u8
 Beyblade,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Beyblade/index.m3u8
 Beyond Belief,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Beyond Belief/index.m3u8
-Beyond Paranormal,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Beyond Paranormal/index.m3u8
 BHTV10,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/BHTV10/index.m3u8
 BHTV35,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/BHTV35/index.m3u8
 Big 12 Studios,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Big 12 Studios/index.m3u8
@@ -2179,7 +2157,6 @@ Bounce XL,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Bounce X
 Bowling TV,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Bowling TV/index.m3u8
 Brat TV,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Brat TV_1/index.m3u8
 Brat TV,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Brat TV_2/index.m3u8
-Brat TV,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Brat TV_3/index.m3u8
 Bravo,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Bravo/index.m3u8
 Bravo Vault,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Bravo Vault/index.m3u8
 Bread TV,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Bread TV/index.m3u8
@@ -2232,7 +2209,6 @@ Cheaters,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Cheaters/
 Cheaters,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Cheaters_1/index.m3u8
 Chef Champion,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Chef Champion/index.m3u8
 Chef Roc Show,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Chef Roc Show/index.m3u8
-Chef vs Chef,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Chef vs Chef/index.m3u8
 Chip & Jo: Feels Like Home,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Chip & Jo: Feels Like Home/index.m3u8
 Choppertown,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Choppertown/index.m3u8
 Chrono,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Chrono/index.m3u8
@@ -2344,7 +2320,6 @@ Dungeon TV,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Dungeon
 Dungeons & Dragons Adventures,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Dungeons & Dragons Adventures/index.m3u8
 DW English,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/DW English/index.m3u8
 E! East,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/E! East/index.m3u8
-E! Keeping Up,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/E! Keeping Up/index.m3u8
 Easy Listening,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Easy Listening/index.m3u8
 Ebony TV by Lionsgate,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Ebony TV by Lionsgate_1/index.m3u8
 Ebony TV by Lionsgate,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Ebony TV by Lionsgate_2/index.m3u8
@@ -2377,7 +2352,6 @@ EWTN Canada,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/EWTN C
 EWTN Europe,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/EWTN Europe/index.m3u8
 EWTN Spain & Latin America,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/EWTN Spain & Latin America/index.m3u8
 Extrema TV,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Extrema TV/index.m3u8
-Extreme Jobs,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Extreme Jobs/index.m3u8
 F1 Channel,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/F1 Channel/index.m3u8
 F1 TV,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/F1 TV/index.m3u8
 FailArmy,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/FailArmy/index.m3u8
@@ -2396,15 +2370,12 @@ FC Public Media,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/FC
 Fear Factor,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Fear Factor/index.m3u8
 Fear Factor,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Fear Factor_1/index.m3u8
 Fear Factor,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Fear Factor_2/index.m3u8
-FEVA TV,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/FEVA TV/index.m3u8
 FGTEEV,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/FGTEEV/index.m3u8
 Fierro a Fondo TV,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Fierro a Fondo TV/index.m3u8
-Fifth Gear (UK),https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Fifth Gear (UK)/index.m3u8
 Fireplace Vibes,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Fireplace Vibes/index.m3u8
 Flashback 70s,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Flashback 70s/index.m3u8
 Flipping Nation,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Flipping Nation/index.m3u8
 Flowers TV USA,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Flowers TV USA/index.m3u8
-Fluffy TV,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Fluffy TV/index.m3u8
 FNX,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/FNX/index.m3u8
 Food Network,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Food Network/index.m3u8
 Forensic Files,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Forensic Files/index.m3u8
@@ -2429,9 +2400,7 @@ Galavision West,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Ga
 Galavision West,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Galavision West_1/index.m3u8
 Galxy TV,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Galxy TV/index.m3u8
 Game & Fish TV,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Game & Fish TV/index.m3u8
-Game & Fish TV,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Game & Fish TV_1/index.m3u8
 Game Show Central,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Game Show Central/index.m3u8
-Game Show Central,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Game Show Central_1/index.m3u8
 Gameshow Network,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Gameshow Network/index.m3u8
 GameTVGO,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/GameTVGO/index.m3u8
 Ganj e Hozour TV,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Ganj e Hozour TV/index.m3u8
@@ -2474,7 +2443,6 @@ GUSTOTV,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/GUSTOTV/in
 gustotv,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/gustotv/index.m3u8
 H2O & Friends,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/H2O & Friends/index.m3u8
 Hagerty,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Hagerty/index.m3u8
-Halloween Plus,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Halloween Plus/index.m3u8
 Hard Knocks,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Hard Knocks/index.m3u8
 Harvest USA,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Harvest USA/index.m3u8
 Hasbro Legends,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Hasbro Legends_1/index.m3u8
@@ -2513,7 +2481,6 @@ Hobby Maker,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Hobby 
 HollyWire,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/HollyWire/index.m3u8
 HollyWire,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/HollyWire_1/index.m3u8
 Hollywire,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Hollywire/index.m3u8
-Home Cooking,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Home Cooking/index.m3u8
 Home.Made.Nation,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Home.Made.Nation/index.m3u8
 Homeful,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Homeful/index.m3u8
 Homeful US,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Homeful US/index.m3u8
@@ -2537,7 +2504,6 @@ Hunt Fish TV,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Hunt 
 Hunt Fish TV,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Hunt Fish TV_1/index.m3u8
 Hunter,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Hunter/index.m3u8
 Hunter x Hunter,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Hunter x Hunter/index.m3u8
-I Shouldn't Be Alive,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/I Shouldn't Be Alive/index.m3u8
 I Survived…,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/I Survived…/index.m3u8
 Ice Pilots NWT,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Ice Pilots NWT/index.m3u8
 Ice Road Truckers,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Ice Road Truckers/index.m3u8
@@ -2555,7 +2521,6 @@ INFAST,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/INFAST/inde
 INFAST,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/INFAST_1/index.m3u8
 INFAST,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/INFAST_2/index.m3u8
 Inside Outside,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Inside Outside/index.m3u8
-Inside Outside,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Inside Outside_1/index.m3u8
 INTER 24/7,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/INTER 24/7/index.m3u8
 INTER 24/7,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/INTER 24/7_1/index.m3u8
 Intervention by A&E,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Intervention by A&E/index.m3u8
@@ -2566,7 +2531,6 @@ ION,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/ION/index.m3u8
 ION,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/ION_1/index.m3u8
 ION Plus,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/ION Plus/index.m3u8
 ION Plus,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/ION Plus_1/index.m3u8
-ION Plus,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/ION Plus_2/index.m3u8
 ION TV,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/ION TV/index.m3u8
 IraneFarda TV,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/IraneFarda TV/index.m3u8
 Iron Chef,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Iron Chef/index.m3u8
@@ -2706,14 +2670,12 @@ MCN6 Main Channel,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/
 MeatEater,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/MeatEater/index.m3u8
 Medical Incredible,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Medical Incredible/index.m3u8
 Mega TV WSBS-TV,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Mega TV WSBS-TV/index.m3u8
-Mera Mera TV,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Mera Mera TV/index.m3u8
 Mercury+,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Mercury+/index.m3u8
 Merit Street,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Merit Street/index.m3u8
 Metaleitor TV,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Metaleitor TV/index.m3u8
 Metallica Takeover,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Metallica Takeover/index.m3u8
 MGM Presents,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/MGM Presents/index.m3u8
 MHz Mysteries,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/MHz Mysteries/index.m3u8
-MHz Mysteries,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/MHz Mysteries_1/index.m3u8
 Mi Casa,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Mi Casa/index.m3u8
 Mi Miedo Canal,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Mi Miedo Canal/index.m3u8
 Mi Raza Canal Plus,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Mi Raza Canal Plus/index.m3u8
@@ -2748,7 +2710,6 @@ MrBeast,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/MrBeast_1/
 MS NOW,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/MS NOW/index.m3u8
 MST3K,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/MST3K/index.m3u8
 MTC,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/MTC/index.m3u8
-Murdoch Mysteries,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Murdoch Mysteries/index.m3u8
 Muslim Network TV,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Muslim Network TV/index.m3u8
 My Little Pony,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/My Little Pony/index.m3u8
 My Money,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/My Money/index.m3u8
@@ -2761,7 +2722,6 @@ Mythical 24/7,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Myth
 Mythical 24/7,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Mythical 24/7_1/index.m3u8
 Naija Gold Reels,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Naija Gold Reels/index.m3u8
 Nash Bridges,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Nash Bridges/index.m3u8
-Nashville,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Nashville/index.m3u8
 NAT TV,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/NAT TV/index.m3u8
 Natick Public Access Channel,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Natick Public Access Channel/index.m3u8
 National Lampoon,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/National Lampoon/index.m3u8
@@ -2864,7 +2824,6 @@ Powernation,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Powern
 PowerNation TV,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/PowerNation TV/index.m3u8
 Preston & Brianna,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Preston & Brianna/index.m3u8
 Prime Suspect,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Prime Suspect/index.m3u8
-Primetime Soaps,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Primetime Soaps/index.m3u8
 Project Runway,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Project Runway/index.m3u8
 Property Brothers Channel,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Property Brothers Channel/index.m3u8
 PTS 3,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/PTS 3/index.m3u8
@@ -2883,7 +2842,6 @@ QVC Style,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/QVC Styl
 QVC UK,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/QVC UK/index.m3u8
 QVC2,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/QVC2/index.m3u8
 QVC3,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/QVC3/index.m3u8
-Qwest TV,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Qwest TV/index.m3u8
 Racer,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Racer/index.m3u8
 Rachael Ray Presents,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Rachael Ray Presents/index.m3u8
 RadiantTV,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/RadiantTV/index.m3u8
@@ -2926,7 +2884,6 @@ Roar,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Roar/index.m3
 Roar KCWX,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Roar KCWX/index.m3u8
 Roar KOKI-TV,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Roar KOKI-TV/index.m3u8
 Robot Wars by Mech+,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Robot Wars by Mech+/index.m3u8
-Rookie Blue,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Rookie Blue/index.m3u8
 Rovr Pets,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Rovr Pets/index.m3u8
 RT News,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/RT News/index.m3u8
 RTN Chicago,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/RTN Chicago/index.m3u8
@@ -2963,7 +2920,6 @@ Shades of Black,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Sh
 Shades of Black,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Shades of Black_1/index.m3u8
 Shalom America,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Shalom America/index.m3u8
 Shemaroo Bollywood,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Shemaroo Bollywood/index.m3u8
-Shemaroo Bollywood,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Shemaroo Bollywood_1/index.m3u8
 Sheriffs: El Dorado County,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Sheriffs: El Dorado County/index.m3u8
 Shout! Factory TV,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Shout! Factory TV/index.m3u8
 Shout! TV,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Shout! TV/index.m3u8
@@ -3042,7 +2998,6 @@ TED,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/TED/index.m3u8
 Teen Wolf by MGM,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Teen Wolf by MGM/index.m3u8
 Tele Pam,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Tele Pam/index.m3u8
 TeleMIX,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/TeleMIX/index.m3u8
-Teleonce America,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Teleonce America/index.m3u8
 Temecula TV,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Temecula TV/index.m3u8
 Tensions TV,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Tensions TV/index.m3u8
 Test My Ride,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Test My Ride/index.m3u8
@@ -3064,14 +3019,12 @@ The Conners,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/The Co
 The Country Network,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/The Country Network/index.m3u8
 The Design Network,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/The Design Network/index.m3u8
 The Design Network,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/The Design Network_1/index.m3u8
-The Design Network,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/The Design Network_2/index.m3u8
 The Doctor Blake Mysteries,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/The Doctor Blake Mysteries/index.m3u8
 The Doctors,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/The Doctors/index.m3u8
 The Doctors,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/The Doctors_1/index.m3u8
 The Ed Sullivan Show,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/The Ed Sullivan Show/index.m3u8
 The Emeril Lagasse Channel,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/The Emeril Lagasse Channel/index.m3u8
 The Explorers,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/The Explorers/index.m3u8
-The FBI,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/The FBI/index.m3u8
 The FBI Files,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/The FBI Files/index.m3u8
 The First,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/The First/index.m3u8
 The First,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/The First_1/index.m3u8
@@ -3080,7 +3033,6 @@ The First 48 by A&E,https://round-snowflake-2d83.linda11-28-2022.workers.dev/liv
 The Graham Norton Show,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/The Graham Norton Show/index.m3u8
 The Graham Norton Show,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/The Graham Norton Show_1/index.m3u8
 The Great British Baking Channel,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/The Great British Baking Channel/index.m3u8
-The Grio,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/The Grio/index.m3u8
 The Jack Hanna Channel,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/The Jack Hanna Channel/index.m3u8
 The Jamie Oliver Channel,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/The Jamie Oliver Channel/index.m3u8
 The Jamie Oliver Channel,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/The Jamie Oliver Channel_1/index.m3u8
@@ -3093,16 +3045,12 @@ The Martha Stewart Channel,https://round-snowflake-2d83.linda11-28-2022.workers.
 The Monterey Channel,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/The Monterey Channel/index.m3u8
 The Nest,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/The Nest/index.m3u8
 The New Detectives,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/The New Detectives/index.m3u8
-The Osbournes,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/The Osbournes/index.m3u8
-The Outer Limits,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/The Outer Limits/index.m3u8
 The Outpost,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/The Outpost/index.m3u8
 The Pet Collective,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/The Pet Collective/index.m3u8
 The Pet Collective,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/The Pet Collective_1/index.m3u8
-The Pet Collective,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/The Pet Collective_2/index.m3u8
 The Point Televsion Network,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/The Point Televsion Network/index.m3u8
 The Price is Right,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/The Price is Right/index.m3u8
 The Prof G Channel,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/The Prof G Channel/index.m3u8
-The Repair Shop,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/The Repair Shop/index.m3u8
 The Rifleman,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/The Rifleman/index.m3u8
 The Ringer from Spotify,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/The Ringer from Spotify/index.m3u8
 The Sherlock Holmes Channel,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/The Sherlock Holmes Channel/index.m3u8
@@ -3124,7 +3072,6 @@ This Old House Makers,https://round-snowflake-2d83.linda11-28-2022.workers.dev/l
 Timeline,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Timeline/index.m3u8
 Tin TV,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Tin TV/index.m3u8
 Tiny House Nation,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Tiny House Nation/index.m3u8
-Tiny House Nation,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Tiny House Nation_1/index.m3u8
 TJC,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/TJC/index.m3u8
 TLN KQSL,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/TLN KQSL/index.m3u8
 TLN Media Chicago,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/TLN Media Chicago/index.m3u8
@@ -3145,7 +3092,6 @@ Top Stories by Newsy,https://round-snowflake-2d83.linda11-28-2022.workers.dev/li
 Torque,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Torque/index.m3u8
 Trailer Park Boys: The SwearNet Show,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Trailer Park Boys: The SwearNet Show/index.m3u8
 Trailers From Hell,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Trailers From Hell/index.m3u8
-Transformers,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Transformers/index.m3u8
 Travel Escapes,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Travel Escapes/index.m3u8
 Travel TV,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Travel TV/index.m3u8
 Tribeca Channel,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Tribeca Channel/index.m3u8
@@ -3254,7 +3200,6 @@ WION,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/WION/index.m3
 WION,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/WION_1/index.m3u8
 Wipeout Xtra,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Wipeout Xtra/index.m3u8
 Wipeout Xtra,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Wipeout Xtra_1/index.m3u8
-WipeoutXtra,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/WipeoutXtra/index.m3u8
 Wired2Fish,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Wired2Fish/index.m3u8
 Wired2Fish,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Wired2Fish_1/index.m3u8
 Witness to Justice,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Witness to Justice/index.m3u8
@@ -3265,7 +3210,6 @@ WONDER,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/WONDER/inde
 Wonder,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Wonder/index.m3u8
 World Harvest TV,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/World Harvest TV/index.m3u8
 World of Love Island,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/World of Love Island/index.m3u8
-World Surf League 24/7,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/World Surf League 24/7/index.m3u8
 World's Most Evil Killers,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/World's Most Evil Killers/index.m3u8
 World’s Most Evil Killers,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/World’s Most Evil Killers/index.m3u8
 WSOC Charlotte,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/WSOC Charlotte/index.m3u8
@@ -3290,7 +3234,6 @@ YTA TV,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/YTA TV/inde
 Yu-Gi-Oh!,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Yu-Gi-Oh!_1/index.m3u8
 Yu-Gi-Oh! en espanol,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Yu-Gi-Oh! en espanol/index.m3u8
 Z Nation,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Z Nation/index.m3u8
-Z Nation,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Z Nation_1/index.m3u8
 Zarin TV,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Zarin TV/index.m3u8
 ZooMoo,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/ZooMoo/index.m3u8
 韩国/朝鲜,#genre#
@@ -3298,11 +3241,10 @@ ZooMoo,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/ZooMoo/inde
 KCTV,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/KCTV/index.m3u8
 体育电视台,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/体育电视台/index.m3u8
 龙南山电视台,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/龙南山电视台/index.m3u8
-KBS 1박2일 시즌1,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/KBS 1박2일 시즌1/index.m3u8
 KBS HOT CLIP 예능,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/KBS HOT CLIP 예능/index.m3u8
 KBS World,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/KBS World/index.m3u8
-KBS World-YT,https://www.youtube.com/embed/aHfx83ObCac
 KBS World-YT,https://www.youtube.com/embed/OxQQsIvJTTU
+KBS World-YT,https://www.youtube.com/embed/aHfx83ObCac
 KBS 개그콘서트,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/KBS 개그콘서트/index.m3u8
 KBS新闻-YT,https://www.youtube.com/embed/2mCSYvcfhtc
 SBS Drama,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/SBS Drama/index.m3u8
@@ -3310,11 +3252,10 @@ SBS TV 동물농장,https://round-snowflake-2d83.linda11-28-2022.workers.dev/liv
 SBS 불타는 청춘,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/SBS 불타는 청춘/index.m3u8
 SBS 정글의 법칙,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/SBS 정글의 법칙/index.m3u8
 SBS 패밀리가 떴다,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/SBS 패밀리가 떴다/index.m3u8
-SBS新闻-YT,https://www.youtube.com/embed/QfaI-1GAJYg
+SBS新闻-YT,https://www.youtube.com/embed/YKof1ZXY5Es
 MBC America,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/MBC America/index.m3u8
 MBC Drama USA,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/MBC Drama USA/index.m3u8
 MBC every1 별순검,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/MBC every1 별순검/index.m3u8
-MBC HOT CLIP 드라마,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/MBC HOT CLIP 드라마/index.m3u8
 MBC 심야괴담회,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/MBC 심야괴담회/index.m3u8
 MBC 오은영리포트 결혼지옥,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/MBC 오은영리포트 결혼지옥/index.m3u8
 MBC 전지적 참견 시점,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/MBC 전지적 참견 시점/index.m3u8
@@ -3328,7 +3269,7 @@ JTBC 이혼숙려캠프,https://round-snowflake-2d83.linda11-28-2022.workers.dev
 JTBC 캠핑클럽,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/JTBC 캠핑클럽/index.m3u8
 JTBC 톡파원 25시,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/JTBC 톡파원 25시/index.m3u8
 JTBC 한문철의 블랙박스리뷰,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/JTBC 한문철의 블랙박스리뷰/index.m3u8
-JTBC新闻-YT,https://www.youtube.com/embed/TlzEyGdxTPo
+JTBC新闻-YT,https://www.youtube.com/embed/LV7ijgbBkN0
 Arirang,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Arirang/index.m3u8
 Arirang,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Arirang_1/index.m3u8
 Arirang TV,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Arirang TV/index.m3u8
@@ -3343,16 +3284,13 @@ YTN新闻-YT,https://www.youtube.com/embed/6QZ_qc75ihU
 라이딩 인생,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/라이딩 인생/index.m3u8
 베베핀,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/베베핀/index.m3u8
 뽀요TV,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/뽀요TV/index.m3u8
-서울경제TV,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/서울경제TV/index.m3u8
 신병 3,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/신병 3/index.m3u8
-요가소년,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/요가소년/index.m3u8
 유병재,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/유병재/index.m3u8
 채널A 나만 믿고 따라와 도시어부,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/채널A 나만 믿고 따라와 도시어부/index.m3u8
 코코비TV,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/코코비TV/index.m3u8
 현대홈쇼핑+Shop,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/현대홈쇼핑+Shop/index.m3u8
 BBS TV (South Korea),https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/BBS TV (South Korea)/index.m3u8
 BTN TV (South Korea),https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/BTN TV (South Korea)/index.m3u8
-ch.핑크퐁,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/ch.핑크퐁/index.m3u8
 CJ OnStyle,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CJ OnStyle/index.m3u8
 CJ OnStyle+,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/CJ OnStyle+/index.m3u8
 Coreano by CJ ENM,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Coreano by CJ ENM/index.m3u8
@@ -3363,7 +3301,6 @@ EBS Kids,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/EBS Kids/
 EBS Kids Korea,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/EBS Kids Korea/index.m3u8
 EBS Plus 1,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/EBS Plus 1/index.m3u8
 EBS Plus 2,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/EBS Plus 2/index.m3u8
-EBS 극한 직업,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/EBS 극한 직업/index.m3u8
 FGTV (South Korea),https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/FGTV (South Korea)/index.m3u8
 Fireplace,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Fireplace/index.m3u8
 GCN,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/GCN/index.m3u8
@@ -3418,7 +3355,6 @@ W Shopping,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/W Shopp
 多语种国际台,#genre#
 Actualidad 360,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Actualidad 360/index.m3u8
 AfroLandTV,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/AfroLandTV/index.m3u8
-AfroLandTV,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/AfroLandTV_1/index.m3u8
 Al Jazeera,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Al Jazeera/index.m3u8
 Al Jazeera English,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Al Jazeera English/index.m3u8
 Al Jazeera半岛新闻,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Al Jazeera半岛新闻/index.m3u8
@@ -3429,14 +3365,12 @@ Bigtime - Películas Gratis,https://round-snowflake-2d83.linda11-28-2022.workers
 Bob Ross: Die Freude am Malen,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Bob Ross: Die Freude am Malen/index.m3u8
 Canela.TV Clásicos,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Canela.TV Clásicos/index.m3u8
 Canela.TV Hollywood y Más,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Canela.TV Hollywood y Más/index.m3u8
-Cheaters en Español,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Cheaters en Español/index.m3u8
 Cine en Español,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Cine en Español/index.m3u8
 Cine EstrellaTV,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Cine EstrellaTV/index.m3u8
 Cine Paura,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Cine Paura/index.m3u8
 Cine Romántico,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Cine Romántico/index.m3u8
 Concerto,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Concerto/index.m3u8
 Concerto,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Concerto_1/index.m3u8
-Corazón,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Corazón/index.m3u8
 El Señor de los Cielos,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/El Señor de los Cielos/index.m3u8
 ElectricNOW en Español,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/ElectricNOW en Español/index.m3u8
 Emoción Atres,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Emoción Atres/index.m3u8
@@ -3502,7 +3436,6 @@ Telemundo Corpus Christi,https://round-snowflake-2d83.linda11-28-2022.workers.de
 Telemundo East,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Telemundo East/index.m3u8
 Telemundo WCAU,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Telemundo WCAU/index.m3u8
 Telemundo WTMO-CD,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Telemundo WTMO-CD/index.m3u8
-Todo Novelas más Pasiones,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Todo Novelas más Pasiones/index.m3u8
 Voyages & Saveurs,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/Voyages & Saveurs/index.m3u8
 wedotv Big Stories [IT],https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/wedotv Big Stories [IT]/index.m3u8
 WXTV-DT1,https://round-snowflake-2d83.linda11-28-2022.workers.dev/live/WXTV-DT1/index.m3u8
