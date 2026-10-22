@@ -1034,9 +1034,9 @@ async function category(tid, pg, filter, extend = {}) {
         };
 
         if (extend) {
-            if (extend.class && extend.class !== '0') payload.class = extend.class;
-            if (extend.area && extend.area !== '0') payload.area = extend.area;
-            if (extend.year && extend.year !== '0') payload.year = extend.year;
+            if (extend.class && extend.class !== '0' && extend.class !== '全部' && extend.class !== '全部类别') payload.class = extend.class;
+            if (extend.area && extend.area !== '0' && extend.area !== '全部' && extend.area !== '全部地区') payload.area = extend.area;
+            if (extend.year && extend.year !== '0' && extend.year !== '全部' && extend.year !== '全部年份') payload.year = extend.year;
             if (extend.sort) {
                 if (extend.sort === 'time' || extend.sort === 'd_addtime') payload.sort = 'd_addtime';
                 else if (extend.sort === 'hits' || extend.sort === 'd_hits') payload.sort = 'd_hits';
