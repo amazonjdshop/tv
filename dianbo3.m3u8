@@ -16,7 +16,7 @@
       "key": "20261010瓜子影视",
       "name": "🇺🇸 洛杉矶·极速专线❤️(点击换线)",
       "type": 3,
-      "api": "./js/guazi.js",
+      "api": "./js/guazi.js?v=20261021",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1
@@ -34,7 +34,7 @@
       "key": "20261010yfsp",
       "name": "🇺🇸 旧金山·旗舰专线",
       "type": 3,
-      "api": "./js/yfsp.js",
+      "api": "./js/yfsp.js?v=20261021",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1
@@ -43,7 +43,7 @@
       "key": "20261010独播库_js",
       "name": "🇺🇸 纽约·超清专线",
       "type": 3,
-      "api": "./js/独播库.js",
+      "api": "./js/独播库.js?v=20261021",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1
@@ -52,7 +52,7 @@
       "key": "20261010欧乐影视_js",
       "name": "🇺🇸 西雅图·蓝光专线",
       "type": 3,
-      "api": "./js/olevod.js",
+      "api": "./js/olevod.js?v=20261021",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1
@@ -61,7 +61,7 @@
       "key": "20261010华人影视",
       "name": "🇺🇸 芝加哥·全网专线",
       "type": 3,
-      "api": "./js/huarw.js",
+      "api": "./js/huarw.js?v=20261021",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1
@@ -70,7 +70,7 @@
       "key": "20261010如意视频",
       "name": "🇺🇸 休斯顿·热播专线",
       "type": 3,
-      "api": "./js/rysp.js",
+      "api": "./js/rysp.js?v=20261021",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1
