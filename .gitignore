@@ -52,3 +52,5 @@ yo21.txt
 generate_txt_playlist.py
 .env
 .env.*
+tools/
+*.bak_before_dedup
