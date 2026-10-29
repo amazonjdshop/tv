@@ -1,0 +1,26 @@
+name: Test Huavod VIP Referral
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/renew_huavod_vip.yml'
+      - 'py/renew_huavod_vip.py'
+
+jobs:
+  renew_vip:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Run VIP Referral Test
+        run: |
+          python py/renew_huavod_vip.py
