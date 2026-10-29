@@ -196,6 +196,45 @@ def poll_verification_code(email, max_retries=30, delay=3, resend_fn=None):
     return None
 
 
+POPULAR_NAMES = [
+    'alex', 'kevin', 'daniel', 'jason', 'brian', 'david', 'eric', 'leo', 'lucas',
+    'charlie', 'oliver', 'marcus', 'ryan', 'ethan', 'justin', 'victor', 'george',
+    'claire', 'emma', 'grace', 'sophia', 'chloe', 'olivia', 'mia', 'linda', 'amy',
+    'sunny', 'felix', 'harry', 'frank', 'oscar', 'henry', 'albert', 'mason', 'aaron',
+    'steven', 'gary', 'simon', 'samuel', 'edward', 'alan', 'cathy', 'diana', 'fiona'
+]
+
+def generate_random_username():
+    """Generate natural, human-like username with no predictable prefix (letters + numbers only)."""
+    style = random.choice([1, 2, 3])
+    if style == 1:
+        # name + 2 to 4 digits (e.g. kevin8821)
+        return f"{random.choice(POPULAR_NAMES)}{random.randint(10, 9999)}"
+    elif style == 2:
+        # name + 1-2 random letters + 2-3 digits (e.g. jasonk92)
+        letters = ''.join(random.choices(string.ascii_lowercase, k=random.randint(1, 2)))
+        return f"{random.choice(POPULAR_NAMES)}{letters}{random.randint(10, 999)}"
+    else:
+        # random 8-10 natural alphanumeric string starting with a letter
+        first = random.choice(string.ascii_lowercase)
+        rest = ''.join(random.choices(string.ascii_lowercase + string.digits, k=random.randint(7, 9)))
+        return f"{first}{rest}"
+
+def generate_random_password(length=12):
+    """Generate high-entropy random password with mixed cases, numbers, and symbols."""
+    specials = '!@#$%^&*'
+    chars = [
+        random.choice(string.ascii_uppercase),
+        random.choice(string.ascii_lowercase),
+        random.choice(string.digits),
+        random.choice(specials)
+    ]
+    all_pool = string.ascii_letters + string.digits + specials
+    chars += random.choices(all_pool, k=length - 4)
+    random.shuffle(chars)
+    return ''.join(chars)
+
+
 def register_referral_account(inviter_uid=LINDA_UID):
     """Perform full referral registration on huavod.net."""
     print("=" * 60)
@@ -259,9 +298,8 @@ def register_referral_account(inviter_uid=LINDA_UID):
     print(f"[+] Verification code received: {code}")
 
     # 7. Submit registration
-    rand_suffix = ''.join(random.choices(string.ascii_lowercase + string.digits, k=6))
-    new_username = f"ref{rand_suffix}"
-    new_password = "PassWord2026!"
+    new_username = generate_random_username()
+    new_password = generate_random_password()
 
     print(f"[*] Submitting registration for new user: {new_username}")
     reg_data = urllib.parse.urlencode({
