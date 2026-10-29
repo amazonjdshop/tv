@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Huavod (华视影院) VIP Auto-Renewal & Referral Verification Script
-Runs in GitHub Actions (dynamic Azure IP) to register a referral account
-under linda1030 (uid=78018) via Emailnator temporary Gmail, verifying if
-linda1030's VIP membership is extended by 1 day.
+Huavod (华视影院) VIP Auto-Renewal & Referral Script
+Runs in GitHub Actions on a daily randomized schedule using dynamic Azure IPs.
+Registers a referral account under linda1030 (uid=78018) via Emailnator temporary Gmail,
+extending linda1030's VIP membership by 1 day every day, and sending notifications to Telegram.
 """
 
 import sys
@@ -14,12 +14,15 @@ import json
 import time
 import random
 import string
+import html
 import urllib.request
 import urllib.parse
 import http.cookiejar
 
 LINDA_UID = '78018'
 USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36'
+TG_BOT_TOKEN = os.environ.get('TG_BOT_TOKEN', '8910371400:AAEsf5iTAwnC6DJtKynW49Z0xuc4IMQ7Ru0')
+TG_CHAT_ID = os.environ.get('TG_CHAT_ID', '8539933298')
 
 # Ensure line buffering
 if hasattr(sys.stdout, 'reconfigure'):
@@ -38,6 +41,59 @@ def log(*args, **kwargs):
             pass
 
 print = log
+
+
+def send_telegram(text):
+    """Send formatted notification message to Telegram."""
+    if not TG_BOT_TOKEN or not TG_CHAT_ID:
+        print("[!] Telegram credentials not configured, skipping notification.")
+        return
+    url = f"https://api.telegram.org/bot{TG_BOT_TOKEN}/sendMessage"
+    payload = {
+        'chat_id': TG_CHAT_ID,
+        'text': text,
+        'parse_mode': 'HTML',
+        'disable_web_page_preview': True
+    }
+    try:
+        req = urllib.request.Request(
+            url,
+            data=json.dumps(payload).encode('utf-8'),
+            headers={'Content-Type': 'application/json'}
+        )
+        with urllib.request.urlopen(req, timeout=10) as resp:
+            print("[*] Telegram notification delivered successfully.")
+    except Exception as e:
+        print(f"[!] Telegram notification failed: {e}")
+
+
+def randomize_next_cron(workflow_path='.github/workflows/renew_huavod_vip.yml'):
+    """Generate a random execution time (between 02:00 and 08:59 UTC) for tomorrow."""
+    if not os.path.exists(workflow_path):
+        return None
+    try:
+        with open(workflow_path, 'r', encoding='utf-8') as f:
+            content = f.read()
+
+        # Random hour between 02 and 08 UTC (approx 10 PM - 4 AM US Eastern)
+        rand_hour = random.randint(2, 8)
+        rand_min = random.randint(0, 59)
+        new_cron = f"{rand_min} {rand_hour} * * *"
+
+        updated_content = re.sub(
+            r"cron:\s*['\"][^'\"]+['\"]",
+            f"cron: '{new_cron}'",
+            content
+        )
+        with open(workflow_path, 'w', encoding='utf-8') as f:
+            f.write(updated_content)
+
+        time_str = f"{rand_hour:02d}:{rand_min:02d} UTC"
+        print(f"[*] Updated next schedule cron to: '{new_cron}' (~{time_str})")
+        return time_str
+    except Exception as e:
+        print(f"[!] Failed to update cron in workflow: {e}")
+        return None
 
 
 def get_public_ip():
@@ -84,8 +140,8 @@ def get_linda_vip_status():
             headers={'User-Agent': USER_AGENT}
         )
         with opener.open(req_idx, timeout=10) as resp:
-            html = resp.read().decode('utf-8')
-            for line in html.split('\n'):
+            content = resp.read().decode('utf-8')
+            for line in content.split('\n'):
                 if '会员至' in line:
                     clean = re.sub(r'<[^>]+>', '', line).strip()
                     return clean
@@ -172,7 +228,7 @@ def poll_verification_code(email, max_retries=30, delay=3, resend_fn=None):
 def register_referral_account(inviter_uid=LINDA_UID):
     """Perform full referral registration on huavod.net."""
     print("=" * 60)
-    print("=== Huavod VIP Auto-Renewal & Referral Test ===")
+    print("=== Huavod VIP Auto-Renewal & Referral Job ===")
     print("=" * 60)
 
     # 1. Output Public IP
@@ -275,10 +331,23 @@ def register_referral_account(inviter_uid=LINDA_UID):
     print(f"[+] linda1030 VIP After : {vip_after}")
     print("=" * 60)
 
-    if vip_before != vip_after and vip_after != 'Unknown':
-        print("[SUCCESS] linda1030 VIP membership was successfully EXTENDED!")
-    else:
-        print("[NOTE] VIP status string: checking if days or timestamp changed.")
+    # 9. Update next schedule cron
+    next_schedule = randomize_next_cron()
+    next_info = f"⏰ <b>预计下次运行</b>: ~{next_schedule}\n" if next_schedule else ""
+
+    # 10. Send Telegram Notification
+    tg_msg = (
+        f"🎉 <b>华视影院 VIP 自动续期成功</b>\n\n"
+        f"🌐 <b>出口 IP</b>: <code>{public_ip}</code> (Azure)\n"
+        f"👤 <b>新注册小号</b>: <code>{new_username}</code>\n"
+        f"📧 <b>临时邮箱</b>: <code>{email}</code>\n\n"
+        f"💎 <b>主账号</b>: <code>linda1030</code> (UID: {inviter_uid})\n"
+        f"⏳ <b>续期前状态</b>: {vip_before}\n"
+        f"✅ <b>续期后状态</b>: <b>{vip_after}</b>\n\n"
+        f"{next_info}"
+        f"📺 潘多拉 TV 华盛顿专线保持 VIP 极速免广告！"
+    )
+    send_telegram(tg_msg)
 
 
 if __name__ == '__main__':
@@ -286,6 +355,20 @@ if __name__ == '__main__':
     try:
         register_referral_account()
     except Exception as err:
-        print(f"[ERROR] Script encountered an error: {err}")
-        print(traceback.format_exc())
+        err_str = str(err)
+        tb_str = traceback.format_exc()
+        print(f"[ERROR] Script encountered an error: {err_str}")
+        print(tb_str)
+
+        # Notify Telegram on failure
+        fail_msg = (
+            f"⚠️ <b>华视影院 VIP 自动续期任务异常</b>\n\n"
+            f"❌ <b>错误详情</b>: <code>{html.escape(err_str)}</code>\n"
+            f"请检查 GitHub Actions 执行详情。"
+        )
+        try:
+            send_telegram(fail_msg)
+        except Exception:
+            pass
+
         sys.exit(1)
