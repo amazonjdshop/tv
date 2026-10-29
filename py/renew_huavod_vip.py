@@ -22,6 +22,24 @@ LINDA_UID = '78018'
 LINDA_COOKIE = 'user_id=78018; user_name=linda1030; group_id=3; group_name=VIP%E4%BC%9A%E5%91%98; user_check=c8f46bc0a8a0dc5c916c9afe8a3ccce3;'
 USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36'
 
+# Ensure line buffering
+if hasattr(sys.stdout, 'reconfigure'):
+    sys.stdout.reconfigure(line_buffering=True)
+
+def log(*args, **kwargs):
+    msg = " ".join(str(a) for a in args)
+    sys.stdout.write(msg + '\n')
+    sys.stdout.flush()
+    summary_path = os.environ.get('GITHUB_STEP_SUMMARY')
+    if summary_path:
+        try:
+            with open(summary_path, 'a', encoding='utf-8') as f:
+                f.write(msg + '\n')
+        except Exception:
+            pass
+
+print = log
+
 
 def get_public_ip():
     """Fetch external public IP of the runner."""
@@ -245,8 +263,10 @@ def register_referral_account(inviter_uid=LINDA_UID):
 
 
 if __name__ == '__main__':
+    import traceback
     try:
         register_referral_account()
     except Exception as err:
         print(f"[ERROR] Script encountered an error: {err}")
+        print(traceback.format_exc())
         sys.exit(1)

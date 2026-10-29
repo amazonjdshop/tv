@@ -12,6 +12,8 @@ on:
 jobs:
   renew_vip:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
@@ -23,4 +25,23 @@ jobs:
 
       - name: Run VIP Referral Test
         run: |
-          python py/renew_huavod_vip.py
+          python py/renew_huavod_vip.py 2>&1 | tee referral_test.log
+
+      - name: Upload Test Log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: referral-test-log
+          path: referral_test.log
+
+      - name: Save Log to test-results Branch
+        if: always()
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git checkout -B test-results
+          mkdir -p logs
+          cp referral_test.log logs/referral_test.log
+          git add logs/referral_test.log
+          git commit -m "chore: save referral test log [skip ci]" || echo "No changes"
+          git push origin test-results -f || echo "Push failed"
