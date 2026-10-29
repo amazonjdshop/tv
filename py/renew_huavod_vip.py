@@ -332,9 +332,18 @@ def register_referral_account(inviter_uid=LINDA_UID):
 
     print("[+] Registration successful!")
 
-    # 8. Check linda1030 VIP after registration
-    time.sleep(3)
-    vip_after = get_linda_vip_status()
+    # 8. Check linda1030 VIP after registration (poll up to 20s to ensure server DB commits the referral)
+    print("[*] Waiting for Huavod server to credit the referral VIP reward...")
+    vip_after = vip_before
+    for attempt in range(1, 8):
+        time.sleep(3)
+        current = get_linda_vip_status()
+        if current != 'Unknown' and current != vip_before:
+            vip_after = current
+            print(f"[+] VIP extension confirmed on attempt {attempt}: {vip_after}")
+            break
+        vip_after = current
+
     print("=" * 60)
     print(f"[*] linda1030 VIP Before: {vip_before}")
     print(f"[+] linda1030 VIP After : {vip_after}")
