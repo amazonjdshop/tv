@@ -19,7 +19,6 @@ import urllib.parse
 import http.cookiejar
 
 LINDA_UID = '78018'
-LINDA_COOKIE = 'user_id=78018; user_name=linda1030; group_id=3; group_name=VIP%E4%BC%9A%E5%91%98; user_check=c8f46bc0a8a0dc5c916c9afe8a3ccce3;'
 USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36'
 
 # Ensure line buffering
@@ -59,17 +58,32 @@ def get_public_ip():
 
 
 def get_linda_vip_status():
-    """Query linda1030's current VIP expiration date and remaining days."""
-    url = 'https://huavod.net/index.php/user/index.html'
-    req = urllib.request.Request(
-        url,
+    """Query linda1030's current VIP expiration date by logging in."""
+    cj = http.cookiejar.CookieJar()
+    opener = urllib.request.build_opener(urllib.request.HTTPCookieProcessor(cj))
+    login_data = urllib.parse.urlencode({
+        'user_name': 'linda1030',
+        'user_pwd': 'Qwer1234'
+    }).encode('utf-8')
+
+    req_login = urllib.request.Request(
+        'https://huavod.net/index.php/user/login.html',
+        data=login_data,
         headers={
             'User-Agent': USER_AGENT,
-            'Cookie': LINDA_COOKIE
+            'X-Requested-With': 'XMLHttpRequest',
+            'Referer': 'https://huavod.net/index.php/user/login.html',
+            'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
         }
     )
+
     try:
-        with urllib.request.urlopen(req, timeout=10) as resp:
+        opener.open(req_login, timeout=10)
+        req_idx = urllib.request.Request(
+            'https://huavod.net/index.php/user/index.html',
+            headers={'User-Agent': USER_AGENT}
+        )
+        with opener.open(req_idx, timeout=10) as resp:
             html = resp.read().decode('utf-8')
             for line in html.split('\n'):
                 if '会员至' in line:
@@ -103,14 +117,17 @@ def generate_temp_gmail(max_tries=10):
     raise RuntimeError(f"Could not generate a valid Gmail with <= 2 dots after {max_tries} tries")
 
 
-def poll_verification_code(email, max_retries=20, delay=3):
+def poll_verification_code(email, max_retries=30, delay=3, resend_fn=None):
     """Poll Emailnator inbox for verification code from huavod / huaren."""
     url_list = 'https://www.emailnator.com/api/message-list'
     for attempt in range(1, max_retries + 1):
+        if attempt == 12 and resend_fn:
+            print("[*] Re-sending verification code (SMTP retry)...")
+            resend_fn()
         time.sleep(delay)
         req = urllib.request.Request(
             url_list,
-            data=json.dumps({'email': email, 'limit': 10}).encode('utf-8'),
+            data=json.dumps({'email': email, 'limit': 15}).encode('utf-8'),
             headers={
                 'User-Agent': USER_AGENT,
                 'Content-Type': 'application/json',
@@ -183,32 +200,33 @@ def register_referral_account(inviter_uid=LINDA_UID):
     print(f"[*] Initial session cookies: {cookies}")
 
     # 5. Send verification code
+    def send_code():
+        msg_data = urllib.parse.urlencode({
+            'ac': 'email',
+            'to': email,
+            'uid': inviter_uid
+        }).encode('utf-8')
+        req_msg = urllib.request.Request(
+            'https://huavod.net/index.php/user/reg_msg',
+            data=msg_data,
+            headers={
+                'User-Agent': USER_AGENT,
+                'X-Requested-With': 'XMLHttpRequest',
+                'Referer': ref_url,
+                'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+            }
+        )
+        with opener.open(req_msg, timeout=10) as resp_msg:
+            res_json = json.loads(resp_msg.read().decode('utf-8'))
+            print(f"[*] reg_msg response: {res_json}")
+            if res_json.get('code') != 1:
+                raise RuntimeError(f"Failed to send verification code: {res_json}")
+
     print("[*] Requesting verification code...")
-    msg_data = urllib.parse.urlencode({
-        'ac': 'email',
-        'to': email,
-        'uid': inviter_uid
-    }).encode('utf-8')
-
-    req_msg = urllib.request.Request(
-        'https://huavod.net/index.php/user/reg_msg',
-        data=msg_data,
-        headers={
-            'User-Agent': USER_AGENT,
-            'X-Requested-With': 'XMLHttpRequest',
-            'Referer': ref_url,
-            'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
-        }
-    )
-
-    with opener.open(req_msg, timeout=10) as resp_msg:
-        res_json = json.loads(resp_msg.read().decode('utf-8'))
-        print(f"[*] reg_msg response: {res_json}")
-        if res_json.get('code') != 1:
-            raise RuntimeError(f"Failed to send verification code: {res_json}")
+    send_code()
 
     # 6. Retrieve verification code
-    code = poll_verification_code(email)
+    code = poll_verification_code(email, max_retries=30, delay=3, resend_fn=send_code)
     if not code:
         raise RuntimeError("Timed out waiting for verification code email.")
     print(f"[+] Verification code received: {code}")
