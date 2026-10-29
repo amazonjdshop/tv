@@ -4,11 +4,31 @@
  */
 
 let host = 'https://huavod.net';
-const VIP_COOKIE = 'user_id=78018; user_name=linda1030; group_id=3; group_name=VIP%E4%BC%9A%E5%91%98; user_check=c8f46bc0a8a0dc5c916c9afe8a3ccce3;';
+let dynamicVipCookie = 'user_id=78018; user_name=linda1030; group_id=3; group_name=VIP%E4%BC%9A%E5%91%98;';
+let dynamicCookieExpire = 0;
+
+async function getVipCookie(forceRefresh = false) {
+    if (!forceRefresh && dynamicVipCookie && Date.now() < dynamicCookieExpire && dynamicVipCookie.includes('user_check=')) {
+        return dynamicVipCookie;
+    }
+    try {
+        const cookieUrl = 'https://round-snowflake-2d83.linda11-28-2022.workers.dev/cookie' + (forceRefresh ? '?force=1' : '');
+        const r = await req(cookieUrl, {
+            headers: { 'User-Agent': 'Mozilla/5.0' }
+        });
+        const res = JSON.parse(r.content || '{}');
+        if (res && res.cookie && res.cookie.includes('user_check=')) {
+            dynamicVipCookie = res.cookie;
+            dynamicCookieExpire = Date.now() + 600000;
+            return dynamicVipCookie;
+        }
+    } catch (e) {}
+    return dynamicVipCookie;
+}
+
 const headers = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-    'Referer': 'https://huavod.net/',
-    'Cookie': VIP_COOKIE
+    'Referer': 'https://huavod.net/'
 };
 
 function sleep(ms) {
@@ -648,12 +668,13 @@ async function play(flag, id, flags) {
             episodeId = epMatch[1];
         }
 
+        let currentCookie = await getVipCookie();
         const playerUrl = `${host}/Player/ec?episode=${episodeId}`;
         const r = await req(playerUrl, {
             headers: {
                 'User-Agent': headers['User-Agent'],
                 'Referer': `${host}/vodplay/${episodeId}.html`,
-                'Cookie': VIP_COOKIE
+                'Cookie': currentCookie
             }
         });
 
@@ -704,7 +725,7 @@ async function play(flag, id, flags) {
                     'User-Agent': headers['User-Agent'],
                     'Referer': playerUrl,
                     'Origin': host,
-                    'Cookie': VIP_COOKIE,
+                    'Cookie': currentCookie,
                     'Content-Type': 'application/x-www-form-urlencoded',
                     'X-Requested-With': 'XMLHttpRequest'
                 }
@@ -715,6 +736,10 @@ async function play(flag, id, flags) {
                 if (resJson && resJson.code === 1 && resJson.data && resJson.data.url) {
                     playUrl = resJson.data.url;
                     break;
+                }
+                // 若首次解析失败可能是 Cookie 已被顶替，强制向 Worker 刷新一次新 Session
+                if (i === 0 && (!resJson || resJson.code !== 1)) {
+                    currentCookie = await getVipCookie(true);
                 }
             } catch (e) {}
 
