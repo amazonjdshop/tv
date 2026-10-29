@@ -215,8 +215,8 @@ def register_referral_account(inviter_uid=LINDA_UID):
 
     # 7. Submit registration
     rand_suffix = ''.join(random.choices(string.ascii_lowercase + string.digits, k=6))
-    new_username = f"ref_{rand_suffix}"
-    new_password = f"RefUser2026_{rand_suffix}!"
+    new_username = f"ref{rand_suffix}"
+    new_password = f"RefUser2026{rand_suffix}"
 
     print(f"[*] Submitting registration for new user: {new_username}")
     reg_data = urllib.parse.urlencode({
