@@ -67,35 +67,6 @@ def send_telegram(text):
         print(f"[!] Telegram notification failed: {e}")
 
 
-def randomize_next_cron(workflow_path='.github/workflows/renew_huavod_vip.yml'):
-    """Generate a random execution time (between 02:00 and 08:59 UTC) for tomorrow."""
-    if not os.path.exists(workflow_path):
-        return None
-    try:
-        with open(workflow_path, 'r', encoding='utf-8') as f:
-            content = f.read()
-
-        # Random hour between 02 and 08 UTC (approx 10 PM - 4 AM US Eastern)
-        rand_hour = random.randint(2, 8)
-        rand_min = random.randint(0, 59)
-        new_cron = f"{rand_min} {rand_hour} * * *"
-
-        updated_content = re.sub(
-            r"cron:\s*['\"][^'\"]+['\"]",
-            f"cron: '{new_cron}'",
-            content
-        )
-        with open(workflow_path, 'w', encoding='utf-8') as f:
-            f.write(updated_content)
-
-        time_str = f"{rand_hour:02d}:{rand_min:02d} UTC"
-        print(f"[*] Updated next schedule cron to: '{new_cron}' (~{time_str})")
-        return time_str
-    except Exception as e:
-        print(f"[!] Failed to update cron in workflow: {e}")
-        return None
-
-
 def get_public_ip():
     """Fetch external public IP of the runner."""
     services = [
@@ -331,11 +302,7 @@ def register_referral_account(inviter_uid=LINDA_UID):
     print(f"[+] linda1030 VIP After : {vip_after}")
     print("=" * 60)
 
-    # 9. Update next schedule cron
-    next_schedule = randomize_next_cron()
-    next_info = f"⏰ <b>预计下次运行</b>: ~{next_schedule}\n" if next_schedule else ""
-
-    # 10. Send Telegram Notification
+    # 9. Send Telegram Notification
     tg_msg = (
         f"🎉 <b>华视影院 VIP 自动续期成功</b>\n\n"
         f"🌐 <b>出口 IP</b>: <code>{public_ip}</code> (Azure)\n"
@@ -344,7 +311,6 @@ def register_referral_account(inviter_uid=LINDA_UID):
         f"💎 <b>主账号</b>: <code>linda1030</code> (UID: {inviter_uid})\n"
         f"⏳ <b>续期前状态</b>: {vip_before}\n"
         f"✅ <b>续期后状态</b>: <b>{vip_after}</b>\n\n"
-        f"{next_info}"
         f"📺 潘多拉 TV 华盛顿专线保持 VIP 极速免广告！"
     )
     send_telegram(tg_msg)

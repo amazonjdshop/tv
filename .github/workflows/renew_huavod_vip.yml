@@ -3,7 +3,8 @@ name: Huavod VIP Auto Renewal
 on:
   workflow_dispatch:
   schedule:
-    - cron: '23 5 * * *'
+    # Triggers daily at 03:00 UTC (approx 11:00 PM US Eastern / 11:00 AM Beijing)
+    - cron: '0 3 * * *'
   push:
     branches:
       - main
@@ -14,8 +15,6 @@ on:
 jobs:
   renew_vip:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
@@ -25,35 +24,14 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Random Jitter Delay
+      - name: Random Time Delay
         if: github.event_name == 'schedule'
         run: |
-          # Add random 0 ~ 10 minutes jitter delay for scheduled executions
-          DELAY=$((RANDOM % 600))
-          echo "Scheduled run triggered. Random delay: ${DELAY}s..."
+          # Random sleep between 0 and 7200 seconds (0 ~ 2 hours) to randomize execution time
+          DELAY=$((RANDOM % 7200))
+          echo "Scheduled run triggered. Random sleep: ${DELAY}s (~$((DELAY / 60)) mins)..."
           sleep $DELAY
 
       - name: Run VIP Referral Script
         run: |
-          python py/renew_huavod_vip.py 2>&1 | tee referral_test.log
-
-      - name: Commit Next Random Schedule
-        if: always()
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add .github/workflows/renew_huavod_vip.yml
-          git commit -m "chore: randomize next Huavod VIP renewal schedule [skip ci]" || echo "No schedule changes"
-          git push origin main || echo "Push to main failed or not needed"
-
-      - name: Save Log to test-results Branch
-        if: always()
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git checkout -B test-results
-          mkdir -p logs
-          cp referral_test.log logs/referral_test.log
-          git add logs/referral_test.log
-          git commit -m "chore: update renewal test log [skip ci]" || echo "No changes"
-          git push origin test-results -f || echo "Push to test-results failed"
+          python py/renew_huavod_vip.py
