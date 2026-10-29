@@ -80,26 +80,27 @@ def get_linda_vip_status():
     return 'Unknown'
 
 
-def generate_temp_gmail():
-    """Generate temporary Gmail dotGmail address via Emailnator."""
+def generate_temp_gmail(max_tries=10):
+    """Generate temporary Gmail dotGmail address via Emailnator with <= 2 dots."""
     url = 'https://www.emailnator.com/api/generate-email'
-    req = urllib.request.Request(
-        url,
-        data=json.dumps({'ids': [3]}).encode('utf-8'),
-        headers={
-            'User-Agent': USER_AGENT,
-            'Content-Type': 'application/json',
-            'Accept': 'application/json',
-            'Origin': 'https://www.emailnator.com',
-            'Referer': 'https://www.emailnator.com/'
-        }
-    )
-    with urllib.request.urlopen(req, timeout=10) as resp:
-        data = json.loads(resp.read().decode('utf-8'))
-        email = data.get('email')
-        if not email:
-            raise RuntimeError(f"Emailnator did not return an email: {data}")
-        return email
+    for _ in range(max_tries):
+        req = urllib.request.Request(
+            url,
+            data=json.dumps({'ids': [3]}).encode('utf-8'),
+            headers={
+                'User-Agent': USER_AGENT,
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+                'Origin': 'https://www.emailnator.com',
+                'Referer': 'https://www.emailnator.com/'
+            }
+        )
+        with urllib.request.urlopen(req, timeout=10) as resp:
+            data = json.loads(resp.read().decode('utf-8'))
+            email = data.get('email')
+            if email and email.split('@')[0].count('.') <= 2:
+                return email
+    raise RuntimeError(f"Could not generate a valid Gmail with <= 2 dots after {max_tries} tries")
 
 
 def poll_verification_code(email, max_retries=20, delay=3):
