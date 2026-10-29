@@ -76,6 +76,15 @@
       "filterable": 1
     },
     {
+      "key": "20261029华视影院",
+      "name": "🇺🇸 华盛顿·华视专线",
+      "type": 3,
+      "api": "./js/huavod.js?v=20261029",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
       "key": "20261010全服集合",
       "name": "全服集合❤️(点击此处可切换服务器)",
       "type": 3,

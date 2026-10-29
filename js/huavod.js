@@ -3,10 +3,12 @@
  * 适用于 FongMi (潘多拉影视) / TVBox QuickJS 引擎
  */
 
-let host = 'https://huavod.com';
+let host = 'https://huavod.net';
+const VIP_COOKIE = 'user_id=78018; user_name=linda1030; group_id=3; group_name=VIP%E4%BC%9A%E5%91%98; user_check=c8f46bc0a8a0dc5c916c9afe8a3ccce3;';
 const headers = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-    'Referer': 'https://huavod.com/'
+    'Referer': 'https://huavod.net/',
+    'Cookie': VIP_COOKIE
 };
 
 function sleep(ms) {
@@ -656,21 +658,35 @@ async function play(flag, id, flags) {
 
         const html = r.content || '';
 
-        // Extract mt token
+        // 1. 【无广秒播核心】从 P2P 组件中直接提取未加密真实切片 m3u8 (非 b-cdn 防盗链源可直接 0 秒秒播)
+        const p2pMatch = html.match(/"channel_key":\s*"([^"]+)"/);
+        if (p2pMatch && p2pMatch[1] && p2pMatch[1].startsWith('http') && !p2pMatch[1].includes('b-cdn.net')) {
+            return JSON.stringify({
+                parse: 0,
+                url: p2pMatch[1],
+                header: {
+                    'User-Agent': headers['User-Agent'],
+                    'Referer': `${host}/`
+                }
+            });
+        }
+
+        // 2. 检查内联直链 url
+        const inlineMatch = html.match(/"url":\s*"([^"]+)"/);
+        if (inlineMatch && inlineMatch[1] && inlineMatch[1].startsWith('http')) {
+            return JSON.stringify({
+                parse: 0,
+                url: inlineMatch[1],
+                header: {
+                    'User-Agent': headers['User-Agent'],
+                    'Referer': `${host}/`
+                }
+            });
+        }
+
+        // 3. 兜底解析：如果页面未包含 channel_key，再执行 token 延时解析
         const mtMatch = html.match(/"mt":\s*"([^"]+)"/);
         if (!mtMatch) {
-            // Check if there is an inline direct stream url
-            const inlineMatch = html.match(/"url":\s*"([^"]+)"/);
-            if (inlineMatch && inlineMatch[1] && inlineMatch[1].startsWith('http')) {
-                return JSON.stringify({
-                    parse: 0,
-                    url: inlineMatch[1],
-                    header: {
-                        'User-Agent': headers['User-Agent'],
-                        'Referer': `${host}/`
-                    }
-                });
-            }
             return JSON.stringify({ parse: 0, url: '' });
         }
 
@@ -696,6 +712,7 @@ async function play(flag, id, flags) {
                     'User-Agent': headers['User-Agent'],
                     'Referer': playerUrl,
                     'Origin': host,
+                    'Cookie': VIP_COOKIE,
                     'Content-Type': 'application/x-www-form-urlencoded'
                 }
             });
