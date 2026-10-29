@@ -7,6 +7,7 @@
 
 let globalToken = "";
 let tokenExpireTime = 0;
+const VIP_COOKIE = "user_id=78018; user_name=linda1030; group_id=3; group_name=VIP%E4%BC%9A%E5%91%98; user_check=c8f46bc0a8a0dc5c916c9afe8a3ccce3;";
 
 function init(ext) {
     // 模块初始化
@@ -21,7 +22,9 @@ function play(flag, id, flags) {
         if (!globalToken || Date.now() > tokenExpireTime) {
             let res = req(`https://huavod.com/liveplay/${pageId}-1.html`, {
                 headers: {
-                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+                    "Cookie": VIP_COOKIE,
+                    "Referer": "https://huavod.com/"
                 }
             });
 
@@ -29,7 +32,9 @@ function play(flag, id, flags) {
             if (!res || !res.content || !res.content.includes("auth=")) {
                 res = req(`https://www.huavod.com/liveplay/${pageId}-1.html`, {
                     headers: {
-                        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+                        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+                        "Cookie": VIP_COOKIE,
+                        "Referer": "https://www.huavod.com/"
                     }
                 });
             }
@@ -41,6 +46,36 @@ function play(flag, id, flags) {
                     // 缓存 8 分钟 (480000 毫秒)，在 10 分钟失效前自动刷新
                     tokenExpireTime = Date.now() + 480000;
                 }
+            }
+
+            // 容灾兜底：若 Cookie 过期或未匹配到 Token，尝试自动登录刷新
+            if (!globalToken) {
+                try {
+                    req("https://huavod.com/index.php/user/login.html", {
+                        method: "POST",
+                        data: "user_name=linda1030&user_pwd=Qwer1234",
+                        headers: {
+                            "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+                            "X-Requested-With": "XMLHttpRequest",
+                            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+                            "Referer": "https://huavod.com/index.php/user/login.html"
+                        }
+                    });
+                    let retryRes = req(`https://huavod.com/liveplay/${pageId}-1.html`, {
+                        headers: {
+                            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+                            "Cookie": VIP_COOKIE,
+                            "Referer": "https://huavod.com/"
+                        }
+                    });
+                    if (retryRes && retryRes.content) {
+                        const m2 = retryRes.content.match(/auth=([^\x27"&\s;]+)/);
+                        if (m2 && m2[1]) {
+                            globalToken = m2[1];
+                            tokenExpireTime = Date.now() + 480000;
+                        }
+                    }
+                } catch (e2) {}
             }
         }
 
