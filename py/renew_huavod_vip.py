@@ -261,7 +261,7 @@ def register_referral_account(inviter_uid=LINDA_UID):
     # 7. Submit registration
     rand_suffix = ''.join(random.choices(string.ascii_lowercase + string.digits, k=6))
     new_username = f"ref{rand_suffix}"
-    new_password = f"RefUser2026{rand_suffix}"
+    new_password = "PassWord2026!"
 
     print(f"[*] Submitting registration for new user: {new_username}")
     reg_data = urllib.parse.urlencode({
@@ -307,6 +307,7 @@ def register_referral_account(inviter_uid=LINDA_UID):
         f"🎉 <b>华视影院 VIP 自动续期成功</b>\n\n"
         f"🌐 <b>出口 IP</b>: <code>{public_ip}</code> (Azure)\n"
         f"👤 <b>新注册小号</b>: <code>{new_username}</code>\n"
+        f"🔑 <b>小号密码</b>: <code>{new_password}</code>\n"
         f"📧 <b>临时邮箱</b>: <code>{email}</code>\n\n"
         f"💎 <b>主账号</b>: <code>linda1030</code> (UID: {inviter_uid})\n"
         f"⏳ <b>续期前状态</b>: {vip_before}\n"
