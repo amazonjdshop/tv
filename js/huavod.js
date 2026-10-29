@@ -652,7 +652,8 @@ async function play(flag, id, flags) {
         const r = await req(playerUrl, {
             headers: {
                 'User-Agent': headers['User-Agent'],
-                'Referer': `${host}/vodplay/${episodeId}.html`
+                'Referer': `${host}/vodplay/${episodeId}.html`,
+                'Cookie': VIP_COOKIE
             }
         });
 
@@ -684,24 +685,15 @@ async function play(flag, id, flags) {
             });
         }
 
-        // 3. 兜底解析：如果页面未包含 channel_key，再执行 token 延时解析
+        // 3. VIP 会员零等待直解官方代理流 (0秒跳过广告，无需任何 sleep 倒计时)
         const mtMatch = html.match(/"mt":\s*"([^"]+)"/);
         if (!mtMatch) {
             return JSON.stringify({ parse: 0, url: '' });
         }
 
         const mt = mtMatch[1];
-        const adMatch = html.match(/"ad_duration_ms":\s*"?(\d+)"?/);
-        const adMs = adMatch ? parseInt(adMatch[1]) : 22000;
-        const initialDelayMs = adMs > 0 ? Math.max(0, adMs - 2000) : 0;
-
-        // The site's backend enforces a ~20s delay before granting the stream link
-        if (initialDelayMs > 0) {
-            await sleep(initialDelayMs);
-        }
-
         let playUrl = '';
-        const maxTries = 4;
+        const maxTries = 3;
         for (let i = 0; i < maxTries; i++) {
             const resolveRes = await req(`${host}/Player/resolveUrl`, {
                 method: 'post',
@@ -713,7 +705,8 @@ async function play(flag, id, flags) {
                     'Referer': playerUrl,
                     'Origin': host,
                     'Cookie': VIP_COOKIE,
-                    'Content-Type': 'application/x-www-form-urlencoded'
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                    'X-Requested-With': 'XMLHttpRequest'
                 }
             });
 
@@ -726,7 +719,7 @@ async function play(flag, id, flags) {
             } catch (e) {}
 
             if (i < maxTries - 1) {
-                await sleep(2000);
+                await sleep(500);
             }
         }
 
