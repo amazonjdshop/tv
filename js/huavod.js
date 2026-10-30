@@ -11,10 +11,11 @@ async function getVipCookie(forceRefresh = false) {
     if (!forceRefresh && dynamicVipCookie && Date.now() < dynamicCookieExpire && dynamicVipCookie.includes('user_check=')) {
         return dynamicVipCookie;
     }
+    // 1. 优先从 Cloudflare Worker 获取集中式 Token 与有效 VIP Cookie
     try {
         const cookieUrl = 'https://round-snowflake-2d83.linda11-28-2022.workers.dev/cookie' + (forceRefresh ? '?force=1' : '');
         const r = await req(cookieUrl, {
-            headers: { 'User-Agent': 'Mozilla/5.0' }
+            headers: { 'User-Agent': headers['User-Agent'] }
         });
         const res = JSON.parse(r.content || '{}');
         if (res && res.cookie && res.cookie.includes('user_check=')) {
@@ -23,6 +24,38 @@ async function getVipCookie(forceRefresh = false) {
             return dynamicVipCookie;
         }
     } catch (e) {}
+
+    // 2. 备用自愈容灾：若 Worker 无法访问或返回异常，直接向官方登录接口发起保底登录建会
+    try {
+        const loginUrl = `${host}/index.php/user/login.html`;
+        const loginRes = await req(loginUrl, {
+            method: 'post',
+            postType: 'form',
+            data: {
+                user_name: 'linda1030',
+                user_pwd: 'Qwer1234'
+            },
+            body: 'user_name=linda1030&user_pwd=Qwer1234',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+                'X-Requested-With': 'XMLHttpRequest',
+                'User-Agent': headers['User-Agent'],
+                'Referer': loginUrl
+            }
+        });
+        if (loginRes && loginRes.headers) {
+            const sc = loginRes.headers['set-cookie'] || loginRes.headers['Set-Cookie'];
+            if (sc) {
+                const scStr = Array.isArray(sc) ? sc.join('; ') : sc;
+                if (scStr.includes('user_check=')) {
+                    dynamicVipCookie = scStr;
+                    dynamicCookieExpire = Date.now() + 600000;
+                    return dynamicVipCookie;
+                }
+            }
+        }
+    } catch (e) {}
+
     return dynamicVipCookie;
 }
 
@@ -737,9 +770,21 @@ async function play(flag, id, flags) {
                     playUrl = resJson.data.url;
                     break;
                 }
-                // 若首次解析失败可能是 Cookie 已被顶替，强制向 Worker 刷新一次新 Session
+                // 若首次解析遇到广告等待或未授权 (例如 too early / code !== 1)，重新刷新 VIP 会话并重拉 Player/ec
                 if (i === 0 && (!resJson || resJson.code !== 1)) {
                     currentCookie = await getVipCookie(true);
+                    const retryEc = await req(playerUrl, {
+                        headers: {
+                            'User-Agent': headers['User-Agent'],
+                            'Referer': `${host}/vodplay/${episodeId}.html`,
+                            'Cookie': currentCookie
+                        }
+                    });
+                    const retryHtml = retryEc.content || '';
+                    const retryMt = retryHtml.match(/"mt":\s*"([^"]+)"/);
+                    if (retryMt && retryMt[1]) {
+                        mt = retryMt[1];
+                    }
                 }
             } catch (e) {}
 
