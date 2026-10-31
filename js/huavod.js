@@ -6,63 +6,156 @@
 let host = 'https://huavod.net';
 let dynamicVipCookie = 'user_id=78018; user_name=linda1030; group_id=3; group_name=VIP%E4%BC%9A%E5%91%98;';
 let dynamicCookieExpire = 0;
+let cookieMap = {
+    'user_id': '78018',
+    'user_name': 'linda1030',
+    'group_id': '3',
+    'group_name': 'VIP%E4%BC%9A%E5%91%98'
+};
+
+function getContent(res) {
+    if (!res) return '';
+    if (typeof res === 'string') return res;
+    if (typeof res === 'object') {
+        if (res.content !== undefined) return res.content;
+        if (res.body !== undefined) return res.body;
+        if (res.text !== undefined) return res.text;
+        if (res.data !== undefined) return typeof res.data === 'string' ? res.data : JSON.stringify(res.data);
+    }
+    return String(res);
+}
+
+function parseJsonSafe(str) {
+    if (!str) return null;
+    if (typeof str === 'object') return str;
+    try {
+        return JSON.parse(str);
+    } catch (e) {
+        return null;
+    }
+}
+
+function getCookieString() {
+    return Object.entries(cookieMap).map(([k, v]) => `${k}=${v}`).join('; ') + ';';
+}
+
+function updateCookies(strOrRes) {
+    if (!strOrRes) return;
+    if (typeof strOrRes === 'string') {
+        for (const piece of strOrRes.split(';')) {
+            const trimmed = piece.trim();
+            const eqIdx = trimmed.indexOf('=');
+            if (eqIdx !== -1) {
+                const k = trimmed.substring(0, eqIdx).trim();
+                const v = trimmed.substring(eqIdx + 1).trim();
+                if (k && v) cookieMap[k] = v;
+            }
+        }
+        return;
+    }
+    if (typeof strOrRes === 'object' && strOrRes.headers) {
+        const sc = strOrRes.headers['set-cookie'] || strOrRes.headers['Set-Cookie'];
+        if (!sc) return;
+        const arr = Array.isArray(sc) ? sc : [sc];
+        for (const item of arr) {
+            for (const piece of item.split(/,(?=[a-zA-Z0-9_-]+=)/)) {
+                const first = piece.split(';')[0].trim();
+                const eqIdx = first.indexOf('=');
+                if (eqIdx !== -1) {
+                    const k = first.substring(0, eqIdx).trim();
+                    const v = first.substring(eqIdx + 1).trim();
+                    if (k && v) cookieMap[k] = v;
+                }
+            }
+        }
+    }
+}
 
 async function getVipCookie(forceRefresh = false) {
-    if (!forceRefresh && dynamicVipCookie && Date.now() < dynamicCookieExpire && dynamicVipCookie.includes('user_check=')) {
-        return dynamicVipCookie;
+    if (!forceRefresh && dynamicVipCookie && Date.now() < dynamicCookieExpire && cookieMap['user_check']) {
+        return getCookieString();
     }
     // 1. 优先从 Cloudflare Worker 获取集中式 Token 与有效 VIP Cookie
     try {
         const cookieUrl = 'https://round-snowflake-2d83.linda11-28-2022.workers.dev/cookie' + (forceRefresh ? '?force=1' : '');
         const r = await req(cookieUrl, {
-            headers: { 'User-Agent': headers['User-Agent'] }
+            headers: { 'User-Agent': headers['User-Agent'] },
+            timeout: 8000
         });
-        const res = JSON.parse(r.content || '{}');
+        const content = getContent(r);
+        const res = parseJsonSafe(content);
         if (res && res.cookie && res.cookie.includes('user_check=')) {
             dynamicVipCookie = res.cookie;
+            updateCookies(res.cookie);
             dynamicCookieExpire = Date.now() + 600000;
-            return dynamicVipCookie;
+            return getCookieString();
         }
     } catch (e) {}
 
     // 2. 备用自愈容灾：若 Worker 无法访问或返回异常，直接向官方登录接口发起保底登录建会
-    try {
-        const loginUrl = `${host}/index.php/user/login.html`;
-        const loginRes = await req(loginUrl, {
-            method: 'post',
-            postType: 'form',
-            data: {
-                user_name: 'linda1030',
-                user_pwd: 'Qwer1234'
-            },
-            body: 'user_name=linda1030&user_pwd=Qwer1234',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
-                'X-Requested-With': 'XMLHttpRequest',
-                'User-Agent': headers['User-Agent'],
-                'Referer': loginUrl
-            }
-        });
-        if (loginRes && loginRes.headers) {
-            const sc = loginRes.headers['set-cookie'] || loginRes.headers['Set-Cookie'];
-            if (sc) {
-                const scStr = Array.isArray(sc) ? sc.join('; ') : sc;
-                if (scStr.includes('user_check=')) {
-                    dynamicVipCookie = scStr;
-                    dynamicCookieExpire = Date.now() + 600000;
-                    return dynamicVipCookie;
+    for (const h of [host, 'https://huavod.com', 'https://huavod.net']) {
+        try {
+            const loginUrl = `${h}/index.php/user/login.html`;
+            const loginRes = await req(loginUrl, {
+                method: 'post',
+                postType: 'form',
+                data: {
+                    user_name: 'linda1030',
+                    user_pwd: 'Qwer1234'
+                },
+                body: 'user_name=linda1030&user_pwd=Qwer1234',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+                    'X-Requested-With': 'XMLHttpRequest',
+                    'User-Agent': headers['User-Agent'],
+                    'Referer': loginUrl
+                },
+                timeout: 8000
+            });
+            updateCookies(loginRes);
+            if (loginRes && loginRes.headers) {
+                const sc = loginRes.headers['set-cookie'] || loginRes.headers['Set-Cookie'];
+                if (sc) {
+                    const scStr = Array.isArray(sc) ? sc.join('; ') : sc;
+                    if (scStr.includes('user_check=')) {
+                        dynamicVipCookie = scStr;
+                        updateCookies(scStr);
+                        dynamicCookieExpire = Date.now() + 600000;
+                        return getCookieString();
+                    }
                 }
             }
-        }
-    } catch (e) {}
+        } catch (e) {}
+    }
 
-    return dynamicVipCookie;
+    return getCookieString();
 }
 
 const headers = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
     'Referer': 'https://huavod.net/'
 };
+
+async function safeReq(url, opt = {}) {
+    await getVipCookie();
+    const reqHeaders = Object.assign({
+        'User-Agent': headers['User-Agent'],
+        'Referer': `${host}/`,
+        'Cookie': getCookieString()
+    }, opt.headers || {});
+
+    let r = await req(url, Object.assign({}, opt, { headers: reqHeaders, timeout: opt.timeout || 8000 }));
+    updateCookies(r);
+    let content = getContent(r);
+
+    if (!content || content.includes('window.location.href') || (r && r.statusCode === 403)) {
+        reqHeaders['Cookie'] = getCookieString();
+        r = await req(url, Object.assign({}, opt, { headers: reqHeaders, timeout: opt.timeout || 8000 }));
+        updateCookies(r);
+        content = getContent(r);
+    }
+    return { res: r, content: content };
+}
 
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
@@ -433,8 +526,17 @@ async function home(filter) {
 
 async function homeVod() {
     try {
-        const r = await req(host, { headers });
-        const html = r.content || '';
+        let html = '';
+        for (const h of [host, 'https://huavod.net', 'https://huavod.com']) {
+            try {
+                const { content } = await safeReq(h);
+                if (content && content.includes('/voddetail/')) {
+                    html = content;
+                    if (h !== host) host = h;
+                    break;
+                }
+            } catch (e) {}
+        }
         let videos = [];
         let seen = new Set();
 
@@ -446,7 +548,7 @@ async function homeVod() {
 
             const inner = match[2];
             const nameMatch = inner.match(/title="([^"]+)"/) || inner.match(/alt="([^"]+?)(?:封面图)?"/) || inner.match(/<(?:h3|span|div)[^>]*class="[^"]*title[^"]*"[^>]*>([^<]+)/);
-            const picMatch = inner.match(/data-(?:src|original)="([^"]+)"/) || inner.match(/src="([^"]+)"/) || inner.match(/url\(['"]?([^'")]+)/);
+            const picMatch = inner.match(/data-(?:src|original)="([^"]+)"/) || inner.match(/src="([^"]+)"/);
             const remarkMatch = inner.match(/class="[^"]*(?:remarks|public-list-prb)[^"]*"[^>]*>([\s\S]*?)<\/span>/) || inner.match(/<i[^>]*class="ft4"[^>]*>([^<]+)<\/i>/);
 
             const name = nameMatch ? nameMatch[1].replace('封面图', '').trim() : '';
@@ -489,9 +591,18 @@ async function category(tid, pg, filter, extend = {}) {
         }
         path += '.html';
 
-        const pageUrl = `${host}${path}`;
-        const r = await req(pageUrl, { headers });
-        const html = r.content || '';
+        let html = '';
+        for (const h of [host, 'https://huavod.net', 'https://huavod.com']) {
+            try {
+                const pageUrl = `${h}${path}`;
+                const { content } = await safeReq(pageUrl);
+                if (content && content.includes('/voddetail/')) {
+                    html = content;
+                    if (h !== host) host = h;
+                    break;
+                }
+            } catch (e) {}
+        }
 
         let videos = [];
         let seen = new Set();
@@ -543,9 +654,18 @@ async function category(tid, pg, filter, extend = {}) {
 
 async function detail(id) {
     try {
-        const detailUrl = `${host}/voddetail/${id}.html`;
-        const r = await req(detailUrl, { headers });
-        const html = r.content || '';
+        let html = '';
+        for (const h of [host, 'https://huavod.net', 'https://huavod.com']) {
+            try {
+                const detailUrl = `${h}/voddetail/${id}.html`;
+                const { content } = await safeReq(detailUrl);
+                if (content && (content.includes('anthology-list') || content.includes('vodplay') || content.includes('og:title'))) {
+                    html = content;
+                    if (h !== host) host = h;
+                    break;
+                }
+            } catch (e) {}
+        }
 
         // Title
         let name = '';
@@ -633,9 +753,18 @@ async function detail(id) {
 
 async function search(wd, quick, pg = 1) {
     try {
-        const searchUrl = `${host}/vodsearch/wd/${encodeURIComponent(wd)}.html`;
-        const r = await req(searchUrl, { headers });
-        const html = r.content || '';
+        let html = '';
+        for (const h of [host, 'https://huavod.net', 'https://huavod.com']) {
+            try {
+                const searchUrl = `${h}/vodsearch/wd/${encodeURIComponent(wd)}.html`;
+                const { content } = await safeReq(searchUrl);
+                if (content && content.includes('/voddetail/')) {
+                    html = content;
+                    if (h !== host) host = h;
+                    break;
+                }
+            } catch (e) {}
+        }
 
         let results = [];
         let seen = new Set();
@@ -670,20 +799,26 @@ async function search(wd, quick, pg = 1) {
 
         // Fallback to ajax suggest if HTML search returns empty
         if (results.length === 0) {
-            const suggestUrl = `${host}/index.php/ajax/suggest?mid=1&wd=${encodeURIComponent(wd)}`;
-            const sr = await req(suggestUrl, { headers });
-            const sjson = JSON.parse(sr.content || '{}');
-            if (sjson && sjson.list && Array.isArray(sjson.list)) {
-                for (let item of sjson.list) {
-                    if (item.id && item.name) {
-                        results.push({
-                            vod_id: item.id.toString(),
-                            vod_name: item.name,
-                            vod_pic: item.pic || '',
-                            vod_remarks: ''
-                        });
+            for (const h of [host, 'https://huavod.net', 'https://huavod.com']) {
+                try {
+                    const suggestUrl = `${h}/index.php/ajax/suggest?mid=1&wd=${encodeURIComponent(wd)}`;
+                    const { content } = await safeReq(suggestUrl);
+                    const sjson = parseJsonSafe(content);
+                    if (sjson && sjson.list && Array.isArray(sjson.list) && sjson.list.length > 0) {
+                        for (let item of sjson.list) {
+                            if (item.id && item.name) {
+                                results.push({
+                                    vod_id: item.id.toString(),
+                                    vod_name: item.name,
+                                    vod_pic: item.pic || '',
+                                    vod_remarks: ''
+                                });
+                            }
+                        }
+                        if (h !== host) host = h;
+                        break;
                     }
-                }
+                } catch (e) {}
             }
         }
 
@@ -701,17 +836,22 @@ async function play(flag, id, flags) {
             episodeId = epMatch[1];
         }
 
-        let currentCookie = await getVipCookie();
-        const playerUrl = `${host}/Player/ec?episode=${episodeId}`;
-        const r = await req(playerUrl, {
-            headers: {
-                'User-Agent': headers['User-Agent'],
-                'Referer': `${host}/vodplay/${episodeId}.html`,
-                'Cookie': currentCookie
-            }
+        let playerUrl = `${host}/Player/ec?episode=${episodeId}`;
+        let { content: html } = await safeReq(playerUrl, {
+            headers: { 'Referer': `${host}/vodplay/${episodeId}.html` }
         });
 
-        const html = r.content || '';
+        if (!html || (!html.includes('"mt"') && !html.includes('"channel_key"'))) {
+            const altHost = host.includes('.net') ? 'https://huavod.com' : 'https://huavod.net';
+            playerUrl = `${altHost}/Player/ec?episode=${episodeId}`;
+            const altRes = await safeReq(playerUrl, {
+                headers: { 'Referer': `${altHost}/vodplay/${episodeId}.html` }
+            });
+            if (altRes.content && (altRes.content.includes('"mt"') || altRes.content.includes('"channel_key"'))) {
+                html = altRes.content;
+                host = altHost;
+            }
+        }
 
         // 1. 【无广秒播核心】从 P2P 组件中直接提取未加密真实切片 m3u8 (非 b-cdn 防盗链源可直接 0 秒秒播)
         const p2pMatch = html.match(/"channel_key":\s*"([^"]+)"/);
@@ -745,40 +885,34 @@ async function play(flag, id, flags) {
             return JSON.stringify({ parse: 0, url: '' });
         }
 
-        const mt = mtMatch[1];
+        let mt = mtMatch[1];
         let playUrl = '';
         const maxTries = 3;
         for (let i = 0; i < maxTries; i++) {
-            const resolveRes = await req(`${host}/Player/resolveUrl`, {
+            const { content: resContent } = await safeReq(`${host}/Player/resolveUrl`, {
                 method: 'post',
                 postType: 'form',
                 data: { token: mt },
                 body: `token=${encodeURIComponent(mt)}`,
                 headers: {
-                    'User-Agent': headers['User-Agent'],
                     'Referer': playerUrl,
                     'Origin': host,
-                    'Cookie': currentCookie,
                     'Content-Type': 'application/x-www-form-urlencoded',
                     'X-Requested-With': 'XMLHttpRequest'
                 }
             });
 
             try {
-                const resJson = JSON.parse(resolveRes.content || '{}');
+                const resJson = parseJsonSafe(resContent);
                 if (resJson && resJson.code === 1 && resJson.data && resJson.data.url) {
                     playUrl = resJson.data.url;
                     break;
                 }
                 // 若首次解析遇到广告等待或未授权 (例如 too early / code !== 1)，重新刷新 VIP 会话并重拉 Player/ec
                 if (i === 0 && (!resJson || resJson.code !== 1)) {
-                    currentCookie = await getVipCookie(true);
-                    const retryEc = await req(playerUrl, {
-                        headers: {
-                            'User-Agent': headers['User-Agent'],
-                            'Referer': `${host}/vodplay/${episodeId}.html`,
-                            'Cookie': currentCookie
-                        }
+                    await getVipCookie(true);
+                    const retryEc = await safeReq(playerUrl, {
+                        headers: { 'Referer': `${host}/vodplay/${episodeId}.html` }
                     });
                     const retryHtml = retryEc.content || '';
                     const retryMt = retryHtml.match(/"mt":\s*"([^"]+)"/);
