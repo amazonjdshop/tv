@@ -564,6 +564,28 @@ function randomKey(len = 32) {
     return s;
 }
 
+function getContent(res) {
+    if (!res) return '';
+    if (typeof res === 'string') return res;
+    if (typeof res === 'object') {
+        if (res.content !== undefined) return res.content;
+        if (res.body !== undefined) return res.body;
+        if (res.text !== undefined) return res.text;
+        if (res.data !== undefined) return typeof res.data === 'string' ? res.data : JSON.stringify(res.data);
+    }
+    return String(res);
+}
+
+function parseJsonSafe(str) {
+    if (!str) return null;
+    if (typeof str === 'object') return str;
+    try {
+        return JSON.parse(str);
+    } catch (e) {
+        return null;
+    }
+}
+
 async function executeHttp(url, headers, body) {
     if (typeof req === 'function') {
         const res = await req(url, {
@@ -574,7 +596,7 @@ async function executeHttp(url, headers, body) {
             postType: 'json',
             timeout: 10000
         });
-        return res ? res.content : '';
+        return getContent(res);
     }
 
     // Node.js fallback (用于本地自动化校验)
@@ -632,7 +654,7 @@ async function postApi(path, data = {}) {
     if (parts.length !== 2) return null;
     const decKey = rsaDecrypt(parts[1]);
     const plainJson = aesDecrypt256(parts[0], decKey);
-    return JSON.parse(plainJson);
+    return parseJsonSafe(plainJson);
 }
 
 async function postApiWithCache(path, data = {}, ttl = CACHE_TTL_DEFAULT) {
@@ -837,7 +859,8 @@ async function home(filter) {
 async function homeVod() {
     try {
         const res = await postApiWithCache('/video/list', { parent_category_id: 100, page: 1, page_size: 24 });
-        const list = (res?.data?.video_list || []).map(v => ({
+        const rawList = (res && res.data && Array.isArray(res.data.video_list)) ? res.data.video_list : [];
+        const list = rawList.map(v => ({
             vod_id: String(v.id),
             vod_name: v.title || '',
             vod_pic: v.pic || '',
@@ -876,14 +899,15 @@ async function category(tid, pg, filter, extend = {}) {
         }
 
         const res = await postApiWithCache('/video/list', payload);
-        const list = (res?.data?.video_list || []).map(v => ({
+        const rawList = (res && res.data && Array.isArray(res.data.video_list)) ? res.data.video_list : [];
+        const list = rawList.map(v => ({
             vod_id: String(v.id),
             vod_name: v.title || '',
             vod_pic: v.pic || '',
             vod_remarks: v.remark || v.state || (v.year ? String(v.year) : '')
         }));
 
-        const total = res?.data?.video_total || list.length;
+        const total = (res && res.data && res.data.video_total) ? res.data.video_total : list.length;
         const pageCount = Math.ceil(total / 24) || page;
 
         return JSON.stringify({
@@ -908,8 +932,8 @@ async function detail(id) {
     try {
         const vodId = parseInt(id);
         const infoRes = await postApiWithCache('/video/info', { id: vodId });
-        const video = infoRes?.data?.video || {};
-        const frags = infoRes?.data?.video_fragment_list || [];
+        const video = (infoRes && infoRes.data && infoRes.data.video) ? infoRes.data.video : {};
+        const frags = (infoRes && infoRes.data && Array.isArray(infoRes.data.video_fragment_list)) ? infoRes.data.video_fragment_list : [];
 
         let epList = [];
         for (let f of frags) {
@@ -929,7 +953,7 @@ async function detail(id) {
             vod_actor: video.starring || '',
             vod_director: video.director || '',
             vod_content: (video.description || '').trim(),
-            vod_play_from: '粤语原声专线',
+            vod_play_from: '粤语原声专线2',
             vod_play_url: epList.join('#')
         }];
 
@@ -948,14 +972,15 @@ async function search(wd, quick, pg = 1) {
             page_size: 24
         }, 1800 * 1000);
 
-        const list = (res?.data?.video_list || []).map(v => ({
+        const rawList = (res && res.data && Array.isArray(res.data.video_list)) ? res.data.video_list : [];
+        const list = rawList.map(v => ({
             vod_id: String(v.id),
             vod_name: v.title || '',
             vod_pic: v.pic || '',
             vod_remarks: v.remark || v.state || (v.year ? String(v.year) : '')
         }));
 
-        const total = res?.data?.video_total || list.length;
+        const total = (res && res.data && res.data.video_total) ? res.data.video_total : list.length;
         return JSON.stringify({
             page: page,
             pagecount: Math.ceil(total / 24) || page,
@@ -985,7 +1010,8 @@ async function play(flag, id, flags) {
                 video_fragment_id: fragId,
                 quality: 4
             });
-            const streamUrl = (sourceRes?.data?.video_soruce || sourceRes?.data?.video_source || {})?.url || '';
+            const sourceData = (sourceRes && sourceRes.data) ? (sourceRes.data.video_soruce || sourceRes.data.video_source || {}) : {};
+            const streamUrl = sourceData.url || '';
             if (streamUrl) {
                 return JSON.stringify({
                     parse: 0,
