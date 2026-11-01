@@ -31,11 +31,10 @@
       "filterable": 1
     },
     {
-      "key": "20261031优视频_js2",
+      "key": "20261101优视频_t4",
       "name": "🇺🇸 湾区·粤语原声专线2",
-      "type": 3,
-      "api": "./js/uvod.js?v=20261101_v3",
-      "playerType": 1,
+      "type": 4,
+      "api": "https://narrow-frog-4757.linda11282022.deno.net",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1
