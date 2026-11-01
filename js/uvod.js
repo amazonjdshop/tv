@@ -594,7 +594,7 @@ async function executeHttp(url, headers, body) {
             data: body,
             body: body,
             postType: 'json',
-            timeout: 10000
+            timeout: 15000
         });
         return getContent(res);
     }
@@ -715,8 +715,13 @@ async function home(filter) {
         { n: '2019', v: '2019' },
         { n: '2018', v: '2018' },
         { n: '2017', v: '2017' },
-        { n: '2016-2010', v: '2016' },
-        { n: '更早', v: '2000' }
+        { n: '2016', v: '2016' },
+        { n: '2015', v: '2015' },
+        { n: '2014', v: '2014' },
+        { n: '2013', v: '2013' },
+        { n: '2012', v: '2012' },
+        { n: '2011', v: '2011' },
+        { n: '2010', v: '2010' }
     ];
 
     const commonRegions = [
@@ -881,7 +886,7 @@ async function category(tid, pg, filter, extend = {}) {
             page_size: 24
         };
         if (extend) {
-            const rawCat = extend.category_id || extend.class;
+            const rawCat = extend.category_id || extend.id || extend.class;
             if (rawCat && rawCat !== '0' && rawCat !== '全部' && rawCat !== '全部类别' && rawCat !== '全部分类' && rawCat !== 'all') {
                 const parsedCat = parseInt(rawCat);
                 if (!isNaN(parsedCat)) payload.category_id = parsedCat;
@@ -890,8 +895,9 @@ async function category(tid, pg, filter, extend = {}) {
                 const parsedYear = parseInt(extend.year);
                 if (!isNaN(parsedYear)) payload.year = parsedYear;
             }
-            if (extend.region && extend.region !== '0' && extend.region !== '全部' && extend.region !== '全部地区' && extend.region !== 'all') {
-                let reg = extend.region;
+            const rawReg = extend.region || extend.area;
+            if (rawReg && rawReg !== '0' && rawReg !== '全部' && rawReg !== '全部地区' && rawReg !== 'all') {
+                let reg = rawReg;
                 if (reg === '港台') reg = '香港';
                 else if (reg === '日韩') reg = '日本';
                 payload.region = reg;
