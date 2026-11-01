@@ -1,20 +1,12 @@
 #EXTM3U
 #EXTINF:-1 group-title="美国华语",纽约华语广播国语台 AM1380 (WKDM)
-https://video1.getstreamhosting.com:8292/stream?.mp3
-#EXTINF:-1 group-title="美国华语",纽约华语广播国语台 AM1380 (WKDM)
-http://video1.getstreamhosting.com:8292/stream?.mp3
+https://video1.getstreamhosting.com:8292/stream?.mp3#http://video1.getstreamhosting.com:8292/stream?.mp3
 #EXTINF:-1 group-title="美国华语",纽约华语广播粤语台 AM1480 (WZRC)
-https://video1.getstreamhosting.com:8288/stream?.mp3
-#EXTINF:-1 group-title="美国华语",纽约华语广播粤语台 AM1480 (WZRC)
-http://video1.getstreamhosting.com:8288/stream?.mp3
+https://video1.getstreamhosting.com:8288/stream?.mp3#http://video1.getstreamhosting.com:8288/stream?.mp3
 #EXTINF:-1 group-title="美国华语",洛杉矶华语广播国语台 AM1300 (KAZN)
-https://video1.getstreamhosting.com:8308/stream?.mp3
-#EXTINF:-1 group-title="美国华语",洛杉矶华语广播国语台 AM1300 (KAZN)
-http://video1.getstreamhosting.com:8308/stream?.mp3
+https://video1.getstreamhosting.com:8308/stream?.mp3#http://video1.getstreamhosting.com:8308/stream?.mp3
 #EXTINF:-1 group-title="美国华语",洛杉矶华语广播粤语台 AM1430 (KMRB)
-https://video1.getstreamhosting.com:8304/stream?.mp3
-#EXTINF:-1 group-title="美国华语",洛杉矶华语广播粤语台 AM1430 (KMRB)
-http://video1.getstreamhosting.com:8304/stream?.mp3
+https://video1.getstreamhosting.com:8304/stream?.mp3#http://video1.getstreamhosting.com:8304/stream?.mp3
 #EXTINF:-1 group-title="美国华语",旧金山星岛中文电台 粤语台 (FM96.1/AM1400)
 https://nap.casthost.net/proxy/florenc1/stream?.mp3
 #EXTINF:-1 group-title="美国华语",旧金山星岛中文电台 国语台 (AM1400)
@@ -76,7 +68,7 @@ https://sk.cri.cn/hyhq.m3u8
 #EXTINF:-1 group-title="央广",CNR 经济之声
 http://ngcdn002.cnr.cn/live/jjzs/index.m3u8
 #EXTINF:-1 group-title="央广",CRI 南海之声
-http://sk.cri.cn/nhzs.m3u8
+http://sk.cri.cn/nhzs.m3u8#http://satellitepull.cnr.cn/live/wxnhzs/playlist.m3u8
 #EXTINF:-1 group-title="央广",南海之声
 https://sk.cri.cn/nhzs.m3u8
 #EXTINF:-1 group-title="央广",CRI 中文环球广播
@@ -96,13 +88,11 @@ https://satellitepull.cnr.cn/live/wxjjzs/playlist.m3u8
 #EXTINF:-1 group-title="央广",MY FM 西安 FM105.5
 http://live.xmcdn.com/live/870/64.m3u8
 #EXTINF:-1 group-title="央广",Love Radio FM103.7
-http://live.xmcdn.com/live/55/64.m3u8
+http://live.xmcdn.com/live/55/64.m3u8#http://ls.qingting.fm/live/273.m3u8
 #EXTINF:-1 group-title="央广",中国之声
 https://satellitepull.cnr.cn/live/wxzgzs/playlist.m3u8
 #EXTINF:-1 group-title="央广",经典音乐
 https://satellitepull.cnr.cn/live/wxdszs/playlist.m3u8
-#EXTINF:-1 group-title="央广",Love Radio FM103.7
-http://ls.qingting.fm/live/273.m3u8
 #EXTINF:-1 group-title="央广",音乐之声
 https://satellitepull.cnr.cn/live/wxyyzs/playlist.m3u8
 #EXTINF:-1 group-title="央广",交通广播
@@ -117,8 +107,6 @@ https://satellitepull.cnr.cn/live/wxxczs/playlist.m3u8
 https://satellitepull.cnr.cn/live/wxwyzs/playlist.m3u8
 #EXTINF:-1 group-title="央广",大灣區之聲
 https://satellitepull.cnr.cn/live/wxhxzs/playlist.m3u8
-#EXTINF:-1 group-title="央广",CRI 南海之声
-http://satellitepull.cnr.cn/live/wxnhzs/playlist.m3u8
 #EXTINF:-1 group-title="北京",北京阳光调频 FM98.6
 http://ls.qingting.fm/live/2507637.m3u8
 #EXTINF:-1 group-title="北京",北京交通广播
@@ -126,7 +114,7 @@ http://ls.qingting.fm/live/336.m3u8
 #EXTINF:-1 group-title="北京",北京文艺广播
 http://ls.qingting.fm/live/333.m3u8
 #EXTINF:-1 group-title="北京",北京新闻广播
-http://ls.qingting.fm/live/339.m3u8
+http://ls.qingting.fm/live/339.m3u8#http://satellitepull.cnr.cn/live/wxbjxwgb/playlist.m3u8
 #EXTINF:-1 group-title="北京",北京城市广播 FM107.3
 http://live.xmcdn.com/live/97/64.m3u8
 #EXTINF:-1 group-title="北京",北京交通广播 FM103.9
@@ -140,79 +128,53 @@ https://satellitepull.cnr.cn/live/wxbjcsfwgl/playlist.m3u8
 #EXTINF:-1 group-title="北京",北京音乐
 https://lhttp.qtfm.cn/live/332/64k.mp3
 #EXTINF:-1 group-title="北京",北京新闻
-https://lhttp.qtfm.cn/live/339/64k.mp3
+https://lhttp.qtfm.cn/live/339/64k.mp3#https://satellitepull.cnr.cn/live/wxbjxwgb/playlist.m3u8#https://brtv-radiolive.rbc.cn/alive/fm945.m3u8#https://wstvcpudali.v.myalicdn.com/wstvcpud/udrmbtv9_1/index.m3u8?adapt=0&BR=audio
 #EXTINF:-1 group-title="北京",北京-CRIHitFM
 http://satellitepull.cnr.cn/live/wxhitfm/playlist.m3u8
 #EXTINF:-1 group-title="北京",北京交通
 https://lhttp.qingting.fm/live/336/64k.mp3
 #EXTINF:-1 group-title="北京",北京文艺
-https://brtv-radiolive.rbc.cn/alive/fm876.m3u8
-#EXTINF:-1 group-title="北京",北京新闻
-https://satellitepull.cnr.cn/live/wxbjxwgb/playlist.m3u8
-#EXTINF:-1 group-title="北京",北京新闻广播
-http://satellitepull.cnr.cn/live/wxbjxwgb/playlist.m3u8
-#EXTINF:-1 group-title="北京",北京文艺
-https://lhttp.qtfm.cn/live/333/64k.mp3
+https://brtv-radiolive.rbc.cn/alive/fm876.m3u8#https://lhttp.qtfm.cn/live/333/64k.mp3#https://wstvcpudali.v.myalicdn.com/wstvcpud/udrmbtv2_1/index.m3u8?adapt=0&BR=audio
 #EXTINF:-1 group-title="北京",天津静海电台
 https://lhttp.qingting.fm/live/20212227/64k.mp3
 #EXTINF:-1 group-title="北京",北京卫视
 https://satellitepull.cnr.cn/live/wxbtv/playlist.m3u8
-#EXTINF:-1 group-title="北京",北京新闻
-https://brtv-radiolive.rbc.cn/alive/fm945.m3u8
 #EXTINF:-1 group-title="北京",京津冀之声
 https://lhttp.qtfm.cn/live/5022463/64k.mp3
-#EXTINF:-1 group-title="北京",北京文艺
-https://wstvcpudali.v.myalicdn.com/wstvcpud/udrmbtv2_1/index.m3u8?adapt=0&BR=audio
 #EXTINF:-1 group-title="北京",北京财经
 https://wstvcpudali.v.myalicdn.com/wstvcpud/udrmbtv5_1/index.m3u8?adapt=0&BR=audio
 #EXTINF:-1 group-title="北京",北京生活
 https://wstvcpudali.v.myalicdn.com/wstvcpud/udrmbtv7_1/index.m3u8?adapt=0&BR=audio
 #EXTINF:-1 group-title="北京",北京纪实
 https://wstvcpudali.v.myalicdn.com/wstvcpud/udrmbtv3_1/index.m3u8?adapt=0&BR=audio
-#EXTINF:-1 group-title="北京",北京新闻
-https://wstvcpudali.v.myalicdn.com/wstvcpud/udrmbtv9_1/index.m3u8?adapt=0&BR=audio
 #EXTINF:-1 group-title="上海",上海动感101 FM101.7
-http://live.xmcdn.com/live/53/64.m3u8
+http://live.xmcdn.com/live/53/64.m3u8#http://ls.qingting.fm/live/274.m3u8
 #EXTINF:-1 group-title="上海",上海交通台 FM105.7
-http://live.xmcdn.com/live/59/64.m3u8
-#EXTINF:-1 group-title="上海",上海交通台 FM105.7
-http://ls.qingting.fm/live/266.m3u8
+http://live.xmcdn.com/live/59/64.m3u8#http://ls.qingting.fm/live/266.m3u8
 #EXTINF:-1 group-title="上海",上海人民广播电台 FM93.4
-http://ls.qingting.fm/live/270.m3u8
+http://ls.qingting.fm/live/270.m3u8#http://live.xmcdn.com/live/58/64.m3u8
 #EXTINF:-1 group-title="上海",上海经典947 FM94.7
-http://ls.qingting.fm/live/267.m3u8
+http://ls.qingting.fm/live/267.m3u8#http://rs.ajmide.com/r_10/10.m3u8#http://live.xmcdn.com/live/54/64.m3u8
 #EXTINF:-1 group-title="上海",上海城市沸点 FM100.1
 http://live.xmcdn.com/live/1236/64.m3u8
 #EXTINF:-1 group-title="上海",上海浦东广播 FM106.5
-http://ls.qingting.fm/live/1794199.m3u8
+http://ls.qingting.fm/live/1794199.m3u8#http://live.xmcdn.com/live/1239/64.m3u8
 #EXTINF:-1 group-title="上海",上海戏剧曲艺 AM1197
-http://live.xmcdn.com/live/60/64.m3u8
-#EXTINF:-1 group-title="上海",上海动感101 FM101.7
-http://ls.qingting.fm/live/274.m3u8
-#EXTINF:-1 group-title="上海",上海人民广播电台 FM93.4
-http://live.xmcdn.com/live/58/64.m3u8
+http://live.xmcdn.com/live/60/64.m3u8#http://rs.ajmide.com/r_6/6.m3u8
 #EXTINF:-1 group-title="上海",上海新闻
-https://satellitepull.cnr.cn/live/wx32shrmgb/playlist.m3u8
+https://satellitepull.cnr.cn/live/wx32shrmgb/playlist.m3u8#https://lhttp.qingting.fm/live/270/64k.mp3
 #EXTINF:-1 group-title="上海",上海动感101音乐广播
 http://lhttp.qingting.fm/live/274/64k.mp3
-#EXTINF:-1 group-title="上海",上海浦东广播 FM106.5
-http://live.xmcdn.com/live/1239/64.m3u8
 #EXTINF:-1 group-title="上海",第一财经
-https://satellitepull.cnr.cn/live/wx32dycjgb/playlist.m3u8
+https://satellitepull.cnr.cn/live/wx32dycjgb/playlist.m3u8#https://a1live.livecdn.yicai.com/live/radio_tv.m3u8#https://lhttp.qingting.fm/live/276/64k.mp3
 #EXTINF:-1 group-title="上海",上海嘉定电台
 http://rs.ajmide.com/r_1483/1483.m3u8
 #EXTINF:-1 group-title="上海",上海金山乐游100分 FM105.1
 http://rs.ajmide.com/c_6397/6397.m3u8
-#EXTINF:-1 group-title="上海",上海经典947 FM94.7
-http://rs.ajmide.com/r_10/10.m3u8
 #EXTINF:-1 group-title="上海",上海交通
 https://lhttp.qingting.fm/live/266/64k.mp3
-#EXTINF:-1 group-title="上海",上海戏剧曲艺 AM1197
-http://rs.ajmide.com/r_6/6.m3u8
 #EXTINF:-1 group-title="上海",上海戏剧
 https://lhttp.qingting.fm/live/269/64k.mp3
-#EXTINF:-1 group-title="上海",第一财经
-https://a1live.livecdn.yicai.com/live/radio_tv.m3u8
 #EXTINF:-1 group-title="上海",上海-上海浦东FM106.5东上海之声
 http://lhttp.qingting.fm/live/21355/64k.mp3
 #EXTINF:-1 group-title="上海",上海闵行电台 FM102.7
@@ -221,10 +183,6 @@ http://rs.ajmide.com/r_1614/1614.m3u8
 https://lhttp.qingting.fm/live/275/64k.mp3
 #EXTINF:-1 group-title="上海",上海天气
 https://lhttp.qtfm.cn/live/20500176/64k.mp3
-#EXTINF:-1 group-title="上海",上海经典947 FM94.7
-http://live.xmcdn.com/live/54/64.m3u8
-#EXTINF:-1 group-title="上海",第一财经
-https://lhttp.qingting.fm/live/276/64k.mp3
 #EXTINF:-1 group-title="上海",浦东之声
 https://lhttp.qingting.fm/live/21355/64k.mp3
 #EXTINF:-1 group-title="上海",上海音乐
@@ -243,8 +201,6 @@ https://lhttp.qingting.fm/live/267/64k.mp3
 http://lhttp.qingting.fm/live/267/64k.mp3
 #EXTINF:-1 group-title="上海",上海新闻广播
 http://lhttp.qingting.fm/live/270/64k.mp3
-#EXTINF:-1 group-title="上海",上海新闻
-https://lhttp.qingting.fm/live/270/64k.mp3
 #EXTINF:-1 group-title="上海",浦东新娱乐
 https://lhttp.qingting.fm/live/5022341/64k.mp3
 #EXTINF:-1 group-title="上海",上海动感101
@@ -254,23 +210,17 @@ http://ls.qingting.fm/live/23869.m3u8
 #EXTINF:-1 group-title="天津",天津卫视
 https://satellitepull.cnr.cn/live/wxtjws/playlist.m3u8
 #EXTINF:-1 group-title="重庆",重庆音乐广播 FM88.1
-http://live.xmcdn.com/live/131/64.m3u8
+http://live.xmcdn.com/live/131/64.m3u8#http://ls.qingting.fm/live/647.m3u8
 #EXTINF:-1 group-title="重庆",重庆都市广播 FM93.8
-http://live.xmcdn.com/live/132/64.m3u8
-#EXTINF:-1 group-title="重庆",重庆音乐广播 FM88.1
-http://ls.qingting.fm/live/647.m3u8
+http://live.xmcdn.com/live/132/64.m3u8#http://ls.qingting.fm/live/1502.m3u8
 #EXTINF:-1 group-title="重庆",重庆交通广播 FM95.5
-http://ls.qingting.fm/live/1500.m3u8
+http://ls.qingting.fm/live/1500.m3u8#http://live.xmcdn.com/live/130/64.m3u8
 #EXTINF:-1 group-title="重庆",重庆都市
-https://satellitepull.cnr.cn/live/wxcqdsgb/playlist.m3u8
-#EXTINF:-1 group-title="重庆",重庆都市广播 FM93.8
-http://ls.qingting.fm/live/1502.m3u8
+https://satellitepull.cnr.cn/live/wxcqdsgb/playlist.m3u8#https://lhttp.qtfm.cn/live/1502/64k.mp3
 #EXTINF:-1 group-title="重庆",重庆新闻广播 FM96.8
 http://ls.qingting.fm/live/1498.m3u8
 #EXTINF:-1 group-title="重庆",重庆-重庆都市广播
 http://satellitepull.cnr.cn/live/wxcqdsgb/playlist.m3u8
-#EXTINF:-1 group-title="重庆",重庆交通广播 FM95.5
-http://live.xmcdn.com/live/130/64.m3u8
 #EXTINF:-1 group-title="重庆",重庆之声
 https://satellitepull.cnr.cn/live/wxcqxwgb/playlist.m3u8
 #EXTINF:-1 group-title="重庆",重庆文艺
@@ -279,42 +229,30 @@ https://satellitepull.cnr.cn/live/wxcqwygb/playlist.m3u8
 https://satellitepull.cnr.cn/live/wxcqjjgb/playlist.m3u8
 #EXTINF:-1 group-title="重庆",重庆卫视
 https://satellitepull.cnr.cn/live/wxcqws/playlist.m3u8
-#EXTINF:-1 group-title="重庆",重庆都市
-https://lhttp.qtfm.cn/live/1502/64k.mp3
 #EXTINF:-1 group-title="广东",广东优悦广播(南粤) FM105.7
-http://live.xmcdn.com/live/255/64.m3u8
+http://live.xmcdn.com/live/255/64.m3u8#http://ls.qingting.fm/live/470.m3u8
 #EXTINF:-1 group-title="广东",广东珠江经济台 FM97.4
-http://live.xmcdn.com/live/252/64.m3u8
+http://live.xmcdn.com/live/252/64.m3u8#http://ls.qingting.fm/live/1259.m3u8
 #EXTINF:-1 group-title="广东",广东新闻频道 FM91.4
-http://live.xmcdn.com/live/245/64.m3u8
+http://live.xmcdn.com/live/245/64.m3u8#http://ls.qingting.fm/live/1254.m3u8
 #EXTINF:-1 group-title="广东",广东音乐之声 FM99.3
-http://live.xmcdn.com/live/74/64.m3u8
+http://live.xmcdn.com/live/74/64.m3u8#http://ls.qingting.fm/live/1260.m3u8
 #EXTINF:-1 group-title="广东",广东南方生活广播 FM93.6
-http://live.xmcdn.com/live/249/64.m3u8
-#EXTINF:-1 group-title="广东",广东珠江经济台 FM97.4
-http://ls.qingting.fm/live/1259.m3u8
-#EXTINF:-1 group-title="广东",广东南方生活广播 FM93.6
-http://ls.qingting.fm/live/468.m3u8
-#EXTINF:-1 group-title="广东",广东音乐之声 FM99.3
-http://ls.qingting.fm/live/1260.m3u8
+http://live.xmcdn.com/live/249/64.m3u8#http://ls.qingting.fm/live/468.m3u8
 #EXTINF:-1 group-title="广东",广东股市广播 FM95.3
 http://ls.qingting.fm/live/4847.m3u8
 #EXTINF:-1 group-title="广东",广东城市之声SunFM爱车 FM103.6
 http://ls.qingting.fm/live/469.m3u8
-#EXTINF:-1 group-title="广东",广东优悦广播(南粤) FM105.7
-http://ls.qingting.fm/live/470.m3u8
 #EXTINF:-1 group-title="广东",广东卫视
 https://satellitepull.cnr.cn/live/wxgdws/playlist.m3u8
 #EXTINF:-1 group-title="广东",深圳生活
-https://satellitepull.cnr.cn/live/wxszsjcgb/playlist.m3u8
-#EXTINF:-1 group-title="广东",广东新闻频道 FM91.4
-http://ls.qingting.fm/live/1254.m3u8
+https://satellitepull.cnr.cn/live/wxszsjcgb/playlist.m3u8#https://lhttp.qingting.fm/live/1273/64k.mp3
 #EXTINF:-1 group-title="广东",深圳交通
-https://satellitepull.cnr.cn/live/wxszjjpl/playlist.m3u8
+https://satellitepull.cnr.cn/live/wxszjjpl/playlist.m3u8#https://lhttp.qingting.fm/live/1272/64k.mp3
 #EXTINF:-1 group-title="广东",广东文体广播 FM107.7
 http://ls.qingting.fm/live/471.m3u8
 #EXTINF:-1 group-title="广东",广东股市
-https://satellitepull.cnr.cn/live/wxgdgsgb/playlist.m3u8
+https://satellitepull.cnr.cn/live/wxgdgsgb/playlist.m3u8#https://lhttp.qtfm.cn/live/4847/64k.mp3
 #EXTINF:-1 group-title="广东",广东音乐之声
 http://satellitepull.cnr.cn/live/wxgdyyzs/playlist.m3u8
 #EXTINF:-1 group-title="广东",顺德音乐
@@ -322,9 +260,7 @@ https://lhttp.qtfm.cn/live/20500150/64k.mp3
 #EXTINF:-1 group-title="广东",南粤之声
 https://lhttp.qtfm.cn/live/470/64k.mp3
 #EXTINF:-1 group-title="广东",广东羊城交通广播 FM105.2
-http://live.xmcdn.com/live/248/64.m3u8
-#EXTINF:-1 group-title="广东",广东羊城交通广播 FM105.2
-http://ls.qingting.fm/live/1262.m3u8
+http://live.xmcdn.com/live/248/64.m3u8#http://ls.qingting.fm/live/1262.m3u8
 #EXTINF:-1 group-title="广东",深圳飞扬
 https://satellitepull.cnr.cn/live/wxszfy971/playlist.m3u8
 #EXTINF:-1 group-title="广东",广东文体
@@ -345,8 +281,6 @@ https://satellitepull.cnr.cn/live/wxgdcszs/playlist.m3u8
 https://satellitepull.cnr.cn/live/wxnyzs/playlist.m3u8
 #EXTINF:-1 group-title="广东",广东音乐
 https://lhttp.qtfm.cn/live/1260/64k.mp3
-#EXTINF:-1 group-title="广东",广东股市
-https://lhttp.qtfm.cn/live/4847/64k.mp3
 #EXTINF:-1 group-title="广东",深圳综艺
 https://lhttp.qingting.fm/live/1271/64k.mp3
 #EXTINF:-1 group-title="广东",深圳新闻
@@ -355,48 +289,38 @@ https://lhttp.qingting.fm/live/1270/64k.mp3
 https://lhttp.qingting.fm/live/1275/64k.mp3
 #EXTINF:-1 group-title="广东",广东新闻
 https://lhttp.qtfm.cn/live/1254/64k.mp3
-#EXTINF:-1 group-title="广东",深圳交通
-https://lhttp.qingting.fm/live/1272/64k.mp3
 #EXTINF:-1 group-title="广东",珠海先锋
 https://lhttp.qingting.fm/live/1274/64k.mp3
-#EXTINF:-1 group-title="广东",深圳生活
-https://lhttp.qingting.fm/live/1273/64k.mp3
 #EXTINF:-1 group-title="广东",深圳龙岗
 https://lhttp.qingting.fm/live/20160/64k.mp3
 #EXTINF:-1 group-title="江苏",江苏交通广播 FM101.1
-http://live.xmcdn.com/live/536/64.m3u8
+http://live.xmcdn.com/live/536/64.m3u8#http://ls.qingting.fm/live/4054.m3u8#http://lzlive.vojs.cn/4TaHTeL/92/live.m3u8
 #EXTINF:-1 group-title="江苏",江苏新闻广播 FM93.7
-http://live.xmcdn.com/live/534/64.m3u8
+http://live.xmcdn.com/live/534/64.m3u8#http://ls.qingting.fm/live/4944.m3u8#http://lzlive.vojs.cn/5Fo8mMX/92/live.m3u8
 #EXTINF:-1 group-title="江苏",江苏-灌南人民广播电台
 http://live.xmcdn.com/live/2722/64.m3u8
 #EXTINF:-1 group-title="江苏",江苏新闻综合广播 AM702
-http://ls.qingting.fm/live/5055.m3u8
-#EXTINF:-1 group-title="江苏",江苏新闻综合广播 AM702
-http://live.xmcdn.com/live/533/64.m3u8
-#EXTINF:-1 group-title="江苏",江苏新闻广播 FM93.7
-http://ls.qingting.fm/live/4944.m3u8
-#EXTINF:-1 group-title="江苏",江苏交通广播 FM101.1
-http://ls.qingting.fm/live/4054.m3u8
+http://ls.qingting.fm/live/5055.m3u8#http://live.xmcdn.com/live/533/64.m3u8#http://lzlive.vojs.cn/rTyLc36/92/live.m3u8
 #EXTINF:-1 group-title="江苏",江苏文艺广播
 http://satellitepull.cnr.cn/live/wx32jswygb/playlist.m3u8
 #EXTINF:-1 group-title="江苏",江苏卫视伴音
 http://satellitepull.cnr.cn/live/wx32jsws/playlist.m3u8
 #EXTINF:-1 group-title="江苏",江苏文艺
-https://satellitepull.cnr.cn/live/wx32jswygb/playlist.m3u8
+https://satellitepull.cnr.cn/live/wx32jswygb/playlist.m3u8#https://lzlive.vojs.cn/pL6NkZo/92/live.m3u8
 #EXTINF:-1 group-title="江苏",江苏-江苏故事广播
 http://satellitepull.cnr.cn/live/wx32jsgsgb/playlist.m3u8
 #EXTINF:-1 group-title="江苏",江苏健康
-https://satellitepull.cnr.cn/live/wx32jsjkgb/playlist.m3u8
+https://satellitepull.cnr.cn/live/wx32jsjkgb/playlist.m3u8#https://lzlive.vojs.cn/EWpb5Ov/92/live.m3u8
 #EXTINF:-1 group-title="江苏",江苏新闻
-https://satellitepull.cnr.cn/live/wx32jsxwgb/playlist.m3u8
+https://satellitepull.cnr.cn/live/wx32jsxwgb/playlist.m3u8#https://lzlive.vojs.cn/rTyLc36/92/live.m3u8#https://satellitepull.cnr.cn/live/wx32jsxwzhgb/playlist.m3u8#https://lzlive.vojs.cn/5Fo8mMX/92/live.m3u8
 #EXTINF:-1 group-title="江苏",江苏金陵
-https://satellitepull.cnr.cn/live/wx32jsqctp/playlist.m3u8
+https://satellitepull.cnr.cn/live/wx32jsqctp/playlist.m3u8#https://lzlive.vojs.cn/Hd2hIgM/92/live.m3u8
 #EXTINF:-1 group-title="江苏",江苏-江苏新闻广播
 http://satellitepull.cnr.cn/live/wx32jsxwgb/playlist.m3u8
 #EXTINF:-1 group-title="江苏",江苏-江苏金陵之声
 http://satellitepull.cnr.cn/live/wx32jsqctp/playlist.m3u8
 #EXTINF:-1 group-title="江苏",江苏财经
-https://satellitepull.cnr.cn/live/wx32jscjgb/playlist.m3u8
+https://satellitepull.cnr.cn/live/wx32jscjgb/playlist.m3u8#https://lzlive.vojs.cn/caijing/92/live.m3u8
 #EXTINF:-1 group-title="江苏",江苏-江苏经典流行音乐广播
 http://satellitepull.cnr.cn/live/wx32jsjdlxyy/playlist.m3u8
 #EXTINF:-1 group-title="江苏",江苏财经广播
@@ -416,49 +340,27 @@ http://lhttp.qingting.fm/live/2808/64k.mp3
 #EXTINF:-1 group-title="江苏",江苏-江苏交通广播网
 http://satellitepull.cnr.cn/live/wx32jsjtgb/playlist.m3u8
 #EXTINF:-1 group-title="江苏",江苏交通
-https://satellitepull.cnr.cn/live/wx32jsjtgb/playlist.m3u8
+https://satellitepull.cnr.cn/live/wx32jsjtgb/playlist.m3u8#https://lzlive.vojs.cn/4TaHTeL/92/live.m3u8
 #EXTINF:-1 group-title="江苏",江苏故事
-https://satellitepull.cnr.cn/live/wx32jsgsgb/playlist.m3u8
+https://satellitepull.cnr.cn/live/wx32jsgsgb/playlist.m3u8#https://lzlive.vojs.cn/rWjyus9/92/live.m3u8
 #EXTINF:-1 group-title="江苏",江苏-江苏健康广播
 http://satellitepull.cnr.cn/live/wx32jsjkgb/playlist.m3u8
-#EXTINF:-1 group-title="江苏",江苏新闻
-https://lzlive.vojs.cn/rTyLc36/92/live.m3u8
 #EXTINF:-1 group-title="江苏",江苏-江苏综合广播
 http://satellitepull.cnr.cn/live/wx32jsxwzhgb/playlist.m3u8
-#EXTINF:-1 group-title="江苏",江苏新闻
-https://satellitepull.cnr.cn/live/wx32jsxwzhgb/playlist.m3u8
-#EXTINF:-1 group-title="江苏",江苏财经
-https://lzlive.vojs.cn/caijing/92/live.m3u8
 #EXTINF:-1 group-title="江苏",江苏-铜山县人民广播电台FM94.2
 http://lhttp.qingting.fm/live/15318160/64k.mp3
 #EXTINF:-1 group-title="江苏",江苏财经广播 AM585
 http://lzlive.vojs.cn/caijing/92/live.m3u8
-#EXTINF:-1 group-title="江苏",江苏金陵
-https://lzlive.vojs.cn/Hd2hIgM/92/live.m3u8
 #EXTINF:-1 group-title="江苏",江苏-无锡经济广播
 http://lhttp.qingting.fm/live/2778/64k.mp3
 #EXTINF:-1 group-title="江苏",江苏经典流行音乐 FM97.5
 http://lzlive.vojs.cn/2wtSfrS/92/live.m3u8
-#EXTINF:-1 group-title="江苏",江苏新闻
-https://lzlive.vojs.cn/5Fo8mMX/92/live.m3u8
 #EXTINF:-1 group-title="江苏",江苏音乐
-https://lzlive.vojs.cn/2wtSfrS/92/live.m3u8
-#EXTINF:-1 group-title="江苏",江苏故事
-https://lzlive.vojs.cn/rWjyus9/92/live.m3u8
+https://lzlive.vojs.cn/2wtSfrS/92/live.m3u8#https://lzlive.vojs.cn/jAmO6Ng/92/live.m3u8#https://lhttp.qtfm.cn/live/4938/64k.mp3
 #EXTINF:-1 group-title="江苏",江苏-盐城滨海县人民广播电台
 http://lhttp.qingting.fm/live/20207779/64k.mp3
-#EXTINF:-1 group-title="江苏",江苏音乐
-https://lzlive.vojs.cn/jAmO6Ng/92/live.m3u8
 #EXTINF:-1 group-title="江苏",江苏音乐广播 FM89.7
 http://lzlive.vojs.cn/jAmO6Ng/92/live.m3u8
-#EXTINF:-1 group-title="江苏",江苏新闻综合广播 AM702
-http://lzlive.vojs.cn/rTyLc36/92/live.m3u8
-#EXTINF:-1 group-title="江苏",江苏健康
-https://lzlive.vojs.cn/EWpb5Ov/92/live.m3u8
-#EXTINF:-1 group-title="江苏",江苏文艺
-https://lzlive.vojs.cn/pL6NkZo/92/live.m3u8
-#EXTINF:-1 group-title="江苏",江苏新闻广播 FM93.7
-http://lzlive.vojs.cn/5Fo8mMX/92/live.m3u8
 #EXTINF:-1 group-title="江苏",江苏-苏州都市音乐广播
 http://lhttp.qingting.fm/live/2803/64k.mp3
 #EXTINF:-1 group-title="江苏",江苏文艺广播 AM1053
@@ -467,14 +369,8 @@ http://lzlive.vojs.cn/pL6NkZo/92/live.m3u8
 http://lhttp.qingting.fm/live/2780/64k.mp3
 #EXTINF:-1 group-title="江苏",江苏故事广播 AM1206
 http://lzlive.vojs.cn/rWjyus9/92/live.m3u8
-#EXTINF:-1 group-title="江苏",江苏交通
-https://lzlive.vojs.cn/4TaHTeL/92/live.m3u8
-#EXTINF:-1 group-title="江苏",江苏交通广播 FM101.1
-http://lzlive.vojs.cn/4TaHTeL/92/live.m3u8
 #EXTINF:-1 group-title="江苏",江苏-无锡音乐广播
 http://lhttp.qingting.fm/live/2779/64k.mp3
-#EXTINF:-1 group-title="江苏",江苏音乐
-https://lhttp.qtfm.cn/live/4938/64k.mp3
 #EXTINF:-1 group-title="江苏",江苏-金湖人民广播电台
 http://lhttp.qingting.fm/live/15318464/64k.mp3
 #EXTINF:-1 group-title="江苏",江苏-扬州经济广播
@@ -492,69 +388,47 @@ http://lhttp.qingting.fm/live/3982/64k.mp3
 #EXTINF:-1 group-title="江苏",江苏-盐城经济生活广播
 https://lhttp.qingting.fm/live/20326/64k.mp3
 #EXTINF:-1 group-title="浙江",浙江女主播电台 FM104.5
-http://live.xmcdn.com/live/636/64.m3u8
+http://live.xmcdn.com/live/636/64.m3u8#http://ls.qingting.fm/live/4524.m3u8
 #EXTINF:-1 group-title="浙江",浙江动听(音乐调频) FM96.8
-http://live.xmcdn.com/live/637/64.m3u8
+http://live.xmcdn.com/live/637/64.m3u8#http://ls.qingting.fm/live/4866.m3u8
 #EXTINF:-1 group-title="浙江",浙江民生 FM99.6
 http://ls.qingting.fm/live/4521.m3u8
 #EXTINF:-1 group-title="浙江",浙江交通之声 FM93
-http://live.xmcdn.com/live/634/64.m3u8
+http://live.xmcdn.com/live/634/64.m3u8#http://ls.qingting.fm/live/4522.m3u8
 #EXTINF:-1 group-title="浙江",浙江之声 FM88
-http://live.xmcdn.com/live/633/64.m3u8
+http://live.xmcdn.com/live/633/64.m3u8#http://ls.qingting.fm/live/4518.m3u8
 #EXTINF:-1 group-title="浙江",浙江-浙江之声
 http://satellitepull.cnr.cn/live/wxzjzs/playlist.m3u8
 #EXTINF:-1 group-title="浙江",浙江-浙江民生资讯广播
 http://satellitepull.cnr.cn/live/wxzjmsgb/playlist.m3u8
 #EXTINF:-1 group-title="浙江",浙江之声
-https://satellitepull.cnr.cn/live/wxzjzs/playlist.m3u8
+https://satellitepull.cnr.cn/live/wxzjzs/playlist.m3u8#https://ali-m-l.cztv.com/channels/lantian/fm88/128k.m3u8
 #EXTINF:-1 group-title="浙江",浙江民生
-https://satellitepull.cnr.cn/live/wxzjmsgb/playlist.m3u8
-#EXTINF:-1 group-title="浙江",浙江女主播电台 FM104.5
-http://ls.qingting.fm/live/4524.m3u8
+https://satellitepull.cnr.cn/live/wxzjmsgb/playlist.m3u8#https://ali-m-l.cztv.com/channels/lantian/fm996/128k.m3u8
 #EXTINF:-1 group-title="浙江",浙江旅游
-https://satellitepull.cnr.cn/live/wxzj1045/playlist.m3u8
+https://satellitepull.cnr.cn/live/wxzj1045/playlist.m3u8#https://ali-m-l.cztv.com/channels/lantian/fm1045/128k.m3u8
 #EXTINF:-1 group-title="浙江",浙江财富广播 FM95
 http://ls.qingting.fm/live/4519.m3u8
 #EXTINF:-1 group-title="浙江",浙江女主播电台
 http://satellitepull.cnr.cn/live/wxzj1045/playlist.m3u8
-#EXTINF:-1 group-title="浙江",浙江交通之声 FM93
-http://ls.qingting.fm/live/4522.m3u8
-#EXTINF:-1 group-title="浙江",浙江动听(音乐调频) FM96.8
-http://ls.qingting.fm/live/4866.m3u8
 #EXTINF:-1 group-title="浙江",浙江经济广播
 http://satellitepull.cnr.cn/live/wxzjjjgb/playlist.m3u8
 #EXTINF:-1 group-title="浙江",浙江经济
-https://satellitepull.cnr.cn/live/wxzjjjgb/playlist.m3u8
-#EXTINF:-1 group-title="浙江",浙江之声 FM88
-http://ls.qingting.fm/live/4518.m3u8
+https://satellitepull.cnr.cn/live/wxzjjjgb/playlist.m3u8#https://ali-m-l.cztv.com/channels/lantian/fm95/128k.m3u8
 #EXTINF:-1 group-title="浙江",浙江卫视
 https://satellitepull.cnr.cn/live/wxzjws/playlist.m3u8
 #EXTINF:-1 group-title="浙江",浙江-浙江卫视伴音
 http://satellitepull.cnr.cn/live/wxzjws/playlist.m3u8
 #EXTINF:-1 group-title="浙江",浙江城市
-https://satellitepull.cnr.cn/live/wxzjcszs/playlist.m3u8
+https://satellitepull.cnr.cn/live/wxzjcszs/playlist.m3u8#https://ali-m-l.cztv.com/channels/lantian/fm107/128k.m3u8
 #EXTINF:-1 group-title="浙江",浙江音乐
-https://satellitepull.cnr.cn/live/wxzj968/playlist.m3u8
-#EXTINF:-1 group-title="浙江",浙江经济
-https://ali-m-l.cztv.com/channels/lantian/fm95/128k.m3u8
-#EXTINF:-1 group-title="浙江",浙江民生
-https://ali-m-l.cztv.com/channels/lantian/fm996/128k.m3u8
-#EXTINF:-1 group-title="浙江",浙江音乐
-https://ali-m-l.cztv.com/channels/lantian/fm968/128k.m3u8
+https://satellitepull.cnr.cn/live/wxzj968/playlist.m3u8#https://ali-m-l.cztv.com/channels/lantian/fm968/128k.m3u8
 #EXTINF:-1 group-title="浙江",浙江-浙江音乐广播
 http://satellitepull.cnr.cn/live/wxzj968/playlist.m3u8
-#EXTINF:-1 group-title="浙江",浙江之声
-https://ali-m-l.cztv.com/channels/lantian/fm88/128k.m3u8
 #EXTINF:-1 group-title="浙江",浙江交通
-https://ali-m-l.cztv.com/channels/lantian/fm93/128k.m3u8
-#EXTINF:-1 group-title="浙江",浙江城市
-https://ali-m-l.cztv.com/channels/lantian/fm107/128k.m3u8
-#EXTINF:-1 group-title="浙江",浙江旅游
-https://ali-m-l.cztv.com/channels/lantian/fm1045/128k.m3u8
+https://ali-m-l.cztv.com/channels/lantian/fm93/128k.m3u8#https://satellitepull.cnr.cn/live/wxzjjtgb/playlist.m3u8
 #EXTINF:-1 group-title="浙江",浙江新闻
-https://ali-m-l.cztv.com/channels/lantian/fm988/128k.m3u8
-#EXTINF:-1 group-title="浙江",浙江交通
-https://satellitepull.cnr.cn/live/wxzjjtgb/playlist.m3u8
+https://ali-m-l.cztv.com/channels/lantian/fm988/128k.m3u8#https://ali-vl.cztv.com/channels/lantian/channel007/360p.m3u8
 #EXTINF:-1 group-title="浙江",浙江-镇海人民广播电台
 http://lhttp.qingting.fm/live/20033/64k.mp3
 #EXTINF:-1 group-title="浙江",浙江-兰溪人民广播电台
@@ -563,8 +437,6 @@ http://l.cztvcloud.com/channels/lantian/SXlanxiaud/128k.m3u8
 http://satellitepull.cnr.cn/live/wxzjjtgb/playlist.m3u8
 #EXTINF:-1 group-title="浙江",浙江-ShangyuPeopleRadio
 http://l.cztvcloud.com/channels/lantian/SXshangyuaud/128k.m3u8
-#EXTINF:-1 group-title="浙江",浙江新闻
-https://ali-vl.cztv.com/channels/lantian/channel007/360p.m3u8
 #EXTINF:-1 group-title="浙江",浙江-SiaoshanCableRadio
 http://l.cztvcloud.com/channels/lantian/SXxiaoshanaud2/128k.m3u8
 #EXTINF:-1 group-title="浙江",浙江-SiaoshanFMRadio
@@ -626,27 +498,23 @@ http://live.xmcdn.com/live/2716/64.m3u8
 #EXTINF:-1 group-title="山东",山东-烟台交通广播
 http://live.xmcdn.com/live/2715/64.m3u8
 #EXTINF:-1 group-title="山东",山东音乐广播 FM99.1
-http://live.xmcdn.com/live/794/64.m3u8
+http://live.xmcdn.com/live/794/64.m3u8#http://ls.qingting.fm/live/1665.m3u8
 #EXTINF:-1 group-title="山东",山东生活广播 MyFM FM105
-http://live.xmcdn.com/live/802/64.m3u8
+http://live.xmcdn.com/live/802/64.m3u8#http://ls.qingting.fm/live/60260.m3u8
 #EXTINF:-1 group-title="山东",山东-烟台综合广播
 http://live.xmcdn.com/live/2717/64.m3u8
 #EXTINF:-1 group-title="山东",山东体育广播 FM102.1
 http://live.xmcdn.com/live/805/64.m3u8
-#EXTINF:-1 group-title="山东",山东音乐广播 FM99.1
-http://ls.qingting.fm/live/1665.m3u8
 #EXTINF:-1 group-title="山东",山东经济广播 FM98.6
 http://ls.qingting.fm/live/60198.m3u8
 #EXTINF:-1 group-title="山东",山东女主播电台 FM97.5
 http://ls.qingting.fm/live/60258.m3u8
-#EXTINF:-1 group-title="山东",山东生活广播 MyFM FM105
-http://ls.qingting.fm/live/60260.m3u8
 #EXTINF:-1 group-title="山东",山东-TsingtaoMusic&SportsRadio
 http://ls.qingting.fm/live/1677.m3u8
 #EXTINF:-1 group-title="山东",山东乡村
 https://satellitepull.cnr.cn/live/wxsdxcgb/playlist.m3u8
 #EXTINF:-1 group-title="山东",山东交通
-https://satellitepull.cnr.cn/live/wxsdjtgb/playlist.m3u8
+https://satellitepull.cnr.cn/live/wxsdjtgb/playlist.m3u8#https://audiolive302.iqilu.com/sdradioJiaotong/sdradio05/playlist.m3u8
 #EXTINF:-1 group-title="山东",山东新闻广播 FM95
 http://ls.qingting.fm/live/60180.m3u8
 #EXTINF:-1 group-title="山东",山东卫视
@@ -659,22 +527,18 @@ https://satellitepull.cnr.cn/live/wxsdjjgb/playlist.m3u8
 http://ls.qingting.fm/live/4865.m3u8
 #EXTINF:-1 group-title="山东",山东交通广播
 http://audiolive302.iqilu.com/sdradioJiaotong/sdradio05/playlist.m3u8
-#EXTINF:-1 group-title="山东",山东交通
-https://audiolive302.iqilu.com/sdradioJiaotong/sdradio05/playlist.m3u8
 #EXTINF:-1 group-title="山东",山东体育
-https://satellitepull.cnr.cn/live/wxsdtyxxgb/playlist.m3u8
+https://satellitepull.cnr.cn/live/wxsdtyxxgb/playlist.m3u8#https://audiolive302.iqilu.com/sdradioTiyu/sdradio08/playlist.m3u8
 #EXTINF:-1 group-title="山东",山东音乐广播
 http://audiolive302.iqilu.com/sdradioYinyue/sdradio07/playlist.m3u8
 #EXTINF:-1 group-title="山东",山东音乐
-https://audiolive302.iqilu.com/sdradioYinyue/sdradio07/playlist.m3u8
+https://audiolive302.iqilu.com/sdradioYinyue/sdradio07/playlist.m3u8#https://lhttp.qingting.fm/live/1665/64k.mp3
 #EXTINF:-1 group-title="山东",山东经典音乐
 https://audiolive302.iqilu.com/sdradioShenghuo/sdradio04/playlist.m3u8
 #EXTINF:-1 group-title="山东",山东-ShantungEconomicsRadio
 http://lhttp.qingting.fm/live/20236/64k.mp3
 #EXTINF:-1 group-title="山东",山东-阳信人民广播电台
 https://lhttp.qingting.fm/live/5021991/64k.mp3
-#EXTINF:-1 group-title="山东",山东体育
-https://audiolive302.iqilu.com/sdradioTiyu/sdradio08/playlist.m3u8
 #EXTINF:-1 group-title="山东",山东-ShantungLifeRadio
 http://lhttp.qingting.fm/live/20240/64k.mp3
 #EXTINF:-1 group-title="山东",山东-ShantungLiterature&ArtRadio
@@ -693,8 +557,6 @@ http://lhttp.qingting.fm/live/20211644/64k.mp3
 http://lhttp.qingting.fm/live/20669/64k.mp3
 #EXTINF:-1 group-title="山东",山东-青岛交通广播
 http://lhttp.qingting.fm/live/1676/64k.mp3
-#EXTINF:-1 group-title="山东",山东音乐
-https://lhttp.qingting.fm/live/1665/64k.mp3
 #EXTINF:-1 group-title="山东",山东-高密人民广播电台
 https://lhttp.qingting.fm/live/20212417/64k.mp3
 #EXTINF:-1 group-title="山东",山东-青岛老年广播
@@ -724,11 +586,11 @@ https://stream.hndt.com/live/jiaotong/playlist.m3u8
 #EXTINF:-1 group-title="河南",河南天籁之音
 https://stream.hndt.com/live/gudian/playlist.m3u8
 #EXTINF:-1 group-title="河南",河南教育
-https://stream.hndt.com/live/jiaoyu/playlist.m3u8
+https://stream.hndt.com/live/jiaoyu/playlist.m3u8#https://satellitepull.cnr.cn/live/wxhnlygb/playlist.m3u8
 #EXTINF:-1 group-title="河南",河南新闻
-https://stream.hndt.com/live/xinwen/playlist.m3u8
+https://stream.hndt.com/live/xinwen/playlist.m3u8#https://satellitepull.cnr.cn/live/wxhnxwgb/playlist.m3u8
 #EXTINF:-1 group-title="河南",河南戏曲
-https://stream.hndt.com/live/yule/playlist.m3u8
+https://stream.hndt.com/live/yule/playlist.m3u8#https://satellitepull.cnr.cn/live/wxhnxqgb/playlist.m3u8
 #EXTINF:-1 group-title="河南",Hi-Fi Radio
 https://play-radio-stream3.hndt.com/now/JxkyN5mR/chunklist.m3u8
 #EXTINF:-1 group-title="河南",格莱美音乐
@@ -744,27 +606,17 @@ https://play-radio-stream3.hndt.com/now/WUBA5hW2/chunklist.m3u8
 #EXTINF:-1 group-title="河南",河南古典音乐天籁广播
 http://stream.hndt.com/live/gudian/chunklist_w1085892077.m3u8
 #EXTINF:-1 group-title="河南",河南戏曲娱乐广播
-http://stream.hndt.com/live/yule/playlist.m3u8
+http://stream.hndt.com/live/yule/playlist.m3u8#http://stream.hndt.com/live/yule/chunklist_w1631891218.m3u8
 #EXTINF:-1 group-title="河南",河南信息
-https://stream.hndt.com/live/leling/playlist.m3u8
+https://stream.hndt.com/live/leling/playlist.m3u8#https://satellitepull.cnr.cn/live/wxhnxxgb/playlist.m3u8
 #EXTINF:-1 group-title="河南",河南卫视
 https://satellitepull.cnr.cn/live/wxhnws/playlist.m3u8
-#EXTINF:-1 group-title="河南",河南戏曲娱乐广播
-http://stream.hndt.com/live/yule/chunklist_w1631891218.m3u8
-#EXTINF:-1 group-title="河南",河南信息
-https://satellitepull.cnr.cn/live/wxhnxxgb/playlist.m3u8
-#EXTINF:-1 group-title="河南",河南戏曲
-https://satellitepull.cnr.cn/live/wxhnxqgb/playlist.m3u8
-#EXTINF:-1 group-title="河南",河南新闻
-https://satellitepull.cnr.cn/live/wxhnxwgb/playlist.m3u8
 #EXTINF:-1 group-title="河南",河南卷卷猫1
 https://lhttp.qingting.fm/live/20500038/64k.mp3
 #EXTINF:-1 group-title="河南",河南农村
 https://satellitepull.cnr.cn/live/wxhnncgb/playlist.m3u8
 #EXTINF:-1 group-title="河南",河南少儿
 https://lhttp.qtfm.cn/live/20500038/64k.mp3
-#EXTINF:-1 group-title="河南",河南教育
-https://satellitepull.cnr.cn/live/wxhnlygb/playlist.m3u8
 #EXTINF:-1 group-title="河南",河南经济
 https://satellitepull.cnr.cn/live/wxhnjjgb/playlist.m3u8
 #EXTINF:-1 group-title="河南",河南卷卷猫电台
@@ -802,15 +654,13 @@ http://live.xmcdn.com/live/2682/64.m3u8
 #EXTINF:-1 group-title="湖北",湖北-恩施综合广播
 https://live.xmcdn.com/live/1435/64.m3u8
 #EXTINF:-1 group-title="湖北",湖北卫视
-https://piccpndali.v.myalicdn.com/audio/hubei_2.m3u8
+https://piccpndali.v.myalicdn.com/audio/hubei_2.m3u8#https://satellitepull.cnr.cn/live/wx32hubws/playlist.m3u8
 #EXTINF:-1 group-title="湖北",湖北-武汉经典音乐广播·岁月悠长，听见好时光
 http://ls.qingting.fm/live/1297.m3u8
 #EXTINF:-1 group-title="湖北",湖北经典音乐
-https://satellitepull.cnr.cn/live/wx32hubyygb/playlist.m3u8
-#EXTINF:-1 group-title="湖北",湖北卫视
-https://satellitepull.cnr.cn/live/wx32hubws/playlist.m3u8
+https://satellitepull.cnr.cn/live/wx32hubyygb/playlist.m3u8#https://lhttp.qtfm.cn/live/1296/64k.mp3
 #EXTINF:-1 group-title="湖北",湖北之声
-https://satellitepull.cnr.cn/live/wx32hubzsgb/playlist.m3u8
+https://satellitepull.cnr.cn/live/wx32hubzsgb/playlist.m3u8#https://lhttp.qingting.fm/live/1303/64k.mp3
 #EXTINF:-1 group-title="湖北",湖北-武汉交通广播·武汉市应急广播电台
 http://ls.qingting.fm/live/4665.m3u8
 #EXTINF:-1 group-title="湖北",楚天交通
@@ -825,8 +675,6 @@ http://lhttp.qingting.fm/live/20342/64k.mp3
 https://lhttp.qtfm.cn/live/1295/64k.mp3
 #EXTINF:-1 group-title="湖北",湖北交通
 https://lhttp.qtfm.cn/live/1291/64k.mp3
-#EXTINF:-1 group-title="湖北",湖北经典音乐
-https://lhttp.qtfm.cn/live/1296/64k.mp3
 #EXTINF:-1 group-title="湖北",湖北-十堰综合广播
 http://lhttp.qingting.fm/live/20338/64k.mp3
 #EXTINF:-1 group-title="湖北",湖北-随州综合广播
@@ -839,8 +687,6 @@ https://lhttp.qingting.fm/live/1312/64k.mp3
 https://lhttp.qingting.fm/live/20563/64k.mp3
 #EXTINF:-1 group-title="湖北",湖北-宜昌都市生活广播
 https://lhttp.qingting.fm/live/20567/64k.mp3
-#EXTINF:-1 group-title="湖北",湖北之声
-https://lhttp.qingting.fm/live/1303/64k.mp3
 #EXTINF:-1 group-title="湖南",湖南-洛阳综合广播
 http://live.xmcdn.com/live/491/64.m3u8
 #EXTINF:-1 group-title="湖南",湖南-河南天籁之音
@@ -928,85 +774,63 @@ https://lhttp.qingting.fm/live/20867/64k.mp3
 #EXTINF:-1 group-title="湖南",湖南-娄底综合广播
 https://lhttp.qingting.fm/live/21213/64k.mp3
 #EXTINF:-1 group-title="河北",河北音乐广播 FM102.4
-http://ls.qingting.fm/live/1649.m3u8
+http://ls.qingting.fm/live/1649.m3u8#http://live.xmcdn.com/live/494/64.m3u8
 #EXTINF:-1 group-title="河北",河北新闻广播 FM104.3
 http://ls.qingting.fm/live/1644.m3u8
 #EXTINF:-1 group-title="河北",河北私家车广播 FM90.7
 http://ls.qingting.fm/live/4868.m3u8
 #EXTINF:-1 group-title="河北",河北农民广播 AM558
 http://ls.qingting.fm/live/1650.m3u8
-#EXTINF:-1 group-title="河北",河北音乐广播 FM102.4
-http://live.xmcdn.com/live/494/64.m3u8
 #EXTINF:-1 group-title="河北",河北经济
-https://satellitepull.cnr.cn/live/wxhebjjgb/playlist.m3u8
+https://satellitepull.cnr.cn/live/wxhebjjgb/playlist.m3u8#https://radio.pull.hebtv.com/live/hebjj.m3u8
 #EXTINF:-1 group-title="河北",河北交通广播 FM99.2
 http://ls.qingting.fm/live/1646.m3u8
 #EXTINF:-1 group-title="河北",河北综合
-https://satellitepull.cnr.cn/live/wxhebzhgb/playlist.m3u8
+https://satellitepull.cnr.cn/live/wxhebzhgb/playlist.m3u8#https://radio.pull.hebtv.com/live/hebzh.m3u8
 #EXTINF:-1 group-title="河北",河北生活广播 FM88.8
 http://ls.qingting.fm/live/4867.m3u8
 #EXTINF:-1 group-title="河北",河北文艺
-https://satellitepull.cnr.cn/live/wxhebwygb/playlist.m3u8
+https://satellitepull.cnr.cn/live/wxhebwygb/playlist.m3u8#https://radio.pull.hebtv.com/live/hebwy.m3u8
 #EXTINF:-1 group-title="河北",河北交通
-https://satellitepull.cnr.cn/live/wxhebjtgb/playlist.m3u8
+https://satellitepull.cnr.cn/live/wxhebjtgb/playlist.m3u8#https://radio.pull.hebtv.com/live/hebjt.m3u8
 #EXTINF:-1 group-title="河北",河北故事广播 FM107.9
 http://ls.qingting.fm/live/1645.m3u8
 #EXTINF:-1 group-title="河北",河北旅游广播 AM603
 http://ls.qingting.fm/live/1651.m3u8
 #EXTINF:-1 group-title="河北",河北生活
-https://satellitepull.cnr.cn/live/wxhebshgb/playlist.m3u8
-#EXTINF:-1 group-title="河北",河北经济
-https://radio.pull.hebtv.com/live/hebjj.m3u8
+https://satellitepull.cnr.cn/live/wxhebshgb/playlist.m3u8#https://radio.pull.hebtv.com/live/hebshzx.m3u8
 #EXTINF:-1 group-title="河北",河北卫视
 https://satellitepull.cnr.cn/live/wxhebws/playlist.m3u8
 #EXTINF:-1 group-title="河北",河北音乐
-https://radio.pull.hebtv.com/live/hebqcyy.m3u8
+https://radio.pull.hebtv.com/live/hebqcyy.m3u8#https://radio.pull.hebtv.com/live/hebyy.m3u8
 #EXTINF:-1 group-title="河北",河北农民
 https://radio.pull.hebtv.com/live/hebnczx.m3u8
-#EXTINF:-1 group-title="河北",河北综合
-https://radio.pull.hebtv.com/live/hebzh.m3u8
-#EXTINF:-1 group-title="河北",河北音乐
-https://radio.pull.hebtv.com/live/hebyy.m3u8
 #EXTINF:-1 group-title="河北",河北新闻
 https://radio.pull.hebtv.com/live/hebxw.m3u8
-#EXTINF:-1 group-title="河北",河北文艺
-https://radio.pull.hebtv.com/live/hebwy.m3u8
 #EXTINF:-1 group-title="河北",河北旅游
 https://radio.pull.hebtv.com/live/hebly.m3u8
-#EXTINF:-1 group-title="河北",河北交通
-https://radio.pull.hebtv.com/live/hebjt.m3u8
-#EXTINF:-1 group-title="河北",河北生活
-https://radio.pull.hebtv.com/live/hebshzx.m3u8
 #EXTINF:-1 group-title="福建",福建-福建新闻广播
 http://live.xmcdn.com/live/792/64.m3u8
 #EXTINF:-1 group-title="福建",福建-福建私家车广播
 http://live.xmcdn.com/live/793/64.m3u8
 #EXTINF:-1 group-title="福建",福建新闻
-https://satellitepull.cnr.cn/live/wx32fjxwgb/playlist.m3u8
+https://satellitepull.cnr.cn/live/wx32fjxwgb/playlist.m3u8#https://lhttp.qtfm.cn/live/1731/64k.mp3
 #EXTINF:-1 group-title="福建",福建交通广播 FM100.7
 http://live.xmcdn.com/live/790/64.m3u8
 #EXTINF:-1 group-title="福建",福建交通
-https://satellitepull.cnr.cn/live/wx32fjdnjtgb/playlist.m3u8
+https://satellitepull.cnr.cn/live/wx32fjdnjtgb/playlist.m3u8#https://lhttp.qtfm.cn/live/1733/64k.mp3
 #EXTINF:-1 group-title="福建",福建东南
 https://satellitepull.cnr.cn/live/wx32fjdngb/playlist.m3u8
 #EXTINF:-1 group-title="福建",福建都市
-https://satellitepull.cnr.cn/live/wx32fjdndsgb/playlist.m3u8
+https://satellitepull.cnr.cn/live/wx32fjdndsgb/playlist.m3u8#https://lhttp.qtfm.cn/live/1736/64k.mp3
 #EXTINF:-1 group-title="福建",福建-漳州交通广播
 http://lhttp.qingting.fm/live/1743/64k.mp3
-#EXTINF:-1 group-title="福建",福建新闻
-https://lhttp.qtfm.cn/live/1731/64k.mp3
 #EXTINF:-1 group-title="福建",福建经济
-https://satellitepull.cnr.cn/live/wx32fjdnjjgb/playlist.m3u8
-#EXTINF:-1 group-title="福建",福建都市
-https://lhttp.qtfm.cn/live/1736/64k.mp3
+https://satellitepull.cnr.cn/live/wx32fjdnjjgb/playlist.m3u8#https://lhttp.qtfm.cn/live/1732/64k.mp3
 #EXTINF:-1 group-title="福建",福建-泉州新闻综合广播
 https://lhttp.qingting.fm/live/15318346/64k.mp3
 #EXTINF:-1 group-title="福建",福建-厦门综合广播
 http://lhttp.qingting.fm/live/1737/64k.mp3
-#EXTINF:-1 group-title="福建",福建经济
-https://lhttp.qtfm.cn/live/1732/64k.mp3
-#EXTINF:-1 group-title="福建",福建交通
-https://lhttp.qtfm.cn/live/1733/64k.mp3
 #EXTINF:-1 group-title="福建",福建-福州左海之声
 http://lhttp.qingting.fm/live/3937/64k.mp3
 #EXTINF:-1 group-title="福建",福建-漳州综合广播
@@ -1038,7 +862,7 @@ http://ls.qingting.fm/live/23801.m3u8
 #EXTINF:-1 group-title="辽宁",辽宁之声
 https://satellitepull.cnr.cn/live/wxlnzhgb/playlist.m3u8
 #EXTINF:-1 group-title="辽宁",辽宁卫视
-https://piccpndali.v.myalicdn.com/audio/liaoning_2.m3u8
+https://piccpndali.v.myalicdn.com/audio/liaoning_2.m3u8#https://satellitepull.cnr.cn/live/wxlnws/playlist.m3u8
 #EXTINF:-1 group-title="辽宁",辽宁文艺广播 FM95.9
 http://ls.qingting.fm/live/23795.m3u8
 #EXTINF:-1 group-title="辽宁",辽宁文艺广播
@@ -1046,43 +870,31 @@ http://satellitepull.cnr.cn/live/wxlnwygb/playlist.m3u8
 #EXTINF:-1 group-title="辽宁",辽宁经典音乐
 https://satellitepull.cnr.cn/live/wxlnwygb/playlist.m3u8
 #EXTINF:-1 group-title="辽宁",辽宁乡村
-https://satellitepull.cnr.cn/live/wxlnxcgb/playlist.m3u8
-#EXTINF:-1 group-title="辽宁",辽宁卫视
-https://satellitepull.cnr.cn/live/wxlnws/playlist.m3u8
+https://satellitepull.cnr.cn/live/wxlnxcgb/playlist.m3u8#https://lhttp.qtfm.cn/live/20018/64k.mp3
 #EXTINF:-1 group-title="辽宁",辽宁卫视伴音
 http://satellitepull.cnr.cn/live/wxlnws/playlist.m3u8
 #EXTINF:-1 group-title="辽宁",辽宁资讯
 https://lhttp.qtfm.cn/live/5022018/64k.mp3
 #EXTINF:-1 group-title="辽宁",辽宁经济
-https://satellitepull.cnr.cn/live/wxlnjjtb/playlist.m3u8
+https://satellitepull.cnr.cn/live/wxlnjjtb/playlist.m3u8#https://lhttp.qingting.fm/live/20019/64k.mp3
 #EXTINF:-1 group-title="辽宁",辽宁流行音乐
 https://lhttp.qingting.fm/live/20021/64k.mp3
 #EXTINF:-1 group-title="辽宁",辽宁交通
-https://satellitepull.cnr.cn/live/wxlnjtgb/playlist.m3u8
+https://satellitepull.cnr.cn/live/wxlnjtgb/playlist.m3u8#https://lhttp.qtfm.cn/live/20025/64k.mp3
 #EXTINF:-1 group-title="辽宁",辽宁综合
 https://lhttp.qtfm.cn/live/1103/64k.mp3
-#EXTINF:-1 group-title="辽宁",辽宁交通
-https://lhttp.qtfm.cn/live/20025/64k.mp3
-#EXTINF:-1 group-title="辽宁",辽宁经济
-https://lhttp.qingting.fm/live/20019/64k.mp3
 #EXTINF:-1 group-title="辽宁",辽宁-辽宁广播电视台都市广播
 http://lhttp.qingting.fm/live/1099/64k.mp3
 #EXTINF:-1 group-title="辽宁",辽宁都市
-https://lhttp.qtfm.cn/live/1099/64k.mp3
+https://lhttp.qtfm.cn/live/1099/64k.mp3#https://lhttp.qingting.fm/live/1099/64k.mp3
 #EXTINF:-1 group-title="辽宁",辽宁音乐
-https://lhttp.qtfm.cn/live/1101/64k.mp3
+https://lhttp.qtfm.cn/live/1101/64k.mp3#https://lhttp.qingting.fm/live/1101/64k.mp3
 #EXTINF:-1 group-title="辽宁",辽宁生活
-https://lhttp.qtfm.cn/live/1102/64k.mp3
-#EXTINF:-1 group-title="辽宁",辽宁音乐
-https://lhttp.qingting.fm/live/1101/64k.mp3
-#EXTINF:-1 group-title="辽宁",辽宁都市
-https://lhttp.qingting.fm/live/1099/64k.mp3
+https://lhttp.qtfm.cn/live/1102/64k.mp3#https://lhttp.qingting.fm/live/1102/64k.mp3
 #EXTINF:-1 group-title="辽宁",辽宁-辽宁广播电视台音乐广播
 http://lhttp.qingting.fm/live/1101/64k.mp3
 #EXTINF:-1 group-title="辽宁",辽宁经典流行音乐广播
 http://lhttp.qingting.fm/live/20021/64k.mp3
-#EXTINF:-1 group-title="辽宁",辽宁乡村
-https://lhttp.qtfm.cn/live/20018/64k.mp3
 #EXTINF:-1 group-title="辽宁",辽宁-辽宁广播电视台生活广播
 http://lhttp.qingting.fm/live/1102/64k.mp3
 #EXTINF:-1 group-title="辽宁",辽宁-绥中综合广播
@@ -1091,34 +903,20 @@ http://lhttp.qingting.fm/live/20211705/64k.mp3
 http://lhttp.qingting.fm/live/5022535/64k.mp3
 #EXTINF:-1 group-title="辽宁",辽宁-朝阳县人民广播电台
 http://lhttp.qingting.fm/live/20212211/64k.mp3
-#EXTINF:-1 group-title="辽宁",辽宁生活
-https://lhttp.qingting.fm/live/1102/64k.mp3
 #EXTINF:-1 group-title="陕西",陕西交通
-https://satellitepull.cnr.cn/live/wxsxxjtgb/playlist.m3u8
+https://satellitepull.cnr.cn/live/wxsxxjtgb/playlist.m3u8#https://lhttp.qtfm.cn/live/1601/64k.mp3
 #EXTINF:-1 group-title="陕西",陕西农村
-https://satellitepull.cnr.cn/live/wxsxxncgb/playlist.m3u8
+https://satellitepull.cnr.cn/live/wxsxxncgb/playlist.m3u8#https://lhttp.qtfm.cn/live/1602/64k.mp3
 #EXTINF:-1 group-title="陕西",陕西音乐
-https://satellitepull.cnr.cn/live/wxsxxyygb/playlist.m3u8
+https://satellitepull.cnr.cn/live/wxsxxyygb/playlist.m3u8#https://lhttp.qtfm.cn/live/4873/64k.mp3
 #EXTINF:-1 group-title="陕西",陕西青少
-https://satellitepull.cnr.cn/live/wxsxxqcgb/playlist.m3u8
+https://satellitepull.cnr.cn/live/wxsxxqcgb/playlist.m3u8#https://lhttp.qtfm.cn/live/4885/64k.mp3
 #EXTINF:-1 group-title="陕西",陕西经济
-https://satellitepull.cnr.cn/live/wxsxxjjgb/playlist.m3u8
-#EXTINF:-1 group-title="陕西",陕西青少
-https://lhttp.qtfm.cn/live/4885/64k.mp3
+https://satellitepull.cnr.cn/live/wxsxxjjgb/playlist.m3u8#https://lhttp.qtfm.cn/live/1603/64k.mp3
 #EXTINF:-1 group-title="陕西",陕西卫视
 https://satellitepull.cnr.cn/live/wxsxxws/playlist.m3u8
 #EXTINF:-1 group-title="陕西",陕西新闻
-https://satellitepull.cnr.cn/live/wxsxxxwgb/playlist.m3u8
-#EXTINF:-1 group-title="陕西",陕西农村
-https://lhttp.qtfm.cn/live/1602/64k.mp3
-#EXTINF:-1 group-title="陕西",陕西交通
-https://lhttp.qtfm.cn/live/1601/64k.mp3
-#EXTINF:-1 group-title="陕西",陕西新闻
-https://lhttp.qtfm.cn/live/1600/64k.mp3
-#EXTINF:-1 group-title="陕西",陕西音乐
-https://lhttp.qtfm.cn/live/4873/64k.mp3
-#EXTINF:-1 group-title="陕西",陕西经济
-https://lhttp.qtfm.cn/live/1603/64k.mp3
+https://satellitepull.cnr.cn/live/wxsxxxwgb/playlist.m3u8#https://lhttp.qtfm.cn/live/1600/64k.mp3
 #EXTINF:-1 group-title="安徽",安徽-黄山综合广播
 http://ls.qingting.fm/live/1968.m3u8
 #EXTINF:-1 group-title="安徽",安徽老年
@@ -1128,23 +926,23 @@ http://satellitepull.cnr.cn/live/wxahjjgb/playlist.m3u8
 #EXTINF:-1 group-title="安徽",安徽-安徽生活广播
 http://satellitepull.cnr.cn/live/wxahshgb/playlist.m3u8
 #EXTINF:-1 group-title="安徽",安徽经济
-https://satellitepull.cnr.cn/live/wxahjjgb/playlist.m3u8
+https://satellitepull.cnr.cn/live/wxahjjgb/playlist.m3u8#https://lhttp.qtfm.cn/live/4916/64k.mp3
 #EXTINF:-1 group-title="安徽",安徽戏曲
-https://satellitepull.cnr.cn/live/wxahxqgb/playlist.m3u8
+https://satellitepull.cnr.cn/live/wxahxqgb/playlist.m3u8#https://lhttp.qtfm.cn/live/1952/64k.mp3
 #EXTINF:-1 group-title="安徽",安徽-安徽综合广播
 http://satellitepull.cnr.cn/live/wxahxxgb/playlist.m3u8
 #EXTINF:-1 group-title="安徽",安徽音乐
-https://satellitepull.cnr.cn/live/wxahyygb/playlist.m3u8
+https://satellitepull.cnr.cn/live/wxahyygb/playlist.m3u8#https://lhttp.qtfm.cn/live/1947/64k.mp3
 #EXTINF:-1 group-title="安徽",安徽之声
 https://satellitepull.cnr.cn/live/wxahxxgb/playlist.m3u8
 #EXTINF:-1 group-title="安徽",安徽生活
-https://satellitepull.cnr.cn/live/wxahshgb/playlist.m3u8
+https://satellitepull.cnr.cn/live/wxahshgb/playlist.m3u8#https://lhttp.qingting.fm/live/1948/64k.mp3
 #EXTINF:-1 group-title="安徽",安徽戏曲广播
 http://satellitepull.cnr.cn/live/wxahxqgb/playlist.m3u8
 #EXTINF:-1 group-title="安徽",安徽-黄山交通旅游广播
 http://ls.qingting.fm/live/1969.m3u8
 #EXTINF:-1 group-title="安徽",安徽交通
-https://satellitepull.cnr.cn/live/wxahjtgb/playlist.m3u8
+https://satellitepull.cnr.cn/live/wxahjtgb/playlist.m3u8#https://lhttp.qtfm.cn/live/1949/64k.mp3
 #EXTINF:-1 group-title="安徽",安徽小说评书广播
 http://satellitepull.cnr.cn/live/wxahxspsgb/playlist.m3u8
 #EXTINF:-1 group-title="安徽",安徽音乐广播
@@ -1152,7 +950,7 @@ http://satellitepull.cnr.cn/live/wxahyygb/playlist.m3u8
 #EXTINF:-1 group-title="安徽",安徽-安徽旅游广播
 http://satellitepull.cnr.cn/live/wxahlygb/playlist.m3u8
 #EXTINF:-1 group-title="安徽",安徽旅游
-https://satellitepull.cnr.cn/live/wxahlygb/playlist.m3u8
+https://satellitepull.cnr.cn/live/wxahlygb/playlist.m3u8#https://lhttp.qtfm.cn/live/15318219/64k.mp3
 #EXTINF:-1 group-title="安徽",安徽农村广播
 http://satellitepull.cnr.cn/live/wxahncgb/playlist.m3u8
 #EXTINF:-1 group-title="安徽",安徽卫视
@@ -1163,10 +961,6 @@ http://lhttp.qingting.fm/live/1960/64k.mp3
 https://lhttp.qingting.fm/live/1965/64k.mp3
 #EXTINF:-1 group-title="安徽",安徽小说
 https://lhttp.qtfm.cn/live/1951/64k.mp3
-#EXTINF:-1 group-title="安徽",安徽旅游
-https://lhttp.qtfm.cn/live/15318219/64k.mp3
-#EXTINF:-1 group-title="安徽",安徽生活
-https://lhttp.qingting.fm/live/1948/64k.mp3
 #EXTINF:-1 group-title="安徽",安徽综合
 https://lhttp.qtfm.cn/live/4919/64k.mp3
 #EXTINF:-1 group-title="安徽",安徽-合肥汽车音乐
@@ -1175,56 +969,36 @@ http://lhttp.qingting.fm/live/1975/64k.mp3
 http://lhttp.qingting.fm/live/1961/64k.mp3
 #EXTINF:-1 group-title="安徽",安徽-合肥新闻广播合肥新闻第一台
 http://lhttp.qingting.fm/live/20212380/64k.mp3
-#EXTINF:-1 group-title="安徽",安徽音乐
-https://lhttp.qtfm.cn/live/1947/64k.mp3
-#EXTINF:-1 group-title="安徽",安徽交通
-https://lhttp.qtfm.cn/live/1949/64k.mp3
 #EXTINF:-1 group-title="安徽",安徽-颍上人民广播电台
 http://lhttp.qingting.fm/live/20500039/64k.mp3
-#EXTINF:-1 group-title="安徽",安徽经济
-https://lhttp.qtfm.cn/live/4916/64k.mp3
-#EXTINF:-1 group-title="安徽",安徽戏曲
-https://lhttp.qtfm.cn/live/1952/64k.mp3
 #EXTINF:-1 group-title="安徽",安徽农村
 https://lhttp.qtfm.cn/live/1950/64k.mp3
 #EXTINF:-1 group-title="黑龙江",黑龙江都市女性广播
 http://satellitepull.cnr.cn/live/wx32hljnxgb/playlist.m3u8
 #EXTINF:-1 group-title="黑龙江",黑龙江都市女性
-https://satellitepull.cnr.cn/live/wx32hljnxgb/playlist.m3u8
+https://satellitepull.cnr.cn/live/wx32hljnxgb/playlist.m3u8#https://lhttp.qingting.fm/live/4968/64k.mp3
 #EXTINF:-1 group-title="黑龙江",黑龙江乡村
 https://satellitepull.cnr.cn/live/wx32hljxcgb/playlist.m3u8
 #EXTINF:-1 group-title="黑龙江",黑龙江卫视
 https://satellitepull.cnr.cn/live/wx32hljws/playlist.m3u8
 #EXTINF:-1 group-title="黑龙江",黑龙江生活
-https://satellitepull.cnr.cn/live/wx32hljsjcgb/playlist.m3u8
+https://satellitepull.cnr.cn/live/wx32hljsjcgb/playlist.m3u8#https://lhttp.qtfm.cn/live/4970/64k.mp3
 #EXTINF:-1 group-title="黑龙江",黑龙江新闻
-https://satellitepull.cnr.cn/live/wx32hljxwgb/playlist.m3u8
+https://satellitepull.cnr.cn/live/wx32hljxwgb/playlist.m3u8#https://lhttp.qtfm.cn/live/4974/64k.mp3
 #EXTINF:-1 group-title="黑龙江",黑龙江朝鲜语
 https://satellitepull.cnr.cn/live/wx32hljcygb/playlist.m3u8
 #EXTINF:-1 group-title="黑龙江",黑龙江交通
-https://satellitepull.cnr.cn/live/wx32hljjtgb/playlist.m3u8
+https://satellitepull.cnr.cn/live/wx32hljjtgb/playlist.m3u8#https://lhttp.qtfm.cn/live/4973/64k.mp3
 #EXTINF:-1 group-title="黑龙江",黑龙江高校
-https://satellitepull.cnr.cn/live/wx32hljgxgb/playlist.m3u8
+https://satellitepull.cnr.cn/live/wx32hljgxgb/playlist.m3u8#https://lhttp.qtfm.cn/live/4976/64k.mp3
 #EXTINF:-1 group-title="黑龙江",黑龙江老年少儿
-https://satellitepull.cnr.cn/live/wx32hljajgb/playlist.m3u8
-#EXTINF:-1 group-title="黑龙江",黑龙江都市女性
-https://lhttp.qingting.fm/live/4968/64k.mp3
-#EXTINF:-1 group-title="黑龙江",黑龙江生活
-https://lhttp.qtfm.cn/live/4970/64k.mp3
-#EXTINF:-1 group-title="黑龙江",黑龙江交通
-https://lhttp.qtfm.cn/live/4973/64k.mp3
-#EXTINF:-1 group-title="黑龙江",黑龙江老年少儿
-https://lhttp.qtfm.cn/live/4972/64k.mp3
-#EXTINF:-1 group-title="黑龙江",黑龙江新闻
-https://lhttp.qtfm.cn/live/4974/64k.mp3
+https://satellitepull.cnr.cn/live/wx32hljajgb/playlist.m3u8#https://lhttp.qtfm.cn/live/4972/64k.mp3
 #EXTINF:-1 group-title="黑龙江",黑龙江音乐
 https://lhttp.qtfm.cn/live/4969/64k.mp3
-#EXTINF:-1 group-title="黑龙江",黑龙江高校
-https://lhttp.qtfm.cn/live/4976/64k.mp3
 #EXTINF:-1 group-title="江西",江西音乐
 https://satellitepull.cnr.cn/live/wx32jiangxyygb/playlist.m3u8
 #EXTINF:-1 group-title="江西",江西综合
-https://satellitepull.cnr.cn/live/wx32jiangxxwgb/playlist.m3u8
+https://satellitepull.cnr.cn/live/wx32jiangxxwgb/playlist.m3u8#https://lhttp.qtfm.cn/live/1809/64k.mp3
 #EXTINF:-1 group-title="江西",江西综合新闻广播
 http://satellitepull.cnr.cn/live/wx32jiangxxwgb/playlist.m3u8
 #EXTINF:-1 group-title="江西",江西-九江交通广播
@@ -1238,11 +1012,9 @@ https://lhttp.qtfm.cn/live/20500092/64k.mp3
 #EXTINF:-1 group-title="江西",江西-赣州综合广播（2）
 https://lhttp.qingting.fm/live/20266/64k.mp3
 #EXTINF:-1 group-title="江西",江西文艺音乐
-https://lhttp.qingting.fm/live/1802/64k.mp3
+https://lhttp.qingting.fm/live/1802/64k.mp3#https://lhttp.qtfm.cn/live/1802/64k.mp3
 #EXTINF:-1 group-title="江西",江西新闻
 https://lhttp.qingting.fm/live/1809/64k.mp3
-#EXTINF:-1 group-title="江西",江西综合
-https://lhttp.qtfm.cn/live/1809/64k.mp3
 #EXTINF:-1 group-title="江西",江西-九江年代音乐台
 https://lhttp.qingting.fm/live/20212210/64k.mp3
 #EXTINF:-1 group-title="江西",江西-南昌交通音乐广播
@@ -1263,42 +1035,30 @@ http://lhttp.qingting.fm/live/20133/64k.mp3
 http://lhttp.qingting.fm/live/5021665/64k.mp3
 #EXTINF:-1 group-title="江西",江西旅游
 https://lhttp.qtfm.cn/live/20133/64k.mp3
-#EXTINF:-1 group-title="江西",江西文艺音乐
-https://lhttp.qtfm.cn/live/1802/64k.mp3
 #EXTINF:-1 group-title="江西",江西交通
 https://lhttp.qtfm.cn/live/1811/64k.mp3
 #EXTINF:-1 group-title="江西",江西财经
 https://lhttp.qtfm.cn/live/5021665/64k.mp3
 #EXTINF:-1 group-title="广西",广西新闻910 FM91.0
-http://live.xmcdn.com/live/299/64.m3u8
+http://live.xmcdn.com/live/299/64.m3u8#http://ls.qingting.fm/live/1753.m3u8
 #EXTINF:-1 group-title="广西",广西女主播电台 FM97.0
-http://live.xmcdn.com/live/300/64.m3u8
+http://live.xmcdn.com/live/300/64.m3u8#http://ls.qingting.fm/live/1754.m3u8
 #EXTINF:-1 group-title="广西",广西音乐台 FM95.0
-http://live.xmcdn.com/live/301/64.m3u8
+http://live.xmcdn.com/live/301/64.m3u8#http://ls.qingting.fm/live/4875.m3u8
 #EXTINF:-1 group-title="广西",广西交通台 FM100.3
-http://live.xmcdn.com/live/304/64.m3u8
+http://live.xmcdn.com/live/304/64.m3u8#http://ls.qingting.fm/live/1758.m3u8
 #EXTINF:-1 group-title="广西",广西-广西私家车调频FM93.0
 http://live.xmcdn.com/live/302/64.m3u8
-#EXTINF:-1 group-title="广西",广西新闻910 FM91.0
-http://ls.qingting.fm/live/1753.m3u8
 #EXTINF:-1 group-title="广西",广西北部湾之声(广西对外广播) FM96.4
-http://live.xmcdn.com/live/303/64.m3u8
-#EXTINF:-1 group-title="广西",广西音乐台 FM95.0
-http://ls.qingting.fm/live/4875.m3u8
+http://live.xmcdn.com/live/303/64.m3u8#http://ls.qingting.fm/live/1757.m3u8
 #EXTINF:-1 group-title="广西",广西私家车930 FM93.0
 http://ls.qingting.fm/live/1756.m3u8
-#EXTINF:-1 group-title="广西",广西北部湾之声(广西对外广播) FM96.4
-http://ls.qingting.fm/live/1757.m3u8
-#EXTINF:-1 group-title="广西",广西女主播电台 FM97.0
-http://ls.qingting.fm/live/1754.m3u8
 #EXTINF:-1 group-title="广西",广西音乐广播 FM95.0
 http://satellitepull.cnr.cn/live/wx32gxwygb/playlist.m3u8
 #EXTINF:-1 group-title="广西",广西综合
 https://satellitepull.cnr.cn/live/wx32gxrmgb/playlist.m3u8
 #EXTINF:-1 group-title="广西",广西北部湾
 https://satellitepull.cnr.cn/live/wx32gxdwgb/playlist.m3u8
-#EXTINF:-1 group-title="广西",广西交通台 FM100.3
-http://ls.qingting.fm/live/1758.m3u8
 #EXTINF:-1 group-title="广西",广西教育
 https://satellitepull.cnr.cn/live/wx32gbjyshgb/playlist.m3u8
 #EXTINF:-1 group-title="广西",广西-柳州综合广播
@@ -1316,47 +1076,37 @@ https://lhttp.qingting.fm/live/20211621/64k.mp3
 #EXTINF:-1 group-title="广西",广西-柳州交通广播
 http://lhttp.qingting.fm/live/20571/64k.mp3
 #EXTINF:-1 group-title="云南",云南新闻
-https://satellitepull.cnr.cn/live/wxynxwgb/playlist.m3u8
+https://satellitepull.cnr.cn/live/wxynxwgb/playlist.m3u8#https://lhttp.qtfm.cn/live/1926/64k.mp3
 #EXTINF:-1 group-title="云南",云南经济广播 私家车 FM88.7
 http://ls.qingting.fm/live/1927.m3u8
 #EXTINF:-1 group-title="云南",云南音乐广播 FM97
-http://live.xmcdn.com/live/904/64.m3u8
+http://live.xmcdn.com/live/904/64.m3u8#http://ls.qingting.fm/live/1929.m3u8
 #EXTINF:-1 group-title="云南",云南交通广播 FM91.8
 http://ls.qingting.fm/live/1928.m3u8
 #EXTINF:-1 group-title="云南",云南交通
 https://satellitepull.cnr.cn/live/wxynjtgb/playlist.m3u8
 #EXTINF:-1 group-title="云南",云南新闻广播 FM105.8
 http://ls.qingting.fm/live/1926.m3u8
-#EXTINF:-1 group-title="云南",云南音乐广播 FM97
-http://ls.qingting.fm/live/1929.m3u8
 #EXTINF:-1 group-title="云南",云南民族
-https://satellitepull.cnr.cn/live/wxynmzgb/playlist.m3u8
+https://satellitepull.cnr.cn/live/wxynmzgb/playlist.m3u8#https://lhttp.qtfm.cn/live/1933/64k.mp3
 #EXTINF:-1 group-title="云南",云南音乐
-https://satellitepull.cnr.cn/live/wxynyygb/playlist.m3u8
+https://satellitepull.cnr.cn/live/wxynyygb/playlist.m3u8#https://lhttp.qtfm.cn/live/1929/64k.mp3
 #EXTINF:-1 group-title="云南",云南民族广播 SW7210
 http://ls.qingting.fm/live/1933.m3u8
 #EXTINF:-1 group-title="云南",云南卫视
 https://satellitepull.cnr.cn/live/wxynws/playlist.m3u8
 #EXTINF:-1 group-title="云南",云南经济
-https://satellitepull.cnr.cn/live/wxynjjgb/playlist.m3u8
+https://satellitepull.cnr.cn/live/wxynjjgb/playlist.m3u8#https://lhttp.qtfm.cn/live/1927/64k.mp3
 #EXTINF:-1 group-title="云南",云南国际
 https://satellitepull.cnr.cn/live/wxynsegb/playlist.m3u8
 #EXTINF:-1 group-title="云南",云南-普洱综合广播
 http://lhttp.qingting.fm/live/1938/64k.mp3
-#EXTINF:-1 group-title="云南",云南音乐
-https://lhttp.qtfm.cn/live/1929/64k.mp3
 #EXTINF:-1 group-title="云南",云南-开远人民广播电台
 https://lhttp.qingting.fm/live/5022383/64k.mp3
-#EXTINF:-1 group-title="云南",云南新闻
-https://lhttp.qtfm.cn/live/1926/64k.mp3
 #EXTINF:-1 group-title="云南",云南-保山综合广播
 https://lhttp.qingting.fm/live/5022446/64k.mp3
 #EXTINF:-1 group-title="云南",云南-大理州新闻综合广播
 http://lhttp.qingting.fm/live/20207747/64k.mp3
-#EXTINF:-1 group-title="云南",云南民族
-https://lhttp.qtfm.cn/live/1933/64k.mp3
-#EXTINF:-1 group-title="云南",云南经济
-https://lhttp.qtfm.cn/live/1927/64k.mp3
 #EXTINF:-1 group-title="云南",云南-蒙自人民广播电台
 https://lhttp.qingting.fm/live/5021599/64k.mp3
 #EXTINF:-1 group-title="云南",云南-玉溪新闻综合广播
@@ -1466,7 +1216,7 @@ http://lhttp.qingting.fm/live/5022438/64k.mp3
 #EXTINF:-1 group-title="贵州",贵州新闻综合广播 FM94.6
 http://ls.qingting.fm/live/23933.m3u8
 #EXTINF:-1 group-title="贵州",贵州电台交通广播 FM95.2
-http://live.xmcdn.com/live/362/64.m3u8
+http://live.xmcdn.com/live/362/64.m3u8#http://ls.qingting.fm/live/23927.m3u8
 #EXTINF:-1 group-title="贵州",贵州卫视
 https://piccpndali.v.myalicdn.com/audio/guizhou_2.m3u8
 #EXTINF:-1 group-title="贵州",贵州旅游
@@ -1478,31 +1228,23 @@ https://satellitepull.cnr.cn/live/wx32gzgsgb/playlist.m3u8
 #EXTINF:-1 group-title="贵州",贵州故事广播
 http://satellitepull.cnr.cn/live/wx32gzgsgb/playlist.m3u8
 #EXTINF:-1 group-title="贵州",贵州综合
-https://satellitepull.cnr.cn/live/wx32gzwxwzhgb/playlist.m3u8
-#EXTINF:-1 group-title="贵州",贵州电台交通广播 FM95.2
-http://ls.qingting.fm/live/23927.m3u8
+https://satellitepull.cnr.cn/live/wx32gzwxwzhgb/playlist.m3u8#https://lhttp.qtfm.cn/live/20063/64k.mp3
 #EXTINF:-1 group-title="贵州",贵州经济
-https://satellitepull.cnr.cn/live/wx32gzjjgb/playlist.m3u8
+https://satellitepull.cnr.cn/live/wx32gzjjgb/playlist.m3u8#https://lhttp.qtfm.cn/live/20065/64k.mp3
 #EXTINF:-1 group-title="贵州",贵州音乐广播
 http://satellitepull.cnr.cn/live/wx32gzyygb/playlist.m3u8
 #EXTINF:-1 group-title="贵州",贵州电台经济广播 FM98.9
 http://ls.qingting.fm/live/23935.m3u8
 #EXTINF:-1 group-title="贵州",贵州音乐
-https://satellitepull.cnr.cn/live/wx32gzyygb/playlist.m3u8
+https://satellitepull.cnr.cn/live/wx32gzyygb/playlist.m3u8#https://lhttp.qtfm.cn/live/20067/64k.mp3
 #EXTINF:-1 group-title="贵州",贵州电台音乐广播 FM91.6
 http://ls.qingting.fm/live/23937.m3u8
 #EXTINF:-1 group-title="贵州",贵州都市
 https://satellitepull.cnr.cn/live/wx32gzqcgb/playlist.m3u8
-#EXTINF:-1 group-title="贵州",贵州经济
-https://lhttp.qtfm.cn/live/20065/64k.mp3
 #EXTINF:-1 group-title="贵州",贵州-贵州交通广播
 http://lhttp.qingting.fm/live/20057/64k.mp3
 #EXTINF:-1 group-title="贵州",贵阳综合
 https://lhttp.qtfm.cn/live/1773/64k.mp3
-#EXTINF:-1 group-title="贵州",贵州综合
-https://lhttp.qtfm.cn/live/20063/64k.mp3
-#EXTINF:-1 group-title="贵州",贵州音乐
-https://lhttp.qtfm.cn/live/20067/64k.mp3
 #EXTINF:-1 group-title="贵州",贵州交通
 https://lhttp.qingting.fm/live/20057/64k.mp3
 #EXTINF:-1 group-title="贵州",贵州-六盘水综合广播
@@ -1522,9 +1264,7 @@ https://satellitepull.cnr.cn/live/wxssxws/playlist.m3u8
 #EXTINF:-1 group-title="山西",山西-临汾综合广播
 http://live.xmcdn.com/live/2514/64.m3u8
 #EXTINF:-1 group-title="山西",山西综合
-https://satellitepull.cnr.cn/live/wxssxxwgb/playlist.m3u8
-#EXTINF:-1 group-title="山西",山西综合
-https://lhttp.qtfm.cn/live/20491/64k.mp3
+https://satellitepull.cnr.cn/live/wxssxxwgb/playlist.m3u8#https://lhttp.qtfm.cn/live/20491/64k.mp3
 #EXTINF:-1 group-title="山西",山西-左云人民广播电台
 http://lhttp.qingting.fm/live/20212394/64k.mp3
 #EXTINF:-1 group-title="山西",山西-TaiyuanNewsRadio
@@ -1548,11 +1288,9 @@ http://lhttp.qingting.fm/live/5021874/64k.mp3
 #EXTINF:-1 group-title="新疆",新疆新闻广播 FM96.1
 http://ls.qingting.fm/live/1902.m3u8
 #EXTINF:-1 group-title="新疆",新疆交通广播 FM94.9
-http://live.xmcdn.com/live/987/64.m3u8
-#EXTINF:-1 group-title="新疆",新疆交通广播 FM94.9
-http://ls.qingting.fm/live/1910.m3u8
+http://live.xmcdn.com/live/987/64.m3u8#http://ls.qingting.fm/live/1910.m3u8
 #EXTINF:-1 group-title="新疆",新疆新闻
-https://satellitepull.cnr.cn/live/wxxjxwgb/playlist.m3u8
+https://satellitepull.cnr.cn/live/wxxjxwgb/playlist.m3u8#https://lhttp.qtfm.cn/live/1902/64k.mp3
 #EXTINF:-1 group-title="新疆",新疆-新疆汉语新闻广播
 http://satellitepull.cnr.cn/live/wxxjxwgb/playlist.m3u8
 #EXTINF:-1 group-title="新疆",新疆-阿克苏汉语广播
@@ -1584,7 +1322,7 @@ http://ls.qingting.fm/live/1919.m3u8
 #EXTINF:-1 group-title="新疆",新疆-新疆维语文艺广播
 http://satellitepull.cnr.cn/live/wxxjwyjtwygb/playlist.m3u8
 #EXTINF:-1 group-title="新疆",新疆交通
-https://satellitepull.cnr.cn/live/wxxjjtgb/playlist.m3u8
+https://satellitepull.cnr.cn/live/wxxjjtgb/playlist.m3u8#https://lhttp.qtfm.cn/live/1910/64k.mp3
 #EXTINF:-1 group-title="新疆",新疆私家车
 https://satellitepull.cnr.cn/live/wxxjsjcgb/playlist.m3u8
 #EXTINF:-1 group-title="新疆",新疆卫视
@@ -1593,10 +1331,6 @@ https://satellitepull.cnr.cn/live/wxxjws/playlist.m3u8
 https://lhttp.qingting.fm/live/5022506/64k.mp3
 #EXTINF:-1 group-title="新疆",新疆-察布查尔人民广播电台
 https://lhttp.qingting.fm/live/5022610/64k.mp3
-#EXTINF:-1 group-title="新疆",新疆新闻
-https://lhttp.qtfm.cn/live/1902/64k.mp3
-#EXTINF:-1 group-title="新疆",新疆交通
-https://lhttp.qtfm.cn/live/1910/64k.mp3
 #EXTINF:-1 group-title="新疆",新疆旅游
 https://lhttp.qtfm.cn/live/1909/64k.mp3
 #EXTINF:-1 group-title="新疆",新疆-SinkiangVoiceofCorpsRadio
@@ -1630,7 +1364,7 @@ http://ls.qingting.fm/live/1862.m3u8
 #EXTINF:-1 group-title="海南",海南音乐广播
 http://satellitepull.cnr.cn/live/wxhainyygb/playlist.m3u8
 #EXTINF:-1 group-title="海南",海南新闻
-https://satellitepull.cnr.cn/live/wxhainxwgb/playlist.m3u8
+https://satellitepull.cnr.cn/live/wxhainxwgb/playlist.m3u8#https://lhttp.qingting.fm/live/1861/64k.mp3
 #EXTINF:-1 group-title="海南",海南-海南交通广播（高清音质）
 http://satellitepull.cnr.cn/live/wxhainjtgb/playlist.m3u8
 #EXTINF:-1 group-title="海南",海南卫视
@@ -1645,32 +1379,26 @@ http://lhttp.qingting.fm/live/5022079/64k.mp3
 https://lhttp.qingting.fm/live/4878/64k.mp3
 #EXTINF:-1 group-title="海南",海南-海南新闻广播
 http://lhttp.qingting.fm/live/1861/64k.mp3
-#EXTINF:-1 group-title="海南",海南新闻
-https://lhttp.qingting.fm/live/1861/64k.mp3
 #EXTINF:-1 group-title="海南",海南民生
 https://lhttp.qingting.fm/live/21243/64k.mp3
 #EXTINF:-1 group-title="海南",海南-HaikowNewsRadio
 http://lhttp.qingting.fm/live/5022015/64k.mp3
 #EXTINF:-1 group-title="海南",海南交通
-https://lhttp.qingting.fm/live/5022079/64k.mp3
+https://lhttp.qingting.fm/live/5022079/64k.mp3#https://lhttp.qingting.fm/live/4911/64k.mp3
 #EXTINF:-1 group-title="海南",海南-海南音乐广播
 http://lhttp.qingting.fm/live/4878/64k.mp3
 #EXTINF:-1 group-title="海南",海南民生广播
 http://lhttp.qingting.fm/live/21243/64k.mp3
-#EXTINF:-1 group-title="海南",海南交通
-https://lhttp.qingting.fm/live/4911/64k.mp3
 #EXTINF:-1 group-title="宁夏",宁夏音乐广播 FM104.7
 http://live.xmcdn.com/live/1878/64.m3u8
 #EXTINF:-1 group-title="宁夏",宁夏交通广播 FM98.4
 http://ls.qingting.fm/live/1840.m3u8
 #EXTINF:-1 group-title="宁夏",宁夏音乐
-https://satellitepull.cnr.cn/live/wxnxyygb/playlist.m3u8
+https://satellitepull.cnr.cn/live/wxnxyygb/playlist.m3u8#https://lhttp.qtfm.cn/live/15318294/64k.mp3
 #EXTINF:-1 group-title="宁夏",宁夏卫视
 https://satellitepull.cnr.cn/live/wxnxws/playlist.m3u8
 #EXTINF:-1 group-title="宁夏",宁夏新闻
 https://satellitepull.cnr.cn/live/wxnxxwgb/playlist.m3u8
-#EXTINF:-1 group-title="宁夏",宁夏音乐
-https://lhttp.qtfm.cn/live/15318294/64k.mp3
 #EXTINF:-1 group-title="宁夏",宁夏交通
 https://lhttp.qtfm.cn/live/1840/64k.mp3
 #EXTINF:-1 group-title="青海",青海交通
@@ -1782,11 +1510,9 @@ http://live.xmcdn.com/live/2698/64.m3u8
 #EXTINF:-1 group-title="综合广播",Magic 96.5
 https://stream.revma.ihrhls.com/zc3081/hls.m3u8
 #EXTINF:-1 group-title="综合广播",西安交通广播 FM104.3
-http://live.xmcdn.com/live/1371/64.m3u8
+http://live.xmcdn.com/live/1371/64.m3u8#http://ls.qingting.fm/live/1611.m3u8
 #EXTINF:-1 group-title="综合广播",HOT 99.5
 https://stream.revma.ihrhls.com/zc2509/hls.m3u8
-#EXTINF:-1 group-title="综合广播",香港电台第一台
-https://rthkaudio1-lh.akamaihd.net/i/radio1_1@355864/index_56_a-p.m3u8
 #EXTINF:-1 group-title="综合广播",LBC News
 https://icecast.thisisdax.com/LBCNewsUKMP3
 #EXTINF:-1 group-title="综合广播",American Top 40
@@ -1824,7 +1550,7 @@ https://stream.revma.ihrhls.com/zc185/hls.m3u8
 #EXTINF:-1 group-title="综合广播",101.9 KQXT
 https://stream.revma.ihrhls.com/zc2341/hls.m3u8
 #EXTINF:-1 group-title="综合广播",怀集音乐之声
-http://live.xmcdn.com/live/1205/64.m3u8
+https://lhttp.qingting.fm/live/4804/64k.mp3#http://live.xmcdn.com/live/1205/64.m3u8#http://ls.qingting.fm/live/4804.m3u8
 #EXTINF:-1 group-title="综合广播",扬中人民广播电台
 http://live.xmcdn.com/live/2645/64.m3u8
 #EXTINF:-1 group-title="综合广播",Disney Resorts
@@ -1854,9 +1580,9 @@ https://stream.revma.ihrhls.com/zc1097/hls.m3u8
 #EXTINF:-1 group-title="综合广播",Smells Like the 90s
 https://stream.revma.ihrhls.com/zc6437/hls.m3u8
 #EXTINF:-1 group-title="综合广播",南通音乐广播 FM91.8
-http://live.xmcdn.com/live/742/64.m3u8
+http://live.xmcdn.com/live/742/64.m3u8#http://ls.qingting.fm/live/1606731.m3u8
 #EXTINF:-1 group-title="综合广播",南通新闻广播 FM97.0
-http://live.xmcdn.com/live/739/64.m3u8
+http://live.xmcdn.com/live/739/64.m3u8#http://ls.qingting.fm/live/1611381.m3u8
 #EXTINF:-1 group-title="综合广播",WMMX Mix 107.7
 https://stream.revma.ihrhls.com/zc1781/hls.m3u8
 #EXTINF:-1 group-title="综合广播",107.3
@@ -1872,7 +1598,7 @@ http://sk.cri.cn/am846.m3u8
 #EXTINF:-1 group-title="综合广播",WTRY 98.3
 https://stream.revma.ihrhls.com/zc1437/hls.m3u8
 #EXTINF:-1 group-title="综合广播",济南音乐广播(MUSIC887)
-http://live.xmcdn.com/live/799/64.m3u8
+http://live.xmcdn.com/live/799/64.m3u8#http://ls.qingting.fm/live/1671.m3u8
 #EXTINF:-1 group-title="综合广播",Q93.3
 https://stream.revma.ihrhls.com/zc1037/hls.m3u8
 #EXTINF:-1 group-title="综合广播",ALT2K
@@ -1884,7 +1610,7 @@ https://stream.revma.ihrhls.com/zc1165/hls.m3u8
 #EXTINF:-1 group-title="综合广播",The Beat
 https://stream.revma.ihrhls.com/zc2153/hls.m3u8
 #EXTINF:-1 group-title="综合广播",杭州综合广播 FM90.7
-http://live.xmcdn.com/live/1845/64.m3u8
+http://live.xmcdn.com/live/1845/64.m3u8#http://ls.qingting.fm/live/4546579.m3u8
 #EXTINF:-1 group-title="综合广播",Splash 90s Dance
 https://c6.auracast.net/radio/8090/radio.mp3
 #EXTINF:-1 group-title="综合广播",沈阳生活广播 FM103.4
@@ -1892,7 +1618,7 @@ http://live.xmcdn.com/live/331/64.m3u8
 #EXTINF:-1 group-title="综合广播",塞浦路斯CCN
 https://cdn.istoikona.com/ccnrtv/live/playlist.m3u8
 #EXTINF:-1 group-title="综合广播",温州绿色之声 FM93.8
-http://live.xmcdn.com/live/663/64.m3u8
+http://live.xmcdn.com/live/663/64.m3u8#http://ls.qingting.fm/live/1158.m3u8
 #EXTINF:-1 group-title="综合广播",常州新闻广播 AM846
 http://ls.qingting.fm/live/2798.m3u8
 #EXTINF:-1 group-title="综合广播",青岛经济广播 FM102.9
@@ -1900,7 +1626,7 @@ http://ls.qingting.fm/live/1674.m3u8
 #EXTINF:-1 group-title="综合广播",凤凰卫视资讯台
 https://playtv-live.ifeng.com/live/06OLEEWQKN4_audio.m3u8
 #EXTINF:-1 group-title="综合广播",济南经济广播 FM90.9
-http://live.xmcdn.com/live/800/64.m3u8
+http://live.xmcdn.com/live/800/64.m3u8#http://ls.qingting.fm/live/1668.m3u8
 #EXTINF:-1 group-title="综合广播",心动电台
 https://lhttp.qtfm.cn/live/20500161/64k.mp3
 #EXTINF:-1 group-title="综合广播",苏州生活广播 FM96.5
@@ -1920,21 +1646,21 @@ http://ls.qingting.fm/live/1672.m3u8
 #EXTINF:-1 group-title="综合广播",石家庄交通广播 FM94.6
 http://live.xmcdn.com/live/505/64.m3u8
 #EXTINF:-1 group-title="综合广播",广州汽车音乐电台 FM102.7
-http://live.xmcdn.com/live/257/64.m3u8
+http://live.xmcdn.com/live/257/64.m3u8#http://ls.qingting.fm/live/52710.m3u8
 #EXTINF:-1 group-title="综合广播",龙广青苹果之声 FM104.6
 http://ls.qingting.fm/live/4976.m3u8
 #EXTINF:-1 group-title="综合广播",西安音乐广播 FM93.1
-http://live.xmcdn.com/live/1442/64.m3u8
+http://live.xmcdn.com/live/1442/64.m3u8#http://ls.qingting.fm/live/1612.m3u8
 #EXTINF:-1 group-title="综合广播",广宁人民广播电台
 http://live.xmcdn.com/live/2603/64.m3u8
 #EXTINF:-1 group-title="综合广播",楚天交通广播 FM92.7
 http://ls.qingting.fm/live/1291.m3u8
 #EXTINF:-1 group-title="综合广播",湖州经济广播 FM103.5
-http://live.xmcdn.com/live/647/64.m3u8
+http://live.xmcdn.com/live/647/64.m3u8#http://ls.qingting.fm/live/2812.m3u8
 #EXTINF:-1 group-title="综合广播",杭州西湖之声 FM105.4
-http://live.xmcdn.com/live/635/64.m3u8
+http://live.xmcdn.com/live/635/64.m3u8#http://ls.qingting.fm/live/1163.m3u8
 #EXTINF:-1 group-title="综合广播",湖州综合广播 湖州之声 FM05
-http://live.xmcdn.com/live/675/64.m3u8
+http://live.xmcdn.com/live/675/64.m3u8#http://ls.qingting.fm/live/2810.m3u8
 #EXTINF:-1 group-title="综合广播",湖州交通文艺广播 FM103.5
 http://live.xmcdn.com/live/656/64.m3u8
 #EXTINF:-1 group-title="综合广播",iHeart Broadway
@@ -1948,9 +1674,9 @@ https://c4.auracast.net/radio/8050/radio.mp3
 #EXTINF:-1 group-title="综合广播",常州财富生活广播 FM105.2
 http://ls.qingting.fm/live/2794.m3u8
 #EXTINF:-1 group-title="综合广播",第一财经 FM97.7
-http://live.xmcdn.com/live/56/64.m3u8
+http://live.xmcdn.com/live/56/64.m3u8#http://ls.qingting.fm/live/276.m3u8
 #EXTINF:-1 group-title="综合广播",衡阳新闻广播 FM98.9
-http://live.xmcdn.com/live/1185/64.m3u8
+http://live.xmcdn.com/live/1185/64.m3u8#http://ls.qingting.fm/live/5079970.m3u8
 #EXTINF:-1 group-title="综合广播",厦门经济交通广播
 http://ls.qingting.fm/live/1738.m3u8
 #EXTINF:-1 group-title="综合广播",AsiaFM音乐
@@ -1958,7 +1684,7 @@ https://lhttp.qingting.fm/live/4581/64k.mp3
 #EXTINF:-1 group-title="综合广播",临汾交通文艺广播
 http://live.xmcdn.com/live/2515/64.m3u8
 #EXTINF:-1 group-title="综合广播",龙广爱家频道 FM97
-http://live.xmcdn.com/live/380/64.m3u8
+http://live.xmcdn.com/live/380/64.m3u8#http://ls.qingting.fm/live/4972.m3u8
 #EXTINF:-1 group-title="综合广播",朝阳新闻综合广播 FM96.1
 http://live.xmcdn.com/live/353/64.m3u8
 #EXTINF:-1 group-title="综合广播",希望-ShikiachwangNewsRadio
@@ -1970,13 +1696,13 @@ http://live.xmcdn.com/live/2519/64.m3u8
 #EXTINF:-1 group-title="综合广播",安全百科
 http://stream3.hndt.com/now/4pcovD2L/playlist.m3u8
 #EXTINF:-1 group-title="综合广播",潍坊新闻广播 FM100.2
-http://live.xmcdn.com/live/849/64.m3u8
+http://live.xmcdn.com/live/849/64.m3u8#http://ls.qingting.fm/live/60358.m3u8
 #EXTINF:-1 group-title="综合广播",苏州新闻广播 FM91.1
 http://live.xmcdn.com/live/63/64.m3u8
 #EXTINF:-1 group-title="综合广播",潮流音悦
 http://stream3.hndt.com/now/Or5au0KN/playlist.m3u8
 #EXTINF:-1 group-title="综合广播",沈阳音乐广播 路上好朋友 FM98.6
-http://live.xmcdn.com/live/329/64.m3u8
+http://live.xmcdn.com/live/329/64.m3u8#http://ls.qingting.fm/live/1101.m3u8
 #EXTINF:-1 group-title="综合广播",CCTV-4中文国际欧洲
 https://piccpndali.v.myalicdn.com/audio/cctveurope_2.m3u8
 #EXTINF:-1 group-title="综合广播",牡丹江新闻广播
@@ -1984,11 +1710,11 @@ http://live.xmcdn.com/live/1558/64.m3u8
 #EXTINF:-1 group-title="综合广播",80后音悦
 http://stream3.hndt.com/now/SFZeH2cb/playlist.m3u8
 #EXTINF:-1 group-title="综合广播",广州新闻电台 FM96.2
-http://live.xmcdn.com/live/256/64.m3u8
+http://live.xmcdn.com/live/256/64.m3u8#http://ls.qingting.fm/live/4848.m3u8
 #EXTINF:-1 group-title="综合广播",苏州交通广播 FM104.8
 http://live.xmcdn.com/live/64/64.m3u8
 #EXTINF:-1 group-title="综合广播",深圳私家车广播 FM94.2
-http://live.xmcdn.com/live/265/64.m3u8
+http://live.xmcdn.com/live/265/64.m3u8#http://ls.qingting.fm/live/1273.m3u8
 #EXTINF:-1 group-title="综合广播",梅州新闻广播 FM94.8
 http://ls.qingting.fm/live/24173.m3u8
 #EXTINF:-1 group-title="综合广播",杭州新闻广播 FM89
@@ -2000,9 +1726,9 @@ https://piccpndali.v.myalicdn.com/audio/cctv6_2.m3u8
 #EXTINF:-1 group-title="综合广播",石家庄新闻广播 FM88.2
 http://live.xmcdn.com/live/502/64.m3u8
 #EXTINF:-1 group-title="综合广播",龙广都市女性台 FM102.1
-http://live.xmcdn.com/live/378/64.m3u8
+http://live.xmcdn.com/live/378/64.m3u8#http://ls.qingting.fm/live/4968.m3u8
 #EXTINF:-1 group-title="综合广播",杭州交通广播 FM91.8
-http://live.xmcdn.com/live/632/64.m3u8
+http://live.xmcdn.com/live/632/64.m3u8#http://ls.qingting.fm/live/1133.m3u8
 #EXTINF:-1 group-title="综合广播",天籁古典
 http://stream3.hndt.com/now/MdOpB4zP/playlist.m3u8
 #EXTINF:-1 group-title="综合广播",中国-河南警广之声
@@ -2010,11 +1736,11 @@ http://stream3.hndt.com/now/prIgXGFo/playlist.m3u8
 #EXTINF:-1 group-title="综合广播",CCTV-5+赛事
 https://piccpndali.v.myalicdn.com/audio/cctv5plus_2.m3u8
 #EXTINF:-1 group-title="综合广播",温州交通广播 FM103.9
-http://live.xmcdn.com/live/641/64.m3u8
+http://live.xmcdn.com/live/641/64.m3u8#http://ls.qingting.fm/live/23863.m3u8
 #EXTINF:-1 group-title="综合广播",温州私家车音乐广播 FM100.3
-http://live.xmcdn.com/live/642/64.m3u8
+http://live.xmcdn.com/live/642/64.m3u8#http://ls.qingting.fm/live/23865.m3u8
 #EXTINF:-1 group-title="综合广播",宁波经济广播 FM102.9
-http://live.xmcdn.com/live/649/64.m3u8
+http://live.xmcdn.com/live/649/64.m3u8#http://ls.qingting.fm/live/1152.m3u8
 #EXTINF:-1 group-title="综合广播",临汾音乐广播
 http://live.xmcdn.com/live/2516/64.m3u8
 #EXTINF:-1 group-title="综合广播",ESPN 98.1
@@ -2034,21 +1760,19 @@ http://stream3.hndt.com/now/SXJtR4M4/playlist.m3u8
 #EXTINF:-1 group-title="综合广播",宁波音乐广播
 http://live.xmcdn.com/live/660/64.m3u8
 #EXTINF:-1 group-title="综合广播",温州经济生活广播 FM88.8
-http://live.xmcdn.com/live/659/64.m3u8
+http://live.xmcdn.com/live/659/64.m3u8#http://ls.qingting.fm/live/23867.m3u8
 #EXTINF:-1 group-title="综合广播",民谣音乐
 http://stream3.hndt.com/now/DTK5qc83/playlist.m3u8
 #EXTINF:-1 group-title="综合广播",太原交通广播 FM107
-http://live.xmcdn.com/live/883/64.m3u8
+http://live.xmcdn.com/live/883/64.m3u8#http://ls.qingting.fm/live/4900.m3u8
 #EXTINF:-1 group-title="综合广播",Splash Love
 https://ais-sa2.cdnstream1.com/2210_128.mp3
 #EXTINF:-1 group-title="综合广播",运城交通文艺广播 FM101.9
 http://live.xmcdn.com/live/1251/64.m3u8
 #EXTINF:-1 group-title="综合广播",苏州戏曲广播 AM846
 http://live.xmcdn.com/live/576/64.m3u8
-#EXTINF:-1 group-title="综合广播",宁波经济广播 FM102.9
-http://ls.qingting.fm/live/1152.m3u8
 #EXTINF:-1 group-title="综合广播",广州 MYFM 88.0 (都市生活)
-http://live.xmcdn.com/live/259/64.m3u8
+http://live.xmcdn.com/live/259/64.m3u8#http://ls.qingting.fm/live/52712.m3u8
 #EXTINF:-1 group-title="综合广播",CCTV-4中文国际
 https://piccpndali.v.myalicdn.com/audio/cctv4_2.m3u8
 #EXTINF:-1 group-title="综合广播",深圳音乐广播飞扬971
@@ -2057,16 +1781,14 @@ http://satellitepull.cnr.cn/live/wxszfy971/playlist.m3u8
 http://live.xmcdn.com/live/66/64.m3u8
 #EXTINF:-1 group-title="综合广播",无锡新闻广播 FM93.7
 http://ls.qingting.fm/live/2777.m3u8
-#EXTINF:-1 group-title="综合广播",温州交通广播 FM103.9
-http://ls.qingting.fm/live/23863.m3u8
 #EXTINF:-1 group-title="综合广播",沈阳新闻广播 FM104.5
-http://live.xmcdn.com/live/328/64.m3u8
+http://live.xmcdn.com/live/328/64.m3u8#http://ls.qingting.fm/live/23891.m3u8
 #EXTINF:-1 group-title="综合广播",商丘交通广播
 http://live.xmcdn.com/live/1261/64.m3u8
 #EXTINF:-1 group-title="综合广播",BBC News
 https://utulsa.streamguys1.com/KWGSHD3-MP3
 #EXTINF:-1 group-title="综合广播",衡阳交通广播 FM101.8
-http://live.xmcdn.com/live/1181/64.m3u8
+http://live.xmcdn.com/live/1181/64.m3u8#http://ls.qingting.fm/live/5079921.m3u8
 #EXTINF:-1 group-title="综合广播",岳阳音乐广播
 http://ls.qingting.fm/live/3555897.m3u8
 #EXTINF:-1 group-title="综合广播",襄阳新闻广播 FM104
@@ -2088,7 +1810,7 @@ https://radio.chinesemusicworld.com/chinesemusic.ogg
 #EXTINF:-1 group-title="综合广播",R/a/dio
 https://relay0.r-a-d.io/main.mp3
 #EXTINF:-1 group-title="综合广播",潍坊私家车广播 FM93.3
-http://live.xmcdn.com/live/841/64.m3u8
+http://live.xmcdn.com/live/841/64.m3u8#http://ls.qingting.fm/live/84511.m3u8
 #EXTINF:-1 group-title="综合广播",Splash Coffee
 https://ais-sa2.cdnstream1.com/2345_128.mp3
 #EXTINF:-1 group-title="综合广播",伊犁维语广播
@@ -2107,22 +1829,20 @@ http://satellitepull.cnr.cn/live/wx32dfws/playlist.m3u8
 http://live.xmcdn.com/live/2555/64.m3u8
 #EXTINF:-1 group-title="综合广播",Splash Jazz
 https://ais-sa2.cdnstream1.com/2346_128.mp3
-#EXTINF:-1 group-title="综合广播",第一财经 FM97.7
-http://ls.qingting.fm/live/276.m3u8
 #EXTINF:-1 group-title="综合广播",西宁交通频率
 http://ls.qingting.fm/live/3400408.m3u8
 #EXTINF:-1 group-title="综合广播",Splash Classical
 https://ais-sa2.cdnstream1.com/2208_128.mp3
 #EXTINF:-1 group-title="综合广播",郑州新闻广播 FM98.6
-http://live.xmcdn.com/live/470/64.m3u8
+http://live.xmcdn.com/live/470/64.m3u8#http://ls.qingting.fm/live/1220.m3u8
 #EXTINF:-1 group-title="综合广播",牡丹江交通广播
 http://live.xmcdn.com/live/1559/64.m3u8
 #EXTINF:-1 group-title="综合广播",东方卫视
 https://satellitepull.cnr.cn/live/wx32dfws/playlist.m3u8
 #EXTINF:-1 group-title="综合广播",辽阳交通文艺广播 FM107.8
-http://live.xmcdn.com/live/2060/64.m3u8
+http://live.xmcdn.com/live/2060/64.m3u8#http://ls.qingting.fm/live/2977806.m3u8
 #EXTINF:-1 group-title="综合广播",温州新闻广播 FM94.9
-http://live.xmcdn.com/live/655/64.m3u8
+http://live.xmcdn.com/live/655/64.m3u8#http://ls.qingting.fm/live/23861.m3u8
 #EXTINF:-1 group-title="综合广播",延安综合广播
 http://live.xmcdn.com/live/2699/64.m3u8
 #EXTINF:-1 group-title="综合广播",开州之声 FM89.0
@@ -2153,12 +1873,10 @@ http://ls.qingting.fm/live/86747.m3u8
 https://piccpndali.v.myalicdn.com/audio/cctv14_2.m3u8
 #EXTINF:-1 group-title="综合广播",Splash Spa
 https://ais-sa2.cdnstream1.com/2347_128.mp3
-#EXTINF:-1 group-title="综合广播",杭州综合广播 FM90.7
-http://ls.qingting.fm/live/4546579.m3u8
 #EXTINF:-1 group-title="综合广播",香港-RTHKRadio-2
 http://stm.rthk.hk/radio2
 #EXTINF:-1 group-title="综合广播",南通交通广播 FM92.9
-http://live.xmcdn.com/live/741/64.m3u8
+http://live.xmcdn.com/live/741/64.m3u8#http://ls.qingting.fm/live/2216385.m3u8
 #EXTINF:-1 group-title="综合广播",中国-河南教育广播
 http://satellitepull.cnr.cn/live/wxhnlygb/playlist.m3u8
 #EXTINF:-1 group-title="综合广播",广通-深圳交通广播
@@ -2171,12 +1889,8 @@ http://satellitepull.cnr.cn/live/wx32hubctjtgb/playlist.m3u8
 https://crystalout.surfernetwork.com:8001/KVSP_MP3
 #EXTINF:-1 group-title="综合广播",CETV-3
 https://piccpndali.v.myalicdn.com/audio/cetv3_2.m3u8
-#EXTINF:-1 group-title="综合广播",Money 893 Radio
-http://playerservices.streamtheworld.com/api/livestream-redirect/MONEY_893AAC.aac
 #EXTINF:-1 group-title="综合广播",CCTV-3综艺
 https://piccpndali.v.myalicdn.com/audio/cctv3_2.m3u8
-#EXTINF:-1 group-title="综合广播",第一财经
-http://satellitepull.cnr.cn/live/wx32dycjgb/playlist.m3u8
 #EXTINF:-1 group-title="综合广播",神思-陕西青少广播
 http://satellitepull.cnr.cn/live/wxsxxqcgb/playlist.m3u8
 #EXTINF:-1 group-title="综合广播",香港-TalkonlyLive
@@ -2189,14 +1903,10 @@ https://piccpndali.v.myalicdn.com/audio/cctv17_2.m3u8
 http://lhttp.qingting.fm/live/20211701/64k.mp3
 #EXTINF:-1 group-title="综合广播",香港-RTHKRadio-4
 http://stm.rthk.hk/radio4
-#EXTINF:-1 group-title="综合广播",UFM 100.3 Radio
-http://playerservices.streamtheworld.com/api/livestream-redirect/UFM_1003AAC.aac
 #EXTINF:-1 group-title="综合广播",巴渝之声 FM104.5
 http://ls.qingting.fm/live/3545693.m3u8
 #EXTINF:-1 group-title="综合广播",阿穆尔河-HarbinClassicalMusicRadio
 http://lhttp.qingting.fm/live/5022338/64k.mp3
-#EXTINF:-1 group-title="综合广播",Jia 883 Radio
-http://playerservices.streamtheworld.com/api/livestream-redirect/883JIAAAC.aac
 #EXTINF:-1 group-title="综合广播",Splash 60s
 https://c4.auracast.net/radio/8020/radio.mp3
 #EXTINF:-1 group-title="综合广播",阿姆威-安徽交通广播
@@ -2215,22 +1925,16 @@ http://lhttp.qingting.fm/live/1085/64k.mp3
 http://ls.qingting.fm/live/3032681.m3u8
 #EXTINF:-1 group-title="综合广播",鹤山电台104.7
 http://ls.qingting.fm/live/1286.m3u8
-#EXTINF:-1 group-title="综合广播",龙广爱家频道 FM97
-http://ls.qingting.fm/live/4972.m3u8
 #EXTINF:-1 group-title="综合广播",新闻-湖北经济资讯广播FM99.8
 http://satellitepull.cnr.cn/live/wx32hubjjgb/playlist.m3u8
 #EXTINF:-1 group-title="综合广播",金鹰955·湖南金鹰之声
 http://satellitepull.cnr.cn/live/wx32955/playlist.m3u8
-#EXTINF:-1 group-title="综合广播",SPH 963 Radio
-http://playerservices.streamtheworld.com/api/livestream-redirect/HAO_963AAC.aac
 #EXTINF:-1 group-title="综合广播",广通-深圳新闻广播
 http://lhttp.qingting.fm/live/1270/64k.mp3
 #EXTINF:-1 group-title="综合广播",经典105·山东经典音乐广播
 http://audiolive302.iqilu.com/sdradioShenghuo/sdradio04/playlist.m3u8
 #EXTINF:-1 group-title="综合广播",长三角之声
 https://satellitepull.cnr.cn/live/wx32dfgbdt/playlist.m3u8
-#EXTINF:-1 group-title="综合广播",ONE FM
-http://playerservices.streamtheworld.com/api/livestream-redirect/one_FM_913AAC.aac?dist=radiosingaporeapp
 #EXTINF:-1 group-title="综合广播",龙广交通广播 FM99.8
 http://ls.qingting.fm/live/4973.m3u8
 #EXTINF:-1 group-title="综合广播",沈阳都市广播 FM92.1
@@ -2245,8 +1949,6 @@ https://piccpndali.v.myalicdn.com/audio/cetv2_2.m3u8
 http://ls.qingting.fm/live/2938451.m3u8
 #EXTINF:-1 group-title="综合广播",中国-安康综合广播
 http://lhttp.qingting.fm/live/5021861/64k.mp3
-#EXTINF:-1 group-title="综合广播",湖州经济广播 FM103.5
-http://ls.qingting.fm/live/2812.m3u8
 #EXTINF:-1 group-title="综合广播",东南卫视
 https://satellitepull.cnr.cn/live/wx32fjws/playlist.m3u8
 #EXTINF:-1 group-title="综合广播",延边卫视
@@ -2257,10 +1959,6 @@ http://satellitepull.cnr.cn/live/wxsxxjjgb/playlist.m3u8
 http://ls.qingting.fm/live/4312411.m3u8
 #EXTINF:-1 group-title="综合广播",郑州车道931
 http://ls.qingting.fm/live/1221.m3u8
-#EXTINF:-1 group-title="综合广播",938 Now Radio
-http://playerservices.streamtheworld.com/api/livestream-redirect/938NOWAAC.aac
-#EXTINF:-1 group-title="综合广播",广州汽车音乐电台 FM102.7
-http://ls.qingting.fm/live/52710.m3u8
 #EXTINF:-1 group-title="综合广播",中国-欢乐调频107.1
 http://lhttp.qingting.fm/live/15318317/64k.mp3
 #EXTINF:-1 group-title="综合广播",Oli 968 Radio
@@ -2269,8 +1967,6 @@ http://playerservices.streamtheworld.com/api/livestream-redirect/OLI968FMAAC.aac
 http://ls.qingting.fm/live/88931.m3u8
 #EXTINF:-1 group-title="综合广播",Mandarin Radio
 http://streaming.radionomy.com/JamendoLounge
-#EXTINF:-1 group-title="综合广播",沈阳新闻广播 FM104.5
-http://ls.qingting.fm/live/23891.m3u8
 #EXTINF:-1 group-title="综合广播",昆明阳光广播
 http://ls.qingting.fm/live/1934.m3u8
 #EXTINF:-1 group-title="综合广播",广通-深圳生活广播
@@ -2281,10 +1977,6 @@ http://satellitepull.cnr.cn/live/wx32hunjjgb/playlist.m3u8
 http://zbbf2.ahbztv.com/live/41a.m3u8
 #EXTINF:-1 group-title="综合广播",亳州交通音乐广播
 http://zbbf2.ahbztv.com/live/41c.m3u8
-#EXTINF:-1 group-title="综合广播",辽阳交通文艺广播 FM107.8
-http://ls.qingting.fm/live/2977806.m3u8
-#EXTINF:-1 group-title="综合广播",中国之声
-https://zbbf2.ahbztv.com/live/4f3.m3u8
 #EXTINF:-1 group-title="综合广播",公安县广播电台 FM102.6
 http://ls.qingting.fm/live/5063.m3u8
 #EXTINF:-1 group-title="综合广播",深圳卫视
@@ -2319,20 +2011,12 @@ http://ls.qingting.fm/live/3244137.m3u8
 https://lhttp.qtfm.cn/live/15318569/64k.mp3
 #EXTINF:-1 group-title="综合广播",澄海人民广播电台
 http://lhttp.qingting.fm/live/5022439/64k.mp3
-#EXTINF:-1 group-title="综合广播",广州 MYFM 88.0 (都市生活)
-http://ls.qingting.fm/live/52712.m3u8
-#EXTINF:-1 group-title="综合广播",南通音乐广播 FM91.8
-http://ls.qingting.fm/live/1606731.m3u8
 #EXTINF:-1 group-title="综合广播",广通-珠海交通875·环保经济广播
 http://lhttp.qingting.fm/live/1275/64k.mp3
-#EXTINF:-1 group-title="综合广播",西安音乐广播 FM93.1
-http://ls.qingting.fm/live/1612.m3u8
 #EXTINF:-1 group-title="综合广播",新闻联播
 https://rfienchinois64k.ice.infomaniak.ch//rfienchinois-64.mp3
 #EXTINF:-1 group-title="综合广播",音乐-安康交通广播
 http://lhttp.qingting.fm/live/5021862/64k.mp3
-#EXTINF:-1 group-title="综合广播",南通新闻广播 FM97.0
-http://ls.qingting.fm/live/1611381.m3u8
 #EXTINF:-1 group-title="综合广播",CETV-1
 https://piccpndali.v.myalicdn.com/audio/cetv1_2.m3u8
 #EXTINF:-1 group-title="综合广播",无锡经济广播 FM104
@@ -2349,12 +2033,8 @@ http://ls.qingting.fm/live/838.m3u8
 http://phate.io/listen
 #EXTINF:-1 group-title="综合广播",福州新闻广播
 http://lhttp.qingting.fm/live/5025/64k.mp3
-#EXTINF:-1 group-title="综合广播",第一财经
-http://lhttp.qingting.fm/live/276/64k.mp3
 #EXTINF:-1 group-title="综合广播",CCTV-16奥林匹克
 https://piccpndali.v.myalicdn.com/audio/cctv16_2.m3u8
-#EXTINF:-1 group-title="综合广播",太原交通广播 FM107
-http://ls.qingting.fm/live/4900.m3u8
 #EXTINF:-1 group-title="综合广播",成都文化休闲广播
 http://livecdn.pull.cdbs.com.cn/live/fm946/playlist.m3u8
 #EXTINF:-1 group-title="综合广播",希望-定州人民广播电台
@@ -2375,14 +2055,10 @@ http://ls.qingting.fm/live/3047974.m3u8
 http://ls.qingting.fm/live/1142.m3u8
 #EXTINF:-1 group-title="综合广播",CCTV-2财经
 https://piccpndali.v.myalicdn.com/audio/cctv2_2.m3u8
-#EXTINF:-1 group-title="综合广播",温州新闻广播 FM94.9
-http://ls.qingting.fm/live/23861.m3u8
 #EXTINF:-1 group-title="综合广播",九江交通广播 FM88.4 FM88.9
 http://ls.qingting.fm/live/2785094.m3u8
 #EXTINF:-1 group-title="综合广播",阿穆尔河-HarbinLiterature&ArtRadio
 http://lhttp.qingting.fm/live/20083/64k.mp3
-#EXTINF:-1 group-title="综合广播",深圳私家车广播 FM94.2
-http://ls.qingting.fm/live/1273.m3u8
 #EXTINF:-1 group-title="综合广播",MYFM全国音乐频道·广州
 http://lhttp.qingting.fm/live/20194/64k.mp3
 #EXTINF:-1 group-title="综合广播",三亚天涯之声 FM104.6
@@ -2395,8 +2071,6 @@ http://lhttp.qingting.fm/live/15318300/64k.mp3
 http://ls.qingting.fm/live/1673.m3u8
 #EXTINF:-1 group-title="综合广播",宁波交通广播 FM93.9
 http://ls.qingting.fm/live/1140.m3u8
-#EXTINF:-1 group-title="综合广播",湖州综合广播 湖州之声 FM05
-http://ls.qingting.fm/live/2810.m3u8
 #EXTINF:-1 group-title="综合广播",华语经典
 https://lhttp.qtfm.cn/live/5022308/64k.mp3
 #EXTINF:-1 group-title="综合广播",太原新闻广播 FM91.2
@@ -2417,14 +2091,10 @@ http://ls.qingting.fm/live/4969.m3u8
 http://ls.qingting.fm/live/3702178.m3u8
 #EXTINF:-1 group-title="综合广播",金鹰955电台
 http://ls.qingting.fm/live/4937.m3u8
-#EXTINF:-1 group-title="综合广播",济南音乐广播(MUSIC887)
-http://ls.qingting.fm/live/1671.m3u8
 #EXTINF:-1 group-title="综合广播",南宁交通音乐广播 FM107.4
 http://ls.qingting.fm/live/80793.m3u8?aac
 #EXTINF:-1 group-title="综合广播",党员教育
 https://12371wbndks.v.kcdnvip.com/12371wbnd/dangyuanwang_2/index.m3u8
-#EXTINF:-1 group-title="综合广播",济南经济广播 FM90.9
-http://ls.qingting.fm/live/1668.m3u8
 #EXTINF:-1 group-title="综合广播",珠海电台交通音乐875
 http://ls.qingting.fm/live/1275.m3u8
 #EXTINF:-1 group-title="综合广播",希望-ShikiachwangTrafficRadio
@@ -2437,12 +2107,8 @@ https://lhttp.qtfm.cn/live/5022061/64k.mp3
 http://ls.qingting.fm/live/1189.m3u8
 #EXTINF:-1 group-title="综合广播",香港卫视
 https://piccpndali.v.myalicdn.com/audio/xianggangweishi_2.m3u8
-#EXTINF:-1 group-title="综合广播",温州经济生活广播 FM88.8
-http://ls.qingting.fm/live/23867.m3u8
 #EXTINF:-1 group-title="综合广播",广通-深圳综艺广播
 http://lhttp.qingting.fm/live/1271/64k.mp3
-#EXTINF:-1 group-title="综合广播",衡阳交通广播 FM101.8
-http://ls.qingting.fm/live/5079921.m3u8
 #EXTINF:-1 group-title="综合广播",CETV-4
 https://piccpndali.v.myalicdn.com/audio/cetv4_2.m3u8
 #EXTINF:-1 group-title="综合广播",CityFM
@@ -2457,8 +2123,6 @@ http://ls.qingting.fm/live/1278.m3u8
 http://lhttp.qingting.fm/live/20211668/64k.mp3
 #EXTINF:-1 group-title="综合广播",烟台新闻广播 FM101
 http://ls.qingting.fm/live/1682.m3u8
-#EXTINF:-1 group-title="综合广播",温州私家车音乐广播 FM100.3
-http://ls.qingting.fm/live/23865.m3u8
 #EXTINF:-1 group-title="综合广播",国际新闻
 https://lhttp.qtfm.cn/live/20500172/64k.mp3
 #EXTINF:-1 group-title="综合广播",邵阳综合广播
@@ -2481,8 +2145,6 @@ http://ls.qingting.fm/live/1188.m3u8
 https://piccpndali.v.myalicdn.com/audio/cctvamerica_2.m3u8
 #EXTINF:-1 group-title="综合广播",CCTV-11戏曲
 https://piccpndali.v.myalicdn.com/audio/cctv11_2.m3u8
-#EXTINF:-1 group-title="综合广播",广州新闻电台 FM96.2
-http://ls.qingting.fm/live/4848.m3u8
 #EXTINF:-1 group-title="综合广播",苏州儿童广播
 http://lhttp.qingting.fm/live/2807/64k.mp3
 #EXTINF:-1 group-title="综合广播",开封旅游广播
@@ -2500,13 +2162,11 @@ http://ls.qingting.fm/live/1211.m3u8
 #EXTINF:-1 group-title="综合广播",阿穆尔河-HarbinMusicRadio
 http://ls.qingting.fm/live/839.m3u8
 #EXTINF:-1 group-title="综合广播",阳泉交通广播
-http://ls.qingting.fm/live/4592896.m3u8?aac
+http://ls.qingting.fm/live/4592896.m3u8?aac#http://lhttp.qingting.fm/live/15318165/64k.mp3
 #EXTINF:-1 group-title="综合广播",希望-ShikiachwangMusicRadio
 http://ls.qingting.fm/live/1654.m3u8
 #EXTINF:-1 group-title="综合广播",珠海电台先锋951
 http://ls.qingting.fm/live/1274.m3u8
-#EXTINF:-1 group-title="综合广播",潍坊新闻广播 FM100.2
-http://ls.qingting.fm/live/60358.m3u8
 #EXTINF:-1 group-title="综合广播",Capital FM
 https://playerservices.streamtheworld.com/api/livestream-redirect/CAPITAL958FM.mp3
 #EXTINF:-1 group-title="综合广播",济南新闻广播 FM106.6
@@ -2515,8 +2175,6 @@ http://ls.qingting.fm/live/1667.m3u8
 http://ls.qingting.fm/live/1669.m3u8
 #EXTINF:-1 group-title="综合广播",宁波动感105 FM105.2
 http://ls.qingting.fm/live/3047946.m3u8
-#EXTINF:-1 group-title="综合广播",温州绿色之声 FM93.8
-http://ls.qingting.fm/live/1158.m3u8
 #EXTINF:-1 group-title="综合广播",巴南人民广播电台
 http://lhttp.qingting.fm/live/5022385/64k.mp3
 #EXTINF:-1 group-title="综合广播",青岛故事广播 FM95.2
@@ -2537,8 +2195,6 @@ http://ls.qingting.fm/live/4921.m3u8
 http://ls.qingting.fm/live/1773.m3u8
 #EXTINF:-1 group-title="综合广播",希望-承德旅游生活广播
 http://lhttp.qingting.fm/live/15318158/64k.mp3
-#EXTINF:-1 group-title="综合广播",怀集音乐之声
-http://ls.qingting.fm/live/4804.m3u8
 #EXTINF:-1 group-title="综合广播",无锡交通广播 FM106.9
 http://ls.qingting.fm/live/2780.m3u8
 #EXTINF:-1 group-title="综合广播",赤峰农村牧区广播
@@ -2547,8 +2203,6 @@ http://lhttp.qingting.fm/live/1898/64k.mp3
 http://ls.qingting.fm/live/3701149.m3u8
 #EXTINF:-1 group-title="综合广播",宁西亚-石嘴山综合广播
 https://lhttp.qingting.fm/live/5022563/64k.mp3
-#EXTINF:-1 group-title="综合广播",南通交通广播 FM92.9
-http://ls.qingting.fm/live/2216385.m3u8
 #EXTINF:-1 group-title="综合广播",深圳星光 FM99.1
 http://ls.qingting.fm/live/28132.m3u8
 #EXTINF:-1 group-title="综合广播",献县人民广播电台
@@ -2563,12 +2217,8 @@ http://lhttp.qingting.fm/live/20617/64k.mp3
 http://ls.qingting.fm/live/1185.m3u8
 #EXTINF:-1 group-title="综合广播",太原私家车Radio FM104.4
 http://ls.qingting.fm/live/4018.m3u8
-#EXTINF:-1 group-title="综合广播",潍坊私家车广播 FM93.3
-http://ls.qingting.fm/live/84511.m3u8
 #EXTINF:-1 group-title="综合广播",阳泉新闻综合广播
 http://ls.qingting.fm/live/5876899.m3u8?aac
-#EXTINF:-1 group-title="综合广播",沈阳音乐广播 路上好朋友 FM98.6
-http://ls.qingting.fm/live/1101.m3u8
 #EXTINF:-1 group-title="综合广播",希望-承德新闻综合广播
 http://lhttp.qingting.fm/live/20500052/64k.mp3
 #EXTINF:-1 group-title="综合广播",广通-增城人民广播电台
@@ -2581,8 +2231,6 @@ https://ls.qingting.fm/live/3412131.m3u8?bitrate=64
 http://ls.qingting.fm/live/2811.m3u8
 #EXTINF:-1 group-title="综合广播",深圳先锋898(新闻广播)
 http://ls.qingting.fm/live/1270.m3u8
-#EXTINF:-1 group-title="综合广播",衡阳新闻广播 FM98.9
-http://ls.qingting.fm/live/5079970.m3u8
 #EXTINF:-1 group-title="综合广播",襄阳音乐广播
 http://ls.qingting.fm/live/5057.m3u8
 #EXTINF:-1 group-title="综合广播",永嘉人民广播电台
@@ -2595,12 +2243,8 @@ http://ls.qingting.fm/live/1222.m3u8
 http://ls.qingting.fm/live/3126629.m3u8
 #EXTINF:-1 group-title="综合广播",襄阳汽车广播 FM105.3
 http://ls.qingting.fm/live/1308.m3u8
-#EXTINF:-1 group-title="综合广播",西安交通广播 FM104.3
-http://ls.qingting.fm/live/1611.m3u8
 #EXTINF:-1 group-title="综合广播",中山电台新锐967
 http://ls.qingting.fm/live/1277.m3u8
-#EXTINF:-1 group-title="综合广播",杭州交通广播 FM91.8
-http://ls.qingting.fm/live/1133.m3u8
 #EXTINF:-1 group-title="综合广播",无锡汽车音乐广播 FM91.4
 http://ls.qingting.fm/live/2779.m3u8
 #EXTINF:-1 group-title="综合广播",青岛广播爱车 FM94.0
@@ -2617,18 +2261,12 @@ http://ls.qingting.fm/live/2782.m3u8
 http://ls.qingting.fm/live/1676.m3u8
 #EXTINF:-1 group-title="综合广播",深圳飞扬音乐971
 http://ls.qingting.fm/live/1271.m3u8
-#EXTINF:-1 group-title="综合广播",龙广都市女性台 FM102.1
-http://ls.qingting.fm/live/4968.m3u8
 #EXTINF:-1 group-title="综合广播",南通私家车广播 FM106.1
 http://ls.qingting.fm/live/1738915.m3u8
 #EXTINF:-1 group-title="综合广播",故城人民广播电台
 http://lhttp.qingting.fm/live/20212269/64k.mp3
 #EXTINF:-1 group-title="综合广播",新昌人民广播电台·天姥之声
 https://lhttp.qingting.fm/live/20212423/64k.mp3
-#EXTINF:-1 group-title="综合广播",郑州新闻广播 FM98.6
-http://ls.qingting.fm/live/1220.m3u8
-#EXTINF:-1 group-title="综合广播",杭州西湖之声 FM105.4
-http://ls.qingting.fm/live/1163.m3u8
 #EXTINF:-1 group-title="综合广播",包头综合广播
 https://lhttp.qingting.fm/live/1889/64k.mp3
 #EXTINF:-1 group-title="综合广播",厦门音乐广播
@@ -2711,8 +2349,6 @@ http://lhttp.qingting.fm/live/5022465/64k.mp3
 https://lhttp.qingting.fm/live/1762/64k.mp3
 #EXTINF:-1 group-title="综合广播",中国-沈阳新闻广播
 http://lhttp.qingting.fm/live/20024/64k.mp3
-#EXTINF:-1 group-title="综合广播",怀集音乐之声
-https://lhttp.qingting.fm/live/4804/64k.mp3
 #EXTINF:-1 group-title="综合广播",他贝-邯郸1003大眼睛广播
 https://lhttp.qingting.fm/live/3951/64k.mp3
 #EXTINF:-1 group-title="综合广播",广通-梅县人民广播电台
@@ -2775,8 +2411,6 @@ https://lhttp.qingting.fm/live/20207776/64k.mp3
 http://lhttp.qingting.fm/live/5022527/64k.mp3
 #EXTINF:-1 group-title="综合广播",哈尔滨音乐广播
 https://lhttp.qingting.fm/live/839/64k.mp3
-#EXTINF:-1 group-title="综合广播",阳泉交通广播
-http://lhttp.qingting.fm/live/15318165/64k.mp3
 #EXTINF:-1 group-title="综合广播",淮北交通广播
 https://lhttp.qingting.fm/live/20211647/64k.mp3
 #EXTINF:-1 group-title="综合广播",阿穆尔河-PeonyRiverTrafficRadio
