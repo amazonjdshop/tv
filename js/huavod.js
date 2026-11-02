@@ -71,28 +71,7 @@ function updateCookies(strOrRes) {
     }
 }
 
-async function getVipCookie(forceRefresh = false) {
-    if (!forceRefresh && dynamicVipCookie && Date.now() < dynamicCookieExpire && cookieMap['user_check']) {
-        return getCookieString();
-    }
-    // 1. 优先从 Cloudflare Worker 获取集中式 Token 与有效 VIP Cookie
-    try {
-        const cookieUrl = 'https://round-snowflake-2d83.linda11-28-2022.workers.dev/cookie' + (forceRefresh ? '?force=1' : '');
-        const r = await req(cookieUrl, {
-            headers: { 'User-Agent': headers['User-Agent'] },
-            timeout: 8000
-        });
-        const content = getContent(r);
-        const res = parseJsonSafe(content);
-        if (res && res.cookie && res.cookie.includes('user_check=')) {
-            dynamicVipCookie = res.cookie;
-            updateCookies(res.cookie);
-            dynamicCookieExpire = Date.now() + 600000;
-            return getCookieString();
-        }
-    } catch (e) {}
-
-    // 2. 备用自愈容灾：若 Worker 无法访问或返回异常，直接向官方登录接口发起保底登录建会
+async function directLogin() {
     for (const h of [host, 'https://huavod.com', 'https://huavod.net']) {
         try {
             const loginUrl = `${h}/index.php/user/login.html`;
@@ -127,8 +106,36 @@ async function getVipCookie(forceRefresh = false) {
             }
         } catch (e) {}
     }
-
     return getCookieString();
+}
+
+async function getVipCookie(forceRefresh = false) {
+    if (!forceRefresh && dynamicVipCookie && Date.now() < dynamicCookieExpire && cookieMap['user_check']) {
+        return getCookieString();
+    }
+    // 强制刷新时，直接向官方登录接口发起直接登录，避免受 Worker 缓存干扰
+    if (forceRefresh) {
+        return await directLogin();
+    }
+    // 1. 优先从 Cloudflare Worker 获取集中式 Token 与有效 VIP Cookie
+    try {
+        const cookieUrl = 'https://round-snowflake-2d83.linda11-28-2022.workers.dev/cookie';
+        const r = await req(cookieUrl, {
+            headers: { 'User-Agent': headers['User-Agent'] },
+            timeout: 5000
+        });
+        const content = getContent(r);
+        const res = parseJsonSafe(content);
+        if (res && res.cookie && res.cookie.includes('user_check=')) {
+            dynamicVipCookie = res.cookie;
+            updateCookies(res.cookie);
+            dynamicCookieExpire = Date.now() + 600000;
+            return getCookieString();
+        }
+    } catch (e) {}
+
+    // 2. 备用自愈容灾：若 Worker 无法访问或返回异常，直接向官方登录接口发起保底登录建会
+    return await directLogin();
 }
 
 const headers = {
