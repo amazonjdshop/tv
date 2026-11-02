@@ -71,53 +71,28 @@ function updateCookies(strOrRes) {
     }
 }
 
-async function directLogin() {
-    for (const h of [host, 'https://huavod.com', 'https://huavod.net']) {
-        try {
-            const loginUrl = `${h}/index.php/user/login.html`;
-            const loginRes = await req(loginUrl, {
-                method: 'post',
-                postType: 'form',
-                data: {
-                    user_name: 'linda1030',
-                    user_pwd: 'Qwer1234'
-                },
-                body: 'user_name=linda1030&user_pwd=Qwer1234',
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
-                    'X-Requested-With': 'XMLHttpRequest',
-                    'User-Agent': headers['User-Agent'],
-                    'Referer': loginUrl
-                },
-                timeout: 8000
-            });
-            updateCookies(loginRes);
-            if (loginRes && loginRes.headers) {
-                const sc = loginRes.headers['set-cookie'] || loginRes.headers['Set-Cookie'];
-                if (sc) {
-                    const scStr = Array.isArray(sc) ? sc.join('; ') : sc;
-                    if (scStr.includes('user_check=')) {
-                        dynamicVipCookie = scStr;
-                        updateCookies(scStr);
-                        dynamicCookieExpire = Date.now() + 600000;
-                        return getCookieString();
-                    }
-                }
-            }
-        } catch (e) {}
-    }
-    return getCookieString();
-}
-
 async function getVipCookie(forceRefresh = false) {
     if (!forceRefresh && dynamicVipCookie && Date.now() < dynamicCookieExpire && cookieMap['user_check']) {
         return getCookieString();
     }
-    // 强制刷新时，直接向官方登录接口发起直接登录，避免受 Worker 缓存干扰
-    if (forceRefresh) {
-        return await directLogin();
-    }
-    // 1. 优先从 Cloudflare Worker 获取集中式 Token 与有效 VIP Cookie
+    // 1. 优先从 Deno Deploy 集中鉴权中心获取有效 VIP 会话凭据 (独立云节点，支持全天候单例自动续期)
+    try {
+        const denoCookieUrl = 'https://narrow-frog-4757.linda11282022.deno.net/huavod/cookie' + (forceRefresh ? '?force=1' : '');
+        const r = await req(denoCookieUrl, {
+            headers: { 'User-Agent': headers['User-Agent'] },
+            timeout: 6000
+        });
+        const content = getContent(r);
+        const res = parseJsonSafe(content);
+        if (res && res.cookie && res.cookie.includes('user_check=')) {
+            dynamicVipCookie = res.cookie;
+            updateCookies(res.cookie);
+            dynamicCookieExpire = Date.now() + 600000;
+            return getCookieString();
+        }
+    } catch (e) {}
+
+    // 2. 备用容灾：从 Cloudflare Worker 获取集中式 Token 与有效 VIP Cookie
     try {
         const cookieUrl = 'https://round-snowflake-2d83.linda11-28-2022.workers.dev/cookie';
         const r = await req(cookieUrl, {
@@ -134,8 +109,7 @@ async function getVipCookie(forceRefresh = false) {
         }
     } catch (e) {}
 
-    // 2. 备用自愈容灾：若 Worker 无法访问或返回异常，直接向官方登录接口发起保底登录建会
-    return await directLogin();
+    return getCookieString();
 }
 
 const headers = {
