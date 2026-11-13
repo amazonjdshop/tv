@@ -578,6 +578,7 @@ async function home(filter) {
     refreshKeys().catch(() => {});
 
     const classes = [
+        { type_id: 'topics', type_name: '🔥精选专题' },
         { type_id: '0,1,3', type_name: '电影' },
         { type_id: '0,1,4', type_name: '连续剧' },
         { type_id: '0,1,5', type_name: '综艺' },
@@ -591,7 +592,19 @@ async function home(filter) {
         { type_id: 'games', type_name: '游戏' }
     ];
 
+    const topicFilters = [
+        { n: '全部', v: '0' },
+        { n: '热播连续剧', v: '热播连续剧' },
+        { n: '高分神剧', v: '高分神剧' },
+        { n: '全网热播电影', v: '全网热播电影' },
+        { n: '高分神作电影', v: '高分神作电影' },
+        { n: '热门综艺', v: '热门综艺' },
+        { n: '热门动漫', v: '热门动漫' },
+        { n: '精选纪录片', v: '精选纪录片' }
+    ];
+
     const filters = {
+        'topics': [{ key: 'topic', name: '专题', value: topicFilters }],
         '0,1,3': makeFilter(movieClasses, false),
         '0,1,4': makeFilter(tvClasses, true),
         '0,1,5': makeFilter(showClasses, true),
@@ -620,26 +633,24 @@ async function home(filter) {
 
 async function homeVod() {
     try {
-        const url = signUrl(`${API_BASE}/api/list/Search`, {
-            cinema: '1',
-            cid: '0,1,3',
-            page: '1',
-            size: '24',
-            orderby: '4',
-            desc: '1'
-        });
-        const res = await fetchJsonWithCache(url, CACHE_TTL_DEFAULT);
-        const info = (res && res.data && Array.isArray(res.data.info) && res.data.info[0]) ? res.data.info[0] : null;
-        const rawList = (info && Array.isArray(info.result)) ? info.result : [];
-        const videos = rawList.map(item => ({
-            vod_id: String(item.key || item.contxt || ''),
-            vod_name: item.title || '',
-            vod_pic: item.image || item.imgPath || '',
-            vod_remarks: formatRemarks(item),
-            vod_year: item.year ? String(item.year) : ''
-        })).filter(v => v.vod_id);
-
-        return JSON.stringify({ list: videos });
+        const [r1, r2] = await Promise.all([
+            category('0,1,4', 1, false, { sort: '4' }),
+            category('0,1,3', 1, false, { sort: '4' })
+        ]);
+        const l1 = JSON.parse(r1).list || [];
+        const l2 = JSON.parse(r2).list || [];
+        const seen = new Set();
+        const combined = [];
+        for (const item of [...l1, ...l2]) {
+            if (!seen.has(item.vod_id)) {
+                seen.add(item.vod_id);
+                combined.push(item);
+            }
+        }
+        if (combined.length > 0) {
+            return JSON.stringify({ list: combined });
+        }
+        return await category('0,1,4', 1);
     } catch (e) {
         return JSON.stringify({ list: [] });
     }
@@ -648,6 +659,59 @@ async function homeVod() {
 async function category(tid, pg, filter, extend = {}) {
     try {
         const page = parseInt(pg || 1);
+
+        // 0. 精选专题处理
+        if (tid === 'topics' || String(tid) === 'topics') {
+            const selTopic = extend && extend.topic ? extend.topic : '0';
+
+            let targetCid = '0,1,4';
+            let targetSort = '4';
+
+            if (selTopic === '热播连续剧') {
+                targetCid = '0,1,4'; targetSort = '4';
+            } else if (selTopic === '高分神剧') {
+                targetCid = '0,1,4'; targetSort = '2';
+            } else if (selTopic === '全网热播电影') {
+                targetCid = '0,1,3'; targetSort = '4';
+            } else if (selTopic === '高分神作电影') {
+                targetCid = '0,1,3'; targetSort = '2';
+            } else if (selTopic === '热门综艺') {
+                targetCid = '0,1,5'; targetSort = '4';
+            } else if (selTopic === '热门动漫') {
+                targetCid = '0,1,6'; targetSort = '4';
+            } else if (selTopic === '精选纪录片') {
+                targetCid = '0,1,7'; targetSort = '4';
+            } else {
+                // 全部
+                if (page === 1) {
+                    const [r1, r2] = await Promise.all([
+                        category('0,1,4', 1, false, { sort: '4' }),
+                        category('0,1,3', 1, false, { sort: '4' })
+                    ]);
+                    const l1 = JSON.parse(r1).list || [];
+                    const l2 = JSON.parse(r2).list || [];
+                    const seen = new Set();
+                    const combined = [];
+                    for (const item of [...l1, ...l2]) {
+                        if (!seen.has(item.vod_id)) {
+                            seen.add(item.vod_id);
+                            combined.push(item);
+                        }
+                    }
+                    return JSON.stringify({
+                        page: 1,
+                        pagecount: 50,
+                        limit: combined.length,
+                        total: combined.length * 50,
+                        list: combined
+                    });
+                }
+                targetCid = '0,1,4';
+                targetSort = '4';
+            }
+
+            return await category(targetCid, page, false, { sort: targetSort });
+        }
 
         // 1. 资讯与短视频类板块 (新闻, 华人, 娱乐, 生活, 游戏)
         const shortVideoTypes = ['news', 'chinese', 'yule', 'life', 'games'];

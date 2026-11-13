@@ -265,18 +265,31 @@ async function fetchWithCache(url, ttl = CACHE_TTL_DEFAULT) {
 // ==================== 爬虫生命周期函数 ====================
 
 async function init(cfg) {
-    // 静默预热电视连续剧首屏缓存
-    const preUrl = `${API_HOST}/v1/pub/vod/list/true/3/0/0/2/0/0/desc/1/20?_vv=${getVv()}`;
-    fetchWithCache(preUrl).catch(() => {});
+    // 静默预热精选热播与首屏缓存
+    const vv = getVv();
+    fetchWithCache(`${API_HOST}/v1/pub/vod/list/true/3/0/0/2/0/0/hot/1/20?_vv=${vv}`).catch(() => {});
+    fetchWithCache(`${API_HOST}/v1/pub/vod/list/true/3/0/0/1/0/0/hot/1/20?_vv=${vv}`).catch(() => {});
 }
 
 async function home(filter) {
     const classes = [
+        { type_id: 'topics', type_name: '🔥精选专题' },
         { type_id: '2', type_name: '连续剧' },
         { type_id: '1', type_name: '电影' },
         { type_id: '3', type_name: '综艺' },
         { type_id: '4', type_name: '动漫' },
         { type_id: '14', type_name: '短剧' }
+    ];
+
+    const topicFilters = [
+        { n: '全部', v: '0' },
+        { n: '热播连续剧', v: '热播连续剧' },
+        { n: '高分神剧', v: '高分神剧' },
+        { n: '热映电影', v: '热映电影' },
+        { n: '高分经典电影', v: '高分经典电影' },
+        { n: '热门综艺', v: '热门综艺' },
+        { n: '热门动漫', v: '热门动漫' },
+        { n: '爆款短剧', v: '爆款短剧' }
     ];
 
     const commonSorts = [
@@ -396,6 +409,7 @@ async function home(filter) {
     }
 
     const filters = {
+        'topics': [{ key: 'topic', name: '专题', value: topicFilters }],
         '2': buildFilter(dramaSubTypes),
         '1': buildFilter(movieSubTypes),
         '3': buildFilter(zySubTypes),
@@ -410,12 +424,85 @@ async function home(filter) {
 }
 
 async function homeVod() {
-    return await category('2', 1);
+    try {
+        const [r1, r2] = await Promise.all([
+            category('2', 1, false, { by: 'hot' }),
+            category('1', 1, false, { by: 'hot' })
+        ]);
+        const l1 = JSON.parse(r1).list || [];
+        const l2 = JSON.parse(r2).list || [];
+        const seen = new Set();
+        const combined = [];
+        for (const item of [...l1, ...l2]) {
+            if (!seen.has(item.vod_id)) {
+                seen.add(item.vod_id);
+                combined.push(item);
+            }
+        }
+        return JSON.stringify({ list: combined });
+    } catch (e) {
+        return await category('2', 1);
+    }
 }
 
 async function category(tid, pg, filter, extend = {}) {
     try {
         const page = parseInt(pg || 1);
+
+        // 1. 精选专题处理
+        if (tid === 'topics' || String(tid) === 'topics') {
+            const selTopic = extend && extend.topic ? extend.topic : '0';
+
+            let targetCate = '2';
+            let targetSort = 'hot';
+
+            if (selTopic === '热播连续剧') {
+                targetCate = '2'; targetSort = 'hot';
+            } else if (selTopic === '高分神剧') {
+                targetCate = '2'; targetSort = 'score';
+            } else if (selTopic === '热映电影') {
+                targetCate = '1'; targetSort = 'hot';
+            } else if (selTopic === '高分经典电影') {
+                targetCate = '1'; targetSort = 'score';
+            } else if (selTopic === '热门综艺') {
+                targetCate = '3'; targetSort = 'hot';
+            } else if (selTopic === '热门动漫') {
+                targetCate = '4'; targetSort = 'hot';
+            } else if (selTopic === '爆款短剧') {
+                targetCate = '14'; targetSort = 'hot';
+            } else {
+                // 全部
+                if (page === 1) {
+                    const [r1, r2] = await Promise.all([
+                        category('2', 1, false, { by: 'hot' }),
+                        category('1', 1, false, { by: 'hot' })
+                    ]);
+                    const l1 = JSON.parse(r1).list || [];
+                    const l2 = JSON.parse(r2).list || [];
+                    const seen = new Set();
+                    const combined = [];
+                    for (const item of [...l1, ...l2]) {
+                        if (!seen.has(item.vod_id)) {
+                            seen.add(item.vod_id);
+                            combined.push(item);
+                        }
+                    }
+                    return JSON.stringify({
+                        page: 1,
+                        pagecount: 50,
+                        limit: combined.length,
+                        total: combined.length * 50,
+                        list: combined
+                    });
+                }
+                targetCate = '2';
+                targetSort = 'hot';
+            }
+
+            return await category(targetCate, page, false, { by: targetSort });
+        }
+
+        // 2. 常规分类处理
         const cateId = tid || '2';
         let subClass = extend.class || '0';
         if (subClass === '全部' || subClass === '全部类别' || subClass === '全部分类' || subClass === 'all') subClass = '0';

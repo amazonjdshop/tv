@@ -105,20 +105,71 @@ async function init(cfg) {
         }
     }
 
-    // 启动多任务后台静默预热：并发缓存首页与电影第1页
+    // 启动多任务后台静默预热：并发缓存首页与精选专题
     Promise.all([
         fetchHtmlWithCache(`${HOST}/`),
-        fetchHtmlWithCache(`${HOST}/show/dianying/page/1`)
+        fetchHtmlWithCache(`${HOST}/show/dianying/page/1`),
+        getHomeSectionsCached()
     ]).catch(() => {});
+}
+
+let homeSectionsCache = null;
+let homeSectionsExpire = 0;
+
+async function getHomeSectionsCached(force = false) {
+    if (!force && homeSectionsCache && Date.now() < homeSectionsExpire) {
+        return homeSectionsCache;
+    }
+    const html = await fetchHtmlWithCache(`${HOST}/`, 1800 * 1000);
+    if (!html) return homeSectionsCache || {};
+
+    const secNames = ['最新热播推荐', '最新电影', '最新电视剧', '最新综艺', '最新动漫', '最新短剧'];
+    const sections = {};
+    for (const name of secNames) {
+        sections[name] = [];
+    }
+    const all = [];
+    const allSeen = new Set();
+
+    for (const sname of secNames) {
+        const idx = html.indexOf('>' + sname + '<');
+        if (idx === -1) continue;
+        let nextIdx = html.indexOf('<h2', idx + sname.length);
+        if (nextIdx === -1) nextIdx = idx + 25000;
+        const chunk = html.substring(idx, nextIdx);
+        const cards = parseCards(chunk);
+        sections[sname] = cards;
+        for (const c of cards) {
+            if (!allSeen.has(c.vod_id)) {
+                allSeen.add(c.vod_id);
+                all.push(c);
+            }
+        }
+    }
+    sections['all'] = all;
+    homeSectionsCache = sections;
+    homeSectionsExpire = Date.now() + 1800 * 1000;
+    return sections;
 }
 
 async function home(filter) {
     const classes = [
+        { type_id: 'topics', type_name: '🔥精选专题' },
         { type_id: 'dianying', type_name: '电影' },
         { type_id: 'dianshiju', type_name: '电视剧' },
         { type_id: 'zongyi', type_name: '综艺' },
         { type_id: 'dongman', type_name: '动漫' },
         { type_id: 'duanju', type_name: '短剧' }
+    ];
+
+    const topicFilters = [
+        { n: '全部', v: '0' },
+        { n: '最新热播推荐', v: '最新热播推荐' },
+        { n: '最新电影', v: '最新电影' },
+        { n: '最新电视剧', v: '最新电视剧' },
+        { n: '最新综艺', v: '最新综艺' },
+        { n: '最新动漫', v: '最新动漫' },
+        { n: '最新短剧', v: '最新短剧' }
     ];
 
     const commonAreas = [
@@ -207,6 +258,7 @@ async function home(filter) {
     }
 
     const filters = {
+        'topics': [{ key: 'topic', name: '专题', value: topicFilters }],
         'dianying': makeFilter(movieClasses),
         'dianshiju': makeFilter(tvClasses),
         'zongyi': makeFilter([]),
@@ -256,9 +308,13 @@ function parseCards(html) {
 
 async function homeVod() {
     try {
+        const sections = await getHomeSectionsCached();
+        const list = sections['all'] && sections['all'].length > 0 ? sections['all'] : (sections['最新热播推荐'] || []);
+        if (list && list.length > 0) {
+            return JSON.stringify({ list: list });
+        }
         const html = await fetchHtmlWithCache(`${HOST}/`);
-        const list = parseCards(html);
-        return JSON.stringify({ list: list });
+        return JSON.stringify({ list: parseCards(html) });
     } catch (e) {
         return JSON.stringify({ list: [] });
     }
@@ -267,6 +323,59 @@ async function homeVod() {
 async function category(tid, pg, filter, extend = {}) {
     try {
         const page = parseInt(pg || 1);
+
+        // 1. 精选专题处理
+        if (tid === 'topics' || String(tid) === 'topics') {
+            const selTopic = extend && extend.topic ? extend.topic : '0';
+
+            // 第 1 页直接返回首页精选板块
+            if (page === 1) {
+                const sections = await getHomeSectionsCached();
+                let list = [];
+                if (selTopic && selTopic !== '0' && sections[selTopic]) {
+                    list = sections[selTopic];
+                } else {
+                    list = sections['all'] && sections['all'].length > 0 ? sections['all'] : (sections['最新热播推荐'] || []);
+                }
+                return JSON.stringify({
+                    page: 1,
+                    pagecount: 50,
+                    limit: list.length,
+                    total: list.length * 50,
+                    list: list
+                });
+            }
+
+            // 第 2 页及以后，无缝对接对应分类分页
+            let topicBase = 'dianying';
+            if (selTopic === '最新热播推荐') topicBase = 'dianying';
+            else if (selTopic === '最新电影') topicBase = 'dianying';
+            else if (selTopic === '最新电视剧') topicBase = 'dianshiju';
+            else if (selTopic === '最新综艺') topicBase = 'zongyi';
+            else if (selTopic === '最新动漫') topicBase = 'dongman';
+            else if (selTopic === '最新短剧') topicBase = 'duanju';
+            else topicBase = 'dianying';
+
+            const url = `${HOST}/show/${topicBase}/page/${page}`;
+            const html = await fetchHtmlWithCache(url);
+            const list = parseCards(html);
+
+            let pageCount = page;
+            const maxPageMatch = html.match(/\/page\/(\d+)[^"]*"[^>]*title=["']尾页["']/);
+            if (maxPageMatch && maxPageMatch[1]) {
+                pageCount = parseInt(maxPageMatch[1]);
+            }
+
+            return JSON.stringify({
+                page: page,
+                pagecount: Math.max(pageCount, page + 1),
+                limit: 40,
+                total: list.length * 10,
+                list: list
+            });
+        }
+
+        // 2. 常规分类处理
         let base = tid;
         if (extend && extend.class && extend.class !== '0' && extend.class !== '全部' && extend.class !== '全部类别' && extend.class !== '全部分类' && extend.class !== 'all') {
             base = extend.class;

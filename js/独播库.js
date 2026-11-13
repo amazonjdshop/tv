@@ -179,17 +179,67 @@ async function init(cfg) {
         }
     }
 
-    // 静默预加载电视剧首页
+    // 静默预加载电视剧首页与精选专题
     fetchWithCache(`${HOST}/vodtype/2.html`).catch(() => {});
+    getHomeSectionsCached().catch(() => {});
+}
+
+let homeSectionsCache = null;
+let homeSectionsExpire = 0;
+
+async function getHomeSectionsCached(force = false) {
+    if (!force && homeSectionsCache && Date.now() < homeSectionsExpire) {
+        return homeSectionsCache;
+    }
+    const html = await fetchWithCache(`${HOST}/`, 1800 * 1000);
+    if (!html) return homeSectionsCache || {};
+
+    const panels = html.split('<div class="myui-panel myui-panel-bg clearfix">');
+    const sections = {};
+    const all = [];
+    const allSeen = new Set();
+
+    for (let i = 1; i < panels.length; i++) {
+        const p = panels[i];
+        const titleM = p.match(/<h3 class="title">([^<]+)<\/h3>/);
+        if (titleM) {
+            const title = titleM[1].trim();
+            const cards = parseCards(p);
+            sections[title] = cards;
+            for (const c of cards) {
+                if (!allSeen.has(c.vod_id)) {
+                    allSeen.add(c.vod_id);
+                    all.push(c);
+                }
+            }
+        }
+    }
+    sections['all'] = all;
+    homeSectionsCache = sections;
+    homeSectionsExpire = Date.now() + 1800 * 1000;
+    return sections;
 }
 
 async function home(filter) {
     const classes = [
+        { type_id: 'topics', type_name: '🔥精选专题' },
         { type_id: '2', type_name: '连续剧' },
         { type_id: '21', type_name: '短剧' },
         { type_id: '1', type_name: '电影' },
         { type_id: '3', type_name: '综艺' },
         { type_id: '4', type_name: '动漫' }
+    ];
+
+    const topicFilters = [
+        { n: '全部', v: '0' },
+        { n: '热剧推荐', v: '热剧推荐' },
+        { n: '陆剧', v: '陆剧' },
+        { n: '日韩剧', v: '日韩剧' },
+        { n: '台泰剧', v: '台泰剧' },
+        { n: '短剧', v: '短剧' },
+        { n: '电影', v: '电影' },
+        { n: '综艺', v: '综艺' },
+        { n: '动漫', v: '动漫' }
     ];
 
     const commonAreas = [
@@ -268,6 +318,7 @@ async function home(filter) {
     }
 
     const filters = {
+        'topics': [{ key: 'topic', name: '专题', value: topicFilters }],
         '2': buildFilter(dramaClasses),
         '21': buildFilter(dramaClasses),
         '1': buildFilter(movieClasses),
@@ -282,7 +333,16 @@ async function home(filter) {
 }
 
 async function homeVod() {
-    return await category('2', 1);
+    try {
+        const sections = await getHomeSectionsCached();
+        const list = sections['all'] && sections['all'].length > 0 ? sections['all'] : (sections['热剧推荐'] || []);
+        if (list && list.length > 0) {
+            return JSON.stringify({ list: list });
+        }
+        return await category('2', 1);
+    } catch (e) {
+        return await category('2', 1);
+    }
 }
 
 function parseCards(html) {
@@ -326,6 +386,54 @@ function parseCards(html) {
 async function category(tid, pg, filter, extend = {}) {
     try {
         const page = parseInt(pg || 1);
+
+        // 1. 精选专题处理
+        if (tid === 'topics' || String(tid) === 'topics') {
+            const selTopic = extend && extend.topic ? extend.topic : '0';
+
+            // 第 1 页直接返回首页精选板块
+            if (page === 1) {
+                const sections = await getHomeSectionsCached();
+                let list = [];
+                if (selTopic && selTopic !== '0' && sections[selTopic]) {
+                    list = sections[selTopic];
+                } else {
+                    list = sections['all'] && sections['all'].length > 0 ? sections['all'] : (sections['热剧推荐'] || []);
+                }
+                return JSON.stringify({
+                    page: 1,
+                    pagecount: 50,
+                    limit: list.length,
+                    total: list.length * 50,
+                    list: list
+                });
+            }
+
+            // 第 2 页及以后，无缝对接对应分类分页
+            let topicTid = '2';
+            if (selTopic === '陆剧') topicTid = '13';
+            else if (selTopic === '日韩剧') topicTid = '15';
+            else if (selTopic === '台泰剧') topicTid = '14';
+            else if (selTopic === '短剧') topicTid = '21';
+            else if (selTopic === '电影') topicTid = '1';
+            else if (selTopic === '综艺') topicTid = '3';
+            else if (selTopic === '动漫') topicTid = '4';
+            else topicTid = '2';
+
+            const url = `${HOST}/vodshow/${topicTid}--------${page}---.html`;
+            const html = await fetchWithCache(url, 600 * 1000);
+            const list = parseCards(html);
+
+            return JSON.stringify({
+                page: page,
+                pagecount: list.length > 0 ? page + 1 : page,
+                limit: 48,
+                total: list.length * 10,
+                list: list
+            });
+        }
+
+        // 2. 常规分类处理
         const cateId = tid || '2';
         
         let rawArea = extend.area || '';
