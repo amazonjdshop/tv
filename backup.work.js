@@ -800,8 +800,8 @@ export default {
 
         // 期望的路由路径结构是：/live/[频道名称]/index.m3u8
         if (pathSegments.length < 4 || pathSegments[1] !== 'live') {
-            return new Response('欢迎使用统一电视直播代理服务。使用格式：/live/[频道名称]/index.m3u8', {
-                status: 200,
+            return new Response('404 Not Found', {
+                status: 404,
                 headers: { 'Content-Type': 'text/plain; charset=utf-8' }
             });
         }
@@ -812,7 +812,7 @@ export default {
         // 1. 从映射表中查找该频道真实的 URL
         const channelUrl = CHANNEL_MAP[channelName];
         if (!channelUrl) {
-            return new Response(`未找到频道: ${channelName}`, { status: 404 });
+            return new Response('404 Not Found', { status: 404 });
         }
 
         // 2. 计算当前请求在原站对应的完整真实 URL
