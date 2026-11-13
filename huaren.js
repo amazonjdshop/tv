@@ -12,8 +12,8 @@ function play(flag, id, flags) {
         const stream = flag || "CCTV1_MG";
         const pageId = id || "538";
 
-        // 1. 优先调用 Deno Deploy 集中鉴权自愈中枢 (毫秒级响应，零风控，自动续期)
-        const primaryApi = "https://narrow-frog-4757.linda11282022.deno.net/huavod/live?id=" + encodeURIComponent(pageId) + "&stream=" + encodeURIComponent(stream);
+        // 1. 优先调用 Vercel 集中鉴权自愈中枢 (毫秒级响应，零风控，自动续期)
+        const primaryApi = "https://uvod-t4.vercel.app/huavod/live?id=" + encodeURIComponent(pageId) + "&stream=" + encodeURIComponent(stream);
         let res = req(primaryApi, {
             headers: {
                 "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"

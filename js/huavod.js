@@ -75,9 +75,9 @@ async function getVipCookie(forceRefresh = false) {
     if (!forceRefresh && dynamicVipCookie && Date.now() < dynamicCookieExpire && cookieMap['user_check']) {
         return getCookieString();
     }
-    // 1. 优先从 Deno Deploy 集中鉴权中心获取有效 VIP 会话凭据 (独立云节点，支持全天候单例自动续期)
+    // 1. 优先从 Vercel 集中鉴权中心获取有效 VIP 会话凭据 (独立云节点，支持全天候单例自动续期)
     try {
-        const denoCookieUrl = 'https://narrow-frog-4757.linda11282022.deno.net/huavod/cookie' + (forceRefresh ? '?force=1' : '');
+        const denoCookieUrl = 'https://uvod-t4.vercel.app/huavod/cookie' + (forceRefresh ? '?force=1' : '');
         const r = await req(denoCookieUrl, {
             headers: { 'User-Agent': headers['User-Agent'] },
             timeout: 6000
