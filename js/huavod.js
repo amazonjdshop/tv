@@ -150,10 +150,13 @@ async function init(cfg) {
             host = cfg.ext.host.replace(/\/+$/, '');
         }
     }
+    // 并发静默预热首页精选专题数据，不阻塞 init 返回
+    getHomeSectionsCached().catch(() => {});
 }
 
 async function home(filter) {
     const classes = [
+        { type_id: 'topics', type_name: '🔥精选专题' },
         { type_id: '1', type_name: '电影' },
         { type_id: '2', type_name: '电视剧' },
         { type_id: '3', type_name: '综艺' },
@@ -162,7 +165,23 @@ async function home(filter) {
         { type_id: '42', type_name: '纪录片' }
     ];
 
+    const topicFilters = [
+        { n: '全部', v: '0' },
+        { n: '热映排行', v: '热映排行' },
+        { n: '豆瓣热播电影', v: '豆瓣热播电影' },
+        { n: '豆瓣热播电视', v: '豆瓣热播电视' },
+        { n: '豆瓣热播综艺', v: '豆瓣热播综艺' },
+        { n: '豆瓣热播动漫', v: '豆瓣热播动漫' },
+        { n: '最新电影', v: '最新电影' },
+        { n: '最新剧集', v: '最新剧集' },
+        { n: '最新综艺', v: '最新综艺' },
+        { n: '最热动漫', v: '最热动漫' }
+    ];
+
     const filters = {
+        'topics': [
+            { key: 'topic', name: '专题', value: topicFilters }
+        ],
         '1': [
             {
                 key: 'class',
@@ -505,48 +524,94 @@ async function home(filter) {
     return JSON.stringify({ class: classes, filters: filters });
 }
 
-async function homeVod() {
-    try {
-        let html = '';
-        for (const h of [host, 'https://huavod.net', 'https://huavod.com']) {
-            try {
-                const { content } = await safeReq(h);
-                if (content && content.includes('/voddetail/')) {
-                    html = content;
-                    if (h !== host) host = h;
-                    break;
-                }
-            } catch (e) {}
+let homeSectionsCache = null;
+let homeSectionsExpire = 0;
+
+function parseVideoCards(html) {
+    let videos = [];
+    let seen = new Set();
+    const pattern = /<a[^>]*href="\/voddetail\/(\d+)\.html"[^>]*>([\s\S]*?)<\/a>/g;
+    let match;
+    while ((match = pattern.exec(html)) !== null) {
+        const id = match[1];
+        if (seen.has(id)) continue;
+
+        const fullTag = match[0];
+        const inner = match[2];
+
+        const nameMatch = fullTag.match(/title="([^"]+)"/) || inner.match(/alt="([^"]+)"/) || inner.match(/class="[^"]*title[^"]*"[^>]*>([^<]+)/);
+        const picMatch = inner.match(/data-(?:src|original)="([^"]+)"/) || inner.match(/src="([^"]+)"/);
+        const remarkMatch = inner.match(/class="[^"]*(?:remarks|public-list-prb|public-prt|vod-rank-state)[^"]*"[^>]*>([\s\S]*?)<\/(?:span|div)>/) || inner.match(/<div[^>]*class="[^"]*vod-rank-state[^"]*"[^>]*>([^<]+)<\/div>/) || inner.match(/<i[^>]*class="ft4"[^>]*>([^<]+)<\/i>/);
+
+        const name = nameMatch ? nameMatch[1].replace('封面图', '').trim() : '';
+        const pic = picMatch ? picMatch[1].trim() : '';
+        let remarks = remarkMatch ? remarkMatch[1].replace(/<[^>]+>/g, '').trim() : '';
+
+        if (name && pic && !pic.startsWith('data:')) {
+            seen.add(id);
+            videos.push({
+                vod_id: id,
+                vod_name: name,
+                vod_pic: pic,
+                vod_remarks: remarks
+            });
         }
-        let videos = [];
-        let seen = new Set();
+    }
+    return videos;
+}
 
-        const pattern = /<a[^>]*href="\/voddetail\/(\d+)\.html"[^>]*>([\s\S]*?)<\/a>/g;
-        let match;
-        while ((match = pattern.exec(html)) !== null) {
-            const id = match[1];
-            if (seen.has(id)) continue;
+async function getHomeSectionsCached(force = false) {
+    if (!force && homeSectionsCache && Date.now() < homeSectionsExpire) {
+        return homeSectionsCache;
+    }
+    let html = '';
+    for (const h of [host, 'https://huavod.net', 'https://huavod.com']) {
+        try {
+            const { content } = await safeReq(h);
+            if (content && content.includes('/voddetail/')) {
+                html = content;
+                if (h !== host) host = h;
+                break;
+            }
+        } catch (e) {}
+    }
+    if (!html) return homeSectionsCache || {};
 
-            const inner = match[2];
-            const nameMatch = inner.match(/title="([^"]+)"/) || inner.match(/alt="([^"]+?)(?:封面图)?"/) || inner.match(/<(?:h3|span|div)[^>]*class="[^"]*title[^"]*"[^>]*>([^<]+)/);
-            const picMatch = inner.match(/data-(?:src|original)="([^"]+)"/) || inner.match(/src="([^"]+)"/);
-            const remarkMatch = inner.match(/class="[^"]*(?:remarks|public-list-prb)[^"]*"[^>]*>([\s\S]*?)<\/span>/) || inner.match(/<i[^>]*class="ft4"[^>]*>([^<]+)<\/i>/);
+    const secNames = ['热映排行', '豆瓣热播电影', '豆瓣热播电视', '豆瓣热播综艺', '豆瓣热播动漫', '最新电影', '最新剧集', '最新综艺', '最热动漫'];
+    const sections = {};
+    for (const name of secNames) {
+        sections[name] = [];
+    }
+    sections['all'] = [];
+    const allSeen = new Set();
 
-            const name = nameMatch ? nameMatch[1].replace('封面图', '').trim() : '';
-            const pic = picMatch ? picMatch[1].trim() : '';
-            const remarks = remarkMatch ? remarkMatch[1].replace(/<[^>]+>/g, '').trim() : '';
+    for (const sname of secNames) {
+        const idx = html.indexOf('>' + sname + '<');
+        if (idx === -1) continue;
+        let nextIdx = html.indexOf('<h2', idx + sname.length);
+        if (nextIdx === -1) nextIdx = idx + 25000;
+        const chunk = html.substring(idx, nextIdx);
 
-            if (name && pic && !pic.startsWith('data:')) {
-                seen.add(id);
-                videos.push({
-                    vod_id: id,
-                    vod_name: name,
-                    vod_pic: pic,
-                    vod_remarks: remarks
-                });
+        const secVideos = parseVideoCards(chunk);
+        sections[sname] = secVideos;
+
+        for (const item of secVideos) {
+            if (!allSeen.has(item.vod_id)) {
+                allSeen.add(item.vod_id);
+                sections['all'].push(item);
             }
         }
-        return JSON.stringify({ list: videos });
+    }
+
+    homeSectionsCache = sections;
+    homeSectionsExpire = Date.now() + 1800000; // 30 分钟缓存
+    return sections;
+}
+
+async function homeVod() {
+    try {
+        const sections = await getHomeSectionsCached();
+        return JSON.stringify({ list: sections['all'] || [] });
     } catch (e) {
         return JSON.stringify({ list: [] });
     }
@@ -554,7 +619,88 @@ async function homeVod() {
 
 async function category(tid, pg, filter, extend = {}) {
     try {
-        const page = pg || 1;
+        const page = parseInt(pg || 1);
+
+        // 1. 精选专题处理
+        if (tid === 'topics' || String(tid) === 'topics') {
+            const selTopic = extend && extend.topic ? extend.topic : '0';
+
+            // 第 1 页直接返回精选专题内容
+            if (page === 1) {
+                const sections = await getHomeSectionsCached();
+                let list = [];
+                if (selTopic && selTopic !== '0' && sections[selTopic]) {
+                    list = sections[selTopic];
+                } else {
+                    list = sections['all'] || [];
+                }
+                return JSON.stringify({
+                    page: 1,
+                    pagecount: 50,
+                    limit: list.length,
+                    total: list.length * 50,
+                    list: list
+                });
+            }
+
+            // 第 2 页及以后，无缝对接对应分类/排行榜的翻页数据
+            let topicPath = '';
+            if (selTopic === '热映排行') {
+                topicPath = `/label/rank/page/${page}.html`;
+            } else if (selTopic === '豆瓣热播电影') {
+                topicPath = `/vodshow/1/by/score/page/${page}.html`;
+            } else if (selTopic === '豆瓣热播电视') {
+                topicPath = `/vodshow/2/by/score/page/${page}.html`;
+            } else if (selTopic === '豆瓣热播综艺') {
+                topicPath = `/vodshow/3/by/score/page/${page}.html`;
+            } else if (selTopic === '豆瓣热播动漫') {
+                topicPath = `/vodshow/4/by/score/page/${page}.html`;
+            } else if (selTopic === '最新电影') {
+                topicPath = `/vodshow/1/page/${page}.html`;
+            } else if (selTopic === '最新剧集') {
+                topicPath = `/vodshow/2/page/${page}.html`;
+            } else if (selTopic === '最新综艺') {
+                topicPath = `/vodshow/3/page/${page}.html`;
+            } else if (selTopic === '最热动漫') {
+                topicPath = `/vodshow/4/page/${page}.html`;
+            } else {
+                topicPath = `/label/rank/page/${page}.html`;
+            }
+
+            let html = '';
+            for (const h of [host, 'https://huavod.net', 'https://huavod.com']) {
+                try {
+                    const pageUrl = `${h}${topicPath}`;
+                    const { content } = await safeReq(pageUrl);
+                    if (content && content.includes('/voddetail/')) {
+                        html = content;
+                        if (h !== host) host = h;
+                        break;
+                    }
+                } catch (e) {}
+            }
+
+            const videos = parseVideoCards(html);
+            let pageCount = page;
+            const pageMatches = html.match(/\/page\/(\d+)\.html/g);
+            if (pageMatches) {
+                for (let pm of pageMatches) {
+                    let m = pm.match(/page\/(\d+)\.html/);
+                    if (m) {
+                        let p = parseInt(m[1]);
+                        if (p > pageCount) pageCount = p;
+                    }
+                }
+            }
+
+            return JSON.stringify({
+                page: page,
+                pagecount: Math.max(pageCount, page + 1),
+                list: videos
+            });
+        }
+
+        // 2. 常规分类处理
         let targetTid = tid;
         if (extend && extend.class) {
             targetTid = extend.class;
@@ -567,7 +713,7 @@ async function category(tid, pg, filter, extend = {}) {
             if (extend.year) path += `/year/${encodeURIComponent(extend.year)}`;
             if (extend.by) path += `/by/${encodeURIComponent(extend.by)}`;
         }
-        if (page && parseInt(page) > 1) {
+        if (page > 1) {
             path += `/page/${page}`;
         }
         path += '.html';
@@ -585,33 +731,9 @@ async function category(tid, pg, filter, extend = {}) {
             } catch (e) {}
         }
 
-        let videos = [];
-        let seen = new Set();
+        const videos = parseVideoCards(html);
 
-        const pattern = /<a[^>]*class="public-list-exp"[^>]*href="\/voddetail\/(\d+)\.html"[^>]*title="([^"]+)"[^>]*>([\s\S]*?)<\/a>/g;
-        let match;
-        while ((match = pattern.exec(html)) !== null) {
-            const id = match[1];
-            if (seen.has(id)) continue;
-            seen.add(id);
-
-            const name = match[2].trim();
-            const inner = match[3];
-            const picMatch = inner.match(/data-(?:src|original)="([^"]+)"/) || inner.match(/src="([^"]+)"/);
-            const remarkMatch = inner.match(/class="[^"]*(?:remarks|public-list-prb)[^"]*"[^>]*>.*?<i[^>]*>([^<]+)<\/i>/) || inner.match(/class="[^"]*(?:remarks|public-list-prb)[^"]*"[^>]*>([^<]+)/);
-
-            const pic = picMatch ? picMatch[1].trim() : '';
-            const remarks = remarkMatch ? remarkMatch[1].trim() : '';
-
-            videos.push({
-                vod_id: id,
-                vod_name: name,
-                vod_pic: pic,
-                vod_remarks: remarks
-            });
-        }
-
-        let pageCount = parseInt(page);
+        let pageCount = page;
         const pageMatches = html.match(/\/page\/(\d+)\.html/g);
         if (pageMatches) {
             for (let pm of pageMatches) {
@@ -624,7 +746,7 @@ async function category(tid, pg, filter, extend = {}) {
         }
 
         return JSON.stringify({
-            page: parseInt(page),
+            page: page,
             pagecount: pageCount,
             list: videos
         });
