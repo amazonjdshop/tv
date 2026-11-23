@@ -353,15 +353,6 @@
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1
-    },
-    {
-      "key": "20261123_cctv_replay",
-      "name": "🇨🇳 CCTV 回看专区",
-      "type": 3,
-      "api": "./js/cctv_replay.js?v=20261123b",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1
     }
   ],
   "logo": "https://raw.githubusercontent.com/amazonjdshop/tv/refs/heads/main/05292026/logo.gif"
