@@ -164,7 +164,6 @@ function play(flag, id, flags) {
         const res = req(vdnUrl, { headers: DEFAULT_HEADERS });
 
         let playUrl = "";
-        let useProxy = false;
 
         if (res && res.content) {
             try {
@@ -175,11 +174,11 @@ function play(flag, id, flags) {
 
                 // 1. 如果存在高质量的分段 MP4 (chapters4 / chapters3)，利用本地代理缝合成虚拟 720P/1080P HLS
                 if ((ch4.length > 0 && ch4[0].url) || (ch3.length > 0 && ch3[0].url)) {
-                    // 交给本地代理虚拟合成 M3U8
-                    playUrl = `http://127.0.0.1:9978/proxy?do=cctv_m3u8&guid=${guid}`;
-                    useProxy = true;
+                    // 重要：NanoHTTPD / BaseLoader 路由要求必须携带 do=js 与 siteKey=20261123_cctv_replay
+                    // 并且路径使用 /proxy/cctv.m3u8 保证客户端识别为 HLS 流
+                    playUrl = `http://127.0.0.1:9978/proxy/cctv.m3u8?do=js&siteKey=20261123_cctv_replay&guid=${guid}`;
                 } else {
-                    // 2. 否则优先使用 720P 的 1200.m3u8
+                    // 2. 否则降级使用 720P 的 1200.m3u8
                     playUrl = `https://hls.cntv.cdn20.com/asp/hls/1200/0303000a/3/default/${guid}/1200.m3u8`;
                 }
             } catch (e) {
@@ -192,6 +191,7 @@ function play(flag, id, flags) {
         return JSON.stringify({
             parse: 0,
             url: playUrl,
+            format: "application/vnd.apple.mpegurl",
             header: {
                 "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
                 "Referer": "https://tv.cctv.com/"
@@ -207,10 +207,9 @@ function play(flag, id, flags) {
  */
 function proxy(params) {
     try {
-        const action = params.do;
         const guid = params.guid;
 
-        if (action === "cctv_m3u8" && guid) {
+        if (guid) {
             const vdnUrl = `https://vdn.apps.cntv.cn/api/getHttpVideoInfo.do?pid=${guid}&from=000tv`;
             const res = req(vdnUrl, { headers: DEFAULT_HEADERS });
             if (res && res.content) {
@@ -232,13 +231,16 @@ function proxy(params) {
                         "#EXT-X-MEDIA-SEQUENCE:0"
                     ];
 
-                    for (let c of chapters) {
+                    for (let i = 0; i < chapters.length; i++) {
+                        const c = chapters[i];
                         const dur = c.duration || "180.00";
                         const u = c.url || "";
                         if (u) {
+                            if (i > 0) {
+                                lines.push("#EXT-X-DISCONTINUITY");
+                            }
                             lines.push(`#EXTINF:${dur},`);
                             lines.push(u);
-                            lines.push("#EXT-X-DISCONTINUITY");
                         }
                     }
                     lines.push("#EXT-X-ENDLIST");
@@ -246,15 +248,33 @@ function proxy(params) {
                     const m3u8Content = lines.join("\n");
                     return [
                         200,
-                        "application/x-mpegURL",
+                        "application/vnd.apple.mpegurl",
                         m3u8Content,
                         {
-                            "Content-Type": "application/x-mpegURL; charset=utf-8",
+                            "Content-Type": "application/vnd.apple.mpegurl; charset=utf-8",
                             "Access-Control-Allow-Origin": "*"
                         }
                     ];
                 }
             }
+
+            // 防御兜底：如果获取分段失败，返回重定向/兜底指向官方 1200.m3u8 的 Master M3U8，绝不抛 404/500
+            const fallbackM3U8 = [
+                "#EXTM3U",
+                "#EXT-X-VERSION:3",
+                "#EXT-X-STREAM-INF:BANDWIDTH=1200000,RESOLUTION=1280x720",
+                `https://hls.cntv.cdn20.com/asp/hls/1200/0303000a/3/default/${guid}/1200.m3u8`
+            ].join("\n");
+
+            return [
+                200,
+                "application/vnd.apple.mpegurl",
+                fallbackM3U8,
+                {
+                    "Content-Type": "application/vnd.apple.mpegurl; charset=utf-8",
+                    "Access-Control-Allow-Origin": "*"
+                }
+            ];
         }
     } catch (e) {}
 
