@@ -94,8 +94,17 @@
       "filterable": 1
     },
     {
+      "key": "20261123_cctv_4k",
+      "name": "🇨🇳 CCTV 4K超清专区",
+      "type": 3,
+      "api": "./js/cctv_4k.js?v=20261123",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
       "key": "20261010全服集合",
-      "name": "全服集合❤️(点击此处可切换服务器)",
+      "name": "全服集合",
       "type": 3,
       "api": "csp_Douban",
       "jar": "https://github.com/amazonjdshop/tv/raw/refs/heads/main/jar/ou52.jar",
@@ -116,15 +125,6 @@
       "searchable": 0,
       "quickSearch": 0,
       "changeable": 0
-    },
-    {
-      "key": "20261123_cctv_4k",
-      "name": "🇨🇳 CCTV 4K超清专区",
-      "type": 3,
-      "api": "./js/cctv_4k.js?v=20261123",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1
     }
   ],
   "logo": "https://raw.githubusercontent.com/amazonjdshop/tv/refs/heads/main/05292026/logo.gif"
