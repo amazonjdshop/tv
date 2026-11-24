@@ -1,5 +1,5 @@
 /**
- * 爱壹帆国际版 (yfsp.tv) QuickJS 点播爬虫
+ * 酷播 / 爱壹帆国际版 (kubb.tv) QuickJS 点播爬虫
  * 兼容 TVBox / CatVod / drpy 运行环境
  */
 
@@ -182,19 +182,20 @@ function md5(string) {
 }
 
 // ==================== 接口配置与防盗链密钥管理 ====================
-const API_BASE = 'https://m10.iyf.tv';
-const RANK_BASE = 'https://rankv21.iyf.tv';
-const HOME_URL = 'https://www.iyf.tv/';
+const API_BASE = 'https://m10.kubb.tv';
+const RANK_BASE = 'https://rankv21.kubb.tv';
+const UPLOAD_BASE = 'https://upload.kubb.tv';
+const HOME_URL = 'https://www.kubb.tv/';
 
 const defaultHeaders = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-    'Referer': 'https://www.iyf.tv/',
-    'Origin': 'https://www.iyf.tv'
+    'Referer': 'https://www.kubb.tv/',
+    'Origin': 'https://www.kubb.tv'
 };
 
 // 预置密钥对（即使首次请求无网也能立即正常工作）
-let publicKey = 'CJSvCJKsEJOnDYunCJXVLLDVDZSkCZGrBZ4sCIurCryOC9mOifoRc38SCPeQCp4R7B4oc3CocfiOCp6R61oPiYzDZCnOJXbEJDXOcKuCs5XEJ5ZCp8qOpTcOpGuCpXcDJ7';
-let privateKey = 'SvCJJSvCJKsEJOnDYunC';
+let publicKey = 'CJSvDJKqE3OuCYuqDZPVLLDVDZSkCZGrBZ4sCIurCryQiRCQiXiniB8n6pAQ71ip73AmiXWRcxCoiJ4P6ncocwzOJCsEMGtCp5ZOc8rC34vOZKsCcDZD3KrCcLcP6KoD64';
+let privateKey = 'SvDJJSvDJKqE3OuCYuqD';
 let keyLastUpdate = 0;
 const KEY_REFRESH_INTERVAL = 3600 * 1000 * 2; // 每 2 小时后台自动轮换一次密钥
 
@@ -716,7 +717,7 @@ async function category(tid, pg, filter, extend = {}) {
         // 1. 资讯与短视频类板块 (新闻, 华人, 娱乐, 生活, 游戏)
         const shortVideoTypes = ['news', 'chinese', 'yule', 'life', 'games'];
         if (shortVideoTypes.includes(tid)) {
-            const url = `https://upload.iyf.tv/api/home/GetSubList?cid=${tid}`;
+            const url = `${UPLOAD_BASE}/api/home/GetSubList?cid=${tid}`;
             const res = await fetchJsonWithCache(url, CACHE_TTL_DEFAULT, (j) => j && j.ret === 200);
             const info = (res && res.data && Array.isArray(res.data.info) && res.data.info[0]) ? res.data.info[0] : {};
             const subClass = (extend && extend.class) || 'all';
@@ -891,7 +892,7 @@ async function detail(id) {
 
         // 如果长视频 detail 未命中，尝试短视频播放接口获取详情
         if (!info || !info.title) {
-            const shortPlayUrl = signUrl('https://upload.iyf.tv/api/video/play', {
+            const shortPlayUrl = signUrl(`${UPLOAD_BASE}/api/video/play`, {
                 id: vodKey,
                 alluser: '1',
                 ispath: '1',
@@ -1088,7 +1089,7 @@ async function play(flag, id, flags) {
 
         // 2. 若长视频接口未命中，尝试短视频接口
         if (!playInfo) {
-            const shortPlayUrl = signUrl('https://upload.iyf.tv/api/video/play', {
+            const shortPlayUrl = signUrl(`${UPLOAD_BASE}/api/video/play`, {
                 id: mediaKey,
                 alluser: '1',
                 ispath: '1',
@@ -1147,8 +1148,8 @@ async function play(flag, id, flags) {
                 url: m3u8Url,
                 header: {
                     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-                    'Origin': 'https://www.iyf.tv',
-                    'Referer': 'https://www.iyf.tv/'
+                    'Origin': 'https://www.kubb.tv',
+                    'Referer': 'https://www.kubb.tv/'
                 }
             });
         }
