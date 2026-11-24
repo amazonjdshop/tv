@@ -7,7 +7,7 @@
  * 2. 完整多维筛选（题材/类型、年份、地区、频道）
  * 3. 自动拉取完整分集（支持超过 100 集的长篇动画分页拉取）
  * 4. 仅播放公开无加密、海外可访问片源（自动校验 is_protected=0 & is_invalid_copyright=0）
- * 5. 直出 2000K 超清 HLS（支持超清 2000K / 高清 1200K 双线路，parse: 0）
+ * 5. 直出 2000K 超清 HLS (parse: 0)
  */
 
 const API_BASE = "https://api.cntv.cn";
@@ -359,8 +359,8 @@ function detail(id) {
                     vod_remarks: "2000K超清",
                     vod_actor: "中央广播电视总台",
                     vod_content: title,
-                    vod_play_from: "央视超清【2000K】$$$央视高清【1200K】",
-                    vod_play_url: "超清正片$" + guid + "$$$" + "高清正片$" + guid
+                    vod_play_from: "央视超清",
+                    vod_play_url: "正片$" + guid
                 }]
             });
         }
@@ -400,8 +400,8 @@ function detail(id) {
             vod_actor: meta.channel || "中央广播电视总台",
             vod_director: "央视片库",
             vod_content: meta.brief || (meta.title || fallbackTitle),
-            vod_play_from: "央视超清【2000K】$$$央视高清【1200K】",
-            vod_play_url: playPairs.join("#") + "$$$" + playPairs.join("#")
+            vod_play_from: "央视超清",
+            vod_play_url: playPairs.join("#")
         }];
 
         return JSON.stringify({ list: vod });
@@ -415,17 +415,9 @@ function play(flag, id, flags) {
         const rawId = String(id || "").trim();
         if (!rawId) return JSON.stringify({ parse: 0, url: "" });
 
-        if (rawId.startsWith("http")) {
-            return JSON.stringify({
-                parse: 0,
-                url: rawId,
-                header: DEFAULT_HEADERS
-            });
-        }
-
-        // 优先直出用户要求的 2000K 超清 HLS，亦支持切换 1200K 高清线路
-        const rate = (flag && flag.indexOf("1200") !== -1) ? "1200" : "2000";
-        const playUrl = `${HLS_BASE}/${rate}/0303000a/3/default/${rawId}/${rate}.m3u8`;
+        const playUrl = rawId.startsWith("http")
+            ? rawId
+            : `${HLS_BASE}/2000/0303000a/3/default/${rawId}/2000.m3u8`;
 
         return JSON.stringify({
             parse: 0,
