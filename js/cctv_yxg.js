@@ -7,14 +7,13 @@
  * 2. 完整多维筛选（题材/类型、年份、地区、频道）
  * 3. 自动拉取完整分集（支持超过 100 集的长篇动画分页拉取）
  * 4. 仅播放公开无加密、海外可访问片源（自动校验 is_protected=0 & is_invalid_copyright=0）
- * 5. 优先直出 2000K 超清 HLS，自动回退 1200K / 官方默认流 (parse: 0)
+ * 5. 直出 2000K 超清 HLS（支持超清 2000K / 高清 1200K 双线路，parse: 0）
  */
 
 const API_BASE = "https://api.cntv.cn";
 const VDN_BASE = "https://vdn.apps.cntv.cn/api/getHttpVideoInfo.do";
 const SEARCH_BASE = "https://search.cctv.com/ifsearch.php";
 const HLS_BASE = "https://dh5.cntv.cdn20.com/asp/h5e/hls";
-const HLS_FALLBACK_BASE = "https://hls.cntv.cdn20.com/asp/hls";
 
 const DEFAULT_HEADERS = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
@@ -320,17 +319,17 @@ function fetchAlbumEpisodes(albumId, modeOrder) {
 
 function checkVideoInfo(guid) {
     if (!guid) return null;
-    const info = httpGetJson(`${VDN_BASE}?pid=${encodeURIComponent(guid)}`);
-    if (!info || info.ack !== "yes") return null;
-    // 严格过滤加密保护或海外版权受限内容
-    if (String(info.is_protected) === "1" || String(info.is_invalid_copyright) === "1") {
-        return { blocked: true };
+    try {
+        const info = httpGetJson(`${VDN_BASE}?pid=${encodeURIComponent(guid)}`);
+        if (!info || info.ack !== "yes") return null;
+        // 严格过滤加密保护或海外版权受限内容
+        if (String(info.is_protected) === "1" || String(info.is_invalid_copyright) === "1") {
+            return { blocked: true };
+        }
+        return { blocked: false };
+    } catch (e) {
+        return null;
     }
-    return {
-        blocked: false,
-        hlsUrl: info.hls_url || "",
-        h5eUrl: (info.manifest && info.manifest.hls_h5e_url) || ""
-    };
 }
 
 function detail(id) {
@@ -346,7 +345,7 @@ function detail(id) {
             const channel = parts[4] ? decodeURIComponent(parts[4]) : "央视官方";
 
             const check = checkVideoInfo(guid);
-            if (!check || check.blocked) {
+            if (check && check.blocked) {
                 return JSON.stringify({ list: [] });
             }
 
@@ -357,11 +356,11 @@ function detail(id) {
                     vod_pic: pic,
                     type_name: channel,
                     vod_area: "中国大陆",
-                    vod_remarks: "高清正片",
+                    vod_remarks: "2000K超清",
                     vod_actor: "中央广播电视总台",
                     vod_content: title,
-                    vod_play_from: "央视超清",
-                    vod_play_url: "正片$" + guid
+                    vod_play_from: "央视超清【2000K】$$$央视高清【1200K】",
+                    vod_play_url: "超清正片$" + guid + "$$$" + "高清正片$" + guid
                 }]
             });
         }
@@ -381,7 +380,7 @@ function detail(id) {
 
         // 校验首集是否海外无加密可播，若受版权或加密限制则过滤
         const check = checkVideoInfo(eps[0].guid);
-        if (!check || check.blocked) {
+        if (check && check.blocked) {
             return JSON.stringify({ list: [] });
         }
 
@@ -401,8 +400,8 @@ function detail(id) {
             vod_actor: meta.channel || "中央广播电视总台",
             vod_director: "央视片库",
             vod_content: meta.brief || (meta.title || fallbackTitle),
-            vod_play_from: "央视超清",
-            vod_play_url: playPairs.join("#")
+            vod_play_from: "央视超清【2000K】$$$央视高清【1200K】",
+            vod_play_url: playPairs.join("#") + "$$$" + playPairs.join("#")
         }];
 
         return JSON.stringify({ list: vod });
@@ -411,40 +410,22 @@ function detail(id) {
     }
 }
 
-function probeM3u8(url) {
-    if (!url) return false;
-    const text = httpGetText(url);
-    return text.indexOf("#EXTM3U") !== -1;
-}
-
 function play(flag, id, flags) {
     try {
-        const guid = String(id || "").trim();
-        if (!guid) return JSON.stringify({ parse: 0, url: "" });
+        const rawId = String(id || "").trim();
+        if (!rawId) return JSON.stringify({ parse: 0, url: "" });
 
-        // 再次校验仅播放公开无加密、海外可访问流
-        const info = checkVideoInfo(guid);
-        if (!info || info.blocked) {
-            return JSON.stringify({ parse: 0, url: "" });
+        if (rawId.startsWith("http")) {
+            return JSON.stringify({
+                parse: 0,
+                url: rawId,
+                header: DEFAULT_HEADERS
+            });
         }
 
-        const candidates = [
-            `${HLS_BASE}/2000/0303000a/3/default/${guid}/2000.m3u8`,
-            `${HLS_BASE}/1200/0303000a/3/default/${guid}/1200.m3u8`,
-            `${HLS_FALLBACK_BASE}/2000/0303000a/3/default/${guid}/2000.m3u8`,
-            `${HLS_FALLBACK_BASE}/1200/0303000a/3/default/${guid}/1200.m3u8`,
-            info.h5eUrl,
-            info.hlsUrl
-        ].filter(Boolean);
-
-        let playUrl = "";
-        for (let i = 0; i < candidates.length; i++) {
-            const u = candidates[i];
-            if (u && probeM3u8(u)) {
-                playUrl = u;
-                break;
-            }
-        }
+        // 优先直出用户要求的 2000K 超清 HLS，亦支持切换 1200K 高清线路
+        const rate = (flag && flag.indexOf("1200") !== -1) ? "1200" : "2000";
+        const playUrl = `${HLS_BASE}/${rate}/0303000a/3/default/${rawId}/${rate}.m3u8`;
 
         return JSON.stringify({
             parse: 0,
