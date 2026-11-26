@@ -16,10 +16,12 @@ import html
 import urllib.request
 import urllib.parse
 import http.cookiejar
+from datetime import datetime, timezone
 
 USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36'
 TG_BOT_TOKEN = os.environ.get('TG_BOT_TOKEN', '8910371400:AAEsf5iTAwnC6DJtKynW49Z0xuc4IMQ7Ru0')
 TG_CHAT_ID = os.environ.get('TG_CHAT_ID', '8539933298')
+SESSION_FILE = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'session.json'))
 
 # Ensure line buffering
 if hasattr(sys.stdout, 'reconfigure'):
@@ -38,6 +40,20 @@ def log(*args, **kwargs):
             pass
 
 print = log
+
+
+def save_latest_session(username, password, email):
+    """Persist the latest synced credentials to session.json in repo root."""
+    payload = {
+        'username': username,
+        'password': password,
+        'email': email,
+        'updated_at': datetime.now(timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ')
+    }
+    with open(SESSION_FILE, 'w', encoding='utf-8') as f:
+        json.dump(payload, f, ensure_ascii=False, indent=2)
+        f.write('\n')
+    print(f"[*] Saved latest session to {SESSION_FILE}")
 
 
 def send_telegram(text):
@@ -294,6 +310,9 @@ def perform_sync(inviter_uid=None):
         f"📺 潘多拉 TV 极速专线保持最优低延迟直连！"
     )
     send_telegram(tg_msg)
+
+    # 8. Save latest credentials to repo file for URL access
+    save_latest_session(new_username, new_password, email)
 
 
 if __name__ == '__main__':

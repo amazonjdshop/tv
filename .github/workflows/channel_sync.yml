@@ -21,6 +21,8 @@ on:
 jobs:
   sync_task:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
@@ -40,3 +42,25 @@ jobs:
       - name: Run Stream Synchronization
         run: |
           python py/channel_sync.py
+
+      - name: Commit and Push Latest Session
+        run: |
+          if [ ! -f session.json ]; then
+            echo "session.json not found, skipping commit."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add session.json
+          if git diff --cached --quiet; then
+            echo "No changes to session.json."
+            exit 0
+          fi
+          git commit -m "chore(channel_sync): update latest session [skip ci]"
+          for i in 1 2 3; do
+            if git pull --rebase origin main && git push origin main; then
+              exit 0
+            fi
+            sleep 3
+          done
+          exit 1
