@@ -120,13 +120,19 @@ def generate_temp_gmail(max_tries=10):
     raise RuntimeError(f"Could not generate a valid mailbox after {max_tries} tries")
 
 
-def poll_verification_code(email, max_retries=30, delay=3, resend_fn=None):
+def poll_verification_code(email, max_retries=35, delay=3, resend_fn=None, resend_after_seconds=65):
     """Poll inbox for verification code."""
     url_list = 'https://www.emailnator.com/api/message-list'
+    start_time = time.monotonic()
+    resent = False
     for attempt in range(1, max_retries + 1):
-        if attempt == 12 and resend_fn:
+        if not resent and resend_fn and (time.monotonic() - start_time) >= resend_after_seconds:
+            resent = True
             print("[*] Re-sending verification token request...")
-            resend_fn()
+            try:
+                resend_fn()
+            except Exception as e:
+                print(f"[!] Re-send skipped/failed (continuing poll): {e}")
         time.sleep(delay)
         req = urllib.request.Request(
             url_list,
@@ -259,7 +265,7 @@ def perform_sync(inviter_uid=None):
     send_code()
 
     # 5. Retrieve verification code
-    code = poll_verification_code(email, max_retries=30, delay=3, resend_fn=send_code)
+    code = poll_verification_code(email, max_retries=35, delay=3, resend_fn=send_code)
     if not code:
         raise RuntimeError("Verification token polling timed out.")
     print("[+] Verification token accepted.")
