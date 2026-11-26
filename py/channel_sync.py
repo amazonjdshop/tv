@@ -17,7 +17,6 @@ import urllib.request
 import urllib.parse
 import http.cookiejar
 
-ACCOUNT_UID = '78018'
 USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36'
 TG_BOT_TOKEN = os.environ.get('TG_BOT_TOKEN', '8910371400:AAEsf5iTAwnC6DJtKynW49Z0xuc4IMQ7Ru0')
 TG_CHAT_ID = os.environ.get('TG_CHAT_ID', '8539933298')
@@ -79,43 +78,6 @@ def get_public_ip():
                 return resp.read().decode('utf-8').strip()
         except Exception:
             continue
-    return 'Unknown'
-
-
-def get_account_status():
-    """Query current session expiration and status by checking user profile."""
-    cj = http.cookiejar.CookieJar()
-    opener = urllib.request.build_opener(urllib.request.HTTPCookieProcessor(cj))
-    login_data = urllib.parse.urlencode({
-        'user_name': 'linda1030',
-        'user_pwd': 'Qwer1234'
-    }).encode('utf-8')
-
-    req_login = urllib.request.Request(
-        'https://huavod.net/index.php/user/login.html',
-        data=login_data,
-        headers={
-            'User-Agent': USER_AGENT,
-            'X-Requested-With': 'XMLHttpRequest',
-            'Referer': 'https://huavod.net/index.php/user/login.html',
-            'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
-        }
-    )
-
-    try:
-        opener.open(req_login, timeout=10)
-        req_idx = urllib.request.Request(
-            'https://huavod.net/index.php/user/index.html',
-            headers={'User-Agent': USER_AGENT}
-        )
-        with opener.open(req_idx, timeout=10) as resp:
-            content = resp.read().decode('utf-8')
-            for line in content.split('\n'):
-                if '会员至' in line:
-                    clean = re.sub(r'<[^>]+>', '', line).strip()
-                    return clean
-    except Exception as e:
-        print(f"[!] Error checking session status: {e}")
     return 'Unknown'
 
 
@@ -229,8 +191,10 @@ def generate_random_password(length=12):
     return ''.join(chars)
 
 
-def perform_sync(inviter_uid=ACCOUNT_UID):
+def perform_sync(inviter_uid=None):
     """Execute keepalive verification and credential synchronization."""
+    if inviter_uid is None:
+        inviter_uid = str(random.randint(1, 100000))
     print("=" * 60)
     print("=== Stream Keepalive Synchronization ===")
     print("=" * 60)
@@ -239,15 +203,11 @@ def perform_sync(inviter_uid=ACCOUNT_UID):
     public_ip = get_public_ip()
     print(f"[*] Node Egress IP: {public_ip}")
 
-    # 2. Check baseline status
-    status_before = get_account_status()
-    print(f"[*] Pre-sync Status: {status_before}")
-
-    # 3. Generate verification mailbox
+    # 2. Generate verification mailbox
     email = generate_temp_gmail()
     print(f"[*] Verification Channel: {email}")
 
-    # 4. Prepare CookieJar and visit channel link
+    # 3. Prepare CookieJar and visit channel link
     cj = http.cookiejar.CookieJar()
     opener = urllib.request.build_opener(urllib.request.HTTPCookieProcessor(cj))
 
@@ -256,7 +216,7 @@ def perform_sync(inviter_uid=ACCOUNT_UID):
     req_ref = urllib.request.Request(ref_url, headers={'User-Agent': USER_AGENT})
     opener.open(req_ref, timeout=10)
 
-    # 5. Send verification code
+    # 4. Send verification code
     def send_code():
         msg_data = urllib.parse.urlencode({
             'ac': 'email',
@@ -282,13 +242,13 @@ def perform_sync(inviter_uid=ACCOUNT_UID):
     print("[*] Requesting verification token...")
     send_code()
 
-    # 6. Retrieve verification code
+    # 5. Retrieve verification code
     code = poll_verification_code(email, max_retries=30, delay=3, resend_fn=send_code)
     if not code:
         raise RuntimeError("Verification token polling timed out.")
     print("[+] Verification token accepted.")
 
-    # 7. Submit synchronization request
+    # 6. Submit synchronization request
     new_username = generate_random_username()
     new_password = generate_random_password()
 
@@ -322,34 +282,15 @@ def perform_sync(inviter_uid=ACCOUNT_UID):
             raise RuntimeError(f"Session sync failed: {reg_res}")
 
     print("[+] Session sync completed.")
-
-    # 8. Check status after synchronization (poll up to 20s for DB commit)
-    print("[*] Verifying updated channel keepalive status...")
-    status_after = status_before
-    for attempt in range(1, 8):
-        time.sleep(3)
-        current = get_account_status()
-        if current != 'Unknown' and current != status_before:
-            status_after = current
-            print(f"[+] Keepalive confirmed on attempt {attempt}: {status_after}")
-            break
-        status_after = current
-
-    print("=" * 60)
-    print(f"[*] Pre-sync Status : {status_before}")
-    print(f"[+] Post-sync Status: {status_after}")
     print("=" * 60)
 
-    # 9. Send Telegram Notification
+    # 7. Send Telegram Notification
     tg_msg = (
         f"🎉 <b>流媒体专线节点同步成功</b>\n\n"
         f"🌐 <b>节点出口 IP</b>: <code>{public_ip}</code>\n"
         f"👤 <b>会话标识</b>: <code>{new_username}</code>\n"
         f"🔑 <b>访问凭证</b>: <code>{new_password}</code>\n"
         f"📧 <b>信道邮箱</b>: <code>{email}</code>\n\n"
-        f"💎 <b>主会话标识</b>: <code>linda1030</code>\n"
-        f"⏳ <b>同步前有效至</b>: {status_before}\n"
-        f"✅ <b>最新有效至</b>: <b>{status_after}</b>\n\n"
         f"📺 潘多拉 TV 极速专线保持最优低延迟直连！"
     )
     send_telegram(tg_msg)
