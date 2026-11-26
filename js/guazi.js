@@ -618,16 +618,7 @@ async function init(cfg) {
         }
     }
 
-    // 启动多任务并行静默预热：并发拉取全站专题数据与电影第1页数据，不阻塞 init 返回
-    Promise.all([
-        getCategoryListCached().catch(() => {}),
-        postApiWithCache('/Search/GetConditionList', {
-            tid: 1,
-            page: 1,
-            pageSize: 24,
-            keywords: ''
-        }, CACHE_TTL_DEFAULT, r => r && Array.isArray(r.list) && r.list.length > 0).catch(() => {})
-    ]).catch(() => {});
+
 }
 
 async function home(filter) {
@@ -841,8 +832,6 @@ async function home(filter) {
     }
     if (topicFilters.length <= 1) {
         topicFilters = defaultTopicFilters;
-        // SWR 机制：内存无缓存时先以预设列表秒开，同时在后台异步静默拉取，绝不阻塞 home()
-        getCategoryListCached().catch(() => {});
     }
 
     const filters = {
@@ -865,8 +854,46 @@ async function home(filter) {
     });
 }
 
+function formatTopicItem(item) {
+    let remarks = item.vod_continu || '';
+    if (!remarks) {
+        const sc = item.vod_douban_score || item.vod_scroe;
+        if (sc) remarks = sc + '分';
+    }
+    if (!remarks && item.vod_year) {
+        remarks = String(item.vod_year);
+    }
+    return {
+        vod_id: String(item.vod_id),
+        vod_name: (item.vod_name || item.c_name || '').replace(/💥.*/, '').trim(),
+        vod_pic: item.c_pic || item.vod_pic || '',
+        vod_remarks: remarks,
+        vod_year: item.vod_year || ''
+    };
+}
+
 async function homeVod() {
     try {
+        const fastRes = await postApiWithCache('/Category/GetChoiceList', {
+            pid: 1,
+            page: 1,
+            pageSize: 24
+        }, CACHE_TTL_DEFAULT, r => r && Array.isArray(r.list) && r.list.length > 0);
+
+        if (fastRes && Array.isArray(fastRes.list) && fastRes.list.length > 0) {
+            let videos = [];
+            let seen = new Set();
+            for (let item of fastRes.list) {
+                const id = String(item.vod_id || '');
+                if (!id || seen.has(id)) continue;
+                seen.add(id);
+                videos.push(formatTopicItem(item));
+            }
+            if (videos.length > 0) {
+                return JSON.stringify({ list: videos });
+            }
+        }
+
         const catList = await getCategoryListCached();
         let videos = [];
         let seen = new Set();
@@ -877,17 +904,7 @@ async function homeVod() {
                         const id = String(item.vod_id || '');
                         if (!id || seen.has(id)) continue;
                         seen.add(id);
-                        let remarks = item.vod_continu || '';
-                        if (!remarks) {
-                            const sc = item.vod_douban_score || item.vod_scroe;
-                            if (sc) remarks = sc + '分';
-                        }
-                        videos.push({
-                            vod_id: id,
-                            vod_name: (item.vod_name || item.c_name || '').replace(/💥.*/, '').trim(),
-                            vod_pic: item.c_pic || item.vod_pic || '',
-                            vod_remarks: remarks
-                        });
+                        videos.push(formatTopicItem(item));
                     }
                 }
             }
@@ -903,11 +920,42 @@ async function category(tid, pg, filter, extend = {}) {
         const page = parseInt(pg || 1);
 
         if (tid === 'topics' || String(tid) === 'topics') {
-            const catList = await getCategoryListCached();
             const selTopic = extend && extend.topic ? extend.topic : '0';
             let targetVideos = [];
 
-            if (selTopic && selTopic !== '0') {
+            if (!selTopic || selTopic === '0') {
+                const fastRes = await postApiWithCache('/Category/GetChoiceList', {
+                    pid: 1,
+                    page: page,
+                    pageSize: 24
+                }, CACHE_TTL_DEFAULT, r => r && Array.isArray(r.list) && r.list.length > 0);
+
+                if (fastRes && Array.isArray(fastRes.list) && fastRes.list.length > 0) {
+                    const list = fastRes.list.map(formatTopicItem);
+                    const topicPageCount = Math.ceil((fastRes.total || 0) / 24) || page;
+                    return JSON.stringify({
+                        page: page,
+                        pagecount: topicPageCount,
+                        limit: 24,
+                        total: fastRes.total || list.length,
+                        list: list
+                    });
+                }
+
+                const catList = await getCategoryListCached();
+                let seen = new Set();
+                for (const s of catList) {
+                    if (s.list && Array.isArray(s.list)) {
+                        for (const item of s.list) {
+                            const id = String(item.vod_id || '');
+                            if (!id || seen.has(id)) continue;
+                            seen.add(id);
+                            targetVideos.push(item);
+                        }
+                    }
+                }
+            } else {
+                const catList = await getCategoryListCached();
                 const sec = catList.find(s => s.type === selTopic || cleanTopicTitle(s.type) === selTopic || (s.type && s.type.includes(selTopic)));
                 let res = null;
                 if (sec) {
@@ -928,47 +976,8 @@ async function category(tid, pg, filter, extend = {}) {
                 }
 
                 if (res && res.list && Array.isArray(res.list) && res.list.length > 0) {
-                    const list = res.list.map(item => {
-                        let remarks = item.vod_continu || '';
-                        if (!remarks) {
-                            const sc = item.vod_douban_score || item.vod_scroe;
-                            if (sc) remarks = sc + '分';
-                        }
-                        if (!remarks && item.vod_year) {
-                            remarks = String(item.vod_year);
-                        }
-                        return {
-                            vod_id: String(item.vod_id),
-                            vod_name: (item.vod_name || item.c_name || '').replace(/💥.*/, '').trim(),
-                            vod_pic: item.vod_pic || item.c_pic || '',
-                            vod_remarks: remarks,
-                            vod_year: item.vod_year || ''
-                        };
-                    });
-
+                    const list = res.list.map(formatTopicItem);
                     const topicPageCount = Math.ceil((res.total || 0) / 24) || page;
-
-                    // 静默预加载下一页（最多预加载到第 15 页）
-                    if (page < topicPageCount && page <= 15 && sec) {
-                        if (sec.show_id) {
-                            Promise.resolve().then(() => {
-                                postApiWithCache('/Category/GetModuleList', {
-                                    show_id: parseInt(sec.show_id),
-                                    show_pid: parseInt(sec.show_pid || 1),
-                                    page: page + 1,
-                                    pageSize: 24
-                                }, CACHE_TTL_DEFAULT, r => r && Array.isArray(r.list) && r.list.length > 0).catch(() => {});
-                            }).catch(() => {});
-                        } else {
-                            Promise.resolve().then(() => {
-                                postApiWithCache('/Category/GetChoiceList', {
-                                    pid: parseInt(sec.pid || 1),
-                                    page: page + 1,
-                                    pageSize: 24
-                                }, CACHE_TTL_DEFAULT, r => r && Array.isArray(r.list) && r.list.length > 0).catch(() => {});
-                            }).catch(() => {});
-                        }
-                    }
 
                     return JSON.stringify({
                         page: page,
@@ -981,18 +990,6 @@ async function category(tid, pg, filter, extend = {}) {
 
                 if (sec && sec.list && Array.isArray(sec.list)) {
                     targetVideos = sec.list;
-                }
-            } else {
-                let seen = new Set();
-                for (const s of catList) {
-                    if (s.list && Array.isArray(s.list)) {
-                        for (const item of s.list) {
-                            const id = String(item.vod_id || '');
-                            if (!id || seen.has(id)) continue;
-                            seen.add(id);
-                            targetVideos.push(item);
-                        }
-                    }
                 }
             }
 
@@ -1056,14 +1053,6 @@ async function category(tid, pg, filter, extend = {}) {
         }));
 
         const pageCount = Math.ceil((res.total || 0) / 24) || page;
-
-        // 静默预加载下一页（最多预加载到第 15 页）
-        if (page < pageCount && page <= 15) {
-            const nextPayload = Object.assign({}, payload, { page: page + 1 });
-            Promise.resolve().then(() => {
-                postApiWithCache('/Search/GetConditionList', nextPayload, CACHE_TTL_DEFAULT, r => r && Array.isArray(r.list) && r.list.length > 0).catch(() => {});
-            }).catch(() => {});
-        }
 
         return JSON.stringify({
             page: page,
