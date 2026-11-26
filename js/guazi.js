@@ -618,16 +618,7 @@ async function init(cfg) {
         }
     }
 
-    // 启动多任务并行静默预热：并发拉取全站专题数据与电影第1页数据，不阻塞 init 返回
-    Promise.all([
-        getCategoryListCached().catch(() => {}),
-        postApiWithCache('/Search/GetConditionList', {
-            tid: 1,
-            page: 1,
-            pageSize: 24,
-            keywords: ''
-        }, CACHE_TTL_DEFAULT, r => r && Array.isArray(r.list) && r.list.length > 0).catch(() => {})
-    ]).catch(() => {});
+
 }
 
 async function home(filter) {
@@ -841,8 +832,6 @@ async function home(filter) {
     }
     if (topicFilters.length <= 1) {
         topicFilters = defaultTopicFilters;
-        // SWR 机制：内存无缓存时先以预设列表秒开，同时在后台异步静默拉取，绝不阻塞 home()
-        getCategoryListCached().catch(() => {});
     }
 
     const filters = {
@@ -948,28 +937,6 @@ async function category(tid, pg, filter, extend = {}) {
 
                     const topicPageCount = Math.ceil((res.total || 0) / 24) || page;
 
-                    // 静默预加载下一页（最多预加载到第 15 页）
-                    if (page < topicPageCount && page <= 15 && sec) {
-                        if (sec.show_id) {
-                            Promise.resolve().then(() => {
-                                postApiWithCache('/Category/GetModuleList', {
-                                    show_id: parseInt(sec.show_id),
-                                    show_pid: parseInt(sec.show_pid || 1),
-                                    page: page + 1,
-                                    pageSize: 24
-                                }, CACHE_TTL_DEFAULT, r => r && Array.isArray(r.list) && r.list.length > 0).catch(() => {});
-                            }).catch(() => {});
-                        } else {
-                            Promise.resolve().then(() => {
-                                postApiWithCache('/Category/GetChoiceList', {
-                                    pid: parseInt(sec.pid || 1),
-                                    page: page + 1,
-                                    pageSize: 24
-                                }, CACHE_TTL_DEFAULT, r => r && Array.isArray(r.list) && r.list.length > 0).catch(() => {});
-                            }).catch(() => {});
-                        }
-                    }
-
                     return JSON.stringify({
                         page: page,
                         pagecount: topicPageCount,
@@ -1056,14 +1023,6 @@ async function category(tid, pg, filter, extend = {}) {
         }));
 
         const pageCount = Math.ceil((res.total || 0) / 24) || page;
-
-        // 静默预加载下一页（最多预加载到第 15 页）
-        if (page < pageCount && page <= 15) {
-            const nextPayload = Object.assign({}, payload, { page: page + 1 });
-            Promise.resolve().then(() => {
-                postApiWithCache('/Search/GetConditionList', nextPayload, CACHE_TTL_DEFAULT, r => r && Array.isArray(r.list) && r.list.length > 0).catch(() => {});
-            }).catch(() => {});
-        }
 
         return JSON.stringify({
             page: page,
