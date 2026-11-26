@@ -4,14 +4,9 @@
  */
 
 let host = 'https://huavod.net';
-let dynamicVipCookie = 'user_id=78018; user_name=linda1030; group_id=3; group_name=VIP%E4%BC%9A%E5%91%98;';
+let dynamicVipCookie = '';
 let dynamicCookieExpire = 0;
-let cookieMap = {
-    'user_id': '78018',
-    'user_name': 'linda1030',
-    'group_id': '3',
-    'group_name': 'VIP%E4%BC%9A%E5%91%98'
-};
+let cookieMap = {};
 
 function getContent(res) {
     if (!res) return '';
