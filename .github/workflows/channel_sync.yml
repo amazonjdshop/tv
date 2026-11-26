@@ -3,8 +3,14 @@ name: Channel Stream Validation
 on:
   workflow_dispatch:
   schedule:
-    # Daily routine verification at 03:00 UTC
-    - cron: '0 3 * * *'
+    # Run every 21 hours (8 runs per 168-hour week, UTC)
+    - cron: '0 0,21 * * 0'
+    - cron: '0 18 * * 1'
+    - cron: '0 15 * * 2'
+    - cron: '0 12 * * 3'
+    - cron: '0 9 * * 4'
+    - cron: '0 6 * * 5'
+    - cron: '0 3 * * 6'
   push:
     branches:
       - main
