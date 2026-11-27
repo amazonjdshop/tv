@@ -21,15 +21,6 @@
       "filterable": 1
     },
     {
-      "key": "20261127瓜子影视",
-      "name": "🇺🇸 洛杉矶·极速专线",
-      "type": 3,
-      "api": "./js/guazi.js?v=20261127",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1
-    },
-    {
       "key": "20261011优视频_js",
       "name": "🇺🇸 湾区·粤语原声专线",
       "type": 4,
@@ -88,6 +79,15 @@
       "name": "🇺🇸 华盛顿·华视专线",
       "type": 3,
       "api": "./js/huavod.js?v=20261102b",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "20261127瓜子影视",
+      "name": "🇺🇸 洛杉矶·极速专线",
+      "type": 3,
+      "api": "./js/guazi.js?v=20261127",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1
